@@ -1,0 +1,132 @@
+.offers-page {
+  padding: 2rem;
+  text-align: center;
+  margin-top: 25px;
+}
+
+body {
+  /* You might want to apply this to a wrapper div in App.js instead of body */
+  background-color: #181818;
+  /* Dark background matching the screenshot */
+  margin: 0;
+  /* Remove default body margin */
+  padding: 0;
+  /* Remove default body padding */
+  /* color: #e8eaed; Default text color for the light text on dark background */
+  font-family: 'Google Sans', sans-serif;
+  /* Ensure Google Sans is linked in index.html */
+}
+
+.offers-page h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.offers-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.offer-card {
+  margin-top: 15px;
+  border-radius: 12px;
+  box-shadow: 0 0 6px 6px rgba(90, 79, 61, 0.299);
+  width: 300px;
+  padding: 1rem;
+  transition: transform 0.3s;
+}
+
+.offer-card:hover {
+  transform: translateY(-5px);
+}
+
+.offer-card img {
+  width: 50%;
+  height: 130px;
+  object-fit: fill;
+  border-radius: 8px;
+}
+
+.offer-card h3 {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  /* color: #222; */
+}
+
+.offer-card p {
+  font-size: 0.95rem;
+  margin: 0.5rem 0;
+}
+
+.validity {
+  font-weight: bold;
+  color: #d9534f;
+}
+
+@media (max-width: 768px) {
+  .offer-card {
+    margin-top: 15px;
+    border-radius: 12px;
+    box-shadow: 0 0 6px 6px rgb(113 98 75 / 18%);
+    width: 200px;
+    padding: 1rem;
+    transition: transform 0.3s;
+  }
+
+  .offer-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .offer-card img {
+    width: 50%;
+    height: 130px;
+    object-fit: fill;
+    border-radius: 8px;
+  }
+
+  .offer-card h3 {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    /* color: #222; */
+  }
+
+  .offer-card p {
+    font-size: 0.95rem;
+    margin: 0.5rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .offer-card {
+    margin-top: 15px;
+    border-radius: 12px;
+    box-shadow: 0 0 6px 6px rgb(113 98 75 / 18%);
+    width: 200px;
+    padding: 1rem;
+    transition: transform 0.3s;
+  }
+
+  .offer-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .offer-card img {
+    width: 50%;
+    height: 60px;
+    object-fit: fill;
+    border-radius: 8px;
+  }
+
+  .offer-card h3 {
+    font-size: 1rem;
+    margin-top: 1rem;
+    /* color: #222; */
+  }
+
+  .offer-card p {
+    font-size: 0.95rem;
+    margin: 0.5rem 0;
+  }
+}

@@ -1,0 +1,134 @@
+/* FeedbackForm.css */
+
+.feedback-container {
+    background-color: #252530; /* Dark background similar to your cards */
+    color: #e8eaed; /* Light text color */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    max-width: 600px; /* Max width for the form */
+    margin: 50px auto; /* Center the form on the page */
+    text-align: center; /* Center the heading and submitted message */
+    box-sizing: border-box; /* Include padding in element's total width and height */
+    justify-items: center;
+}
+
+.feedback-container h2 {
+    font-family: "Google Sans", Roboto, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: #8ab4f8; /* A subtle accent color for the heading */
+}
+
+.feedback-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center form elements */
+}
+
+.form-group {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: left; /* Align label and textarea to the left */
+}
+
+.form-group label {
+    display: block; /* Make label take its own line */
+    margin-bottom: 8px;
+    font-size: 1.1em;
+    color: #bdc1c6;
+}
+
+.feedback-textarea {
+    width: 100%; /* Take full width of its parent (.form-group) */
+    padding: 12px;
+    border: 1px solid #3c4043; /* Darker border */
+    border-radius: 8px;
+    background-color: #1a1a1a; /* Even darker background for input field */
+    color: #e8eaed;
+    font-family: 'Google Sans', sans-serif;
+    font-size: 1em;
+    resize: vertical; /* Allow vertical resizing only */
+    box-sizing: border-box; /* Include padding in textarea's total width/height */
+}
+
+.feedback-textarea:focus {
+    outline: none;
+    border-color: #8ab4f8; /* Highlight border on focus */
+    box-shadow: 0 0 0 3px rgba(138, 180, 248, 0.3);
+}
+
+.submit-feedback-button {
+    background-color: #8ab4f8;
+    color: #202124; /* Dark text for the button */
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.submit-feedback-button:hover {
+    background-color: #669df6;
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+.submit-feedback-button:active {
+    transform: translateY(0); /* Press down effect */
+}
+
+.error-message {
+    color: #ff6b6b; /* Red color for errors */
+    font-size: 0.9em;
+    margin-top: 5px;
+    text-align: left;
+}
+
+/* Submitted state styling */
+.feedback-container.submitted {
+    padding: 50px 30px;
+}
+
+.feedback-container.submitted p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    color: #bdc1c6;
+}
+
+.back-button {
+    background-color: transparent;
+    color: #8ab4f8;
+    padding: 10px 20px;
+    border: 1px solid #8ab4f8;
+    border-radius: 25px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.back-button:hover {
+    background-color: rgba(138, 180, 248, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .feedback-container {
+        margin: 30px 15px;
+        padding: 20px;
+    }
+
+    .feedback-container h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .submit-feedback-button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}

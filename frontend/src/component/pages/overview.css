@@ -1,0 +1,49 @@
+/* OverviewPage.css */
+body {
+  font-family: "Roboto", Arial, sans-serif;
+  color: #202124;
+  /* background-color: #f8f9fa; */
+  line-height: 1.6;
+}
+
+.overview-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+.overview-header h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.overview-intro p {
+  font-size: 1rem;
+  color: #6b6e71;
+  margin-bottom: 2rem;
+}
+
+.overview-section {
+  margin-bottom: 2rem;
+}
+
+.overview-section h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.overview-section p {
+  margin-bottom: 0.5rem;
+  color: #5f6368;
+}
+
+.overview-section ul {
+  padding-left: 1.5rem;
+  color: #5f6368;
+}
+
+.overview-section ul li {
+  margin-bottom: 0.5rem;
+}

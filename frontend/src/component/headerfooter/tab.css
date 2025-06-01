@@ -1,0 +1,430 @@
+/* tab.css */
+.seeoffer-background {
+  position: relative;
+  background-image: url('https://img.freepik.com/free-photo/modern-futuristic-sci-fi-background_35913-2152.jpg?ga=GA1.1.2026843993.1740826384&semt=ais_items_boosted&w=740');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding: 2rem;
+  z-index: 0;
+}
+
+.seeoffer-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.525);
+  /* Adjust the last value (opacity) as needed */
+  z-index: 0;
+}
+
+.seeoffer-background .cardbox {
+  position: relative;
+  z-index: 1;
+  /* Ensures content is above the overlay */
+}
+
+
+/* This will handle the background and overall layout of your "More experiments" section */
+body {
+  /* You might want to apply this to a wrapper div in App.js instead of body */
+  background-color: #202124;
+  /* Dark background matching the screenshot */
+  margin: 0;
+  /* Remove default body margin */
+  padding: 0;
+  /* Remove default body padding */
+  /* color: #e8eaed; Default text color for the light text on dark background */
+  font-family: 'Google Sans', sans-serif;
+  /* Ensure Google Sans is linked in index.html */
+}
+
+/* --- Container for the entire 'More experiments' content (heading + cards) --- */
+.cardbox {
+  padding: 40px 82px;
+  /* Top/bottom 40px, left/right 82px as per the screenshot's perceived padding */
+  display: flex;
+  flex-direction: column;
+  /* Stacks heading and card grid vertically */
+  align-items: flex-start;
+  /* Aligns content to the left */
+  min-height: 100vh;
+  /* Ensures it takes at least the full viewport height */
+  box-sizing: border-box;
+  /* Include padding in element's total width and height */
+}
+
+/* --- Heading for "More experiments" --- */
+.rxk {
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
+  /* Keep specific font rules if desired */
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 110%;
+  margin-bottom: 36px;
+  /* Space below the heading */
+  margin-top: 0;
+  /* Remove default h1 margin-top */
+  color: white;
+}
+
+/* --- Wrapper for side-by-side cards --- */
+/* This is crucial for the grid layout */
+.card-grid-wrapper {
+  display: -webkit-box;
+  grid-template-columns: repeat(auto-fit, minmax(356px, 1fr));
+  gap: 20px;
+  width: 100%;
+  justify-items: start;
+  /* display: -webkit-inline-box;
+  grid-template-columns: repeat(auto-fit, minmax(356px, 1fr));
+  gap: 20px;
+  width: 50%;
+   */
+}
+
+/* --- Card Container (Styles for each individual box) --- */
+.card-container {
+  width: 100%;
+  /* Take full width of its grid cell */
+  max-width: 356px;
+  /* But don't exceed the specified card width */
+  height: 416px;
+  border: 1px solid #252530;
+  overflow: hidden;
+  background-color: #252530;
+  /* Adjusted transparency for better consistency */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Google Sans', sans-serif;
+  margin: 0;
+  /* Reset margin as grid gap handles spacing now */
+  box-sizing: border-box;
+  /* Include padding/border in total width/height */
+  flex-shrink: 0;
+  /* Prevents shrinking */
+}
+
+/* --- Video Section (Top Media Area) --- */
+.video-section {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  /* 16:9 Aspect Ratio */
+  overflow: hidden;
+  /* Apply border-radius to match the card's top corners */
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.video-element {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+/* --- Video Overlay (for thumbnail and title) --- */
+.video-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px 16px;
+  display: flex;
+  /* flex-direction: column;  */
+  /* Changed to column to stack items vertically */
+  align-items: flex-start;
+  /* Aligns items to the start of the column (left) */
+  gap: 8px;
+}
+
+.thumbnail {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  margin-right: 8px;
+  background-color: #fff;
+  padding: 2px;
+  object-fit: contain;
+}
+
+.title {
+  /* This is the text part */
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  /* Keeps the text and chevron icon aligned horizontally */
+  font-weight: 500;
+  font-size: 1em;
+  color: #fff;
+  text-shadow: 
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+    -1px  1px 0 #000,
+     1px  1px 0 #000;
+}
+
+.title a {
+  text-decoration: none;
+  color: inherit;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.title a:hover {
+  text-decoration: underline;
+}
+
+.title i.material-icons {
+  font-size: 1.2em;
+  color: #fff;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+/* --- Content Section (Below Media) --- */
+.content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  /* Allows content to take remaining vertical space */
+  justify-content: space-between;
+  /* Pushes the button row to the bottom */
+  color: #e8eaed;
+  /* Ensure content text color is light */
+}
+
+.description {
+  font-size: 0.85em;
+  color: #bdc1c6;
+  line-height: 1.4;
+  margin-bottom: 16px;
+  /* TEXT-ALIGN: justify; */
+}
+
+/* --- Button Row --- */
+.button-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  width: 100%;
+}
+
+.feedback-btn {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 20px;
+  background-color: transparent;
+  color: #8ab4f8;
+  font-size: 0.85em;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid rgba(124, 121, 121, 0.232);
+  transition: background-color 0.2s ease-in-out;
+}
+
+.feedback-btn:hover {
+  background-color: rgba(138, 180, 248, 0.1);
+}
+
+.feedback-btn i.google-material-icons {
+  font-size: 1.1em;
+  margin-right: 6px;
+  color: #8ab4f8;
+}
+
+/* --- Main Action Button --- */
+.main-action-group {
+  display: flex;
+  align-items: center;
+}
+
+.turn-on-button {
+  background-color: #8ab4f8;
+  color: #202124;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.85em;
+  font-weight: 500;
+  transition: background-color 0.2s ease-in-out;
+  white-space: nowrap;
+}
+
+.turn-on-button:hover {
+  background-color: #669df6;
+}
+
+/* --- Divider (Xp8JS) --- */
+.Xp8JS {
+  background-color: var(--sl-divider, #3c4043);
+  /* Use a consistent dark divider color */
+  height: 2px;
+  width: 100%;
+  /* Make divider span full width of its parent */
+  margin-top: 25px;
+  margin-bottom: 15px;
+  padding-block: 0;
+  background-clip: content-box;
+  box-sizing: border-box;
+}
+
+.navigate {
+  margin-left: 0px
+}
+
+
+.card-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-right: 20px;
+  /* 🔧 gives space to the last card */
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+
+.card-slider::-webkit-scrollbar {
+  display: none;
+}
+
+
+@media (max-width: 768px) {
+  .cardbox {
+    overflow-x: visible;
+    padding: 20px 20px;
+    /* Further reduced padding for mobile */
+    align-items: center;
+    /* Center content on smaller screens if desired */
+  }
+
+  .rxk {
+    font-size: 1.5rem;
+    /* Smaller heading for mobile */
+    margin-bottom: 20px;
+    text-align: center;
+    /* Center heading on mobile */
+    width: 100%;
+    /* Ensure heading takes full width for centering */
+  }
+
+  .card-grid-wrapper {
+    /* margin-left: 35%; */
+    margin-right: 50%;
+    grid-template-columns: 1fr;
+    /* **Forces a single column layout for mobile** */
+    /* width: 100%;  */
+    /* Ensure it takes full width on mobile */
+    gap: 25px;
+    /* Increase gap between stacked cards for readability */
+  }
+
+  .card-container {
+    max-width: 356px;
+    height: 416px;
+  }
+
+  .card-container {
+    max-width: 50%;
+    /* Allow cards to be a percentage of viewport width */
+    width: 100%;
+    /* Take full width of its grid cell */
+    height: auto;
+    /* **Allow height to adjust based on content** */
+    margin: 0 auto;
+    /* Center individual cards when stacked */
+  }
+
+  .video-overlay {
+    padding: 10px 12px;
+    /* Slightly reduce padding for overlay */
+  }
+
+  .thumbnail {
+    width: 28px;
+    height: 28px;
+  }
+
+  .title {
+    font-size: 0.9em;
+  }
+
+  .description {
+    font-size: 0.8em;
+  }
+
+  .feedback-btn,
+  .turn-on-button {
+    padding: 6px 10px;
+    /* Smaller buttons for mobile */
+    font-size: 0.75em;
+  }
+
+  .Xp8JS {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+}
+
+/* Very small mobile phones (e.g., iPhone 5/SE) */
+@media (max-width: 480px) {
+  .cardbox {
+    padding: 15px 15px;
+    /* Minimal padding for very small screens */
+    overflow-x: visible;
+  }
+
+  .card-grid-wrapper {
+    display: -webkit-box;
+    /* margin-left: 35%; */
+    margin-right: 50%;
+    grid-template-columns: 1fr;
+    /* **Forces a single column layout for mobile** */
+    /* width: 100%;  */
+    /* Ensure it takes full width on mobile */
+    gap: 25px;
+    /* Increase gap between stacked cards for readability */
+  }
+
+  .rxk {
+    font-size: 1.3rem;
+  }
+
+  .card-container {
+    max-width: min-content;
+    /* Make cards a bit wider on very small screens */
+  }
+
+  .content {
+    padding: 12px;
+    /* Slightly reduced padding inside the card content */
+  }
+
+  .title {
+    font-size: 0.9em;
+    font-weight: 600;
+    white-space: nowrap;
+    /* Prevents wrapping onto multiple lines */
+    overflow: hidden;
+    /* Hides overflow */
+    text-overflow: ellipsis;
+    /* Adds "..." if text is too long */
+    max-width: 100%;
+    /* Ensures it doesn’t exceed the window width */
+  }
+}

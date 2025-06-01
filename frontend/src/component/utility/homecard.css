@@ -1,0 +1,297 @@
+.descriptionHome {
+  text-align: center;
+}
+
+/*Card Box Home Page*/
+.button-rowHome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  width: 100%;
+}
+
+.feedback-btnHome {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 20px;
+  background-color: transparent;
+  color: #8ab4f8;
+  font-size: 0.85em;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid rgba(124, 121, 121, 0.232);
+  transition: background-color 0.2s ease-in-out;
+}
+
+.feedback-btnHome:hover {
+  background-color: rgba(138, 180, 248, 0.1);
+}
+
+.feedback-btnHome i.google-material-icons {
+  font-size: 1.1em;
+  margin-right: 6px;
+  color: #8ab4f8;
+}
+
+.card-grid-wrapperHome {
+  display: -webkit-box;
+  grid-template-columns: repeat(auto-fit, minmax(356px, 1fr));
+  gap: 20px;
+  width: 100%;
+  justify-items: start;
+  /* display: -webkit-inline-box;
+  grid-template-columns: repeat(auto-fit, minmax(356px, 1fr));
+  gap: 20px;
+  */
+  width: 50%;
+}
+
+.card-sliderHome {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-right: 20px;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.card-containerHome {
+  width: 70%;
+  /* Take full width of its grid cell */
+  max-width: 200px;
+  /* But don't exceed the specified card width */
+  height: 250px;
+  border: 1px solid #141415;
+  border-radius: 25px;
+  overflow: hidden;
+  background-color: #2f2f2f;
+  /* Adjusted transparency for better consistency */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Google Sans', sans-serif;
+  margin: 0;
+  /* Reset margin as grid gap handles spacing now */
+  box-sizing: border-box;
+  /* Include padding/border in total width/height */
+  flex-shrink: 0;
+  /* Prevents shrinking */
+}
+
+.card-sliderHome::-webkit-scrollbar {
+  display: none;
+}
+
+.rxkHome {
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
+  /* Keep specific font rules if desired */
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 110%;
+  margin-bottom: 36px;
+  /* Space below the heading */
+  margin-top: 0;
+}
+
+@media (max-width: 768px) {
+  .cardbox {
+    overflow-x: visible;
+    padding: 20px 20px;
+    /* Further reduced padding for mobile */
+    align-items: center;
+    /* Center content on smaller screens if desired */
+  }
+
+  .card-containerHome {
+    max-width: 356px;
+    height: 416px;
+  }
+
+  .card-containerHome {
+    max-width: 50%;
+    /* Allow cards to be a percentage of viewport width */
+    width: 100%;
+    /* Take full width of its grid cell */
+    height: auto;
+    /* **Allow height to adjust based on content** */
+    margin: 0 auto;
+    /* Center individual cards when stacked */
+  }
+
+  .rxk {
+    font-size: 1.5rem;
+    /* Smaller heading for mobile */
+    margin-bottom: 20px;
+    text-align: center;
+    /* Center heading on mobile */
+    width: 100%;
+    /* Ensure heading takes full width for centering */
+  }
+
+  .card-grid-wrapperHome {
+    /* margin-left: 40%; */
+    margin-right: 50%;
+    grid-template-columns: 1fr;
+    /* **Forces a single column layout for mobile** */
+    /* width: 100%;  */
+    /* Ensure it takes full width on mobile */
+    gap: 25px;
+    /* Increase gap between stacked cards for readability */
+  }
+
+  .video-overlay {
+    padding: 10px 12px;
+    /* Slightly reduce padding for overlay */
+  }
+
+  .thumbnail {
+    width: 28px;
+    height: 28px;
+  }
+
+  .title {
+    font-size: 0.9em;
+  }
+
+  .description {
+    font-size: 0.8em;
+  }
+
+  .feedback-btn,
+  .turn-on-button {
+    padding: 6px 10px;
+    /* Smaller buttons for mobile */
+    font-size: 0.75em;
+  }
+
+  .Xp8JS {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  .video-sectionHome {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-top: 56.25%;
+    /* 16:9 Aspect Ratio */
+    overflow: hidden;
+    /* Apply border-radius to match the card's top corners */
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+
+  .video-elementHome {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* object-fit: contain; */
+    border-radius: 15px;
+  }
+}
+
+/* Very small mobile phones (e.g., iPhone 5/SE) */
+@media (max-width: 480px) {
+  .cardbox {
+    padding: 15px 15px;
+    /* Minimal padding for very small screens */
+    overflow-x: visible;
+  }
+
+  .card-containerHome {
+    max-width: 20vh;
+    /* Make cards a bit wider on very small screens */
+  }
+
+  .card-grid-wrapperHome {
+    display: -webkit-box;
+    /* margin-left: 40%; */
+    margin-right: 50%;
+    grid-template-columns: 1fr;
+    /* **Forces a single column layout for mobile** */
+    width: 100%;
+    /* Ensure it takes full width on mobile */
+    gap: 25px;
+    /* Increase gap between stacked cards for readability */
+  }
+
+  .rxk {
+    font-size: 1.3rem;
+  }
+
+  .content {
+    padding: 12px;
+    /* Slightly reduced padding inside the card content */
+  }
+
+  .title {
+    font-size: 0.9em;
+    font-weight: 600;
+    white-space: nowrap;
+    /* Prevents wrapping onto multiple lines */
+    overflow: hidden;
+    /* Hides overflow */
+    text-overflow: ellipsis;
+    /* Adds "..." if text is too long */
+    max-width: 100%;
+    /* Ensures it doesn’t exceed the window width */
+  }
+
+  .video-sectionHome {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-top: 56.25%;
+    /* 16:9 Aspect Ratio */
+    overflow: hidden;
+    /* Apply border-radius to match the card's top corners */
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+
+  .video-elementHome {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* object-fit: contain; */
+    border-radius: 15px;
+  }
+
+  .rxkHome {
+    font-family: "Google Sans", Roboto, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 110%;
+    margin-bottom: 23px;
+    margin-top: 0;
+  }
+}
+
+.video-sectionHome {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-top: 56.25%;
+  /* 16:9 Aspect Ratio */
+  overflow: hidden;
+  /* Apply border-radius to match the card's top corners */
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.video-elementHome {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* object-fit: contain; */
+  border-radius: 15px;
+}
