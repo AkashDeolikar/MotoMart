@@ -1,0 +1,36 @@
+git recommit
+
+
+If you already have a Git repo initialized locally:
+Open terminal or command prompt in your project folder.
+
+Check git status:
+*********************************************************
+bash
+----------
+CMD->    git status
+------------
+This will show the files you've changed or added.
+
+Add changed files:
+************************************************************
+bash
+--------
+CMD->    git add .
+----------
+(The dot means add all changes. Or you can specify files.)
+*************************************************************
+Commit your changes:
+*******************************
+bash
+-------------
+CMD->    git commit -m "Your meaningful commit message here"
+--------------------------------------------
+Push changes to GitHub:
+*************************************************************
+bash
+------------------------
+CMD->    git push origin main
+--------------------------------
+Replace main with your branch name if different (like master or develop).
+
