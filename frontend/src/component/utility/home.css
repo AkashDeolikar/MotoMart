@@ -61,25 +61,25 @@ body {
 
 
 .nav-btn {
-    /* left: -25px; */
-    right: -25px;
-    font-size: 2rem;
-    border: none;
-    color: #2d2f31;
-    cursor: pointer;
-    /* padding: 1px 0px 10px; */
-    margin: -4px 5px 0 -6px;
-    background: #efeeee;
-    border-radius: 9%;
-    /* box-shadow: 0 8px 12px 0 rgba(36, 39, 44, .15); */
-    cursor: pointer;
-    /* height: 46px; */
-    left: -27px;
-    margin-top: -31px;
-    top: 50%;
-    width: 48px;
-    /* border: 1px solid rgba(36, 39, 44, .7); */
-    border-width: 18px 0 0px -15px;
+  /* left: -25px; */
+  right: -25px;
+  font-size: 2rem;
+  border: none;
+  color: #2d2f31;
+  cursor: pointer;
+  /* padding: 1px 0px 10px; */
+  margin: -4px 5px 0 -6px;
+  background: #efeeee;
+  border-radius: 9%;
+  /* box-shadow: 0 8px 12px 0 rgba(36, 39, 44, .15); */
+  cursor: pointer;
+  /* height: 46px; */
+  left: -27px;
+  margin-top: -31px;
+  top: 50%;
+  width: 48px;
+  /* border: 1px solid rgba(36, 39, 44, .7); */
+  border-width: 18px 0 0px -15px;
 }
 
 .deals {
@@ -213,7 +213,8 @@ body {
   letter-spacing: 0;
   line-height: 43px;
 }
-.view-btn:hover{
+
+.view-btn:hover {
   font-size: 0.9rem;
   transition: 0.3s;
   border: 1px solid #3ec409;
@@ -233,10 +234,12 @@ body {
   font-family: 'Arial';
 
 }
-.cl1{
+
+.cl1 {
   color: rgb(237, 52, 52);
 }
-.cl2{
+
+.cl2 {
   color: #5c5e60;
 }
 
@@ -276,37 +279,120 @@ body {
 
 .naming h1 {
   font-family: "Nissan Light", "Nissan Regular", Verdana, Arial, sans-serif;
-    font-size: 26px;
-    letter-spacing: 1.05px;
-    line-height: 38px;
-    position: relative;
-    text-transform: none !important;
+  font-size: 26px;
+  letter-spacing: 1.05px;
+  line-height: 38px;
+  position: relative;
+  text-transform: none !important;
 }
 
 /* Ensure the parent container has a position for absolute positioning of the video */
 .backgroundimage {
   position: relative;
   width: 100%;
-  height: 70vh; overflow: hidden; display: flex; 
+  height: 70vh;
+  overflow: hidden;
+  display: flex;
   flex-direction: column;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
-  color: white; 
-  text-align: center;background-color: #333;
+  color: white;
+  text-align: center;
+  background-color: #333;
 }
 
-/* .background-video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: -1; 
-  transform: translate(-50%, -50%); 
-  object-fit: cover; 
-} */
+/*EV*/
+.suatainability-wrp {
+    max-width: 1920px;
+    height: auto;
+    /* padding: 100px 40px 50px; */
+}
+
+.suatainability-wrp .sus-cvr-wrp {
+    font-family: "math"; /* Note: 'math' is not a standard web font. Consider using a fallback like 'serif' or 'sans-serif' */
+    max-width: 1500px;
+    height: 600px; /* Fixed height might be problematic on mobile */
+    border: 50px; /* This is an invalid border value, assuming you meant border-radius or padding */
+    background-image: url('https://www.tatamotors.com/wp-content/themes/TataMotors/images/Sustainability-banner-new-home.webp');
+    background-repeat: no-repeat;
+    background-position: bottom left; /* This might clash with the gradient */
+    padding: 150px 0px;
+    margin: 0 auto;
+    background-size: cover;
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Gradient and overlay for desktop */
+.sus-cvr-wrp {
+    background-image: linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0.593)), url('https://www.tatamotor.com/wp-content/themes/TataMotors/images/Sustainability-banner-new-home.webp');
+    background-size: cover;
+    background-position: center; /* Changed from bottom left to center for better gradient effect */
+    min-height: 500px; /* Example height */
+    position: relative;
+}
+
+.sus-cvr-wrp::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0));
+    pointer-events: none;
+}
+
+/* Other desktop styles */
+.suatainability-wrp .sus-cvr-wrp .container-1600-wrp {
+    position: relative;
+    z-index: 2;
+}
+
+.container-1600-wrp {
+    max-width: 1600px;
+    margin: 0 auto;
+    margin: 0 0 5rem 5rem;
+}
+
+.sub-ttle {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 10px;
+}
+
+.suatainability-wrp .sus-cvr-wrp .common-ttle {
+    color: #ffffff;
+    margin-bottom: 30px;
+    font-family: math, monospace;
+    font-size: 45px;
+}
+
+.common-ttle {
+    font-size: 40px;
+    line-height: 50px;
+}
+
+.appearIntro {
+    font-family: 'system-ui';
+    max-width: 600px;
+    font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+.btn-boxx {
+    border: none;
+    background: #090b76;
+    display: inline-block;
+    border-radius: 30px;
+    padding: 12px 35px;
+    color: #ffffff;
+    font-size: 18px;
+    position: relative;
+    z-index: 1;
+    text-decoration: none;
+}
 
 .typing {
   font-family: "Nissan Light", "Nissan Regular", Verdana, Arial, sans-serif;
@@ -385,19 +471,14 @@ body {
   background-color: #005bb5;
 }
 
-/* Outer wrapper scrolls horizontally */
-/* Container with horizontal scroll */
-
-/* CardScroller.css */
-
-/* General Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body, html {
+body,
+html {
   font-family: Arial, sans-serif;
   color: white;
 }
@@ -460,38 +541,105 @@ body, html {
 
 /* Responsive for tablet and mobile */
 @media (max-width: 768px) {
-  .backgroundimage{
+
+  .backgroundimage {
     height: 100%;
   }
+
   .rf-cards-scroller {
     overflow-x: auto;
     overflow-y: hidden;
   }
 
   .rf-cards-scroller-content {
-    flex-wrap: nowrap; 
+    flex-wrap: nowrap;
     padding: 10px;
   }
 
   .rf-cards-scroller-item {
     flex: 0 0 200px;
   }
+
+  .suatainability-wrp .sus-cvr-wrp {
+    height: 450px;
+    min-height: 400px;
+    padding: 80px 0px;
+    border-radius: 20px;background-position: center;
+  }
+
+  /* Adjust the gradient for mobile */
+  .sus-cvr-wrp {
+    background-image: linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0)), url('https://www.tatamotors.com/wp-content/themes/TataMotors/images/Sustainability-banner-new-home.webp');
+    background-position: center;
+    background-size: cover;
+  }
+
+  /* Adjust the pseudo-element gradient for mobile */
+  .sus-cvr-wrp::before {
+    background: linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0));
+  }
+
+  .common-ttle {
+    font-size: 20px;
+    line-height: 38px;
+    margin-bottom: 20px;
+    display: block;
+    margin-top: 20px;
+  }
+
+  .sub-ttle,
+  .appearIntro {
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 15px;
+  }
+
+  .container-1600-wrp {
+    padding: 0px 15px;
+    margin: 0 0 0rem 0rem;
+  }
 }
 
 @media (max-width: 480px) {
-  .backgroundimage{
+  .suatainability-wrp .sus-cvr-wrp {
+    min-height: 250px;
+  }
+  /* Adjust the gradient for mobile */
+  .sus-cvr-wrp {
+    background-image: linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0)), url('https://www.tatamotors.com/wp-content/themes/TataMotors/images/Sustainability-banner-new-home.webp');
+    background-position: center;
+    background-size: cover;
+  }
+  /* Adjust the pseudo-element gradient for mobile */
+  .sus-cvr-wrp::before {
+    background: linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0));
+  }
+  .common-ttle {
+    font-size: 24px;
+    line-height: 32px;
+    display: block;
+    margin-top: 20px;
+  }
+
+  .backgroundimage {
     height: 60vh;
   }
+
   .rf-cards-scroller-item {
     flex: 0 0 200px;
   }
+
   .car-cardbox {
-        width: 100%;
-    }
+    width: 100%;
+  }
+
   .intro {
     display: inline-block;
     font-size: 28px;
     margin-bottom: 5vh;
+  }
+  .container-1600-wrp {
+    padding: 0px 15px;
+    margin: 0 0 0rem 0rem;
+  }
 }
-}  
-

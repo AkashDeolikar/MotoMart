@@ -219,7 +219,7 @@ const Home = () => {
           Your browser does not support the video tag.
         </video> */}
         <section className="naming">
-          <h1>HATTRICK CARNIVAL LIVE NOW</h1>
+          <h1>THE HEART OF JOY-REDEFINING DRIVING</h1>
           <div className="typing">{typingWords[currentWord]}</div>
         </section>
       </div>
@@ -252,6 +252,19 @@ const Home = () => {
           <button className="nav-btn right" onClick={handleNext}>❯</button>
         </div>
       </div>
+
+      <section class="suatainability-wrp">
+        <div class="sus-cvr-wrp">
+            <div class="container-1600-wrp">
+                <h4 class="sub-ttle appearIntro">Sustainability</h4>
+                <h2 class="common-ttle appearIntro">Our roadmap<br/><br/>
+                    to Net Zero</h2>
+                <p class="appearIntro" >We are making responsible choices. By prioritising sustainable mobility, safety,
+                    emission reduction and use of eco-friendly materials, we are driving meaningful change. </p>
+                <a href="https://www.tatamotors.com/corporate-responsibility" class="btn-boxx appearIntro">Read more</a>
+            </div>
+        </div>
+    </section>
 
       <div className="seeoffer-backgroundakash">
             <div className='cardbox'>
