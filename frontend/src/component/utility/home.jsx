@@ -218,7 +218,7 @@ const Home = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // --- SCROLL TO TARGET SECTION LOGIC ---
+  // --- SCROL SLIDER ---
   const targetSectionRef = useRef(null); // Create a ref for the target section that will be scrolled to.
   const scrollToTargetSection = () => {
     if (targetSectionRef.current) {
@@ -233,6 +233,66 @@ const Home = () => {
   return (
     <div className="home-container">
       {/* Hero Section */}
+
+      {/* Bootstrap Carousel */}
+      <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        </div>
+
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://www.tatamotors.com/wp-content/themes/TataMotors/images/TM_Home_Desktop4.webp" class="d-block w-100" alt="First Slide" />
+            <div class="carousel-caption d-none d-md-block">
+              <h1>Connection aspirations.</h1>
+              <h1>Delevering values.</h1>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <video id="bnr-vid" preload="metadata" autoplay="" loop="" muted="" playsinline="" type="video/mp4" src="https://www.tatamotors.com/wp-content/themes/TataMotors/video/TML-Desktop-video.mp4">
+              Your browser does not support the video tag.
+            </video>
+            {/* <img src="https://media.architecturaldigest.com/photos/66a914f1a958d12e0cc94a8e/16:9/w_2992,h_1683,c_limit/DSC_5903.jpg" class="d-block w-100" alt="Second Slide" /> */}
+            <div class="carousel-caption d-none d-md-block">
+              <h1>A spotlight on</h1>
+              <h1>Sustainability.</h1>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="https://www.tatamotors.com/wp-content/themes/TataMotors/images/TM_Home_Desktop2.webp" class="d-block w-100" alt="Second Slide" />
+            <div class="carousel-caption d-none d-md-block">
+              <h1>Embracing</h1>
+              <h1>Clean mobility.</h1>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="https://www.tatamotors.com/wp-content/themes/TataMotors/images/TM_Home_Desktop1.webp" class="d-block w-100" alt="Third Slide" />
+            <div class="carousel-caption d-none d-md-block">
+              <h1>Tomorrow's choices,</h1>
+              <h1>Today</h1>
+            </div>
+          </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+
+
       <div className="backgroundimage">
         <section className="naming">
           <h1>THE HEART OF JOY-REDEFINING DRIVING</h1>
@@ -254,22 +314,21 @@ const Home = () => {
             cursor: 'pointer',
           }}
           title="Scroll Down"
-          onClick={scrollToTargetSection} // Clicking this icon calls the scroll function
-          // Removed: ref={targetSectionRef} from here, as this is the trigger, not the target.
-        ></i>
+          onClick={scrollToTargetSection} ></i>
       </div>
 
-      {/* Hand image section - THIS IS THE ACTUAL TARGET FOR THE SCROLL-DOWN ICON */}
+      {/* Hand image section */}
       <div className="hand-image-section" ref={targetSectionRef}> {/* <--- ADDED ref={targetSectionRef} HERE! */}
         <div className="hand-image-wrapper">
           <img
-            ref={imageRef} // This ref is specifically for the parallax effect of the hand image.
+            ref={imageRef}
             decoding="async"
             loading="lazy"
             width={2504}
             height={1472}
-            sizes="min((100vw - 48px) * 1.5, 1200px)"
+            sizes="min((100vw - 48px) * 1.5, 800px)"
             srcSet={`
+              <p>HLH</p>
               https://framerusercontent.com/images/KcRmJwxep99VQhGCvjFixDxur6Q.webp?scale-down-to=512 512w,
               https://framerusercontent.com/images/KcRmJwxep99VQhGCvjFixDxur6Q.webp?scale-down-to=1024 1024w,
               https://framerusercontent.com/images/KcRmJwxep99VQhGCvjFixDxur6Q.webp?scale-down-to=2048 2048w,
@@ -285,12 +344,6 @@ const Home = () => {
           <p>Discover innovative features and cutting-edge technology designed to enhance your journey.</p>
         </div>
       </div>
-
-      {/* Hero section is commented out, replaced by backgroundimage section */}
-      {/* <section className="hero">
-        <h1>Welcome to MotoMart</h1>
-        <p>Your ultimate destination to explore cars, compare features, and find your dream ride.</p>
-        </section> */}
 
       {/* Featured Cars Section */}
       <div className="featured-cars">
@@ -318,7 +371,7 @@ const Home = () => {
         <div className="sus-cvr-wrp">
           <div className="container-1600-wrp">
             <h4 className="sub-ttle appearIntro">Sustainability</h4>
-            <h2 className="common-ttle appearIntro">Our roadmap<br /><br />
+            <h2 className="common-ttle appearIntro">Our roadmap<br />
               to Net Zero</h2>
             <p className="appearIntro" >We are making responsible choices. By prioritizing sustainable mobility, safety,
               emission reduction and use of eco-friendly materials, we are driving meaningful change. </p>
@@ -357,7 +410,6 @@ const Home = () => {
 
       {/* Call to Action */}
       <div className="cta">
-        <h2>Ready to find your dream car?</h2>
         <Link to="/cardetails" className="explore-btn">Explore Car List</Link>
       </div>
 

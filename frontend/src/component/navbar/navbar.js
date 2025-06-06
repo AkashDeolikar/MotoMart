@@ -7,6 +7,7 @@ import { auth } from "../../firebase";
 import ServiceDropdown from './ServiceDropdown';
 import VehicleDropdown from "./vehicledropdown";
 
+
 const CarNavbar = ({ theme, toggleTheme }) => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -60,9 +61,6 @@ const CarNavbar = ({ theme, toggleTheme }) => {
             <li>
               <Link to="/" className={location.pathname === "/" ? "active" : ""} onClick={closeMobileMenu}>Home</Link>
             </li>
-            {/* <li>
-              <Link to="/cardetails" className={location.pathname === "/cardetails" ? "active" : ""} onClick={closeMobileMenu}>Cars</Link>
-            </li> */}
 
             {/* Vehicle Dropdown */}
             <VehicleDropdown closeParentMobileMenu={closeMobileMenu} isParentMobileMenuOpen={isMobileMenuOpen}/>
@@ -95,13 +93,13 @@ const CarNavbar = ({ theme, toggleTheme }) => {
 
             {user && (
               <li>
-                <button className="logout-btn" onClick={() => { handleLogout(); closeMobileMenu(); }}>Logout</button>
+                <button className="logout-btn" onClick={() => { handleLogout(); closeMobileMenu(); }}><i class="bi bi-box-arrow-right"></i>Logout</button>
               </li>
             )}
 
             {user && (
               <li className="user-info">
-                👋 {user.displayName || user.email.split('@')[0]}
+                <i class="bi bi-person-circle"></i> {user.displayName || user.email.split('@')[0]}
               </li>
             )}
 

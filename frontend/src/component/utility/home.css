@@ -1,4 +1,4 @@
-/* /* Basic Reset */
+.home-container/* /* Basic Reset */
 * {
   margin: 0;
   padding: 0;
@@ -11,7 +11,7 @@ body {
 }
 
 .home-container {
-  padding: 2rem;
+  padding: 0.5rem;
   /* max-width: 1200px; */
   width: 100%;
   margin: 0 auto;

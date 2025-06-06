@@ -43,16 +43,37 @@ const VehicleDropdown = ({ closeParentMobileMenu, isParentMobileMenuOpen }) => {
                 </span>
             </Link>
 
-            <div className="desk-nav-dd"> {/* This is your desktop dropdown content */}
+            <div className="desk-nav-dd"> 
                 <ul>
                     <li><Link to="/overviewpage" title="Overview" nav-title="Service" className="redirectionPath sub-nav" onClick={handleServiceLinkClick}>Overview</Link></li>
                     <li><Link to="/Carcard" title="Service Cost Calculator" nav-title="Service" className="redirectionPath sub-nav" onClick={handleServiceLinkClick}>Explore Car</Link></li>
                     <li><Link to="/Bikecard" title="Book a Service" nav-title="Service" className="redirectionPath sub-nav" onClick={handleServiceLinkClick}>Explore Bike</Link></li>
                     <li><Link to="/cardetails" title="Service History" nav-title="Service" className="redirectionPath sub-nav" onClick={handleServiceLinkClick}>Car Details</Link></li>
-                    </ul>
+                </ul>
             </div>
+
         </li>
     );
 };
 
 export default VehicleDropdown;
+
+// import React from "react";
+
+// const VehicleDropdown = () => {
+//     return (
+//         <div className="dropdown"> {/* Changed class to className */}
+//             <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+//                 Dropdown button {/* You might want to change this text to "Vehicles" or "Browse" */}
+//             </button>
+//             <ul className="dropdown-menu dropdown-menu-dark"> {/* Changed class to className */}
+//                 <li><a className="dropdown-item active" href="/overviewpage">Action</a></li> {/* Changed class to className */}
+//                 <li><a className="dropdown-item" href="/Carcard">Another action</a></li> {/* Changed class to className */}
+//                 <li><a className="dropdown-item" href="/Bikecard">Something else here</a></li> {/* Changed class to className */}
+//                 <li><a className="dropdown-item" href="/cardetails">Separated link</a></li> {/* Changed class to className */}
+//             </ul>
+//         </div>
+//     );
+// }
+
+// export default VehicleDropdown;

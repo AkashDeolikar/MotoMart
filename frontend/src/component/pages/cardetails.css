@@ -66,9 +66,9 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button:hover {
+/* button:hover {
   background-color: #fbb904;
-}
+} */
 
 .result {
   justify-items: center;

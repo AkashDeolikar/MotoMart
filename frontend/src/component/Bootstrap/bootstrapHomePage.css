@@ -1,83 +1,129 @@
-/* home.css */
-
 /* Hand Image Section Styling */
 .hand-image-section {
   display: flex;
   flex-direction: column;
-  /* Stack items vertically by default */
   align-items: center;
-  /* Center items horizontally */
   justify-content: center;
-  gap: 30px;
-  /* Space between the image and text */
-  padding: 80px 20px;
-  /* Add some padding around the section */
   max-width: 1200px;
-  /* Limit overall width */
   margin: 0 auto;
-  /* Center the section on the page */
   text-align: center;
-  /* Center text within the section */
 }
 
 .hand-image-wrapper {
-  margin-top: 30vh;
+  margin-top: 80vh;
   position: relative;
   width: 100%;
-  /* Allow image wrapper to take full width of its container */
   max-width: 900px;
-  /* Limit max width of the image for larger screens */
 }
 
 .hand-image-grow {
   display: block;
   width: 100%;
   height: auto;
-  /* Maintain aspect ratio */
   border-radius: inherit;
   object-position: center center;
   object-fit: cover;
   transition: transform 0.3s ease-out;
-  /* Smoother transition */
 }
 
-/* The JavaScript handles the scroll-based zoom, this hover is just for visual feedback */
 .hand-image-section:hover .hand-image-grow {
   transform: scale(1.03);
 }
 
 .hand-image-text {
-  /* margin-top: 40vh; */
   max-width: 700px;
-  /* Limit text width for readability */
-  /* Remove padding-left as text is now centered below the image */
 }
 
 .hand-image-text h2 {
   font-size: 2.8em;
-  /* Larger heading */
   color: #7c7878;
   margin-bottom: 15px;
   font-weight: 700;
-  /* Bold heading */
 }
 
 .hand-image-text p {
   font-size: 1.2em;
-  /* Readable paragraph text */
   color: #686868;
   line-height: 1.6;
 }
 
-/* --- */
-/* Media queries for responsiveness */
-/* With flex-direction: column by default, we don't need complex media queries for stacking.
-   We'll primarily adjust font sizes and padding for smaller screens. */
+
+.carousel {
+  width: 100%;
+  height: auto; /* Let the height be controlled by carousel-inner/item */
+  margin-bottom: 4%;
+  position: relative;
+  /* If you want a box shadow for the whole carousel container: */
+  /* box-shadow: -1px 1px 30px 26px rgba(33, 33, 33, 0.795); */
+}
+
+.bnr-vid video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-inner {
+  width: 100%;
+  height: 600px; /* Fixed height for consistency, adjust as needed */
+}
+
+.carousel-item {
+  height: 100%;
+  position: relative; /* Crucial for positioning the overlay and image */
+  overflow: hidden; /* Ensures anything outside the item is clipped */
+  /* border-radius: 12px; */
+}
+
+.carousel-item img {
+  /* This is the primary image, make it cover the entire item */
+  width: 100%; /* Important: Make image fill the item */
+  height: 100%;
+  object-fit: cover; /* Ensures image covers the area without distortion */
+  display: block; /* Remove any extra space below image */
+  /* Remove border-radius here if you apply it to .carousel-item */
+}
+
+/* Optional: Overlay for gradient effect */
+.carousel-item .image-overlay { 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+  pointer-events: none; 
+  z-index: 2; 
+}
+
+
+.carousel-caption {
+  background: rgba(210, 214, 139, 0.103); /* semi-transparent background */
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(2px);
+  bottom: 10%; 
+  left: 50%;
+  transform: translateX(-38%);
+  width: 80%; 
+  max-width: 600px; 
+  z-index: 3; /* Ensure caption is above overlay */
+}
+
+.carousel-caption h5 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.carousel-caption p {
+  font-size: 1.1rem;
+  color: #ddd;
+}
 
 @media (max-width: 768px) {
   .hand-image-section {
     padding: 40px 15px;
-    /* Adjust padding for smaller screens */
   }
 
   .hand-image-text {
@@ -86,12 +132,23 @@
 
   .hand-image-text h2 {
     font-size: 2.2em;
-    /* Adjust heading size */
   }
 
   .hand-image-text p {
     font-size: 1.1em;
-    /* Adjust paragraph size */
+  }
+
+  /*slider*/
+  .carousel-caption {
+    width: 100%;
+  }
+
+  .carousel-caption h5 {
+    font-size: 1.2rem;
+  }
+
+  .carousel-caption p {
+    font-size: 0.95rem;
   }
 }
 
@@ -109,5 +166,17 @@
   .hand-image-text p {
     font-size: 1em;
     /* Smaller paragraph for mobile */
+  }
+
+  /*Slider*/
+  .carousel-inner {
+    height: 300px;
+  }
+  .carousel-caption {
+    bottom: 2%; 
+    width: 95%;
+  }
+  .carousel-caption p {
+    font-size: 0.9rem; 
   }
 }
