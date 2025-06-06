@@ -157,10 +157,11 @@
 .gsign {
     width: 100%;
     justify-self: center;
+    
 }
 .gsign-button {
   width: 100%;
-  background-color: #4285F2;
+  background-color: rgb(5 56 140);
   color: #fff;
   border: none;
   border-radius: 40px;
@@ -171,7 +172,7 @@
   transition: background-color 0.3s;
 }
 .gsign-button:hover {
-  background-color: #357ae8;
+  background-color: rgb(5 56 140);
 }
 
 /* Light Theme Inputs */

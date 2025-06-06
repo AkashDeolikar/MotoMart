@@ -7,7 +7,8 @@ body.light {
   body.dark {
     /* background-color: #121212; */
     color: #ffffff;
-    background-color: #212121;
+    /* background-color: #212121; */
+    background-color: rgb(7, 6, 41);
     /* background: #303030;
     background: #414141; */
     /* light text for dark background */

@@ -60,14 +60,13 @@
 
 .card-containerHome {
   width: 70%;
-  /* Take full width of its grid cell */
-  max-width: 200px;
-  /* But don't exceed the specified card width */
-  height: 250px;
+  max-width: 110px;
+  height: 107px;
   border: 1px solid #141415;
-  border-radius: 25px;
+  border-radius: 15px;
   overflow: hidden;
-  background-color: #2f2f2f;
+  /* background-color: #2f2f2f; */
+  background-color: rgb(24, 22, 58);
   /* Adjusted transparency for better consistency */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   display: flex;
@@ -198,26 +197,25 @@
 /* Very small mobile phones (e.g., iPhone 5/SE) */
 @media (max-width: 480px) {
   .cardbox {
+    margin-top: 50px;
     padding: 15px 15px;
     /* Minimal padding for very small screens */
     overflow-x: visible;
   }
 
   .card-containerHome {
-    max-width: 20vh;
+    max-width: 15vh;
     /* Make cards a bit wider on very small screens */
   }
 
   .card-grid-wrapperHome {
     display: -webkit-box;
-    /* margin-left: 40%; */
     margin-right: 50%;
     grid-template-columns: 1fr;
     /* **Forces a single column layout for mobile** */
     width: 100%;
     /* Ensure it takes full width on mobile */
     gap: 25px;
-    /* Increase gap between stacked cards for readability */
   }
 
   .rxk {

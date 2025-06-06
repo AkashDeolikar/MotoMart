@@ -62,3 +62,8 @@
     font-family: Arial;
     border-radius: 35px;
   }
+
+  h2.ProjectName{
+    font-family: 'Courier New', monospace;
+    color: #ffffff;
+  }

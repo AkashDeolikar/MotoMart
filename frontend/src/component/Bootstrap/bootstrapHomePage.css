@@ -1,0 +1,113 @@
+/* home.css */
+
+/* Hand Image Section Styling */
+.hand-image-section {
+  display: flex;
+  flex-direction: column;
+  /* Stack items vertically by default */
+  align-items: center;
+  /* Center items horizontally */
+  justify-content: center;
+  gap: 30px;
+  /* Space between the image and text */
+  padding: 80px 20px;
+  /* Add some padding around the section */
+  max-width: 1200px;
+  /* Limit overall width */
+  margin: 0 auto;
+  /* Center the section on the page */
+  text-align: center;
+  /* Center text within the section */
+}
+
+.hand-image-wrapper {
+  margin-top: 30vh;
+  position: relative;
+  width: 100%;
+  /* Allow image wrapper to take full width of its container */
+  max-width: 900px;
+  /* Limit max width of the image for larger screens */
+}
+
+.hand-image-grow {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* Maintain aspect ratio */
+  border-radius: inherit;
+  object-position: center center;
+  object-fit: cover;
+  transition: transform 0.3s ease-out;
+  /* Smoother transition */
+}
+
+/* The JavaScript handles the scroll-based zoom, this hover is just for visual feedback */
+.hand-image-section:hover .hand-image-grow {
+  transform: scale(1.03);
+}
+
+.hand-image-text {
+  /* margin-top: 40vh; */
+  max-width: 700px;
+  /* Limit text width for readability */
+  /* Remove padding-left as text is now centered below the image */
+}
+
+.hand-image-text h2 {
+  font-size: 2.8em;
+  /* Larger heading */
+  color: #7c7878;
+  margin-bottom: 15px;
+  font-weight: 700;
+  /* Bold heading */
+}
+
+.hand-image-text p {
+  font-size: 1.2em;
+  /* Readable paragraph text */
+  color: #686868;
+  line-height: 1.6;
+}
+
+/* --- */
+/* Media queries for responsiveness */
+/* With flex-direction: column by default, we don't need complex media queries for stacking.
+   We'll primarily adjust font sizes and padding for smaller screens. */
+
+@media (max-width: 768px) {
+  .hand-image-section {
+    padding: 40px 15px;
+    /* Adjust padding for smaller screens */
+  }
+
+  .hand-image-text {
+    max-width: 700px;
+  }
+
+  .hand-image-text h2 {
+    font-size: 2.2em;
+    /* Adjust heading size */
+  }
+
+  .hand-image-text p {
+    font-size: 1.1em;
+    /* Adjust paragraph size */
+  }
+}
+
+@media (max-width: 480px) {
+  .hand-image-section {
+    padding: 30px 10px;
+    /* Further adjust padding for very small screens */
+  }
+
+  .hand-image-text h2 {
+    font-size: 1.8em;
+    /* Smaller heading for mobile */
+  }
+
+  .hand-image-text p {
+    font-size: 1em;
+    /* Smaller paragraph for mobile */
+  }
+}

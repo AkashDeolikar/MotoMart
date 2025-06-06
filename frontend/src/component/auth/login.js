@@ -132,7 +132,7 @@ function Login() {
                   cursor: "pointer",
                 }}
               >
-                Continue with Google
+                <i class="bi bi-google"></i> Continue with Google
               </button>
             </div>
           </form>

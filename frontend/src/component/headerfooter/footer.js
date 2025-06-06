@@ -1,23 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
+// , { useState } 
 import "./footer.css";
-import { FaFacebook, FaGoogle, FaInstagram } from "react-icons/fa";
+// import { FaFacebook, FaGoogle, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
-  const [setFormData] = useState({
-    message: "",
-  });
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("Thank you for contacting us!");
-    setFormData({ name: "", email: "", mobile: "", message: "" });
-  };
+  // const [setFormData] = useState({
+  //   message: "",
+  // });
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   alert("Thank you for contacting us!");
+  //   setFormData({ name: "", email: "", mobile: "", message: "" });
+  // };
 
   return (
     <footer className="footer">
+      <h2 className="ProjectName">MotoMart</h2>
       <div className="footer-container">
         <div className="footer-section">
-          <h3>MotoMart TrueValue 🚘</h3>
-          <p>Your trusted car companion for buying and selling cars.</p>
+          <h4>Project Links</h4>
+          <ul>
+            <li><a href="https://github.com/AkashDeolikar/MotoMart">GitHub <i class="bi bi-github"></i></a></li>
+            <li><a href="https://motomart-ten.vercel.app">Vercel Hosting <i class="bi bi-git"></i></a></li>
+          </ul>
         </div>
 
         <div className="footer-section">
@@ -29,7 +34,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div className="footer-section">
+        {/* <div className="footer-section">
           <h4>Contact</h4>
           <p>Email: support@MotoMart.com</p>
           <p>Phone: +91-9876543210</p>
@@ -45,10 +50,7 @@ const Footer = () => {
             />
             <button className="footerbtn" type="submitfooter">Send</button>
           </form>
-          {/* <p></p>
-          <input className="text" type="text" placeholder="type here" ></input>
-          <button className="nav-btn right" onClick={SubmitEvent}>➡️</button> */}
-        </div>
+          </div> */}
       </div>
 
       <div className="footer-bottom">
