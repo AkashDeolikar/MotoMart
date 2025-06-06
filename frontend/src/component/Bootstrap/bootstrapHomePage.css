@@ -1,182 +1,197 @@
-/* Hand Image Section Styling */
+/* Hand Image Section Styling - KEEP AS IS, it looks good */
 .hand-image-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .hand-image-wrapper {
-  margin-top: 80vh;
-  position: relative;
-  width: 100%;
-  max-width: 900px;
+    margin-top: 80vh; /* This creates a large scroll gap, might be intentional for parallax */
+    position: relative;
+    width: 100%;
+    max-width: 900px;
 }
 
 .hand-image-grow {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: inherit;
-  object-position: center center;
-  object-fit: cover;
-  transition: transform 0.3s ease-out;
+    display: block;
+    width: 100%;
+    height: auto; /* Let height be automatic to maintain aspect ratio */
+    border-radius: inherit;
+    object-position: center center;
+    object-fit: cover;
+    transition: transform 0.3s ease-out;
 }
 
 .hand-image-section:hover .hand-image-grow {
-  transform: scale(1.03);
+    transform: scale(1.03);
 }
 
 .hand-image-text {
-  max-width: 700px;
+    max-width: 700px;
 }
 
 .hand-image-text h2 {
-  font-size: 2.8em;
-  color: #7c7878;
-  margin-bottom: 15px;
-  font-weight: 700;
+    font-size: 2.8em;
+    color: #7c7878;
+    margin-bottom: 15px;
+    font-weight: 700;
 }
 
 .hand-image-text p {
-  font-size: 1.2em;
-  color: #686868;
-  line-height: 1.6;
+    font-size: 1.2em;
+    color: #686868;
+    line-height: 1.6;
 }
 
-
+/* CAROUSEL STYLING - REVISED */
 .carousel {
-  width: 100%;
-  height: auto; /* Let the height be controlled by carousel-inner/item */
-  margin-bottom: 4%;
-  position: relative;
-  /* If you want a box shadow for the whole carousel container: */
-  /* box-shadow: -1px 1px 30px 26px rgba(33, 33, 33, 0.795); */
+    width: 100%;
+    /* Remove fixed height from .carousel, let .carousel-inner control it */
+    margin-bottom: 4%;
+    position: relative;
+    /* Optional: Add box-shadow here if desired */
 }
 
-.bnr-vid video {
+/* Ensure video in carousel covers its container */
+.carousel-item video {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: 100%; /* Important: Make video fill the item */
+    object-fit: cover; /* Ensures video covers the area without distortion */
+    display: block; /* Remove any extra space below video */
 }
+
 
 .carousel-inner {
-  width: 100%;
-  height: 600px; /* Fixed height for consistency, adjust as needed */
+    /* Use a responsive approach for height.
+       Using 'vh' can be good for full-height sections, but be mindful of browser UI.
+       A fixed height with media queries is also a valid approach.
+       Let's stick to your fixed height, but ensure it's responsive. */
+    width: 100%;
+    height: 600px; /* Base height for larger screens */
+    /* If you want the inner carousel itself to have rounded corners */
+    /* border-radius: 12px; */
 }
 
 .carousel-item {
-  height: 100%;
-  position: relative; /* Crucial for positioning the overlay and image */
-  overflow: hidden; /* Ensures anything outside the item is clipped */
-  /* border-radius: 12px; */
+    height: 100%; /* This will correctly inherit 600px from .carousel-inner */
+    position: relative;
+    overflow: hidden;
+    /* If you want individual carousel items to have rounded corners */
+    /* border-radius: 12px; */
 }
 
 .carousel-item img {
-  /* This is the primary image, make it cover the entire item */
-  width: 100%; /* Important: Make image fill the item */
-  height: 100%;
-  object-fit: cover; /* Ensures image covers the area without distortion */
-  display: block; /* Remove any extra space below image */
-  /* Remove border-radius here if you apply it to .carousel-item */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 /* Optional: Overlay for gradient effect */
-.carousel-item .image-overlay { 
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
-  pointer-events: none; 
-  z-index: 2; 
+.carousel-item .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    pointer-events: none; /* Allows clicks to pass through to elements beneath if needed */
+    z-index: 2; /* Ensure it's above the image/video but below the caption */
 }
-
 
 .carousel-caption {
-  background: rgba(210, 214, 139, 0.103); /* semi-transparent background */
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 20px;
-  backdrop-filter: blur(2px);
-  bottom: 10%; 
-  left: 50%;
-  transform: translateX(-38%);
-  width: 80%; 
-  max-width: 600px; 
-  z-index: 3; /* Ensure caption is above overlay */
+    background: rgba(210, 214, 139, 0.048);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(2px);
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-38%); /* This ensures it's horizontally centered with an offset */
+    width: 80%;
+    max-width: 600px;
+    z-index: 3; /* Ensure caption is above overlay */
 }
 
-.carousel-caption h5 {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #fff;
+.carousel-caption h1 { /* Changed h5 to h1 based on your HTML */
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 5px; /* Add some space below heading */
 }
 
 .carousel-caption p {
-  font-size: 1.1rem;
-  color: #ddd;
+    font-size: 1.1rem;
+    color: #ddd;
 }
 
+/* Media Queries - Ensure these are applied correctly */
 @media (max-width: 768px) {
-  .hand-image-section {
-    padding: 40px 15px;
-  }
+    .hand-image-section {
+        padding: 40px 15px;
+    }
 
-  .hand-image-text {
-    max-width: 700px;
-  }
+    .hand-image-text {
+        max-width: 700px;
+    }
 
-  .hand-image-text h2 {
-    font-size: 2.2em;
-  }
+    .hand-image-text h2 {
+        font-size: 2.2em;
+    }
 
-  .hand-image-text p {
-    font-size: 1.1em;
-  }
+    .hand-image-text p {
+        font-size: 1.1em;
+    }
 
-  /*slider*/
-  .carousel-caption {
-    width: 100%;
-  }
-
-  .carousel-caption h5 {
-    font-size: 1.2rem;
-  }
-
-  .carousel-caption p {
-    font-size: 0.95rem;
-  }
+    /* Adjust carousel for medium screens */
+    .carousel-inner {
+        height: 450px; /* Adjust height for tablets/medium screens */
+    }
+    .carousel-caption {
+        width: 90%; /* Increase width for better readability */
+        transform: translateX(-50%); /* Re-center for consistency */
+        left: 50%;
+    }
+    .carousel-caption h1 {
+        font-size: 1.8rem;
+    }
+    .carousel-caption p {
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 480px) {
-  .hand-image-section {
-    padding: 30px 10px;
-    /* Further adjust padding for very small screens */
-  }
+    .hand-image-section {
+        padding: 30px 10px;
+    }
 
-  .hand-image-text h2 {
-    font-size: 1.8em;
-    /* Smaller heading for mobile */
-  }
+    .hand-image-text h2 {
+        font-size: 1.8em;
+    }
 
-  .hand-image-text p {
-    font-size: 1em;
-    /* Smaller paragraph for mobile */
-  }
+    .hand-image-text p {
+        font-size: 1em;
+    }
 
-  /*Slider*/
-  .carousel-inner {
-    height: 300px;
-  }
-  .carousel-caption {
-    bottom: 2%; 
-    width: 95%;
-  }
-  .carousel-caption p {
-    font-size: 0.9rem; 
-  }
+    /* Adjust carousel for small screens (phones) */
+    .carousel-inner {
+        height: 300px; /* Smaller height for phones */
+    }
+    .carousel-caption {
+        bottom: 5%; /* Adjust position from bottom */
+        width: 95%; /* Make it almost full width */
+        /* padding: 10px; */
+        transform: translateX(-35%); /* Ensure it's centered */
+        left: 50%;
+    }
+    .carousel-caption h1 {
+        font-size: 1.2rem; /* Smaller heading */
+    }
+    .carousel-caption p {
+        font-size: 0.85rem; /* Smaller paragraph */
+    }
 }

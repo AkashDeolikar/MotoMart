@@ -18,7 +18,7 @@ const Footer = () => {
       <h2 className="ProjectName">MotoMart</h2>
       <div className="footer-container">
         <div className="footer-section">
-          <h4>Project Links</h4>
+          <h5 style={{color:'Highlight'}}>Project Links</h5>
           <ul>
             <li><a href="https://github.com/AkashDeolikar/MotoMart">GitHub <i class="bi bi-github"></i></a></li>
             <li><a href="https://motomart-ten.vercel.app">Vercel Hosting <i class="bi bi-git"></i></a></li>
@@ -26,7 +26,7 @@ const Footer = () => {
         </div>
 
         <div className="footer-section">
-          <h4>Quick Links</h4>
+          <h5 style={{color:'Highlight'}}>Quick Links</h5>
           <ul>
             <li><a href="/home">Home</a></li>
             <li><a href="/cardetails">Car Detail</a></li>

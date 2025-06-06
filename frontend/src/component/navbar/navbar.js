@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaSun, FaMoon, FaBars, FaTimes } from "react-icons/fa";
-import { IoCarSportSharp } from "react-icons/io5";
 import './navbar.css';
 import { auth } from "../../firebase";
 import ServiceDropdown from './ServiceDropdown';
 import VehicleDropdown from "./vehicledropdown";
+// import { IoCarSportSharp } from "react-icons/io5";
 
 
 const CarNavbar = ({ theme, toggleTheme }) => {
@@ -35,7 +35,8 @@ const CarNavbar = ({ theme, toggleTheme }) => {
     <nav className={`car-navbar ${theme}`} aria-label="Main Navigation">
       <div className="car-navbar-container">
         <div className="car-navbar-logo">
-          <IoCarSportSharp aria-hidden="true" /> MotoMart
+          <h1 className="ProjectName">MotoMart</h1>
+          {/* <IoCarSportSharp aria-hidden="true" /> MotoMart */}
         </div>
 
         <button

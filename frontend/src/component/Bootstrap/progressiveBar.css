@@ -1,0 +1,43 @@
+/* Progressive Bar */
+/* In home.css or a new CSS file */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top of other content */
+    flex-direction: column;
+}
+
+.progress-container {
+    width: 80%; /* Adjust width as needed */
+    max-width: 400px; /* Max width for larger screens */
+    background-color: #3d3d3d; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.progress {
+    height: 25px; /* Adjust height of the progress bar */
+    margin-bottom: 15px; /* Space below the progress bar */
+}
+
+.progress-bar {
+    color: #fff;
+    text-decoration: none;
+    background-color: #007bff; /* Bootstrap primary blue */
+    border-radius: inherit; /* Inherit border-radius from .progress */
+}
+
+.loading-text {
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin-top: 10px;
+}

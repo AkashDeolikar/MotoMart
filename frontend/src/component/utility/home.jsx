@@ -1,16 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
 import './home.css';
 import './tab.css';
-import './homecard.css'//for CardBox and slider horizontal
+import './homecard.css'; // For CardBox and slider horizontal
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import '../Bootstrap/bootstrapHomePage.css';
-// import './bootHome.css'; // This line is commented out, so it's not being used.
-
-// The commented-out imports below indicate they are not currently in use within the component.
-// import { SlArrowRight } from "react-icons/sl";
-// import { VscFeedback } from "react-icons/vsc";
-// import { useNavigate } from 'react-router-dom';
+import '../Bootstrap/progressiveBar.css';
 
 export const vehicleData = [
   {
@@ -100,6 +95,9 @@ export const vehicleData = [
 ];
 
 const Home = () => {
+  const navigate = useNavigate(); // Initialize useNavigate
+  const [isLoading, setIsLoading] = useState(false); // New loading state
+
   const featuredCars = [
     { id: 1, name: "Maruti Suzuki Swift", price: "5.99 Lakh", image: "./images/swift/SUZUKI_SWIFT_EXT_360_RED_V-1_5.webp" },
     { id: 2, name: "Hyundai Creta", price: "10.87 Lakh", image: "./images/creta/abyss-black_7.png" },
@@ -159,12 +157,25 @@ const Home = () => {
     "Toyota Innova": "/innova",
   };
 
+  // Function to handle navigation with loading state
+  const handleViewCarDetails = (carName) => {
+    setIsLoading(true); // Start loading
+    // Simulate network request or data loading
+    setTimeout(() => {
+      const route = carRouteMap[carName];
+      setIsLoading(false); // End loading
+      if (route) {
+        navigate(route); // Navigate to the car detail page
+      } else {
+        console.warn(`Route not found for ${carName}`);
+      }
+    }, 1500); // Simulate 1.5 seconds of loading time
+  };
+
   const renderVehicleCard = (vehicle) => (
     <div className="card-containerHome" key={vehicle.id}>
       <div className="video-sectionHome">
         <section>
-          {/* Note: In Seeoffer, we still use the <video> tag with a poster.
-              The actual embed will happen in CardDetail.js */}
           <video
             muted
             playsInline
@@ -172,9 +183,7 @@ const Home = () => {
             poster={vehicle.videoPoster}
             className="video-elementHome"
           >
-            {/* The source for the video tag here is less critical since it's just a preview/poster section.
-                If you have a short video preview, use it here. Otherwise, the poster is enough. */}
-            <source src={vehicle.videoSrc} type="video/mp4" /> {/* Still good to have if it's an actual video file */}
+            <source src={vehicle.videoSrc} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </section>
@@ -183,15 +192,7 @@ const Home = () => {
       <div className="content">
         <p className="descriptionHome">{vehicle.description}</p>
         <div className="button-rowHome">
-          {/* Commented out feedback button */}
-          {/* <button className="feedback-btnHome" onClick={handleFeedbackClick}>
-              <VscFeedback />
-              Feedback
-            </button> */}
-          {/* Commented out action group */}
-          {/* <div className="main-action-group" onClick={() => handleActionButtonClick(vehicle.id)}>
-              <div className="turn-on-button">{vehicle.buttonText}</div>
-            </div> */}
+          {/* Your existing commented out buttons */}
         </div>
       </div>
     </div>
@@ -218,11 +219,10 @@ const Home = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // --- SCROL SLIDER ---
+  // --- SCROLL SLIDER ---
   const targetSectionRef = useRef(null); // Create a ref for the target section that will be scrolled to.
   const scrollToTargetSection = () => {
     if (targetSectionRef.current) {
-      // Use console logs for debugging to ensure the ref is attached and the function is called
       console.log("Scrolling initiated. Target:", targetSectionRef.current);
       targetSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     } else {
@@ -232,73 +232,79 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      {/* Hero Section */}
+      {/* Loading Overlay - Conditionally Rendered */}
+      {isLoading && (
+        <div className="loading-overlay">
+          <div className="progress-container">
+            <div className="progress" role="progressbar" aria-label="Loading..." aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+              <div className="progress-bar progress-bar-striped progress-bar-animated" style={{ width: '100%' }}><i class="bi bi-cloud-arrow-down" style={{ fontSize: '15px' }}> Loading...</i></div>
+            </div>
+            <p className="loading-text">Please wait while we load the details...</p>
+          </div>
+        </div>
+      )}
 
-      {/* Bootstrap Carousel */}
-      <div id="carouselExampleCaptions" class="carousel slide">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      {/* Bootstrap Carousel (your existing code) */}
+      <div id="carouselExampleCaptions" className="carousel slide">
+        <div className="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
           <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
         </div>
 
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="https://www.tatamotors.com/wp-content/themes/TataMotors/images/TM_Home_Desktop4.webp" class="d-block w-100" alt="First Slide" />
-            <div class="carousel-caption d-none d-md-block">
+        <div className="carousel-inner">
+          <div className="carousel-item active">
+            <img src="https://www.tatamotors.com/wp-content/themes/TataMotors/images/TM_Home_Desktop4.webp" className="d-block w-100" alt="First Slide" />
+            <div className="carousel-caption">
               <h1>Connection aspirations.</h1>
               <h1>Delevering values.</h1>
             </div>
           </div>
 
-          <div class="carousel-item">
-            <video id="bnr-vid" preload="metadata" autoplay="" loop="" muted="" playsinline="" type="video/mp4" src="https://www.tatamotors.com/wp-content/themes/TataMotors/video/TML-Desktop-video.mp4">
+          <div className="carousel-item">
+            <video id="bnr-vid" preload="metadata" autoPlay loop muted playsInline type="video/mp4" src="https://www.tatamotors.com/wp-content/themes/TataMotors/video/TML-Desktop-video.mp4">
               Your browser does not support the video tag.
             </video>
-            {/* <img src="https://media.architecturaldigest.com/photos/66a914f1a958d12e0cc94a8e/16:9/w_2992,h_1683,c_limit/DSC_5903.jpg" class="d-block w-100" alt="Second Slide" /> */}
-            <div class="carousel-caption d-none d-md-block">
+            <div className="carousel-caption">
               <h1>A spotlight on</h1>
               <h1>Sustainability.</h1>
             </div>
           </div>
 
-          <div class="carousel-item">
-            <img src="https://www.tatamotors.com/wp-content/themes/TataMotors/images/TM_Home_Desktop2.webp" class="d-block w-100" alt="Second Slide" />
-            <div class="carousel-caption d-none d-md-block">
+          <div className="carousel-item">
+            <img src="https://www.tatamotors.com/wp-content/themes/TataMotors/images/TM_Home_Desktop2.webp" className="d-block w-100" alt="Second Slide" />
+            <div className="carousel-caption">
               <h1>Embracing</h1>
               <h1>Clean mobility.</h1>
             </div>
           </div>
 
-          <div class="carousel-item">
-            <img src="https://www.tatamotors.com/wp-content/themes/TataMotors/images/TM_Home_Desktop1.webp" class="d-block w-100" alt="Third Slide" />
-            <div class="carousel-caption d-none d-md-block">
+          <div className="carousel-item">
+            <img src="https://www.tatamotors.com/wp-content/themes/TataMotors/images/TM_Home_Desktop1.webp" className="d-block w-100" alt="Third Slide" />
+            <div className="carousel-caption">
               <h1>Tomorrow's choices,</h1>
               <h1>Today</h1>
             </div>
           </div>
         </div>
 
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
+        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span className="visually-hidden">Previous</span>
         </button>
 
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
+        <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span className="carousel-control-next-icon" aria-hidden="true"></span>
+          <span className="visually-hidden">Next</span>
         </button>
       </div>
-
-
 
       <div className="backgroundimage">
         <section className="naming">
           <h1>THE HEART OF JOY-REDEFINING DRIVING</h1>
           <div className="typing">{typingWords[currentWord]}</div>
         </section>
-        {/* 👇 Bootstrap Icon Overlay (This icon triggers the scroll) */}
         <i
           className="bi bi-arrow-down-circle"
           style={{
@@ -314,11 +320,12 @@ const Home = () => {
             cursor: 'pointer',
           }}
           title="Scroll Down"
-          onClick={scrollToTargetSection} ></i>
+          onClick={scrollToTargetSection}
+        ></i>
       </div>
 
       {/* Hand image section */}
-      <div className="hand-image-section" ref={targetSectionRef}> {/* <--- ADDED ref={targetSectionRef} HERE! */}
+      <div className="hand-image-section" ref={targetSectionRef}>
         <div className="hand-image-wrapper">
           <img
             ref={imageRef}
@@ -328,14 +335,13 @@ const Home = () => {
             height={1472}
             sizes="min((100vw - 48px) * 1.5, 800px)"
             srcSet={`
-              <p>HLH</p>
               https://framerusercontent.com/images/KcRmJwxep99VQhGCvjFixDxur6Q.webp?scale-down-to=512 512w,
               https://framerusercontent.com/images/KcRmJwxep99VQhGCvjFixDxur6Q.webp?scale-down-to=1024 1024w,
               https://framerusercontent.com/images/KcRmJwxep99VQhGCvjFixDxur6Q.webp?scale-down-to=2048 2048w,
               https://framerusercontent.com/images/KcRmJwxep99VQhGCvjFixDxur6Q.webp 2504w
             `}
             src="https://framerusercontent.com/images/KcRmJwxep99VQhGCvjFixDxur6Q.webp?scale-down-to=2048"
-            alt="hand" // Corrected for accessibility (removed "image" as it's redundant)
+            alt="hand"
             className="hand-image-grow"
           />
         </div>
@@ -357,7 +363,15 @@ const Home = () => {
                 <h3>{car.name}</h3>
                 <p>Price: ₹{car.price}<sup>*</sup> </p>
                 <br />
-                <Link to={carRouteMap[car.name]} className="view-btn">
+                {/* Modified Link to use handleViewCarDetails */}
+                <Link
+                  onClick={(e) => {
+                    e.preventDefault(); // Prevent default Link behavior
+                    handleViewCarDetails(car.name);
+                  }}
+                  to={carRouteMap[car.name]}
+                  className="view-btn"
+                >
                   View {car.name}
                 </Link>
               </div>
@@ -410,7 +424,19 @@ const Home = () => {
 
       {/* Call to Action */}
       <div className="cta">
-        <Link to="/cardetails" className="explore-btn">Explore Car List</Link>
+        {/* Modified Link to use handleViewCarDetails for "Explore Car List" */}
+        <button
+          className="explore-btn"
+          onClick={() => {
+            setIsLoading(true);
+            setTimeout(() => {
+              setIsLoading(false);
+              navigate("/cardetails"); // Assuming /cardetails is your general car list route
+            }, 1500);
+          }}
+        >
+          Explore Car List
+        </button>
       </div>
 
       <section className="intro">

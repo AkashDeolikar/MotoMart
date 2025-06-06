@@ -50,7 +50,7 @@ const CarDetail = ({ bikeData, carData }) => {
 
   // Determine the back button path and label dynamically
   const backPath = isBike ? '/Bikecard' : isCar ? '/Carcard' : '/SeeOffer';
-  const backLabel = isBike ? '← Back to Bikes' : isCar ? '← Back to Cars' : '← Back to Offers';
+  const backLabel = isBike ? <i class="bi bi-arrow-left-circle" style={{ fontSize: '20px' }}></i> : isCar ? <i class="bi bi-arrow-left-circle" style={{ fontSize: '20px' }}></i> : '← Back to Offers';
 
   // Determine if it's a YouTube embed or direct video
   const isYouTube = vehicle.videoSrc && vehicle.videoSrc.includes('youtube.com/embed');

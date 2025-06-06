@@ -45,7 +45,7 @@ const Contact = () => {
       </section>
 
       <div className="contact-container">
-        <h2>Contact Us</h2>
+        <h2>Contact Us <i class="bi bi-person-rolodex"></i></h2>
 
         <div className="contact-info">
           <p><strong>Email:</strong> support@motomart.com</p>
@@ -90,7 +90,7 @@ const Contact = () => {
             required
           />
 
-          <button type="submit">Submit</button>
+          <button type="submit"><i class="bi bi-send-check"></i></button>
         </form>
       </div>
     </div>
