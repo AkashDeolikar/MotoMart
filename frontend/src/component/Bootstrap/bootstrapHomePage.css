@@ -50,10 +50,16 @@
 /* CAROUSEL STYLING - REVISED */
 .carousel {
     width: 100%;
-    /* Remove fixed height from .carousel, let .carousel-inner control it */
-    margin-bottom: 4%;
     position: relative;
+    box-shadow: 8px solid black;
     /* Optional: Add box-shadow here if desired */
+}
+.carousel {
+  padding: 40px 0;
+  background-color: aliceblue;
+  background-image: 
+  linear-gradient(to top, #1f2020 20%, transparent 80%), /* first layer */
+  linear-gradient(to bottom, #454343 80%, transparent 80%);  /* second layer */
 }
 
 /* Ensure video in carousel covers its container */
@@ -104,7 +110,7 @@
 }
 
 .carousel-caption {
-    background: rgba(210, 214, 139, 0.048);
+    background: rgba(60, 60, 60, 0.038);
     padding: 20px;
     border-radius: 12px;
     margin-bottom: 20px;
@@ -118,10 +124,13 @@
 }
 
 .carousel-caption h1 { /* Changed h5 to h1 based on your HTML */
-    font-size: 2rem;
-    font-weight: bold;
     color: #fff;
-    margin-bottom: 5px; /* Add some space below heading */
+    font-family: "Nissan Light", "Nissan Regular", Verdana, Arial, sans-serif;
+    font-size: 30px;
+    letter-spacing: 1.35px;
+    line-height: 38px;
+    position: relative;
+    text-transform: none !important;
 }
 
 .carousel-caption p {

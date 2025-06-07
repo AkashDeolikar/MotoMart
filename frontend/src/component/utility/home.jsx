@@ -6,6 +6,13 @@ import './homecard.css'; // For CardBox and slider horizontal
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import '../Bootstrap/bootstrapHomePage.css';
 import '../Bootstrap/progressiveBar.css';
+import '../Bootstrap/bootstrapHorizontalSlider.css';
+
+//swiper
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/autoplay';
 
 export const vehicleData = [
   {
@@ -230,6 +237,30 @@ const Home = () => {
     }
   };
 
+  //swiper automatic
+  const fold2CardsData = [
+  {
+    className: 'fold2-pic1',
+    heading: 'The electric advantage',
+    link: 'https://www.tatamotors.com/electric-vehicles',
+  },
+  {
+    className: 'fold2-pic2',
+    heading: 'Building for progress',
+    link: 'https://www.tatamotors.com/organisation/innovation',
+  },
+  {
+    className: 'fold2-pic3',
+    heading: 'Future-ready begins here',
+    link: 'https://www.tatamotors.com/future-of-mobility',
+  },
+  {
+    className: 'fold2-pic4',
+    heading: 'Committed to do good',
+    link: 'https://www.tatamotors.com/corporate-responsibility/working-with-communities',
+  },
+];
+
   return (
     <div className="home-container">
       {/* Loading Overlay - Conditionally Rendered */}
@@ -300,11 +331,43 @@ const Home = () => {
         </button>
       </div>
 
+      {/*Slider function */}
+      <section className="home-fold2">
+      <div className="fold2-sldr-cvr">
+        <Swiper
+          modules={[Autoplay]}
+          slidesPerView={'auto'}
+          spaceBetween={30}
+          loop={true}
+          autoplay={{ delay: 3000 }}
+          className="fold2-sldr"
+        >
+          {fold2CardsData.map((card, index) => (
+            <SwiperSlide
+              key={index}
+              style={{ width: '328px' }}
+              className="swiper-slide"
+            >
+              <div className={`fold2-card ${card.className} anim-3`}>
+                <div className="caption-ca">
+                  <h2 className="caption-card h2">{card.heading}</h2>
+                  <a href={card.link} className="common-cta" target="_blank" rel="noreferrer">
+                    Explore
+                  </a>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </section>      
+
       <div className="backgroundimage">
         <section className="naming">
           <h1>THE HEART OF JOY-REDEFINING DRIVING</h1>
           <div className="typing">{typingWords[currentWord]}</div>
         </section>
+        {/*Down Arrow */}
         <i
           className="bi bi-arrow-down-circle"
           style={{
