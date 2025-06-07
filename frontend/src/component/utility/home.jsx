@@ -242,12 +242,12 @@ const Home = () => {
   {
     className: 'fold2-pic1',
     heading: 'The electric advantage',
-    link: 'https://www.tatamotors.com/electric-vehicles',
+    link: '/page1',
   },
   {
     className: 'fold2-pic2',
     heading: 'Building for progress',
-    link: 'https://www.tatamotors.com/organisation/innovation',
+    link: '/page2',
   },
   {
     className: 'fold2-pic3',
@@ -350,10 +350,8 @@ const Home = () => {
             >
               <div className={`fold2-card ${card.className} anim-3`}>
                 <div className="caption-ca">
+                  <a href={card.link} target="_blank" rel="noreferrer">Explore</a>
                   <h2 className="caption-card h2">{card.heading}</h2>
-                  <a href={card.link} className="common-cta" target="_blank" rel="noreferrer">
-                    Explore
-                  </a>
                 </div>
               </div>
             </SwiperSlide>

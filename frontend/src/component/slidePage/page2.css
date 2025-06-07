@@ -1,0 +1,228 @@
+/* Global Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Page1 Container */
+.B1Page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Background Section */
+.bgPaper {
+  width: 100vw;
+  height: 500px;
+  margin-left: calc(-50vw + 50%);
+  padding: 80px 0px;
+  box-sizing: border-box;
+
+  background-image: url('https://www.tatamotors.com/wp-content/themes/TataMotors/images/future-of-mobility-banner.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(to right, #000000 50%, transparent 0%, url('https://www.tatamotors.com/wp-content/themes/TataMotors/images/InnovationBanner.jpg'));
+  color: white;
+  text-align: left;
+}
+
+.bgPaper h5,
+.bgPaper h1 {
+  text-align: left;
+  margin-left: 10vh;
+  font-family: "Uni Neue", "sans-serif";
+  letter-spacing: 1.25px;
+}
+
+.bgPaper h5 {
+  font-size: 25px;
+  margin-top: 35px;
+}
+
+.bgPaper h1 {
+  font-size: 50px;
+}
+
+/* Constant Background Section */
+.ConstantBG {
+  background-color: #242427;
+}
+
+@media screen and (max-width: 991px) {
+  .ConstantBG {
+    padding-top: 50px !important;
+    padding-bottom: 50px !important;
+  }
+}
+
+.ConstantBG {
+  width: 100vw;
+  padding: 80px 20px;
+  margin-left: calc(-50vw + 50%);
+  box-sizing: border-box;
+
+  background-color: #242427;
+  background-image: url('../slidePage/pattern-dotted1.jpg'), url('../slidePage/pattern-dotted2.jpg');
+  background-repeat: no-repeat;
+  background-position: left top 30px, right top 30px;
+  background-size: 12%;
+
+  display: flex;
+  justify-content: center; /* horizontally centers child like .T1Page */
+}
+
+
+.T1Page {
+  width: 100%;
+  max-width: 890px;
+  padding: 40px;
+  border-radius: 8px;
+  background-color: transparent;
+}
+
+
+.T1Page h2 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.T1Page p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-size: 22px;
+  /* font-family: monospace; */
+}
+
+@media (min-width: 768px) {
+  .T1Page, .constantBGT2page {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 576px) {
+  .T1Page , .constantBGT2page {
+    max-width: 890px;
+  }
+}
+
+.T1Page, .constantBGT2page {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * .5);
+  padding-left: calc(var(--bs-gutter-x) * .5);
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+/* Collapse Section */
+.collapse {
+  margin-top: 20px;
+}
+
+.card-body {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .bgPaper {
+    width: 100vw;
+    height: 350px;
+  }
+
+  .bgPaper h1 {
+    font-size: 2.5rem;
+  }
+
+  .T1Page h2 {
+    font-size: 2rem;
+  }
+
+  .T1Page p {
+    font-size: 1rem;
+  }
+}
+
+
+.drop-flex {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  align-items: flex-start;
+  flex-wrap: wrap; /* Responsive fallback */
+}
+
+.drop-image img {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.drop-text {
+  flex: 1;
+  min-width: 250px;
+}
+
+@media (max-width: 768px) {
+  .drop-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .drop-text {
+    text-align: center;
+  }
+}
+
+/* .dropheading {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+} */
+.d-inline-flex {
+    margin-top: 20px;
+}
+.btn-attractive {
+  background: linear-gradient(to right, #0d6efd, #6610f2);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 24px;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+}

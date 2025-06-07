@@ -47,6 +47,11 @@ import CarDetail from "./component/headerfooter/cardetail";
 import ServiceDropdown from "./component/navbar/ServiceDropdown";
 import OverviewPage from "./component/pages/OverviewPage";
 
+//slider link import 
+import Page1 from "./component/slidePage/page1";
+import Page2 from "./component/slidePage/page2";
+// import BuildingForPregress from "./component/slidePage/BuildingForProgress";
+
 // Debug logs
 // console.log("Bike Data:", Bikecard);
 console.log("Bike Data:", bikeVehicleData);
@@ -107,6 +112,11 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister }) =
               <Route path="/temp" element={<Temp />} />
               <Route path="/overviewpage" element={<OverviewPage />} />
 
+              {/*Slider Page */}
+              {/* <Route path="buildingforprogress" element={<BuildingForPregress />} /> */}
+              <Route path="/page1" element={<Page1 />} />
+              <Route path="/page2" element={<Page2 />} />
+              
               {/* Car details */}
               <Route path="/cardetails" element={<CarDetails />} />
               <Route
