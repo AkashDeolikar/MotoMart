@@ -252,7 +252,7 @@ const Home = () => {
   {
     className: 'fold2-pic3',
     heading: 'Future-ready begins here',
-    link: 'https://www.tatamotors.com/future-of-mobility',
+    link: '/page3',
   },
   {
     className: 'fold2-pic4',
@@ -339,7 +339,7 @@ const Home = () => {
           slidesPerView={'auto'}
           spaceBetween={30}
           loop={true}
-          autoplay={{ delay: 3000 }}
+          autoplay={{ delay: 4000 }}
           className="fold2-sldr"
         >
           {fold2CardsData.map((card, index) => (

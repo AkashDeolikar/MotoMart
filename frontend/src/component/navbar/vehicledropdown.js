@@ -45,10 +45,10 @@ const VehicleDropdown = ({ closeParentMobileMenu, isParentMobileMenuOpen }) => {
 
             <div className="desk-nav-dd"> 
                 <ul>
-                    <li><Link to="/overviewpage" title="Overview" nav-title="Service" className="redirectionPath sub-nav" onClick={handleServiceLinkClick}>Overview</Link></li>
-                    <li><Link to="/Carcard" title="Service Cost Calculator" nav-title="Service" className="redirectionPath sub-nav" onClick={handleServiceLinkClick}>Explore Car</Link></li>
-                    <li><Link to="/Bikecard" title="Book a Service" nav-title="Service" className="redirectionPath sub-nav" onClick={handleServiceLinkClick}>Explore Bike</Link></li>
-                    <li><Link to="/cardetails" title="Service History" nav-title="Service" className="redirectionPath sub-nav" onClick={handleServiceLinkClick}>Car Details</Link></li>
+                    <li><Link to="/overviewpage" title="Overview" nav-title="Service" className="redirectionPath sub-nav" onClick={handleServiceLinkClick}>Overview <i class="bi bi-arrow-up-right-circle"></i></Link></li>
+                    <li><Link to="/Carcard" title="Service Cost Calculator" nav-title="Service" className="redirectionPath sub-nav" onClick={handleServiceLinkClick}>Explore Car <i class="bi bi-arrow-up-right-circle"></i></Link></li>
+                    <li><Link to="/Bikecard" title="Book a Service" nav-title="Service" className="redirectionPath sub-nav" onClick={handleServiceLinkClick}>Explore Bike <i class="bi bi-arrow-up-right-circle"></i></Link></li>
+                    <li><Link to="/cardetails" title="Service History" nav-title="Service" className="redirectionPath sub-nav" onClick={handleServiceLinkClick}>Car Details <i class="bi bi-arrow-up-right-circle"></i></Link></li>
                 </ul>
             </div>
 

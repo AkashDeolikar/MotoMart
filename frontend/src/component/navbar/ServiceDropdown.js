@@ -45,11 +45,11 @@ const ServiceDropdown = ({ closeParentMobileMenu, isParentMobileMenuOpen }) => {
 
             <div className="desk-nav-dd"> {/* This is your desktop dropdown content */}
                 <ul>
-                    <li><Link to="/overviewpage" title="Overview" nav-title="Service" className="redirectionPath sub-nav" onClick={handleServiceLinkClick}>Overview</Link></li>
-                    <li><Link to="/in/en/service/cost-calculator/" title="Service Cost Calculator" nav-title="Service" className="redirectionPath sub-nav" onClick={handleServiceLinkClick}>Service Cost Calculator</Link></li>
-                    <li><Link to="/in/en/service/get-motorcycle/" title="Book a Service" nav-title="Service" className="redirectionPath sub-nav" onClick={handleServiceLinkClick}>Book a Service</Link></li>
-                    <li><Link to="/in/en/service/service-history/" title="Service History" nav-title="Service" className="redirectionPath sub-nav" onClick={handleServiceLinkClick}>Service History</Link></li>
-                    <li><Link to="/in/en/service/ride-sure/" title="Ride Sure" nav-title="Service" className="redirectionPath sub-nav" onClick={handleServiceLinkClick}>Ride Sure</Link></li>
+                    <li><Link to="/overviewpage" title="Overview" nav-title="Service" className="redirectionPath sub-nav" onClick={handleServiceLinkClick}>Overview <i class="bi bi-arrow-up-right-circle"></i></Link></li>
+                    <li><Link to="/in/en/service/cost-calculator/" title="Service Cost Calculator" nav-title="Service" className="redirectionPath sub-nav" onClick={handleServiceLinkClick}>Service Cost Calculator <i class="bi bi-arrow-up-right-circle"></i></Link></li>
+                    <li><Link to="/in/en/service/get-motorcycle/" title="Book a Service" nav-title="Service" className="redirectionPath sub-nav" onClick={handleServiceLinkClick}>Book a Service <i class="bi bi-arrow-up-right-circle"></i></Link></li>
+                    <li><Link to="/in/en/service/service-history/" title="Service History" nav-title="Service" className="redirectionPath sub-nav" onClick={handleServiceLinkClick}>Service History <i class="bi bi-arrow-up-right-circle"></i></Link></li>
+                    <li><Link to="/in/en/service/ride-sure/" title="Ride Sure" nav-title="Service" className="redirectionPath sub-nav" onClick={handleServiceLinkClick}>Ride Sure <i class="bi bi-arrow-up-right-circle"></i></Link></li>
                 </ul>
             </div>
         </li>

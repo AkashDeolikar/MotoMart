@@ -20,18 +20,30 @@ a {
 /* Background Section */
 .bgPaper {
   width: 100vw;
-  height: 500px;
+  height: 600px;
   margin-left: calc(-50vw + 50%);
   padding: 80px 0px;
   box-sizing: border-box;
-
+  position: relative;
+  overflow: hidden;
   background-image: url('https://www.tatamotors.com/wp-content/themes/TataMotors/images/InnovationBanner.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: linear-gradient(to right, #000000 50%, transparent 0%, url('https://www.tatamotors.com/wp-content/themes/TataMotors/images/InnovationBanner.jpg'));
+  /* background-image: linear-gradient(to right, #00000 0 50%, transparent 0%, url('https://www.tatamotors.com/wp-content/themes/TataMotors/images/InnovationBanner.jpg')); */
   color: white;
   text-align: left;
+}
+.bgPaper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgb(0 0 0) 0%, rgba(0, 0, 0, 0) 100%);
+    pointer-events: none;
+    z-index: 1;
 }
 
 .bgPaper h5,
@@ -40,6 +52,8 @@ a {
   margin-left: 10vh;
   font-family: "Uni Neue", "sans-serif";
   letter-spacing: 1.25px;
+  position: relative; 
+  z-index: 2; 
 }
 
 .bgPaper h5 {
@@ -83,7 +97,6 @@ a {
 .T1Page {
   width: 100%;
   max-width: 890px;
-  padding: 40px;
   border-radius: 8px;
   background-color: transparent;
 }
@@ -98,11 +111,10 @@ a {
 
 .T1Page p {
   font-size: 1.1rem;
-  line-height: 1.6;
   color: #ffffff;
   margin-bottom: 20px;
   font-size: 22px;
-  font-family: monospace;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 @media (min-width: 768px) {
@@ -131,6 +143,7 @@ a {
 /* Collapse Section */
 .collapse {
   margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 .card-body {
@@ -187,7 +200,7 @@ a {
 }
 
 .drop-image img {
-  max-width: 400px;
+  max-width: 480px;
   width: 100%;
   height: auto;
   border-radius: 10px;
@@ -209,12 +222,6 @@ a {
   }
 }
 
-/* .dropheading {
-  font-size: 1.5rem;
-  color: #ffffff;
-  margin-bottom: 10px;
-  letter-spacing: 1px;
-} */
 .d-inline-flex {
     margin-top: 20px;
 }

@@ -22,9 +22,9 @@
 .fold2-card {
   position: relative;
   overflow: hidden;
-  height: 450px;
-  width: 300px;
-  border-radius: 10px;
+  height: 480px;
+  width: 330px;
+  border-radius: 15px;
   background-size: cover;
   background-position: center;
   color: white;
@@ -39,7 +39,7 @@
 }
 
 .fold2-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 

@@ -1,36 +1,50 @@
-.hero {
-  margin-top: 3rem;
-  text-align: center;
-  margin-bottom: 3rem;
+.contactBG {
+  width: 100rem;
+  height: 65vh;
+  position: relative;
+  overflow: hidden;
+  background-color: #0a0a5f;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 3rem;
 }
 
-body.dark .hero {
-  color: #f0f0f0; /* Text color for dark mode */
+.contactBG::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://www.tatamotors.com/wp-content/themes/TataMotors/images/media-banner-pattern.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 0;
 }
 
-.hero h1 {
-  font-size: 2rem;
-  color: #f6ad11; /* Default text color for light mode */
-  margin-bottom: 1rem;
+.contactBG::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.547) 11%, rgba(0, 0, 0, 0) 50%);
+  /* Darker on left, fades to transparent */
+  z-index: 0;
 }
 
-.hero p {
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
+
+.hero-text {
+  position: relative;
+  z-index: 1;
 }
 
-.explore-btn {
-  padding: 10px 20px;
-  background-color: #ffc003e7;
-  color: #141414;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: background-color 0.3s;
-}
-
-.explore-btn:hover {
-  background-color: #e0b842e7;
+.hero-text h2 {
+  color: #fbfbfa;
+  font-size: 2.5rem;
+  font-family: math;
 }
 
 .contact-container {
@@ -41,30 +55,9 @@ body.dark .hero {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   background-color: #fff;
   color: #333;
-  display: flex; /* Add this */
-  flex-direction: column; /* Add this to stack elements vertically */
-  align-items: center; /* Add this to center items horizontally along the cross-axis */
-}
-
-body.dark .contact-container {
-  background-color: #1e1e1e;
-  color: #f0f0f0;
-  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
-}
-
-/* Keep other styles as they are */
-
-.contact-container h2 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  color: inherit; /* Inherit text color from container */
-  color: #f6ad11; /* Default text color for light mode */
-}
-
-.contact-info {
-  margin-bottom: 1.5rem;
-  font-size: 1rem;
-  color: inherit; /* Inherit text color from container */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .contact-info p {
@@ -77,17 +70,10 @@ body.dark .contact-container {
   padding: 0.75rem;
   margin-bottom: 1rem;
   border-radius: 8px;
-  border: 1px solid #ccc; /* Default border for light mode */
+  border: 1px solid #ccc;
   font-size: 1rem;
-  color: inherit; /* Inherit text color from container */
-  background-color: #f9f9f9; /* Light background for inputs in light mode */
-  transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
-}
-
-body.dark .contact-form input,
-body.dark .contact-form textarea {
-  border-color: #555; /* Border for dark mode */
-  background-color: #333; /* Dark background for inputs in dark mode */
+  background-color: #f9f9f9;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .contact-form input:focus,
@@ -100,7 +86,7 @@ body.dark .contact-form textarea {
 .contact-form button {
   width: 100%;
   padding: 0.75rem;
-  background-color: #f0cc61e7; /* Use your brand color */
+  background-color: #f0cc61e7;
   color: #141414;
   font-size: 1rem;
   border: none;
@@ -113,39 +99,47 @@ body.dark .contact-form textarea {
   background-color: #e0b842e7;
 }
 
-.contact-form button:focus {
-  outline: none;
-  box-shadow: 0 0 5px rgba(240, 204, 97, 0.8);
+body.dark .contact-container {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
 }
 
-/* Responsive Design */
+body.dark .contact-form input,
+body.dark .contact-form textarea {
+  background-color: #333;
+  border-color: #555;
+}
+
+/* Mobile Styles */
 @media (max-width: 768px) {
-  .contact-container {
-    padding: 1.5rem;
-    margin: 1.5rem auto;
+  .contactBG {
+    width: 100%;
+    height: 30vh;
+    padding: 2rem 1rem;
+    text-align: center;
+    background-color: #0a0a5f;
+    background-image: none;
+    background-blend-mode: normal;
+    /* background-position: center;  */
   }
 
-  .hero {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+  .contactBG::before {
+    display: block;
+    width: 100%;
+    /* height: auto; */
+    background-size: cover;
+    opacity: 0.15;
+    background-position: center;
   }
 
-  .hero h1 {
-    font-size: 1.75rem;
+  .contactBG::after {
+    display: block;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.195) 0%, rgba(0, 0, 0, 0) 50%);
   }
 
-  .hero p {
-    font-size: 0.9rem;
-  }
-
-  .contact-info {
-    font-size: 0.9rem;
-  }
-
-  .contact-form input,
-  .contact-form textarea,
-  .contact-form button {
-    font-size: 0.9rem;
-    padding: 0.6rem;
+  .hero-text h2 {
+    color: #fbfbfa;
+    font-family: math;
   }
 }

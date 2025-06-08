@@ -12,48 +12,73 @@ a {
 }
 
 /* Page1 Container */
-.B1Page {
+.B1Page2 {
   max-width: 1200px;
   margin: 0 auto;
 }
 
 /* Background Section */
-.bgPaper {
+.bgPaper2 {
   width: 100vw;
-  height: 500px;
+  height: 600px;
   margin-left: calc(-50vw + 50%);
   padding: 80px 0px;
   box-sizing: border-box;
-
+  position: relative;
+  overflow: hidden;
   background-image: url('https://www.tatamotors.com/wp-content/themes/TataMotors/images/future-of-mobility-banner.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: linear-gradient(to right, #000000 50%, transparent 0%, url('https://www.tatamotors.com/wp-content/themes/TataMotors/images/InnovationBanner.jpg'));
+  /* background-image: linear-gradient(to right, #00000 0 50%, transparent 0%, url('https://www.tatamotors.com/wp-content/themes/TataMotors/images/InnovationBanner.jpg')); */
   color: white;
   text-align: left;
 }
+.bgPaper2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0)); */
+    background: linear-gradient(to right, rgb(0 0 0) 0%, rgba(248, 248, 248, 0) 100%);;
+    pointer-events: none;
+    /* z-index: 1; */
+}
 
-.bgPaper h5,
-.bgPaper h1 {
+.bgPaper2 h5,
+.bgPaper2 h1 {
   text-align: left;
   margin-left: 10vh;
   font-family: "Uni Neue", "sans-serif";
   letter-spacing: 1.25px;
+  position: relative; 
+  z-index: 2; 
 }
 
-.bgPaper h5 {
+.bgPaper2 h5 {
   font-size: 25px;
   margin-top: 35px;
 }
 
-.bgPaper h1 {
+.bgPaper2 h1 {
   font-size: 50px;
 }
 
 /* Constant Background Section */
 .ConstantBG {
+  width: 100vw;
+  padding: 80px 20px;
+  margin-left: calc(-50vw + 50%);
+  box-sizing: border-box;
   background-color: #242427;
+  background-image: url('../slidePage/pattern-dotted1.jpg'), url('../slidePage/pattern-dotted2.jpg');
+  background-repeat: no-repeat;
+  background-position: left top 30px, right top 30px;
+  background-size: 12%;
+  display: flex;
+  justify-content: center;
 }
 
 @media screen and (max-width: 991px) {
@@ -63,60 +88,45 @@ a {
   }
 }
 
-.ConstantBG {
-  width: 100vw;
-  padding: 80px 20px;
-  margin-left: calc(-50vw + 50%);
-  box-sizing: border-box;
-
-  background-color: #242427;
-  background-image: url('../slidePage/pattern-dotted1.jpg'), url('../slidePage/pattern-dotted2.jpg');
-  background-repeat: no-repeat;
-  background-position: left top 30px, right top 30px;
-  background-size: 12%;
-
-  display: flex;
-  justify-content: center; /* horizontally centers child like .T1Page */
-}
-
-
-.T1Page {
+.T2Page {
   width: 100%;
   max-width: 890px;
-  padding: 40px;
   border-radius: 8px;
   background-color: transparent;
 }
 
-
-.T1Page h2 {
+.T2Page h2 {
   font-size: 2.5rem;
   color: #ffffff;
   margin-bottom: 20px;
 }
 
-.T1Page p {
-  font-size: 1.1rem;
-  line-height: 1.6;
+.T2Page h3 {
+  font-size: 1.6rem;
   color: #ffffff;
   margin-bottom: 20px;
-  font-size: 22px;
-  /* font-family: monospace; */
+}
+
+.T2Page p {
+  font-size: 1.1rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-size: 16px;
 }
 
 @media (min-width: 768px) {
-  .T1Page, .constantBGT2page {
+  .T2Page, .constantBGT2page {
     max-width: 720px;
   }
 }
 
 @media (min-width: 576px) {
-  .T1Page , .constantBGT2page {
-    max-width: 890px;
+  .T2Page , .constantBGT2page {
+    max-width: 1100px;
   }
 }
 
-.T1Page, .constantBGT2page {
+.T2Page, .constantBGT2page {
   --bs-gutter-x: 1.5rem;
   --bs-gutter-y: 0;
   width: 100%;
@@ -130,6 +140,7 @@ a {
 /* Collapse Section */
 .collapse {
   margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 .card-body {
@@ -158,12 +169,12 @@ a {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .bgPaper {
+  .bgPaper2 {
     width: 100vw;
     height: 350px;
   }
 
-  .bgPaper h1 {
+  .bgPaper2 h1 {
     font-size: 2.5rem;
   }
 
@@ -174,55 +185,66 @@ a {
   .T1Page p {
     font-size: 1rem;
   }
+
+  .drop-flex2 {
+    flex-direction: column !important;
+    align-items: center;
+    text-align: center;
+  }
+
+  .drop-image2 {
+    margin-bottom: 20px;
+  }
+
+  .drop-text2 {
+    width: 100%;
+  }
 }
 
-
-.drop-flex {
+/* Image + Text Flexbox Section */
+.drop-flex2 {
   display: flex;
   flex-direction: row;
   gap: 30px;
-  align-items: flex-start;
-  flex-wrap: wrap; /* Responsive fallback */
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
 }
 
-.drop-image img {
-  max-width: 400px;
+.drop-flex2.reverse {
+  flex-direction: row-reverse;
+}
+
+.drop-image2 img {
+  max-width: 450px;
   width: 100%;
   height: auto;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
-.drop-text {
+.drop-text2 {
   flex: 1;
   min-width: 250px;
+  margin-top: 30px;
+  text-align: justify;
 }
 
-@media (max-width: 768px) {
-  .drop-flex {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .drop-text {
-    text-align: center;
-  }
-}
-
-/* .dropheading {
-  font-size: 1.5rem;
-  color: #ffffff;
-  margin-bottom: 10px;
-  letter-spacing: 1px;
-} */
+/* Button styling */
 .d-inline-flex {
-    margin-top: 20px;
+  margin-top: 20px;
 }
+
 .btn-attractive {
-  background: linear-gradient(to right, #0d6efd, #6610f2);
+  background: linear-gradient(to right, #0d6efd, #4600b8);
   color: white;
   border: none;
   border-radius: 50px;
   padding: 10px 24px;
   font-weight: 500;
   transition: all 0.3s ease-in-out;
+}
+
+.btn-attractive:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to right, #0b5ed7, #520dc2);
 }

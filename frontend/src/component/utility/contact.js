@@ -39,17 +39,17 @@ const Contact = () => {
 
   return (
     <div className="home-container">
-      <section className="hero">
-        <h1>HelpDesk and mails</h1>
-        <p>Your ultimate destination to explore cars, compare features, and find your dream ride.</p>
-      </section>
+      {/* Background Section */}
+      <div className="contactBG">
+        <div className="hero-text">
+          <h2>Contact Us <i className="bi bi-person-rolodex"></i></h2>
+        </div>
+      </div>
 
+      {/* Form Section */}
       <div className="contact-container">
-        <h2>Contact Us <i class="bi bi-person-rolodex"></i></h2>
-
         <div className="contact-info">
-          <p><strong>Email:</strong> support@motomart.com</p>
-          <p><strong>Phone:</strong> +91 9876543210</p>
+          <p><strong>Fill the details</strong></p>
         </div>
 
         <form className="contact-form" onSubmit={handleSubmit}>
@@ -90,7 +90,7 @@ const Contact = () => {
             required
           />
 
-          <button type="submit"><i class="bi bi-send-check"></i></button>
+          <button type="submit"><i className="bi bi-send-check"></i></button>
         </form>
       </div>
     </div>

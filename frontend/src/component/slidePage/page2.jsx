@@ -3,42 +3,41 @@ import './page2.css';
 
 const Page1 = () => {
     return (
-        <div className="B1Page">
-            <div className="bgPaper">
+        <div className="B1Page2">
+            <div className="bgPaper2">
                 <h5>Future of mobility</h5>
                 <h1>Safer<i class="bi bi-chevron-double-right"></i>Smarter<i class="bi bi-chevron-double-right"></i>Greener</h1>
 
             </div>
 
             <div className="ConstantBG">
-                <div className="T1Page">
+                <div className="T2Page">
                     <h2 className="constantBGT2page">Welcome to the future</h2>
                     <h3 className="constantBGT2page">Human-centric, smart and green.</h3>
-                    <p className="constantBGT2page">
-                        <div className="drop-image">
-                                <img
-                                    src="https://www.tatamotors.com/wp-content/themes/TataMotors/images/welcome-to-1.png"
-                                    alt="Design Illustration"
-                                />
-                            </div>
-                        Smart customers aspire vehicles that deliver climate change neutrality, best-in-class features and safety. No compromises.
-                        <br /><br />
-                        We are putting these progressive ideas into action. Leaner designs, cleaner materials, greener powertrains and purposeful recycling will make our vehicles more aspirational.
-                        <br /><br />
-                        Future-ready technologies – hydrogen-powered internal combustion engines, efficient fuel delivery systems, battery electric powertrains and hydrogen fuel cell powered electric will accelerate the adoption of clean mobility. Our vision, commitment and capability are bringing the promise of tomorrow closer.
-                    </p>
-                    <p className="constantBGT2page">
-                        <div className="drop-image">
-                                <img
-                                    src="https://www.tatamotors.com/wp-content/themes/TataMotors/images/welcome-to-2.png"
-                                    alt="Design Illustration"
-                                />
-                            </div>
-                        We are spearheading the transition to sustainable, connected and safer mobility. Combining our core strength in engineering with innovative technologies and a human-centric design philosophy, we are transforming our entire product portfolio, value chain and operations.
-                        <br /><br />
-                        We are exploring every new opportunity to create augmented experiences for customers, in line with their aspirations, needs and lifestyle.<br/><br/>
-                        Our focused investments in developing world-class, new-age powertrains will drive super performance – noiseless and with zero emissions. Continually decarbonising mobility is essential to achieve our goal of Net Zero by 2045.
-                    </p>
+
+                    {/* Block 1: Image on Right */}
+                    <div className="drop-flex2">
+                        <div className="drop-text2">
+                                <p>Smart customers aspire vehicles that deliver climate change neutrality, best-in-class features and safety. No compromises.</p>
+                                <p>We are putting these progressive ideas into action. Leaner designs, cleaner materials, greener powertrains and purposeful recycling will make our vehicles more aspirational.</p>
+                                <p>Future-ready technologies – hydrogen-powered internal combustion engines, efficient fuel delivery systems, battery electric powertrains and hydrogen fuel cell powered electric will accelerate the adoption of clean mobility. Our vision, commitment and capability are bringing the promise of tomorrow closer.</p>
+                        </div>
+                        <div className="drop-image2">
+                            <img src="https://www.tatamotors.com/wp-content/themes/TataMotors/images/welcome-to-1.png" alt="Design Illustration" />
+                        </div>
+                    </div>
+
+                    {/* Block 2: Image on Left */}
+                    <div className="drop-flex2 reverse">
+                        <div className="drop-text2">
+                            <p>We are spearheading the transition to sustainable, connected and safer mobility. Combining our core strength in engineering with innovative technologies and a human-centric design philosophy, we are transforming our entire product portfolio, value chain and operations.</p>
+                            <p>We are exploring every new opportunity to create augmented experiences for customers, in line with their aspirations, needs and lifestyle.</p>
+                            <p>Our focused investments in developing world-class, new-age powertrains will drive super performance – noiseless and with zero emissions. Continually decarbonising mobility is essential to achieve our goal of Net Zero by 2045.</p>
+                        </div>
+                        <div className="drop-image2">
+                            <img src="https://www.tatamotors.com/wp-content/themes/TataMotors/images/welcome-to-2.png" alt="Design Illustration" />
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -87,7 +86,7 @@ const Page1 = () => {
                     </button>
                 </p>
                 <div className="collapse" id="collapseTechnology">
-                    <div className="drop-flex">
+                    <div className="drop-flex3">
                         <div className="drop-image">
                             <img
                                 src="https://www.tatamotors.com/wp-content/themes/TataMotors/images/innovation-pix2.jpg"
@@ -102,7 +101,13 @@ const Page1 = () => {
                     </div>
                 </div>
             </div>
-        </div>
+
+            {/* <div className="btn-group" role="group" aria-label="Basic outlined example">
+                <button type="button" className="btn btn-outline-primary">Left</button><p>Lorem ipsum dolor sit.</p>
+                <button type="button" className="btn btn-outline-primary">Middle</button>
+                <button type="button" className="btn btn-outline-primary">Right</button>
+            </div> */}
+        </div >
     );
 };
 

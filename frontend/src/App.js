@@ -50,6 +50,7 @@ import OverviewPage from "./component/pages/OverviewPage";
 //slider link import 
 import Page1 from "./component/slidePage/page1";
 import Page2 from "./component/slidePage/page2";
+import Page3 from "./component/slidePage/page3";
 // import BuildingForPregress from "./component/slidePage/BuildingForProgress";
 
 // Debug logs
@@ -116,6 +117,7 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister }) =
               {/* <Route path="buildingforprogress" element={<BuildingForPregress />} /> */}
               <Route path="/page1" element={<Page1 />} />
               <Route path="/page2" element={<Page2 />} />
+              <Route path="/page3" element={<Page3 />} />
               
               {/* Car details */}
               <Route path="/cardetails" element={<CarDetails />} />
