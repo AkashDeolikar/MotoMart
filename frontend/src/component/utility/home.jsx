@@ -461,7 +461,7 @@ const Home = () => {
               setIsLoading(true);
               setTimeout(() => {
                 setIsLoading(false);
-                navigate("/luxury"); // Assuming /cardetails is your general car list route
+                navigate("/page5"); // Assuming /cardetails is your general car list route
               }, 1500);
             }}
           >
@@ -479,7 +479,7 @@ const Home = () => {
               to Net Zero</h2>
             <p className="appearIntro" >We are making responsible choices. By prioritizing sustainable mobility, safety,
               emission reduction and use of eco-friendly materials, we are driving meaningful change. </p>
-            <a href="https://www.tatamotors.com/corporate-responsibility" className="btn-boxx appearIntro">Read more</a>
+            <a href="/page6" className="btn-boxx appearIntro">Read more</a>
           </div>
         </div>
       </section>

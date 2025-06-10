@@ -14,8 +14,8 @@ import Home from "./component/utility/home";
 import Contact from "./component/utility/contact";
 import ForgotPassword from "./component/auth/forgotpassword";
 import Modal from "./component/auth/modal";
-import Seeoffer from "./component/headerfooter/seeoffer";
 import ContactClick from "./component/utility/contactclick";
+// import Seeoffer from "./component/headerfooter/seeoffer";
 
 // Car pages link
 import MarutSwiftDetail from "./component/cardetails/MarutSwiftDetail";
@@ -32,9 +32,9 @@ import { vehicleData as bikeVehicleData } from "./component/headerfooter/bikecar
 import { vehicleData as carVehicleData } from "./component/headerfooter/carcard";
 
 // Layout
+// import Header from "./component/headerfooter/header";
 import CarNavbar from "./component/navbar/navbar";
 import Footer from "./component/headerfooter/footer";
-import Header from "./component/headerfooter/header";
 import FeedBack from "./component/headerfooter/feedback";
 import ScrollToTop from "./component/utility/ScrollToTop";
 import Next from "./component/headerfooter/next";
@@ -53,6 +53,8 @@ import Page2 from "./component/slidePage/page2";
 import Page3 from "./component/slidePage/page3";
 import Page4 from "./component/slidePage/page4";
 import Luxury from "./component/slidePage/luxury";
+import Page6 from "./component/slidePage/Page6";
+import Page5 from "./component/slidePage/page5";
 // import BuildingForPregress from "./component/slidePage/BuildingForProgress";
 
 // Debug logs
@@ -67,7 +69,7 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister }) =
   return (
     <>
       <CarNavbar theme={theme} toggleTheme={toggleTheme} />
-      <Header />
+      {/* <Header /> */}
       <ScrollToTop />
       <div className="app-wrapper">
         <div className="ContentWrapper">
@@ -94,8 +96,8 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister }) =
               />
 
               {/* Utility and info pages */}
+              {/* <Route path="/header" element={<Seeoffer />} /> */}
               <Route path="/contact" element={<Contact />} />
-              <Route path="/header" element={<Seeoffer />} />
               <Route path="/contactclick" element={<ContactClick />} />
               <Route path="/feedback" element={<FeedBack />} />
               <Route path="/next" element={<Next />} />
@@ -109,7 +111,7 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister }) =
               <Route path="/innova" element={<ToyotaInnovaDetail />} />
 
               {/* Offer */}
-              <Route path="/seeoffer" element={<Seeoffer />} />
+              {/* <Route path="/seeoffer" element={<Seeoffer />} /> */}
               <Route path="/carcard" element={<Carcard />} />
               <Route path="/bikecard" element={<Bikecard />} />
               <Route path="/temp" element={<Temp />} />
@@ -121,6 +123,8 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister }) =
               <Route path="/page2" element={<Page2 />} />
               <Route path="/page3" element={<Page3 />} />
               <Route path="/page4" element={<Page4 />} />
+              <Route path="/page6" element={<Page6 />} />
+              <Route path="/page5" element={<Page5 />} />
               <Route path="/luxury" element={<Luxury />} />
               
               {/* Car details */}

@@ -37,7 +37,7 @@
 }
 .luxury-btn {
   animation: bounce 2s infinite ease;
-  background: linear-gradient(45deg, #070707, #0f24d9, #121111);
+  background: linear-gradient(180deg, #070707e8, #23295b, #000000);
 }
 @media (max-width:768px) {
     .luxuryvehicle{
