@@ -247,11 +247,24 @@ body {
 
 /*images*/
 .backgroundimage {
-  background-image: url("../Assets/image1.png"), url("../Assets/image2.png"), url("../Assets/image3.png");
+  position: relative;
+  width: 100%;
+  height: 30vh;
+  overflow: hidden;
+  display: flex;
+  /* flex-direction: column;
+  justify-content: center; */
+  align-items: center;
+  color: white;
+  text-align: center;
+  background-color: #333;
+}
+.backgroundimage {
+  background-image:   url("../Assets/image3.png");
   background-size: cover, cover, cover;
   background-position: center, center, center;
   background-repeat: no-repeat, no-repeat, no-repeat;
-  height: 40rem;
+  height: 20rem;
   width: 100%;
   display: flex;
   align-items: center;
@@ -259,24 +272,34 @@ body {
   position: relative;
   color: white;
   text-align: center;
-  border-radius: 30px;
+  /* border-radius: 30px; */
   text-shadow: 4px 4px 4px 6px rgba(15, 217, 200, 0.7)
 }
 
-.backgroundimage::before {
+/* .backgroundimage::before {
   content: "";
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.4);
   z-index: 0;
   border-radius: 30px;
-
+} */
+.backgroundimage::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.863) 0%, rgba(0, 0, 0, 0) 100%);
+    pointer-events: none;
+    z-index: 1;
 }
 
 .naming {
   position: relative;
   z-index: 1;
-  margin-bottom: 200px;
+  /* margin-bottom: 200px; */
 }
 
 .naming h1 {
@@ -284,23 +307,9 @@ body {
   font-size: 26px;
   letter-spacing: 1.05px;
   line-height: 38px;
+  color: #ffcc00;
   position: relative;
   text-transform: none !important;
-}
-
-/* Ensure the parent container has a position for absolute positioning of the video */
-.backgroundimage {
-  position: relative;
-  width: 100%;
-  height: 70vh;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  text-align: center;
-  background-color: #333;
 }
 
 /*EV*/
@@ -396,26 +405,39 @@ body {
     z-index: 1;
     text-decoration: none;
 }
-
-.typing {
+.aboutus{
+  padding: 40px;
+  font-family: "Nissan Light", "Nissan Regular", Verdana, Arial, sans-serif;
+  font-size: 26px;
+  letter-spacing: 1.05px;
+  line-height: 38px;
+  position: relative;
+}
+.passage{
+  font-size: 15px;
+  letter-spacing: 0ch;
+  line-height: normal;
+  color: #fff;
+  max-width: 500px;
+  margin-top: 10px;
+  font-family: system-ui;
+}
+/* .typing {
   font-family: "Nissan Light", "Nissan Regular", Verdana, Arial, sans-serif;
   font-size: 2rem;
   font-weight: 500;
   color: #ffcc00;
   animation: blinkCursor 1s infinite;
 }
-
 @keyframes blinkCursor {
-
   0%,
   100% {
     border-right: 2px solid #ffcc00;
   }
-
   50% {
     border-right: 2px solid transparent;
   }
-}
+} */
 
 /**/
 .rf-cards-scroller {

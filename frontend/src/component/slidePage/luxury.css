@@ -1,0 +1,124 @@
+.LuxuryWin {
+    width: 100%; /* Take full width of parent */
+    min-height: 700px; /* Ensure some height for content */
+    display: inline-flex; /* Use flexbox for horizontal layout */
+    /* gap: 15px; Space between the posters */
+    justify-content: center; /* Center items horizontally */
+    align-items: stretch; /* Stretch items to fill height */
+    padding: 20px; /* Add some padding around the group */
+    box-sizing: border-box; /* Include padding in element's total width and height */
+    background-color: #000; /* Dark background for the whole strip */
+}
+
+@media (max-width: 768px) {
+    .LuxuryWin {
+      display: inline-grid;
+        flex-direction: column; /* Stack posters vertically on smaller screens */
+        height: auto; /* Auto height when stacked */
+    }
+}
+
+.Poster1,
+.Poster2,
+.Poster3 {
+    flex: 1; /* Allows each poster to take equal available space */
+    min-width: 300px; 
+    max-width: 450px;
+    height: 600px; /* Fixed height for each poster */
+    position: relative; /* Crucial for positioning content inside it */
+    overflow: hidden; /* Hide anything outside */
+    color: white; /* Default text color for content inside */
+    text-align: center;
+    /* border-radius: 8px; Optional rounded corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    display: flex; /* For centering the overlay */
+    justify-content: center;
+    align-items: center;
+    background-size: cover; /* Ensure background images cover the area */
+    background-position: center; /* Center background images */
+    background-repeat: no-repeat;
+}
+
+/* Specific background images for each poster */
+.Poster1 {
+    /* The video will act as the background here */
+    background-image: url('https://www.tatamotors.com/wp-content/themes/TataMotors/images/future-of-mobility-banner.jpg');
+}
+
+.Poster2 {
+    background-image: url('https://www.tatamotors.com/wp-content/themes/TataMotors/images/future-of-mobility-banner.jpg');
+}
+
+.Poster3 {
+    background-image: url('https://www.tatamotors.com/wp-content/themes/TataMotors/images/future-of-mobility-banner.jpg');
+}
+
+/* Style for the video in Poster1 */
+.Poster1 .poster-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure video covers the entire poster area */
+    z-index: 1; /* Place video behind overlay */
+}
+
+
+/* Overlay for content (logo, text) */
+.poster-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; /* Place overlay on top of video/background image */
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 50%, transparent 100%); /* Fading gradient from bottom */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Push content to the bottom */
+    align-items: center;
+    padding-bottom: 30px; /* Space from the bottom edge */
+    transition: background 0.3s ease; /* Smooth transition for overlay */
+}
+
+/* Hover effect on overlay */
+.Poster1:hover .poster-overlay,
+.Poster2:hover .poster-overlay,
+.Poster3:hover .poster-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
+}
+
+
+.head1-logo {
+    width: 180px; /* Adjust logo size */
+    max-width: 80%; /* Ensure logo fits within smaller posters */
+    height: auto;
+    margin-bottom: 20px; /* Space between logo and CTA */
+}
+
+.poster-cta {
+        letter-spacing: 1.8px;
+    font-family: monospace;
+    background-color: #ffffff;
+    color: rgb(41, 41, 41); /* Text color for CTA */
+    padding: 10px 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.poster-cta:hover {
+    background-color: rgb(41, 41, 41); /* Red background for CTA */
+    color: #fbfbfb; /* Slightly lighter red on hover */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .Poster1,
+    .Poster2,
+    .Poster3 {
+        width: 100%; /* Take full width on small screens */
+        max-width: none; /* Remove max-width constraint */
+        height: 350px; /* Adjust height for mobile */
+    }
+}

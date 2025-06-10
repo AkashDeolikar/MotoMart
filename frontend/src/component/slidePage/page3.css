@@ -235,7 +235,7 @@ a {
 }
 
 .btn-attractive {
-  background: linear-gradient(to right, #0d6efd, #4600b8);
+  background: linear-gradient(to right, #000000, #0f00b8, #000000);
   color: white;
   border: none;
   border-radius: 50px;
@@ -246,5 +246,5 @@ a {
 
 .btn-attractive:hover {
   transform: scale(1.05);
-  background: linear-gradient(to right, #0b5ed7, #520dc2);
+  background: linear-gradient(to right, #000000, #0f00b8, #000000);
 }

@@ -7,6 +7,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import '../Bootstrap/bootstrapHomePage.css';
 import '../Bootstrap/progressiveBar.css';
 import '../Bootstrap/bootstrapHorizontalSlider.css';
+import '../Bootstrap/bootstrapluxuryvehicle.css';
 
 //swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -14,92 +15,92 @@ import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 
-export const vehicleData = [
-  {
-    manufacturer: '4-Wheeler',
-    idPrefix: '4-Wheeler',
-    vehicles: [
-      {
-        id: 'suzuki-car',
-        videoPoster: "https://www.carlogos.org/logo/Suzuki-logo-640x425.jpg",
-        description: "SUZUKI",
-      },
-      {
-        id: 'hyundai-car',
-        videoPoster: "https://www.carlogos.org/car-logos/hyundai-logo-2011-640.png",
-        description: "HYUNDAI",
-      },
-      {
-        id: 'renault-car',
-        videoPoster: "https://www.carlogos.org/logo/Renault-logo-2015-640x550.jpg",
-        description: "RENAULT",
-      },
-      {
-        id: 'bmw-car',
-        videoPoster: "https://www.carlogos.org/car-logos/bmw-logo-2020-gray.png",
-        description: "BMW",
-      },
-      {
-        id: 'volkswagen-car',
-        videoPoster: "https://www.carlogos.org/logo/Volkswagen-logo-2019-640x500.jpg",
-        description: "VOLKSWAGEN", // Corrected spelling
-      },
-      {
-        id: 'tata-car',
-        videoPoster: "https://www.carlogos.org/logo/Tata-logo-2000-640x550.jpg",
-        description: "TATA",
-      },
-      {
-        id: 'toyota-car',
-        videoPoster: "https://www.carlogos.org/car-logos/toyota-logo-2005-download.png",
-        description: "TOYOTA",
-      },
-      {
-        id: 'mahindra-car',
-        videoPoster: "https://www.carlogos.org/logo/Mahindra-logo-640x316.jpg",
-        description: "MAHINDRA",
-      },
-    ]
-  },
-  {
-    manufacturer: '2-Wheeler',
-    idPrefix: '2-Wheeler',
-    vehicles: [
-      {
-        id: 'royal-enfield-bike',
-        videoPoster: "https://www.bikerspad.com/cdn/shop/collections/png-transparent-royal-enfield-logo-enfield-cycle-co-ltd-motorcycle-logo-royal-enfield-bicycle-royal-emblem-text-label.png?v=1651684842",
-        description: "ROYAL ENFIELD",
-      },
-      {
-        id: 'bajaj-bike',
-        videoPoster: "https://i.pinimg.com/736x/8b/e8/e5/8be8e5432419e9a984a3ab3fd3792905.jpg",
-        description: "BAJAJ",
-      },
-      {
-        id: 'tvs-bike',
-        videoPoster: "https://1000logos.net/wp-content/uploads/2020/07/TVS-Motor-Logo.jpg",
-        description: "TVS",
-      },
-      {
-        id: 'hero-bike',
-        videoPoster: "https://animationvisarts.com/wp-content/uploads/2023/12/image-11-1030x334.png",
-        description: "HERO",
-      }, {
-        id: 'yamaha-bike',
-        videoPoster: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Yamaha_Motor_Logo_%28full%29.svg/2560px-Yamaha_Motor_Logo_%28full%29.svg.png",
-        description: "YAMAHA",
-      }, {
-        id: 'honda-bike',
-        videoPoster: "https://download.logo.wine/logo/Honda/Honda-Logo.wine.png",
-        description: "HONDA",
-      }, {
-        id: 'suzuki-bike',
-        videoPoster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYVNcHT89onLkVVCUGFUrAtLkr7ytsifda_g&s",
-        description: "SUZUKI",
-      },
-    ]
-  },
-];
+// export const vehicleData = [
+//   {
+//     manufacturer: '4-Wheeler',
+//     idPrefix: '4-Wheeler',
+//     vehicles: [
+//       {
+//         id: 'suzuki-car',
+//         videoPoster: "https://www.carlogos.org/logo/Suzuki-logo-640x425.jpg",
+//         description: "SUZUKI",
+//       },
+//       {
+//         id: 'hyundai-car',
+//         videoPoster: "https://www.carlogos.org/car-logos/hyundai-logo-2011-640.png",
+//         description: "HYUNDAI",
+//       },
+//       {
+//         id: 'renault-car',
+//         videoPoster: "https://www.carlogos.org/logo/Renault-logo-2015-640x550.jpg",
+//         description: "RENAULT",
+//       },
+//       {
+//         id: 'bmw-car',
+//         videoPoster: "https://www.carlogos.org/car-logos/bmw-logo-2020-gray.png",
+//         description: "BMW",
+//       },
+//       {
+//         id: 'volkswagen-car',
+//         videoPoster: "https://www.carlogos.org/logo/Volkswagen-logo-2019-640x500.jpg",
+//         description: "VOLKSWAGEN", // Corrected spelling
+//       },
+//       {
+//         id: 'tata-car',
+//         videoPoster: "https://www.carlogos.org/logo/Tata-logo-2000-640x550.jpg",
+//         description: "TATA",
+//       },
+//       {
+//         id: 'toyota-car',
+//         videoPoster: "https://www.carlogos.org/car-logos/toyota-logo-2005-download.png",
+//         description: "TOYOTA",
+//       },
+//       {
+//         id: 'mahindra-car',
+//         videoPoster: "https://www.carlogos.org/logo/Mahindra-logo-640x316.jpg",
+//         description: "MAHINDRA",
+//       },
+//     ]
+//   },
+//   {
+//     manufacturer: '2-Wheeler',
+//     idPrefix: '2-Wheeler',
+//     vehicles: [
+//       {
+//         id: 'royal-enfield-bike',
+//         videoPoster: "https://www.bikerspad.com/cdn/shop/collections/png-transparent-royal-enfield-logo-enfield-cycle-co-ltd-motorcycle-logo-royal-enfield-bicycle-royal-emblem-text-label.png?v=1651684842",
+//         description: "ROYAL ENFIELD",
+//       },
+//       {
+//         id: 'bajaj-bike',
+//         videoPoster: "https://i.pinimg.com/736x/8b/e8/e5/8be8e5432419e9a984a3ab3fd3792905.jpg",
+//         description: "BAJAJ",
+//       },
+//       {
+//         id: 'tvs-bike',
+//         videoPoster: "https://1000logos.net/wp-content/uploads/2020/07/TVS-Motor-Logo.jpg",
+//         description: "TVS",
+//       },
+//       {
+//         id: 'hero-bike',
+//         videoPoster: "https://animationvisarts.com/wp-content/uploads/2023/12/image-11-1030x334.png",
+//         description: "HERO",
+//       }, {
+//         id: 'yamaha-bike',
+//         videoPoster: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Yamaha_Motor_Logo_%28full%29.svg/2560px-Yamaha_Motor_Logo_%28full%29.svg.png",
+//         description: "YAMAHA",
+//       }, {
+//         id: 'honda-bike',
+//         videoPoster: "https://download.logo.wine/logo/Honda/Honda-Logo.wine.png",
+//         description: "HONDA",
+//       }, {
+//         id: 'suzuki-bike',
+//         videoPoster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYVNcHT89onLkVVCUGFUrAtLkr7ytsifda_g&s",
+//         description: "SUZUKI",
+//       },
+//     ]
+//   },
+// ];
 
 const Home = () => {
   const navigate = useNavigate(); // Initialize useNavigate
@@ -179,31 +180,31 @@ const Home = () => {
     }, 1500); // Simulate 1.5 seconds of loading time
   };
 
-  const renderVehicleCard = (vehicle) => (
-    <div className="card-containerHome" key={vehicle.id}>
-      <div className="video-sectionHome">
-        <section>
-          <video
-            muted
-            playsInline
-            disableRemotePlayback
-            poster={vehicle.videoPoster}
-            className="video-elementHome"
-          >
-            <source src={vehicle.videoSrc} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </section>
-      </div>
+  // const renderVehicleCard = (vehicle) => (
+  //   <div className="card-containerHome" key={vehicle.id}>
+  //     <div className="video-sectionHome">
+  //       <section>
+  //         <video
+  //           muted
+  //           playsInline
+  //           disableRemotePlayback
+  //           poster={vehicle.videoPoster}
+  //           className="video-elementHome"
+  //         >
+  //           <source src={vehicle.videoSrc} type="video/mp4" />
+  //           Your browser does not support the video tag.
+  //         </video>
+  //       </section>
+  //     </div>
 
-      <div className="content">
-        <p className="descriptionHome">{vehicle.description}</p>
-        <div className="button-rowHome">
-          {/* Your existing commented out buttons */}
-        </div>
-      </div>
-    </div>
-  );
+  //     <div className="content">
+  //       <p className="descriptionHome">{vehicle.description}</p>
+  //       <div className="button-rowHome">
+  //         {/* Your existing commented out buttons */}
+  //       </div>
+  //     </div>
+  //   </div>
+  // );
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -227,39 +228,37 @@ const Home = () => {
   }, []);
 
   // --- SCROLL SLIDER ---
-  const targetSectionRef = useRef(null); // Create a ref for the target section that will be scrolled to.
+  const targetSectionRef = useRef(null);//target value NULL
   const scrollToTargetSection = () => {
-    if (targetSectionRef.current) {
-      console.log("Scrolling initiated. Target:", targetSectionRef.current);
-      targetSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else {
-      console.warn("Scroll target not found. The element might not be rendered yet or the ref is not attached.");
-    }
+    targetSectionRef.current?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
   };
 
   //swiper automatic
   const fold2CardsData = [
-  {
-    className: 'fold2-pic1',
-    heading: 'The electric advantage',
-    link: '/page1',
-  },
-  {
-    className: 'fold2-pic2',
-    heading: 'Building for progress',
-    link: '/page2',
-  },
-  {
-    className: 'fold2-pic3',
-    heading: 'Future-ready begins here',
-    link: '/page3',
-  },
-  {
-    className: 'fold2-pic4',
-    heading: 'Committed to do good',
-    link: 'https://www.tatamotors.com/corporate-responsibility/working-with-communities',
-  },
-];
+    {
+      className: 'fold2-pic1',
+      heading: 'The electric advantage',
+      link: '/page1',
+    },
+    {
+      className: 'fold2-pic2',
+      heading: 'Building for progress',
+      link: '/page2',
+    },
+    {
+      className: 'fold2-pic3',
+      heading: 'Future-ready begins here',
+      link: '/page3',
+    },
+    {
+      className: 'fold2-pic4',
+      heading: 'Committed to do good',
+      link: '/page4',
+    },
+  ];
 
   return (
     <div className="home-container">
@@ -333,52 +332,56 @@ const Home = () => {
 
       {/*Slider function */}
       <section className="home-fold2">
-      <div className="fold2-sldr-cvr">
-        <Swiper
-          modules={[Autoplay]}
-          slidesPerView={'auto'}
-          spaceBetween={30}
-          loop={true}
-          autoplay={{ delay: 4000 }}
-          className="fold2-sldr"
-        >
-          {fold2CardsData.map((card, index) => (
-            <SwiperSlide
-              key={index}
-              style={{ width: '328px' }}
-              className="swiper-slide"
-            >
-              <div className={`fold2-card ${card.className} anim-3`}>
-                <div className="caption-ca">
-                  <a href={card.link} target="_blank" rel="noreferrer">Explore</a>
-                  <h2 className="caption-card h2">{card.heading}</h2>
+        <div className="fold2-sldr-cvr">
+          <Swiper
+            modules={[Autoplay]}
+            slidesPerView={'auto'}
+            spaceBetween={30}
+            loop={true}
+            autoplay={{ delay: 4000 }}
+            className="fold2-sldr"
+          >
+            {fold2CardsData.map((card, index) => (
+              <SwiperSlide
+                key={index}
+                style={{ width: '328px' }}
+                className="swiper-slide"
+              >
+                <div className={`fold2-card ${card.className} anim-3`}>
+                  <div className="caption-ca">
+                    <a href={card.link} target="_blank" rel="noreferrer">Explore</a>
+                    <h2 className="caption-card h2">{card.heading}</h2>
+                  </div>
                 </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-    </section>      
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </section>
 
       <div className="backgroundimage">
         <section className="naming">
-          <h1>THE HEART OF JOY-REDEFINING DRIVING</h1>
-          <div className="typing">{typingWords[currentWord]}</div>
+          <h1 >THE HEART OF JOY-REDEFINING DRIVING</h1>
+          {/* <div className="typing">{typingWords[currentWord]}</div> */}
+          <div className="aboutus">
+            <h5>About us</h5>
+            <h2>Agile, new-age and future-ready</h2>
+            <p className="passage">We are India’s market leader in commercial vehicles and amongst the top three in the passenger vehicles market. We prioritise human centricity with technological prowess and engineering excellence to make cargo and passenger mobility safer, smarter and greener.</p>
+          </div>
         </section>
         {/*Down Arrow */}
         <i
-          className="bi bi-arrow-down-circle"
+          className="bi bi-arrow-down-circle bounce-arrow"
           style={{
             position: 'absolute',
-            marginTop: '20rem',
-            top: '20px',
+            top: '80px',
             right: '20px',
             fontSize: '2.5rem',
             color: '#fff',
-            backgroundColor: 'rgba(0, 0, 0, 0.4)',
             borderRadius: '50%',
             padding: '10px',
             cursor: 'pointer',
+            zIndex: 1000,
           }}
           title="Scroll Down"
           onClick={scrollToTargetSection}
@@ -386,7 +389,7 @@ const Home = () => {
       </div>
 
       {/* Hand image section */}
-      <div className="hand-image-section" ref={targetSectionRef}>
+      {/* <div className="hand-image-section" ref={targetSectionRef}>
         <div className="hand-image-wrapper">
           <img
             ref={imageRef}
@@ -406,6 +409,8 @@ const Home = () => {
             className="hand-image-grow"
           />
         </div>
+        </div> */}
+      <div className="hand-image-box">
         <div className="hand-image-text">
           <h2>Experience the Future of Driving</h2>
           <p>Discover innovative features and cutting-edge technology designed to enhance your journey.</p>
@@ -442,6 +447,30 @@ const Home = () => {
         </div>
       </div>
 
+      <div className="hand-image-box1">
+        <div className="hand-image-text1">
+          <h2>Luxury vehicles</h2>
+          <h4>Reimagining <i class="bi bi-gem"></i> the future</h4>
+        </div>
+      </div>
+      <div className="luxuryvehicle">
+        <div>
+          <button
+            className="luxury-btn"
+            onClick={() => {
+              setIsLoading(true);
+              setTimeout(() => {
+                setIsLoading(false);
+                navigate("/luxury"); // Assuming /cardetails is your general car list route
+              }, 1500);
+            }}
+          >
+            {/*Down Arrow */}
+            <h1 className="luxuryheading">Luxury vehicle<i class="bi bi-box-arrow-in-right"></i></h1>
+          </button>
+        </div>
+      </div>
+
       <section className="suatainability-wrp">
         <div className="sus-cvr-wrp">
           <div className="container-1600-wrp">
@@ -455,7 +484,7 @@ const Home = () => {
         </div>
       </section>
 
-      <div className="seeoffer-backgroundakash">
+      {/* <div className="seeoffer-backgroundakash">
         <div className='cardbox'>
           {vehicleData.map((manufacturerGroup) => (
             <React.Fragment key={manufacturerGroup.manufacturer}>
@@ -471,7 +500,7 @@ const Home = () => {
             </React.Fragment>
           ))}
         </div>
-      </div>
+      </div> */}
 
       {/* Hot Deals Section */}
       <div className="deals">

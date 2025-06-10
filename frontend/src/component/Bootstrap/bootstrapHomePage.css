@@ -1,5 +1,5 @@
 /* Hand Image Section Styling - KEEP AS IS, it looks good */
-.hand-image-section {
+/* .hand-image-section {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,8 +10,7 @@
 }
 
 .hand-image-wrapper {
-    margin-top: 80vh; /* This creates a large scroll gap, might be intentional for parallax */
-    position: relative;
+    margin-top: 80vh; position: relative;
     width: 100%;
     max-width: 900px;
 }
@@ -19,8 +18,7 @@
 .hand-image-grow {
     display: block;
     width: 100%;
-    height: auto; /* Let height be automatic to maintain aspect ratio */
-    border-radius: inherit;
+    height: auto; border-radius: inherit;
     object-position: center center;
     object-fit: cover;
     transition: transform 0.3s ease-out;
@@ -29,12 +27,122 @@
 .hand-image-section:hover .hand-image-grow {
     transform: scale(1.03);
 }
+*/
+/* .hand-image-box{
+    padding: 100px;
+    color: white;
+    line-height: 1.6;
+    background: linear-gradient(to right, #000000, #4600b8,  #000000);
+} */
 
-.hand-image-text {
-    max-width: 700px;
+ /*Bounce effect for Down arrow*/
+ @keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-15px); }
+  60% { transform: translateY(-7px); }
+}
+.bounce-arrow {
+  animation: bounce 2s infinite ease;
 }
 
-.hand-image-text h2 {
+/*Hand Image Text*/
+ .hand-image-box {
+    padding: 100px;
+    color: white;
+    line-height: 1.6;
+    background: linear-gradient(to right, #000000, #4600b8, #000000);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 0 20px 10px rgba(0, 0, 0, 0.8), /* Soft, slightly larger shadow all around */
+        0 0 5px 2px rgba(0, 0, 0, 0.5);
+}
+
+.hand-image-box::before,
+.hand-image-box::after {
+    content: ''; 
+    position: absolute; 
+    left: 0;
+    width: 100%; 
+    height: 50px; 
+    pointer-events: none; 
+    z-index: 2; 
+}
+
+/* Top Fade */
+.hand-image-box::before {
+    top: 0;
+    background: linear-gradient(to bottom,
+        rgb(0, 0, 0), /* Start more opaque to match the edge */
+        rgba(0, 0, 0, 0)    /* Fade to fully transparent */
+    );
+}
+
+/* Bottom Fade */
+.hand-image-box::after {
+    bottom: 0;
+    /* Gradient from bottom (transparent) to top (black matching edge) */
+    background: linear-gradient(to top,
+        rgb(0, 0, 0), /* Start more opaque to match the edge */
+        rgba(0, 0, 0, 0)    /* Fade to fully transparent */
+    );
+}   
+.hand-image-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+/*Luxury Text*/
+ .hand-image-box1 {
+    padding: 65px;
+    color: white;
+    line-height: 1.6;
+    background: linear-gradient(to right, #000000, #4600b8, #000000);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 0 20px 10px rgba(0, 0, 0, 0.8), /* Soft, slightly larger shadow all around */
+        0 0 5px 2px rgba(0, 0, 0, 0.5);
+}
+
+.hand-image-box1::before,
+.hand-image-box1::after {
+    content: ''; 
+    position: absolute; 
+    left: 0;
+    width: 100%; 
+    height: 50px; 
+    pointer-events: none; 
+    z-index: 2; 
+}
+
+/* Top Fade */
+.hand-image-box1::before {
+    top: 0;
+    background: linear-gradient(to bottom,
+        rgb(0, 0, 0), /* Start more opaque to match the edge */
+        rgba(0, 0, 0, 0)    /* Fade to fully transparent */
+    );
+}
+
+/* Bottom Fade */
+.hand-image-box1::after {
+    bottom: 0;
+    /* Gradient from bottom (transparent) to top (black matching edge) */
+    background: linear-gradient(to top,
+        rgb(0, 0, 0), /* Start more opaque to match the edge */
+        rgba(0, 0, 0, 0)    /* Fade to fully transparent */
+    );
+}  
+.hand-image-text1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* .hand-image-text h2 {
     font-size: 2.8em;
     color: #7c7878;
     margin-bottom: 15px;
@@ -45,7 +153,7 @@
     font-size: 1.2em;
     color: #686868;
     line-height: 1.6;
-}
+} */
 
 /* CAROUSEL STYLING - REVISED */
 .carousel {
@@ -54,20 +162,26 @@
     box-shadow: 8px solid black;
     /* Optional: Add box-shadow here if desired */
 }
+
 .carousel {
-  padding: 40px 0;
-  background-color: aliceblue;
-  background-image: 
-  linear-gradient(to top, #1f2020 20%, transparent 80%), /* first layer */
-  linear-gradient(to bottom, #454343 80%, transparent 80%);  /* second layer */
+    padding: 40px 0;
+    background-color: aliceblue;
+    background-image:
+        linear-gradient(to top, #1f2020 20%, transparent 80%),
+        /* first layer */
+        linear-gradient(to bottom, #454343 80%, transparent 80%);
+    /* second layer */
 }
 
 /* Ensure video in carousel covers its container */
 .carousel-item video {
     width: 100%;
-    height: 100%; /* Important: Make video fill the item */
-    object-fit: cover; /* Ensures video covers the area without distortion */
-    display: block; /* Remove any extra space below video */
+    height: 100%;
+    /* Important: Make video fill the item */
+    object-fit: cover;
+    /* Ensures video covers the area without distortion */
+    display: block;
+    /* Remove any extra space below video */
 }
 
 
@@ -77,13 +191,15 @@
        A fixed height with media queries is also a valid approach.
        Let's stick to your fixed height, but ensure it's responsive. */
     width: 100%;
-    height: 600px; /* Base height for larger screens */
+    height: 600px;
+    /* Base height for larger screens */
     /* If you want the inner carousel itself to have rounded corners */
     /* border-radius: 12px; */
 }
 
 .carousel-item {
-    height: 100%; /* This will correctly inherit 600px from .carousel-inner */
+    height: 100%;
+    /* This will correctly inherit 600px from .carousel-inner */
     position: relative;
     overflow: hidden;
     /* If you want individual carousel items to have rounded corners */
@@ -105,25 +221,30 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
-    pointer-events: none; /* Allows clicks to pass through to elements beneath if needed */
-    z-index: 2; /* Ensure it's above the image/video but below the caption */
+    pointer-events: none;
+    /* Allows clicks to pass through to elements beneath if needed */
+    z-index: 2;
+    /* Ensure it's above the image/video but below the caption */
 }
 
 .carousel-caption {
     background: rgba(60, 60, 60, 0.038);
-    padding: 20px;
+    padding: 10px;
     border-radius: 12px;
     margin-bottom: 20px;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(1px);
     bottom: 10%;
-    left: 50%;
-    transform: translateX(-38%); /* This ensures it's horizontally centered with an offset */
+    left: 20%;
+    transform: translateX(-25%);
+    /* This ensures it's horizontally centered with an offset */
     width: 80%;
     max-width: 600px;
-    z-index: 3; /* Ensure caption is above overlay */
+    z-index: 1;
+    /* Ensure caption is above overlay */
 }
 
-.carousel-caption h1 { /* Changed h5 to h1 based on your HTML */
+.carousel-caption h1 {
+    /* Changed h5 to h1 based on your HTML */
     color: #fff;
     font-family: "Nissan Light", "Nissan Regular", Verdana, Arial, sans-serif;
     font-size: 30px;
@@ -158,16 +279,22 @@
 
     /* Adjust carousel for medium screens */
     .carousel-inner {
-        height: 450px; /* Adjust height for tablets/medium screens */
+        height: 450px;
+        /* Adjust height for tablets/medium screens */
     }
+
     .carousel-caption {
-        width: 90%; /* Increase width for better readability */
-        transform: translateX(-50%); /* Re-center for consistency */
+        width: 90%;
+        /* Increase width for better readability */
+        transform: translateX(-50%);
+        /* Re-center for consistency */
         left: 50%;
     }
+
     .carousel-caption h1 {
         font-size: 1.8rem;
     }
+
     .carousel-caption p {
         font-size: 1rem;
     }
@@ -188,19 +315,28 @@
 
     /* Adjust carousel for small screens (phones) */
     .carousel-inner {
-        height: 300px; /* Smaller height for phones */
+        height: 300px;
+        /* Smaller height for phones */
     }
+
     .carousel-caption {
-        bottom: 5%; /* Adjust position from bottom */
-        width: 95%; /* Make it almost full width */
+        bottom: 5%;
+        /* Adjust position from bottom */
+        width: 95%;
+        /* Make it almost full width */
         /* padding: 10px; */
-        transform: translateX(-35%); /* Ensure it's centered */
-        left: 50%;
+        transform: translateX(-35%);
+        /* Ensure it's centered */
+        left: 35%;
     }
+
     .carousel-caption h1 {
-        font-size: 1.2rem; /* Smaller heading */
+        font-size: 1.2rem;
+        /* Smaller heading */
     }
+
     .carousel-caption p {
-        font-size: 0.85rem; /* Smaller paragraph */
+        font-size: 0.85rem;
+        /* Smaller paragraph */
     }
 }

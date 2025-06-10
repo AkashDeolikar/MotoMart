@@ -50,7 +50,7 @@ a {
 .bgPaper h1 {
   text-align: left;
   margin-left: 10vh;
-  font-family: "Uni Neue", "sans-serif";
+  font-family: "sans-serif";
   letter-spacing: 1.25px;
   position: relative; 
   z-index: 2; 
@@ -226,7 +226,7 @@ a {
     margin-top: 20px;
 }
 .btn-attractive {
-  background: linear-gradient(to right, #0d6efd, #6610f2);
+  background: linear-gradient(to right, #000000, #0f00b8, #000000);
   color: white;
   border: none;
   border-radius: 50px;

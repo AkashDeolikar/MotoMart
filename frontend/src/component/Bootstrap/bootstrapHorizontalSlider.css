@@ -69,27 +69,32 @@
   flex-direction: column;
   gap: 10px;
   align-items: flex-start;
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
 .caption-ca h2 {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin: 0;
   color: white;
   z-index: 2;
 }
 
 .caption-ca a {
-  background: white;
-  color: black;
+  font-family:  monospace;
+  background: rgba(255, 255, 255, 0.474);
+  color: rgb(0, 0, 115);
   padding: 8px 16px;
   text-decoration: none;
   font-weight: bold;
   border-radius: 20px;
   width: fit-content;
   position: relative;
-  z-index: 2; /* Keep button above hover overlay */
+  /* z-index: 2; Keep button above hover overlay */
 }
-
+.caption-ca a:hover{
+  background: white;
+}
 @media (max-width: 768px) {
   .fold2-card {
     height: 300px;
