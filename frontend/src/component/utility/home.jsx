@@ -259,6 +259,7 @@ const Home = () => {
       link: '/page4',
     },
   ];
+  
 
   return (
     <div className="home-container">
@@ -267,7 +268,7 @@ const Home = () => {
         <div className="loading-overlay">
           <div className="progress-container">
             <div className="progress" role="progressbar" aria-label="Loading..." aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-              <div className="progress-bar progress-bar-striped progress-bar-animated" style={{ width: '100%' }}><i class="bi bi-cloud-arrow-down" style={{ fontSize: '15px' }}> Loading...</i></div>
+              <div className="progress-bar progress-bar-striped progress-bar-animated" style={{ width: '90%' }}><i class="bi bi-cloud-arrow-down" style={{ fontSize: '15px' }}> Loading...</i></div>
             </div>
             <p className="loading-text">Please wait while we load the details...</p>
           </div>
@@ -359,6 +360,7 @@ const Home = () => {
         </div>
       </section>
 
+        {/*Background image and text indexing */}
       <div className="backgroundimage">
         <section className="naming">
           <h1 >THE HEART OF JOY-REDEFINING DRIVING</h1>
@@ -410,6 +412,8 @@ const Home = () => {
           />
         </div>
         </div> */}
+
+        {/*intro sub-category*/}
       <div className="hand-image-box">
         <div className="hand-image-text">
           <h2>Experience the Future of Driving</h2>
@@ -447,6 +451,7 @@ const Home = () => {
         </div>
       </div>
 
+          {/*Luxury vehicle */}
       <div className="hand-image-box1">
         <div className="hand-image-text1">
           <h2>Luxury vehicles</h2>
@@ -470,7 +475,30 @@ const Home = () => {
           </button>
         </div>
       </div>
+      
+      {/*ContactBG */}
+      <div className="ConstantBGHome">
+        <div className="T1Page">
+          <h2 className="constantBGT1page">Shaping the unseen</h2>
+          <p className="constantBGT1page">
+            A strong understanding of customer demands, the emerging economic
+            landscape, combined with a purposeful, agile approach drives our
+            growth.
+          </p>
+          <p className="constantBGT1page">
+            Pushing frontiers to reimagine the future, our ‘Open Innovation’
+            strategy accelerates next-gen technology and fosters
+            collaborations with start-ups, scale-ups and like-minded
+            enterprises. We focus on electrification, connectivity, digital
+            services, metaverse, intelligent enterprise, manufacturing, supply
+            chain and sustainability. Building on our engineering and
+            innovation expertise, we enable customers to make the right choices
+            with our future-ready vehicles and mobility solutions.
+          </p>
+        </div>
+      </div>
 
+      {/*Sustanability chart */}
       <section className="suatainability-wrp">
         <div className="sus-cvr-wrp">
           <div className="container-1600-wrp">

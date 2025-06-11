@@ -276,6 +276,36 @@ body {
   text-shadow: 4px 4px 4px 6px rgba(15, 217, 200, 0.7)
 }
 
+/*CONSTANT BG SECTION HOME*/
+/* Constant Background Section */
+.ConstantBGHome {
+  background-color: #242427;
+}
+
+@media screen and (max-width: 991px) {
+  .ConstantBGHome {
+    padding-top: 50px !important;
+    padding-bottom: 50px !important;
+  }
+}
+
+.ConstantBGHome {
+  width: 100vw;
+  padding: 80px 20px;
+  margin-left: calc(-50vw + 50%);
+  box-sizing: border-box;
+
+  background-color: #242427;
+  background-image: url('../slidePage/pattern-dotted1.jpg'), url('../slidePage/pattern-dotted2.jpg');
+  background-repeat: no-repeat;
+  background-position: left top 30px, right top 30px;
+  background-size: 12%;
+
+  display: flex;
+  justify-content: center; /* horizontally centers child like .T1Page */
+}
+
+/*BACKGROUND IMG*/
 /* .backgroundimage::before {
   content: "";
   position: absolute;
@@ -313,6 +343,7 @@ body {
 }
 
 /*EV*/
+/*START HERE*/
 .suatainability-wrp {
   padding: 2.0rem;
     max-width: 1920px;
@@ -422,6 +453,8 @@ body {
   margin-top: 10px;
   font-family: system-ui;
 }
+/*END HERE*/
+
 /* .typing {
   font-family: "Nissan Light", "Nissan Regular", Verdana, Arial, sans-serif;
   font-size: 2rem;
