@@ -8,12 +8,17 @@ import '../Bootstrap/bootstrapHomePage.css';
 import '../Bootstrap/progressiveBar.css';
 import '../Bootstrap/bootstrapHorizontalSlider.css';
 import '../Bootstrap/bootstrapluxuryvehicle.css';
+import './swipepage.css';
 
 //swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/autoplay';
+
+//page swipe
+import { Pagination } from 'swiper/modules';
+import 'swiper/css/pagination';
 
 // export const vehicleData = [
 //   {
@@ -259,7 +264,7 @@ const Home = () => {
       link: '/page4',
     },
   ];
-  
+
 
   return (
     <div className="home-container">
@@ -360,7 +365,7 @@ const Home = () => {
         </div>
       </section>
 
-        {/*Background image and text indexing */}
+      {/*Background image and text indexing */}
       <div className="backgroundimage">
         <section className="naming">
           <h1 >THE HEART OF JOY-REDEFINING DRIVING</h1>
@@ -413,7 +418,7 @@ const Home = () => {
         </div>
         </div> */}
 
-        {/*intro sub-category*/}
+      {/*intro sub-category*/}
       <div className="hand-image-box">
         <div className="hand-image-text">
           <h2>Experience the Future of Driving</h2>
@@ -451,14 +456,15 @@ const Home = () => {
         </div>
       </div>
 
-          {/*Luxury vehicle */}
+      {/*Luxury vehicle */}
       <div className="hand-image-box1">
         <div className="hand-image-text1">
-          <h2>Luxury vehicles</h2>
-          <h4>Reimagining <i class="bi bi-gem"></i> the future</h4>
+          <h2>Stay inspired</h2>
+          <h4>This is just the beginning. <i class="bi bi-gem"></i> </h4>
         </div>
       </div>
-      <div className="luxuryvehicle">
+      {/*Luxury car poster and link */}
+      {/* <div className="luxuryvehicle">
         <div>
           <button
             className="luxury-btn"
@@ -466,36 +472,97 @@ const Home = () => {
               setIsLoading(true);
               setTimeout(() => {
                 setIsLoading(false);
-                navigate("/page5"); // Assuming /cardetails is your general car list route
+                navigate("/page5");
               }, 1500);
             }}
           >
-            {/*Down Arrow */}
             <h1 className="luxuryheading">Luxury vehicle<i class="bi bi-box-arrow-in-right"></i></h1>
           </button>
         </div>
-      </div>
-      
-      {/*ContactBG */}
-      <div className="ConstantBGHome">
-        <div className="T1Page">
-          <h2 className="constantBGT1page">Shaping the unseen</h2>
-          <p className="constantBGT1page">
-            A strong understanding of customer demands, the emerging economic
-            landscape, combined with a purposeful, agile approach drives our
-            growth.
-          </p>
-          <p className="constantBGT1page">
-            Pushing frontiers to reimagine the future, our ‘Open Innovation’
-            strategy accelerates next-gen technology and fosters
-            collaborations with start-ups, scale-ups and like-minded
-            enterprises. We focus on electrification, connectivity, digital
-            services, metaverse, intelligent enterprise, manufacturing, supply
-            chain and sustainability. Building on our engineering and
-            innovation expertise, we enable customers to make the right choices
-            with our future-ready vehicles and mobility solutions.
-          </p>
-        </div>
+      </div> */}
+
+      {/*SWipe PAges */}
+      <div className="ConstantBGHomeSwipe">
+        <Swiper
+          pagination={{
+            clickable: true,
+            el: '.custom-pagination',
+            bulletClass: 'custom-bullet',
+            bulletActiveClass: 'custom-bullet-active',
+          }}
+          modules={[Pagination]}
+          spaceBetween={30}
+          slidesPerView={1}
+        >
+          <SwiperSlide>
+              <div className="swipebg">
+                <div className="swipeimg1">
+            <div className="T1PageSwipe">
+              <h2 className="constantBGT1pageSwipe">Luxury Vehicle</h2>
+              <p className="constantBGT1pageSwipe">
+                Cutting-edge designs, quest to excel and promise to delight customers keeps us ahead of the curve. Our cars and SUVs offer best-in-class safety and superior driving experience.
+              </p>
+              <a href="/page5" className="readmore-ctaSwipe">
+                Discover Luxury vehicles
+              </a>
+            </div>
+            </div>
+            </div>
+          </SwiperSlide>  
+
+          <SwiperSlide>
+            <div className="swipebg">
+                <div className="swipeimg2">
+            <div className="T1PageSwipe">
+              <h2 className="constantBGT1pageSwipe">Passenger Vehicle</h2>
+              <p className="constantBGT1pageSwipe">
+                Cutting-edge designs, quest to excel and promise to delight customers keeps us ahead of the curve. Our cars and SUVs offer best-in-class safety and superior driving experience.
+              </p>
+              <a href="https://www.tatamotors.com/passenger-vehicles/" className="readmore-ctaSwipe">
+                Discover passenger vehicles
+              </a>
+            </div>
+            </div>
+            </div>
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <div className="swipebg">
+                <div className="swipeimg3">
+            <div className="T1PageSwipe">
+              <h2 className="constantBGT1pageSwipe">Go EV</h2>
+              <p className="constantBGT1pageSwipe">
+                Evolve to the new age of zero emissions, quieter drives and connected mobility.
+              </p>
+              <a href="https://www.tatamotors.com/electric-vehicles/" className="readmore-ctaSwipe">
+                Discover electric vehicles
+              </a>
+            </div>
+            </div>
+            </div>
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <div className="swipebg">
+                <div className="swipeimg4">
+            <div className="T1PageSwipe">
+              <h2 className="constantBGT1pageSwipe">Commercial Vehicle</h2>
+              <p className="constantBGT1pageSwipe">
+                Our commercial vehicles rule the roads they run on. No terrain is too challenging and no load too heavy.
+              </p>
+              <a href="https://www.tatamotors.com/commercial-vehicles/" className="readmore-ctaSwipe">
+                Discover commercial vehicles
+              </a>
+            </div>
+            </div>
+            </div>
+          </SwiperSlide>
+
+          {/* Add more slides if needed */}
+        </Swiper>
+
+        {/* Custom styled bullet bar below */}
+        <div className="custom-pagination"></div>
       </div>
 
       {/*Sustanability chart */}

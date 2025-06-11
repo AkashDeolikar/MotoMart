@@ -1,0 +1,221 @@
+/* @font-face {
+  font-family: "JDX-Font-Icons";
+  font-weight: "normal";
+  font-style: "normal";
+  src: url(fonts/jdx-icomoon.eot);
+  src: url(fonts/jdx-icomoon.woff) format("woff"), url(fonts/jdx-icomoon.ttf) format("truetype"), url(fonts/jdx-icomoon.svg#jdxicomoon) format("svg");
+}
+@font-face {
+  font-family: "JDX-Icons-2022";
+  font-weight: "normal";
+  font-style: "normal";
+  src: url(fonts/jdx-icons-2022.woff) format("woff"), url(fonts/jdx-icons-2022.ttf) format("truetype"), url(fonts/jdx-icons-2022.svg#jdxicons2022) format("svg");
+}
+@font-face {
+  font-family: "Jag Exhuberant Regular";
+  font-weight: "normal";
+  font-style: "normal";
+  src: url(fonts/JaguarExuberantW05-Regular.woff2) format("woff2"), url(fonts/JaguarExuberantW05-Regular.woff) format("woff");
+}
+@font-face {
+  font-family: "Jag Exhuberant Light";
+  font-weight: "normal";
+  font-style: "normal";
+  src: url(fonts/JaguarExuberantW05-Light.woff2) format("woff2"), url(fonts/JaguarExuberantW05-Light.woff) format("woff");
+}
+@font-face {
+  font-family: "Jag Exhuberant Bold";
+  font-weight: "normal";
+  font-style: "normal";
+  src: url(fonts/JaguarExuberantW05-Bold.woff2) format("woff2"), url(fonts/JaguarExuberantW05-Bold.woff) format("woff");
+} */
+
+.swipebg {
+  position: relative;
+  width: 100%;
+  height: 550px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.swipeimg1 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background-image:
+    linear-gradient(to right, rgba(31, 32, 32, 1) 30%, rgba(31, 32, 32, 0.6) 60%, rgba(31, 32, 32, 0)),
+    url('../utility/assetimg/luxury.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right center;
+}
+.swipeimg2 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background-image:
+    linear-gradient(to right, rgba(31, 32, 32, 1) 30%, rgba(31, 32, 32, 0.6) 60%, rgba(31, 32, 32, 0)),
+    url('../utility/assetimg/passenger.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right center;
+}
+.swipeimg3 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background-image:
+    linear-gradient(to right, rgba(31, 32, 32, 1) 30%, rgba(31, 32, 32, 0.6) 60%, rgba(31, 32, 32, 0)),
+    url('../utility/assetimg/ev.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right center;
+}
+.swipeimg4 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background-image:
+    linear-gradient(to right, rgba(31, 32, 32, 1) 30%, rgba(31, 32, 32, 0.6) 60%, rgba(31, 32, 32, 0)),
+    url('../utility/assetimg/commercial.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right center;
+}
+
+
+/* ==== Main container ==== */
+.ConstantBGHomeSwipe {
+  background-color: #1f1f22;
+  padding: 40px 10px;
+  width: 100%;
+  height: 750px;
+  display: block;
+  flex-direction: column; 
+  /* justify-content: center;  */
+}
+
+/* ==== Swiper content box ==== */
+.T1PageSwipe {
+  padding: 60px 20px;
+  width: 50%;
+  margin-left: 0;
+  margin-right: auto;
+  position: relative;
+  text-align: left;
+}
+
+.constantBGT1pageSwipe {
+  color: white;
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-family: "JaguarExuberantW05-Regular", Arial, Helvetica, sans-serif;
+}
+
+h2.constantBGT1pageSwipe {
+  color: rgb(44 70 212);
+  font-size: 36px;
+}
+
+/* ==== CTA button ==== */
+.readmore-ctaSwipe {
+  display: inline-block;
+  margin-top: 5rem;
+  font-size: 18px;
+  color: white;
+  /* text-decoration: none;
+  background-color: #007bff; */
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.readmore-ctaSwipe:hover {
+  color: #0056b3;
+}
+
+/* ==== Custom pagination container ==== */
+.custom-pagination {
+  display: flex;
+  height: 27px;
+  background-color: #3a3a3d;
+  margin-top: 50px;
+  overflow: hidden;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+/* ==== Bullets ==== */
+.custom-bullet {
+  flex: 1;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+/* ==== Active bullet ==== */
+.custom-bullet-active {
+  background-color: #101015;
+}
+
+/* ==== Labels Above Bullets ==== */
+.custom-bullet::before {
+  position: absolute;
+  /* top: -24px; */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  color: white;
+  white-space: nowrap;
+}
+
+/* Individual labels */
+.custom-bullet:nth-child(1)::before {
+  content: "Lxuxry vehicles";
+}
+
+.custom-bullet:nth-child(2)::before {
+  content: "Passenger vehicles";
+}
+
+.custom-bullet:nth-child(3)::before {
+  content: "Go EV";
+}
+
+.custom-bullet:nth-child(4)::before {
+  content: "Commercial Vehicle";
+}
+
+/* ==== Responsive design ==== */
+@media screen and (max-width: 768px) {
+  .T1PageSwipe {
+    height: auto;
+    width: 100%;
+    padding: 40px 15px;
+  }
+
+  .custom-pagination {
+    height: 40px;
+    margin-top: 30px;
+    width: 95%;
+  }
+
+  .custom-bullet::before {
+    white-space: normal;
+    font-size: 12px;
+    /* top: -20px; */
+  }
+}
+@media screen and (max-width: 768px) {
+  .swipebg1{
+    border-radius: 15px;
+  }
+}
