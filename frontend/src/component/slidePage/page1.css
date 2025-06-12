@@ -1,6 +1,7 @@
+@import '../fonts.css';
 /* Global Styles */
 body {
-  font-family: 'Roboto', sans-serif;
+  /* font-family: 'Roboto', sans-serif; */
   background-color: #f4f4f4;
   margin: 0;
   padding: 0;
@@ -50,7 +51,7 @@ a {
 .bgPaper h1 {
   text-align: left;
   margin-left: 10vh;
-  font-family: "sans-serif";
+  font-family: 'Jaguar Exuberant';
   letter-spacing: 1.25px;
   position: relative; 
   z-index: 2; 
@@ -106,7 +107,7 @@ a {
   font-size: 2.5rem;
   color: #ffffff;
   margin-bottom: 20px;
-  font-family: monospace;
+font-family: 'Jaguar Exuberant';
 }
 
 .T1Page p {
@@ -114,7 +115,7 @@ a {
   color: #ffffff;
   margin-bottom: 20px;
   font-size: 22px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: 'LandRoverWeb-light';
 }
 
 @media (min-width: 768px) {
@@ -130,6 +131,7 @@ a {
 }
 
 .T1Page, .constantBGT1page {
+  font-family: 'LandRoverWeb-Demi';
   --bs-gutter-x: 1.5rem;
   --bs-gutter-y: 0;
   width: 100%;
@@ -190,6 +192,13 @@ a {
   }
 }
 
+.drop-text2 {
+  font-family: 'LandRoverWeb-Light', Arial, sans-serif;
+  flex: 1;
+  min-width: 250px;
+  margin-top: 30px;
+  text-align: justify;
+}
 
 .drop-flex {
   display: flex;
@@ -225,12 +234,21 @@ a {
 .d-inline-flex {
     margin-top: 20px;
 }
-.btn-attractive {
-  background: linear-gradient(to right, #000000, #0f00b8, #000000);
-  color: white;
-  border: none;
-  border-radius: 50px;
-  padding: 10px 24px;
-  font-weight: 500;
-  transition: all 0.3s ease-in-out;
+.btn-attractive1 {
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 4px 24px;
+    /* font-weight: 500; */
+    transition: all 0.3s ease-in-out;
+    font-family: 'LandRoverWeb-Medium';
+    BACKGROUND: BLACK;
+}
+
+.dark .btn-attractive1 {
+  background-color: #181818; 
+  border: 1px solid white; 
+}
+.firstdrop, .seconddrop{
+  padding: 0px 15px 10px 20px;
 }

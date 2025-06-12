@@ -1,3 +1,4 @@
+@import '../fonts.css';
 /* Global Styles */
 body {
   font-family: 'Roboto', sans-serif;
@@ -51,7 +52,7 @@ a {
 .bgPaper5 h1 {
   text-align: left;
   margin-left: 7vh;
-  font-family: sans-serif;
+  font-family: 'Jaguar Exuberant';
   letter-spacing: 1.25px;
   position: relative; 
   z-index: 2; 
@@ -80,7 +81,15 @@ a {
   justify-content: center;
   display: grid;
 }
-
+.constantBGT1page5{
+  font-family: 'LandRoverWeb-Light';
+}
+.mb-2{
+  font-family: 'Jaguar Exuberant';
+}
+.mb-p{
+  font-family: 'LandRoverWeb-Medium';
+}
 @media screen and (max-width: 991px) {
   .ConstantBG {
     padding-top: 50px !important;
@@ -97,6 +106,7 @@ a {
 }
 
 .T5Page h2 {
+  font-family: 'LandRoverWeb-Demi';
   font-size: 2.5rem;
   color: #ffffff;
   margin-bottom: 20px;

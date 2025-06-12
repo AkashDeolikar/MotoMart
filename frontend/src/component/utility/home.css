@@ -18,14 +18,24 @@ body {
   width: 100%;
 }
 
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    border: 2px solid;
+    border-radius: 50%;
+}
+
 
 .featured-cars {
   padding: 2.0rem;
   margin-bottom: 3rem;
+  margin: 45px 0px 45px 0px;
+}
+.featured-cars h2{
+  font-family: 'Jaguar Exuberant', Arial, Helvetica, sans-serif;
+  padding: 10px;
 }
 
 .carousel-wrapper {
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
@@ -48,6 +58,24 @@ body {
   text-align: center;
   transition: transform 0.3s ease;
 }
+
+/* Default (Light Mode) */
+.car-cardbox h3 {
+  font-family: 'JaguarModernWeb-Bold', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 42px;
+  color: #333433; /* dark text for light background */
+  margin: 0;
+  padding: 0 0 15px 0;
+  text-transform: none;
+}
+
+/* Dark Mode - when parent has "dark" class */
+.dark .car-cardbox h3 {
+  color: white;
+}
+
 
 .car-cardbox img {
   border-radius: 8px;
@@ -200,7 +228,7 @@ body {
 
 .view-btn {
   padding: 8px 20px;
-  color: #f8c009;
+  color: #303030;
   border-radius: 5px;
   text-decoration: none;
   font-size: 0.8rem;
@@ -214,11 +242,17 @@ body {
   letter-spacing: 0;
   line-height: 43px;
 }
+.dark .view-btn{
+  color: #ebebeb;
+}
 
 .view-btn:hover {
-  font-size: 0.9rem;
-  transition: 0.3s;
   border: 1px solid #3ec409;
+  background-color: #ffffff;
+}
+.dark .view-btn:hover{
+  color: #ebebeb;
+  background-color: #1e1e1e;
 }
 
 .intro {
@@ -246,25 +280,23 @@ body {
 }
 
 /*images*/
-.backgroundimage {
+/* .backgroundimage {
   position: relative;
   width: 100%;
-  height: 30vh;
+  height: 40vh;
   overflow: hidden;
   display: flex;
-  /* flex-direction: column;
-  justify-content: center; */
   align-items: center;
   color: white;
   text-align: center;
   background-color: #333;
-}
+} */
 .backgroundimage {
   background-image:   url("../Assets/image3.png");
   background-size: cover, cover, cover;
   background-position: center, center, center;
   background-repeat: no-repeat, no-repeat, no-repeat;
-  height: 20rem;
+  height: 40rem;
   width: 100%;
   display: flex;
   align-items: center;
@@ -272,10 +304,25 @@ body {
   position: relative;
   color: white;
   text-align: center;
-  /* border-radius: 30px; */
   text-shadow: 4px 4px 4px 6px rgba(15, 217, 200, 0.7)
 }
 
+.backgroundimage::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.863) 0%, rgba(0, 0, 0, 0) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+@media (min-width: 768px) {
+    .backgroundimage {
+        height: 70vh;
+    }
+}
 /*CONSTANT BG SECTION HOME*/
 /* Constant Background Section */
 .ConstantBGHome {
@@ -314,17 +361,6 @@ body {
   z-index: 0;
   border-radius: 30px;
 } */
-.backgroundimage::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.863) 0%, rgba(0, 0, 0, 0) 100%);
-    pointer-events: none;
-    z-index: 1;
-}
 
 .naming {
   position: relative;
@@ -333,7 +369,8 @@ body {
 }
 
 .naming h1 {
-  font-family: "Nissan Light", "Nissan Regular", Verdana, Arial, sans-serif;
+  font-family: 'LandRoverWeb-Medium';
+  text-shadow: 0px 3px 5px #959595;
   font-size: 26px;
   letter-spacing: 1.05px;
   line-height: 38px;
@@ -438,11 +475,14 @@ body {
 }
 .aboutus{
   padding: 40px;
-  font-family: "Nissan Light", "Nissan Regular", Verdana, Arial, sans-serif;
+  font-family: 'LandRoverWeb-Medium';
   font-size: 26px;
   letter-spacing: 1.05px;
   line-height: 38px;
   position: relative;
+}
+.aboutus h5{
+  text-decoration: underline;
 }
 .passage{
   font-size: 15px;
@@ -451,7 +491,7 @@ body {
   color: #fff;
   max-width: 500px;
   margin-top: 10px;
-  font-family: system-ui;
+  font-family: 'LandRoverWeb-Light';
 }
 /*END HERE*/
 
@@ -681,7 +721,7 @@ html {
   }
 
   .backgroundimage {
-    height: 60vh;
+    height: 70vh;
   }
 
   .rf-cards-scroller-item {

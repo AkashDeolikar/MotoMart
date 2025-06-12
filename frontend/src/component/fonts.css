@@ -1,0 +1,118 @@
+/* --- Custom Fonts --- */
+/*
+  Given your file names like 'JaguarExuberantW05-Bold', 'JaguarExuberantW05-Regular',
+  and 'JaguarExuberantW05-Light', it's most robust to define them like this:
+*/
+
+/* JAGUAR FONTS */
+/* Define the Bold version of Jaguar Exuberant */
+@font-face {
+  font-family: "Jaguar Exuberant"; /* Use a consistent family name */
+  src: url("../component/Fonts/JaguarExuberantW05-Bold.woff2") format("woff2"),
+       url("../component/Fonts/JaguarExuberantW05-Bold.woff") format("woff");
+  font-weight: 700; /* Use numerical weights for bold (700 or 'bold') */
+  font-style: normal;
+  font-display: swap; /* Recommended for better user experience */
+}
+/* Define the Bold version of Jaguar Exuberant */
+@font-face {
+  font-family: "Jaguar Exuberant light"; /* Use a consistent family name */
+  src: url("../component/Fonts/JaguarExuberantW05-Light.woff2") format("woff2"),
+       url("../component/Fonts/JaguarExuberantW05-Light.woff") format("woff");
+  font-weight: 700; /* Use numerical weights for bold (700 or 'bold') */
+  font-style: normal;
+  font-display: swap; /* Recommended for better user experience */
+}
+/* Define the Bold version of Jaguar Exuberant */
+@font-face {
+  font-family: "Jaguar Exuberant Regular"; /* Use a consistent family name */
+  src: url("../component/Fonts/JaguarExuberantW05-Regular.woff2") format("woff2"),
+       url("../component/Fonts/JaguarExuberantW05-Regular.woff") format("woff");
+  font-weight: 700; /* Use numerical weights for bold (700 or 'bold') */
+  font-style: normal;
+  font-display: swap; /* Recommended for better user experience */
+}
+/* Define the Bold version of Jaguar Exuberant */
+@font-face {
+  font-family: "Jaguar Exuberant Thin"; /* Use a consistent family name */
+  src: url("../component/Fonts/JaguarExuberantW05-Thin.woff2") format("woff2"),
+       url("../component/Fonts/JaguarExuberantW05-Thin.woff") format("woff");
+  font-weight: 700; /* Use numerical weights for bold (700 or 'bold') */
+  font-style: normal;
+  font-display: swap; /* Recommended for better user experience */
+}
+/* Define the Bold version of Jaguar Exuberant */
+@font-face {
+  font-family: "JaguarModernWeb-Bold"; /* Use a consistent family name */
+  src: url("../component/Fonts/JaguarModernWeb-Bold.woff2") format("woff2"),
+       url("../component/Fonts/JaguarModernWeb-Bold.woff") format("woff");
+  font-weight: 700; /* Use numerical weights for bold (700 or 'bold') */
+  font-style: normal;
+  font-display: swap; /* Recommended for better user experience */
+}
+/* Define the Bold version of Jaguar Exuberant */
+@font-face {
+  font-family: "JaguarModernWeb-Regular"; /* Use a consistent family name */
+  src: url("../component/Fonts/JaguarModernWeb-Regular.woff2") format("woff2"),
+       url("../component/Fonts/JaguarModernWeb-Regular.woff") format("woff");
+  font-weight: 700; /* Use numerical weights for bold (700 or 'bold') */
+  font-style: normal;
+  font-display: swap; /* Recommended for better user experience */
+}
+/* Define the Bold version of Jaguar Exuberant */
+@font-face {
+  font-family: "Jaguar-Regular"; /* Use a consistent family name */
+  src: url("../component/Fonts/Jaguar-Regular.woff") format("woff");
+  font-weight: 700; /* Use numerical weights for bold (700 or 'bold') */
+  font-style: normal;
+  font-display: swap; /* Recommended for better user experience */
+}
+@font-face {
+  font-family: "Jaguar-Bold"; /* Use a consistent family name */
+  src: url("../component/Fonts/Jaguar-Bold.woff") format("woff");
+  font-weight: 700; /* Use numerical weights for bold (700 or 'bold') */
+  font-style: normal;
+  font-display: swap; /* Recommended for better user experience */
+}
+
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+/* ROVER FONTS */
+/* Define the Bold version of LandRoverWeb-Bold */
+@font-face {
+  font-family: "LandRoverWeb-Bold"; /* Use a consistent family name */
+  src: url("../component/Fonts/LandRoverWeb-Bold.woff2") format("woff2"),
+       url("../component/Fonts/LandRoverWeb-Bold.woff") format("woff");
+  font-weight: 700; /* Use numerical weights for bold (700 or 'bold') */
+  font-style: normal;
+  font-display: swap; /* Recommended for better user experience */
+}
+/* Define the Bold version of LandRoverWeb-Demi */
+@font-face {
+  font-family: "LandRoverWeb-Demi"; /* Use a consistent family name */
+  src: url("../component/Fonts/LandRoverWeb-Demi.woff2") format("woff2"),
+       url("../component/Fonts/LandRoverWeb-Demi.woff") format("woff");
+  font-weight: 700; /* Use numerical weights for bold (700 or 'bold') */
+  font-style: normal;
+  font-display: swap; /* Recommended for better user experience */
+}
+
+/* Define the Bold version of LandRoverWeb-Bold */
+@font-face {
+  font-family: "LandRoverWeb-Light"; /* Use a consistent family name */
+  src: url("../component/Fonts/LandRoverWeb-Light.woff2") format("woff2"),
+       url("../component/Fonts/LandRoverWeb-Light.woff") format("woff");
+  font-weight: 700; /* Use numerical weights for bold (700 or 'bold') */
+  font-style: normal;
+  font-display: swap; /* Recommended for better user experience */
+}
+
+/* Define the Bold version of LandRoverWeb-Bold */
+@font-face {
+  font-family: "LandRoverWeb-Medium"; /* Use a consistent family name */
+  src: url("../component/Fonts/LandRoverWeb-Medium.woff2") format("woff2"),
+       url("../component/Fonts/LandRoverWeb-Medium.woff") format("woff");
+  font-weight: 700; /* Use numerical weights for bold (700 or 'bold') */
+  font-style: normal;
+  font-display: swap; /* Recommended for better user experience */
+}

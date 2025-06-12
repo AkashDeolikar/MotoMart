@@ -12,8 +12,8 @@ const Page1 = () => {
 
             <div className="ConstantBG">
                 <div className="T2Page">
-                    <h2 className="constantBGT2page">Welcome to the future</h2>
-                    <h3 className="constantBGT2page">Human-centric, smart and green.</h3>
+                    <h2 className="constantBGT2page">WELCOME TO THE FUTURE</h2>
+                    <h3 className="constantBGT2page">HUMAN-CENTRIC, SMART & GREEN</h3>
 
                     {/* Block 1: Image on Right */}
                     <div className="drop-flex2">
@@ -45,14 +45,14 @@ const Page1 = () => {
                 <div className="firstdrop">
                     <p className="d-inline-flex gap-1">
                         <button
-                            className="btn-attractive"
+                            className="btn-attractive2"
                             type="button"
                             data-bs-toggle="collapse"
                             data-bs-target="#collapseDesign"
                             aria-expanded="false"
                             aria-controls="collapseDesign"
                         >
-                            <h3 className="dropheading text-center mb-1">Design <i class="bi bi-menu-down"></i></h3>
+                            <h3 className="dropheading text-center mb-1">DESIGN <i class="bi bi-menu-down"></i></h3>
                         </button>
                     </p>
                     <div className="collapse" id="collapseDesign">
@@ -75,14 +75,14 @@ const Page1 = () => {
             <div className="seconddrop">
                 <p className="d-inline-flex gap-1">
                     <button
-                        className="btn-attractive"
+                        className="btn-attractive2"
                         type="button"
                         data-bs-toggle="collapse"
                         data-bs-target="#collapseTechnology"
                         aria-expanded="false"
                         aria-controls="collapseTechnology"
                     >
-                        <h3 className="dropheading text-center mb-1">Technology <i class="bi bi-menu-down"></i></h3>
+                        <h3 className="dropheading text-center mb-1">TECHNOLOGY <i class="bi bi-menu-down"></i></h3>
                     </button>
                 </p>
                 <div className="collapse" id="collapseTechnology">

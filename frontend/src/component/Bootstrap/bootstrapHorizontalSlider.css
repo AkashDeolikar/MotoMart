@@ -1,5 +1,5 @@
 .home-fold2 {
-  padding: 70px 20px;
+  padding: 100px 22px;
   background-color: aliceblue;
   background-image:
     linear-gradient(to top, #1f2020 20%, transparent 80%),
@@ -74,6 +74,7 @@
 }
 
 .caption-ca h2 {
+  font-family: 'LandRoverWeb-Bold', sans-serif;
   font-size: 1.3rem;
   margin: 0;
   color: white;
@@ -81,7 +82,7 @@
 }
 
 .caption-ca a {
-  font-family:  monospace;
+  font-family:  'LandRoverWeb-Medium';
   background: rgba(255, 255, 255, 0.474);
   color: rgb(0, 0, 115);
   padding: 8px 16px;

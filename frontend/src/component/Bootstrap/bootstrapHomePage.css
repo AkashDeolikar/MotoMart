@@ -47,7 +47,7 @@
 
 /*Hand Image Text*/
  .hand-image-box {
-    padding: 100px;
+    padding: 60px;
     color: white;
     line-height: 1.6;
     background: linear-gradient(to right, #000000, #4600b8, #000000);
@@ -93,17 +93,27 @@
     align-items: center;
     text-align: center;
 }
+.hand-image-text h2{
+    font-family: 'Jaguar Exuberant light';
+}
+.hand-image-text p{
+    font-family: 'Jaguar Exuberant thin';
+}
 /*Luxury Text*/
  .hand-image-box1 {
-    padding: 65px;
+    font-family: 'LandRoverWeb-Light';
+    padding: 35px;
     color: white;
     line-height: 1.6;
-    background: linear-gradient(to right, #000000, #4600b8, #000000);
+    background: linear-gradient(to right, #191818, #aa9999, #191818);
     position: relative;
     overflow: hidden;
     box-shadow: 
         0 0 20px 10px rgba(0, 0, 0, 0.8), /* Soft, slightly larger shadow all around */
         0 0 5px 2px rgba(0, 0, 0, 0.5);
+}
+.hand-image-box1 h2{
+font-family: 'LandRoverWeb-Light';
 }
 
 .hand-image-box1::before,
@@ -245,8 +255,11 @@
 
 .carousel-caption h1 {
     /* Changed h5 to h1 based on your HTML */
-    color: #fff;
-    font-family: "Nissan Light", "Nissan Regular", Verdana, Arial, sans-serif;
+    /* color: #fff; */
+    color: #333433;
+    text-shadow: 0px 1px #ffffffe8;
+    font-family: 'Jaguar Exuberant', sans-serif, arial;
+    /* font-family: "Nissan Light", "Nissan Regular", Verdana, Arial, sans-serif; */
     font-size: 30px;
     letter-spacing: 1.35px;
     line-height: 38px;
@@ -315,16 +328,16 @@
 
     /* Adjust carousel for small screens (phones) */
     .carousel-inner {
-        height: 300px;
+        height: 360px;
         /* Smaller height for phones */
     }
 
     .carousel-caption {
         bottom: 5%;
-        /* Adjust position from bottom */
+        margin-left: 78px;
         width: 95%;
         /* Make it almost full width */
-        /* padding: 10px; */
+        padding: 10px;
         transform: translateX(-35%);
         /* Ensure it's centered */
         left: 35%;

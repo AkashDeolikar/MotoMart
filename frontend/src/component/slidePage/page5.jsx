@@ -13,7 +13,7 @@ const Page5 = () => {
             <div className="ConstantBG5">
                 <div className="T5Page">
                     <h2 className="constantBGT1page">Welcome to the renaissance</h2>
-                    <p className="constantBGT1page">
+                    <p className="constantBGT1page5">
                         We bring you truly distinct, global brands that define modern luxury, embrace our modernist design philosophy and are emotionally compelling and unique. Steeped in a rich legacy of timeless designs, always at the avant-garde of technologies, we are on an exceptional journey to make a more lasting and positive impact on the world around us.
                     </p>
                     <a className="btn-boxpage5 mt-4 appearIntroPage5" href="/luxury" target="_blank">Discover</a>
@@ -25,7 +25,7 @@ const Page5 = () => {
                         <div className="lux-card lux-card1 appearIntro">
                             <div className="caption-wrp">
                                 <h2 className="mb-2">Jaguar</h2>
-                                <p>
+                                <p className="mb-p">
                                     Introducing a new era characterised by the advent of all-electric vehicles, combining
                                     exhilarating performance, dramatic design, and a captivating sense of theatre.
                                 </p>
@@ -37,7 +37,7 @@ const Page5 = () => {
                         <div className="lux-card lux-card2 appearIntro">
                             <div className="caption-wrp">
                                 <h2 className="mb-2">Land Rover</h2>
-                                <p>
+                                <p className="mb-p">
                                     Vehicles at the pinnacle of opulent elegance. With sleek contours and a commanding presence, step inside a world of luxurious comfort and adventure.
                                 </p>
                                 <a href="https://www.landrover.com/index.html" className="readmore-cta">Visit website</a>

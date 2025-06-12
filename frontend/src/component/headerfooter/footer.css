@@ -2,7 +2,10 @@
     background-color: #1a1a1a;
     color: #f1f1f1;
     padding: 40px 20px 10px;
-    font-family: "Segoe UI", sans-serif;
+    font-family: 'Jaguar Exuberant';
+    /* font-family: "Segoe UI", sans-serif; */
+  }
+  h2.footer-section{
   }
   
   .footer-container {

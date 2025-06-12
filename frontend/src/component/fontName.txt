@@ -1,0 +1,13 @@
+Jaguar Exuberant
+Jaguar Exuberant light
+Jaguar Exuberant Regular
+Jaguar Exuberant Thin
+JaguarModernWeb-Bold
+JaguarModernWeb-Regular
+Jaguar-Regular
+Jaguar-Bold
+
+LandRoverWeb-Bold
+LandRoverWeb-Demi
+LandRoverWeb-Light
+LandRoverWeb-Medium

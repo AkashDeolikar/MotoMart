@@ -372,7 +372,7 @@ const Home = () => {
           {/* <div className="typing">{typingWords[currentWord]}</div> */}
           <div className="aboutus">
             <h5>About us</h5>
-            <h2>Agile, new-age and future-ready</h2>
+            <h5>Agile, new-age and future-ready</h5>
             <p className="passage">We are India’s market leader in commercial vehicles and amongst the top three in the passenger vehicles market. We prioritise human centricity with technological prowess and engineering excellence to make cargo and passenger mobility safer, smarter and greener.</p>
           </div>
         </section>
@@ -381,7 +381,7 @@ const Home = () => {
           className="bi bi-arrow-down-circle bounce-arrow"
           style={{
             position: 'absolute',
-            top: '80px',
+            top: '100px',
             right: '20px',
             fontSize: '2.5rem',
             color: '#fff',
@@ -428,12 +428,12 @@ const Home = () => {
 
       {/* Featured Cars Section */}
       <div className="featured-cars">
-        <h2>🔥 Featured Cars</h2>
+        <h2>  Featured Cars</h2>
         <div className="carousel-wrapper">
           <button className="nav-btn left" onClick={handlePrev}>❮</button>
           <div className="car-grid">
             {visibleCars.map((car) => (
-              <div key={car.id} className="car-cardbox">
+              <div key={car.id} className="car-cardbox ">
                 <img className="img" src={car.image} alt={car.name} />
                 <h3>{car.name}</h3>
                 <p>Price: ₹{car.price}<sup>*</sup> </p>
