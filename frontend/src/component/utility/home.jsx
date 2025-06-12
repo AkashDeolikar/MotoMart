@@ -17,8 +17,9 @@ import 'swiper/css';
 import 'swiper/css/autoplay';
 
 //page swipe
-import { Pagination } from 'swiper/modules';
+import { Pagination, EffectFade } from 'swiper/modules';
 import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
 
 // export const vehicleData = [
 //   {
@@ -490,71 +491,75 @@ const Home = () => {
             bulletClass: 'custom-bullet',
             bulletActiveClass: 'custom-bullet-active',
           }}
-          modules={[Pagination]}
+          modules={[Pagination, EffectFade]}
           spaceBetween={30}
           slidesPerView={1}
+          effect="fade" // Specify the effect here
+          fadeEffect={{
+            crossFade: true, // Specific option for fade effect
+          }}
         >
           <SwiperSlide>
-              <div className="swipebg">
-                <div className="swipeimg1">
-            <div className="T1PageSwipe">
-              <h2 className="constantBGT1pageSwipe">Luxury Vehicle</h2>
-              <p className="constantBGT1pageSwipe">
-                Cutting-edge designs, quest to excel and promise to delight customers keeps us ahead of the curve. Our cars and SUVs offer best-in-class safety and superior driving experience.
-              </p>
-              <a href="/page5" className="readmore-ctaSwipe">
-                Discover Luxury vehicles
-              </a>
-            </div>
-            </div>
-            </div>
-          </SwiperSlide>  
-
-          <SwiperSlide>
             <div className="swipebg">
-                <div className="swipeimg2">
-            <div className="T1PageSwipe">
-              <h2 className="constantBGT1pageSwipe">Passenger Vehicle</h2>
-              <p className="constantBGT1pageSwipe">
-                Cutting-edge designs, quest to excel and promise to delight customers keeps us ahead of the curve. Our cars and SUVs offer best-in-class safety and superior driving experience.
-              </p>
-              <a href="https://www.tatamotors.com/passenger-vehicles/" className="readmore-ctaSwipe">
-                Discover passenger vehicles
-              </a>
-            </div>
-            </div>
+              <div className="swipeimg1">
+                <div className="T1PageSwipe">
+                  <h2 className="constantBGT1pageSwipe">Luxury Vehicle</h2>
+                  <p className="constantBGT1pageSwipe">
+                    Cutting-edge designs, quest to excel and promise to delight customers keeps us ahead of the curve. Our cars and SUVs offer best-in-class safety and superior driving experience.
+                  </p>
+                  <a href="/page5" className="readmore-ctaSwipe">
+                    Discover Luxury vehicles
+                  </a>
+                </div>
+              </div>
             </div>
           </SwiperSlide>
 
           <SwiperSlide>
             <div className="swipebg">
-                <div className="swipeimg3">
-            <div className="T1PageSwipe">
-              <h2 className="constantBGT1pageSwipe">Go EV</h2>
-              <p className="constantBGT1pageSwipe">
-                Evolve to the new age of zero emissions, quieter drives and connected mobility.
-              </p>
-              <a href="https://www.tatamotors.com/electric-vehicles/" className="readmore-ctaSwipe">
-                Discover electric vehicles
-              </a>
-            </div>
-            </div>
+              <div className="swipeimg2">
+                <div className="T1PageSwipe">
+                  <h2 className="constantBGT1pageSwipe">Passenger Vehicle</h2>
+                  <p className="constantBGT1pageSwipe">
+                    Cutting-edge designs, quest to excel and promise to delight customers keeps us ahead of the curve. Our cars and SUVs offer best-in-class safety and superior driving experience.
+                  </p>
+                  <a href="https://www.tatamotors.com/passenger-vehicles/" className="readmore-ctaSwipe">
+                    Discover passenger vehicles
+                  </a>
+                </div>
+              </div>
             </div>
           </SwiperSlide>
 
           <SwiperSlide>
             <div className="swipebg">
-                <div className="swipeimg4">
-            <div className="T1PageSwipe">
-              <h2 className="constantBGT1pageSwipe">Commercial Vehicle</h2>
-              <p className="constantBGT1pageSwipe">
-                Our commercial vehicles rule the roads they run on. No terrain is too challenging and no load too heavy.
-              </p>
-              <a href="https://www.tatamotors.com/commercial-vehicles/" className="readmore-ctaSwipe">
-                Discover commercial vehicles
-              </a>
+              <div className="swipeimg3">
+                <div className="T1PageSwipe">
+                  <h2 className="constantBGT1pageSwipe">Go EV</h2>
+                  <p className="constantBGT1pageSwipe">
+                    Evolve to the new age of zero emissions, quieter drives and connected mobility.
+                  </p>
+                  <a href="https://www.tatamotors.com/electric-vehicles/" className="readmore-ctaSwipe">
+                    Discover electric vehicles
+                  </a>
+                </div>
+              </div>
             </div>
-            </div>
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <div className="swipebg">
+              <div className="swipeimg4">
+                <div className="T1PageSwipe">
+                  <h2 className="constantBGT1pageSwipe">Commercial Vehicle</h2>
+                  <p className="constantBGT1pageSwipe">
+                    Our commercial vehicles rule the roads they run on. No terrain is too challenging and no load too heavy.
+                  </p>
+                  <a href="https://www.tatamotors.com/commercial-vehicles/" className="readmore-ctaSwipe">
+                    Discover commercial vehicles
+                  </a>
+                </div>
+              </div>
             </div>
           </SwiperSlide>
 
@@ -574,7 +579,8 @@ const Home = () => {
               to Net Zero</h2>
             <p className="appearIntro" >We are making responsible choices. By prioritizing sustainable mobility, safety,
               emission reduction and use of eco-friendly materials, we are driving meaningful change. </p>
-            <a href="/page6" className="btn-boxx appearIntro">Read more</a>
+            {/* <a href="/page6" className="btn-boxx appearIntro">Read more</a> */}
+            <a href="/rover" className="btn-boxx appearIntro">Read more</a>
           </div>
         </div>
       </section>
