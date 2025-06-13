@@ -1,4 +1,44 @@
 @import '../fonts.css';
+
+.loading-card {
+  display: contents;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  background-color: #f4f4f4;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.loading-image {
+  max-width: 60%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.loading-text {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: 'LandRoverWeb-Light';
+  /* color: #333; */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 /* Global Styles */
 body {
   font-family: 'Roboto', sans-serif;
@@ -21,7 +61,7 @@ a {
 /* Background Section */
 .bgPaper5 {
   width: 100vw;
-  height: 600px;
+  height: 450px;
   margin-left: calc(-50vw + 50%);
   padding: 100px 0px;
   box-sizing: border-box;
@@ -35,17 +75,19 @@ a {
   color: white;
   text-align: left;
 }
+
 .bgPaper5::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* background: linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0)); */
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.864) 0%, rgba(248, 248, 248, 0) 100%);;
-    pointer-events: none;
-    /* z-index: 1; */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0)); */
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.864) 0%, rgba(248, 248, 248, 0) 100%);
+  ;
+  pointer-events: none;
+  /* z-index: 1; */
 }
 
 .bgPaper5 h5,
@@ -54,8 +96,8 @@ a {
   margin-left: 7vh;
   font-family: 'Jaguar Exuberant';
   letter-spacing: 1.25px;
-  position: relative; 
-  z-index: 2; 
+  position: relative;
+  z-index: 2;
 }
 
 .bgPaper5 h5 {
@@ -81,15 +123,19 @@ a {
   justify-content: center;
   display: grid;
 }
-.constantBGT1page5{
+
+.constantBGT1page5 {
   font-family: 'LandRoverWeb-Light';
 }
-.mb-2{
+
+.mb-2 {
   font-family: 'Jaguar Exuberant';
 }
-.mb-p{
+
+.mb-p {
   font-family: 'LandRoverWeb-Medium';
 }
+
 @media screen and (max-width: 991px) {
   .ConstantBG {
     padding-top: 50px !important;
@@ -98,7 +144,7 @@ a {
 }
 
 .T5Page {
-    font-family: sans-serif;
+  font-family: sans-serif;
   width: 100%;
   max-width: 890px;
   border-radius: 8px;
@@ -124,55 +170,64 @@ a {
   margin-bottom: 20px;
   font-size: 20px;
 }
+
 .appearIntroPage5 {
-    margin-bottom: 20px;
-    display: inline-block;
-    color: rgb(255, 255, 255);
-    font-size: 18px;
-    position: relative;
-    z-index: 1;
-    text-decoration: none;
-    border-width: initial;
-    border-style: none;
-    border-color: initial;
-    border-image: initial;
-    padding: 12px 35px;
-    transition: 0.3s ease-out;
+  margin-bottom: 20px;
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  position: relative;
+  z-index: 1;
+  text-decoration: none;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+  padding: 12px 35px;
+  transition: 0.3s ease-out;
 }
+
 .btn-boxpage5::before {
-    content: "";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgb(10, 10, 95);
-    z-index: -1;
-    transition: 0.3s ease-out;
-    border-radius: 70px;
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(10, 10, 95);
+  z-index: -1;
+  transition: 0.3s ease-out;
+  border-radius: 70px;
 }
+
 .sizebox {
+  align-items: center;
+  padding: 30px;
+  display: inline-flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 30px;
+}
+
+@media (max-width:786px) {
+  .loading-image {
+    max-width: 100%;
+  }
+
+  .sizebox {
     align-items: center;
     padding: 30px;
-    display: inline-flex;
-    flex-direction: row;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     gap: 30px;
+  }
 }
-@media (max-width:786px) {
-    .sizebox {
-        align-items: center;
-        padding: 30px;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        gap: 30px;
-    }
-}
+
 /**/
 .row {
-    margin-left: 50px;
+  margin-left: 50px;
   display: flex;
   flex-wrap: wrap;
   margin: 0 -15px;
@@ -180,33 +235,39 @@ a {
 }
 
 @media screen and (max-width: 991px) {
-    .cv-helping-wrp .lux-grid-wrp .lux-card {
-        height: 600px;
-        background-size: cover;
-        margin-bottom: 24px;
-    }
+  .cv-helping-wrp .lux-grid-wrp .lux-card {
+    height: 600px;
+    background-size: cover;
+    margin-bottom: 24px;
+  }
 }
+
 @media (max-width: 768px) {
-    .col-md-6 {
-        flex: 0 0 auto;
-        width: 50%;
-    }
+  .col-md-6 {
+    flex: 0 0 auto;
+    width: 50%;
+  }
 }
-.row > * {
+
+.row>* {
   flex-shrink: 0;
   box-sizing: border-box;
 }
+
 .col-md-6 {
   padding: 15px;
   box-sizing: border-box;
-  width: 100%; /* default for small screens */
+  width: 100%;
+  /* default for small screens */
 }
 
 @media (min-width: 768px) {
   .col-md-6 {
-    width: 50%; /* ✅ responsive 2-column layout */
+    width: 50%;
+    /* ✅ responsive 2-column layout */
   }
 }
+
 @media (max-width: 486px) {
   .lux-card {
     height: 300px;
@@ -236,11 +297,13 @@ a {
 }
 
 .lux-card1 {
-  background-image: url('../slidePage/jaguar.jpg'); /* Replace with actual path */
+  background-image: url('../slidePage/jaguar.jpg');
+  /* Replace with actual path */
 }
 
 .lux-card2 {
-  background-image: url('../slidePage/rover.jpg'); /* Replace with actual path */
+  background-image: url('../slidePage/rover.jpg');
+  /* Replace with actual path */
 }
 
 .caption-wrp {
@@ -255,7 +318,8 @@ a {
   top: -18rem;
   left: 0;
   font-size: 32px;
-  margin: 0; /* remove margin-bottom if strict top alignment is needed */
+  margin: 0;
+  /* remove margin-bottom if strict top alignment is needed */
   /* padding: 10px;  */
 }
 
@@ -266,19 +330,20 @@ a {
 }
 
 .readmore-cta {
-   display: inline-block;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 30px;
-    transition: background-color 0.3s ease;
+  display: inline-block;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
 }
 
 .readmore-cta:hover {
   background-color: #003580;
 }
+
 /**/
-.luxuryboxC1{
-    width: 100vw;
+.luxuryboxC1 {
+  width: 100vw;
   height: 600px;
   margin-left: calc(-50vw + 50%);
   padding: 100px 0px;
@@ -292,8 +357,9 @@ a {
   color: white;
   text-align: left;
 }
-.luxuryboxC2{
-    width: 100vw;
+
+.luxuryboxC2 {
+  width: 100vw;
   height: 600px;
   margin-left: calc(-50vw + 50%);
   padding: 100px 0px;
@@ -310,18 +376,23 @@ a {
 }
 
 @media (min-width: 768px) {
-  .T5Page, .constantBGT2page {
+
+  .T5Page,
+  .constantBGT2page {
     max-width: 720px;
   }
 }
 
 @media (min-width: 576px) {
-  .T5Page , .constantBGT2page {
+
+  .T5Page,
+  .constantBGT2page {
     max-width: 1100px;
   }
 }
 
-.T5Page, .constantBGT2page {
+.T5Page,
+.constantBGT2page {
   --bs-gutter-x: 1.5rem;
   --bs-gutter-y: 0;
   width: 100%;

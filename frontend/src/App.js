@@ -56,6 +56,7 @@ import Luxury from "./component/slidePage/luxury";
 import Page6 from "./component/slidePage/Page6";
 import Page5 from "./component/slidePage/page5";
 import Rover from "./component/slidePage/roverpages/rover";
+import Jaguar from "./component/slidePage/roverpages/jaguar";
 // import BuildingForPregress from "./component/slidePage/BuildingForProgress";
 
 // Debug logs
@@ -127,6 +128,7 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister }) =
               <Route path="/page5" element={<Page5 />} />
               <Route path="/page6" element={<Page6 />} />
               <Route path="/rover" element={<Rover />} />
+              <Route path="/jaguar" element={<Jaguar />} />
               <Route path="/luxury" element={<Luxury />} />
               
               {/* Car details */}

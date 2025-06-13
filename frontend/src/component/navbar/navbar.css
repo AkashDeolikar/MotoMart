@@ -362,6 +362,7 @@
 }
 
 h1.ProjectName{
-    font-family: 'Courier New', monospace;
+    font-family: 'JaguarModernWeb-Regular', sans-serif;
+    font-size: 28px;
     /* color: #ffffff; */
   }

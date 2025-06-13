@@ -6,17 +6,17 @@ import { Pagination, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
-import "./rover.css";
+import "./jaguar.css";
 
-const Rover = () => {
+const Jaguar = () => {
   return (
-    <div className="roverpage">
+    <div className="jaguarpage">
       <Swiper
         pagination={{
           clickable: true,
-          el: ".custom-paginationROVER",
-          bulletClass: "custom-rover",
-          bulletActiveClass: "custom-rover-active",
+          el: ".custom-paginationJAGUAR",
+          bulletClass: "custom-jaguar",
+          bulletActiveClass: "custom-jaguar-active",
         }}
         modules={[Pagination, EffectFade]}
         spaceBetween={30}
@@ -25,12 +25,13 @@ const Rover = () => {
         fadeEffect={{ crossFade: true }}  
       >
         <SwiperSlide>
-          <div className="rover-box">
-            <div className="rover-types">
-              <div className="rover-sv">
+          <div className="jaguar-box">
+            <div className="jaguar-types">
+              <div className="jaguar-sv">
                 <div className="pageswipe">
-                  <h2 className="headingSwipe">RANGE ROVER-SV</h2>
-                  <p className="psgswipe">Refined. Luxurious. Exclusive.</p>
+                  <h2 className="headingSwipe">Jaguar Type 00</h2>
+                  <p className="psgswipe">Future. Vision
+                    Bold. Unexpected. Fearless.</p>
                 </div>
               </div>
             </div>
@@ -38,12 +39,16 @@ const Rover = () => {
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="rover-box">
-            <div className="rover-types">
-              <div className="rover-autobiography">
+          <div className="jaguar-box">
+            <div className="jaguar-types">
+              <div className="jaguar-autobiography">
                 <div className="pageswipe">
-                  <h2 className="headingSwipe">RANGE ROVER-AUTOBIOGRAPHY</h2>
-                  <p className="psgswipe">The unmistakeable expression of refinement and luxury..</p>
+                  <h2 className="headingSwipe">JAGUAR F‑PACE</h2>
+                  <p className="psgswipe">Luxury performance SUV offering practicality and efficiency.
+SUV 
+DRIVETRAIN: AWD
+ENGINE: Diesel/Petrol
+PASSENGERS: 5</p>
                 </div>
               </div>
             </div>
@@ -51,11 +56,11 @@ const Rover = () => {
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="rover-box">
-            <div className="rover-types">
-              <div className="rover-luxury">
+          <div className="jaguar-box">
+            <div className="jaguar-types">
+              <div className="jaguar-luxury">
                 <div className="pageswipe">
-                  <h2 className="headingSwipe">RANGE ROVER-LUXURY RED</h2>
+                  <h2 className="headingSwipe">RANGE JAGUAR-LUXURY RED</h2>
                   <p className="psgswipe">Lorem ipsum dolor sit amet.</p>
                 </div>
               </div>
@@ -64,11 +69,11 @@ const Rover = () => {
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="rover-box">
-            <div className="rover-types">
-              <div className="rover-hse">
+          <div className="jaguar-box">
+            <div className="jaguar-types">
+              <div className="jaguar-hse">
                 <div className="pageswipe">
-                  <h2 className="headingSwipe">RANGE ROVER-HSE</h2>
+                  <h2 className="headingSwipe">RANGE JAGUAR-HSE</h2>
                   <p className="psgswipe">Range Rover in its purest form.</p>
                 </div>
               </div>
@@ -77,13 +82,13 @@ const Rover = () => {
         </SwiperSlide>
       </Swiper>
 
-      <div className="custom-paginationROVER"></div>
+      <div className="custom-paginationJAGUAR"></div>
 
       {/* <li class="cmp-readyToGoBar__item"> */}
-      <div className="listrover">
+      <div className="listjaguar">
         <a
           className="cmp-readyToGoBar__link"
-          href="https://www.findmeasuv.in/pricing_pdf/land-rover-vehicles-price-in-india.pdf"
+          href="https://www.findmeasuv.in/pricing_pdf/land-jaguar-vehicles-price-in-india.pdf"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="VIEW PRICES - View vehicle prices online."
@@ -105,4 +110,4 @@ const Rover = () => {
   );
 };
 
-export default Rover;
+export default Jaguar;

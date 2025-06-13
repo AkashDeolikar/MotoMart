@@ -385,21 +385,19 @@ body {
   padding: 2.0rem;
     max-width: 1920px;
     height: auto;
-    /* padding: 100px 40px 50px; */
 }
 
 .suatainability-wrp .sus-cvr-wrp {
-    font-family: "math"; /* Note: 'math' is not a standard web font. Consider using a fallback like 'serif' or 'sans-serif' */
+    font-family: "math"; 
     max-width: 1500px;
-    height: 600px; /* Fixed height might be problematic on mobile */
-    border: 50px; /* This is an invalid border value, assuming you meant border-radius or padding */
+    height: 600px; 
+    border: 50px; 
     background-image: url('https://www.tatamotors.com/wp-content/themes/TataMotors/images/Sustainability-banner-new-home.webp');
     background-repeat: no-repeat;
-    background-position: bottom left; /* This might clash with the gradient */
+    background-position: bottom left; 
     padding: 150px 0px;
     margin: 0 auto;
     background-size: cover;
-    border-radius: 50px;
     position: relative;
     overflow: hidden;
 }
@@ -445,7 +443,7 @@ body {
 .suatainability-wrp .sus-cvr-wrp .common-ttle {
     color: #ffffff;
     margin-bottom: 30px;
-    font-family: math, monospace;
+    font-family: 'Jaguar Exuberant light';
     font-size: 45px;
 }
 
@@ -455,7 +453,7 @@ body {
 }
 
 .appearIntro {
-    font-family: 'system-ui';
+    font-family: 'LandRoverWeb-Light';
     max-width: 600px;
     font-size: 20px;
     color: #ffffff;

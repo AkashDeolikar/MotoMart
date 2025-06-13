@@ -1,26 +1,26 @@
 @import '../../fonts.css';
 
-.roverpage {
+.jaguarpage {
     background-color: #ebebeb;
     padding: 40px 20px;
     width: 100%;
     display: block;
 }
 
-.rover-box {
+.jaguar-box {
     width: 100%;
     /* height: 90vh; */
 }
 
-.rover-types {
+.jaguar-types {
     width: 100%;
     height: 100%;
 }
 
-.rover-sv,
-.rover-autobiography,
-.rover-luxury,
-.rover-hse {
+.jaguar-sv,
+.jaguar-autobiography,
+.jaguar-luxury,
+.jaguar-hse {
     color: #101015;
     width: 100%;
     height: 100%;
@@ -32,23 +32,23 @@
     padding: 20px;
 }
 
-.rover-sv {
-    background-image: url('../../slidePage/roverpages/roverAssets/rr-sv.jpg');
+.jaguar-sv {
+    background-image: url('../../slidePage/roverpages/roverAssets/jaguartp1.jpg');
 }
 
-.rover-autobiography {
-    background-image: url('../../slidePage/roverpages/roverAssets/rr-autobiography.jpg');
+.jaguar-autobiography {
+    background-image: url('../../slidePage/roverpages/roverAssets/jaguar2.jpg');
 }
 
-.rover-luxury {
-    background-image: url('../../slidePage/roverpages/roverAssets/rrluxury.jpg');
+.jaguar-luxury {
+    background-image: url('../../slidePage/roverpages/roverAssets/jaguartp1.jpg');
 }
 
-.rover-hse {
-    background-image: url('../../slidePage/roverpages/roverAssets/rr-hse.jpg');
+.jaguar-hse {
+    background-image: url('../../slidePage/roverpages/roverAssets/jaguartp1.jpg');
 }
 
-.custom-paginationROVER {
+.custom-paginationJAGUAR {
     font-family: 'Jaguar Exuberant Thin';
     letter-spacing: 1.1px;
     display: flex;
@@ -62,7 +62,7 @@
     overflow: hidden;
 }
 
-.custom-rover {
+.custom-jaguar {
     flex: 1;
     background-color: transparent;
     cursor: pointer;
@@ -70,11 +70,11 @@
     transition: background-color 0.3s ease;
 }
 
-.custom-rover-active {
+.custom-jaguar-active {
     background-color: #101015;
 }
 
-.custom-rover::before {
+.custom-jaguar::before {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -83,23 +83,23 @@
     white-space: nowrap;
 }
 
-.custom-rover:nth-child(1)::before {
-    content: "RANGE ROVER SV";
+.custom-jaguar:nth-child(1)::before {
+    content: "RANGE JAGUAR SV";
 }
 
-.custom-rover:nth-child(2)::before {
+.custom-jaguar:nth-child(2)::before {
     content: "AUTOBIOGRAPHY";
 }
 
-.custom-rover:nth-child(3)::before {
-    content: "RANGE ROVER LUXURY";
+.custom-jaguar:nth-child(3)::before {
+    content: "RANGE JAGUAR LUXURY";
 }
 
-.custom-rover:nth-child(4)::before {
-    content: "RANGE ROVER HSE";
+.custom-jaguar:nth-child(4)::before {
+    content: "RANGE JAGUAR HSE";
 }
 
-.listrover {
+.listjaguar {
   width: 60%;
   display: grid;
   /* justify-content: center; */
@@ -180,36 +180,36 @@
 /* Responsive tweaks */
 @media (max-width: 768px) {
 
-    .rover-sv,
-    .rover-autobiography,
-    .rover-hse,
-    .rover-luxury {
+    .jaguar-sv,
+    .jaguar-autobiography,
+    .jaguar-hse,
+    .jaguar-luxury {
         background-size: contain;
         height: 400px;
         align-items: flex-start;
         justify-content: flex-start;
     }
 
-    .custom-rover::before {
+    .custom-jaguar::before {
         font-size: 12px;
         white-space: normal;
     }
 
-    .rover-types {
+    .jaguar-types {
         height: 400px;
     }
 
-    .custom-paginationROVER {
+    .custom-paginationJAGUAR {
         display: grid;
         height: 16vh;
     }
-    .custom-paginationROVER {
+    .custom-paginationJAGUAR {
     margin-top: 20px;
 }
 }
 
 @media (min-width: 768px) {
-    .rover-box {
+    .jaguar-box {
     width: 70%;
     height: 70vh;
     justify-content: center;
