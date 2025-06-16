@@ -16,6 +16,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <h2 className="ProjectName">MotoMart</h2>
+      <div class="Xp8JS"></div>
       <div className="footer-container">
         <div className="footer-section">
           <h5 style={{color:'Highlight'}}>Project Links</h5>

@@ -1,0 +1,156 @@
+.container {
+    padding: 20px;
+    max-width: 500px;
+    margin: auto;
+    font-family: Arial, sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-top: 40px;
+    /* background: #f9f9f9; */
+    margin: 25px 0 25px 0;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.add-service {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.add-service input {
+    padding: 5px;
+    width: 120px;
+}
+
+.add-service button {
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+.add-service button:hover {
+    opacity: 0.9;
+}
+
+.clear-btn {
+    background-color: #dc3545;
+    /* color: white; */
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.service-name {
+    flex: 1;
+    min-width: 150px;
+}
+
+.input {
+    width: 60px;
+    padding: 4px;
+    text-align: right;
+}
+
+.delete-btn {
+    background: transparent;
+    border: none;
+    color: red;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.bill {
+    margin-top: 20px;
+    padding: 10px;
+    /* background-color: #eef; */
+    border-radius: 8px;
+}
+
+.bill h4 {
+    margin-bottom: 10px;
+}
+
+.bill ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.bill li {
+    margin-bottom: 5px;
+}
+
+/* Mobile Screen 486p*/
+@media screen and (max-width: 486px) {
+    .add-service {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .add-service input,
+    .item select,
+    .item input {
+        width: 100%;
+    }
+
+    .list .item {
+        flex-direction: column;
+        align-items: flex-start;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+    }
+
+    .service-name {
+        font-size: 15px;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    /* Wrap brand/wash selectors */
+    .item-controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        width: 100%;
+        margin-bottom: 8px;
+    }
+
+    .item-controls select {
+        flex: 1 1 45%;
+    }
+
+    /* Row for Qty + Delete */
+    .item-bottom-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .item-bottom-row .input {
+        flex: 1;
+        min-width: 100px;
+    }
+
+    .item-bottom-row .delete-btn {
+        flex-shrink: 0;
+        font-size: 18px;
+        margin-left: auto;
+    }
+
+    .delete-btn {
+        align-self: flex-end;
+    }
+}
