@@ -1,0 +1,184 @@
+[
+  {
+    "part": "Engine Oil",
+    "type": "OEM / Aftermarket",
+    "brands": ["Castrol", "Mobil 1", "Motul"],
+    "priceRange": "₹900 - ₹1800 (per 3.5L)",
+    "spec": "5W30, 10W40, API SN"
+  },
+  {
+    "part": "Oil Filter",
+    "type": "OEM / Aftermarket",
+    "brands": ["Bosch", "Purolator", "Mahle"],
+    "priceRange": "₹200 - ₹500",
+    "spec": "Model-specific"
+  },
+  {
+    "part": "Air Filter",
+    "type": "OEM / Aftermarket",
+    "brands": ["Bosch", "Purolator", "Mahle"],
+    "priceRange": "₹250 - ₹600",
+    "spec": "Dry / Paper Type"
+  },
+  {
+    "part": "Fuel Filter",
+    "type": "OEM / Aftermarket",
+    "brands": ["Mann", "Bosch"],
+    "priceRange": "₹400 - ₹900",
+    "spec": "Inline, Cartridge"
+  },
+  {
+    "part": "Coolant",
+    "type": "OEM / Aftermarket",
+    "brands": ["Shell", "Bosch", "Prestone"],
+    "priceRange": "₹300 - ₹700 (per L)",
+    "spec": "Ethylene Glycol, Green/Red"
+  },
+  {
+    "part": "Radiator Fan",
+    "type": "OEM / Aftermarket",
+    "brands": ["Valeo", "Lucas"],
+    "priceRange": "₹1200 - ₹3000",
+    "spec": "Model-specific"
+  },
+  {
+    "part": "Brake Fluid",
+    "type": "OEM / Aftermarket",
+    "brands": ["Bosch", "TVS Girling", "Castrol"],
+    "priceRange": "₹200 - ₹450 (per 500ml)",
+    "spec": "DOT 3 / DOT 4"
+  },
+  {
+    "part": "Brake Pads",
+    "type": "OEM / Aftermarket",
+    "brands": ["TVS", "Bosch", "Rane"],
+    "priceRange": "₹700 - ₹2000",
+    "spec": "Front / Rear"
+  },
+  {
+    "part": "Brake Disc",
+    "type": "OEM / Aftermarket",
+    "brands": ["Brembo", "Bosch"],
+    "priceRange": "₹1500 - ₹3000",
+    "spec": "Vented / Solid"
+  },
+  {
+    "part": "Gear Oil",
+    "type": "OEM / Aftermarket",
+    "brands": ["Castrol", "Mobil"],
+    "priceRange": "₹400 - ₹900 (1L)",
+    "spec": "75W90, GL-4 / GL-5"
+  },
+  {
+    "part": "Clutch Plate",
+    "type": "OEM / Aftermarket",
+    "brands": ["Valeo", "LUK", "Exedy"],
+    "priceRange": "₹2000 – ₹5000",
+    "spec": "Model-specific"
+  },
+  {
+    "part": "Battery",
+    "type": "OEM / Aftermarket",
+    "brands": ["Exide", "Amaron", "SF Sonic"],
+    "priceRange": "₹3500 - ₹5500",
+    "spec": "35Ah - 45Ah (Maintenance-free)"
+  },
+  {
+    "part": "Wiper Blade",
+    "type": "OEM / Aftermarket",
+    "brands": ["Bosch", "Hella", "Rain-X"],
+    "priceRange": "₹300 - ₹1200 (per blade)",
+    "spec": "14” - 24” (Silicone or Rubber)"
+  },
+  {
+    "part": "Windshield Washer Fluid",
+    "type": "OEM / Aftermarket",
+    "brands": ["3M", "Bosch"],
+    "priceRange": "₹100 – ₹250 (1L)",
+    "spec": "Ready-mix or concentrate"
+  },
+  {
+    "part": "Headlight",
+    "type": "OEM / Aftermarket",
+    "brands": ["Philips", "Osram", "Hella"],
+    "priceRange": "₹600 - ₹3000 (per unit)",
+    "spec": "H4 / H7 Halogen, LED, HID options"
+  },
+  {
+    "part": "Tyres",
+    "type": "OEM / Aftermarket 145/80R12",
+    "brands": ["MRF", "CEAT", "BRIDGESTONE"],
+    "priceRange": "₹2500 - ₹3500 (per unit)",
+    "spec": "Excellent grip on roads in any condition"
+  },
+  {
+    "part": "Timing Belt",
+    "type": "OEM / Aftermarket",
+    "brands": ["ContiTech", "Dayco", "Bosch"],
+    "priceRange": "₹1000 - ₹2500",
+    "spec": "Rubber, Reinforced"
+  },
+  {
+    "part": "Alternator",
+    "type": "OEM / Remanufactured",
+    "brands": ["Bosch", "Denso", "Valeo"],
+    "priceRange": "₹5000 - ₹12000",
+    "spec": "12V, Model-specific"
+  },
+  {
+    "part": "Spark Plug",
+    "type": "OEM / Aftermarket",
+    "brands": ["NGK", "Bosch", "Denso"],
+    "priceRange": "₹100 - ₹300 (per plug)",
+    "spec": "Iridium / Platinum / Copper"
+  },
+  {
+    "part": "Cabin Air Filter",
+    "type": "OEM / Aftermarket",
+    "brands": ["Bosch", "Mahle", "Purolator"],
+    "priceRange": "₹300 - ₹700",
+    "spec": "Carbon Activated / Paper"
+  },
+  {
+    "part": "Shock Absorber",
+    "type": "OEM / Aftermarket",
+    "brands": ["Monroe", "KYB", "Gabriel"],
+    "priceRange": "₹1500 - ₹4000 (per unit)",
+    "spec": "Hydraulic / Gas-filled"
+  },
+  {
+    "part": "Horn",
+    "type": "OEM / Aftermarket",
+    "brands": ["Hella", "Roots", "Bosch"],
+    "priceRange": "₹400 - ₹1200",
+    "spec": "Windtone / Disc / Trumpet"
+  },
+  {
+    "part": "Drive Belt",
+    "type": "OEM / Aftermarket",
+    "brands": ["ContiTech", "Gates"],
+    "priceRange": "₹500 - ₹1500",
+    "spec": "V-Belt / Serpentine Belt"
+  },
+  {
+    "part": "Wheel Bearing",
+    "type": "OEM / Aftermarket",
+    "brands": ["SKF", "FAG", "NTN"],
+    "priceRange": "₹800 - ₹2000",
+    "spec": "Front / Rear - Model-specific"
+  },
+  {
+    "part": "Radiator",
+    "type": "OEM / Aftermarket",
+    "brands": ["Denso", "Behr", "Nissens"],
+    "priceRange": "₹3000 - ₹7000",
+    "spec": "Aluminum Core, Plastic Tank"
+  },
+  {
+    "part": "Fuel Pump",
+    "type": "OEM / Aftermarket",
+    "brands": ["Bosch", "Delphi", "Denso"],
+    "priceRange": "₹2500 - ₹6000",
+    "spec": "In-tank / Inline - Model-specific"
+  }
+]

@@ -7,6 +7,10 @@ import { useNavigate } from 'react-router-dom';
 import { auth } from '../../firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 
+//scroll up animation 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 //images import 
 import suzukiswift from './cardbox/suzukiswift.jpg';
 import suzukibaleno from './cardbox/suzukibaleno.jpg';
@@ -754,22 +758,22 @@ export const vehicleData = [
         }
       },
       {
-    id: 'volkswagen-polo',
-    videoPoster: valkswagenPolo, // Assumed to be an imported asset
-    videoSrc: "https://www.youtube.com/embed/7S_MIU9_yBw",
-    thumbnail: "https://cdn.yellowmessenger.com/7ozMGtvMg8vZ1743425593440.png", // Volkswagen logo
-    title: "Volkswagen Polo",
-    link: "https://www.volkswagen.co.in/", // General VW India link, as Polo is discontinued
-    description: "The Volkswagen Polo was a highly popular and iconic premium hatchback in India, known for its solid build quality, precise handling, and fun-to-drive nature. It was a benchmark in its segment for many years. (Discontinued in India as of 2022)",
-    buttonText: "View Details",
-    vehicleInfo: {
-        model: "Polo",
-        manufacturer: "Volkswagen",
-        year: 2022, // Last year of production/sale in India
-        features: ["German Build Quality", "Multi-function Steering Wheel", "Dual Airbags", "ABS", "Touchscreen Infotainment (later models)"],
-        price: "₹ 6.45 - 10.25 Lakh (at time of discontinuation)" // Price at discontinuation
-    }
- },
+        id: 'volkswagen-polo',
+        videoPoster: valkswagenPolo, // Assumed to be an imported asset
+        videoSrc: "https://www.youtube.com/embed/7S_MIU9_yBw",
+        thumbnail: "https://cdn.yellowmessenger.com/7ozMGtvMg8vZ1743425593440.png", // Volkswagen logo
+        title: "Volkswagen Polo",
+        link: "https://www.volkswagen.co.in/", // General VW India link, as Polo is discontinued
+        description: "The Volkswagen Polo was a highly popular and iconic premium hatchback in India, known for its solid build quality, precise handling, and fun-to-drive nature. It was a benchmark in its segment for many years. (Discontinued in India as of 2022)",
+        buttonText: "View Details",
+        vehicleInfo: {
+          model: "Polo",
+          manufacturer: "Volkswagen",
+          year: 2022, // Last year of production/sale in India
+          features: ["German Build Quality", "Multi-function Steering Wheel", "Dual Airbags", "ABS", "Touchscreen Infotainment (later models)"],
+          price: "₹ 6.45 - 10.25 Lakh (at time of discontinuation)" // Price at discontinuation
+        }
+      },
       {
         id: 'volkswagen-tiguan', // Corrected ID from Volkswagen-Tiguan
         videoPoster: VolkswagenTiguan,
@@ -965,6 +969,14 @@ const Carcard = () => {
   const [authChecked, setAuthChecked] = useState(false);
   const navigate = useNavigate();
 
+  //flip left animation 
+  useEffect(() => {
+    AOS.init({
+      duration: 600, // animation duration in ms
+      once: false, // repeat animation every time you scroll up/down
+    });
+  }, []);
+
   //checking user is sign in or not
   useEffect(() => {
     // Check if the user is signed in with Firebase
@@ -1038,13 +1050,14 @@ const Carcard = () => {
 
   return (
     <div className="seeoffer-background">
-      <div className='cardbox'>
+      <div className='cardbox' >
         {vehicleData.map((manufacturerGroup) => (
           <React.Fragment key={manufacturerGroup.manufacturer}>
-            <div className='title1'>
-              <h1 className='rxk'>{manufacturerGroup.manufacturer} Vehicles</h1>
+            <div data-aos="zoom-in" className="title1">
+              <h1 className="rxk">{manufacturerGroup.manufacturer} Vehicles</h1>
             </div>
-            <div className="card-slider">
+
+            <div data-aos="fade-right" className="card-slider">
               <div className="card-grid-wrapper">
                 {manufacturerGroup.vehicles.map(vehicle => renderVehicleCard(vehicle))}
               </div>

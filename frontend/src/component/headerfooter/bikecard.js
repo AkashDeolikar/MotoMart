@@ -30,6 +30,10 @@ import yamahaFZSV3 from './cardbox/yamahaFZSV3.jpg';
 import yamahaR15V4 from './cardbox/yamahaR15V4.jpg';
 import yamahaMT15 from './cardbox/yamahaMT15.jpg';
 
+//scroll up animation 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 // Centralized data for your bikes, grouped by manufacturer
 export const vehicleData = [
@@ -485,6 +489,14 @@ const Bikecard = () => {
   const [authChecked, setAuthChecked] = useState(false);
   const navigate = useNavigate();
 
+   //flip left animation 
+    useEffect(() => {
+      AOS.init({
+        duration: 1000, // animation duration in ms
+        once: false, // repeat animation every time you scroll up/down
+      });
+    }, []);
+
   //checking user is sign in or not
   useEffect(() => {
     // Check if the user is signed in with Firebase
@@ -562,10 +574,10 @@ const Bikecard = () => {
       <div className='cardbox'>
         {vehicleData.map((manufacturerGroup) => (
           <React.Fragment key={manufacturerGroup.manufacturer}>
-            <div className='title1'>
+            <div data-aos="zoom-in" className='title1'>
               <h1 className='rxk'>{manufacturerGroup.manufacturer} Vehicles</h1>
             </div>
-            <div className="card-slider">
+            <div data-aos="fade-right" className="card-slider">
               <div className="card-grid-wrapper">
                 {manufacturerGroup.vehicles.map(vehicle => renderVehicleCard(vehicle))}
               </div>

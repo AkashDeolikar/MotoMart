@@ -279,18 +279,6 @@ body {
   color: #5c5e60;
 }
 
-/*images*/
-/* .backgroundimage {
-  position: relative;
-  width: 100%;
-  height: 40vh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  color: white;
-  text-align: center;
-  background-color: #333;
-} */
 .backgroundimage {
   background-image:   url("../Assets/image3.png");
   background-size: cover, cover, cover;
@@ -739,4 +727,107 @@ html {
     padding: 0px 15px;
     margin: 0 0 0rem 0rem;
   }
+}
+
+/* vehicleCategories.css or add to home.css */
+
+.vehicle-categories-section {
+    padding: 60px 0; /* Vertical padding */
+    /* background-color: #f9f9f9ee; */
+    text-align: center; /* Center align text content */
+}
+
+.vehicle-categories-section .container {
+    max-width: 1100px; /* Max width for the content */
+    margin: 0 auto; /* Center the container */
+    padding: 0 20px; /* Horizontal padding for smaller screens */
+}
+
+.vehicle-categories-section .section-title {
+  font-family: 'Jaguar Exuberant light';
+    font-size: 2.5rem; /* Larger title font size */
+    /* color: #333; */
+    margin-bottom: 40px; /* Space below title */
+    font-weight: bold;
+}
+
+.category-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid columns */
+    gap: 30px; /* Space between cards */
+    justify-content: center; /* Center items if they don't fill the row */
+}
+
+.category-card {
+    background-color: #fff;
+    border-radius: 10px; /* Slightly rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    overflow: hidden; /* Ensures image corners are rounded */
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit text color */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+    display: flex; /* Use flexbox for content alignment */
+    flex-direction: column; /* Stack image and text vertically */
+    height: 100%; /* Ensure cards in a row have equal height */
+}
+
+.dark .category-card{
+  background-color: #2d2f31;
+}
+
+.category-card:hover {
+    transform: translateY(-15px); /* Lift card on hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
+}
+
+.category-card img {
+    width: 100%; /* Image takes full width of card */
+    height: 200px; /* Fixed height for images */
+    object-fit: cover; /* Cover the area, cropping if necessary */
+    border-bottom: 1px solid #eee; /* Subtle separator */
+}
+
+.category-card h3 {
+  font-family: 'LandRoverWeb-Medium';
+    font-size: 1.6rem;
+    color: #298ffc; /* A distinct color for titles */
+    margin: 20px 15px 10px; /* Spacing for title */
+    font-weight: 600;
+}
+
+.category-card p {
+    font-size: 1rem;
+    /* color: #555; */
+    padding: 0 15px 20px; /* Spacing for paragraph */
+    line-height: 1.5;
+    flex-grow: 1; /* Allow paragraph to grow and push button to bottom if applicable */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .vehicle-categories-section {
+        padding: 40px 0;
+    }
+
+    .vehicle-categories-section .section-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .category-cards-grid {
+        grid-template-columns: 1fr; /* Stack cards vertically on smaller screens */
+        gap: 20px;
+    }
+
+    .category-card img {
+        height: 180px;
+    }
+
+    .category-card h3 {
+        font-size: 1.4rem;
+    }
+
+    .category-card p {
+        font-size: 0.95rem;
+    }
 }

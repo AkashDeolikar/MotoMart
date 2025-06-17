@@ -1,62 +1,106 @@
-import './partsinfo.css';
-import React from 'react';
+// import React, { useEffect, useState } from 'react';
+// import './partsinfo.css';
 
-const partsData = [
-    {
-        part: 'Engine Oil',
-        type: 'OEM / Aftermarket',
-        brands: ['Castrol', 'Mobil 1', 'Motul'],
-        priceRange: '₹900 - ₹1800 (per 3.5L)',
-        spec: '5W30 (API SN), Fully Synthetic',
-    },
-    {
-        part: 'Coolant',
-        type: 'OEM / Aftermarket',
-        brands: ['Shell', 'Bosch', 'Prestone'],
-        priceRange: '₹300 - ₹700 (per L)',
-        spec: 'Ethylene Glycol (Green/Red)',
-    },
-    {
-        part: 'Brake Fluid',
-        type: 'OEM / Aftermarket',
-        brands: ['Bosch', 'TVS Girling', 'Castrol'],
-        priceRange: '₹200 - ₹450 (per 500ml)',
-        spec: 'DOT 3 / DOT 4',
-    },
-    {
-        part: 'Air Filter',
-        type: 'OEM / Aftermarket',
-        brands: ['Bosch', 'Purolator', 'Mahle'],
-        priceRange: '₹250 - ₹600',
-        spec: 'Model-specific (e.g., 1.2L Petrol)',
-    },
-    {
-        part: 'Battery',
-        type: 'OEM / Aftermarket',
-        brands: ['Exide', 'Amaron', 'SF Sonic'],
-        priceRange: '₹3500 - ₹5500',
-        spec: '35Ah - 45Ah (Maintenance-free)',
-    },
-    {
-        part: 'Wiper Blade',
-        type: 'OEM / Aftermarket',
-        brands: ['Bosch', 'Hella', 'Rain-X'],
-        priceRange: '₹300 - ₹1200 (per blade)',
-        spec: '14” - 24” (Silicone or Rubber)'
-    },
-    {
-        part: 'Headlight',
-        type: 'OEM / Aftermarket',
-        brands: ['Philips', 'Osram', 'Hella'],
-        priceRange: '₹600 - ₹3000 (per unit)',
-        spec: 'H4 / H7 Halogen, LED, HID options'
-    },
-];
+// const PartsInfo = () => {
+//     const [partsData, setPartsData] = useState([]);
+
+//     useEffect(() => {
+//         fetch('/partsData.json') // path->public folder
+//             .then(response => response.json())
+//             .then(data => setPartsData(data))
+//             .catch(error => console.error('Error loading JSON:', error));
+//     }, []);
+
+//     return (
+//         <div className="parts-container">
+//             <h2>🛠 Parts & Fluids Information</h2>
+//             <table className="parts-table">
+//                 <thead>
+//                     <tr>
+//                         <th>Part</th>
+//                         <th>Type</th>
+//                         <th>Recommended Brands</th>
+//                         <th>Price Range</th>
+//                         <th>Grade / Specification</th>
+//                     </tr>
+//                 </thead>
+//                 <tbody>
+//                     {partsData.map((item, index) => (
+//                         <tr key={index}>
+//                             <td>{item.part}</td>
+//                             <td>{item.type}</td>
+//                             <td>{item.brands.join(', ')}</td>
+//                             <td>{item.priceRange}</td>
+//                             <td>{item.spec}</td>
+//                         </tr>
+//                     ))}
+//                 </tbody>
+//             </table>
+//         </div>
+//     );
+// };
+
+// export default PartsInfo;
+import React, { useEffect, useState } from 'react';
+import './partsinfo.css';
 
 const PartsInfo = () => {
+    const [partsData, setPartsData] = useState([]);
+    const [filteredData, setFilteredData] = useState([]);
+    const [partType, setPartType] = useState('');
+    const [searchBrand, setSearchBrand] = useState('');
+
+    useEffect(() => {
+        fetch('/partsData.json')
+            .then(res => res.json())
+            .then(data => {
+                setPartsData(data);
+                setFilteredData(data);
+            })
+            .catch(err => console.error('Failed to load:', err));
+    }, []);
+
+    useEffect(() => {
+        let filtered = partsData;
+
+        if (partType.trim()) {
+            filtered = filtered.filter(item =>
+                item.part.toLowerCase().includes(partType.toLowerCase())
+            );
+        }
+
+        if (searchBrand.trim()) {
+            filtered = filtered.filter(item =>
+                item.brands.some(brand =>
+                    brand.toLowerCase().includes(searchBrand.toLowerCase())
+                )
+            );
+        }
+
+        setFilteredData(filtered);
+    }, [partType, searchBrand, partsData]);
+
     return (
         <div className="parts-container">
             <h2>🛠 Parts & Fluids Information</h2>
+
+            {/* Filters */}
+            <div className="filters">
+                <input
+                    type="text"
+                    placeholder="Filter by Part Name (e.g., Brake)"
+                    value={partType}
+                    onChange={(e) => setPartType(e.target.value)}
+                />
+                <input
+                    type="text"
+                    placeholder="Search by Brand (e.g., Bosch)"
+                    value={searchBrand}
+                    onChange={(e) => setSearchBrand(e.target.value)}
+                />
+            </div>
+
+            {/* Table */}
             <table className="parts-table">
                 <thead>
                     <tr>
@@ -68,19 +112,31 @@ const PartsInfo = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {partsData.map((item, index) => (
-                        <tr key={index}>
-                            <td>{item.part}</td>
-                            <td>{item.type}</td>
-                            <td>{item.brands.join(', ')}</td>
-                            <td>{item.priceRange}</td>
-                            <td>{item.spec}</td>
+                    {filteredData.length === 0 ? (
+                        <tr>
+                            <td colSpan="5" style={{ textAlign: 'center' }}>
+                                No matching parts found.
+                            </td>
                         </tr>
-                    ))}
+                    ) : (
+                        filteredData.map((item, index) => (
+                            <tr key={index}>
+                                <td>{item.part}</td>
+                                <td>{item.type}</td>
+                                <td>{item.brands.join(', ')}</td>
+                                <td>{item.priceRange}</td>
+                                <td>{item.spec}</td>
+                            </tr>
+                        ))
+                    )}
                 </tbody>
             </table>
+            <div className='note'>
+                <p>NOTE: Original parts and fluids are also available at OEM-authorized service centers and care outlets.</p>
+            </div>
         </div>
     );
 };
 
 export default PartsInfo;
+
