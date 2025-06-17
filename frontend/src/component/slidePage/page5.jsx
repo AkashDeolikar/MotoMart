@@ -1,11 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './page5.css';
 import RangeRoverLoading from '../slidePage/Range-Roverloading.jpg';
 import JaguarLoading from '../slidePage/Jaguarloading.jpg';
-
+//AOS
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const Page5 = () => {
     const [loadingJaguar, setLoadingJaguar] = useState(false);
     const [loadingRover, setLoadingRover] = useState(false);
+
+    /*Scroll up animation */
+      useEffect(() => {
+        AOS.init({
+          duration: 1000, // animation duration in milliseconds
+          once: false     // set to false to animate again on scroll up
+        });
+      }, []);
 
     const handleJaguarClick = () => {
         setLoadingJaguar(true);
@@ -30,7 +40,7 @@ const Page5 = () => {
             </div>
 
             <div className="ConstantBG5">
-                <div className="T5Page">
+                <div className="T5Page" data-aos="flip-left">
                     <h2 className="constantBGT1page">Welcome to the renaissance</h2>
                     <p className="constantBGT1page5">
                         We bring you truly distinct, global brands that define modern luxury, embrace our modernist design philosophy and are emotionally compelling and unique.
@@ -40,7 +50,7 @@ const Page5 = () => {
 
                 <div className="row">
                     {/* Jaguar Card */}
-                    <div className="col-md-6">
+                    <div className="col-md-6" data-aos="fade-up">
                         {loadingJaguar ? (
                             <div className="lux-card loading-card appearIntro">
                                 <img
@@ -65,7 +75,7 @@ const Page5 = () => {
                     </div>
 
                     {/* Land Rover Card */}
-                    <div className="col-md-6">
+                    <div className="col-md-6" data-aos="fade-up">
                         {loadingRover ? (
                             <div className="lux-card loading-card appearIntro">
                                 <img

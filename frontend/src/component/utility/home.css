@@ -580,24 +580,83 @@ html {
 }
 
 .offers-grid {
-  padding-bottom: 1.5rem;
-  margin-top: 15px;
+  padding: 30px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
 }
 
+/* OUTER CARD CONTAINER */
 .offer-card {
-  border-radius: 12px;
-  box-shadow: 0 4px 4px rgba(239, 154, 18, 0.83);
   width: 300px;
-  padding: 1rem;
-  transition: transform 0.3s;
+  height: 220px; /* 🔥 Required for perspective */
+  perspective: 1000px;
+  text-decoration: none;
+  color: inherit;
 }
+
+/* INNER ROTATING WRAPPER */
+.offer-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+  border-radius: 12px;
+  box-shadow: 0 4px 4px rgba(180, 179, 178, 0.83);
+}
+
+/* ROTATE INNER ON HOVER */
+.offer-card:hover .offer-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* FRONT & BACK SIDES */
+.offer-card-front,
+.offer-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* FRONT SIDE STYLING */
+.offer-card-front {
+  background: #fff;
+}
+.dark .offer-card-front {
+  background: #bebdbd;
+}
+
+.offer-card-front img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+/* BACK SIDE STYLING */
+.offer-card-back {
+  background: #1e1e1e;
+  color: #fff;
+  transform: rotateY(180deg);
+}
+.offer-card-back h6 {
+  color: #406cfe;
+}
+
 
 .offer-card:hover {
   transform: translateY(-5px);
+  transition: 0.3s;
 }
 
 .offer-card img {
@@ -729,105 +788,165 @@ html {
   }
 }
 
-/* vehicleCategories.css or add to home.css */
+/*###################################################*/
+/*  180   FLIP */
+/* Outer card for flip effect */
+.container1 {
+  max-width: 1000px;
+  padding: 20px;
+  margin: 40px auto 10px auto; 
+  font-family: Arial, sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
 
 .vehicle-categories-section {
-    padding: 60px 0; /* Vertical padding */
-    /* background-color: #f9f9f9ee; */
-    text-align: center; /* Center align text content */
+  padding: 60px 0;
+  text-align: center;
 }
 
 .vehicle-categories-section .container {
-    max-width: 1100px; /* Max width for the content */
-    margin: 0 auto; /* Center the container */
-    padding: 0 20px; /* Horizontal padding for smaller screens */
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .vehicle-categories-section .section-title {
   font-family: 'Jaguar Exuberant light';
-    font-size: 2.5rem; /* Larger title font size */
-    /* color: #333; */
-    margin-bottom: 40px; /* Space below title */
-    font-weight: bold;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  font-weight: bold;
 }
 
 .category-cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid columns */
-    gap: 30px; /* Space between cards */
-    justify-content: center; /* Center items if they don't fill the row */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 50px;
+  justify-content: center;
+  justify-items: center;
 }
 
+/* Flip card outer container */
 .category-card {
-    background-color: #fff;
-    border-radius: 10px; /* Slightly rounded corners */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
-    overflow: hidden; /* Ensures image corners are rounded */
-    text-decoration: none; /* Remove underline from links */
-    color: inherit; /* Inherit text color */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
-    display: flex; /* Use flexbox for content alignment */
-    flex-direction: column; /* Stack image and text vertically */
-    height: 100%; /* Ensure cards in a row have equal height */
+  perspective: 1000px;
+  height: 310px;
+  width: 80%;
 }
 
-.dark .category-card{
-  background-color: #2d2f31;
+/* Flip inner wrapper */
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s ease;
+  transform-style: preserve-3d;
 }
 
-.category-card:hover {
-    transform: translateY(-15px); /* Lift card on hover */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
+/* Flip on hover */
+.category-card:hover .card-inner {
+  transform: rotateY(180deg);
 }
 
-.category-card img {
-    width: 100%; /* Image takes full width of card */
-    height: 200px; /* Fixed height for images */
-    object-fit: cover; /* Cover the area, cropping if necessary */
-    border-bottom: 1px solid #eee; /* Subtle separator */
+/* Common card faces */
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 80%;
+  border-radius: 10px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.category-card h3 {
-  font-family: 'LandRoverWeb-Medium';
-    font-size: 1.6rem;
-    color: #298ffc; /* A distinct color for titles */
-    margin: 20px 15px 10px; /* Spacing for title */
-    font-weight: 600;
+/* Front styling */
+.card-front {
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+.dark .card-front {
+  background-color: #4b4b4b;
+}
+.card-front img {
+  width: 15rem;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+}
+.card-title-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px 0;
+  background: rgba(0, 0, 0, 0.6);
+  /* color: #fff; */
+  font-size: 1.4rem;
+  font-family: 'Jaguar Exuberant';
+  text-align: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.card-front h4 {
+  margin: 10px 0;
+  font-size: 1.6rem;
+  color: #dadada;
+  font-family: 'Jaguar Exuberant';
+  text-decoration: none;
 }
 
-.category-card p {
-    font-size: 1rem;
-    /* color: #555; */
-    padding: 0 15px 20px; /* Spacing for paragraph */
-    line-height: 1.5;
-    flex-grow: 1; /* Allow paragraph to grow and push button to bottom if applicable */
+/* Back styling */
+.card-back {
+  background-color: #414141;
+  color: white;
+  transform: rotateY(180deg);
+  text-align: center;
+  padding: 20px;
 }
 
-/* Responsive adjustments */
+.card-back p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.view-btn {
+  padding: 8px 16px;
+  background: #58a1ee;
+  /* color: #fff; */
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-    .vehicle-categories-section {
-        padding: 40px 0;
-    }
+  .container1{
+    max-width: 350px;
+  }
+  .vehicle-categories-section {
+    padding: 40px 0;
+  }
 
-    .vehicle-categories-section .section-title {
-        font-size: 2rem;
-        margin-bottom: 30px;
-    }
+  .section-title {
+    font-size: 2rem;
+  }
 
-    .category-cards-grid {
-        grid-template-columns: 1fr; /* Stack cards vertically on smaller screens */
-        gap: 20px;
-    }
+  .card-front img {
+    height: 160px;
+  }
 
-    .category-card img {
-        height: 180px;
-    }
+  .card-front h3 {
+    font-size: 1.4rem;
+  }
 
-    .category-card h3 {
-        font-size: 1.4rem;
-    }
-
-    .category-card p {
-        font-size: 0.95rem;
-    }
+  .card-back p {
+    font-size: 0.95rem;
+  }
 }

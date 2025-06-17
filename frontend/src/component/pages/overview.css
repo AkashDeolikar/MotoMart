@@ -6,6 +6,10 @@ body {
   line-height: 1.6;
 }
 
+/* .dark .body{
+  color: white;
+} */
+
 .overview-container {
   max-width: 800px;
   margin: 2rem auto;
@@ -20,8 +24,10 @@ body {
 
 .overview-intro p {
   font-size: 1rem;
-  color: #6b6e71;
   margin-bottom: 2rem;
+}
+.dark .overview-intro p {
+color: #bebdbd;
 }
 
 .overview-section {
@@ -36,12 +42,12 @@ body {
 
 .overview-section p {
   margin-bottom: 0.5rem;
-  color: #5f6368;
+  /* color: #5f6368; */
 }
 
 .overview-section ul {
   padding-left: 1.5rem;
-  color: #5f6368;
+  /* color: #5f6368; */
 }
 
 .overview-section ul li {
