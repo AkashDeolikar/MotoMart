@@ -69,7 +69,7 @@ mongoose.connect(process.env.MONGO_URI, {
   useUnifiedTopology: true,
 })
 .then(() => console.log('MongoDB connected'))
-.catch((err) => console.log(err));
+.catch((err) => console.log('MongoDB connection error:', err));
 
 // Contact Schema & Model
 const contactSchema = new mongoose.Schema({
@@ -97,47 +97,11 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
+// Vehicle Model (from external file that points to 'carvehicle' collection)
+const Vehicle = require('./models/vehicle-model-backend');
 
-// Vehicle Schema & Model
-const vehicleSchema = new mongoose.Schema({
-  manufacturer: String,
-  idPrefix: String,
-  vehicles: [
-    {
-      id: String,
-      videoSrc: String,
-      thumbnail: String,
-      title: String,
-      link: String,
-      description: String,
-      buttonText: String,
-      vehicleInfo: {
-        model: String,
-        manufacturer: String,
-        year: Number,
-        features: [String],
-        price: String,
-      },
-    },
-  ],
-});
-
-const Vehicle = mongoose.model('vehicle', vehicleSchema); // 👈 Matches MongoDB collection name
-
-
-// GET route to fetch vehicle data grouped by manufacturer
-// app.get('/api/vehicles', async (req, res) => {
-//   try {
-//     const vehicles = await Vehicle.find();
-//     res.json(vehicles); // Send full vehicle docs, already grouped by manufacturer
-//   } catch (error) {
-//     console.error('Error fetching vehicles:', error);
-//     res.status(500).json({ error: 'Server error' });
-//   }
-// });
-// GET route to fetch vehicle data
+// GET: fetch all vehicle data
 app.get('/api/vehicles', async (req, res) => {
-  console.log('GET /api/vehicles hit'); // 👈 Add this log!
   try {
     const vehicles = await Vehicle.find();
     res.json(vehicles);
@@ -147,9 +111,28 @@ app.get('/api/vehicles', async (req, res) => {
   }
 });
 
+// OPTIONAL: GET route with search by manufacturer/model
+app.get('/api/vehicles/search', async (req, res) => {
+  const { manufacturer, model } = req.query;
 
+  try {
+    const query = {};
+    if (manufacturer) {
+      query.manufacturer = { $regex: manufacturer, $options: 'i' };
+    }
+    if (model) {
+      query['vehicles.vehicleInfo.model'] = { $regex: model, $options: 'i' };
+    }
+
+    const vehicles = await Vehicle.find(query);
+    res.json(vehicles);
+  } catch (error) {
+    console.error('Error during search:', error);
+    res.status(500).json({ error: 'Search failed' });
+  }
+});
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`Server running on port http://localhost:${PORT}/api/vehicles`);
+  console.log(`🚀 Server running on http://localhost:${PORT}/api/vehicles`);
 });
