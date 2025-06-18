@@ -644,10 +644,10 @@ const AutoPlayCardSlider = ({ data }) => (
  * @param {function} props.scrollToTargetSection - Function to scroll to a target section.
  */
 const AboutUsSection = ({ scrollToTargetSection }) => (
-  <div className="backgroundimage" data-aos="fade-up">
-    <section className="naming" data-aos="zoom-in">
+  <div className="backgroundimage" data-aos="fade">
+    <section className="naming" data-aos="fade-up">
       <h1>THE HEART OF JOY-REDEFINING DRIVING</h1>
-      <div className="aboutus">
+      <div className="aboutus" data-aos="fade-up">
         <h5>About us</h5>
         <h5>Agile, new-age and future-ready</h5>
         <p className="passage">We are India’s market leader in commercial vehicles and amongst the top three in the passenger vehicles market. We prioritise human centricity with technological prowess and engineering excellence to make cargo and passenger mobility safer, smarter and greener.</p>
@@ -716,7 +716,7 @@ const FeaturedCarsSection = ({ featuredCars, handlePrev, handleNext, visibleCars
  * Renders the full-page swipe sections for different vehicle categories.
  */
 const SwipePagesSection = () => (
-  <div className="ConstantBGHomeSwipe" data-aos="fade-up">
+  <div className="ConstantBGHomeSwipe" data-aos="fade">
     <Swiper
       pagination={{
         clickable: true,
@@ -824,15 +824,6 @@ const SustainabilitySection = () => (
  * @param {Array<object>} props.offers - Array of offer data.
  */
 const OffersGridSection = ({ offers }) => (
-  // <div className="offers-grid" data-aos="fade-up">
-  //   {offers.map((offer) => (
-  //     <Link to={offer.link} key={offer.id} className="offer-card">
-  //       <img className="img" src={offer.image} alt={offer.title} />
-  //       <h3>{offer.title}</h3>
-  //       <p>{offer.description}</p>
-  //     </Link>
-  //   ))}
-  // </div>
   <div className="offers-grid" data-aos="fade-up">
     {offers.map((offer) => (
       <Link to={offer.link} key={offer.id} className="offer-card">
@@ -1055,8 +1046,8 @@ const Home = () => {
       <AboutUsSection scrollToTargetSection={scrollToTargetSection} />
 
       {/* Placeholder div for scroll target */}
-      <div ref={targetSectionRef} className="hand-image-box" data-aos="zoom-in">
-        <div className="hand-image-text">
+      <div ref={targetSectionRef} className="hand-image-box" >
+        <div className="hand-image-text" data-aos="fade">
           <h2>Experience the Future of Driving</h2>
         </div>
       </div>
@@ -1071,8 +1062,8 @@ const Home = () => {
       />
 
       {/*Luxury vehicle intro */}
-      <div className="hand-image-box1" data-aos="fade-up">
-        <div className="hand-image-text1">
+      <div className="hand-image-box1" data-aos="fade">
+        <div className="hand-image-text1" data-aos="zoom-in">
           <h2>Stay inspired</h2>
           <h4>This is just the beginning. <i className="bi bi-gem"></i> </h4>
         </div>

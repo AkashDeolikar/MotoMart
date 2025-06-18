@@ -122,6 +122,23 @@ export const vehicleData = [
     idPrefix: 'bajaj',
     vehicles: [
       {
+        id: 'bajaj-pulsar-125',
+        videoPoster: 'https://imgd.aeplcdn.com/664x374/n/cw/ec/114155/pulsar-125-left-side-view.png?isig=0&q=80',
+        videoSrc: "https://www.youtube.com/embed/IjVpkMwSrqo",
+        thumbnail: "https://cdn.bajajauto.com/-/media/assets/bajajauto/global/bajaj-logo2.png",
+        title: "Bajaj Pulsar 125",
+        link: "https://www.bajajauto.com/bikes/pulsar/pulsar-125",
+        description: "The Bajaj Pulsar 125 combines muscular design with refined performance, making it a great entry-level sports commuter bike.",
+        buttonText: "View Details",
+        vehicleInfo: {
+          model: "Pulsar 125",
+          manufacturer: "Bajaj",
+          year: 2024,
+          features: ["CBS Braking", "LED DRLs", "Digital Analog Console", "Tubeless Tyres"],
+          price: "₹ 82,000 - ₹ 95,000"
+        }
+      },
+      {
         id: 'bajaj-pulsar-ns200',
         videoPoster: bajajPulsarNS200,
         videoSrc: "https://www.youtube.com/embed/nSw6pAqJ0PE",
@@ -270,6 +287,23 @@ export const vehicleData = [
         }
       },
       {
+        id: 'hero-hf-deluxe',
+        videoPoster: 'https://rukminid2.flixcart.com/image/850/1000/xif0q/motorcycle/b/a/t/i3s-with-self-start-self-kick-hf-deluxe-i3s-with-self-start-drum-original-imahauhk5q8daung.jpeg?q=20&crop=false',
+        videoSrc: "https://www.youtube.com/embed/BXIlcGpYKI4",
+        thumbnail: "https://www.heromotocorp.com/content/dam/hero-aem-website/brand/logo/logo.svg",
+        title: "Hero HF Deluxe",
+        link: "https://www.heromotocorp.com/en-in/motorcycles/practical/hf-deluxe.html",
+        description: "The Hero HF Deluxe is a trusted mileage bike built for rural and city commuting, known for reliability and affordability.",
+        buttonText: "View Details",
+        vehicleInfo: {
+          model: "HF Deluxe",
+          manufacturer: "Hero MotoCorp",
+          year: 2024,
+          features: ["i3S Technology", "Alloy Wheels", "Tubeless Tyres", "Kick & Electric Start"],
+          price: "₹ 60,000 - ₹ 67,000"
+        }
+      },
+      {
         id: 'hero-passion-pro',
         videoPoster: heroPassionPro,
         videoSrc: "https://www.youtube.com/embed/NX-cosdFFV4",
@@ -408,6 +442,40 @@ export const vehicleData = [
         }
       },
       {
+        id: 'honda-sp125',
+        videoPoster: 'https://www.honda2wheelersindia.com/_next/image?url=https%3A%2F%2Fedge.sitecorecloud.io%2Fhondamotorc388f-hmsi8ece-prodb777-e813%2Fmedia%2FProject%2FHONDA2WI%2Fhonda2wheelersindia%2Fmotorcycle%2Fsp-125%2Fget-to-know-your-ride%2FGet-to-know-your-ride-584x450.png%3Fh%3D450%26iar%3D0%26w%3D584&w=1200&q=75&dpl=dpl_GhRLthEc6SnttHujCmfo3AqX9GYv',
+        videoSrc: "https://www.youtube.com/embed/zUghFzvCmkg",
+        thumbnail: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Honda_Logo.svg",
+        title: "Honda SP 125",
+        link: "https://www.honda2wheelersindia.com/motorcycle/sp-125",
+        description: "The Honda SP 125 is a stylish and fuel-efficient commuter bike packed with modern features and refined performance.",
+        buttonText: "View Details",
+        vehicleInfo: {
+          model: "SP 125",
+          manufacturer: "Honda",
+          year: 2024,
+          features: ["Silent Start ACG", "Fully Digital Console", "eSP Technology", "Fuel Injection"],
+          price: "₹ 86,000 - ₹ 91,000"
+        }
+      },
+      {
+        id: 'honda-dio',
+        videoPoster: 'https://www.honda2wheelersindia.com/_next/image?url=https%3A%2F%2Fedge.sitecorecloud.io%2Fhondamotorc388f-hmsi8ece-prodb777-e813%2Fmedia%2FProject%2FHONDA2WI%2Fhonda2wheelersindia%2Fscooter%2Fdio-110%2Fdio110-accessories.png%3Fh%3D810%26iar%3D0%26w%3D1920&w=1920&q=75&dpl=dpl_GhRLthEc6SnttHujCmfo3AqX9GYv',
+        videoSrc: "https://www.youtube.com/embed/OpyEvjTqabY",
+        thumbnail: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Honda_Logo.svg",
+        title: "Honda Dio",
+        link: "https://www.honda2wheelersindia.com/scooter/dio-110",
+        description: "The Honda Dio is a sporty scooter with youth-centric design, vibrant graphics, and a reliable engine for daily rides.",
+        buttonText: "View Details",
+        vehicleInfo: {
+          model: "Dio",
+          manufacturer: "Honda",
+          year: 2024,
+          features: ["LED Headlamp", "Digital Console", "eSP Technology", "Side Stand Engine Cut-off"],
+          price: "₹ 73,000 - ₹ 78,000"
+        }
+      },
+      {
         id: 'honda-shine',
         videoPoster: hondaShine,
         videoSrc: "https://www.youtube.com/embed/_86inLgEAJE",
@@ -487,15 +555,18 @@ export const vehicleData = [
 
 const Bikecard = () => {
   const [authChecked, setAuthChecked] = useState(false);
+  const [manufacturer, setManufacturer] = useState('');//filer search
+  const [model, setModel] = useState('');//filer search
+  const [filteredData, setFilteredData] = useState(vehicleData);//filer search
   const navigate = useNavigate();
 
-   //flip left animation 
-    useEffect(() => {
-      AOS.init({
-        duration: 1000, // animation duration in ms
-        once: false, // repeat animation every time you scroll up/down
-      });
-    }, []);
+  //DATA_AOS animation 
+  useEffect(() => {
+    AOS.init({
+      duration: 300, // animation duration in ms
+      once: false, // repeat animation every time you scroll up/down
+    });
+  }, []);
 
   //checking user is sign in or not
   useEffect(() => {
@@ -509,6 +580,37 @@ const Bikecard = () => {
     });
     return () => unsubscribe(); // Cleanup
   }, [navigate]);
+
+  // useEffect(() => {
+  //     if (manufacturer.trim()) {
+  //       const filtered = vehicleData.filter(group =>
+  //         group.manufacturer.toLowerCase().includes(manufacturer.toLowerCase())
+  //       );
+  //       setFilteredData(filtered);
+  //     } else {
+  //       setFilteredData(vehicleData); // reset if input is cleared
+  //     }
+  //   }, [manufacturer]);
+  useEffect(() => {
+    const filtered = vehicleData
+      .map(group => {
+        const matchManufacturer = group.manufacturer.toLowerCase().includes(manufacturer.toLowerCase());
+        // If manufacturer matches or input is empty
+        if (matchManufacturer || !manufacturer.trim()) {
+          const filteredVehicles = group.vehicles.filter(vehicle =>
+            vehicle.vehicleInfo.model.toLowerCase().includes(model.toLowerCase())
+          );
+          // Only return groups with matching vehicles
+          if (filteredVehicles.length > 0) {
+            return { ...group, vehicles: filteredVehicles };
+          }
+        }
+        return null;
+      })
+      .filter(Boolean);
+    setFilteredData(filtered.length ? filtered : []);
+  }, [manufacturer, model]);
+
   if (!authChecked) return null; // Prevent UI render while checking auth
 
 
@@ -526,8 +628,6 @@ const Bikecard = () => {
     <div className="card-container" key={vehicle.id}>
       <div className="video-section">
         <section>
-          {/* Note: In Seeoffer, we still use the <video> tag with a poster.
-              The actual embed will happen in CardDetail.js */}
           <video
             muted
             playsInline
@@ -535,9 +635,7 @@ const Bikecard = () => {
             poster={vehicle.videoPoster}
             className="video-element"
           >
-            {/* The source for the video tag here is less critical since it's just a preview/poster section.
-                If you have a short video preview, use it here. Otherwise, the poster is enough. */}
-            <source src={vehicle.videoSrc} type="video/mp4" /> {/* Still good to have if it's an actual video file */}
+            <source src={vehicle.videoSrc} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </section>
@@ -572,19 +670,56 @@ const Bikecard = () => {
   return (
     <div className="seeoffer-background">
       <div className='cardbox'>
-        {vehicleData.map((manufacturerGroup) => (
-          <React.Fragment key={manufacturerGroup.manufacturer}>
-            <div data-aos="zoom-in" className='title1'>
-              <h1 className='rxk'>{manufacturerGroup.manufacturer} Vehicles</h1>
-            </div>
-            <div data-aos="fade-right" className="card-slider">
-              <div className="card-grid-wrapper">
-                {manufacturerGroup.vehicles.map(vehicle => renderVehicleCard(vehicle))}
+        {/* Add the search input */}
+        <div className="manufacturer-filter" style={{ textAlign: 'center', marginBottom: '20px' }}>
+          <input
+            type="text"
+            placeholder="Search by Manufacturer (e.g., Yamaha)"
+            value={manufacturer}
+            onChange={(e) => setManufacturer(e.target.value)}
+            style={{
+              padding: '10px 15px',
+              width: '350px',
+              borderRadius: '8px',
+              border: '1px solid #ccc',
+              fontSize: '16px'
+            }}
+          />
+        </div>
+        <div className="model-filter" style={{ textAlign: 'center', marginBottom: '20px' }}>
+          <input
+            type="text"
+            placeholder="Search by Model (e.g., Activa, apache)"
+            value={model}
+            onChange={(e) => setModel(e.target.value)}
+            style={{
+              padding: '10px 15px',
+              width: '350px',
+              borderRadius: '8px',
+              border: '1px solid #ccc',
+              fontSize: '16px'
+            }}
+          />
+        </div>
+
+        {filteredData.length > 0 ? (
+          filteredData.map((manufacturerGroup) => (
+            <React.Fragment key={manufacturerGroup.manufacturer}>
+              <div data-aos="fade" className='title1'>
+                <h1 className='rxk'>{manufacturerGroup.manufacturer} Vehicles</h1>
               </div>
-            </div>
-            <div className="Xp8JS"></div>
-          </React.Fragment>
-        ))}
+              <div data-aos="fade-up" className="card-slider">
+                <div className="card-grid-wrapper">
+                  {manufacturerGroup.vehicles.map(vehicle => renderVehicleCard(vehicle))}
+                </div>
+              </div>
+              <div className="Xp8JS"></div>
+            </React.Fragment>
+          ))) : (
+          <div className="no-results" style={{ textAlign: 'center', marginTop: '50px', fontSize: '20px', color: '#999' }}>
+            🚫 No vehicles found matching your search.
+          </div>
+        )}
       </div>
     </div>
   );

@@ -904,7 +904,7 @@ html {
 
 /* Back styling */
 .card-back {
-  background-color: #414141;
+  background-color: #4b4b4b;
   color: white;
   transform: rotateY(180deg);
   text-align: center;
@@ -918,7 +918,7 @@ html {
 
 .view-btn {
   padding: 8px 16px;
-  background: #58a1ee;
+  /* background: #58a1ee; */
   /* color: #fff; */
   text-decoration: none;
   border-radius: 6px;

@@ -153,7 +153,7 @@ const ServiceCostCalculator = () => {
                 placeholder="Qty"
               />
 
-              <button className="delete-btn" onClick={() => handleDeleteService(service.id)}><i class="bi bi-trash"></i></button>
+              <button className="delete-btn" onClick={() => handleDeleteService(service.id)}><i class="bi bi-trash"> </i></button>
             </div>
           );
         })}
