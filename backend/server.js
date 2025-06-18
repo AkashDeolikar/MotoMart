@@ -131,7 +131,10 @@ app.get('/api/vehicles/search', async (req, res) => {
     res.status(500).json({ error: 'Search failed' });
   }
 });
-
+// ✅ Add this root route before app.listen()
+app.get('/', (req, res) => {
+  res.send('✅ Motomart backend is running.');
+});
 // Start server
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}/api/vehicles`);
