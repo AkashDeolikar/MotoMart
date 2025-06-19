@@ -49,11 +49,11 @@
 }
 
 .custom-paginationROVER {
-    font-family: 'Jaguar Exuberant Thin';
+    font-family: 'Jaguar Exuberant';
     letter-spacing: 1.1px;
     display: flex;
     height: 27px;
-    background-color: #3a3a3d;
+    background-color: #ffffffad;
     margin-top: 30px;
     width: 90%;
     margin-left: auto;
@@ -71,7 +71,8 @@
 }
 
 .custom-rover-active {
-    background-color: #101015;
+    background-color: #434344;
+    color: white;
 }
 
 .custom-rover::before {
@@ -79,7 +80,7 @@
     left: 50%;
     transform: translateX(-50%);
     font-size: 14px;
-    color: white;
+    color: inherit;
     white-space: nowrap;
 }
 
@@ -100,22 +101,22 @@
 }
 
 .listrover {
-  width: 60%;
-  display: grid;
-  /* justify-content: center; */
-  margin-top: 40px;
+    width: 60%;
+    display: grid;
+    /* justify-content: center; */
+    margin-top: 40px;
 }
 
 .cmp-readyToGoBar__link {
-  display: grid;
-  align-items: center;
-  background-color: #dfdfdf;
-  color: black;
-  text-decoration: none;
-  padding: 0px 40px;
-  transition: background-color 0.3s ease;
-  max-width: 400px;
-  width: 90%;
+    display: grid;
+    align-items: center;
+    background-color: #dfdfdf;
+    /* color: black; */
+    text-decoration: none;
+    padding: 0px 40px;
+    transition: background-color 0.3s ease;
+    max-width: 400px;
+    width: 90%;
 }
 
 /* .cmp-readyToGoBar__link:hover {
@@ -123,8 +124,8 @@
 } */
 
 .cmp-readyToGoBar__link i {
-  font-size: 45px;
-  margin-right: 20px;
+    font-size: 45px;
+    margin-right: 20px;
 }
 
 .cmp-readyToGoBar__heading {
@@ -134,22 +135,23 @@
 }
 
 .cmp-readyToGoBar__copy {
-  font-size: 16px;
-  color: #343434;
+    font-size: 16px;
+    color: #343434;
 }
 
 .view-prices-title {
-  font-size: 18px; 
-  display: flex;
-  align-items: center;
-  margin: 0 0 10px 0;
-}
-.view-prices-title .small-icon {
-  font-size: 16px;
-  margin-right: 4px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    margin: 0 0 10px 0;
 }
 
-.cmp-readyToGoBar__heading-inner:hover{
+.view-prices-title .small-icon {
+    font-size: 16px;
+    margin-right: 4px;
+}
+
+.cmp-readyToGoBar__heading-inner:hover {
     text-decoration: underline;
 }
 
@@ -159,21 +161,21 @@
 }
 
 @media (max-width: 768px) {
-  .cmp-readyToGoBar__link {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 15px 20px;
-  }
+    .cmp-readyToGoBar__link {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 20px;
+    }
 
-  .cmp-readyToGoBar__copy {
-    margin-left: 0;
-    margin-top: 8px;
-  }
+    .cmp-readyToGoBar__copy {
+        margin-left: 0;
+        margin-top: 8px;
+    }
 
-  .cmp-readyToGoBar__link i {
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
+    .cmp-readyToGoBar__link i {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
 }
 
 
@@ -200,20 +202,181 @@
     }
 
     .custom-paginationROVER {
-        display: grid;
-        height: 16vh;
+        display: inline-grid;
+        height: 19vh;
     }
+
     .custom-paginationROVER {
-    margin-top: 20px;
-}
+        margin-top: 20px;
+    }
 }
 
 @media (min-width: 768px) {
     .rover-box {
-    width: 70%;
-    height: 70vh;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-display: flex;    }
+        width: 70%;
+        height: 70vh;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        display: flex;
+    }
+}
+
+@media (max-width:486px) {
+    .pageswipe {
+        text-align: center;
+    }
+
+    .headingSwipe {
+        font-size: 20px;
+    }
+}
+
+.rover-det-spec-block {
+    background-color: #fefefef1;
+}
+
+.rover-tabs-container {
+    padding: 30px;
+    font-family: Arial, sans-serif;
+}
+
+.tab-main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.tab-image {
+    flex: 1 1 50%;
+    max-width: 700px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.tab-info {
+    flex: 0 1 40%;
+}
+
+.specs {
+    display: -webkit-box;
+    /* flex-direction: column;
+    gap: 20px; */
+}
+
+.spec-item {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 12px;
+}
+
+.title1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    margin-bottom: 1.5rem;
+}
+
+.tabs-header {
+    font-family: 'LandRoverWeb-Medium';
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.tab-button {
+    padding: 10px 20px;
+    background: #eee;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.tab-button.active {
+    background: #000;
+    color: white;
+}
+
+.tab-content {
+    margin-top: 20px;
+}
+
+.tab-image {
+    width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+.specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.spec-item {
+    flex: 1 1 200px;
+}
+
+.spec-label {
+    font-family: 'LandRoverWeb-Demi';
+    font-weight: lighter;
+    color: #3a3a3d;
+}
+
+.spec-value {
+    font-family: 'LandRoverWeb-Bold';
+    font-size: 24px;
+    font-weight: bolder;
+}
+
+.titleH {
+    font-family: 'LandRoverWeb-Demi';
+    padding-top: 20px;
+    color: #000;
+}
+
+.descriptionn {
+    font-family: 'LandRoverWeb-Demi';
+    color: #3a3a3d;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 20px;
+    background: #0055ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .tab-main {
+        flex-direction: column;
+    }
+
+    .tab-image,
+    .tab-info {
+        flex: 0 1 100%;
+    }
+
+    .rover-tabs-container {
+        padding: 15px;
+    }
 }

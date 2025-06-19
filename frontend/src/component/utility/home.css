@@ -112,7 +112,7 @@ body {
 }
 
 .deals {
-  max-width: 350px;
+  max-width: 550px;
   margin: 40px auto;
   padding: 25px 30px;
   border-radius: 18px;
@@ -130,6 +130,7 @@ body {
 
 .deals h2 {
   margin-bottom: 16px;
+  font-family: 'LandRoverWeb-Demi';
   font-size: 25px;
   color: #ff6f00;
   border-bottom: 2px solid #ffc107;
@@ -138,7 +139,8 @@ body {
 }
 
 .deals ul {
-  list-style-type: none;
+  /* font-family: 'LandRoverWeb-Demi'; */
+  list-style-type: disc;
   padding: 0;
   margin: 0;
 }
@@ -182,6 +184,9 @@ body {
 
   .cta h2 {
     font-size: 0.8rem;
+  }
+  .deals {
+    max-width: 341px;
   }
 }
 

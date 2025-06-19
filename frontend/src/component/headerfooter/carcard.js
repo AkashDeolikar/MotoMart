@@ -706,10 +706,10 @@ const Carcard = () => {
         {filteredData.length > 0 ? (
           filteredData.map((manufacturerGroup) => (
             <React.Fragment key={manufacturerGroup.manufacturer}>
-              <div data-aos="fade" className="title1">
+              <div data-aos="fade" className="title1" data-aos-once="true">
                 <h1 className="rxk">{manufacturerGroup.manufacturer} Vehicles</h1>
               </div>
-              <div data-aos="fade-up" className="card-slider">
+              <div data-aos="fade-up" className="card-slider" data-aos-once="true">
                 <div className="card-grid-wrapper">
                   {manufacturerGroup.vehicles.map(vehicle => renderVehicleCard(vehicle))}
                 </div>

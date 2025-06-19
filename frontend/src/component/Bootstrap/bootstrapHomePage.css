@@ -35,47 +35,64 @@
     background: linear-gradient(to right, #000000, #4600b8,  #000000);
 } */
 
- /*Bounce effect for Down arrow*/
- @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-  40% { transform: translateY(-15px); }
-  60% { transform: translateY(-7px); }
+/*Bounce effect for Down arrow*/
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-15px);
+    }
+
+    60% {
+        transform: translateY(-7px);
+    }
 }
+
 .bounce-arrow {
-  animation: bounce 2s infinite ease;
+    animation: bounce 2s infinite ease;
 }
 
 /*Hand Image Text*/
- .hand-image-box {
+.hand-image-box {
     padding: 60px;
     color: white;
     line-height: 1.6;
     background: linear-gradient(to right, #000000, #4600b8, #000000);
     position: relative;
     overflow: hidden;
-    box-shadow: 
-        0 0 20px 10px rgba(0, 0, 0, 0.8), /* Soft, slightly larger shadow all around */
+    box-shadow:
+        0 0 20px 10px rgba(0, 0, 0, 0.8),
+        /* Soft, slightly larger shadow all around */
         0 0 5px 2px rgba(0, 0, 0, 0.5);
 }
 
 .hand-image-box::before,
 .hand-image-box::after {
-    content: ''; 
-    position: absolute; 
+    content: '';
+    position: absolute;
     left: 0;
-    width: 100%; 
-    height: 50px; 
-    pointer-events: none; 
-    z-index: 2; 
+    width: 100%;
+    height: 50px;
+    pointer-events: none;
+    z-index: 2;
 }
 
 /* Top Fade */
 .hand-image-box::before {
     top: 0;
     background: linear-gradient(to bottom,
-        rgb(0, 0, 0), /* Start more opaque to match the edge */
-        rgba(0, 0, 0, 0)    /* Fade to fully transparent */
-    );
+            rgb(0, 0, 0),
+            /* Start more opaque to match the edge */
+            rgba(0, 0, 0, 0)
+            /* Fade to fully transparent */
+        );
 }
 
 /* Bottom Fade */
@@ -83,24 +100,30 @@
     bottom: 0;
     /* Gradient from bottom (transparent) to top (black matching edge) */
     background: linear-gradient(to top,
-        rgb(0, 0, 0), /* Start more opaque to match the edge */
-        rgba(0, 0, 0, 0)    /* Fade to fully transparent */
-    );
-}   
+            rgb(0, 0, 0),
+            /* Start more opaque to match the edge */
+            rgba(0, 0, 0, 0)
+            /* Fade to fully transparent */
+        );
+}
+
 .hand-image-text {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
-.hand-image-text h2{
+
+.hand-image-text h2 {
     font-family: 'Jaguar Exuberant light';
 }
-.hand-image-text p{
+
+.hand-image-text p {
     font-family: 'Jaguar Exuberant thin';
 }
+
 /*Luxury Text*/
- .hand-image-box1 {
+.hand-image-box1 {
     font-family: 'LandRoverWeb-Light';
     padding: 35px;
     color: white;
@@ -108,32 +131,36 @@
     background: linear-gradient(to right, #191818, #aa9999, #191818);
     position: relative;
     overflow: hidden;
-    box-shadow: 
-        0 0 20px 10px rgba(0, 0, 0, 0.8), /* Soft, slightly larger shadow all around */
+    box-shadow:
+        0 0 20px 10px rgba(0, 0, 0, 0.8),
+        /* Soft, slightly larger shadow all around */
         0 0 5px 2px rgba(0, 0, 0, 0.5);
 }
-.hand-image-box1 h2{
-font-family: 'LandRoverWeb-Light';
+
+.hand-image-box1 h2 {
+    font-family: 'LandRoverWeb-Light';
 }
 
 .hand-image-box1::before,
 .hand-image-box1::after {
-    content: ''; 
-    position: absolute; 
+    content: '';
+    position: absolute;
     left: 0;
-    width: 100%; 
-    height: 50px; 
-    pointer-events: none; 
-    z-index: 2; 
+    width: 100%;
+    height: 50px;
+    pointer-events: none;
+    z-index: 2;
 }
 
 /* Top Fade */
 .hand-image-box1::before {
     top: 0;
     background: linear-gradient(to bottom,
-        rgb(0, 0, 0), /* Start more opaque to match the edge */
-        rgba(0, 0, 0, 0)    /* Fade to fully transparent */
-    );
+            rgb(0, 0, 0),
+            /* Start more opaque to match the edge */
+            rgba(0, 0, 0, 0)
+            /* Fade to fully transparent */
+        );
 }
 
 /* Bottom Fade */
@@ -141,10 +168,13 @@ font-family: 'LandRoverWeb-Light';
     bottom: 0;
     /* Gradient from bottom (transparent) to top (black matching edge) */
     background: linear-gradient(to top,
-        rgb(0, 0, 0), /* Start more opaque to match the edge */
-        rgba(0, 0, 0, 0)    /* Fade to fully transparent */
-    );
-}  
+            rgb(0, 0, 0),
+            /* Start more opaque to match the edge */
+            rgba(0, 0, 0, 0)
+            /* Fade to fully transparent */
+        );
+}
+
 .hand-image-text1 {
     display: flex;
     flex-direction: column;
@@ -352,4 +382,143 @@ font-family: 'LandRoverWeb-Light';
         font-size: 0.85rem;
         /* Smaller paragraph */
     }
+}
+
+.masonrymedia__container {
+    display: flex;
+    gap: 30px;
+    padding: 40px;
+    background: #fff;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+.dark .masonrymedia__container {
+    background-color: #2c3e50;
+}
+
+.masonrymedia__mosaic {
+    /* flex: 2; */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.masonrymedia__row {
+    display: flex;
+    gap: 20px;
+}
+
+.masonrymedia__cell {
+    flex: 1;
+}
+
+.masonrymedia__cell--narrow {
+    flex: 1;
+}
+
+.masonrymedia__cell--main {
+    flex: 2;
+}
+
+.masonrymedia__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.masonrymedia__card {
+    flex: 1;
+    justify-items: center;
+    align-content: center;
+    flex: 2;
+    height: 500px;
+}
+
+.masonrymedia__card-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.masonrymedia__card-description {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.primary-link,
+.secondary-link {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin-right: 10px;
+    font-weight: bold;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+.primary-link {
+    background-color: #000;
+    color: #fff;
+}
+
+.secondary-link {
+    color: #000;
+    border-bottom: 1px solid #000;
+}
+
+.primary-link:hover {
+    background-color: #0055ff;
+}
+
+.secondary-link:hover {
+    border-color: #0055ff;
+    color: #0055ff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .masonrymedia__container {
+    flex-direction: column-reverse;
+    padding: 20px;
+    align-items: center;
+  }
+
+  .masonrymedia__mosaic {
+    gap: 10px;
+  }
+
+  .masonrymedia__row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* ✅ two items per row on mobile */
+    gap: 10px;
+  }
+
+  .masonrymedia__cell {
+    flex: unset;
+    width: 100%;
+  }
+
+  .masonrymedia__cell--narrow,
+  .masonrymedia__cell--main {
+    max-width: 100%;
+  }
+
+  .masonrymedia__image {
+    height: auto;
+    aspect-ratio: 1.3; /* Optional for consistent box sizes */
+  }
+
+  .masonrymedia__card {
+    max-width: 100%;
+    padding-bottom: 20px;
+    text-align: center;
+  }
+
+  .masonrymedia__card-title {
+    font-size: 22px;
+  }
+
+  .masonrymedia__card-description {
+    font-size: 14px;
+  }
 }
