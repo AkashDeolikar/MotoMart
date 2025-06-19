@@ -111,6 +111,142 @@ body {
   border-width: 18px 0 0px -15px;
 }
 
+.zic-zic-blocks {
+  padding-bottom: 45px;
+}
+
+/* Container for alternating blocks */
+.zic-alternating-content {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Support block wrapper */
+.zic-alternating-content .support {
+  background-color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+.dark .zic-alternating-content .support{
+  background-color: #2c3e50;
+}
+/* Each clickable section (image + text + arrow) */
+.zic-image-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  transition: background 0.3s ease;
+}
+
+/* .zic-image-link:hover {
+  background-color: #f9f9f9;
+} */
+.zic-alternating-content .right-aligned {
+  border-radius: 0 50vh 50vh 0;
+}
+.zic-alternating-content .right-aligned:hover {
+  content: "click";
+  transform: scaleX(1.020);
+  transition: all 0.5s ease;
+}
+.zic-alternating-content .left-aligned {
+    border-radius: 50vh 0 0 50vh ;
+}
+.zic-alternating-content .left-aligned:hover {
+  transform: scaleX(1.020);
+  transition: all 0.5s ease;
+}
+/* Right-aligned content */
+.zic-alternating-content .right-aligned .zic-image-link {
+  flex-direction: row-reverse;
+}
+.zic-alternating-content .right-aligned .zic-image-link p {
+  text-align: right;
+}
+
+/* Left-aligned content */
+.zic-alternating-content .left-aligned .zic-image-link {
+  flex-direction: row;
+}
+.zic-alternating-content .left-aligned .zic-image-link p {
+  text-align: left;
+}
+
+/* Image wrapper */
+.roverimg {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* Image itself */
+.zic-zac-block-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Text content */
+.zic-image-link p {
+  flex-grow: 1;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
+  margin: 0;
+}
+
+/* Arrow icon box */
+.arrow-box {
+  width: 40px;
+  height: 40px;
+  background: #000;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.3s;
+}
+.zic-image-link:hover .arrow-box {
+  background: #0055ff;
+}
+
+/* Responsive: Mobile Tweaks */
+@media (max-width: 768px) {
+  .zic-image-link {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .roverimg {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .zic-zac-block-img {
+    height: 150px;
+  }
+
+  .zic-image-link p {
+    text-align: center !important;
+    font-size: 0.95rem;
+  }
+
+  .arrow-box {
+    margin-top: 15px;
+  }
+}
+
+
+
 .deals {
   max-width: 550px;
   margin: 40px auto;

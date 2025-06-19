@@ -435,6 +435,7 @@
 }
 
 .masonrymedia__card-title {
+    color: black;
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 10px;

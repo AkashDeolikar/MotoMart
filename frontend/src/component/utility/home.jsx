@@ -29,6 +29,10 @@ import img1 from './assetimg/img1.jpg';
 import img2 from './assetimg/img2.jpg';
 import img3 from './assetimg/img3.jpg';
 import img4 from './assetimg/img4.jpg';
+import luxury from './assetimg/luxury.jpg';
+import passenger from './assetimg/passenger.jpg';
+import ev from './assetimg/ev.jpg';
+import commercial from './assetimg/commercial.jpg'
 
 // ===============================================
 // Extracted Components for Better Structure
@@ -595,6 +599,53 @@ const Home = () => {
       </div>
 
       <SwipePagesSection />
+
+<div className="zic-zic-blocks">
+        <div className="zic-data">
+            <div className="zic-alternating-content">
+                {/* Image 1: Right aligned - Clickable */}
+                <div className="support right-aligned" data-aos="slide-right" data-aos-delay="200">
+                    <Link to="/page5" className="zic-image-link">
+                        <picture className="roverimg">
+                            <img alt="roverRRJ" className="zic-zac-block-img" src={luxury} />
+                        </picture>
+                        <h3 class="masonrymedia__card-title headline headline--xl">LUXURY VEHICLES</h3>
+                    </Link>
+                </div>
+
+                {/* Image 3: Left aligned - Clickable */}
+                <div className="support left-aligned" data-aos="slide-left" data-aos-delay="230">
+                    <Link to="/image-page-3" className="zic-image-link">
+                        <picture className="roverimg">
+                            <img alt="roverRRJ" className="zic-zac-block-img" src={passenger} />
+                        </picture>
+                        <h3 class="masonrymedia__card-title headline headline--xl">PASSENGER VEHICLE</h3>
+                    </Link>
+                </div>
+
+                {/* Image 2: Right aligned - Clickable */}
+                <div className="support right-aligned" data-aos="slide-right" data-aos-delay="270">
+                    <Link to="/image-page-2" className="zic-image-link">
+                        <picture className="roverimg">
+                            <img alt="roverRRJ" className="zic-zac-block-img" src={ev} />
+                        </picture>
+                        <h3 class="masonrymedia__card-title headline headline--xl">EV VEHICLE</h3>
+                    </Link>
+                </div>
+
+                {/* Image 4: Left aligned - Clickable */}
+                <div className="support left-aligned" data-aos="slide-left" data-aos-delay="330">
+                    <Link to="/image-page-4" className="zic-image-link">
+                        <picture className="roverimg">
+                            <img alt="roverRRJ" className="zic-zac-block-img" src={commercial} />
+                        </picture>
+                        <h3 class="masonrymedia__card-title headline headline--xl">COMMERCIAL VEHICLE</h3>
+                    </Link>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
       {/* <SustainabilitySection /> */}
       <div className="masonrymedia-aka">
