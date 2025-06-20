@@ -233,6 +233,26 @@ body {
 .zic-image-link:hover .arrow-box {
   background: #0055ff;
 }
+@media (max-width: 1400px) {
+  .zic-image-link {
+    flex-direction: column !important;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .roverimg {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .zic-zac-block-img {
+    height: 200px;
+  }
+
+  .zic-image-link p {
+    padding: 10px 0;
+  }
+}
 
 /* Responsive: Mobile Tweaks */
 @media (max-width: 768px) {
@@ -996,19 +1016,20 @@ html {
   width: 70%;
 }
 
-/* Flip inner wrapper */
+/* gambling like effect wrapper */
 .card-inner {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 1s ease;
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
   transform-style: preserve-3d;
 }
 
-/* Flip on hover */
 .category-card:hover .card-inner {
-  transform: rotateY(180deg);
+  transform: translateY(-15px) rotateZ(3deg) scale(1.03);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
 }
+
 
 /* Common card faces */
 .card-front, .card-back {
@@ -1068,7 +1089,6 @@ html {
 .card-back {
   background-color: #2c3e50;
   color: white;
-  transform: rotateY(180deg);
   text-align: center;
   padding: 20px;
 }
@@ -1110,5 +1130,158 @@ html {
 
   .card-back p {
     font-size: 0.95rem;
+  }
+}
+
+
+/* Section Padding */
+.vehicle-section2 {
+  padding: 10vh 0;
+}
+
+/* Container Styling */
+.vehicle-container2 {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Section Title */
+.vehicle-title2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 40px;
+  font-family: 'Jaguar Exuberant light';
+}
+
+/* Card Deck Layout */
+.card-deck2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  position: relative;
+  padding-bottom: 20px;
+  transition: all 0.4s ease;
+}
+
+/* Base Card Styles */
+.vehicle-card2 {
+  box-shadow: #606060d8 1px 0px 45px 2px;
+    border-radius: 10px;
+  width: 300px;
+  height: 280px;
+  perspective: 1200px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.6s ease, margin 0.6s ease;
+  z-index: 1;
+}
+
+/* Initial Gambling-Style Overlap */
+.vehicle-card2:nth-child(1) {
+  transform: rotate(-6deg);
+  margin-right: -70px;
+  z-index: 1;
+}
+.vehicle-card2:nth-child(2) {
+  transform: rotate(6deg);
+  margin-left: -70px;
+  z-index: 2;
+}
+
+/* Smooth Spread on Hover of the deck */
+.card-deck2:hover .vehicle-card2 {
+  margin: 0 15px;
+  transform: rotate(0deg) scale(1);
+  transition: transform 0.5s ease, margin 0.5s ease;
+  z-index: 1;
+}
+
+/* Individual Card Hover - Float Effect */
+.vehicle-card2:hover {
+  transform: translateY(-10px) scale(1.03);
+  z-index: 10;
+  transition: transform 0.4s ease, z-index 0s;
+}
+
+/* Inner Card Flip Wrapper */
+.vehicle-card-inner2 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.5s ease;
+  transform-style: preserve-3d;
+}
+
+/* Front Face */
+.vehicle-card-front2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  background-color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.dark .vehicle-card-front2 {
+  background-color: #4b4b4b;
+}
+
+/* Front Image */
+.vehicle-card-front2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Overlay Title Bar */
+.vehicle-title-overlay2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px 0;
+  background: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.vehicle-overlay-text2 {
+  color: #fff;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .card-deck2 {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .vehicle-card2 {
+    width: 90%;
+    height: 260px;
+    margin: 0 !important;
+    transform: none !important;
+    z-index: 1 !important;
+  }
+
+  .vehicle-title2 {
+    font-size: 2rem;
+  }
+
+  .vehicle-overlay-text2 {
+    font-size: 1.2rem;
   }
 }

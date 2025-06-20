@@ -269,46 +269,43 @@ const VehicleCategoriesSection = () => {
   //   };
 
   return (
-    <section className="vehicle-categories-section" data-aos="fade-up">
-      <div className="container1" data-aos="zoom-in">
-        <h2 className="section-title">Our Vehicles</h2>
-        <div className="category-cards-grid">
-
-          {/* Car Card */}
-          <div className="category-card" data-aos="fade-up" >
-            <div className="card-inner">
-              <div className="card-front">
-                <Link to="/carcard">
-                  <img src="/images/car.jpg" alt="Car" />
-                </Link>
-                <div className="card-title-overlay"><h3 className="masonrymedia__card-title headline headline--xl">Cars</h3></div>
-              </div>
-              <div className="card-back">
-                <p>Explore our wide range of passenger cars.</p>
-                <Link to="/carcard" className="view-btn">Explore</Link>
-              </div>
+    <section className="vehicle-section2" data-aos="fade-up">
+  <div className="vehicle-container2">
+    <h2 className="vehicle-title2">Our Vehicles</h2>
+    <div className="card-deck2">
+      
+      {/* Car Card */}
+      <div className="vehicle-card2">
+        <div className="vehicle-card-inner2">
+          <div className="vehicle-card-front2">
+            <Link to="/carcard">
+              <img src="/images/car.jpg" alt="Car" />
+            </Link>
+            <div className="vehicle-title-overlay2">
+              <h3 className="vehicle-overlay-text2">Cars</h3>
             </div>
           </div>
-
-          {/* Bike Card */}
-          <div className="category-card" data-aos="fade-up" >
-            <div className="card-inner">
-              <div className="card-front">
-                <Link to="/bikecard">
-                  <img src="/images/bike.jpg" alt="Bike" className="imgbb" />
-                </Link>
-                <div className="card-title-overlay"><h3 className="masonrymedia__card-title headline headline--xl">Bikes</h3></div>
-              </div>
-              <div className="card-back">
-                <p>Discover our collection of motorcycles and scooters.</p>
-                <Link to="/bikecard" className="view-btn">Explore</Link>
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
-    </section>
+
+      {/* Bike Card */}
+      <div className="vehicle-card2">
+        <div className="vehicle-card-inner2">
+          <div className="vehicle-card-front2">
+            <Link to="/bikecard">
+              <img src="/images/bike.jpg" alt="Bike" />
+            </Link>
+            <div className="vehicle-title-overlay2">
+              <h3 className="vehicle-overlay-text2">Bikes</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
   );
 };
 
