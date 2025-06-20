@@ -62,6 +62,9 @@ import Jaguar from "./component/slidePage/roverpages/jaguar";
 import ServiceCostCalculator from "./component/slidePage/servicepages/servicecostcalculator";
 import EMICalculator from "./component/slidePage/servicepages/emicalculator";
 import PartsInfo from "./component/slidePage/servicepages/partsinfo";
+import Aboutus from "./component/utility/aboutus";
+import Bmw from "./component/slidePage/roverpages/bmw";
+import Mercedes from "./component/slidePage/roverpages/mercedes";
 // import BuildingForPregress from "./component/slidePage/BuildingForProgress";
 
 // Debug logs
@@ -134,7 +137,10 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister }) =
               <Route path="/page6" element={<Page6 />} />
               <Route path="/rover" element={<Rover />} />
               <Route path="/jaguar" element={<Jaguar />} />
+              <Route path="/bmw" element={<Bmw />} />
+              <Route path="/mercedes" element={<Mercedes />}/>
               <Route path="/luxury" element={<Luxury />} />
+              <Route path="/aboutus" element={<Aboutus />} />
 
               {/*Service TAB */}
               <Route path="/servicecostcalculator" element={<ServiceCostCalculator />} />

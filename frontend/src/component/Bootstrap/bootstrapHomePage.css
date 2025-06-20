@@ -69,10 +69,11 @@
     overflow: hidden;
     box-shadow:
         0 0 20px 10px rgba(0, 0, 0, 0.8),
-        /* Soft, slightly larger shadow all around */
         0 0 5px 2px rgba(0, 0, 0, 0.5);
 }
-
+.dark .hand-image-box{
+    background: linear-gradient(to right, #000000, #273a4c, #000000);
+}
 .hand-image-box::before,
 .hand-image-box::after {
     content: '';
@@ -121,6 +122,16 @@
 .hand-image-text p {
     font-family: 'Jaguar Exuberant thin';
 }
+.bg-video {
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* height: 80px; */
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.3; /* optional for readability */
+}
 
 /*Luxury Text*/
 .hand-image-box1 {
@@ -133,7 +144,6 @@
     overflow: hidden;
     box-shadow:
         0 0 20px 10px rgba(0, 0, 0, 0.8),
-        /* Soft, slightly larger shadow all around */
         0 0 5px 2px rgba(0, 0, 0, 0.5);
 }
 
@@ -181,19 +191,6 @@
     align-items: center;
     text-align: center;
 }
-
-/* .hand-image-text h2 {
-    font-size: 2.8em;
-    color: #7c7878;
-    margin-bottom: 15px;
-    font-weight: 700;
-}
-
-.hand-image-text p {
-    font-size: 1.2em;
-    color: #686868;
-    line-height: 1.6;
-} */
 
 /* CAROUSEL STYLING - REVISED */
 .carousel {
@@ -458,6 +455,7 @@
 }
 
 .primary-link {
+    cursor: pointer;
     background-color: #000;
     color: #fff;
 }
@@ -468,7 +466,8 @@
 }
 
 .primary-link:hover {
-    background-color: #0055ff;
+    background-color: #ececec;
+    color: black;
 }
 
 .secondary-link:hover {
@@ -523,3 +522,5 @@
     font-size: 14px;
   }
 }
+
+

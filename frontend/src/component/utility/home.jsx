@@ -17,7 +17,6 @@ import 'swiper/css';
 import 'swiper/css/autoplay';
 
 // Page swipe imports
-import { Pagination, EffectFade } from 'swiper/modules';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 
@@ -33,6 +32,10 @@ import luxury from './assetimg/luxury.jpg';
 import passenger from './assetimg/passenger.jpg';
 import ev from './assetimg/ev.jpg';
 import commercial from './assetimg/commercial.jpg'
+import bimg1 from './assetimg/bimg1.jpg';
+import bimg2 from './assetimg/bimg2.jpg';
+import bimg3 from './assetimg/bimg3.jpg';
+import bimg4 from './assetimg/bimg4.jpg';
 
 // ===============================================
 // Extracted Components for Better Structure
@@ -45,17 +48,19 @@ import commercial from './assetimg/commercial.jpg'
  */
 const LoadingOverlay = ({ isLoading }) => {
   if (!isLoading) return null;
+
   return (
     <div className="loading-overlay">
-      <div className="progress-container">
-        <div className="progress" role="progressbar" aria-label="Loading..." aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-          <div className="progress-bar progress-bar-striped progress-bar-animated" style={{ width: '90%' }}><i className="bi bi-cloud-arrow-down" style={{ fontSize: '15px' }}> Loading...</i></div>
-        </div>
-        <p className="loading-text">Please wait while we load the details...</p>
+      <div className="glass-loader">
+        <div className="spinner"></div>
+        <p className="loading-text">
+          <i className="bi bi-lightning-charge-fill"></i> Please wait... loading details
+        </p>
       </div>
     </div>
   );
 };
+
 
 /**
  * Renders the Bootstrap Carousel for the hero section.
@@ -157,34 +162,6 @@ const AutoPlayCardSlider = ({ data }) => (
  * @param {object} props - Component props.
  * @param {function} props.scrollToTargetSection - Function to scroll to a target section.
  */
-const AboutUsSection = ({ scrollToTargetSection }) => (
-  <div className="backgroundimage" data-aos="fade" data-aos-once="true">
-    <section className="naming" data-aos="fade-up" data-aos-once="true">
-      <h1>THE HEART OF JOY-REDEFINING DRIVING</h1>
-      <div className="aboutus" data-aos="fade-up" data-aos-once="true">
-        <h5>About us</h5>
-        <h5>Agile, new-age and future-ready</h5>
-        <p className="passage">We are India’s market leader in commercial vehicles and amongst the top three in the passenger vehicles market. We prioritise human centricity with technological prowess and engineering excellence to make cargo and passenger mobility safer, smarter and greener.</p>
-      </div>
-    </section>
-    <i
-      className="bi bi-arrow-down-circle bounce-arrow"
-      style={{
-        position: 'absolute',
-        top: '100px',
-        right: '20px',
-        fontSize: '2.5rem',
-        color: '#fff',
-        borderRadius: '50%',
-        padding: '10px',
-        cursor: 'pointer',
-        zIndex: 1000,
-      }}
-      title="Scroll Down"
-      onClick={scrollToTargetSection}
-    ></i>
-  </div>
-);
 
 /**
  * Renders the Featured Cars Section with a horizontal slider.
@@ -226,93 +203,6 @@ const FeaturedCarsSection = ({ featuredCars, handlePrev, handleNext, visibleCars
   </div>
 );
 
-/**
- * Renders the full-page swipe sections for different vehicle categories.
- */
-const SwipePagesSection = () => (
-  <div className="ConstantBGHomeSwipe" data-aos="fade" data-aos-once="true">
-    <Swiper
-      pagination={{
-        clickable: true,
-        el: '.custom-pagination',
-        bulletClass: 'custom-bullet',
-        bulletActiveClass: 'custom-bullet-active',
-      }}
-      modules={[Pagination, EffectFade]}
-      spaceBetween={30}
-      slidesPerView={1}
-      effect="fade"
-      fadeEffect={{
-        crossFade: true,
-      }}
-    >
-      <SwiperSlide>
-        <div className="swipebg">
-          <div className="swipeimg1">
-            <div className="T1PageSwipe" data-aos="flip-left" data-aos-once="true">
-              <h2 className="constantBGT1pageSwipe">Luxury Vehicle</h2>
-              <p className="constantBGT1pageSwipe">
-                Cutting-edge designs, quest to excel and promise to delight customers keeps us ahead of the curve. Our cars and SUVs offer best-in-class safety and superior driving experience.
-              </p>
-              <a href="/page5" className="readmore-ctaSwipe">
-                Discover Luxury vehicles
-              </a>
-            </div>
-          </div>
-        </div>
-      </SwiperSlide>
-
-      <SwiperSlide>
-        <div className="swipebg">
-          <div className="swipeimg2">
-            <div className="T1PageSwipe" data-aos="flip-left" data-aos-once="true">
-              <h2 className="constantBGT1pageSwipe" >Passenger Vehicle</h2>
-              <p className="constantBGT1pageSwipe">
-                Cutting-edge designs, quest to excel and promise to delight customers keeps us ahead of the curve. Our cars and SUVs offer best-in-class safety and superior driving experience.
-              </p>
-              <a href="https://www.tatamotors.com/passenger-vehicles/" className="readmore-ctaSwipe">
-                Discover passenger vehicles
-              </a>
-            </div>
-          </div>
-        </div>
-      </SwiperSlide>
-
-      <SwiperSlide>
-        <div className="swipebg">
-          <div className="swipeimg3">
-            <div className="T1PageSwipe" data-aos="flip-left" data-aos-once="true">
-              <h2 className="constantBGT1pageSwipe">Go EV</h2>
-              <p className="constantBGT1pageSwipe">
-                Evolve to the new age of zero emissions, quieter drives and connected mobility.
-              </p>
-              <a href="https://www.tatamotors.com/electric-vehicles/" className="readmore-ctaSwipe">
-                Discover electric vehicles
-              </a>
-            </div>
-          </div>
-        </div>
-      </SwiperSlide>
-
-      <SwiperSlide>
-        <div className="swipebg">
-          <div className="swipeimg4">
-            <div className="T1PageSwipe" data-aos="flip-left" data-aos-once="true">
-              <h2 className="constantBGT1pageSwipe">Commercial Vehicle</h2>
-              <p className="constantBGT1pageSwipe">
-                Our commercial vehicles rule the roads they run on. No terrain is too challenging and no load too heavy.
-              </p>
-              <a href="https://www.tatamotors.com/commercial-vehicles/" className="readmore-ctaSwipe">
-                Discover commercial vehicles
-              </a>
-            </div>
-          </div>
-        </div>
-      </SwiperSlide>
-    </Swiper>
-    <div className="custom-pagination"></div>
-  </div>
-);
 
 /**
  * Renders the Sustainability section.
@@ -391,7 +281,7 @@ const VehicleCategoriesSection = () => {
                 <Link to="/carcard">
                   <img src="/images/car.jpg" alt="Car" />
                 </Link>
-                <div className="card-title-overlay">Cars</div>
+                <div className="card-title-overlay"><h3 className="masonrymedia__card-title headline headline--xl">Cars</h3></div>
               </div>
               <div className="card-back">
                 <p>Explore our wide range of passenger cars.</p>
@@ -405,9 +295,9 @@ const VehicleCategoriesSection = () => {
             <div className="card-inner">
               <div className="card-front">
                 <Link to="/bikecard">
-                  <img src="/images/bike.jpg" alt="Bike" />
+                  <img src="/images/bike.jpg" alt="Bike" className="imgbb" />
                 </Link>
-                <div className="card-title-overlay">Bikes</div>
+                <div className="card-title-overlay"><h3 className="masonrymedia__card-title headline headline--xl">Bikes</h3></div>
               </div>
               <div className="card-back">
                 <p>Discover our collection of motorcycles and scooters.</p>
@@ -562,7 +452,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <LoadingOverlay isLoading={isLoading} />
+      <LoadingOverlay isLoading={isLoading} />  {/* This is a loading animation */}
 
       <HeroCarousel />
 
@@ -572,7 +462,81 @@ const Home = () => {
       <VehicleCategoriesSection />
       {/* END NEW RECOMMENDED POSITION */}
 
-      <AboutUsSection scrollToTargetSection={scrollToTargetSection} />
+      {/* <SustainabilitySection /> */}
+      <div className="masonrymedia-aka" style={{ position: 'relative' }}>
+        <i
+          className="bi bi-arrow-down-circle bounce-arrow"
+          style={{
+            position: 'absolute',
+            top: '30px',
+            right: '20px',
+            fontSize: '2.5rem',
+            color: '#fff',
+            borderRadius: '50%',
+            padding: '10px',
+            cursor: 'pointer',
+            zIndex: 1000,
+          }}
+          title="Scroll Down"
+          onClick={scrollToTargetSection} // Your scroll function
+        ></i>
+        <div className="masonrymedia__container masonrymedia__container--right masonrymedia__container--visible">
+          {/* Text section */}
+          <div className="masonrymedia__card">
+
+            <div className="masonrymedia__card-inner">
+              <div className="masonrymedia__card-info">
+                <h3 className="masonrymedia__card-title headline headline--xl">JOY OF REDEFINING DRIVING</h3>
+                <div className="masonrymedia__card-description body-copy body-copy--s">
+                  Sophisticated elegance.
+                </div>
+              </div>
+              <div className="masonrymedia__card-ctalist linkContainer">
+                <div className="primaryLinkContainer">
+                  <a
+                    className="primary-link icon-arrow-right"
+                    href="/aboutus"
+                    target="_self"
+                  >
+                    <span className="cta-content">About Us</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <br />
+            {/* <h3 className="masonrymedia__card-title headline headline--xl"></h3> */}
+          </div>
+          <div className="masonrymedia__mosaic">
+            {/* Top row */}
+            <div className="masonrymedia__row masonrymedia__row--supportive" >
+              <div className="masonrymedia__cell" >
+                <picture className="masonrymedia__picture" data-aos="zoom-in-right" data-aos-delay="100">
+                  <img alt="Interior Steering" className="masonrymedia__image" src={bimg1} />
+                </picture>
+              </div>
+              <div className="masonrymedia__cell">
+                <picture className="masonrymedia__picture" data-aos="zoom-in-right" data-aos-delay="200">
+                  <img alt="Headlight" className="masonrymedia__image" src={bimg2} />
+                </picture>
+              </div>
+            </div>
+
+            {/* Bottom row */}
+            <div className="masonrymedia__row masonrymedia__row--main">
+              <div className="masonrymedia__cell masonrymedia__cell--narrow">
+                <picture className="masonrymedia__picture" data-aos="zoom-in" data-aos-delay="300" >
+                  <img alt="Woman Driving" className="masonrymedia__image" src={bimg3} loading="lazy" />
+                </picture>
+              </div>
+              <div className="masonrymedia__cell masonrymedia__cell--main">
+                <picture className="masonrymedia__picture" data-aos="zoom-in" data-aos-delay="400">
+                  <img alt="Gear Knob" className="masonrymedia__image" src={bimg4} loading="lazy" />
+                </picture>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Placeholder div for scroll target */}
       <div ref={targetSectionRef} className="hand-image-box" >
@@ -598,53 +562,52 @@ const Home = () => {
         </div>
       </div>
 
-      <SwipePagesSection />
-
-<div className="zic-zic-blocks">
+      {/* Zic Zac */}
+      <div className="zic-zic-blocks">
         <div className="zic-data">
-            <div className="zic-alternating-content">
-                {/* Image 1: Right aligned - Clickable */}
-                <div className="support right-aligned" data-aos="slide-right" data-aos-delay="200">
-                    <Link to="/page5" className="zic-image-link">
-                        <picture className="roverimg">
-                            <img alt="roverRRJ" className="zic-zac-block-img" src={luxury} />
-                        </picture>
-                        <h3 class="masonrymedia__card-title headline headline--xl">LUXURY VEHICLES</h3>
-                    </Link>
-                </div>
-
-                {/* Image 3: Left aligned - Clickable */}
-                <div className="support left-aligned" data-aos="slide-left" data-aos-delay="230">
-                    <Link to="/image-page-3" className="zic-image-link">
-                        <picture className="roverimg">
-                            <img alt="roverRRJ" className="zic-zac-block-img" src={passenger} />
-                        </picture>
-                        <h3 class="masonrymedia__card-title headline headline--xl">PASSENGER VEHICLE</h3>
-                    </Link>
-                </div>
-
-                {/* Image 2: Right aligned - Clickable */}
-                <div className="support right-aligned" data-aos="slide-right" data-aos-delay="270">
-                    <Link to="/image-page-2" className="zic-image-link">
-                        <picture className="roverimg">
-                            <img alt="roverRRJ" className="zic-zac-block-img" src={ev} />
-                        </picture>
-                        <h3 class="masonrymedia__card-title headline headline--xl">EV VEHICLE</h3>
-                    </Link>
-                </div>
-
-                {/* Image 4: Left aligned - Clickable */}
-                <div className="support left-aligned" data-aos="slide-left" data-aos-delay="330">
-                    <Link to="/image-page-4" className="zic-image-link">
-                        <picture className="roverimg">
-                            <img alt="roverRRJ" className="zic-zac-block-img" src={commercial} />
-                        </picture>
-                        <h3 class="masonrymedia__card-title headline headline--xl">COMMERCIAL VEHICLE</h3>
-                    </Link>
-                </div>
+          <div className="zic-alternating-content">
+            {/* Image 1: Right aligned - Clickable */}
+            <div className="support right-aligned" data-aos="slide-right" data-aos-delay="200">
+              <Link to="/page5" className="zic-image-link">
+                <picture className="roverimg">
+                  <img alt="roverRRJ" className="zic-zac-block-img" src={luxury} />
+                </picture>
+                <h3 class="masonrymedia__card-title1 headline headline--xl">LUXURY VEHICLES</h3>
+              </Link>
             </div>
+
+            {/* Image 3: Left aligned - Clickable */}
+            <div className="support left-aligned" data-aos="slide-left" data-aos-delay="300">
+              <Link to="/page5" className="zic-image-link">
+                <picture className="roverimg">
+                  <img alt="passenger" className="zic-zac-block-img" src={passenger} />
+                </picture>
+                <h3 class="masonrymedia__card-title1 headline headline--xl">PASSENGER VEHICLE</h3>
+              </Link>
+            </div>
+
+            {/* Image 2: Right aligned - Clickable */}
+            <div className="support right-aligned" data-aos="slide-right" data-aos-delay="350">
+              <Link to="/page5" className="zic-image-link">
+                <picture className="roverimg">
+                  <img alt="ev" className="zic-zac-block-img" src={ev} />
+                </picture>
+                <h3 class="masonrymedia__card-title1 headline headline--xl">EV VEHICLE</h3>
+              </Link>
+            </div>
+
+            {/* Image 4: Left aligned - Clickable */}
+            <div className="support left-aligned" data-aos="slide-left" data-aos-delay="400">
+              <Link to="/page5" className="zic-image-link">
+                <picture className="roverimg">
+                  <img alt="commercial" className="zic-zac-block-img" src={commercial} />
+                </picture>
+                <h3 class="masonrymedia__card-title1 headline headline--xl">COMMERCIAL VEHICLE</h3>
+              </Link>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
 
 
       {/* <SustainabilitySection /> */}
@@ -655,12 +618,12 @@ const Home = () => {
             <div className="masonrymedia__row masonrymedia__row--supportive">
               <div className="masonrymedia__cell">
                 <picture className="masonrymedia__picture" data-aos="zoom-in-right" data-aos-delay="100">
-                  <img alt="Interior Steering" className="masonrymedia__image" src={img1}  />
+                  <img alt="Interior Steering" className="masonrymedia__image" src={img1} />
                 </picture>
               </div>
               <div className="masonrymedia__cell">
                 <picture className="masonrymedia__picture" data-aos="zoom-in-right" data-aos-delay="250">
-                  <img alt="Headlight" className="masonrymedia__image" src={img4}  />
+                  <img alt="Headlight" className="masonrymedia__image" src={img4} />
                 </picture>
               </div>
             </div>
@@ -693,8 +656,13 @@ const Home = () => {
                 <div className="primaryLinkContainer">
                   <a
                     className="primary-link icon-arrow-right"
-                    href="/rover"
-                    target="_self"
+                    onClick={() => {
+                      setIsLoading(true);
+                      setTimeout(() => {
+                        setIsLoading(false);
+                        navigate('/page5');
+                      }, 1500); // Adjust the delay if needed
+                    }}
                   >
                     <span className="cta-content">EXPLORE PREMIUM SEGMENT</span>
                   </a>
@@ -704,7 +672,7 @@ const Home = () => {
                     className="secondary-link"
                     href="/carcard"
                     target="_blank"
-                    >
+                  >
                     <span className="cta-content">Re-direct to Car Search</span>
                   </a>
                 </div>
@@ -720,12 +688,12 @@ const Home = () => {
       {/* Hot Deals Section */}
       <div className="deals" data-aos="fade-right" data-aos-delay="400">
         <h2>⚡ Vehicle Powertrain Options</h2>
-<ul>
-  <li>🔋 Electric Vehicles (EV): Zero emissions, silent drive, low maintenance</li>
-  <li>⛽ Petrol Engines: Smooth performance with city-friendly mileage</li>
-  <li>🛢️ Diesel Engines: High torque, great for long-distance and heavy usage</li>
-  <li>🔄 Hybrid Systems: Combines fuel economy of EV with petrol range</li>
-</ul>
+        <ul>
+          <li>🔋 Electric Vehicles (EV): Zero emissions, silent drive, low maintenance</li>
+          <li>⛽ Petrol Engines: Smooth performance with city-friendly mileage</li>
+          <li>🛢️ Diesel Engines: High torque, great for long-distance and heavy usage</li>
+          <li>🔄 Hybrid Systems: Combines fuel economy of EV with petrol range</li>
+        </ul>
 
       </div>
 

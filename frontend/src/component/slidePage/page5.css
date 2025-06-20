@@ -298,12 +298,16 @@ a {
 
 .lux-card1 {
   background-image: url('../slidePage/jaguar.jpg');
-  /* Replace with actual path */
 }
 
 .lux-card2 {
   background-image: url('../slidePage/rover.jpg');
-  /* Replace with actual path */
+}
+.lux-card3 {
+  background-image: url('../slidePage/bmw.jpg');
+}
+.lux-card4 {
+  background-image: url('../slidePage/mercedes.jpg');
 }
 
 .caption-wrp {
@@ -330,6 +334,7 @@ a {
 }
 
 .readmore-cta {
+  cursor: pointer;
   display: inline-block;
   color: #fff;
   padding: 10px 20px;
