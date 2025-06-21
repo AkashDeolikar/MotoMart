@@ -71,6 +71,13 @@ import Luxuryvh from "./component/slidePage/ziczacpages/luxuryvh";
 import Passengervh from "./component/slidePage/ziczacpages/passengervh";
 import Commercialvh from "./component/slidePage/ziczacpages/commercialvh";
 import Evvh from "./component/slidePage/ziczacpages/evvh";
+import Audicar from "./component/slidePage/subpages/luxurycarpages/audicar";
+import Jaguarcar from "./component/slidePage/subpages/luxurycarpages/jaguarcar";
+import Mercedescar from "./component/slidePage/subpages/luxurycarpages/mercedescar";
+import Fordcar from "./component/slidePage/subpages/luxurycarpages/fordcar";
+import Bmwcar from "./component/slidePage/subpages/luxurycarpages/bmwcar";
+import Rangerovercar from "./component/slidePage/subpages/luxurycarpages/rangerovercar";
+import Rollsroylscar from "./component/slidePage/subpages/luxurycarpages/rollsroylscar";
 
 // Debug logs
 // console.log("Bike Data:", Bikecard);
@@ -146,10 +153,18 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister }) =
               <Route path="/mercedes" element={<Mercedes />}/>
               <Route path="/luxury" element={<Luxury />} />
               <Route path="/aboutus" element={<Aboutus />} />
-              <Route path="luxuryvh" element={<Luxuryvh />} />
-              <Route path="passengervh" element={<Passengervh />} />
-              <Route path="commercialvh" element={<Commercialvh />} />
-              <Route path="evvh" element={<Evvh />} />
+              <Route path="/luxuryvh" element={<Luxuryvh />} />
+              <Route path="/passengervh" element={<Passengervh />} />
+              <Route path="/commercialvh" element={<Commercialvh />} />
+              <Route path="/evvh" element={<Evvh />} />
+
+              <Route path="/audicar" element={<Audicar />}/>
+              <Route path="/jaguarcar" element={<Jaguarcar />} />
+              <Route path="/mercedescar" element={<Mercedescar />}/>
+              <Route path="/fordcar" element={<Fordcar />}/>
+              <Route path="bmwcar" element={<Bmwcar />}/>
+              <Route path="ranferovercar" element={<Rangerovercar />}/>
+              <Route path="/rollsroylscar" element={<Rollsroylscar />}/>
 
               {/*Service TAB */}
               <Route path="/servicecostcalculator" element={<ServiceCostCalculator />} />

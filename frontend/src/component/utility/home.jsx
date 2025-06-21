@@ -48,7 +48,6 @@ import bimg4 from './assetimg/bimg4.jpg';
  */
 const LoadingOverlay = ({ isLoading }) => {
   if (!isLoading) return null;
-
   return (
     <div className="loading-overlay">
       <div className="glass-loader">
@@ -316,20 +315,14 @@ const Home = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
 
-  // const vehicles = [
-  //   {
-  //     name: "EV Car 1",
-  //     img: "/images/evcar1.jpg"
-  //   },
-  //   {
-  //     name: "EV Bike",
-  //     img: "/images/evbike.jpg"
-  //   },
-  //   {
-  //     name: "EV Car 2",
-  //     img: "/images/evcar2.jpg"
-  //   }
-  // ];
+  /* Loading Animation until data load */
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIsLoading(false); // hide after full load
+    }, 1000); // or 500ms
+    return () => clearTimeout(timeout);
+  }, []); // ✅ only run once on first mount
+
 
   const featuredCars = [
     { id: 1, name: "Maruti Suzuki Swift", price: "5.99 Lakh", image: "./images/swift/SUZUKI_SWIFT_EXT_360_RED_V-1_5.webp" },
