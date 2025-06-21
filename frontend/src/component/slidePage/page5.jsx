@@ -160,7 +160,7 @@ const Page5 = () => {
                 <div className="row">
                     {/* BMW Card */}
                     <div className="col-md-6" data-aos="fade-up">
-                        {loadingJaguar ? (
+                        {loadingBmw ? (
                             <div className="lux-card loading-card appearIntro">
                                 <img
                                     src={bmwloading}
@@ -193,7 +193,7 @@ const Page5 = () => {
 
                     {/* Mercedes-Benz Card */}
                     <div className="col-md-6" data-aos="fade-up">
-                        {loadingRover ? (
+                        {LoadingMercedes ? (
                             <div className="lux-card loading-card appearIntro">
                                 <img
                                     src={mercedesloading}

@@ -444,8 +444,8 @@ body {
   color: #fff;
   display: flex;
   font-weight: bolder;
-  /* align-items: center; */
-  /* justify-content: center; */
+  align-items: center;
+  justify-content: center;
   position: relative;
   border-radius: 15px;
   height: 2.5rem;

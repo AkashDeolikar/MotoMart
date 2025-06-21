@@ -1,0 +1,368 @@
+/* --- Global Loading Overlay Styles --- */
+.app-loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top of everything */
+    backdrop-filter: blur(5px); /* Glass effect */
+}
+
+.app-glass-loader {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    text-align: center;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.app-spinner {
+    border: 8px solid rgba(255, 255, 255, 0.3);
+    border-top: 8px solid #fff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px auto;
+}
+
+.app-loading-text {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.app-loading-text .bi {
+    font-size: 1.5rem;
+    color: #ffd700; /* Gold color for the lightning icon */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* --- Luxuryvh Component General Styles --- */
+.app-luxury-vehicle-page {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.app-luxury-page-header {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.dark .app-luxury-page-header {
+    background-color: #7c7d7d;
+    transition: ease-in-out 0.3s;
+}
+
+.app-luxury-page-header h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin: 0;
+}
+
+.app-detail-section, .app-detail-section-secondary {
+    min-height: 50px; /* Placeholder for any content or spacing */
+    margin-bottom: 30px;
+    border-bottom: 1px dashed #373737; /* Example separator */
+}
+.dark .app-detail-section, .app-detail-section-secondary {
+    border-bottom: 1px dashed #999999; /* Example separator */
+}
+
+
+/* Bootstrap-like Row and Column Basic Styling (Adjust if you're using full Bootstrap CSS) */
+.app-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px; /* Compensate for column padding */
+}
+
+.app-col-md-6 {
+    flex: 0 0 50%; /* For desktop (md breakpoint) */
+    max-width: 50%;
+    padding: 0 15px;
+    margin-bottom: 30px;
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+@media (max-width: 768px) {
+    .app-col-md-6 {
+        flex: 0 0 100%; /* Full width on smaller screens */
+        max-width: 100%;
+    }
+}
+
+/* --- Luxury Card Styles --- */
+.app-luxury-card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    height: 380px; /* Fixed height for consistent layout */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.app-luxury-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Specific background images for cards */
+/* LUXURY */
+.app-luxury-card-jaguar {
+    background: url('../../slidePage/ziczacpages/assetziczac/jaguarnew.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.app-luxury-card-bmw {
+    background: url('../../slidePage/ziczacpages/assetziczac/bmwnew.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.app-luxury-card-ford {
+    background: url('../../slidePage/ziczacpages/assetziczac/ford.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.app-luxury-card-audi {
+    background: url('../../slidePage/ziczacpages/assetziczac/audi.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.app-luxury-card-discovery {
+    background: url('../../slidePage/ziczacpages/assetziczac/discovery.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.app-luxury-card-rollsroyls {
+    background: url('../../slidePage/ziczacpages/assetziczac/rollsroyls.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.app-luxury-card-mercedes {
+    background: url('../../slidePage/ziczacpages/assetziczac/mercedesnew.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+/* PASSENGER */
+.app-luxury-card-honda {
+    background: url('../../slidePage/ziczacpages/assetziczac/passengerimg/honda.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.app-luxury-card-hyndai {
+    background: url('../../slidePage/ziczacpages/assetziczac/passengerimg/hyndai.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.app-luxury-card-jeep {
+    background: url('../../slidePage/ziczacpages/assetziczac/passengerimg/jeep.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.app-luxury-card-nissan {
+    background: url('../../slidePage/ziczacpages/assetziczac/passengerimg/nissan.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.app-luxury-card-renault {
+    background: url('../../slidePage/ziczacpages/assetziczac/passengerimg/renault.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.app-luxury-card-suzuki {
+    background: url('../../slidePage/ziczacpages/assetziczac/passengerimg/suzuki.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+/* EV vehicle */
+.app-luxury-card-bmwEV {
+    background: url('../../slidePage/ziczacpages/assetziczac/evimg/bmwEV.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.app-luxury-card-kiaEV {
+    background: url('../../slidePage/ziczacpages/assetziczac/evimg/kiaEV.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.app-luxury-card-mercedesEV {
+    background: url('../../slidePage/ziczacpages/assetziczac/evimg/mercedesEV.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.app-luxury-card-teslaEV {
+    background: url('../../slidePage/ziczacpages/assetziczac/evimg/teslaEV.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+/* Commercial */
+.app-luxury-card-mahindrapickup {
+    background: url('../../slidePage/ziczacpages/assetziczac/commercial/mahindrapickup.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.app-luxury-card-isuzupickup {
+    background: url('../../slidePage/ziczacpages/assetziczac/commercial/isuzu.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.app-luxury-card-ashokpickup {
+    background: url('../../slidePage/ziczacpages/assetziczac/commercial/ashok.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.app-luxury-card-suzukipickup {
+    background: url('../../slidePage/ziczacpages/assetziczac/commercial/suzuki.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+
+.app-card-caption-wrapper {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay for text readability */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.app-card-caption-wrapper h2.app-margin-bottom-2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+.app-card-caption-wrapper p.app-margin-bottom-paragraph {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    font-weight: 300;
+}
+
+.app-readmore-cta {
+    display: inline-block;
+    background-color: #c4b4b45c;
+    border: 1px solid #fafafa4d;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 50px; /* Pill shape */
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer; /* Indicate it's clickable */
+}
+
+.app-readmore-cta:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* --- Card-specific Loading State Styles --- */
+.app-luxury-card.app-loading-card {
+    background-color: #f8f8f8; /* Lighter background for loading */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-loading-image {
+    max-width: 80%; /* Adjust size of loading image */
+    height: auto;
+    border-radius: 10px;
+    animation: pulse 1.5s infinite ease-in-out; /* Simple pulse animation */
+}
+
+/* The .app-loading-text is primarily for the global overlay, not this card-specific loading state */
+/* If you want text here, add a new class or re-add a paragraph with different styling */
+
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* --- Page Content Section --- */
+.app-page-content {
+    background-color: #e9ecef;
+    padding: 40px;
+    margin-top: 50px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.app-page-content h1 {
+    font-size: 2.8rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.app-page-content p {
+    font-size: 1.2rem;
+    color: #6c757d;
+    line-height: 1.8;
+}
+
+/* AOS animation helper class (from your JSX, assuming AOS library is used) */
+.app-appear-intro {
+    /* Styles for initial appearance/animation, typically controlled by AOS */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 576px) {
+    .app-luxury-card {
+        height: auto; 
+        padding: 20px;
+    }
+    .app-card-caption-wrapper h2.app-margin-bottom-2 {
+        font-size: 1.8rem;
+    }
+    /* Neglect passage in box for mobile view */
+    .app-card-caption-wrapper p.app-margin-bottom-paragraph {
+        display: none; /* Hide the paragraph on mobile */
+    }
+    .app-readmore-cta {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    .app-page-content h1 {
+        font-size: 2rem;
+    }
+    .app-page-content p {
+        font-size: 1rem;
+    }
+    .app-luxury-page-header h2 {
+        font-size: 2rem;
+    }
+}

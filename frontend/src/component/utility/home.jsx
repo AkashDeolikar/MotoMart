@@ -270,42 +270,40 @@ const VehicleCategoriesSection = () => {
 
   return (
     <section className="vehicle-section2" data-aos="fade-up">
-  <div className="vehicle-container2">
-    <h2 className="vehicle-title2">Our Vehicles</h2>
-    <div className="card-deck2">
-      
-      {/* Car Card */}
-      <div className="vehicle-card2">
-        <div className="vehicle-card-inner2">
-          <div className="vehicle-card-front2">
-            <Link to="/carcard">
-              <img src="/images/car.jpg" alt="Car" />
-            </Link>
-            <div className="vehicle-title-overlay2">
-              <h3 className="vehicle-overlay-text2">Cars</h3>
+      <div className="vehicle-container2">
+        <h2 className="vehicle-title2">Our Vehicles</h2>
+        <div className="card-deck2">
+
+          {/* Car Card */}
+          <div className="vehicle-card2">
+            <div className="vehicle-card-inner2">
+              <div className="vehicle-card-front2">
+                <Link to="/carcard">
+                  <img src="/images/car.jpg" alt="Car" />
+                </Link>
+                <div className="vehicle-title-overlay2">
+                  <h3 className="vehicle-overlay-text2">Cars</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bike Card */}
+          <div className="vehicle-card2">
+            <div className="vehicle-card-inner2">
+              <div className="vehicle-card-front2">
+                <Link to="/bikecard">
+                  <img src="/images/bike.jpg" alt="Bike" />
+                </Link>
+                <div className="vehicle-title-overlay2">
+                  <h3 className="vehicle-overlay-text2">Bikes</h3>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Bike Card */}
-      <div className="vehicle-card2">
-        <div className="vehicle-card-inner2">
-          <div className="vehicle-card-front2">
-            <Link to="/bikecard">
-              <img src="/images/bike.jpg" alt="Bike" />
-            </Link>
-            <div className="vehicle-title-overlay2">
-              <h3 className="vehicle-overlay-text2">Bikes</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
+    </section>
   );
 };
 
@@ -460,6 +458,8 @@ const Home = () => {
       {/* END NEW RECOMMENDED POSITION */}
 
       {/* <SustainabilitySection /> */}
+
+      {/* <ABOUT US SECTION /> */}
       <div className="masonrymedia-aka" style={{ position: 'relative' }}>
         <i
           className="bi bi-arrow-down-circle bounce-arrow"
@@ -541,7 +541,8 @@ const Home = () => {
           <h2>Experience the Future of Driving</h2>
         </div>
       </div>
-
+      
+      {/* FEATURED CAR SECTION */}
       <FeaturedCarsSection
         featuredCars={featuredCars}
         handlePrev={handlePrev}
@@ -559,13 +560,13 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Zic Zac */}
+      {/* ZIC ZAC SECTION */}
       <div className="zic-zic-blocks">
         <div className="zic-data">
           <div className="zic-alternating-content">
             {/* Image 1: Right aligned - Clickable */}
             <div className="support right-aligned" data-aos="slide-right" data-aos-delay="200">
-              <Link to="/page5" className="zic-image-link">
+              <Link to="/luxuryvh" className="zic-image-link">
                 <picture className="roverimg">
                   <img alt="roverRRJ" className="zic-zac-block-img" src={luxury} />
                 </picture>
@@ -575,7 +576,7 @@ const Home = () => {
 
             {/* Image 3: Left aligned - Clickable */}
             <div className="support left-aligned" data-aos="slide-left" data-aos-delay="300">
-              <Link to="/page5" className="zic-image-link">
+              <Link to="/passengervh" className="zic-image-link">
                 <picture className="roverimg">
                   <img alt="passenger" className="zic-zac-block-img" src={passenger} />
                 </picture>
@@ -585,7 +586,7 @@ const Home = () => {
 
             {/* Image 2: Right aligned - Clickable */}
             <div className="support right-aligned" data-aos="slide-right" data-aos-delay="350">
-              <Link to="/page5" className="zic-image-link">
+              <Link to="/evvh" className="zic-image-link">
                 <picture className="roverimg">
                   <img alt="ev" className="zic-zac-block-img" src={ev} />
                 </picture>
@@ -595,7 +596,7 @@ const Home = () => {
 
             {/* Image 4: Left aligned - Clickable */}
             <div className="support left-aligned" data-aos="slide-left" data-aos-delay="400">
-              <Link to="/page5" className="zic-image-link">
+              <Link to="/commercialvh" className="zic-image-link">
                 <picture className="roverimg">
                   <img alt="commercial" className="zic-zac-block-img" src={commercial} />
                 </picture>
@@ -607,7 +608,7 @@ const Home = () => {
       </div>
 
 
-      {/* <SustainabilitySection /> */}
+      {/* <PREMIUM CAR SECTION /> */}
       <div className="masonrymedia-aka">
         <div className="masonrymedia__container masonrymedia__container--right masonrymedia__container--visible">
           <div className="masonrymedia__mosaic">
@@ -680,9 +681,7 @@ const Home = () => {
       </div>
 
 
-
-
-      {/* Hot Deals Section */}
+      {/* HOT DEALS SECTION */}
       <div className="deals" data-aos="fade-right" data-aos-delay="400">
         <h2>⚡ Vehicle Powertrain Options</h2>
         <ul>
@@ -691,14 +690,15 @@ const Home = () => {
           <li>🛢️ Diesel Engines: High torque, great for long-distance and heavy usage</li>
           <li>🔄 Hybrid Systems: Combines fuel economy of EV with petrol range</li>
         </ul>
-
       </div>
 
+      {/* FLIP CARD HEADING */}
       <section className="intro">
         <p className="cl1">Empower your <i className="bi bi-boxes"></i></p>
         <p className="cl2">digital Journey</p>
       </section>
 
+      {/* OFFER FLIP CARDS  */}
       <OffersGridSection offers={offers} />
     </div>
   );
