@@ -22,7 +22,7 @@ const Jaguar = () => {
         spaceBetween={30}
         slidesPerView={1}
         effect="fade"
-        fadeEffect={{ crossFade: true }}  
+        fadeEffect={{ crossFade: true }}
       >
         <SwiperSlide>
           <div className="jaguar-box">
@@ -45,46 +45,35 @@ const Jaguar = () => {
                 <div className="pageswipe">
                   <h2 className="headingSwipe">JAGUAR F‑PACE</h2>
                   <p className="psgswipe">Luxury performance SUV offering practicality and efficiency.
-SUV 
-DRIVETRAIN: AWD
-ENGINE: Diesel/Petrol
-PASSENGERS: 5</p>
+                    SUV
+                    DRIVETRAIN: AWD
+                    ENGINE: Diesel/Petrol
+                    PASSENGERS: 5</p>
                 </div>
               </div>
             </div>
           </div>
         </SwiperSlide>
 
-        <SwiperSlide>
-          <div className="jaguar-box">
-            <div className="jaguar-types">
-              <div className="jaguar-luxury">
-                <div className="pageswipe">
-                  <h2 className="headingSwipe">RANGE JAGUAR-LUXURY RED</h2>
-                  <p className="psgswipe">Lorem ipsum dolor sit amet.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
 
-        <SwiperSlide>
-          <div className="jaguar-box">
-            <div className="jaguar-types">
-              <div className="jaguar-hse">
-                <div className="pageswipe">
-                  <h2 className="headingSwipe">RANGE JAGUAR-HSE</h2>
-                  <p className="psgswipe">Range Rover in its purest form.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
       </Swiper>
 
       <div className="custom-paginationJAGUAR"></div>
 
       {/* <li class="cmp-readyToGoBar__item"> */}
+      <div className="premium-highlight-section">
+            <p className="premium-text">
+              Explore our exclusive collection of <strong>Jaguar Cars</strong> handpicked for enthusiasts & connoisseurs.
+              <a
+                className="premium-cta-button"
+                href="/jaguarcar"
+                //   target="_blank"
+                title="Browse Premium Segment"
+              >
+                View Collection
+              </a>
+            </p>
+          </div>
       <div className="listjaguar">
         <a
           className="cmp-readyToGoBar__link"
@@ -99,9 +88,6 @@ PASSENGERS: 5</p>
               <p className="view-prices-title"><i class="bio bi-chevron-right small-icon"></i> VIEW PRICES</p>
             </div>
           </h2>
-          <div className="cmp-readyToGoBar__copy body-copy" aria-hidden="true">
-            <p>View vehicle prices online.</p>
-          </div>
         </a>
       </div>
 

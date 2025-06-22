@@ -1,4 +1,4 @@
-import React, {useEffect, useState } from "react";
+import React, { useState } from "react";
 import '../../subpages/mainstyle.css';
 
 import RollsRoycePhantom from '../PageAsset/RollsRoyls/RRPhantom.jpg';
@@ -58,15 +58,6 @@ const Rollsroylscar = () => {
     // Removed activeTab state as activeIndex handles tab selection
     const [activeIndex, setActiveIndex] = useState(0); // Initialize with the first tab active
     const active = tabData[activeIndex];
-    const [isLoaded, setIsLoaded] = useState(false);
-
-
-    useEffect(() => {
-        // Once this page is fully mounted, set pageReady
-        localStorage.setItem("pageReady", "true");
-        setIsLoaded(true);
-    }, []);
-    if (!isLoaded) return null; // or a fallback loader if you want
 
     return (
         <div className="bbb">

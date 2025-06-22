@@ -486,18 +486,18 @@ const Home = () => {
                   <a
                     className="primary-link icon-arrow-right"
                     onClick={() => {
-    localStorage.setItem("aboutusReady", "false");
-    setIsLoading(true);
+                      localStorage.setItem("aboutusReady", "false");
+                      setIsLoading(true);
 
-    const checkPageReady = setInterval(() => {
-      if (localStorage.getItem("aboutusReady") === "true") {
-        clearInterval(checkPageReady);
-        setIsLoading(false);
-      }
-    }, 100);
+                      const checkPageReady = setInterval(() => {
+                        if (localStorage.getItem("aboutusReady") === "true") {
+                          clearInterval(checkPageReady);
+                          setIsLoading(false);
+                        }
+                      }, 100);
 
-    navigate('/aboutus');
-  }}
+                      navigate('/aboutus');
+                    }}
                   >
                     <span className="cta-content">ABOUT US</span>
                   </a>
@@ -545,7 +545,7 @@ const Home = () => {
           <h2>Experience the Future of Driving</h2>
         </div>
       </div>
-      
+
       {/* FEATURED CAR SECTION */}
       <FeaturedCarsSection
         featuredCars={featuredCars}
@@ -661,8 +661,8 @@ const Home = () => {
                     onClick={() => {
                       setIsLoading(true);
                       setTimeout(() => {
-                      setIsLoading(false);
-                      navigate('/page5');
+                        setIsLoading(false);
+                        navigate('/page5');
                       }, 1500); // Adjust the delay if needed
                     }}
                   >

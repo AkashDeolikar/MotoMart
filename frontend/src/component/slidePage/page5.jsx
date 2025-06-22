@@ -78,13 +78,42 @@ const Page5 = () => {
                 <h1>the future</h1>
             </div>
 
+            {/* Animated click */}
             <div className="ConstantBG5">
+                <i
+                    className="bi bi-arrow-down-circle bounce-arrow"
+                    style={{
+                        position: 'absolute',
+                        top: '55vh',
+                        right: '20px',
+                        fontSize: '3.5rem',
+                        color: '#fff',
+                        borderRadius: '50%',
+                        padding: '10px',
+                        cursor: 'pointer',
+                        zIndex: 1000,
+                    }}
+                    title="Scroll Down"
+                ></i>
                 <div className="T5Page" >
                     <h2 className="constantBGT1page">Welcome to the renaissance</h2>
                     <p className="constantBGT1page5">
                         "We bring you truly distinct, global brands that define modern luxury, embrace our modernist design philosophy and are emotionally compelling and unique."
                     </p>
                     <a className="btn-boxpage5 mt-4 appearIntroPage5" href="/luxury" target="_blank">Discover</a>
+                </div>
+                <div className="premium-highlight-section">
+                    <p className="premium-text">
+                        Explore our exclusive collection of <strong>Premium Cars</strong> handpicked for enthusiasts & connoisseurs.
+                        <a
+                            className="premium-cta-button"
+                            href="/luxuryvh"
+                            //   target="_blank"
+                            title="Browse Premium Segment"
+                        >
+                            View Collection
+                        </a>
+                    </p>
                 </div>
 
                 <div className="row">
@@ -154,76 +183,6 @@ const Page5 = () => {
                             </div>
                         )}
                     </div>
-
-                </div>
-
-                <div className="row">
-                    {/* BMW Card */}
-                    <div className="col-md-6" data-aos="fade-up">
-                        {loadingBmw ? (
-                            <div className="lux-card loading-card appearIntro">
-                                <img
-                                    src={bmwloading}
-                                    alt="bmw Loading"
-                                    className="loading-image"
-                                />
-                                <p className="loading-text">Loading BMW Experience...</p>
-                            </div>
-                        ) : (
-                            <div className="lux-card lux-card3 appearIntro">
-                                <div className="caption-wrp">
-                                    <h2 className="mb-2">BMW</h2>
-                                    <p className="mb-p">
-                                        "Welcome to the age of sheer electric driving pleasure — where innovation meets precision, design inspires emotion, and every journey redefines performance."
-                                    </p>
-                                    <a className="readmore-cta"
-                                        onClick={() => {
-                                            handleBmwClick(true);
-                                            setIsLoading(true);
-                                            setTimeout(() => {
-                                                setIsLoading(false);
-                                                // navigate('/bmw');
-                                            }, 1500); // Adjust the delay if needed
-                                        }}
-                                    >Visit website</a>
-                                </div>
-                            </div>
-                        )}
-                    </div>
-
-                    {/* Mercedes-Benz Card */}
-                    <div className="col-md-6" data-aos="fade-up">
-                        {LoadingMercedes ? (
-                            <div className="lux-card loading-card appearIntro">
-                                <img
-                                    src={mercedesloading}
-                                    alt="Mercedes-Benz Loading"
-                                    className="loading-image"
-                                />
-                                <p className="loading-text">Loading Mercedes-Benz Experience...</p>
-                            </div>
-                        ) : (
-                            <div className="lux-card lux-card4 appearIntro">
-                                <div className="caption-wrp">
-                                    <h2 className="mb-2">Mercedes-Benz</h2>
-                                    <p className="mb-p">
-                                        "Experience the future of mobility with Mercedes-EQ — where cutting-edge electric intelligence meets luxury, elegance, and effortless power."
-                                    </p>
-                                    <a className="readmore-cta"
-                                        onClick={() => {
-                                            handleMercedesClick(true);
-                                            setIsLoading(true);
-                                            setTimeout(() => {
-                                                setIsLoading(false);
-                                                // navigate('/mercedes');
-                                            }, 1500); // Adjust the delay if needed
-                                        }}
-                                    >Visit website</a>
-                                </div>
-                            </div>
-                        )}
-                    </div>
-
                 </div>
             </div>
         </div>
