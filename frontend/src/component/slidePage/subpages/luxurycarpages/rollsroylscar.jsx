@@ -1,107 +1,123 @@
-import React, { useState } from "react";
+import React, {useEffect, useState } from "react";
 import '../../subpages/mainstyle.css';
 
-import rover1 from '../../roverpages/roverAssets/rover1.jpg';
-import rover2 from '../../roverpages/roverAssets/rover1.jpg';
-import rover3 from '../../roverpages/roverAssets/rover1.jpg';
-import rover4 from '../../roverpages/roverAssets/rover1.jpg';
+import RollsRoycePhantom from '../PageAsset/RollsRoyls/RRPhantom.jpg';
+import RollsRoyceGhost from '../PageAsset/RollsRoyls/RRGhost.jpg';
+import RollsRoyceCullinan from '../PageAsset/RollsRoyls/RRCullinan.jpg';
+import RollsRoyceSpectre from '../PageAsset/RollsRoyls/RRSpectre.jpg';
 
 const tabData = [
     {
-        title: "ELECTRIC HYBRID",
-        image: rover1,
+        title: "ROLLS-ROYCE PHANTOM (V12 PETROL)",
+        image: RollsRoycePhantom,
         specs: [
-            { label: "ELECTRIC RANGE (UP TO)", value: "121", unit: "KM", desc: "Expected real-world range of up to 94km." },
-            { label: "PUBLIC CHARGING (FROM)", value: "<60", unit: "MINUTES", desc: "Charge up to 80% in under an hour." },
-            { label: "HOME CHARGING (FROM)", value: "5", unit: "HOURS", desc: "Up to 100% using 7kW AC charger." }
+            { label: "ENGINE", value: "6.75L Twin-Turbo V12" },
+            { label: "MAXIMUM POWER", value: "420", unit: "kW" }, // ~563 HP
+            { label: "0-100 KM/H", value: "5.3", unit: "S" }
         ],
-        description: 'Available as an extended range plug-in electric hybrid (PHEV). The 3.0-litre 6 cylinder Ingenium petrol engine with 160 kW motor is fitted with P460e or P550e variants.',
-        cta: "https://www.rangerover.com/lr/en_in/l460_k25/_/a-si6-550_a-ab_a-swb_h/ipr/personalise/model/"
+        description: 'The Rolls-Royce Phantom is the pinnacle of automotive luxury, powered by a serene 6.75-litre twin-turbo V12 engine, delivering effortless performance and an unparalleled ride quality.',
+        cta: "https://www.rolls-roycemotorcars.com/en_GB/bespoke/phantom-configurator.html"
     },
     {
-        title: "SV PETROL V8",
-        image: rover2,
+        title: "ROLLS-ROYCE GHOST (V12 PETROL)",
+        image: RollsRoyceGhost,
         specs: [
-            { label: "TOP SPEED", value: "261", unit: "KM/H" },
-            { label: "MAXIMUM POWER", value: "452", unit: "kW" },
-            { label: "0-100 KM/H", value: "4.5", unit: "S" }
+            { label: "ENGINE", value: "6.75L Twin-Turbo V12" },
+            { label: "MAXIMUM POWER", value: "420", unit: "kW" }, // ~563 HP
+            { label: "0-100 KM/H", value: "4.8", unit: "S" }
         ],
-        description: 'Providing immediate response with exceptional drivability, the 4.4-litre V8 engine has 452 kW and 750 Nm of torque - taking Range Rover SV from 0‑100 km/h in 4.5 seconds with Dynamic Launch engaged.',
-        cta: "https://www.rangerover.com/lr/en_in/l460_k25/_/a-v8-615-sv_a-sv_a-swb_p/ipr/personalise/model/"
+        description: 'The Rolls-Royce Ghost offers a more contemporary and dynamic interpretation of Rolls-Royce luxury, featuring a powerful 6.75-litre twin-turbo V12 engine and a focus on minimalist design.',
+        cta: "https://www.rolls-roycemotorcars.com/en_GB/bespoke/ghost-configurator.html"
     },
     {
-        title: "PETROL V8",
-        image: rover3,
+        title: "ROLLS-ROYCE CULLINAN (V12 SUV)",
+        image: RollsRoyceCullinan,
         specs: [
-            { label: "TOP SPEED", value: "250", unit: "KM/H" },
-            { label: "MAXIMUM POWER", value: "390", unit: "kW" },
-            { label: "0-100 KM/H", value: "4.6", unit: "S" }
+            { label: "ENGINE", value: "6.75L Twin-Turbo V12" },
+            { label: "MAXIMUM POWER", value: "420", unit: "kW" }, // ~563 HP
+            { label: "0-100 KM/H", value: "5.2", unit: "S" }
         ],
-        description: 'Uncompromising power and performance with heightened efficiency. The new 4.4-litre V8 engine has 390 kW and 750 Nm of torque and can take Range Rover from 0‑100 km/h in 4.6 seconds with Dynamic Launch engaged.',
-        cta: "https://www.rangerover.com/lr/en_in/l460_k25/_/a-v8-530_a-ab_a-swb_p/ipr/personalise/engine/"
+        description: 'The Rolls-Royce Cullinan is the brand\'s first all-terrain SUV, combining uncompromised luxury with remarkable versatility, powered by the signature 6.75-litre twin-turbo V12 engine.',
+        cta: "https://www.rolls-roycemotorcars.com/en_GB/bespoke/cullinan-configurator.html"
     },
     {
-        title: "DIESEL MILD HYBRID",
-        image: rover4,
+        title: "ROLLS-ROYCE SPECTRE (ALL-ELECTRIC)",
+        image: RollsRoyceSpectre,
         specs: [
-            { label: "TOP SPEED", value: "234", unit: "KM/H" },
-            { label: "MAXIMUM POWER", value: "258", unit: "kW" },
-            { label: "0-100 KM/H", value: "6.0", unit: "S" }
+            { label: "POWERTRAIN", value: "Dual Electric Motors" },
+            { label: "MAXIMUM POWER", value: "430", unit: "kW" }, // ~584 HP
+            { label: "0-100 KM/H", value: "4.5", unit: "S" },
+            { label: "ELECTRIC RANGE (WLTP)", value: "530", unit: "KM" }
         ],
-        description: `Range Rover’s mild hybrid engines harvest, store and redeploy energy normally lost during deceleration. Available with a range of diesel and petrol engines.`,
-        cta: "https://www.rangerover.com/lr/en_in/l460"
+        description: 'The Rolls-Royce Spectre marks a new era as the brand\'s first all-electric super coupé, offering silent propulsion, immense power, and an uncompromised luxury experience.',
+        cta: "https://www.rolls-roycemotorcars.com/en_GB/bespoke/spectre-configurator.html"
     },
-]
+];
 
 const Rollsroylscar = () => {
-    const [activeTab] = useState('ELECTRIC HYBRID');
-    const [activeIndex, setActiveIndex] = useState(0);
+    // Removed activeTab state as activeIndex handles tab selection
+    const [activeIndex, setActiveIndex] = useState(0); // Initialize with the first tab active
     const active = tabData[activeIndex];
+    const [isLoaded, setIsLoaded] = useState(false);
+
+
+    useEffect(() => {
+        // Once this page is fully mounted, set pageReady
+        localStorage.setItem("pageReady", "true");
+        setIsLoaded(true);
+    }, []);
+    if (!isLoaded) return null; // or a fallback loader if you want
+
     return (
         <div className="bbb">
-        <div className="rover-det-spec-block">
-            <div className="rover-tabs-container">
-                <h1 className="title1">HEIGHTENED PERFORMANCE</h1>
-                <p className="subtitle">
-                    The original luxury SUV, leading with Range Rover Electric and efficient plug-in and mild hybrids.
-                </p>
+            <div className="rover-det-spec-block">
+                <div className="rover-tabs-container">
+                    <h1 className="title1">HEIGHTENED PERFORMANCE</h1>
+                    <p className="subtitle">
+                        Experience unparalleled luxury and effortless performance with Rolls-Royce, leading with iconic V12 engines and the innovative all-electric Spectre.
+                    </p>
 
-                <div className="tabs-header">
-                    {tabData.map((tab, idx) => (
-                        <button
-                            key={idx}
-                            className={`tab-button ${activeIndex === idx ? "active" : ""}`}
-                            onClick={() => setActiveIndex(idx)}
-                        >
-                            {tab.title}
-                        </button>
-                    ))}
-                </div>
+                    <div className="tabs-header">
+                        {tabData.map((tab, idx) => (
+                            <button
+                                key={idx}
+                                className={`tab-button ${activeIndex === idx ? "active" : ""}`}
+                                onClick={() => setActiveIndex(idx)}
+                            >
+                                {tab.title}
+                            </button>
+                        ))}
+                    </div>
 
-                <div className="tab-main">
-                    <img className="tab-image" src={active.image} alt={active.title} />
-                    <div className="tab-info">
-                        <div className="specs">
-                            {active.specs.map((spec, i) => (
-                                <div key={i} className="spec-item">
-                                    <p className="spec-label">{spec.label}</p>
-                                    <div className="spec-value">{spec.value} <span>{spec.unit}</span></div>
-                                    {spec.desc && <p className="spec-desc">{spec.desc}</p>}
-                                </div>
-                            ))}
+                    <div className="tab-main">
+                        <img className="tab-image" src={active.image} alt={active.title} />
+                        <div className="tab-info">
+                            <div className="specs">
+                                {active.specs.map((spec, i) => (
+                                    <div key={i} className="spec-item">
+                                        <p className="spec-label">{spec.label}</p>
+                                        <div className="spec-value">{spec.value} <span>{spec.unit}</span></div>
+                                        {spec.desc && <p className="spec-desc">{spec.desc}</p>}
+                                    </div>
+                                ))}
+                            </div>
+                            <p className="titleH">{active.title}</p>
+                            <p className="descriptionn">{active.description}</p>
+                            <a className="btn-boxpage5 mt-4 appearIntroPage5" href={active.cta} target="_blank" rel="noopener noreferrer">
+                                View More
+                            </a>
                         </div>
-                        <p className="titleH">{active.title}</p>
-                        <p className="descriptionn">{active.description}</p>
                     </div>
                 </div>
+
+                <br />
+                <br />
+                <br />
+                {/* The "View More" button below was redundant if a CTA is inside the tab-info */}
+                {/* If it's meant to be a general "View All Rolls-Royce" button, consider a different placement or text */}
+                {/* <a className="btn-boxpage5 mt-4 appearIntroPage5" href="/page5">View More</a> */}
+
             </div>
-
-            <br />
-            <br />
-            <br />
-            <a className="btn-boxpage5 mt-4 appearIntroPage5" href="/page5">View More</a>
-
-        </div>
         </div>
     );
 }

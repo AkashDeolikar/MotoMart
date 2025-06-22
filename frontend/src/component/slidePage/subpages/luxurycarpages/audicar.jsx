@@ -1,107 +1,119 @@
 import React, { useState } from "react";
 import '../../subpages/mainstyle.css';
 
-import rover1 from '../../roverpages/roverAssets/rover1.jpg';
-import rover2 from '../../roverpages/roverAssets/rover1.jpg';
-import rover3 from '../../roverpages/roverAssets/rover1.jpg';
-import rover4 from '../../roverpages/roverAssets/rover1.jpg';
+import AudiA3 from '../PageAsset/audi/Audia3.jpg';
+import AudiA6 from '../PageAsset/audi/Audia6.jpg'
+import AudiA8 from '../PageAsset/audi/AudiA8.jpg'
+import AudiQ3 from '../PageAsset/audi/AudiQ3.jpg'
+import AudiQ5 from '../PageAsset/audi/AudiQ5.jpg'
 
 const tabData = [
     {
-        title: "ELECTRIC HYBRID",
-        image: rover1,
+        title: "AUDI A3 (PETROL)",
+        image: AudiA3, // Assuming AudiA3 image is suitable for the petrol variant as well
         specs: [
-            { label: "ELECTRIC RANGE (UP TO)", value: "121", unit: "KM", desc: "Expected real-world range of up to 94km." },
-            { label: "PUBLIC CHARGING (FROM)", value: "<60", unit: "MINUTES", desc: "Charge up to 80% in under an hour." },
-            { label: "HOME CHARGING (FROM)", value: "5", unit: "HOURS", desc: "Up to 100% using 7kW AC charger." }
+            { label: "ENGINE", value: "1.5L TFSI", unit: "Petrol" },
+            { label: "MAXIMUM POWER", value: "110", unit: "kW" }, // ~150 HP
+            { label: "0-100 KM/H", value: "8.4", unit: "S" }
         ],
-        description: 'Available as an extended range plug-in electric hybrid (PHEV). The 3.0-litre 6 cylinder Ingenium petrol engine with 160 kW motor is fitted with P460e or P550e variants.',
-        cta: "https://www.rangerover.com/lr/en_in/l460_k25/_/a-si6-550_a-ab_a-swb_h/ipr/personalise/model/"
+        description: 'The Audi A3 35 TFSI is powered by an efficient 1.5-litre TFSI petrol engine, offering a dynamic yet refined driving experience with its compact luxury design.',
+        cta: "https://www.audi.in/in/web/en/models/a3/a3-sedan.html" // General A3 link
     },
     {
-        title: "SV PETROL V8",
-        image: rover2,
-        specs: [
-            { label: "TOP SPEED", value: "261", unit: "KM/H" },
-            { label: "MAXIMUM POWER", value: "452", unit: "kW" },
-            { label: "0-100 KM/H", value: "4.5", unit: "S" }
-        ],
-        description: 'Providing immediate response with exceptional drivability, the 4.4-litre V8 engine has 452 kW and 750 Nm of torque - taking Range Rover SV from 0‑100 km/h in 4.5 seconds with Dynamic Launch engaged.',
-        cta: "https://www.rangerover.com/lr/en_in/l460_k25/_/a-v8-615-sv_a-sv_a-swb_p/ipr/personalise/model/"
-    },
-    {
-        title: "PETROL V8",
-        image: rover3,
+        title: "AUDI A6 (PETROL V6)",
+        image: AudiA6,
         specs: [
             { label: "TOP SPEED", value: "250", unit: "KM/H" },
-            { label: "MAXIMUM POWER", value: "390", unit: "kW" },
-            { label: "0-100 KM/H", value: "4.6", unit: "S" }
+            { label: "MAXIMUM POWER", value: "250", unit: "kW" },
+            { label: "0-100 KM/H", value: "5.1", unit: "S" }
         ],
-        description: 'Uncompromising power and performance with heightened efficiency. The new 4.4-litre V8 engine has 390 kW and 750 Nm of torque and can take Range Rover from 0‑100 km/h in 4.6 seconds with Dynamic Launch engaged.',
-        cta: "https://www.rangerover.com/lr/en_in/l460_k25/_/a-v8-530_a-ab_a-swb_p/ipr/personalise/engine/"
+        description: 'The Audi A6, with its 3.0-litre TFSI V6 engine, combines sophisticated design with dynamic performance, delivering a refined and powerful driving experience.',
+        cta: "https://www.audi.in/in/web/en/models/a6/a6-sedan.html"
     },
     {
-        title: "DIESEL MILD HYBRID",
-        image: rover4,
+        title: "AUDI A8 (LUXURY V8)",
+        image: AudiA8,
         specs: [
-            { label: "TOP SPEED", value: "234", unit: "KM/H" },
-            { label: "MAXIMUM POWER", value: "258", unit: "kW" },
-            { label: "0-100 KM/H", value: "6.0", unit: "S" }
+            { label: "TOP SPEED", value: "250", unit: "KM/H" },
+            { label: "MAXIMUM POWER", value: "338", unit: "kW" },
+            { label: "0-100 KM/H", value: "4.4", unit: "S" }
         ],
-        description: `Range Rover’s mild hybrid engines harvest, store and redeploy energy normally lost during deceleration. Available with a range of diesel and petrol engines.`,
-        cta: "https://www.rangerover.com/lr/en_in/l460"
+        description: 'The Audi A8, featuring a powerful 4.0-litre TFSI V8 engine, represents the pinnacle of luxury and performance, offering an exceptionally smooth and commanding drive.',
+        cta: "https://www.audi.in/in/web/en/models/a8/a8l.html"
     },
-]
+    {
+        title: "AUDI Q3 (COMPACT SUV)",
+        image: AudiQ3,
+        specs: [
+            { label: "TOP SPEED", value: "228", unit: "KM/H" },
+            { label: "MAXIMUM POWER", value: "140", unit: "kW" },
+            { label: "0-100 KM/H", value: "7.3", unit: "S" }
+        ],
+        description: 'The Audi Q3 is a versatile and stylish compact SUV, offering a dynamic driving experience with its efficient 2.0-litre TFSI petrol engine and quattro all-wheel drive.',
+        cta: "https://www.audi.in/in/web/en/models/q3/q3.html"
+    },
+    {
+        title: "AUDI Q5 (MILD HYBRID SUV)",
+        image: AudiQ5,
+        specs: [
+            { label: "TOP SPEED", value: "222", unit: "KM/H" },
+            { label: "MAXIMUM POWER", value: "150", unit: "kW" },
+            { label: "0-100 KM/H", value: "7.6", unit: "S" }
+        ],
+        description: 'The Audi Q5, featuring a mild-hybrid diesel engine, delivers a balance of powerful performance and enhanced efficiency, making it a versatile and sophisticated SUV.',
+        cta: "https://www.audi.in/in/web/en/models/q5/q5.html"
+    },
+];
 
 const Audicar = () => {
-    const [activeTab] = useState('ELECTRIC HYBRID');
+    // Removed activeTab state as activeIndex handles tab selection
     const [activeIndex, setActiveIndex] = useState(0);
     const active = tabData[activeIndex];
+
     return (
         <div className="bbb">
-        <div className="rover-det-spec-block">
-            <div className="rover-tabs-container">
-                <h1 className="title1">HEIGHTENED PERFORMANCE</h1>
-                <p className="subtitle">
-                    The original luxury SUV, leading with Range Rover Electric and efficient plug-in and mild hybrids.
-                </p>
+            <div className="rover-det-spec-block">
+                <div className="rover-tabs-container">
+                    <h1 className="title1">HEIGHTENED PERFORMANCE</h1>
+                    <p className="subtitle">
+                        Experience advanced technology and progressive luxury with Audi, offering a dynamic range of sedans, SUVs, and electrified vehicles.
+                    </p>
 
-                <div className="tabs-header">
-                    {tabData.map((tab, idx) => (
-                        <button
-                            key={idx}
-                            className={`tab-button ${activeIndex === idx ? "active" : ""}`}
-                            onClick={() => setActiveIndex(idx)}
-                        >
-                            {tab.title}
-                        </button>
-                    ))}
-                </div>
+                    <div className="tabs-header">
+                        {tabData.map((tab, idx) => (
+                            <button
+                                key={idx}
+                                className={`tab-button ${activeIndex === idx ? "active" : ""}`}
+                                onClick={() => setActiveIndex(idx)}
+                            >
+                                {tab.title}
+                            </button>
+                        ))}
+                    </div>
 
-                <div className="tab-main">
-                    <img className="tab-image" src={active.image} alt={active.title} />
-                    <div className="tab-info">
-                        <div className="specs">
-                            {active.specs.map((spec, i) => (
-                                <div key={i} className="spec-item">
-                                    <p className="spec-label">{spec.label}</p>
-                                    <div className="spec-value">{spec.value} <span>{spec.unit}</span></div>
-                                    {spec.desc && <p className="spec-desc">{spec.desc}</p>}
-                                </div>
-                            ))}
+                    <div className="tab-main">
+                        <img className="tab-image" src={active.image} alt={active.title} />
+                        <div className="tab-info">
+                            <div className="specs">
+                                {active.specs.map((spec, i) => (
+                                    <div key={i} className="spec-item">
+                                        <p className="spec-label">{spec.label}</p>
+                                        <div className="spec-value">{spec.value} <span>{spec.unit}</span></div>
+                                        {spec.desc && <p className="spec-desc">{spec.desc}</p>}
+                                    </div>
+                                ))}
+                            </div>
+                            <p className="titleH">{active.title}</p>
+                            <p className="descriptionn">{active.description}</p>
+                            <a className="btn-boxpage5 mt-4 appearIntroPage5" href={active.cta} target="_blank" rel="noopener noreferrer">
+                                View More
+                            </a>
                         </div>
-                        <p className="titleH">{active.title}</p>
-                        <p className="descriptionn">{active.description}</p>
                     </div>
                 </div>
+
+                {/* Removed the redundant "View More" button at the bottom */}
             </div>
-
-            <br />
-            <br />
-            <br />
-            <a className="btn-boxpage5 mt-4 appearIntroPage5" href="/page5">View More</a>
-
-        </div>
         </div>
     );
 }

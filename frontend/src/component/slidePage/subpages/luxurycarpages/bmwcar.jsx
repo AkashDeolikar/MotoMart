@@ -1,107 +1,125 @@
 import React, { useState } from "react";
 import '../../subpages/mainstyle.css';
 
-import rover1 from '../../roverpages/roverAssets/rover1.jpg';
-import rover2 from '../../roverpages/roverAssets/rover1.jpg';
-import rover3 from '../../roverpages/roverAssets/rover1.jpg';
-import rover4 from '../../roverpages/roverAssets/rover1.jpg';
+import BMWi4 from '../PageAsset/bmw/BMWi4.jpg';
+import BMWi7 from '../PageAsset/bmw/BMWi7.jpg';
+import BMWiXM60 from '../PageAsset/bmw/BMWiXM60.jpg';
+import BMWX7 from '../PageAsset/bmw/BMWX7.jpg';
+import BMWXMLabelRed from '../PageAsset/bmw/BMWXMLabelRed.jpg';
 
 const tabData = [
     {
-        title: "ELECTRIC HYBRID",
-        image: rover1,
+        title: "BMW i4 eDrive40",
+        image: BMWi4,
         specs: [
-            { label: "ELECTRIC RANGE (UP TO)", value: "121", unit: "KM", desc: "Expected real-world range of up to 94km." },
-            { label: "PUBLIC CHARGING (FROM)", value: "<60", unit: "MINUTES", desc: "Charge up to 80% in under an hour." },
-            { label: "HOME CHARGING (FROM)", value: "5", unit: "HOURS", desc: "Up to 100% using 7kW AC charger." }
+            { label: "ELECTRIC RANGE (WLTP)", value: "590", unit: "KM", desc: "With 18'' wheels under ideal conditions." },
+            { label: "0–100 KM/H", value: "5.7", unit: "S", desc: "Single motor, rear-wheel drive." },
+            { label: "MAXIMUM POWER", value: "250", unit: "kW", desc: "Equivalent to 340 hp." }
         ],
-        description: 'Available as an extended range plug-in electric hybrid (PHEV). The 3.0-litre 6 cylinder Ingenium petrol engine with 160 kW motor is fitted with P460e or P550e variants.',
-        cta: "https://www.rangerover.com/lr/en_in/l460_k25/_/a-si6-550_a-ab_a-swb_h/ipr/personalise/model/"
+        description:
+            "The BMW i4 eDrive40 is a fully electric gran coupe offering long range, smooth acceleration, and dynamic handling with 250 kW of power.",
+        cta: "https://www.bmw.com/en/bmw-models/bmw-i4.html"
     },
     {
-        title: "SV PETROL V8",
-        image: rover2,
+        title: "BMW i7 xDrive60",
+        image: BMWi7,
         specs: [
-            { label: "TOP SPEED", value: "261", unit: "KM/H" },
-            { label: "MAXIMUM POWER", value: "452", unit: "kW" },
-            { label: "0-100 KM/H", value: "4.5", unit: "S" }
+            { label: "TOP SPEED", value: "240", unit: "KM/H", desc: "Electronically limited." },
+            { label: "0–100 KM/H", value: "4.7", unit: "S", desc: "All-wheel drive, dual motor." },
+            { label: "MAXIMUM POWER", value: "400", unit: "kW", desc: "Equivalent to 544 hp." }
         ],
-        description: 'Providing immediate response with exceptional drivability, the 4.4-litre V8 engine has 452 kW and 750 Nm of torque - taking Range Rover SV from 0‑100 km/h in 4.5 seconds with Dynamic Launch engaged.',
-        cta: "https://www.rangerover.com/lr/en_in/l460_k25/_/a-v8-615-sv_a-sv_a-swb_p/ipr/personalise/model/"
+        description:
+            "The BMW i7 xDrive60 combines electric luxury with intelligent performance. Features a 101.7 kWh battery and next-gen comfort.",
+        cta: "https://www.bmw.com/en/bmw-models/bmw-i7.html"
     },
     {
-        title: "PETROL V8",
-        image: rover3,
+        title: "BMW iX M60",
+        image: BMWiXM60,
         specs: [
-            { label: "TOP SPEED", value: "250", unit: "KM/H" },
-            { label: "MAXIMUM POWER", value: "390", unit: "kW" },
-            { label: "0-100 KM/H", value: "4.6", unit: "S" }
+            { label: "TOP SPEED", value: "250", unit: "KM/H", desc: "Electronically limited." },
+            { label: "0–100 KM/H", value: "3.8", unit: "S", desc: "M-tuned electric all-wheel drive." },
+            { label: "MAXIMUM POWER", value: "455", unit: "kW", desc: "Equivalent to 619 hp." }
         ],
-        description: 'Uncompromising power and performance with heightened efficiency. The new 4.4-litre V8 engine has 390 kW and 750 Nm of torque and can take Range Rover from 0‑100 km/h in 4.6 seconds with Dynamic Launch engaged.',
-        cta: "https://www.rangerover.com/lr/en_in/l460_k25/_/a-v8-530_a-ab_a-swb_p/ipr/personalise/engine/"
+        description:
+            "BMW’s performance flagship electric SUV with M tuning, delivering blistering acceleration and electric torque up to 1100 Nm.",
+        cta: "https://www.bmw.com/en/bmw-models/bmw-ix-m60.html"
     },
     {
-        title: "DIESEL MILD HYBRID",
-        image: rover4,
+        title: "BMW X7 xDrive40d MHEV",
+        image: BMWX7,
         specs: [
-            { label: "TOP SPEED", value: "234", unit: "KM/H" },
-            { label: "MAXIMUM POWER", value: "258", unit: "kW" },
-            { label: "0-100 KM/H", value: "6.0", unit: "S" }
+            { label: "TOP SPEED", value: "250", unit: "KM/H", desc: "Electronically limited." },
+            { label: "0–100 KM/H", value: "5.9", unit: "S", desc: "Mild hybrid 3.0L diesel inline-6." },
+            { label: "MAXIMUM POWER", value: "250", unit: "kW", desc: "Combined system output (~340 hp)." }
         ],
-        description: `Range Rover’s mild hybrid engines harvest, store and redeploy energy normally lost during deceleration. Available with a range of diesel and petrol engines.`,
-        cta: "https://www.rangerover.com/lr/en_in/l460"
+        description:
+            "The BMW X7 blends seven-seat practicality with premium design and mild hybrid efficiency, powered by a refined diesel engine.",
+        cta: "https://www.bmw.com/en/bmw-models/bmw-x7.html"
     },
-]
+    {
+        title: "BMW XM Label Red",
+        image: BMWXMLabelRed,
+        specs: [
+            { label: "TOP SPEED", value: "290", unit: "KM/H", desc: "With M Driver’s Package." },
+            { label: "0–100 KM/H", value: "3.8", unit: "S", desc: "Plug-in hybrid V8 + electric motor." },
+            { label: "MAXIMUM POWER", value: "550", unit: "kW", desc: "750 hp combined system output." }
+        ],
+        description:
+            "The most powerful production BMW ever — a high-performance plug-in hybrid SUV delivering 750 hp and ultimate road presence.",
+        cta: "https://www.bmw-m.com/en/topics/magazine-article-pool/bmw-xm-label-red.html"
+    }
+];
+
 
 const Bmwcar = () => {
-    const [activeTab] = useState('ELECTRIC HYBRID');
+    // Removed activeTab state as activeIndex handles tab selection
     const [activeIndex, setActiveIndex] = useState(0);
     const active = tabData[activeIndex];
+
     return (
         <div className="bbb">
-        <div className="rover-det-spec-block">
-            <div className="rover-tabs-container">
-                <h1 className="title1">HEIGHTENED PERFORMANCE</h1>
-                <p className="subtitle">
-                    The original luxury SUV, leading with Range Rover Electric and efficient plug-in and mild hybrids.
-                </p>
+            <div className="rover-det-spec-block">
+                <div className="rover-tabs-container">
+                    <h1 className="title1">HEIGHTENED PERFORMANCE</h1>
+                    <p className="subtitle">
+                        Experience the ultimate driving machine with BMW, offering unparalleled performance, innovative technology, and luxurious comfort across a diverse range of vehicles.
+                    </p>
 
-                <div className="tabs-header">
-                    {tabData.map((tab, idx) => (
-                        <button
-                            key={idx}
-                            className={`tab-button ${activeIndex === idx ? "active" : ""}`}
-                            onClick={() => setActiveIndex(idx)}
-                        >
-                            {tab.title}
-                        </button>
-                    ))}
-                </div>
+                    <div className="tabs-header">
+                        {tabData.map((tab, idx) => (
+                            <button
+                                key={idx}
+                                className={`tab-button ${activeIndex === idx ? "active" : ""}`}
+                                onClick={() => setActiveIndex(idx)}
+                            >
+                                {tab.title}
+                            </button>
+                        ))}
+                    </div>
 
-                <div className="tab-main">
-                    <img className="tab-image" src={active.image} alt={active.title} />
-                    <div className="tab-info">
-                        <div className="specs">
-                            {active.specs.map((spec, i) => (
-                                <div key={i} className="spec-item">
-                                    <p className="spec-label">{spec.label}</p>
-                                    <div className="spec-value">{spec.value} <span>{spec.unit}</span></div>
-                                    {spec.desc && <p className="spec-desc">{spec.desc}</p>}
-                                </div>
-                            ))}
+                    <div className="tab-main">
+                        <img className="tab-image" src={active.image} alt={active.title} />
+                        <div className="tab-info">
+                            <div className="specs">
+                                {active.specs.map((spec, i) => (
+                                    <div key={i} className="spec-item">
+                                        <p className="spec-label">{spec.label}</p>
+                                        <div className="spec-value">{spec.value} <span>{spec.unit}</span></div>
+                                        {spec.desc && <p className="spec-desc">{spec.desc}</p>}
+                                    </div>
+                                ))}
+                            </div>
+                            <p className="titleH">{active.title}</p>
+                            <p className="descriptionn">{active.description}</p>
+                            <a className="btn-boxpage5 mt-4 appearIntroPage5" href={active.cta} target="_blank" rel="noopener noreferrer">
+                                View More
+                            </a>
                         </div>
-                        <p className="titleH">{active.title}</p>
-                        <p className="descriptionn">{active.description}</p>
                     </div>
                 </div>
+
+                {/* Removed the redundant "View More" button at the bottom */}
             </div>
-
-            <br />
-            <br />
-            <br />
-            <a className="btn-boxpage5 mt-4 appearIntroPage5" href="/page5">View More</a>
-
-        </div>
         </div>
     );
 }

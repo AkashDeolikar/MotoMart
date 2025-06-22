@@ -4,7 +4,9 @@
 .rover-det-spec-block {
     background-color: #fefefef1;
 }
-
+.dark .rover-det-spec-block {
+    background-color: #E0E0E0;
+}
 .rover-tabs-container {
     color: initial;
     padding: 30px;
@@ -65,7 +67,9 @@
     cursor: pointer;
     font-weight: bold;
 }
-
+.dark .tab-button{
+    background: #afafaf;
+}
 .tab-button.active {
     background: #000;
     color: white;

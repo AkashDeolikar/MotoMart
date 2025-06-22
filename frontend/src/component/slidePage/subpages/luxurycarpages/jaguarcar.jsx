@@ -1,109 +1,116 @@
 import React, { useState } from "react";
 import '../../subpages/mainstyle.css';
 
-import rover1 from '../../roverpages/roverAssets/rover1.jpg';
-import rover2 from '../../roverpages/roverAssets/rover1.jpg';
-import rover3 from '../../roverpages/roverAssets/rover1.jpg';
-import rover4 from '../../roverpages/roverAssets/rover1.jpg';
+import jaguarxf from '../PageAsset/jaguar/jaguarxf.jpg';
+import jaguarXE from '../PageAsset/jaguar/JaguarXEReims.jpg';
+import jaguarF from '../PageAsset/jaguar/JaguarFPace.jpg';
+import jaguarE from '../PageAsset/jaguar/JaguarEPACE.jpg';
+import Fpace from '../PageAsset/jaguar/2025Fpace.jpg';
 
 const tabData = [
     {
-        title: "ELECTRIC HYBRID",
-        image: rover1,
+        title: "Jaguar XF Electric Hybrid",
+        image: jaguarxf,
         specs: [
-            { label: "ELECTRIC RANGE (UP TO)", value: "121", unit: "KM", desc: "Expected real-world range of up to 94km." },
-            { label: "PUBLIC CHARGING (FROM)", value: "<60", unit: "MINUTES", desc: "Charge up to 80% in under an hour." },
-            { label: "HOME CHARGING (FROM)", value: "5", unit: "HOURS", desc: "Up to 100% using 7kW AC charger." }
+            { label: "E‑RANGE/HOUR", value: "35", unit: "KM", desc: "Approx. 35 km per hour on 7 kW home charge." },
+            { label: "HOME CHARGE (7 kW)", value: "≈4", unit: "HRS", desc: "Full charge in about 4 h for ~140 km" },
+            { label: "PUBLIC CHARGE", value: "<60", unit: "MIN", desc: "0–80% on fast CCS DC chargers" }
         ],
-        description: 'Available as an extended range plug-in electric hybrid (PHEV). The 3.0-litre 6 cylinder Ingenium petrol engine with 160 kW motor is fitted with P460e or P550e variants.',
-        cta: "https://www.rangerover.com/lr/en_in/l460_k25/_/a-si6-550_a-ab_a-swb_h/ipr/personalise/model/"
+        description: "Available as an extended range plug-in electric hybrid (PHEV), the Jaguar XF offers a blend of efficient electric motoring and dynamic petrol performance.",
+        cta: "https://www.jaguarusa.com/all-models/xf/index.html"
     },
     {
-        title: "SV PETROL V8",
-        image: rover2,
+        title: "Jaguar XE SV Petrol V8",
+        image: jaguarXE,
         specs: [
-            { label: "TOP SPEED", value: "261", unit: "KM/H" },
-            { label: "MAXIMUM POWER", value: "452", unit: "kW" },
-            { label: "0-100 KM/H", value: "4.5", unit: "S" }
+            { label: "TOP SPEED", value: "322", unit: "KM/H" },
+            { label: "0‑100 KM/H", value: "3.5", unit: "S" },
+            { label: "MAX POWER", value: "441", unit: "kW" }
         ],
-        description: 'Providing immediate response with exceptional drivability, the 4.4-litre V8 engine has 452 kW and 750 Nm of torque - taking Range Rover SV from 0‑100 km/h in 4.5 seconds with Dynamic Launch engaged.',
-        cta: "https://www.rangerover.com/lr/en_in/l460_k25/_/a-v8-615-sv_a-sv_a-swb_p/ipr/personalise/model/"
+        description: "Experience exhilarating performance with the Jaguar XE, delivering immediate response and exceptional drivability for a truly sporting saloon experience.",
+        cta: "https://www.jaguar.com/jaguar-range/xe/index.html"
     },
     {
-        title: "PETROL V8",
-        image: rover3,
+        title: "Jaguar F-Type Petrol V8",
+        image: jaguarF,
         specs: [
-            { label: "TOP SPEED", value: "250", unit: "KM/H" },
-            { label: "MAXIMUM POWER", value: "390", unit: "kW" },
-            { label: "0-100 KM/H", value: "4.6", unit: "S" }
+            { label: "Top Speed", value: "250", unit: "KM/H" },
+            { label: "Maximum Power", value: "390", unit: "kW" },
+            { label: "0-100 KM/H", value: "4.6", unit: "s" }
         ],
-        description: 'Uncompromising power and performance with heightened efficiency. The new 4.4-litre V8 engine has 390 kW and 750 Nm of torque and can take Range Rover from 0‑100 km/h in 4.6 seconds with Dynamic Launch engaged.',
-        cta: "https://www.rangerover.com/lr/en_in/l460_k25/_/a-v8-530_a-ab_a-swb_p/ipr/personalise/engine/"
+        description: "Uncompromising power and performance with heightened efficiency. The Jaguar F-Type V8 delivers thrilling acceleration and a distinctive driving experience.",
+        cta: "https://www.jaguar.com/jaguar-range/f-type/index.html"
     },
     {
-        title: "DIESEL MILD HYBRID",
-        image: rover4,
+        title: "Jaguar E-Pace Diesel Mild Hybrid",
+        image: jaguarE,
         specs: [
-            { label: "TOP SPEED", value: "234", unit: "KM/H" },
-            { label: "MAXIMUM POWER", value: "258", unit: "kW" },
-            { label: "0-100 KM/H", value: "6.0", unit: "S" }
+            { label: "Top Speed", value: "234", unit: "KM/H" },
+            { label: "Maximum Power", value: "258", unit: "kW" },
+            { label: "0-100 KM/H", value: "6.0", unit: "s" }
         ],
-        description: `Range Rover’s mild hybrid engines harvest, store and redeploy energy normally lost during deceleration. Available with a range of diesel and petrol engines.`,
-        cta: "https://www.rangerover.com/lr/en_in/l460"
+        description: "Jaguar E-Pace's mild hybrid engines harvest, store and redeploy energy normally lost during deceleration, offering enhanced efficiency and smooth performance.",
+        cta: "https://www.jaguar.com/jaguar-range/e-pace/index.html"
     },
-]
+    {
+        title: "Jaguar F-Pace Diesel Mild Hybrid",
+        image: Fpace,
+        specs: [
+            { label: "Top Speed", value: "234", unit: "KM/H" },
+            { label: "Maximum Power", value: "258", unit: "kW" },
+            { label: "0-100 KM/H", value: "6.0", unit: "s" }
+        ],
+        description: "Jaguar F-Pace's mild hybrid engines harvest, store and redeploy energy normally lost during deceleration, offering enhanced efficiency and dynamic performance.",
+        cta: "https://www.jaguar.in/jaguar-range/f-pace/index.html"
+    }
+];
 
 const Jaguarcar = () => {
-    const [activeTab] = useState('ELECTRIC HYBRID');
     const [activeIndex, setActiveIndex] = useState(0);
     const active = tabData[activeIndex];
 
     return (
         <div className="bbb">
-        <div className="rover-det-spec-block">
-            <div className="rover-tabs-container">
-                <h1 className="title1">HEIGHTENED PERFORMANCE</h1>
-                <p className="subtitle">
-                    The original luxury SUV, leading with Range Rover Electric and efficient plug-in and mild hybrids.
-                </p>
+            <div className="rover-det-spec-block">
+                <div className="rover-tabs-container">
+                    <h1 className="title1">HEIGHTENED PERFORMANCE</h1>
+                    <p className="subtitle">
+                        The spirit of performance redefined — where cutting-edge innovation meets iconic Jaguar design in electric, hybrid, and petrol excellence.
+                    </p>
 
-                <div className="tabs-header">
-                    {tabData.map((tab, idx) => (
-                        <button
-                            key={idx}
-                            className={`tab-button ${activeIndex === idx ? "active" : ""}`}
-                            onClick={() => setActiveIndex(idx)}
-                        >
-                            {tab.title}
-                        </button>
-                    ))}
-                </div>
+                    <div className="tabs-header">
+                        {tabData.map((tab, idx) => (
+                            <button
+                                key={idx}
+                                className={`tab-button ${activeIndex === idx ? "active" : ""}`}
+                                onClick={() => setActiveIndex(idx)}
+                            >
+                                {tab.title}
+                            </button>
+                        ))}
+                    </div>
 
-                <div className="tab-main">
-                    <img className="tab-image" src={active.image} alt={active.title} />
-                    <div className="tab-info">
-                        <div className="specs">
-                            {active.specs.map((spec, i) => (
-                                <div key={i} className="spec-item">
-                                    <p className="spec-label">{spec.label}</p>
-                                    <div className="spec-value">{spec.value} <span>{spec.unit}</span></div>
-                                    {spec.desc && <p className="spec-desc">{spec.desc}</p>}
-                                </div>
-                            ))}
+                    <div className="tab-main">
+                        <img className="tab-image" src={active.image} alt={active.title} />
+                        <div className="tab-info">
+                            <div className="specs">
+                                {active.specs.map((spec, i) => (
+                                    <div key={i} className="spec-item">
+                                        <p className="spec-label">{spec.label}</p>
+                                        <div className="spec-value">{spec.value} <span>{spec.unit}</span></div>
+                                        {spec.desc && <p className="spec-desc">{spec.desc}</p>}
+                                    </div>
+                                ))}
+                            </div>
+                            <p className="titleH">{active.title}</p>
+                            <p className="descriptionn">{active.description}</p>
+                            <a className="btn-boxpage5 mt-4 appearIntroPage5" href={active.cta} target="_blank" rel="noopener noreferrer">Visit Official Site</a>
                         </div>
-                        <p className="titleH">{active.title}</p>
-                        <p className="descriptionn">{active.description}</p>
                     </div>
                 </div>
             </div>
-
-            <br />
-            <br />
-            <br />
-            <a className="btn-boxpage5 mt-4 appearIntroPage5" href="/page5">View More</a>
-
-        </div>
         </div>
     );
 }
+
 export default Jaguarcar;

@@ -1,107 +1,107 @@
 import React, { useState } from "react";
 import '../../subpages/mainstyle.css';
 
-import rover1 from '../../roverpages/roverAssets/rover1.jpg';
-import rover2 from '../../roverpages/roverAssets/rover1.jpg';
-import rover3 from '../../roverpages/roverAssets/rover1.jpg';
-import rover4 from '../../roverpages/roverAssets/rover1.jpg';
+import FordEdgeST from '../PageAsset/ford/FordEdgeST.jpg';
+import fordendeavour from '../PageAsset/ford/fordendeavour.jpg';
+import FordF150Lobo from '../PageAsset/ford/FordF150Lobo.jpg';
+import FordMustangGTD from '../PageAsset/ford/FordMustangGTD.jpg';
 
 const tabData = [
     {
-        title: "ELECTRIC HYBRID",
-        image: rover1,
+        title: "FORD ENDEAVOUR (DIESEL SUV)",
+        image: fordendeavour,
         specs: [
-            { label: "ELECTRIC RANGE (UP TO)", value: "121", unit: "KM", desc: "Expected real-world range of up to 94km." },
-            { label: "PUBLIC CHARGING (FROM)", value: "<60", unit: "MINUTES", desc: "Charge up to 80% in under an hour." },
-            { label: "HOME CHARGING (FROM)", value: "5", unit: "HOURS", desc: "Up to 100% using 7kW AC charger." }
+            { label: "MAX POWER", value: "207.13", unit: "BHP" },
+            { label: "MAX TORQUE", value: "500", unit: "NM" },
+            { label: "ENGINE", value: "2.0L Bi-Turbo Diesel" }
         ],
-        description: 'Available as an extended range plug-in electric hybrid (PHEV). The 3.0-litre 6 cylinder Ingenium petrol engine with 160 kW motor is fitted with P460e or P550e variants.',
-        cta: "https://www.rangerover.com/lr/en_in/l460_k25/_/a-si6-550_a-ab_a-swb_h/ipr/personalise/model/"
+        description: 'The Ford Endeavour (also known as Everest in some markets) is a robust and capable 7-seater SUV, powered by efficient diesel engines and designed for both on-road comfort and off-road adventures.',
+        cta: "https://www.ford.com/suvs/"
     },
     {
-        title: "SV PETROL V8",
-        image: rover2,
+        title: "FORD F-150 LOBO (V8 TRUCK)",
+        image: FordF150Lobo,
         specs: [
-            { label: "TOP SPEED", value: "261", unit: "KM/H" },
-            { label: "MAXIMUM POWER", value: "452", unit: "kW" },
-            { label: "0-100 KM/H", value: "4.5", unit: "S" }
+            { label: "HORSEPOWER", value: "400", unit: "HP" },
+            { label: "TORQUE", value: "410", unit: "LB-FT" },
+            { label: "TOWING CAPACITY", value: "7,900", unit: "LBS" }
         ],
-        description: 'Providing immediate response with exceptional drivability, the 4.4-litre V8 engine has 452 kW and 750 Nm of torque - taking Range Rover SV from 0‑100 km/h in 4.5 seconds with Dynamic Launch engaged.',
-        cta: "https://www.rangerover.com/lr/en_in/l460_k25/_/a-v8-615-sv_a-sv_a-swb_p/ipr/personalise/model/"
+        description: 'The 2025 Ford F-150 Lobo is a street-focused performance truck, featuring a powerful 5.0L Coyote V8 engine, aggressive styling, and robust towing capabilities.',
+        cta: "https://www.ford.com/trucks/"
     },
     {
-        title: "PETROL V8",
-        image: rover3,
+        title: "FORD MUSTANG GTD (SUPERCAR)",
+        image: FordMustangGTD,
         specs: [
-            { label: "TOP SPEED", value: "250", unit: "KM/H" },
-            { label: "MAXIMUM POWER", value: "390", unit: "kW" },
-            { label: "0-100 KM/H", value: "4.6", unit: "S" }
+            { label: "MAX HORSEPOWER", value: "815", unit: "HP" },
+            { label: "TOP SPEED", value: "325", unit: "KM/H" },
+            { label: "NURBURGRING TIME", value: "6 Min. 52.072 Sec." }
         ],
-        description: 'Uncompromising power and performance with heightened efficiency. The new 4.4-litre V8 engine has 390 kW and 750 Nm of torque and can take Range Rover from 0‑100 km/h in 4.6 seconds with Dynamic Launch engaged.',
-        cta: "https://www.rangerover.com/lr/en_in/l460_k25/_/a-v8-530_a-ab_a-swb_p/ipr/personalise/engine/"
+        description: `The Ford Mustang GTD is a street-legal, track-focused supercar, boasting a supercharged 5.2L V8 engine and advanced suspension for unparalleled performance.`,
+        cta: "https://www.ford.com/performance/mustang-gtd/"
     },
     {
-        title: "DIESEL MILD HYBRID",
-        image: rover4,
+        title: "FORD EDGE ST (PERFORMANCE SUV)",
+        image: FordEdgeST,
         specs: [
-            { label: "TOP SPEED", value: "234", unit: "KM/H" },
-            { label: "MAXIMUM POWER", value: "258", unit: "kW" },
-            { label: "0-100 KM/H", value: "6.0", unit: "S" }
+            { label: "HORSEPOWER", value: "335", unit: "HP" },
+            { label: "TORQUE", value: "380", unit: "LB-FT" },
+            { label: "ENGINE", value: "2.7L EcoBoost V6" }
         ],
-        description: `Range Rover’s mild hybrid engines harvest, store and redeploy energy normally lost during deceleration. Available with a range of diesel and petrol engines.`,
-        cta: "https://www.rangerover.com/lr/en_in/l460"
+        description: 'The Ford Edge ST features a powerful 2.7L EcoBoost V6 engine, delivering a dynamic and sporty SUV experience with impressive performance.',
+        cta: "https://www.ford.com/suvs/"
     },
-]
+];
 
 const Fordcar = () => {
-    const [activeTab] = useState('ELECTRIC HYBRID');
+    // Removed activeTab state as activeIndex handles tab selection
     const [activeIndex, setActiveIndex] = useState(0);
     const active = tabData[activeIndex];
+
     return (
         <div className="bbb">
-        <div className="rover-det-spec-block">
-            <div className="rover-tabs-container">
-                <h1 className="title1">HEIGHTENED PERFORMANCE</h1>
-                <p className="subtitle">
-                    The original luxury SUV, leading with Range Rover Electric and efficient plug-in and mild hybrids.
-                </p>
+            <div className="rover-det-spec-block">
+                <div className="rover-tabs-container">
+                    <h1 className="title1">HEIGHTENED PERFORMANCE</h1>
+                    <p className="subtitle">
+                        Experience innovation and driving excitement with Ford, offering a powerful range from rugged trucks and versatile SUVs to iconic performance vehicles.
+                    </p>
 
-                <div className="tabs-header">
-                    {tabData.map((tab, idx) => (
-                        <button
-                            key={idx}
-                            className={`tab-button ${activeIndex === idx ? "active" : ""}`}
-                            onClick={() => setActiveIndex(idx)}
-                        >
-                            {tab.title}
-                        </button>
-                    ))}
-                </div>
+                    <div className="tabs-header">
+                        {tabData.map((tab, idx) => (
+                            <button
+                                key={idx}
+                                className={`tab-button ${activeIndex === idx ? "active" : ""}`}
+                                onClick={() => setActiveIndex(idx)}
+                            >
+                                {tab.title}
+                            </button>
+                        ))}
+                    </div>
 
-                <div className="tab-main">
-                    <img className="tab-image" src={active.image} alt={active.title} />
-                    <div className="tab-info">
-                        <div className="specs">
-                            {active.specs.map((spec, i) => (
-                                <div key={i} className="spec-item">
-                                    <p className="spec-label">{spec.label}</p>
-                                    <div className="spec-value">{spec.value} <span>{spec.unit}</span></div>
-                                    {spec.desc && <p className="spec-desc">{spec.desc}</p>}
-                                </div>
-                            ))}
+                    <div className="tab-main">
+                        <img className="tab-image" src={active.image} alt={active.title} />
+                        <div className="tab-info">
+                            <div className="specs">
+                                {active.specs.map((spec, i) => (
+                                    <div key={i} className="spec-item">
+                                        <p className="spec-label">{spec.label}</p>
+                                        <div className="spec-value">{spec.value} <span>{spec.unit}</span></div>
+                                        {spec.desc && <p className="spec-desc">{spec.desc}</p>}
+                                    </div>
+                                ))}
+                            </div>
+                            <p className="titleH">{active.title}</p>
+                            <p className="descriptionn">{active.description}</p>
+                            <a className="btn-boxpage5 mt-4 appearIntroPage5" href={active.cta} target="_blank" rel="noopener noreferrer">
+                                View More
+                            </a>
                         </div>
-                        <p className="titleH">{active.title}</p>
-                        <p className="descriptionn">{active.description}</p>
                     </div>
                 </div>
+
+                {/* Removed the redundant "View More" button at the bottom */}
             </div>
-
-            <br />
-            <br />
-            <br />
-            <a className="btn-boxpage5 mt-4 appearIntroPage5" href="/page5">View More</a>
-
-        </div>
         </div>
     );
 }

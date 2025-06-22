@@ -485,10 +485,21 @@ const Home = () => {
                 <div className="primaryLinkContainer">
                   <a
                     className="primary-link icon-arrow-right"
-                    href="/aboutus"
-                    target="_self"
+                    onClick={() => {
+    localStorage.setItem("aboutusReady", "false");
+    setIsLoading(true);
+
+    const checkPageReady = setInterval(() => {
+      if (localStorage.getItem("aboutusReady") === "true") {
+        clearInterval(checkPageReady);
+        setIsLoading(false);
+      }
+    }, 100);
+
+    navigate('/aboutus');
+  }}
                   >
-                    <span className="cta-content">About Us</span>
+                    <span className="cta-content">ABOUT US</span>
                   </a>
                 </div>
               </div>
@@ -500,12 +511,12 @@ const Home = () => {
             {/* Top row */}
             <div className="masonrymedia__row masonrymedia__row--supportive" >
               <div className="masonrymedia__cell" >
-                <picture className="masonrymedia__picture" data-aos="zoom-in-right" data-aos-delay="100">
+                <picture className="masonrymedia__picture" data-aos="zoom-in-right" data-aos-delay="100" data-aos-once="true">
                   <img alt="Interior Steering" className="masonrymedia__image" src={bimg1} />
                 </picture>
               </div>
               <div className="masonrymedia__cell">
-                <picture className="masonrymedia__picture" data-aos="zoom-in-right" data-aos-delay="200">
+                <picture className="masonrymedia__picture" data-aos="zoom-in-right" data-aos-delay="200" data-aos-once="true">
                   <img alt="Headlight" className="masonrymedia__image" src={bimg2} />
                 </picture>
               </div>
@@ -514,12 +525,12 @@ const Home = () => {
             {/* Bottom row */}
             <div className="masonrymedia__row masonrymedia__row--main">
               <div className="masonrymedia__cell masonrymedia__cell--narrow">
-                <picture className="masonrymedia__picture" data-aos="zoom-in" data-aos-delay="300" >
+                <picture className="masonrymedia__picture" data-aos="zoom-in" data-aos-delay="300" data-aos-once="true">
                   <img alt="Woman Driving" className="masonrymedia__image" src={bimg3} loading="lazy" />
                 </picture>
               </div>
               <div className="masonrymedia__cell masonrymedia__cell--main">
-                <picture className="masonrymedia__picture" data-aos="zoom-in" data-aos-delay="400">
+                <picture className="masonrymedia__picture" data-aos="zoom-in" data-aos-delay="400" data-aos-once="true">
                   <img alt="Gear Knob" className="masonrymedia__image" src={bimg4} loading="lazy" />
                 </picture>
               </div>
@@ -530,7 +541,7 @@ const Home = () => {
 
       {/* Placeholder div for scroll target */}
       <div ref={targetSectionRef} className="hand-image-box" >
-        <div className="hand-image-text" data-aos="fade" >
+        <div className="hand-image-text" data-aos="fade" data-aos-once="true" >
           <h2>Experience the Future of Driving</h2>
         </div>
       </div>
@@ -546,8 +557,8 @@ const Home = () => {
       />
 
       {/*Luxury vehicle intro */}
-      <div className="hand-image-box1" data-aos="fade">
-        <div className="hand-image-text1" data-aos="zoom-in">
+      <div className="hand-image-box1" data-aos="fade" data-aos-once="true">
+        <div className="hand-image-text1" data-aos="zoom-in" data-aos-once="true">
           <h2>Stay inspired</h2>
           <h4>This is just the beginning. <i className="bi bi-gem"></i> </h4>
         </div>
@@ -608,12 +619,12 @@ const Home = () => {
             {/* Top row */}
             <div className="masonrymedia__row masonrymedia__row--supportive">
               <div className="masonrymedia__cell">
-                <picture className="masonrymedia__picture" data-aos="zoom-in-right" data-aos-delay="100">
+                <picture className="masonrymedia__picture" data-aos="zoom-in-right" data-aos-delay="100" data-aos-once="true">
                   <img alt="Interior Steering" className="masonrymedia__image" src={img1} />
                 </picture>
               </div>
               <div className="masonrymedia__cell">
-                <picture className="masonrymedia__picture" data-aos="zoom-in-right" data-aos-delay="250">
+                <picture className="masonrymedia__picture" data-aos="zoom-in-right" data-aos-delay="250" data-aos-once="true">
                   <img alt="Headlight" className="masonrymedia__image" src={img4} />
                 </picture>
               </div>
@@ -622,12 +633,12 @@ const Home = () => {
             {/* Bottom row */}
             <div className="masonrymedia__row masonrymedia__row--main">
               <div className="masonrymedia__cell masonrymedia__cell--narrow">
-                <picture className="masonrymedia__picture" data-aos="zoom-in" data-aos-delay="350" >
+                <picture className="masonrymedia__picture" data-aos="zoom-in" data-aos-delay="350" data-aos-once="true">
                   <img alt="Woman Driving" className="masonrymedia__image" src={img3} loading="lazy" />
                 </picture>
               </div>
               <div className="masonrymedia__cell masonrymedia__cell--main">
-                <picture className="masonrymedia__picture" data-aos="zoom-in" data-aos-delay="500">
+                <picture className="masonrymedia__picture" data-aos="zoom-in" data-aos-delay="500" data-aos-once="true">
                   <img alt="Gear Knob" className="masonrymedia__image" src={img2} loading="lazy" />
                 </picture>
               </div>
@@ -650,8 +661,8 @@ const Home = () => {
                     onClick={() => {
                       setIsLoading(true);
                       setTimeout(() => {
-                        setIsLoading(false);
-                        navigate('/page5');
+                      setIsLoading(false);
+                      navigate('/page5');
                       }, 1500); // Adjust the delay if needed
                     }}
                   >
@@ -675,7 +686,7 @@ const Home = () => {
 
 
       {/* HOT DEALS SECTION */}
-      <div className="deals" data-aos="fade-right" data-aos-delay="400">
+      <div className="deals" data-aos="fade-right" data-aos-delay="400" data-aos-once="true">
         <h2>⚡ Vehicle Powertrain Options</h2>
         <ul>
           <li>🔋 Electric Vehicles (EV): Zero emissions, silent drive, low maintenance</li>

@@ -163,13 +163,15 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister }) =
               <Route path="/mercedescar" element={<Mercedescar />}/>
               <Route path="/fordcar" element={<Fordcar />}/>
               <Route path="bmwcar" element={<Bmwcar />}/>
-              <Route path="ranferovercar" element={<Rangerovercar />}/>
+              <Route path="/rangerovercar" element={<Rangerovercar />}/>
               <Route path="/rollsroylscar" element={<Rollsroylscar />}/>
 
               {/*Service TAB */}
               <Route path="/servicecostcalculator" element={<ServiceCostCalculator />} />
               <Route path="/emicalculator" element={<EMICalculator />} />
               <Route path="/partsinfo" element={<PartsInfo />} />
+
+              
 
               {/* Car details */}
               <Route path="/cardetails" element={<CarDetails />} />

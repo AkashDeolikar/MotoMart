@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import '../../subpages/mainstyle.css';
 
 import rover1 from '../../roverpages/roverAssets/rover1.jpg';
-import rover2 from '../../roverpages/roverAssets/rover1.jpg';
-import rover3 from '../../roverpages/roverAssets/rover1.jpg';
-import rover4 from '../../roverpages/roverAssets/rover1.jpg';
+import rover2 from '../../roverpages/roverAssets/rover2.jpg';
+import rover3 from '../../roverpages/roverAssets/rover3.jpg';
+import rover4 from '../../roverpages/roverAssets/rover4.jpg';
+import discovery from '../PageAsset/rr/discovery.jpg';
+import velar from '../PageAsset/rr/velar.jpg';
 
 const tabData = [
     {
@@ -51,57 +53,79 @@ const tabData = [
         description: `Range Rover’s mild hybrid engines harvest, store and redeploy energy normally lost during deceleration. Available with a range of diesel and petrol engines.`,
         cta: "https://www.rangerover.com/lr/en_in/l460"
     },
-]
+    {
+        title: "DISCOVERY (DIESEL MILD HYBRID)",
+        image: discovery,
+        specs: [
+            { label: "TOP SPEED", value: "194", unit: "KM/H" },
+            { label: "MAXIMUM POWER", value: "183", unit: "kW" },
+            { label: "0-100 KM/H", value: "8.1", unit: "S" }
+        ],
+        description: 'The Land Rover Discovery’s D250 Mild Hybrid Diesel engine seamlessly integrates an electric motor to enhance efficiency and power, delivering confident performance for every adventure.',
+        cta: "https://www.landrover.in/discovery/index.html"
+    },
+    {
+        title: "VELAR (DIESEL MILD HYBRID)",
+        image: velar,
+        specs: [
+            { label: "TOP SPEED", value: "241", unit: "KM/H" },
+            { label: "MAXIMUM POWER", value: "221", unit: "kW" },
+            { label: "0-100 KM/H", value: "6.5", unit: "S" }
+        ],
+        description: 'The Range Rover Velar D300 Mild Hybrid Diesel engine offers refined power and impressive efficiency, providing a sleek and commanding presence with responsive performance.',
+        cta: "https://www.landrover.in/range-rover-velar/index.html"
+    },
+];
 
 const Rangerovercar = () => {
-    const [activeTab] = useState('ELECTRIC HYBRID');
+    // Removed activeTab state as activeIndex handles tab selection
     const [activeIndex, setActiveIndex] = useState(0);
     const active = tabData[activeIndex];
+
     return (
         <div className="bbb">
-        <div className="rover-det-spec-block">
-            <div className="rover-tabs-container">
-                <h1 className="title1">HEIGHTENED PERFORMANCE</h1>
-                <p className="subtitle">
-                    The original luxury SUV, leading with Range Rover Electric and efficient plug-in and mild hybrids.
-                </p>
+            <div className="rover-det-spec-block">
+                <div className="rover-tabs-container">
+                    <h1 className="title1">HEIGHTENED PERFORMANCE</h1>
+                    <p className="subtitle">
+                        The original luxury SUV, leading with Range Rover Electric and efficient plug-in and mild hybrids.
+                    </p>
 
-                <div className="tabs-header">
-                    {tabData.map((tab, idx) => (
-                        <button
-                            key={idx}
-                            className={`tab-button ${activeIndex === idx ? "active" : ""}`}
-                            onClick={() => setActiveIndex(idx)}
-                        >
-                            {tab.title}
-                        </button>
-                    ))}
-                </div>
+                    <div className="tabs-header">
+                        {tabData.map((tab, idx) => (
+                            <button
+                                key={idx}
+                                className={`tab-button ${activeIndex === idx ? "active" : ""}`}
+                                onClick={() => setActiveIndex(idx)}
+                            >
+                                {tab.title}
+                            </button>
+                        ))}
+                    </div>
 
-                <div className="tab-main">
-                    <img className="tab-image" src={active.image} alt={active.title} />
-                    <div className="tab-info">
-                        <div className="specs">
-                            {active.specs.map((spec, i) => (
-                                <div key={i} className="spec-item">
-                                    <p className="spec-label">{spec.label}</p>
-                                    <div className="spec-value">{spec.value} <span>{spec.unit}</span></div>
-                                    {spec.desc && <p className="spec-desc">{spec.desc}</p>}
-                                </div>
-                            ))}
+                    <div className="tab-main">
+                        <img className="tab-image" src={active.image} alt={active.title} />
+                        <div className="tab-info">
+                            <div className="specs">
+                                {active.specs.map((spec, i) => (
+                                    <div key={i} className="spec-item">
+                                        <p className="spec-label">{spec.label}</p>
+                                        <div className="spec-value">{spec.value} <span>{spec.unit}</span></div>
+                                        {spec.desc && <p className="spec-desc">{spec.desc}</p>}
+                                    </div>
+                                ))}
+                            </div>
+                            <p className="titleH">{active.title}</p>
+                            <p className="descriptionn">{active.description}</p>
+                            <a className="btn-boxpage5 mt-4 appearIntroPage5" href={active.cta} target="_blank" rel="noopener noreferrer">
+                                View More
+                            </a>
                         </div>
-                        <p className="titleH">{active.title}</p>
-                        <p className="descriptionn">{active.description}</p>
                     </div>
                 </div>
+
+                {/* Removed the redundant "View More" button at the bottom */}
             </div>
-
-            <br />
-            <br />
-            <br />
-            <a className="btn-boxpage5 mt-4 appearIntroPage5" href="/page5">View More</a>
-
-        </div>
         </div>
     );
 }
