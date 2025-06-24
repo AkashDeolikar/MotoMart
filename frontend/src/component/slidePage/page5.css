@@ -47,14 +47,14 @@
     box-shadow: 0 0 10px #3b82f6;
   }
   50% {
-    box-shadow: 0 0 25px #3b82f6;
+    box-shadow: 0 0 35px #3b82f6;
   }
   100% {
     box-shadow: 0 0 10px #3b82f6;
   }
 }
 
-
+/* LOADING ANIMATION */
 .loading-card {
   display: contents;
   flex-direction: column;

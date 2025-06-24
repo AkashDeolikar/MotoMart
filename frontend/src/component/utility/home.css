@@ -115,6 +115,26 @@ body {
   padding-bottom: 45px;
 }
 
+/* Hide by default */
+.mobile-note {
+  display: none;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 15px;
+  color: #333;
+}
+
+/* Show only on mobile screens */
+@media (max-width: 768px) {
+  .mobile-note {
+    display: block;
+    color: red;
+  }
+}
+
+
+/* ZIC ZAC*/
 /* Container for alternating blocks */
 .zic-alternating-content {
   display: flex;
@@ -132,11 +152,44 @@ body {
     font-weight: bold;
     margin-bottom: 10px;
 }
-.zic-alternating-content .support:hover .masonrymedia__card-title1,
-.masonrymedia__card-title1:hover {
-    text-shadow: #747373 0px 0px 10px;
-    transform: scale(1.125);
-    transition: ease-in-out 0.2s;
+.zic-alternating-content .support .masonrymedia__card-title1,
+.masonrymedia__card-title1 {
+  position: relative; /* Ensure anchor for ::after */
+  display: inline-block; /* Prevents block-level overflow */
+}
+
+.zic-alternating-content .support .masonrymedia__card-title1::after,
+.masonrymedia__card-title1::after {
+  content: 'Click Me';
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(224, 221, 221, 0.9);
+  color: #0f0f0f;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.75em;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, bottom 0.3s ease;
+  max-width: 200px;
+  z-index: 10;
+  box-shadow: 0px 0px 6px rgba(0,0,0,0.2);
+}
+
+/* On hover: make it visible */
+.zic-alternating-content .support:hover .masonrymedia__card-title1::after,
+.masonrymedia__card-title1:hover::after {
+  opacity: 1;
+  visibility: visible;
+  bottom: -40px;
+}
+@media screen and (max-width: 1440px) {
+  .zic-alternating-content .support .masonrymedia__card-title1::after {
+    font-size: 0.7em;
+  }
 }
 
 /* Support block wrapper */
@@ -1136,7 +1189,7 @@ html {
 
 /* Section Padding */
 .vehicle-section2 {
-  padding: 10vh 0;
+  padding: 7vh 0;
 }
 
 /* Container Styling */
@@ -1266,7 +1319,7 @@ html {
   .card-deck2 {
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    /* gap: 30px; */
   }
 
   .vehicle-card2 {

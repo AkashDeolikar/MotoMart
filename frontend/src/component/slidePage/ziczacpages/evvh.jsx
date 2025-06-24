@@ -53,25 +53,25 @@ const Evvh = () => {
     {
       name: "BMW", /* TITLE */
       key: "bmwEV",/* CSS CODE AND IMG LINK NAME */
-      route: "https://www.rangerover.com/en-in/index.html", /* PAGE LINK */
+      route: "/bmwcarev", /* PAGE LINK */
       description: "Introducing a new era characterised by the advent of all-electric vehicles, combining exhilarating performance, dramatic design, and a captivating sense of theatre."
     },
     {
       name: "Kia",
       key: "kiaEV",
-      route: "/page5",
+      route: "/kiacarev",
       description: "Introducing a new era defined by the seamless fusion of dynamic performance, intelligent design, and sustainable luxury."
     },
     {
       name: "Mercedes",
       key: "mercedesEV",
-      route: "/ford",
+      route: "/mercedescarev",
       description: "Introducing a new era characterized by the powerful transformation of electric mobility, combining rugged capability, innovative technology, and a commitment to everyday utility."
     },
     {
       name: "Tesla",
       key: "teslaEV",
-      route: "/audi",
+      route: "/teslacarev",
       description: "Introducing a new era characterized by the progressive evolution of electric mobility, combining sophisticated design, exhilarating performance, and cutting-edge technology."
     },
   ];

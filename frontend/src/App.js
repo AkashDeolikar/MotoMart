@@ -78,6 +78,21 @@ import Fordcar from "./component/slidePage/subpages/luxurycarpages/fordcar";
 import Bmwcar from "./component/slidePage/subpages/luxurycarpages/bmwcar";
 import Rangerovercar from "./component/slidePage/subpages/luxurycarpages/rangerovercar";
 import Rollsroylscar from "./component/slidePage/subpages/luxurycarpages/rollsroylscar";
+import Hondacar from "./component/slidePage/subpages/passengercappages/hondacar";
+import Hyundaicar from "./component/slidePage/subpages/passengercappages/hyundaicar";
+import Jeepcar from "./component/slidePage/subpages/passengercappages/jeepcar";
+import Nissancar from "./component/slidePage/subpages/passengercappages/nissancar";
+import Renaultcar from "./component/slidePage/subpages/passengercappages/renaultcar";
+import Suzukicar from "./component/slidePage/subpages/passengercappages/suzukicar";
+import Teslacar from "./component/slidePage/subpages/evcarpages/teslacarev";
+import Bmwcarev from "./component/slidePage/subpages/evcarpages/bmwcarev";
+import Kiacarev from "./component/slidePage/subpages/evcarpages/kiacarev";
+import Mercedescarev from "./component/slidePage/subpages/evcarpages/mercedescarev";
+import Teslacarev from "./component/slidePage/subpages/evcarpages/teslacarev";
+import Mahindrapickup from "./component/slidePage/subpages/commercialcarpages/mahindrapickup";
+import Isuzupickup from "./component/slidePage/subpages/commercialcarpages/isuzupickup";
+import Ashokpickup from "./component/slidePage/subpages/commercialcarpages/ashokpickup";
+import Suzukipickup from "./component/slidePage/subpages/commercialcarpages/suzukipickup";
 
 // Debug logs
 // console.log("Bike Data:", Bikecard);
@@ -166,12 +181,27 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister }) =
               <Route path="/rangerovercar" element={<Rangerovercar />}/>
               <Route path="/rollsroylscar" element={<Rollsroylscar />}/>
 
+              <Route path="/hondacar" element={<Hondacar />} />
+              <Route path="/hyundaicar" element={<Hyundaicar />} />
+              <Route path="/jeepcar" element={<Jeepcar />} />
+              <Route path="/nissancar" element={<Nissancar />} />
+              <Route path="/renaultcar" element={<Renaultcar />} />
+              <Route path="/suzukicar" element={<Suzukicar />} />
+              
+              <Route path="/bmwcarev" element={<Bmwcarev />} />
+              <Route path="/kiacarev" element={<Kiacarev />} />
+              <Route path="/mercedescarev" element={<Mercedescarev />} />
+              <Route path="/teslacarev" element={<Teslacarev />} />
+
+              <Route path="/mahindrapickup" element={<Mahindrapickup />} />
+              <Route path="/isuzupickup" element={<Isuzupickup />} />
+              <Route path="/ashok[ickup" element={<Ashokpickup />} />
+              <Route path="/suzukipickup" element={<Suzukipickup />} />
+
               {/*Service TAB */}
               <Route path="/servicecostcalculator" element={<ServiceCostCalculator />} />
               <Route path="/emicalculator" element={<EMICalculator />} />
               <Route path="/partsinfo" element={<PartsInfo />} />
-
-              
 
               {/* Car details */}
               <Route path="/cardetails" element={<CarDetails />} />

@@ -104,10 +104,7 @@ const Rollsroylscar = () => {
                 <br />
                 <br />
                 <br />
-                {/* The "View More" button below was redundant if a CTA is inside the tab-info */}
-                {/* If it's meant to be a general "View All Rolls-Royce" button, consider a different placement or text */}
-                {/* <a className="btn-boxpage5 mt-4 appearIntroPage5" href="/page5">View More</a> */}
-
+                
             </div>
         </div>
     );

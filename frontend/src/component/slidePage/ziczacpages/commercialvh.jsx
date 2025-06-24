@@ -53,25 +53,25 @@ const Commercialvh = () => {
     {
       name: "Mahindra", /* TITLE */
       key: "mahindrapickup", /* CSS CODE AND IMG LINK NAME */
-      route: "/page5", /* PAGE LINK */
+      route: "/mahindrapickup", /* PAGE LINK */
       description: "Introducing a new era characterised by the advent of all-electric vehicles, combining exhilarating performance, dramatic design, and a captivating sense of theatre."
     },
     {
       name: "ISUZU",
       key: "isuzupickup",
-      route: "/page5",
+      route: "/isuzupickup",
       description: "Introducing a new era defined by the seamless fusion of dynamic performance, intelligent design, and sustainable luxury."
     },
     {
       name: "Ashok LayLand",
       key: "ashokpickup",
-      route: "/ford",
+      route: "/ashokpickup",
       description: "Introducing a new era characterized by the powerful transformation of electric mobility, combining rugged capability, innovative technology, and a commitment to everyday utility."
     },
     {
       name: "Suzuki",
       key: "suzukipickup",
-      route: "/audi",
+      route: "/suzukipickup",
       description: "Introducing a new era characterized by the progressive evolution of electric mobility, combining sophisticated design, exhilarating performance, and cutting-edge technology."
     },
   ];

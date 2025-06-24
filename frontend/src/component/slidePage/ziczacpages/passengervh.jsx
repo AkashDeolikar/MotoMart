@@ -55,37 +55,37 @@ const Passengervh = () => {
     {
       name: "Honda",/* TITLE */
       key: "honda",/* CSS CODE AND IMG LINK NAME */
-      route: "https://www.rangerover.com/en-in/index.html", /* PAGE LINK */
+      route: "/hondacar", /* PAGE LINK */
       description: "Introducing a new era characterised by the advent of all-electric vehicles, combining exhilarating performance, dramatic design, and a captivating sense of theatre."
     },
     {
       name: "Hyndai",
       key: "hyndai",
-      route: "/page5",
+      route: "/hyundaicar",
       description: "Introducing a new era defined by the seamless fusion of dynamic performance, intelligent design, and sustainable luxury."
     },
     {
       name: "Jeep",
       key: "jeep",
-      route: "/ford",
+      route: "/jeepcar",
       description: "Introducing a new era characterized by the powerful transformation of electric mobility, combining rugged capability, innovative technology, and a commitment to everyday utility."
     },
     {
       name: "Nissan",
       key: "nissan",
-      route: "/audi",
+      route: "/nissancar",
       description: "Introducing a new era characterized by the progressive evolution of electric mobility, combining sophisticated design, exhilarating performance, and cutting-edge technology."
     },
     {
       name: "Renault",
       key: "renault",
-      route: "/discovery",
+      route: "/renaultcar",
       description: "Introducing a new era characterized by the uncompromising evolution of electric capability, combining legendary luxury, commanding presence, and silent power."
     },
     {
       name: "Suzuki",
       key: "suzuki",
-      route: "/rollsroyls",
+      route: "/suzukicar",
       description: "Introducing a new era defined by the whisper-quiet ascent into electric super-luxury, combining unparalleled craftsmanship, serene performance, and an ethereal sense of presence."
     },
   ];

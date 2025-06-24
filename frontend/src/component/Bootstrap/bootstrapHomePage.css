@@ -61,7 +61,7 @@
 
 /*Hand Image Text*/
 .hand-image-box {
-    padding: 60px;
+    padding: 30px;
     color: white;
     line-height: 1.6;
     background: linear-gradient(to right, #000000, #4600b8, #000000);
@@ -116,7 +116,7 @@
 }
 
 .hand-image-text h2 {
-    font-family: 'Jaguar Exuberant light';
+    font-family: 'Jaguar Exuberant';
 }
 
 .hand-image-text p {
@@ -136,7 +136,7 @@
 /*Luxury Text*/
 .hand-image-box1 {
     font-family: 'LandRoverWeb-Light';
-    padding: 35px;
+    padding: 25px;
     color: white;
     line-height: 1.6;
     background: linear-gradient(to right, #191818, #aa9999, #191818);
@@ -148,7 +148,10 @@
 }
 
 .hand-image-box1 h2 {
-    font-family: 'LandRoverWeb-Light';
+    font-family: 'JaguarModernWeb-Bold';
+}
+.hand-image-box1 h4 {
+    font-family: 'LandRoverWeb-Demi';
 }
 
 .hand-image-box1::before,
@@ -269,7 +272,7 @@
     padding: 10px;
     border-radius: 12px;
     margin-bottom: 20px;
-    backdrop-filter: blur(1px);
+    backdrop-filter: blur(3px);
     bottom: 10%;
     left: 20%;
     transform: translateX(-25%);
@@ -281,10 +284,8 @@
 }
 
 .carousel-caption h1 {
-    /* Changed h5 to h1 based on your HTML */
-    /* color: #fff; */
-    color: #333433;
-    text-shadow: 0px 1px #ffffffe8;
+    color: #000000;
+    text-shadow: 2px 2px #b7b7b7e8;
     font-family: 'Jaguar Exuberant', sans-serif, arial;
     /* font-family: "Nissan Light", "Nissan Regular", Verdana, Arial, sans-serif; */
     font-size: 30px;
@@ -341,12 +342,16 @@
 }
 
 @media (max-width: 480px) {
+    .hand-image-box {
+    padding: 20px;
+    }
+
     .hand-image-section {
         padding: 30px 10px;
     }
 
     .hand-image-text h2 {
-        font-size: 1.8em;
+        font-size: 1.5em;
     }
 
     .hand-image-text p {

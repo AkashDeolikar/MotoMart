@@ -22,9 +22,9 @@
 .fold2-card {
   position: relative;
   overflow: hidden;
-  height: 480px;
-  width: 330px;
-  border-radius: 15px;
+  height: 350px;
+  width: 300px;
+  border-radius: 45px;
   background-size: cover;
   background-position: center;
   color: white;
