@@ -1,9 +1,5 @@
 # MotoMart
 
-<p align="center">
-  <img src="https://your-logo-url-here" width="120" alt="MotoMart Logo" />
-</p>
-
 <h1 align="center">🚗 MOTOMART</h1>
 <p align="center"><i>Drive Innovation, Transform Mobility Experience Today</i></p>
 
@@ -32,7 +28,6 @@
 
 MotoMart is a modern, responsive automotive web app built with the latest front-end and back-end tools. It provides detailed vehicle pages, user interaction, and a dynamic UI.
 
----
 ---
 
 ## 🛠️ Built With
@@ -78,8 +73,6 @@ MotoMart/
 │       └── components/   # Frontend code
 └── README.md
 ```
-
-
 
 ---
 
