@@ -460,7 +460,7 @@ const Home = () => {
             position: 'absolute',
             top: '30px',
             right: '20px',
-            fontSize: '2.5rem',
+            fontSize: '3rem',
             color: '#fff',
             borderRadius: '50%',
             padding: '10px',

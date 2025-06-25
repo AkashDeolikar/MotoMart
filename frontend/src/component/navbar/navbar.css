@@ -13,356 +13,340 @@
   --hover-dark: #2980b9;
   --accent-dark: #2ecc71;
   --red-dark: #e74c3c;
+
+  --primary-color: #007bff;
 }
 
+/* Light Theme */
 .car-navbar.light {
   --navbar-bg: var(--bg-light);
   --navbar-text: var(--text-light);
-  --navbar-primary: var(--primary-light);
+  --navbar-shadow: rgba(0, 0, 0, 0.08);
   --navbar-hover: var(--hover-light);
-  --navbar-accent: var(--accent-light);
-  --navbar-red: var(--red-light);
+  --navbar-active: var(--primary-light);
   --dropdown-bg: #f9f9f9;
   --dropdown-border: #ddd;
-  --box-shadow: rgba(0, 0, 0, 0.1);
-  --mobile-overlay-bg: rgba(255, 255, 255, 0.8);
+  --overlay-bg: rgba(255, 255, 255, 0.85);
+  --menu-bg: var(--bg-light);
+  --menu-link: var(--text-light);
 }
 
+/* Dark Theme */
 .car-navbar.dark {
   --navbar-bg: var(--bg-dark);
   --navbar-text: var(--text-dark);
-  --navbar-primary: var(--primary-dark);
+  --navbar-shadow: rgba(0, 0, 0, 0.5);
   --navbar-hover: var(--hover-dark);
-  --navbar-accent: var(--accent-dark);
-  --navbar-red: var(--red-dark);
+  --navbar-active: var(--primary-dark);
   --dropdown-bg: #34495e;
   --dropdown-border: #446688;
-  --box-shadow: rgba(0, 0, 0, 0.4);
-  --mobile-overlay-bg: rgba(0, 0, 0, 0.7);
+  --overlay-bg: rgba(0, 0, 0, 0.7);
+  --menu-bg: var(--bg-dark);
+  --menu-link: var(--text-dark);
 }
 
-/* --- Navbar Base --- */
+/* Base Navbar */
 .car-navbar {
-  width: 100%;
-  background-color: var(--navbar-bg);
-  color: var(--navbar-text);
-  padding: 0px 15px;
-  box-shadow: 0 2px 10px var(--box-shadow);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.car-navbar-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.car-navbar-logo {
-  display: flex;
-  align-items: center;
-  font-size: 1.8em;
-  font-weight: 700;
-  color: var(--navbar-primary);
-}
-
-.car-navbar-logo svg {
-  margin-right: 8px;
-  font-size: 1.2em;
-}
-
-.mobile-menu-button {
-  background: none;
-  border: none;
-  color: var(--navbar-text);
-  font-size: 1.7em;
-  cursor: pointer;
-  display: none;
-  padding: 5px;
-  transition: color 0.3s ease;
-  z-index: 1002;
-}
-
-.mobile-menu-button:hover {
-  color: var(--navbar-hover);
-}
-
-.car-navbar-links {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-  /* font-family : "JaguarExuberantW05-Regular", Arial, Helvetica, sans-serif */
-  font-family: 'LandRoverWeb-Medium';
-}
-
-.car-navbar-links ul {
-  display: flex;
-  align-items: center;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  gap: 30px;
-}
-
-.car-navbar-links ul li {
-  position: relative;
-}
-
-.car-navbar-links a,
-.car-navbar-links .logout-btn {
-  text-decoration: none;
-  color: var(--navbar-text);
-  font-size: 1.1em;
-  font-weight: 500;
-  padding: 8px 0;
-  position: relative;
-  transition: color 0.3s ease;
-}
-.logout-btn {
-  width: 5.5rem;
-}
-
-.car-navbar-links a:hover,
-.car-navbar-links .logout-btn:hover {
-  color: var(--navbar-hover);
-}
-
-.car-navbar-links a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -3px;
-  left: 0;
-  background-color: var(--navbar-hover);
-  transition: width 0.3s ease-in-out;
-}
-
-.car-navbar-links a:hover::after,
-.car-navbar-links a.active::after {
-  width: 100%;
-}
-
-.car-navbar-links a.active {
-  color: var(--navbar-primary);
-}
-
-.logout-btn {
-  background-color: var(--navbar-red);
-  color: #fff;
-  border: none;
-  padding: 8px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1em;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-}
-
-.logout-btn:hover {
-  background-color: #c0392b;
-}
-
-.user-info {
-  color: var(--navbar-primary);
-  font-size: 1em;
-  font-weight: 600;
-  padding-left: 10px;
-}
-
-.theme-toggle {
-  font-size: 1.5em;
-  cursor: pointer;
-  color: var(--navbar-primary);
-  transition: color 0.3s ease;
-  margin-left: 15px;
-}
-
-.theme-toggle:hover {
-  color: var(--navbar-hover);
-}
-
-/* --- Desktop Dropdown --- */
-.desk-nav-dd {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: var(--dropdown-bg);
-  min-width: 200px;
-  box-shadow: 0px 8px 16px 0px var(--box-shadow);
-  z-index: 10;
-  border-radius: 5px;
-  overflow: hidden;
-  transform: translateY(10px);
-  opacity: 0;
-  visibility: hidden;
-  transition: transform 0.3s ease-out, opacity 0.3s ease-out, visibility 0.3s ease-out;
-}
-
-.car-navbar-links ul li:hover .desk-nav-dd {
-  display: block;
-  transform: translateY(0);
-  opacity: 1;
-  visibility: visible;
-}
-
-.desk-nav-dd ul {
-  display: flex;
-  flex-direction: column;
-}
-
-.desk-nav-dd ul li a {
-  padding: 10px 20px;
-  color: var(--navbar-text);
-  font-size: 1em;
-  border-bottom: 1px solid var(--dropdown-border);
-}
-
-.desk-nav-dd ul li:last-child a {
-  border-bottom: none;
-}
-
-.desk-nav-dd ul li a:hover {
-  background-color: var(--navbar-hover);
-  color: #fff;
-}
-
-/* --- Mobile Overlay --- */
-.mobile-menu-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background-color: var(--mobile-overlay-bg);
-  z-index: 1001;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+  z-index: 1000;
+  padding: 5px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+  color: var(--navbar-text);
+  background-color: var(--navbar-bg);
+  backdrop-filter: none;
+  box-shadow: none;
 }
 
-.mobile-menu-overlay.mobile-open {
-  opacity: 1;
-  visibility: visible;
+/* Add padding to main content area instead of body */
+main, .app-wrapper, .content-wrapper {
+  padding-top: 70px;
+}
+.car-navbar.transparent {
+  background-color: transparent !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+  color: var(--navbar-text) !important;
 }
 
-/* --- Responsive --- */
-@media (max-width: 767px) {
-  .mobile-menu-button {
-    display: block;
+.car-navbar.scrolled-or-other-page {
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 2px 10px var(--navbar-shadow);
+}
+
+.car-navbar.light.scrolled-or-other-page {
+  background-color: rgba(179, 178, 178, 0.189);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 2px 10px var(--navbar-shadow);
+}
+
+  .car-navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+  }
+
+  .car-navbar-logo .ProjectName {
+    font-family: 'LandRoverWeb-Medium', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--navbar-active);
   }
 
   .car-navbar-links {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 80%;
-    max-width: 300px;
-    height: 100%;
-    background-color: var(--navbar-bg);
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    transform: translateX(100%);
-    transition: transform 0.4s ease-in-out;
-    z-index: 10;
-    padding: 60px 20px 20px 20px;
-    box-sizing: border-box;
-    overflow-y: auto;
-    box-shadow: -2px 0 10px var(--box-shadow);
-  }
-
-  .car-navbar-links.mobile-open {
-    transform: translateX(0);
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    font-family: 'LandRoverWeb-Medium';
   }
 
   .car-navbar-links ul {
-    flex-direction: column;
+    list-style: none;
+    display: flex;
+    align-items: center;
     gap: 30px;
-    width: 100%;
-    text-align: left;
   }
 
   .car-navbar-links ul li {
-    width: 100%;
+    position: relative;
   }
 
   .car-navbar-links a,
   .car-navbar-links .logout-btn {
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.1em;
+    padding: 8px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .car-navbar-links a:hover {
+    color: var(--navbar-hover);
+  }
+
+  .car-navbar-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background-color: var(--navbar-hover);
+    transition: width 0.3s;
+  }
+
+  .car-navbar-links a:hover::after,
+  .car-navbar-links a.active::after {
     width: 100%;
-    padding: 12px 20px;
-    border-radius: 8px;
-    background-color: var(--dropdown-bg);
-    box-shadow: 0 2px 5px var(--box-shadow);
-    font-size: 1.2em;
+    background-color: var(--navbar-active);
   }
 
   .car-navbar-links a.active {
-    background-color: var(--navbar-primary);
-    color: #fff;
+    color: var(--navbar-active);
   }
 
-  .car-navbar-links a:hover,
-  .car-navbar-links .logout-btn:hover {
+  .logout-btn {
+    background-color: var(--red-light);
+    color: #fff;
+    border-radius: 5px;
+    padding: 8px 15px;
+  }
+
+  .car-navbar.dark .logout-btn {
+    background-color: var(--red-dark);
+  }
+
+  .logout-btn:hover {
+    background-color: #c0392b;
+  }
+
+  .car-navbar.dark .logout-btn:hover {
+    background-color: #b93b3b;
+  }
+
+  .theme-toggle {
+    font-size: 1.4em;
+    cursor: pointer;
+    color: var(--navbar-active);
+    margin-left: 15px;
+  }
+
+  .mobile-menu-button {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.7em;
+    cursor: pointer;
+    color: inherit;
+    z-index: 1002;
+  }
+
+  .mobile-menu-button:hover {
+    color: var(--navbar-hover);
+  }
+
+  .mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--overlay-bg);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease-in-out;
+  }
+
+  .mobile-menu-overlay.mobile-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Dropdown */
+  .desk-nav-dd {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--dropdown-bg);
+    min-width: 200px;
+    box-shadow: 0px 8px 16px var(--box-shadow);
+    border-radius: 5px;
+    overflow: hidden;
+    transform: translateY(10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-out;
+  }
+
+  .car-navbar-links ul li:hover .desk-nav-dd {
+    display: block;
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .desk-nav-dd ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .desk-nav-dd ul li a {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: var(--navbar-text);
+    border-bottom: 1px solid var(--dropdown-border);
+    display: block;
+  }
+
+  .desk-nav-dd ul li:last-child a {
+    border-bottom: none;
+  }
+
+  .desk-nav-dd ul li a:hover {
     background-color: var(--navbar-hover);
     color: #fff;
   }
 
-  .car-navbar-links a::after {
-    display: none;
-  }
+  /* Mobile */
+  @media (max-width: 767px) {
+    .car-navbar-links .logout-btn{
+      background-color: var(--red-light);
+    }
+    .car-navbar {
+      padding: 0px 10px;
+    }
 
-  .user-info,
-  .theme-toggle {
-    margin-top: 25px;
-    font-size: 1.3em;
-    padding: 15px 0;
-    border-top: 1px solid var(--dropdown-border);
-    width: 100%;
-    text-align: left;
-  }
+    .mobile-menu-button {
+      display: block;
+    }
 
-  /* Mobile dropdown styling */
-  .car-navbar-links .desk-nav-dd {
-    position: static;
-    transform: none;
-    opacity: 1;
-    visibility: visible;
-    box-shadow: none;
-    background-color: transparent;
-    border: none;
-    min-width: auto;
-    padding: 0;
-    margin-top: 10px;
-    display: none;
-  }
+    .car-navbar-links {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 80%;
+      max-width: 300px;
+      /* height: 100%; */
+      background-color: var(--menu-bg);
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      transform: translateX(100%);
+      transition: transform 0.4s ease-in-out;
+      z-index: 1001;
+      padding: 60px 20px 20px;
+      box-shadow: -2px 0 10px var(--box-shadow);
+    }
 
-  .car-navbar-links ul li.has-dropdown.mobile-dd-open .desk-nav-dd {
-    display: block;
-  }
+    .car-navbar-links.mobile-open {
+      transform: translateX(0);
+    }
 
-  .car-navbar-links .desk-nav-dd ul {
-    flex-direction: column;
-    gap: 5px;
-    padding-left: 20px;
-    border-left: 2px solid var(--navbar-primary);
-  }
+    .car-navbar-links ul {
+      flex-direction: column;
+      gap: 30px;
+      width: 100%;
+      text-align: left;
+    }
 
-  .car-navbar-links .desk-nav-dd ul li a {
-    padding: 8px 15px;
-    background-color: var(--dropdown-bg);
-    border-radius: 5px;
-    font-size: 1.1em;
-  }
-}
+    .car-navbar-links ul li,
+    .car-navbar-links a,
+    .logout-btn {
+      width: 100%;
+    }
 
-h1.ProjectName{
-    font-family: 'LandRoverWeb-Medium', sans-serif;
-    font-size: 28px;
-    /* color: #ffffff; */
+    .car-navbar-links a,
+    .logout-btn {
+      padding: 12px 20px;
+      border-radius: 8px;
+      background-color: var(--dropdown-bg);
+      box-shadow: 0 2px 5px var(--box-shadow);
+      font-size: 1.2em;
+      color: var(--menu-link);
+    }
+
+    .car-navbar-links a:hover,
+    .logout-btn:hover {
+      background-color: var(--navbar-hover);
+      color: #fff;
+    }
+
+    .desk-nav-dd {
+      position: static;
+      transform: none;
+      opacity: 1;
+      visibility: visible;
+      box-shadow: none;
+      background-color: transparent;
+      display: none;
+    }
+
+    .car-navbar-links ul li.has-dropdown.mobile-dd-open .desk-nav-dd {
+      display: block;
+    }
+
+    .desk-nav-dd ul {
+      flex-direction: column;
+      padding-left: 20px;
+      border-left: 2px solid var(--navbar-active);
+    }
+
+    .desk-nav-dd ul li a {
+      padding: 8px 15px;
+      background-color: var(--dropdown-bg);
+      border-radius: 5px;
+    }
   }

@@ -135,8 +135,22 @@
 
 /*Luxury Text*/
 .hand-image-box1 {
+  font-family: 'LandRoverWeb-Light';
+  padding: 20px;
+  color: white; /* Text color remains white for excellent contrast */
+  line-height: 1.6;
+  /* New background: Dark, desaturated blue-grey gradient */
+  background: linear-gradient(to right, 
+              rgba(38, 50, 56, 0.85), /* Dark Slate Grey, 85% opaque */
+              rgba(55, 71, 79, 0.6),  /* Slightly lighter, 60% opaque */
+              rgba(38, 50, 56, 0.85));/* Back to dark */
+  position: relative;
+  overflow: hidden;
+}
+
+.dark .hand-image-box1 {
     font-family: 'LandRoverWeb-Light';
-    padding: 25px;
+    padding: 20px;
     color: white;
     line-height: 1.6;
     background: linear-gradient(to right, #191818, #aa9999, #191818);
@@ -170,21 +184,16 @@
     top: 0;
     background: linear-gradient(to bottom,
             rgb(0, 0, 0),
-            /* Start more opaque to match the edge */
             rgba(0, 0, 0, 0)
-            /* Fade to fully transparent */
         );
 }
 
 /* Bottom Fade */
 .hand-image-box1::after {
     bottom: 0;
-    /* Gradient from bottom (transparent) to top (black matching edge) */
     background: linear-gradient(to top,
             rgb(0, 0, 0),
-            /* Start more opaque to match the edge */
             rgba(0, 0, 0, 0)
-            /* Fade to fully transparent */
         );
 }
 
