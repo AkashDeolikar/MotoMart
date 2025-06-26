@@ -1656,7 +1656,7 @@ import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import './tab.css'; // Make sure this path is correct for your styles
 import { SlArrowRight } from "react-icons/sl";
 import { VscFeedback } from "react-icons/vsc";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 // Authentication checking (assuming 'auth' is properly configured in firebase.js)
 import { auth } from '../../firebase';
@@ -1896,7 +1896,7 @@ export const vehicleData = [
       },
       {
         id: 'hyundai-Amze',
-        videoPoster: hyundaiAmze,
+        videoPoster: "https://stimg.cardekho.com/images/carexteriorimages/930x620/Hyundai/i20/9471/1749452397084/front-left-side-47.jpg",
         videoSrc: "https://www.youtube.com/embed/jB1tW5S-e2w", // Example relevant video ID
         thumbnail: "https://www.carlogos.org/car-logos/hyundai-logo-2011-640.png",
         title: "Hyundai i20",
@@ -1953,7 +1953,7 @@ export const vehicleData = [
     vehicles: [
       {
         id: 'honda-amaze',
-        videoPoster: hondaWrv, // Placeholder image - Assuming no specific Amaze image. If available, change to `hondaAmaze`.
+        videoPoster: hyundaiAmze, // Placeholder image - Assuming no specific Amaze image. If available, change to `hondaAmaze`.
         videoSrc: "https://www.youtube.com/embed/7bJF4SQNHfM",
         thumbnail: "https://www.carlogos.org/car-logos/honda-logo-2000-full-download.png",
         title: "Honda Amaze",
@@ -2228,7 +2228,7 @@ export const vehicleData = [
         id: 'volkswagen-virtus',
         videoPoster: vwVirtus,
         videoSrc: "https://www.youtube.com/embed/mK5yPevgygM",
-        thumbnail: "https://www.carlogos.org/car-logos/volkswagen-logo-2019-640.png",
+        thumbnail: "https://www.carlogos.org/logo/Volkswagen-logo-2019-1500x1500.png",
         title: "Volkswagen Virtus",
         link: "https://www.volkswagen.co.in/en/models/virtus-sport.html",
         description: "The Volkswagen Virtus is a stylish and feature-packed sedan offering a strong performance, robust build quality, and a comfortable ride.",
@@ -2245,7 +2245,7 @@ export const vehicleData = [
         id: 'volkswagen-polo',
         videoPoster: vwPolo,
         videoSrc: "https://www.youtube.com/embed/7S_MIU9_yBw",
-        thumbnail: "https://www.carlogos.org/car-logos/volkswagen-logo-2019-640.png",
+        thumbnail: "https://www.carlogos.org/logo/Volkswagen-logo-2019-1500x1500.png",
         title: "Volkswagen Polo",
         link: "https://www.volkswagen.co.in/",
         description: "The Volkswagen Polo was a highly popular and iconic premium hatchback in India, known for its solid build quality, precise handling, and fun-to-drive nature. It was a benchmark in its segment for many years. (Discontinued in India as of 2022)",
@@ -2262,7 +2262,7 @@ export const vehicleData = [
         id: 'volkswagen-tiguan',
         videoPoster: vwTiguan,
         videoSrc: "https://www.youtube.com/embed/_XzqB19vmmo",
-        thumbnail: "https://www.carlogos.org/car-logos/volkswagen-logo-2019-640.png",
+        thumbnail: "https://www.carlogos.org/logo/Volkswagen-logo-2019-1500x1500.png",
         title: "Volkswagen Tiguan",
         link: "https://www.volkswagen.co.in/en/models/tiguan-r-line.html",
         description: "The Volkswagen Tiguan is a premium SUV offering a sophisticated design, powerful engine, and advanced features for a comfortable and safe drive.",
@@ -2279,7 +2279,7 @@ export const vehicleData = [
         id: 'volkswagen-taigun', // Added Taigun
         videoPoster: vwTaigun,
         videoSrc: "https://www.youtube.com/embed/xL-5j2uVwWw", // Example relevant video ID
-        thumbnail: "https://www.carlogos.org/car-logos/volkswagen-logo-2019-640.png",
+        thumbnail: "https://www.carlogos.org/logo/Volkswagen-logo-2019-1500x1500.png",
         title: "Volkswagen Taigun",
         link: "https://www.volkswagen.co.in/en/models/taigun.html",
         description: "The Volkswagen Taigun is a robust compact SUV blending striking design with strong performance from its TSI engines and advanced features, built for urban adventures.",
@@ -2296,7 +2296,7 @@ export const vehicleData = [
         id: 'volkswagen-t-roc', // Added T-Roc
         videoPoster: volkswagenTroc,
         videoSrc: "https://www.youtube.com/embed/Yp_Zf6zE0mU", // Example relevant video ID
-        thumbnail: "https://www.carlogos.org/car-logos/volkswagen-logo-2019-640.png",
+        thumbnail: "https://www.carlogos.org/logo/Volkswagen-logo-2019-1500x1500.png",
         title: "Volkswagen T-Roc",
         link: "https://www.volkswagen.co.in/en/models/t-roc.html",
         description: "The Volkswagen T-Roc is a stylish and sporty compact SUV known for its distinctive design, dynamic driving, and premium features. (Discontinued in India as of 2022)",
