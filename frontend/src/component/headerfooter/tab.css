@@ -150,10 +150,9 @@ body {
 .thumbnail {
   width: 44px;
   height: 44px;
-  border-radius: 50%;
   margin-right: 8px;
-  background-color: #fff;
-  padding: 2px;
+  background-color: transparent;
+  /* padding: 2px; */
   object-fit: contain;
 }
 
@@ -227,7 +226,7 @@ body {
   align-items: center;
   padding: 8px 12px;
   border: none;
-  border-radius: 20px;
+  border-radius: 36px;
   background-color: transparent;
   color: #8ab4f8;
   font-size: 0.85em;
