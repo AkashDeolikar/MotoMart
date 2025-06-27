@@ -65,6 +65,62 @@ const LoadingOverlay = ({ isLoading }) => {
 /**
  * Renders the Bootstrap Carousel for the hero section.
  */
+// const HeroCarousel = () => (
+//   <div id="carouselExampleCaptions" className="carousel slide">
+//     <div className="carousel-indicators">
+//       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
+//       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+//       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+//       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+//     </div>
+
+//     <div className="carousel-inner">
+//       <div className="carousel-item active">
+//         <img src="https://www.tatamotors.com/wp-content/themes/TataMotors/images/TM_Home_Desktop4.webp" className="d-block w-100" alt="First Slide" />
+//         <div className="carousel-caption">
+//           <h1>Connection aspirations.</h1>
+//           <h1>Delevering values.</h1>
+//         </div>
+//       </div>
+
+//       <div className="carousel-item">
+//         <video id="bnr-vid" preload="metadata" autoPlay loop muted playsInline type="video/mp4" src="https://www.tatamotors.com/wp-content/themes/TataMotors/video/TML-Desktop-video.mp4">
+//           Your browser does not support the video tag.
+//         </video>
+//         <div className="carousel-caption">
+//           <h1>A spotlight on</h1>
+//           <h1>Sustainability.</h1>
+//         </div>
+//       </div>
+
+//       <div className="carousel-item">
+//         <img src="https://www.tatamotors.com/wp-content/themes/TataMotors/images/TM_Home_Desktop2.webp" className="d-block w-100" alt="Second Slide" />
+//         <div className="carousel-caption">
+//           <h1>Embracing</h1>
+//           <h1>Clean mobility.</h1>
+//         </div>
+//       </div>
+
+//       <div className="carousel-item">
+//         <img src="https://www.tatamotors.com/wp-content/themes/TataMotors/images/TM_Home_Desktop1.webp" className="d-block w-100" alt="Third Slide" />
+//         <div className="carousel-caption">
+//           <h1>Tomorrow's choices,</h1>
+//           <h1>Today</h1>
+//         </div>
+//       </div>
+//     </div>
+
+//     <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+//       <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+//       <span className="visually-hidden">Previous</span>
+//     </button>
+
+//     <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+//       <span className="carousel-control-next-icon" aria-hidden="true"></span>
+//       <span className="visually-hidden">Next</span>
+//     </button>
+//   </div>
+// );
 const HeroCarousel = () => {
   const timeRunning = 3000; // Duration of the slide transition animation in ms
   const timeAutoNext = 7000; // Time before auto-advancing to next slide in ms
@@ -197,7 +253,6 @@ const HeroCarousel = () => {
     </div>
   );
 };
-
 /**
  * Renders an auto-playing Swiper slider for "Fold2" cards.
  * @param {object} props - Component props.
@@ -241,7 +296,6 @@ const AutoPlayCardSlider = ({ data }) => {
   );
 };
 
-
 /**
  * Renders the About Us section with a background image and scroll-down arrow.
  * @param {object} props - Component props.
@@ -270,16 +324,13 @@ const FeaturedCarsSection = ({ featuredCars, handlePrev, handleNext, visibleCars
             <h3>{car.name}</h3>
             <p>Price: ₹{car.price}<sup>*</sup> </p>
             <br />
-            <Link
-              onClick={(e) => {
-                e.preventDefault();
-                handleViewCarDetails(car.name);
-              }}
-              to={carRouteMap[car.name]}
-              className="view-btn"
-            >
-              View {car.name}
-            </Link>
+            <button
+  onClick={() => handleViewCarDetails(car.name)}
+  className="view-btn-car"
+>
+  View {car.name}
+</button>
+
           </div>
         ))}
       </div>
