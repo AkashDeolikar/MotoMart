@@ -75,16 +75,16 @@ body {
 /* --- Wrapper for side-by-side cards --- */
 /* This is crucial for the grid layout */
 .card-grid-wrapper {
-  display: -webkit-box;
+  /* display: -webkit-box; */
   grid-template-columns: repeat(auto-fit, minmax(356px, 1fr));
   gap: 20px;
   width: 100%;
   justify-items: start;
-  /* display: -webkit-inline-box;
-  grid-template-columns: repeat(auto-fit, minmax(356px, 1fr));
-  gap: 20px;
-  width: 50%;
-   */
+}
+@media (min-width: 789px) {
+  .card-grid-wrapper{
+    display: -webkit-box;
+  }
 }
 
 /* --- Card Container (Styles for each individual box) --- */

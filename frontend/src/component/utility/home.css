@@ -1371,3 +1371,54 @@ html {
     font-size: 1.2rem;
   }
 }
+
+/* Loading effect for real time data load home.css file */
+.car-loading-card {
+  /* Basic loading animation styles */
+  background-color: #f0f0f0; /* Light gray background */
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading-shimmer 1.5s infinite linear;
+  border-radius: 8px; /* Match existing card border-radius */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Match existing card shadow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: transparent; /* Hide text */
+  height: 100%; /* Ensure it fills the parent container */
+  width: 100%; /* Ensure it fills the parent container */
+  position: absolute; /* Position it absolutely within its parent to cover it */
+  top: 0;
+  left: 0;
+  z-index: 1; /* Ensure it's above other content in the card */
+}
+
+@keyframes loading-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Ensure the car-cardbox provides space for the loading card */
+.car-cardbox {
+    position: relative; /* Make it a positioning context for absolute children */
+    /* Maintain existing styles for car cards, e.g., min-height */
+    min-height: 350px; /* Example: ensure enough height for loading placeholder */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribute content */
+}
+
+/* Hide content when loading card is active */
+.car-cardbox.car-loading-card > *:not(.car-loading-card) {
+  visibility: hidden;
+}
+
+/* Adjustments for the view button when loading */
+.car-cardbox .view-btn {
+  pointer-events: none; /* Disable clicks on the button when loading */
+  opacity: 0.5; /* Visually indicate it's disabled */
+}

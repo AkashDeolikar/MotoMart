@@ -269,40 +269,39 @@ const VehicleCategoriesSection = () => {
 
   return (
     <section className="vehicle-section2" data-aos="fade-up">
-      <div className="vehicle-container2">
-        <h2 className="vehicle-title2">Our Vehicles</h2>
-        <div className="card-deck2">
-
-          {/* Car Card */}
-          <div className="vehicle-card2">
-            <div className="vehicle-card-inner2">
-              <div className="vehicle-card-front2">
-                <Link to="/carcard">
-                  <img src="/images/car.jpg" alt="Car" />
-                </Link>
-                <div className="vehicle-title-overlay2">
-                  <h3 className="vehicle-overlay-text2">Cars</h3>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Bike Card */}
-          <div className="vehicle-card2">
-            <div className="vehicle-card-inner2">
-              <div className="vehicle-card-front2">
-                <Link to="/bikecard">
-                  <img src="/images/bike.jpg" alt="Bike" />
-                </Link>
-                <div className="vehicle-title-overlay2">
-                  <h3 className="vehicle-overlay-text2">Bikes</h3>
-                </div>
-              </div>
+  <div className="vehicle-container2">
+    <h2 className="vehicle-title2">Our Vehicles</h2>
+    <div className="card-deck2">
+      {/* Car Card */}
+      <div className="vehicle-card2">
+        <div className="vehicle-card-inner2">
+          <div className="vehicle-card-front2">
+            <Link to="/carcard">
+              <img src="/images/car.jpg" alt="Car" />
+            </Link>
+            <div className="vehicle-title-overlay2">
+              <h3 className="vehicle-overlay-text2">Cars</h3>
             </div>
           </div>
         </div>
       </div>
-    </section>
+
+      {/* Bike Card */}
+      <div className="vehicle-card2">
+        <div className="vehicle-card-inner2">
+          <div className="vehicle-card-front2">
+            <Link to="/bikecard">
+              <img src="/images/bike.jpg" alt="Bike" />
+            </Link>
+            <div className="vehicle-title-overlay2">
+              <h3 className="vehicle-overlay-text2">Bikes</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
   );
 };
 
