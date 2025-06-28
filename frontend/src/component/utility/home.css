@@ -1225,23 +1225,27 @@ html {
   padding: 7vh 0;
 }
 
-/* Container Styling */
+/* ---------------------------------------
+   VEHICLE CARD STYLING - PROFESSIONALIZED
+---------------------------------------- */
+
+/* ========== Layout Container ========== */
 .vehicle-container2 {
   max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
 }
 
-/* Section Title */
+/* ========== Section Title ========== */
 .vehicle-title2 {
   font-size: 2.5rem;
   font-weight: bold;
   text-align: center;
   margin-bottom: 40px;
-  font-family: 'Jaguar Exuberant light';
+  font-family: 'Jaguar Exuberant light', sans-serif;
 }
 
-/* Card Deck Layout */
+/* ========== Card Deck Layout ========== */
 .card-deck2 {
   display: flex;
   justify-content: center;
@@ -1253,72 +1257,74 @@ html {
   transition: all 0.4s ease;
 }
 
-/* Base Card Styles */
+/* ========== Base Card Style ========== */
 .vehicle-card2 {
-  box-shadow: #606060d8 1px 0px 45px 2px;
-    border-radius: 10px;
   width: 300px;
   height: 280px;
+  border-radius: 10px;
   perspective: 1200px;
   position: relative;
   cursor: pointer;
   transition: transform 0.6s ease, margin 0.6s ease;
+  box-shadow: 1px 0px 45px 2px rgba(96, 96, 96, 0.85);
   z-index: 1;
 }
 
-/* Initial Gambling-Style Overlap */
+/* ========== Gambling-style Overlap (Initial State) ========== */
 .vehicle-card2:nth-child(1) {
   transform: rotate(-6deg);
   margin-right: -70px;
   z-index: 1;
 }
+
 .vehicle-card2:nth-child(2) {
   transform: rotate(6deg);
   margin-left: -70px;
   z-index: 2;
 }
 
-/* Smooth Spread on Hover of the deck */
+/* ========== Hover - Spread Layout ========== */
 .card-deck2:hover .vehicle-card2 {
-  margin: 0 15px;
   transform: rotate(0deg) scale(1);
-  transition: transform 0.5s ease, margin 0.5s ease;
+  margin: 0 15px;
   z-index: 1;
+  transition: transform 0.5s ease, margin 0.5s ease;
 }
 
-/* Individual Card Hover - Float Effect */
+/* ========== Hover - Individual Float Effect ========== */
 .vehicle-card2:hover {
   transform: translateY(-10px) scale(1.03);
   z-index: 10;
-  transition: transform 0.4s ease, z-index 0s;
+  transition: transform 0.4s ease;
 }
 
-/* Inner Card Flip Wrapper */
+/* ========== Inner Flip Wrapper ========== */
 .vehicle-card-inner2 {
   width: 100%;
   height: 100%;
   position: relative;
-  transition: transform 0.5s ease;
   transform-style: preserve-3d;
+  transition: transform 0.5s ease;
 }
 
-/* Front Face */
+/* ========== Front Face ========== */
 .vehicle-card-front2 {
-  position: absolute;
   width: 100%;
   height: 100%;
+  position: absolute;
   border-radius: 10px;
   overflow: hidden;
   backface-visibility: hidden;
-  background-color: #fff;
+  background-color: #ffffff;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
+/* Dark mode variation */
 .dark .vehicle-card-front2 {
   background-color: #4b4b4b;
 }
 
-/* Front Image */
+/* ========== Card Image ========== */
 .vehicle-card-front2 img {
   width: 100%;
   height: 100%;
@@ -1326,7 +1332,7 @@ html {
   border-radius: 10px;
 }
 
-/* Overlay Title Bar */
+/* ========== Title Overlay Bar ========== */
 .vehicle-title-overlay2 {
   position: absolute;
   bottom: 0;
@@ -1335,24 +1341,22 @@ html {
   padding: 12px 0;
   background: rgba(0, 0, 0, 0.6);
   text-align: center;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-radius: 0 0 10px 10px;
 }
 
 .vehicle-overlay-text2 {
   color: #fff;
-  margin: 0;
   font-size: 1.5rem;
   font-weight: 500;
+  margin: 0;
   letter-spacing: 0.5px;
 }
 
-/* Responsive Styling */
+/* ========== Responsive Styling ========== */
 @media (max-width: 768px) {
   .card-deck2 {
     flex-direction: column;
     align-items: center;
-    /* gap: 30px; */
   }
 
   .vehicle-card2 {
@@ -1372,25 +1376,23 @@ html {
   }
 }
 
-/* Loading effect for real time data load home.css file */
+/* ========== Loading Placeholder Animation ========== */
 .car-loading-card {
-  /* Basic loading animation styles */
-  background-color: #f0f0f0; /* Light gray background */
   background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
   background-size: 200% 100%;
   animation: loading-shimmer 1.5s infinite linear;
-  border-radius: 8px; /* Match existing card border-radius */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Match existing card shadow */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: center;
   align-items: center;
-  color: transparent; /* Hide text */
-  height: 100%; /* Ensure it fills the parent container */
-  width: 100%; /* Ensure it fills the parent container */
-  position: absolute; /* Position it absolutely within its parent to cover it */
+  color: transparent;
+  width: 100%;
+  height: 100%;
+  position: absolute;
   top: 0;
   left: 0;
-  z-index: 1; /* Ensure it's above other content in the card */
+  z-index: 1;
 }
 
 @keyframes loading-shimmer {
@@ -1402,23 +1404,362 @@ html {
   }
 }
 
-/* Ensure the car-cardbox provides space for the loading card */
+/* ========== Card Container for Loading State ========== */
 .car-cardbox {
-    position: relative; /* Make it a positioning context for absolute children */
-    /* Maintain existing styles for car cards, e.g., min-height */
-    min-height: 350px; /* Example: ensure enough height for loading placeholder */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Distribute content */
+  position: relative;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-/* Hide content when loading card is active */
+/* Hide content behind loading shimmer */
 .car-cardbox.car-loading-card > *:not(.car-loading-card) {
   visibility: hidden;
 }
 
-/* Adjustments for the view button when loading */
+/* View Button Disabled During Loading */
 .car-cardbox .view-btn-car {
-  pointer-events: none; /* Disable clicks on the button when loading */
-  opacity: 0.5; /* Visually indicate it's disabled */
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+
+
+/* ====== CSS Custom Properties (Variables) for theming ====== */
+:root {
+    /* -- Hand Image Box Gradient (Light Mode) -- */
+    --hand-image-box-gradient-start: #ddddddde; /* Deep Indigo */
+    --hand-image-box-gradient-mid1: #a665b1; /* Amethyst Purple */
+    --hand-image-box-gradient-mid2: #ce74a083; /* Bright Blue */
+    --hand-image-box-gradient-end: #b57e3f8c; /* Deep Indigo */
+
+    /* -- Text Colors (Light Mode) -- */
+    --hand-image-text-color: #ffffff;
+    --hand-image-text-shadow: rgba(0, 0, 0, 0.4);
+    --hand-image-span-color: #64ffda; /* Aqua-Mint Accent (like Gemini's highlight) */
+    --hand-image-p-color: #e0e0e0;
+
+    /* -- Text Reveal Timing (for AOS) -- */
+    --text-reveal-duration: 0.8s;
+    --text-reveal-delay: 0.2s; /* Slight delay after box appears, if AOS is on parent */
+    --text-reveal-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1); /* Gentle spring */
+}
+
+/* ====== Dark Mode Overrides (Assumes a '.dark' class is toggled on <html> or <body>) ====== */
+html.dark, body.dark { /* Use html.dark or body.dark based on your setup */
+    --hand-image-box-gradient-start: #2c3e50; /* Very Dark Blue */
+    --hand-image-box-gradient-mid1: #191e52; /* Deep Violet */
+    --hand-image-box-gradient-mid2: #030306; /* Darker Blue */
+    --hand-image-box-gradient-end: #2c3e50; /* Very Dark Blue */
+
+    --hand-image-text-color: #f0f0f0;
+    --hand-image-text-shadow: rgba(0, 0, 0, 0.6);
+    --hand-image-span-color: #8cffff; /* Brighter Aqua-Mint for dark contrast */
+    --hand-image-p-color: #bbbbbb;
+}
+
+/* --- */
+
+/* ====== Base Styling for the Box Container ====== */
+.hand-image-box {
+    position: relative;
+    height: 70px; /* Adjust height as needed */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Ensures gradient stays within bounds */
+    z-index: 1;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    font-weight: 500;
+
+    /* Gradient Background - Always Animated and Visible */
+    background: linear-gradient(
+        270deg,
+        var(--hand-image-box-gradient-start),
+        var(--hand-image-box-gradient-mid1),
+        var(--hand-image-box-gradient-mid2),
+        var(--hand-image-box-gradient-end)
+    );
+    background-size: 600% 600%;
+    animation: moveGradient 15s ease infinite; /* Continuous gradient animation */
+    transition: background 0.7s ease-in-out; /* Smooth transition for background on theme change */
+
+    /* Remove AOS-specific initial hidden states from the box itself */
+    /* This ensures the box with its gradient is always visible by default */
+    /* If you want the box itself to fade in with AOS, you'd add data-aos to it and apply similar initial styles. */
+}
+
+
+/* ====== Gradient Animation (Continuous) ====== */
+@keyframes moveGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- */
+
+/* ====== Text Container Styling (This is where the AOS "fade" will happen) ====== */
+.hand-image-text {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 25px;
+    color: var(--hand-image-text-color);
+    text-shadow: 0 1px 6px var(--hand-image-text-shadow);
+    transition: color 0.5s ease-in-out, text-shadow 0.5s ease-in-out;
+
+    /* Initial state for text - hidden and slightly offset, will be revealed by AOS */
+    opacity: 0;
+    transform: translateY(10px); /* Start slightly below final position */
+    /* Define the transition for when AOS applies 'aos-animate' */
+    transition: opacity var(--text-reveal-duration) var(--text-reveal-timing-function),
+                transform var(--text-reveal-duration) var(--text-reveal-timing-function);
+    /* No delay here, as data-aos="fade" on the element itself controls when it starts */
+}
+
+/* ====== AOS Specific Styles for Text (when it's visible) ====== */
+/* AOS will add 'aos-animate' to '.hand-image-text' because of data-aos="fade" */
+.hand-image-text.aos-animate {
+    opacity: 1;
+    transform: translateY(0); /* Animate to final position */
+}
+
+
+.hand-image-text h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    font-family: 'JaguarModernWeb-Bold';
+    letter-spacing: 0.8px;
+    line-height: 1.3;
+    color: var(--hand-image-text-color); /* Ensures h2 uses the correct text color */
+    /* Removed the previous h2-specific fadeInScale animation */
+    /* Now, the whole .hand-image-text (its parent) animates in with AOS */
+}
+
+.hand-image-text h2 span {
+    color: var(--hand-image-span-color);
+    font-weight: 800;
+    text-shadow: 0 0 8px var(--hand-image-span-color), 0 0 15px rgba(100, 255, 218, 0.5); /* Glow effect */
+    transition: color 0.5s ease-in-out, text-shadow 0.5s ease-in-out;
+}
+
+/* --- */
+
+/* ====== Responsive Adjustments ====== */
+@media (max-width: 600px) {
+    .hand-image-box {
+        height: 70px;
+    }
+    .hand-image-text h2 {
+        font-size: 1.2rem;
+        letter-spacing: 0.5px;
+    }
+    .hand-image-text p {
+        font-size: 0.8rem;
+        margin-top: 2px;
+    }
+}
+
+@media (max-width: 400px) {
+    .hand-image-box {
+        height: 80px;
+    }
+    .hand-image-text h2 {
+        font-size: 1rem;
+    }
+    .hand-image-text p {
+        font-size: 0.7rem;
+    }
+}
+
+
+/* ====== CSS Custom Properties (Variables) for hand-image-box1 theming ====== */
+:root {
+    /* -- Hand Image Box 1 Gradient (Light Mode - Authentic Gemini Green/Teal/Blue) -- */
+    --hand-image-box1-gradient-start: #34A853; /* Google Green */
+    --hand-image-box1-gradient-mid1: #0F9D58; /* Darker Google Green */
+    --hand-image-box1-gradient-mid2: #4285F4; /* Google Blue */
+    --hand-image-box1-gradient-end: #34A853; /* Google Green */
+
+    /* -- Text Colors (Light Mode) -- */
+    --hand-image-text1-color: #ffffff;
+    --hand-image-text1-shadow: rgba(0, 0, 0, 0.4);
+    --hand-image-text1-h4-color: #f0f0f0;
+    --hand-image-text1-icon-color: #FBBC04; /* Google Yellow (Vibrant Accent) */
+
+    /* -- AOS Timing for this specific box -- */
+    --box1-fade-duration: 0.8s;
+    --text1-zoom-duration: 0.9s;
+    --text1-zoom-delay: 0.3s;
+    --aos-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* ====== Dark Mode Overrides for hand-image-box1 ====== */
+html.dark, body.dark {
+    /* -- Hand Image Box 1 Gradient (Dark Mode - Deep Gemini Greens/Blues/Grays) -- */
+    --hand-image-box1-gradient-start: #004D40; /* Dark Teal 900 */
+    --hand-image-box1-gradient-mid1: #1A237E; /* Deep Indigo 900 */
+    --hand-image-box1-gradient-mid2: #424242; /* Grey 800 (for depth) */
+    --hand-image-box1-gradient-end: #004D40; /* Dark Teal 900 */
+
+    /* -- Text Colors (Dark Mode) -- */
+    --hand-image-text1-color: #f0f0f0;
+    --hand-image-text1-shadow: rgba(0, 0, 0, 0.6);
+    --hand-image-text1-h4-color: #cccccc;
+    --hand-image-text1-icon-color: #FFC107; /* Amber 500 for dark contrast */
+}
+
+/* --- */
+
+/* ====== Base Styling for the Box Container 1 ====== */
+.hand-image-box1 {
+    position: relative;
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 1;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    font-weight: 500;
+
+    background: linear-gradient(
+        270deg,
+        var(--hand-image-box1-gradient-start),
+        var(--hand-image-box1-gradient-mid1),
+        var(--hand-image-box1-gradient-mid2),
+        var(--hand-image-box1-gradient-end)
+    );
+    background-size: 600% 600%;
+    animation: moveGradient1 18s ease infinite;
+    transition: background 0.7s ease-in-out;
+
+    opacity: 0;
+    transition: opacity var(--box1-fade-duration) var(--aos-timing-function);
+}
+
+.hand-image-box1.aos-animate {
+    opacity: 1;
+}
+
+/* ====== Gradient Animation (Continuous, specific to box1) ====== */
+@keyframes moveGradient1 {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- */
+
+/* ====== Text Container Styling for hand-image-text1 ====== */
+.hand-image-text1 {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 30px;
+    color: var(--hand-image-text1-color);
+    text-shadow: 0 1px 8px var(--hand-image-text1-shadow);
+    transition: color 0.5s ease-in-out, text-shadow 0.5s ease-in-out;
+    line-height: 1.2;
+
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity var(--text1-zoom-duration) var(--aos-timing-function),
+                transform var(--text1-zoom-duration) var(--aos-timing-function);
+    transition-delay: var(--text1-zoom-delay);
+}
+
+.hand-image-text1.aos-animate {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.hand-image-text1 h2 {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    letter-spacing: 1px;
+    line-height: 1.1;
+    color: var(--hand-image-text1-color);
+}
+
+.hand-image-text1 h4 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0;
+    letter-spacing: 0.5px;
+    color: var(--hand-image-text1-h4-color);
+}
+
+.hand-image-text1 h4 .bi-gem {
+    color: var(--hand-image-text1-icon-color);
+    font-size: 1.3em;
+    vertical-align: middle;
+    margin-left: 8px;
+    animation: gemGlow1 2s ease-in-out infinite alternate;
+}
+
+/* ====== Icon Glow Animation (specific to box1 gem) ====== */
+@keyframes gemGlow1 {
+    0% { text-shadow: 0 0 5px var(--hand-image-text1-icon-color), 0 0 10px rgba(251, 188, 4, 0.5); }
+    100% { text-shadow: 0 0 10px var(--hand-image-text1-icon-color), 0 0 20px rgba(251, 188, 4, 0.8); }
+}
+
+
+/* --- */
+
+/* ====== Responsive Adjustments ====== */
+@media (max-width: 768px) {
+    .hand-image-box1 {
+        height: 120px;
+    }
+    .hand-image-text1 h2 {
+        font-size: 1.8rem;
+        letter-spacing: 0.8px;
+    }
+    .hand-image-text1 h4 {
+        font-size: 1rem;
+    }
+    .hand-image-text1 h4 .bi-gem {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 500px) {
+    .hand-image-box1 {
+        height: 130px;
+        padding: 0 15px;
+    }
+    .hand-image-text1 {
+        padding: 0 15px;
+    }
+    .hand-image-text1 h2 {
+        font-size: 1.5rem;
+        letter-spacing: 0.5px;
+    }
+    .hand-image-text1 h4 {
+        font-size: 0.9rem;
+    }
+    .hand-image-text1 h4 .bi-gem {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 380px) {
+    .hand-image-box1 {
+        height: 140px;
+    }
+    .hand-image-text1 h2 {
+        font-size: 1.3rem;
+    }
+    .hand-image-text1 h4 {
+        font-size: 0.8rem;
+    }
 }

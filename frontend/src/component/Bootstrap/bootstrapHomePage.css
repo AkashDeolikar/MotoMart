@@ -52,7 +52,7 @@ a:hover {
 
 @keyframes runningTime {
     from{width: 0%;}
-    to{width: 100%;}
+    to{width: 20%;}
 }
 
 /* Carousel List and Items */
@@ -138,7 +138,7 @@ a:hover {
     font-weight: bold;
     line-height: 1;
     opacity: 0;
-    animation: animate 1s ease-in-out 0.3s 1 forwards;
+    animation: animate 1s ease-in-out 0.2s 1 forwards;
 }
 
 .content .name {
@@ -146,9 +146,9 @@ a:hover {
     text-transform: uppercase;
     font-weight: bold;
     line-height: 1;
-    text-shadow: 3px 4px 4px rgba(255, 255, 255, 0.8);
+    text-shadow: 3px 4px 4px rgba(43, 43, 43, 0.8);
     opacity: 0;
-    animation: animate 1s ease-in-out 0.6s 1 forwards;
+    animation: animate 1s ease-in-out 0.4s 1 forwards;
 }
 
 .content .des {
@@ -157,13 +157,7 @@ a:hover {
     font-size: 18px;
     margin-left: 5px;
     opacity: 0;
-    animation: animate 1s ease-in-out 0.9s 1 forwards;
-}
-
-.content .btn {
-    margin-left: 5px;
-    opacity: 0;
-    animation: animate 1s ease-in-out 1.2s 1 forwards;
+    animation: animate 1s ease-in-out 0.6s 1 forwards;
 }
 
 /* Content Buttons */
@@ -196,8 +190,8 @@ a:hover {
 @keyframes animate {
     from {
         opacity: 0;
-        transform: translate(0, 100px);
-        filter: blur(33px);
+        transform: translate(0, 80px);
+        filter: blur(22px);
     }
     to {
         opacity: 1;
@@ -248,7 +242,7 @@ a:hover {
         left: 50px;
     }
     .content .title, .content .name {
-        font-size: 70px;
+        font-size: 50px;
     }
     .content .des {
         font-size: 16px;
@@ -266,15 +260,15 @@ a:hover {
         margin-right: 0;
     }
     .carousel {
-        height: calc(100vh - 50px); /* Ensure responsive height still accounts for header */
+        height: calc(90vh - 50px); /* Ensure responsive height still accounts for header */
     }
     .list .item .content {
         top: 40%;
-        left: 20px;
-        width: calc(100% - 40px);
+        left: 0px;
+        width: calc(100% - 0px);
     }
     .content .title, .content .name {
-        font-size: 45px;
+        font-size: 30px;
     }
     .content .btn button {
         padding: 10px 15px;
@@ -386,6 +380,62 @@ a:hover {
 
 /* Responsive */
 @media (max-width: 768px) {
+    .carousel .list .item {
+    width: 160px;
+    height: 200px;
+    position: absolute;
+    top: 75%;
+    transform: translateY(-70%);
+    left: 70%;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    background-position: 50% 50%;
+    background-size: cover;
+    z-index: 100;
+    transition: 1s; /* Important for the sliding animation */
+}
+
+.carousel .list .item .item-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: inherit; /* Inherit border-radius from parent item */
+}
+
+/* Main Active Items (Full screen) */
+.carousel .list .item:nth-child(1),
+.carousel .list .item:nth-child(2) {
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Positioning for smaller items on the right */
+.carousel .list .item:nth-child(3) {
+    left: 55%;
+}
+
+.carousel .list .item:nth-child(4) {
+    left: calc(55% + 200px);
+}
+
+.carousel .list .item:nth-child(5) {
+    left: calc(55% + 400px);
+}
+
+.carousel .list .item:nth-child(6) {
+    left: calc(55% + 600px);
+}
+
+/* Hide items beyond the visible range */
+.carousel .list .item:nth-child(n+7) {
+    left: calc(50% + 800px);
+    opacity: 0;
+}
   .masonrymedia__container {
     flex-direction: column-reverse;
     padding: 20px;
