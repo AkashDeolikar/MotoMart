@@ -4,9 +4,7 @@ import "./overview.css"; // Ensure you have this CSS file for styling
 const OverviewPage = () => {
   return (
     <div className="overview-container">
-      <header className="overview-header">
-        <h1>The Journey of Motion: 2- and 4-Wheeler Evolution & Technology</h1>
-      </header>
+        <h1 className="head">The Journey of Motion: 2- and 4-Wheeler Evolution & Technology</h1>
 
       <section className="overview-intro">
         <p>
