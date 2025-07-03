@@ -4,76 +4,50 @@ import './ServiceDropdown.css';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
 const VehicleDropdown = ({ closeParentMobileMenu, isParentMobileMenuOpen }) => {
-    const [isMobileServiceMenuOpen, setIsMobileServiceMenuOpen] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     useEffect(() => {
         if (!isParentMobileMenuOpen) {
-            setIsMobileServiceMenuOpen(false);
+            setIsMobileMenuOpen(false);
         }
     }, [isParentMobileMenuOpen]);
 
-    const handleServiceLinkClick = () => {
-        closeParentMobileMenu(); // Close the main mobile menu
-        setIsMobileServiceMenuOpen(false); // Also close this submenu if open
+    const handleLinkClick = () => {
+        closeParentMobileMenu();
+        setIsMobileMenuOpen(false);
     };
 
-    const handleToggleServiceMenu = (event) => {
-        if (event.type === 'click' && window.innerWidth <= 768) { // Adjust breakpoint as per your CSS
+    const handleToggleMenu = (event) => {
+        if (window.innerWidth <= 768) {
             event.preventDefault();
+            setIsMobileMenuOpen(prev => !prev);
         }
-        setIsMobileServiceMenuOpen(prevState => !prevState);
     };
-
 
     return (
-        <li
-            className={`service-nav-item ${isMobileServiceMenuOpen ? 'mobile-dd-open' : ''}`}
-        >
-            {/* Desktop Service Link & Mobile Toggle */}
-            {/* THIS IS THE FIX FOR LINE 35 */}
-            <Link // Changed from <a> to <Link> for internal navigation
-                to="/overviewpage" // Provide a valid destination, e.g., the overview page
-                title="Service"
+        <li className={`vehicle-nav-item ${isMobileMenuOpen ? 'mobile-dd-open' : ''}`}>
+            <Link
+                to="/overviewpage"
+                title="Vehicle"
                 className="navigationAnalytics icon-arrow-down desktop-service-link"
-                onClick={handleToggleServiceMenu}
+                onClick={handleToggleMenu}
             >
                 <span className="desktop-title-text">Vehicle</span>
                 <span className="mobile-chevron">
-                    {isMobileServiceMenuOpen ? <FaChevronUp /> : <FaChevronDown />}
+                    {isMobileMenuOpen ? <FaChevronUp /> : <FaChevronDown />}
                 </span>
             </Link>
 
-            <div className="desk-nav-dd"> 
+            <div className="desk-nav-dd">
                 <ul>
-                    <li><Link to="/overviewpage" title="Overview" nav-title="Service" className="redirectionPath sub-nav" onClick={handleServiceLinkClick}>Overview <i class="bi bi-arrow-up-right-circle"></i></Link></li>
-                    <li><Link to="/Carcard" title="Service Cost Calculator" nav-title="Service" className="redirectionPath sub-nav" onClick={handleServiceLinkClick}>Explore Car <i class="bi bi-arrow-up-right-circle"></i></Link></li>
-                    <li><Link to="/Bikecard" title="Book a Service" nav-title="Service" className="redirectionPath sub-nav" onClick={handleServiceLinkClick}>Explore Bike <i class="bi bi-arrow-up-right-circle"></i></Link></li>
-                    <li><Link to="/cardetails" title="Service History" nav-title="Service" className="redirectionPath sub-nav" onClick={handleServiceLinkClick}>Car Details <i class="bi bi-arrow-up-right-circle"></i></Link></li>
+                    <li><Link to="/overviewpage" onClick={handleLinkClick}>Overview <i className="bi bi-arrow-up-right-circle"></i></Link></li>
+                    <li><Link to="/Carcard" onClick={handleLinkClick}>Explore Car <i className="bi bi-arrow-up-right-circle"></i></Link></li>
+                    <li><Link to="/Bikecard" onClick={handleLinkClick}>Explore Bike <i className="bi bi-arrow-up-right-circle"></i></Link></li>
+                    <li><Link to="/cardetails" onClick={handleLinkClick}>Car Details <i className="bi bi-arrow-up-right-circle"></i></Link></li>
                 </ul>
             </div>
-
         </li>
     );
 };
 
 export default VehicleDropdown;
-
-// import React from "react";
-
-// const VehicleDropdown = () => {
-//     return (
-//         <div className="dropdown"> {/* Changed class to className */}
-//             <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-//                 Dropdown button {/* You might want to change this text to "Vehicles" or "Browse" */}
-//             </button>
-//             <ul className="dropdown-menu dropdown-menu-dark"> {/* Changed class to className */}
-//                 <li><a className="dropdown-item active" href="/overviewpage">Action</a></li> {/* Changed class to className */}
-//                 <li><a className="dropdown-item" href="/Carcard">Another action</a></li> {/* Changed class to className */}
-//                 <li><a className="dropdown-item" href="/Bikecard">Something else here</a></li> {/* Changed class to className */}
-//                 <li><a className="dropdown-item" href="/cardetails">Separated link</a></li> {/* Changed class to className */}
-//             </ul>
-//         </div>
-//     );
-// }
-
-// export default VehicleDropdown;

@@ -1,158 +1,136 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, memo } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaSun, FaMoon, FaBars, FaTimes } from "react-icons/fa";
-import './navbar.css'; // Ensure this path is correct for your CSS
-import { auth } from "../../firebase"; // Assuming firebase auth is correctly imported
+import './navbar.css';
+import { auth } from "../../firebase";
 import ServiceDropdown from './ServiceDropdown';
 import VehicleDropdown from "./vehicledropdown";
 
-const CarNavbar = ({ theme, toggleTheme }) => {
+// Memoize the Navbar component to prevent unnecessary re-renders
+const CarNavbar = memo(({ theme, toggleTheme }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const user = auth.currentUser;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false); // State to track if scrolled down
-  const [isHomePageAtTop, setIsHomePageAtTop] = useState(false); // New state for transparent top bar
+  const [isHomePageAtTop, setIsHomePageAtTop] = useState(true);
 
-  const handleLogout = async () => {
+  // Memoize handleLogout to prevent it from being recreated on every render
+  const handleLogout = useCallback(async () => {
     try {
       await auth.signOut();
       navigate("/login");
     } catch (error) {
       console.error("Error signing out:", error);
-      // Implement a user-friendly message instead of console.error in production
     }
-  };
+  }, [navigate]); // navigate is stable due to useNavigate
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(prevState => !prevState);
-  };
+  const toggleMobileMenu = useCallback(() => {
+    setIsMobileMenuOpen(prev => !prev);
+  }, []);
 
-  const closeMobileMenu = () => {
+  const closeMobileMenu = useCallback(() => {
     setIsMobileMenuOpen(false);
-  };
+  }, []);
 
-  // Effect to handle scroll behavior for the navbar
+  // ✅ SCROLL AND PAGE LOGIC - Optimized to use useCallback
   useEffect(() => {
     const handleScroll = () => {
-      const offset = window.scrollY;
-      const onHomePage = location.pathname === "/";
+      // Use a consistent variable for location.pathname check
+      const isHomePath = location.pathname === "/";
+      const scrollTop = window.scrollY;
 
-      if (onHomePage) {
-        if (offset > 100) { // If scrolled more than 100px on homepage
-          setScrolled(true); // Navbar becomes solid
-          setIsHomePageAtTop(false); // Not at top anymore
-        } else { // At the top of the homepage
-          setScrolled(false); // Navbar is not "scrolled"
-          setIsHomePageAtTop(true); // Navbar is in its transparent top state
-        }
-      } else {
-        // On any other page, the navbar should always be visible and solid
-        setScrolled(true); // Treat as "scrolled" for solid appearance
-        setIsHomePageAtTop(false); // Not at homepage top
+      // Only update state if it actually changes to prevent unnecessary re-renders
+      const newIsHomePageAtTop = isHomePath && scrollTop <= 50;
+      if (newIsHomePageAtTop !== isHomePageAtTop) {
+        setIsHomePageAtTop(newIsHomePageAtTop);
       }
     };
 
-    // Add the scroll event listener when the component mounts
-    window.addEventListener('scroll', handleScroll);
+    // Add passive event listener for better scroll performance
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // Run on mount/path change
 
-    // Perform an initial check immediately after mounting or path change
-    // to set the correct navbar state before any scroll occurs.
-    handleScroll(); 
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [location.pathname, isHomePageAtTop]); // Added isHomePageAtTop to dependencies for accurate state check
 
-    // Cleanup function: Remove the event listener when the component unmounts
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [location.pathname]); // Re-run this effect when the path changes
-
-  // Dynamically set navbar class based on theme and scroll states
-  const navbarClass = `car-navbar ${theme} ${isHomePageAtTop ? 'homepage-transparent-top' : 'scrolled-or-other-page'}`;
+  // Optimize navbarClass computation
+  const navbarClass = `car-navbar ${theme} ${isHomePageAtTop ? "homepage-transparent-top" : "scrolled-or-other-page"}`;
 
   return (
     <nav className={navbarClass} aria-label="Main Navigation">
       <div className="car-navbar-container">
         <div className="car-navbar-logo">
           <h1 className="ProjectName">MotoMart</h1>
-          {/* <IoCarSportSharp aria-hidden="true" /> MotoMart */}
         </div>
 
-        {/* Mobile Menu Button (Hamburger/Close Icon) */}
         <button
           className="mobile-menu-button"
           onClick={toggleMobileMenu}
           aria-controls="main-navbar-links"
           aria-expanded={isMobileMenuOpen}
-          aria-label={isMobileMenuOpen ? "Close main menu" : "Open main menu"}
         >
           {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
         </button>
 
-        {/* Mobile Menu Overlay for dimming background */}
+        {/* Conditionally render overlay only when mobile menu is open */}
         {isMobileMenuOpen && (
           <div className="mobile-menu-overlay" onClick={closeMobileMenu}></div>
         )}
 
-        {/* Main Navbar Links */}
         <div
           id="main-navbar-links"
-          className={`car-navbar-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}
+          role="navigation"
+          aria-hidden={!isMobileMenuOpen}
+          className={`car-navbar-links ${isMobileMenuOpen ? "mobile-open" : ""}`}
         >
           <ul>
-            {/* Home Link */}
             <li>
               <Link to="/" className={location.pathname === "/" ? "active" : ""} onClick={closeMobileMenu}>Home</Link>
             </li>
 
-            {/* Vehicle Dropdown Component */}
-            {/* Pass closeParentMobileMenu to allow dropdowns to close the mobile menu */}
-            <VehicleDropdown closeParentMobileMenu={closeMobileMenu} isParentMobileMenuOpen={isMobileMenuOpen}/>
-            
-            {/* Admin-only Add Car Link */}
+            {/* Pass closeMobileMenu directly */}
+            <VehicleDropdown
+              closeParentMobileMenu={closeMobileMenu}
+              isParentMobileMenuOpen={isMobileMenuOpen}
+            />
+
             {user?.email === "admin@gmail.com" && (
               <li>
                 <Link to="/add-car" className={location.pathname === "/add-car" ? "active" : ""} onClick={closeMobileMenu}>Add Car</Link>
               </li>
             )}
 
-            {/* Service Dropdown Component */}
-            <ServiceDropdown closeParentMobileMenu={closeMobileMenu} isParentMobileMenuOpen={isMobileMenuOpen} />
-            
-            {/* Contact Link */}
+            {/* Pass closeMobileMenu directly */}
+            <ServiceDropdown
+              closeParentMobileMenu={closeMobileMenu}
+              isParentMobileMenuOpen={isMobileMenuOpen}
+            />
+
             <li>
               <Link to="/contact" className={location.pathname === "/contact" ? "active" : ""} onClick={closeMobileMenu}>Contact</Link>
             </li>
 
-            {/* Login/Register Links (Conditional based on user login status) */}
-            {!user && (
+            {!user ? (
+              <>
+                <li><Link to="/login" className={location.pathname === "/login" ? "active" : ""} onClick={closeMobileMenu}>Login</Link></li>
+                <li><Link to="/register" className={location.pathname === "/register" ? "active" : ""} onClick={closeMobileMenu}>Register</Link></li>
+              </>
+            ) : (
               <>
                 <li>
-                  <Link to="/login" className={location.pathname === "/login" ? "active" : ""} onClick={closeMobileMenu}>Login</Link>
+                  <button className="logout-btn" onClick={() => { handleLogout(); closeMobileMenu(); }}>
+                    <i className="bi bi-box-arrow-right"></i> Logout
+                  </button>
                 </li>
-                <li>
-                  <Link to="/register" className={location.pathname === "/register" ? "active" : ""} onClick={closeMobileMenu}>Register</Link>
+                <li className="user-info">
+                  <i className="bi bi-person-circle"></i> {user.displayName || user.email.split('@')[0]}
                 </li>
               </>
             )}
 
-            {/* Logout Button (Conditional based on user login status) */}
-            {user && (
-              <li>
-                <button className="logout-btn" onClick={() => { handleLogout(); closeMobileMenu(); }}><i className="bi bi-box-arrow-right"></i>Logout</button>
-              </li>
-            )}
-
-            {/* User Info Display (Conditional based on user login status) */}
-            {user && (
-              <li className="user-info">
-                <i className="bi bi-person-circle"></i> {user.displayName || user.email.split('@')[0]}
-              </li>
-            )}
-
-            {/* Theme Toggle Button */}
             <li>
-              <div className="theme-toggle" onClick={() => { toggleTheme(); closeMobileMenu(); }}>
-                {theme === "light" ? <FaMoon aria-label="Switch to dark theme" /> : <FaSun aria-label="Switch to light theme" />}
+              <div className="theme-toggle" onClick={() => { toggleTheme(); closeMobileMenu(); }} role="button" tabIndex="0" aria-label={theme === "light" ? "Switch to dark theme" : "Switch to light theme"}>
+                {theme === "light" ? <FaMoon /> : <FaSun />}
               </div>
             </li>
           </ul>
@@ -160,6 +138,6 @@ const CarNavbar = ({ theme, toggleTheme }) => {
       </div>
     </nav>
   );
-};
+});
 
 export default CarNavbar;

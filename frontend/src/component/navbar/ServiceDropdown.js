@@ -13,26 +13,21 @@ const ServiceDropdown = ({ closeParentMobileMenu, isParentMobileMenuOpen }) => {
     }, [isParentMobileMenuOpen]);
 
     const handleServiceLinkClick = () => {
-        closeParentMobileMenu(); // Close the main mobile menu
-        setIsMobileServiceMenuOpen(false); // Also close this submenu if open
+        closeParentMobileMenu();
+        setIsMobileServiceMenuOpen(false);
     };
 
     const handleToggleServiceMenu = (event) => {
-        if (event.type === 'click' && window.innerWidth <= 768) { // Adjust breakpoint as per your CSS
+        if (window.innerWidth <= 768) {
             event.preventDefault();
+            setIsMobileServiceMenuOpen(prev => !prev);
         }
-        setIsMobileServiceMenuOpen(prevState => !prevState);
     };
 
-
     return (
-        <li
-            className={`service-nav-item ${isMobileServiceMenuOpen ? 'mobile-dd-open' : ''}`}
-        >
-            {/* Desktop Service Link & Mobile Toggle */}
-            {/* THIS IS THE FIX FOR LINE 35 */}
-            <Link // Changed from <a> to <Link> for internal navigation
-                to="/overviewpage" // Provide a valid destination, e.g., the overview page
+        <li className={`service-nav-item ${isMobileServiceMenuOpen ? 'mobile-dd-open' : ''}`}>
+            <Link
+                to="/overviewpage"
                 title="Service"
                 className="navigationAnalytics icon-arrow-down desktop-service-link"
                 onClick={handleToggleServiceMenu}
@@ -43,12 +38,12 @@ const ServiceDropdown = ({ closeParentMobileMenu, isParentMobileMenuOpen }) => {
                 </span>
             </Link>
 
-            <div className="desk-nav-dd"> {/* This is your desktop dropdown content */}
+            <div className="desk-nav-dd">
                 <ul>
-                    <li><Link to="/overviewpage" title="Overview" nav-title="Service" className="redirectionPath sub-nav" onClick={handleServiceLinkClick}>Overview <i class="bi bi-arrow-up-right-circle"></i></Link></li>
-                    <li><Link to="/servicecostcalculator" title="Service Cost Calculator" nav-title="Service" className="redirectionPath sub-nav" onClick={handleServiceLinkClick}>Service Cost check <i class="bi bi-arrow-up-right-circle"></i></Link></li>
-                    <li><Link to="/emicalculator" title="Book a Service" nav-title="Service" className="redirectionPath sub-nav" onClick={handleServiceLinkClick}>EMI Calculator <i class="bi bi-arrow-up-right-circle"></i></Link></li>
-                    <li><Link to="/partsinfo" title="Service History" nav-title="Service" className="redirectionPath sub-nav" onClick={handleServiceLinkClick}>Parts Info<i class="bi bi-arrow-up-right-circle"></i></Link></li>
+                    <li><Link to="/overviewpage" onClick={handleServiceLinkClick}>Overview <i className="bi bi-arrow-up-right-circle"></i></Link></li>
+                    <li><Link to="/servicecostcalculator" onClick={handleServiceLinkClick}>Service Cost Check <i className="bi bi-arrow-up-right-circle"></i></Link></li>
+                    <li><Link to="/emicalculator" onClick={handleServiceLinkClick}>EMI Calculator <i className="bi bi-arrow-up-right-circle"></i></Link></li>
+                    <li><Link to="/partsinfo" onClick={handleServiceLinkClick}>Parts Info <i className="bi bi-arrow-up-right-circle"></i></Link></li>
                 </ul>
             </div>
         </li>

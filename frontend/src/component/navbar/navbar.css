@@ -52,301 +52,330 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 5px 20px;
+  padding: 10px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: all 0.3s ease-in-out;
   color: var(--navbar-text);
   background-color: var(--navbar-bg);
-  backdrop-filter: none;
+  /* Default, will be overridden */
   box-shadow: none;
+  /* Default, will be overridden */
 }
 
 /* Add padding to main content area instead of body */
-main, .app-wrapper, .content-wrapper {
+main,
+.app-wrapper,
+.content-wrapper {
   padding-top: 70px;
 }
-.car-navbar.transparent {
+
+/* State for homepage at the very top (transparent, no blur) */
+.car-navbar.homepage-transparent-top {
   background-color: transparent !important;
   backdrop-filter: none !important;
   box-shadow: none !important;
   color: var(--navbar-text) !important;
+  /* Keep original text color if needed */
 }
 
-.car-navbar.scrolled-or-other-page {
-  background-color: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 2px 10px var(--navbar-shadow);
+/* State for scrolled OR on any other page (blurred background) */
+@media (min-width:789px) {
+  .car-navbar.scrolled-or-other-page {
+    background-color: rgba(0, 0, 0, 0.292);
+    backdrop-filter: blur(55px) saturate(1.8);
+    box-shadow: 0 2px 10px var(--navbar-shadow);
+  }
+  
+  .car-navbar.light.scrolled-or-other-page {
+    background-color: rgba(109, 109, 109, 0.314);
+    backdrop-filter: blur(55px) saturate(1.8);
+    box-shadow: 0 2px 10px var(--navbar-shadow);
+  }
+}
+/* The rest of your CSS remains the same */
+.car-navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
 }
 
-.car-navbar.light.scrolled-or-other-page {
-  background-color: rgba(179, 178, 178, 0.189);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 2px 10px var(--navbar-shadow);
+.car-navbar-logo .ProjectName {
+  /* font-family: 'LandRoverWeb-Medium', sans-serif; */
+  font-size: 28px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--navbar-active);
 }
 
-  .car-navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    width: 100%;
-  }
+.car-navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  font-family: 'LandRoverWeb-Medium';
+}
 
-  .car-navbar-logo .ProjectName {
-    font-family: 'LandRoverWeb-Medium', sans-serif;
-    font-size: 28px;
-    font-weight: bold;
-    color: var(--navbar-active);
-  }
+.car-navbar-links ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
 
-  .car-navbar-links {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-    font-family: 'LandRoverWeb-Medium';
-  }
+.car-navbar-links ul li {
+  position: relative;
+}
 
-  .car-navbar-links ul {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 30px;
-  }
+.car-navbar-links a,
+.car-navbar-links .logout-btn {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1.1em;
+  padding: 8px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
 
-  .car-navbar-links ul li {
-    position: relative;
-  }
+.car-navbar-links a:hover {
+  color: var(--navbar-hover);
+}
 
-  .car-navbar-links a,
+.car-navbar-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background-color: var(--navbar-hover);
+  transition: width 0.3s;
+}
+
+.car-navbar-links a:hover::after,
+.car-navbar-links a.active::after {
+  width: 100%;
+  background-color: var(--navbar-active);
+}
+
+.car-navbar-links a.active {
+  color: inherit;
+}
+
+.logout-btn {
+  background-color: var(--red-light);
+  color: #fff;
+  border-radius: 5px;
+  padding: 8px 15px;
+}
+
+.car-navbar.dark .logout-btn {
+  background-color: var(--red-dark);
+}
+
+.logout-btn:hover {
+  background-color: #c0392b;
+}
+
+.car-navbar.dark .logout-btn:hover {
+  background-color: #b93b3b;
+}
+
+.theme-toggle {
+  font-size: 1.4em;
+  cursor: pointer;
+  margin-left: 15px;
+  color: black;
+  -webkit-text-stroke: 0.5px #444;
+  /* thin stroke around icon */
+}
+
+.dark .theme-toggle {
+  color: #ffd204;
+  -webkit-text-stroke: 0.5px #ffd204;
+}
+
+.mobile-menu-button {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.7em;
+  cursor: pointer;
+  color: inherit;
+  z-index: 1002;
+}
+
+.mobile-menu-button:hover {
+  color: var(--navbar-hover);
+}
+
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--overlay-bg);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease-in-out;
+}
+
+.mobile-menu-overlay.mobile-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Dropdown */
+.desk-nav-dd {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--dropdown-bg);
+  min-width: 200px;
+  box-shadow: 0px 8px 16px var(--box-shadow);
+  border-radius: 5px;
+  overflow: hidden;
+  transform: translateY(10px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-out;
+}
+
+.car-navbar-links ul li:hover .desk-nav-dd {
+  display: block;
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.desk-nav-dd ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.desk-nav-dd ul li a {
+  padding: 10px 20px;
+  font-size: 1em;
+  color: var(--navbar-text);
+  border-bottom: 1px solid var(--dropdown-border);
+  display: block;
+}
+
+.desk-nav-dd ul li:last-child a {
+  border-bottom: none;
+}
+
+.desk-nav-dd ul li a:hover {
+  background-color: var(--navbar-hover);
+  color: #fff;
+}
+
+/* Mobile */
+@media (max-width: 767px), (max-width: 486px) {
   .car-navbar-links .logout-btn {
-    text-decoration: none;
-    color: inherit;
-    font-size: 1.1em;
-    padding: 8px 0;
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-
-  .car-navbar-links a:hover {
-    color: var(--navbar-hover);
-  }
-
-  .car-navbar-links a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -3px;
-    left: 0;
-    background-color: var(--navbar-hover);
-    transition: width 0.3s;
-  }
-
-  .car-navbar-links a:hover::after,
-  .car-navbar-links a.active::after {
-    width: 100%;
-    background-color: var(--navbar-active);
-  }
-
-  .car-navbar-links a.active {
-    color: var(--navbar-active);
-  }
-
-  .logout-btn {
     background-color: var(--red-light);
-    color: #fff;
-    border-radius: 5px;
-    padding: 8px 15px;
+    border: 3px solid #ffffff26;
   }
 
-  .car-navbar.dark .logout-btn {
-    background-color: var(--red-dark);
-  }
-
-  .logout-btn:hover {
-    background-color: #c0392b;
-  }
-
-  .car-navbar.dark .logout-btn:hover {
-    background-color: #b93b3b;
-  }
-
-  .theme-toggle {
-    font-size: 1.4em;
-    cursor: pointer;
-    color: var(--navbar-active);
-    margin-left: 15px;
+  .car-navbar {
+    padding: 0px 10px;
   }
 
   .mobile-menu-button {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.7em;
-    cursor: pointer;
-    color: inherit;
-    z-index: 1002;
+    display: block;
   }
 
-  .mobile-menu-button:hover {
-    color: var(--navbar-hover);
-  }
-
-  .mobile-menu-overlay {
+  .car-navbar-links {
     position: fixed;
     top: 0;
-    left: 0;
+    right: 0;
+    width: 80%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    transform: translateX(100%);
+    transition: transform 0.4s ease-in-out;
+    z-index: 1001;
+    padding: 80px 20px 20px;
+    background-color: #0000005e;
+    backdrop-filter: blur(35px) saturate(1.8);
+    box-shadow: -2px 0 10px var(--box-shadow, rgba(0, 0, 0, 0.3));
+  }
+
+  .car-navbar-links.mobile-open {
+    transform: translateX(0);
+  }
+
+  .car-navbar-links ul {
+    flex-direction: column;
+    gap: 30px;
     width: 100%;
-    height: 100%;
-    background-color: var(--overlay-bg);
-    z-index: 1000;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.4s ease-in-out;
+    text-align: left;
   }
 
-  .mobile-menu-overlay.mobile-open {
-    opacity: 1;
-    visibility: visible;
+  .car-navbar-links ul li,
+  .car-navbar-links a,
+  .logout-btn {
+    width: 100%;
   }
 
-  /* Dropdown */
+  .car-navbar-links a,
+  .logout-btn {
+    padding: 12px 20px;
+    border-radius: 8px;
+    backdrop-filter: blur(20px) saturate(1.8);
+    /* Original */
+    /* background-color: #34495e00; */
+    box-shadow: 0 2px 5px var(--box-shadow);
+    font-size: 1.2em;
+    color: var(--menu-link);
+    /* Use the theme variable for consistency */
+  }
+
   .desk-nav-dd {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: var(--dropdown-bg);
-    min-width: 200px;
-    box-shadow: 0px 8px 16px var(--box-shadow);
-    border-radius: 5px;
-    overflow: hidden;
-    transform: translateY(10px);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease-out;
-  }
-
-  .car-navbar-links ul li:hover .desk-nav-dd {
-    display: block;
-    transform: translateY(0);
+    position: static;
+    transform: none;
     opacity: 1;
     visibility: visible;
+    box-shadow: none;
+    background-color: transparent;
+    display: none;
+  }
+
+  .car-navbar-links ul li.has-dropdown.mobile-dd-open .desk-nav-dd {
+    display: block;
   }
 
   .desk-nav-dd ul {
-    display: flex;
     flex-direction: column;
+    padding-left: 20px;
+    border-left: 2px solid var(--navbar-active);
   }
 
   .desk-nav-dd ul li a {
-    padding: 10px 20px;
-    font-size: 1em;
-    color: var(--navbar-text);
-    border-bottom: 1px solid var(--dropdown-border);
-    display: block;
+    padding: 8px 15px;
+    background-color: var(--dropdown-bg);
+    border-radius: 5px;
   }
 
-  .desk-nav-dd ul li:last-child a {
-    border-bottom: none;
+  .car-navbar.scrolled-or-other-page {
+    background-color: rgba(0, 0, 0, 0.353);
+    backdrop-filter: 20px;
+    box-shadow: 0 2px 10px var(--navbar-shadow);
   }
-
-  .desk-nav-dd ul li a:hover {
-    background-color: var(--navbar-hover);
-    color: #fff;
+  
+  .car-navbar.light.scrolled-or-other-page {
+    background-color: rgba(109, 109, 109, 0.353);
+    backdrop-filter: 20px;
+    box-shadow: 0 2px 10px var(--navbar-shadow);
   }
-
-  /* Mobile */
-  @media (max-width: 767px) {
-    .car-navbar-links .logout-btn{
-      background-color: var(--red-light);
-    }
-    .car-navbar {
-      padding: 0px 10px;
-    }
-
-    .mobile-menu-button {
-      display: block;
-    }
-
-    .car-navbar-links {
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 80%;
-      max-width: 300px;
-      /* height: 100%; */
-      background-color: var(--menu-bg);
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: flex-start;
-      transform: translateX(100%);
-      transition: transform 0.4s ease-in-out;
-      z-index: 1001;
-      padding: 60px 20px 20px;
-      box-shadow: -2px 0 10px var(--box-shadow);
-    }
-
-    .car-navbar-links.mobile-open {
-      transform: translateX(0);
-    }
-
-    .car-navbar-links ul {
-      flex-direction: column;
-      gap: 30px;
-      width: 100%;
-      text-align: left;
-    }
-
-    .car-navbar-links ul li,
-    .car-navbar-links a,
-    .logout-btn {
-      width: 100%;
-    }
-
-    .car-navbar-links a,
-    .logout-btn {
-      padding: 12px 20px;
-      border-radius: 8px;
-      background-color: var(--dropdown-bg);
-      box-shadow: 0 2px 5px var(--box-shadow);
-      font-size: 1.2em;
-      color: var(--menu-link);
-    }
-
-    .car-navbar-links a:hover,
-    .logout-btn:hover {
-      background-color: var(--navbar-hover);
-      color: #fff;
-    }
-
-    .desk-nav-dd {
-      position: static;
-      transform: none;
-      opacity: 1;
-      visibility: visible;
-      box-shadow: none;
-      background-color: transparent;
-      display: none;
-    }
-
-    .car-navbar-links ul li.has-dropdown.mobile-dd-open .desk-nav-dd {
-      display: block;
-    }
-
-    .desk-nav-dd ul {
-      flex-direction: column;
-      padding-left: 20px;
-      border-left: 2px solid var(--navbar-active);
-    }
-
-    .desk-nav-dd ul li a {
-      padding: 8px 15px;
-      background-color: var(--dropdown-bg);
-      border-radius: 5px;
-    }
-  }
+}
