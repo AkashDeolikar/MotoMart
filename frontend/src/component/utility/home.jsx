@@ -404,7 +404,7 @@ const Home = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setIsLoading(false); // hide after full load
-    }, 1000); // or 500ms
+    }, 2000); // or 500ms
     return () => clearTimeout(timeout);
   }, []); // ✅ only run once on first mount
 
@@ -643,13 +643,13 @@ const Home = () => {
 
       {/*Luxury vehicle intro */}
       <div className="shimmer-effect">
-  <div className="hand-image-box1" data-aos="fade" data-aos-once="true">
-    <div className="hand-image-text1" data-aos="zoom-in" data-aos-once="true">
-      <h2>Stay inspired</h2>
-      <h4>This is just the beginning. <i className="bi bi-gem"></i> </h4>
-    </div>
-  </div>
-</div>
+        <div className="hand-image-box1" data-aos="fade" data-aos-once="true">
+          <div className="hand-image-text1" data-aos="zoom-in" data-aos-once="true">
+            <h2>Stay inspired</h2>
+            <h4>This is just the beginning. <i className="bi bi-gem"></i> </h4>
+          </div>
+        </div>
+      </div>
 
 
       {/* ZIC ZAC SECTION */}

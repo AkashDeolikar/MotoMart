@@ -33,13 +33,27 @@ const Luxuryvh = () => {
     mercedes: false,
   });
 
-  useEffect(() => {
-  const timeout = setTimeout(() => {
-    setIsLoading(false); // hide after full load
-  }, 1000); // or 500ms
+  // useEffect(() => {
+  //   const timeout = setTimeout(() => {
+  //     setIsLoading(false);
+  //   }, 1000);
 
-  return () => clearTimeout(timeout);
-}, []); // ✅ only run once on first mount
+  //   return () => clearTimeout(timeout);
+  // }, []); 
+  useEffect(() => {
+    const handlePageLoad = () => {
+      setIsLoading(false);
+    };
+
+    // Check if already loaded
+    if (document.readyState === "complete") {
+      handlePageLoad();
+    } else {
+      window.addEventListener("load", handlePageLoad);
+    }
+
+    return () => window.removeEventListener("load", handlePageLoad);
+  }, []);
 
 
   const handleVehicleClick = (brand, route) => {
@@ -166,7 +180,7 @@ export default Luxuryvh;
 
 //         setTimeout(() => {
 //             setIsLoading(false);
-//             setLoader(false);   
+//             setLoader(false);
 //             navigate(navigateTo);
 //         }, 2000);
 //     };

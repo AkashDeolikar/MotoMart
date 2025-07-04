@@ -1618,19 +1618,22 @@ html.dark, body.dark {
 }
 
 .shimmer-effect::after {
-  content: ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>";
+  content: " ";
   position: absolute;
   top: 0;
   left: -100%;
-  width: 300%;
+  width: 200%;
   height: 100%;
-  font-size: 2rem;
-  color: rgb(3, 3, 3);
-  white-space: nowrap;
-  animation: shimmerMove 5s linear infinite;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shimmerMove 1.5s linear infinite;
   pointer-events: none;
   mix-blend-mode: overlay;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(4px);
 }
 
 @keyframes shimmerMove {
@@ -1641,6 +1644,7 @@ html.dark, body.dark {
     left: 100%;
   }
 }
+
 
 
 .hand-image-box1 {
@@ -1658,7 +1662,7 @@ html.dark, body.dark {
     background: linear-gradient(
         210deg,
         var(--hand-image-box1-gradient-start),
-        var(--hand-image-box1-gradient-mid1),
+        #91b062ba,
         var(--hand-image-box1-gradient-mid2),
         var(--hand-image-box1-gradient-end)
     );
