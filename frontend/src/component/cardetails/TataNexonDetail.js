@@ -1,4 +1,3 @@
-// src/component/cardetails/TataNexonDetail.jsx
 import React, { useState, useRef } from "react";
 import './Details.css';
 import './temp.css';
@@ -10,206 +9,157 @@ const TataNexonDetail = () => {
     mileage: "17.4 – 24.0 km/l",
     width: "1804 mm",
     height: "1620 mm",
-    image:
-      "https://w7.pngwing.com/pngs/696/785/png-transparent-tata-motors-car-tata-nexon-xza-petrol-maruti-suzuki-vitara-brezza-tata-nexon-thumbnail.png",
     description:
       "Tata Nexon is a stylish and compact SUV offering strong performance, top-tier safety (5-star GNCAP), and a feature-rich cabin. Available in petrol and diesel with manual, AMT, and DCT options.",
+    image: "https://w7.pngwing.com/pngs/696/785/png-transparent-tata-motors-car-tata-nexon-xza-petrol-maruti-suzuki-vitara-brezza-tata-nexon-thumbnail.png",
     details: {
       engine: {
-        petrol: "1.2L Turbo Revotron (120 PS, 170 Nm)",
-        diesel: "1.5L Revotorq (115 PS, 260 Nm)",
+        petrol: "1.2L Turbo Revotron, 3 Cylinder",
+        diesel: "1.5L Revotorq, 4 Cylinder",
+        powerPetrol: "120 PS @ 5500 rpm",
+        torquePetrol: "170 Nm @ 1750-4000 rpm",
+        powerDiesel: "115 PS @ 3750 rpm",
+        torqueDiesel: "260 Nm @ 1500-2750 rpm"
       },
-      transmission: "5MT / 6MT / AMT / DCT",
+      transmission: "5MT / 6MT / AMT / 7DCA",
       fuelOptions: "Petrol & Diesel",
-      safetyRating: "5 Stars (Global NCAP)",
-      features: [
+      mileage: "Petrol: 17.44–19.4 km/l | Diesel: 23.23–24.08 km/l",
+      topSpeed: "Approx 180 km/h",
+      acceleration: "0–100 km/h in ~11.5s",
+      dimensions: {
+        length: "3995 mm",
+        width: "1804 mm",
+        height: "1620 mm",
+        wheelbase: "2498 mm",
+        groundClearance: "209 mm",
+        bootSpace: "382 Litres",
+        fuelTank: "44 Litres",
+        kerbWeight: "1185–1305 kg"
+      },
+      interior: [
         "10.25” Touchscreen Infotainment",
         "Wireless Android Auto & Apple CarPlay",
-        "360° Camera, Sunroof, JBL Sound System",
-        "6 Airbags, ESP, ABS with EBD",
-        "Ventilated Front Seats, Digital Cluster",
+        "Ventilated Front Seats",
+        "Premium Fabric Upholstery",
+        "Digital TFT Cluster",
+        "iRA Connected Tech"
       ],
-      colorOptions: [{ name: "Pure Grey", hex: "#b4b4b4" },
-        { name: "Ocean Blue", hex: "#0077be" },
-        { name: "Dusky White", hex: "#f5f5f5" },
-        { name: "Daytona Grey", hex: "#6e6e6e" },
-        { name: "Royal Blue", hex: "#4169e1" },
-        { name: "Grassland Beige", hex: "#198754" },        
-        // "Daytona Grey",
-        // "Flame Red",
-        // "Calgary White",
-        // "Fearless Purple",
-        // "Creative Ocean",
+      exterior: [
+        "Projector Headlamps with LED DRLs",
+        "Alloy Wheels",
+        "Electric Sunroof",
+        "LED Tail Lamps",
+        "Dual-tone Color Options"
       ],
-      segment: "Sub-Compact SUV",
-      launched: "First: 2017, Facelift: 2023",
-      evAvailable: true,
-    },
+      safety: [
+        "6 Airbags",
+        "ABS with EBD",
+        "ESP, Hill Hold Control",
+        "TPMS",
+        "ISOFIX Mounts",
+        "5 Star GNCAP Rating"
+      ],
+      adas: [
+        "360° Camera",
+        "Reverse Parking Sensors",
+        "Rear Parking Camera",
+        "Auto Headlamps & Rain Sensing Wipers"
+      ]
+    }
   };
-  //360 VIEW 
+
   const totalImages = 34;
   const [currentIndex, setCurrentIndex] = useState(1);
   const isDragging = useRef(false);
   const startX = useRef(0);
-  //For Desktop
-  const handleMouseDown = (e) => {
-    isDragging.current = true;
-    startX.current = e.clientX;
-  };
 
-  const handleMouseUp = () => {
-    isDragging.current = false;
-  };
-
+  const handleMouseDown = (e) => { isDragging.current = true; startX.current = e.clientX; };
+  const handleMouseUp = () => { isDragging.current = false; };
   const handleMouseMove = (e) => {
     if (!isDragging.current) return;
-
     const delta = e.clientX - startX.current;
-
     if (Math.abs(delta) > 5) {
-      setCurrentIndex((prev) => {
-        let newIndex = prev + (delta > 0 ? -1 : 1);
-        if (newIndex < 1) newIndex = totalImages;
-        if (newIndex > totalImages) newIndex = 1;
-        return newIndex;
-      });
+      setCurrentIndex(prev => (prev + (delta > 0 ? -1 : 1) - 1 + totalImages) % totalImages + 1);
       startX.current = e.clientX;
     }
   };
-  //For Mobile
-  const handleTouchStart = (e) => {
-    isDragging.current = true;
-    startX.current = e.touches[0].clientX;
-  };
-
+  const handleTouchStart = (e) => { isDragging.current = true; startX.current = e.touches[0].clientX; };
   const handleTouchMove = (e) => {
     if (!isDragging.current) return;
     const delta = e.touches[0].clientX - startX.current;
-
-    if (Math.abs(delta) > 15) { //5
-      setCurrentIndex((prev) => {
-        let newIndex = prev + (delta > 0 ? -1 : 1);
-        if (newIndex < 1) newIndex = totalImages;
-        if (newIndex > totalImages) newIndex = 1;
-        return newIndex;
-      });
+    if (Math.abs(delta) > 15) {
+      setCurrentIndex(prev => (prev + (delta > 0 ? -1 : 1) - 1 + totalImages) % totalImages + 1);
       startX.current = e.touches[0].clientX;
     }
   };
-
-  const handleTouchEnd = () => {
-    isDragging.current = false;
-  };
+  const handleTouchEnd = () => { isDragging.current = false; };
 
   return (
-    <div className="ak">
-      <div className="swiftbox">
-        <div className="vr-360-exterior">
-          <div className="section-inner">
-            <div className="titArea pvreTitArea">
-              <h3 className="subTitM alignC">360° Experience</h3>
-              <div className="conAreaM alignC">
-                Click and turn the vehicle image to the left or right.
-              </div>
-            </div>
-            <div className="experiencePanoramaBox exterior">
-              <div
-                className="panorama loadingEnd"
-                style={{
-                  position: "relative",
-                  margin: "0px auto",
-                  padding: "0px",
-                  height: "425px",
-                  width: "1120px",
-                  overflow: "hidden",
-                  cursor: "grab",
-                }}
-                //for desktop
-                onMouseDown={handleMouseDown}
-                onMouseUp={handleMouseUp}
-                onMouseLeave={handleMouseUp}
-                onMouseMove={handleMouseMove}
-                //for mobile
-                onTouchStart={handleTouchStart}
-                onTouchMove={handleTouchMove}
-                onTouchEnd={handleTouchEnd}
-
-              >
-                {[...Array(totalImages)].map((_, i) => {
-                  const index = i + 1;
-                  return (
-                    <img
-                      key={index}
-                      className={`panoVues vue${index}`}
-                      // src={`/images/creta/abyss-black_${index}.png`} // ✅ Now correct
-                      src={`/images/nexon/PureGrey-${index}.png`}
-                      style={{
-                        visibility: index === currentIndex ? "visible" : "hidden",
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                      }}
-                      width="1120"
-                      height="425"
-                      // width="560"
-                      // height="212 "
-                      alt={`nexon-view-${index}`}
-                    />
-                  );
-                })}
-              </div>
-            </div>
+    <div className="swift-detail-wrapper">
+      <div className="car360-section">
+        <h3 className="subTitM alignC">360° Experience</h3>
+        <p className="conAreaM alignC">Click and turn the vehicle image to the left or right.</p>
+        <div className="car360-box">
+          <div
+            className="car360-panorama"
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseUp}
+            onMouseMove={handleMouseMove}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            {[...Array(totalImages)].map((_, i) => (
+              <img
+                key={i}
+                className={`car360-frame vue${i + 1}`}
+                src={`/images/nexon/PureGrey-${i + 1}.png`}
+                alt={`nexon-view-${i + 1}`}
+                style={{ visibility: i + 1 === currentIndex ? "visible" : "hidden" }}
+              />
+            ))}
           </div>
         </div>
       </div>
 
-      {/* DETAILS */}
-      <div className="car-detail" style={{ padding: "2rem", fontFamily: "sans-serif" }}>
+      <div className="car-detail-section">
         <h1>{car.name}</h1>
-        {/* <img src={car.image} alt={car.name} style={{ width: "300px" }} /> */}
         <p><strong>Price:</strong> {car.price}</p>
-        <p><strong>Mileage:</strong> {car.mileage}</p>
-        <p><strong>Width:</strong> {car.width}</p>
-        <p><strong>Height:</strong> {car.height}</p>
         <p>{car.description}</p>
 
-        <h2>Specifications</h2>
-        <p><strong>Engine (Petrol):</strong> {car.details.engine.petrol}</p>
-        <p><strong>Engine (Diesel):</strong> {car.details.engine.diesel}</p>
-        <p><strong>Transmission:</strong> {car.details.transmission}</p>
-        <p><strong>Fuel:</strong> {car.details.fuelOptions}</p>
-        <p><strong>Safety Rating:</strong> {car.details.safetyRating}</p>
-        <p><strong>Segment:</strong> {car.details.segment}</p>
-        <p><strong>Launched:</strong> {car.details.launched}</p>
-        <p><strong>EV Variant Available:</strong> {car.details.evAvailable ? "Yes" : "No"}</p>
+        <h2>Fuel & Engine</h2>
+        <p><strong>Petrol Engine:</strong> {car.details.engine.petrol}</p>
+        <p><strong>Power:</strong> {car.details.engine.powerPetrol}</p>
+        <p><strong>Torque:</strong> {car.details.engine.torquePetrol}</p>
+        <p><strong>Diesel Engine:</strong> {car.details.engine.diesel}</p>
+        <p><strong>Power:</strong> {car.details.engine.powerDiesel}</p>
+        <p><strong>Torque:</strong> {car.details.engine.torqueDiesel}</p>
 
-        <h3>Key Features</h3>
-        <ul>
-          {car.details.features.map((feature, index) => (
-            <li key={index}>✅ {feature}</li>
-          ))}
-        </ul>
+        <h2>Transmission</h2>
+        <p>{car.details.transmission}</p>
 
-        <h3>Available Colors</h3>
-        <div className="hexx" style={{ display: "flex", gap: "2.0rem", flexWrap: "wrap", marginTop: "1rem" }}>
-          {car.details.colorOptions.map((c, index) => (
-            <div key={index} style={{ textAlign: "center" }}>
-              <ul>
-                <div
-                  style={{
-                    backgroundColor: c.hex,
-                    width: "40px",
-                    height: "40px",
-                    borderRadius: "50%",
-                    border: "1px solid #ccc",
-                    marginBottom: "0.5rem",
-                  }}
-                ></div>
-              </ul>
-              <small>{c.name}</small>
-            </div>
-          ))}
-        </div>
+        <h2>Fuel & Performance</h2>
+        <p><strong>Mileage:</strong> {car.details.mileage}</p>
+        <p><strong>Top Speed:</strong> {car.details.topSpeed}</p>
+        <p><strong>0–100 km/h:</strong> {car.details.acceleration}</p>
+
+        <h2>Dimensions</h2>
+        {Object.entries(car.details.dimensions).map(([key, value]) => (
+          <p key={key}><strong>{key.replace(/([A-Z])/g, ' $1')}: </strong>{value}</p>
+        ))}
+
+        <h2>Interior</h2>
+        <ul>{car.details.interior.map((item, i) => <li key={i}>✅ {item}</li>)}</ul>
+
+        <h2>Exterior</h2>
+        <ul>{car.details.exterior.map((item, i) => <li key={i}>✅ {item}</li>)}</ul>
+
+        <h2>Safety</h2>
+        <ul>{car.details.safety.map((item, i) => <li key={i}>✅ {item}</li>)}</ul>
+
+        <h2>ADAS Features</h2>
+        <ul>{car.details.adas.map((item, i) => <li key={i}>✅ {item}</li>)}</ul>
       </div>
     </div>
   );

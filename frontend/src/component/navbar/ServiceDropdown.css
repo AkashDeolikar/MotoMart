@@ -2,13 +2,14 @@
 
 /* Desktop Dropdown Container (visibility controlled by parent li:hover) */
 .desk-nav-dd {
-    margin-top: 15px;
+    margin-top: 10px;
     display: none; /* Hidden by default */
     position: absolute;
     top: 100%; /* Position below the main nav item */
     left: 0;
-    backdrop-filter: blur(20px) saturate(1.8);
-    background-color: var(--dropdown-bg);
+    background-color: #ababab93; /* Light background with alpha */
+    backdrop-filter: blur(10px) saturate(1.8);
+    -webkit-backdrop-filter: blur(10px) saturate(1.8); /* For Safari */
     min-width: 200px;
     box-shadow: 0px 8px 16px 0px var(--box-shadow);
     z-index: 10;
@@ -17,8 +18,18 @@
     transform: translateY(10px);
     opacity: 0;
     visibility: hidden;
-    transition: transform 0.3s ease-out, opacity 0.3s ease-out, visibility 0.3s ease-out;
+    transition:
+        transform 0.3s ease-out,
+        opacity 0.3s ease-out,
+        visibility 0.3s ease-out;
 }
+
+.dark .desk-nav-dd {
+    background-color: #45484b9d; 
+    backdrop-filter: blur(10px) saturate(1.8);
+    -webkit-backdrop-filter: blur(10px) saturate(1.8); /* Safari fallback */
+}
+
 
 /* Show desktop dropdown on hover over the service-nav-item */
 .service-nav-item:hover .desk-nav-dd {
@@ -43,15 +54,18 @@
     text-decoration: none;
     display: block;
     font-size: 1em;
-    border-bottom: 1px solid var(--dropdown-border);
+    border-bottom: 2px solid var(--dropdown-border);
     transition: background-color 0.2s ease, color 0.2s ease;
+}
+.dark .desk-nav-dd ul li a {
+    border-bottom: 2px solid rgb(148, 168, 246);
 }
 
 .desk-nav-dd ul li:last-child a {
     border-bottom: none;
 }
 
-.desk-nav-dd ul li a:hover {
+.dark .desk-nav-dd ul li a:hover {
     background-color: var(--navbar-hover);
     color: #fff;
 }

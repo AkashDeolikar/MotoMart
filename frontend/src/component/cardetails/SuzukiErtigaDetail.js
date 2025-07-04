@@ -1,7 +1,6 @@
 // src/component/cardetails/ErtigaDetail.jsx
 import React, { useState, useRef } from "react";
 import './Details.css';
-import './temp.css';
 
 const SuzukiErtigaDetail = () => {
   const car = {
@@ -10,8 +9,6 @@ const SuzukiErtigaDetail = () => {
     mileage: "19.01 – 26.08 km/l",
     width: "1735 mm",
     height: "1685 mm",
-    image:
-      "https://stimg.cardekho.com/images/car-images/930x620/Maruti/Ertiga/8711/1650016330874/224_white_fffff.jpg?imwidth=420&impolicy=resize",
     description:
       "Maruti Suzuki Ertiga is a compact MPV that offers excellent space, comfortable ride quality, and efficient engine options. It's a versatile family vehicle with advanced features and a well-rounded design, making it a great choice for urban families.",
     details: {
@@ -35,12 +32,6 @@ const SuzukiErtigaDetail = () => {
         { name: "Pearl Metallic Oxford Blue", hex: "#0a0f4a" },
         { name: "Splendid Silver", hex: "#c0c0c0" },
         { name: "Arctic White", hex: "#ffffff" },
-        // "Oxford Blue",
-        // "Prime Lucent Orange",
-        // "Sizzling Red",
-        // "Magnetic Grey",
-        // "Pearl Arctic White",
-        // "Silky Silver",
       ],
       segment: "Compact MPV",
       launched: "First: 2012, Facelift: 2022",
@@ -48,171 +39,158 @@ const SuzukiErtigaDetail = () => {
     },
   };
 
-  //360 VIEW 
-    const totalImages = 71;
-    const [currentIndex, setCurrentIndex] = useState(1);
-    const isDragging = useRef(false);
-    const startX = useRef(0);
-    //For Desktop
-    const handleMouseDown = (e) => {
-      isDragging.current = true;
+  const totalImages = 71;
+  const [currentIndex, setCurrentIndex] = useState(1);
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+
+  const handleMouseDown = (e) => {
+    isDragging.current = true;
+    startX.current = e.clientX;
+  };
+  const handleMouseUp = () => {
+    isDragging.current = false;
+  };
+  const handleMouseMove = (e) => {
+    if (!isDragging.current) return;
+    const delta = e.clientX - startX.current;
+    if (Math.abs(delta) > 5) {
+      setCurrentIndex((prev) => {
+        let newIndex = prev + (delta > 0 ? -1 : 1);
+        if (newIndex < 1) newIndex = totalImages;
+        if (newIndex > totalImages) newIndex = 1;
+        return newIndex;
+      });
       startX.current = e.clientX;
-    };
-  
-    const handleMouseUp = () => {
-      isDragging.current = false;
-    };
-  
-    const handleMouseMove = (e) => {
-      if (!isDragging.current) return;
-  
-      const delta = e.clientX - startX.current;
-  
-      if (Math.abs(delta) > 5) {
-        setCurrentIndex((prev) => {
-          let newIndex = prev + (delta > 0 ? -1 : 1);
-          if (newIndex < 1) newIndex = totalImages;
-          if (newIndex > totalImages) newIndex = 1;
-          return newIndex;
-        });
-        startX.current = e.clientX;
-      }
-    };
-    //For Mobile
-    const handleTouchStart = (e) => {
-      isDragging.current = true;
+    }
+  };
+
+  const handleTouchStart = (e) => {
+    isDragging.current = true;
+    startX.current = e.touches[0].clientX;
+  };
+  const handleTouchMove = (e) => {
+    if (!isDragging.current) return;
+    const delta = e.touches[0].clientX - startX.current;
+    if (Math.abs(delta) > 15) {
+      setCurrentIndex((prev) => {
+        let newIndex = prev + (delta > 0 ? -1 : 1);
+        if (newIndex < 1) newIndex = totalImages;
+        if (newIndex > totalImages) newIndex = 1;
+        return newIndex;
+      });
       startX.current = e.touches[0].clientX;
-    };
-  
-    const handleTouchMove = (e) => {
-      if (!isDragging.current) return;
-      const delta = e.touches[0].clientX - startX.current;
-  
-      if (Math.abs(delta) > 15) { //5
-        setCurrentIndex((prev) => {
-          let newIndex = prev + (delta > 0 ? -1 : 1);
-          if (newIndex < 1) newIndex = totalImages;
-          if (newIndex > totalImages) newIndex = 1;
-          return newIndex;
-        });
-        startX.current = e.touches[0].clientX;
-      }
-    };
-  
-    const handleTouchEnd = () => {
-      isDragging.current = false;
-    };
+    }
+  };
+  const handleTouchEnd = () => {
+    isDragging.current = false;
+  };
 
   return (
-    <div className="ak">
-      <div className="swiftbox">
-        <div className="vr-360-exterior">
-          <div className="section-inner">
-            <div className="titArea pvreTitArea">
-              <h3 className="subTitM alignC">360° Experience</h3>
-              <div className="conAreaM alignC">
-                Click and turn the vehicle image to the left or right.
-              </div>
-            </div>
-            <div className="experiencePanoramaBox exterior">
-              <div
-                className="panorama loadingEnd"
-                style={{
-                  position: "relative",
-                  margin: "0px auto",
-                  padding: "0px",
-                  height: "425px",
-                  width: "1120px",
-                  overflow: "hidden",
-                  cursor: "grab",
-                }}
-                //for desktop
-                onMouseDown={handleMouseDown}
-                onMouseUp={handleMouseUp}
-                onMouseLeave={handleMouseUp}
-                onMouseMove={handleMouseMove}
-                //for mobile
-                onTouchStart={handleTouchStart}
-                onTouchMove={handleTouchMove}
-                onTouchEnd={handleTouchEnd}
-
-              >
-                {[...Array(totalImages)].map((_, i) => {
-                  const index = i + 1;
-                  return (
-                    <img
-                      key={index}
-                      className={`panoVues vue${index}`}
-                      // src={`/images/creta/abyss-black_${index}.png`} // ✅ Now correct
-                      src={`/images/ertiga/${index}.png`}
-                      style={{
-                        visibility: index === currentIndex ? "visible" : "hidden",
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                      }}
-                      width="1120"
-                      height="425"
-                      // width="560"
-                      // height="212 "
-                      alt={`ertiga-view-${index}`}
-                    />
-                  );
-                })}
-              </div>
-            </div>
+    <div className="swift-detail-wrapper">
+      <div className="car360-section">
+        <h3 className="section-title">360° Experience</h3>
+        <p className="section-subtitle">Click and turn the vehicle image to the left or right.</p>
+        <div className="car360-box">
+          <div
+            className="car360-panorama"
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseUp}
+            onMouseMove={handleMouseMove}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            {[...Array(totalImages)].map((_, i) => {
+              const index = i + 1;
+              return (
+                <img
+                  key={index}
+                  src={`/images/ertiga/${index}.png`}
+                  alt={`ertiga-view-${index}`}
+                  style={{
+                    visibility: index === currentIndex ? "visible" : "hidden",
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "contain",
+                  }}
+                />
+              );
+            })}
           </div>
         </div>
       </div>
 
-      {/* DETAILS */}
-    <div className="car-detail" style={{ padding: "2rem", fontFamily: "sans-serif" }}>
-      <h1>{car.name}</h1>
-      {/* <img src={car.image} alt={car.name} style={{ width: "300px" }} /> */}
-      <p><strong>Price:</strong> {car.price}</p>
-      <p><strong>Mileage:</strong> {car.mileage}</p>
-      <p><strong>Width:</strong> {car.width}</p>
-      <p><strong>Height:</strong> {car.height}</p>
-      <p>{car.description}</p>
+      <div className="car-detail-section">
+        <h1>{car.name}</h1>
+        <p className="lead-description">{car.description}</p>
 
-      <h2>Specifications</h2>
-      <p><strong>Engine (Petrol):</strong> {car.details.engine.petrol}</p>
-      <p><strong>Engine (Diesel):</strong> {car.details.engine.diesel}</p>
-      <p><strong>Transmission:</strong> {car.details.transmission}</p>
-      <p><strong>Fuel:</strong> {car.details.fuelOptions}</p>
-      <p><strong>Safety Rating:</strong> {car.details.safetyRating}</p>
-      <p><strong>Segment:</strong> {car.details.segment}</p>
-      <p><strong>Launched:</strong> {car.details.launched}</p>
-      <p><strong>EV Variant Available:</strong> {car.details.evAvailable ? "Yes" : "No"}</p>
+        <h2>Fuel & Engine</h2>
+        <ul>
+          <li><strong>Petrol Engine:</strong> {car.details.engine.petrol}</li>
+          <li><strong>Diesel Engine:</strong> {car.details.engine.diesel}</li>
+        </ul>
 
-      <h3>Key Features</h3>
-      <ul>
-        {car.details.features.map((feature, index) => (
-          <li key={index}>✅ {feature}</li>
-        ))}
-      </ul>
+        <h2>Transmission</h2>
+        <p>{car.details.transmission}</p>
 
-      <h3>Available Colors</h3>
-      <div className="hexx" style={{ display: "flex", gap: "2.0rem", flexWrap: "wrap", marginTop: "1rem" }}>
-        {car.details.colorOptions.map((c, index) => (
-          <div key={index} style={{ textAlign: "center" }}>
-            <ul>
+        <h2>Fuel & Performance</h2>
+        <ul>
+          <li><strong>Fuel Type:</strong> {car.details.fuelOptions}</li>
+          <li><strong>Mileage:</strong> {car.mileage}</li>
+        </ul>
+
+        <h2>Dimensions</h2>
+        <p>{car.width} (W) × {car.height} (H)</p>
+
+        <h2>Interior</h2>
+        <p>Spacious cabin with flexible 3-row seating, dual-tone dashboard, and modern infotainment unit.</p>
+
+        <h2>Exterior</h2>
+        <p>Chrome grille, LED tail lamps, stylish alloys, and aerodynamic body for urban and highway drives.</p>
+
+        <h2>Safety</h2>
+        <ul>
+          <li><strong>Safety Rating:</strong> {car.details.safetyRating}</li>
+          <li>Rear Parking Sensors, 4 Airbags, ABS with EBD</li>
+        </ul>
+
+        <h2>ADAS Features</h2>
+        <p>Not Available</p>
+
+        <h2>Key Features</h2>
+        <ul>{car.details.features.map((feature, i) => <li key={i}>✅ {feature}</li>)}</ul>
+
+        <h2>Available Colors</h2>
+        <div className="color-swatches">
+          {car.details.colorOptions.map((c, index) => (
+            <div key={index}>
               <div
                 style={{
                   backgroundColor: c.hex,
-                  width: "40px",
-                  height: "40px",
+                  width: "60px",
+                  height: "60px",
                   borderRadius: "50%",
-                  border: "1px solid #ccc",
-                  marginBottom: "0.5rem",
+                  border: "2px solid #ccc",
+                  marginBottom: "0.5rem"
                 }}
               ></div>
-            </ul>
-            <small>{c.name}</small>
-          </div>
-        ))}
+              <small>{c.name}</small>
+            </div>
+          ))}
+        </div>
+
+        <h2>Additional Info</h2>
+        <ul>
+          <li><strong>Segment:</strong> {car.details.segment}</li>
+          <li><strong>Launched:</strong> {car.details.launched}</li>
+          <li><strong>EV Available:</strong> {car.details.evAvailable ? "Yes" : "No"}</li>
+        </ul>
       </div>
-    </div>
     </div>
   );
 };

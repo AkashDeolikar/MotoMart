@@ -3,14 +3,14 @@
   --bg-light: #ffffff;
   --text-light: #070707;
   --primary-light: #007bff;
-  --hover-light: #0056b3;
+  --hover-light: #929293;
   --accent-light: #28a745;
   --red-light: #dc3545;
 
   --bg-dark: #2c3e50;
   --text-dark: #ecf0f1;
   --primary-dark: #3498db;
-  --hover-dark: #2980b9;
+  --hover-dark: #686868;
   --accent-dark: #2ecc71;
   --red-dark: #e74c3c;
 
@@ -52,7 +52,7 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 10px 20px;
+  padding: 5px 0px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -134,7 +134,7 @@ main,
   text-decoration: none;
   color: inherit;
   font-size: 1.1em;
-  padding: 8px 0;
+  padding: 8px 4px;
   background: none;
   border: none;
   cursor: pointer;
@@ -172,17 +172,21 @@ main,
   border-radius: 5px;
   padding: 8px 15px;
 }
-
+.car-navbar .logout-btn {
+  background-color: var(--red-dark);
+  border: 2px solid rgba(244, 152, 152, 0.773);
+}
 .car-navbar.dark .logout-btn {
   background-color: var(--red-dark);
+  border: 2px solid rgba(244, 152, 152, 0.773);
 }
 
 .logout-btn:hover {
-  background-color: #c0392b;
+  background-color: #b93b3bbc;
 }
 
 .car-navbar.dark .logout-btn:hover {
-  background-color: #b93b3b;
+  background-color: #b93b3bbc;
 }
 
 .theme-toggle {

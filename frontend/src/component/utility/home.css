@@ -147,7 +147,7 @@ body {
 /*zic zac title*/
 .masonrymedia__card-title1 {
     color: black;
-    /* text-shadow: #000 0px 0px 10px; */
+    text-shadow: 1px 1px #ffffff8c;
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 10px;
@@ -1473,8 +1473,9 @@ html.dark, body.dark { /* Use html.dark or body.dark based on your setup */
         var(--hand-image-box-gradient-mid2),
         var(--hand-image-box-gradient-end)
     );
+    backdrop-filter: blur(55px) saturate(1.8);
     background-size: 600% 600%;
-    animation: moveGradient 15s ease infinite; /* Continuous gradient animation */
+    animation: moveGradient 10s cubic-bezier(0, 1.09, 1, -0.03) infinite; /* Continuous gradient animation */
     transition: background 0.7s ease-in-out; /* Smooth transition for background on theme change */
 
     /* Remove AOS-specific initial hidden states from the box itself */
@@ -1610,6 +1611,38 @@ html.dark, body.dark {
 /* --- */
 
 /* ====== Base Styling for the Box Container 1 ====== */
+.shimmer-effect {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.shimmer-effect::after {
+  content: ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 300%;
+  height: 100%;
+  font-size: 2rem;
+  color: rgb(3, 3, 3);
+  white-space: nowrap;
+  animation: shimmerMove 5s linear infinite;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  backdrop-filter: blur(5px);
+}
+
+@keyframes shimmerMove {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+
 .hand-image-box1 {
     position: relative;
     height: 100px;
@@ -1623,19 +1656,24 @@ html.dark, body.dark {
     font-weight: 500;
 
     background: linear-gradient(
-        270deg,
+        210deg,
         var(--hand-image-box1-gradient-start),
         var(--hand-image-box1-gradient-mid1),
         var(--hand-image-box1-gradient-mid2),
         var(--hand-image-box1-gradient-end)
     );
     background-size: 600% 600%;
-    animation: moveGradient1 18s ease infinite;
-    transition: background 0.7s ease-in-out;
+    animation: moveGradient1 10s cubic-bezier(1, 0.49, 0.38, 0.88) infinite;
+    /* transition: background 0.7s ease-in-out; */
 
     opacity: 0;
     transition: opacity var(--box1-fade-duration) var(--aos-timing-function);
+
+    /* ADD THIS: */
+    backdrop-filter: blur(55px) saturate(1.8);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
 }
+
 
 .hand-image-box1.aos-animate {
     opacity: 1;

@@ -1,79 +1,211 @@
-.car-detail {
-    padding: 2rem;
-    margin: auto;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    display: flex;
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Roboto:wght@400;500&display=swap');
+
+/* Base Styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  background-color: #121212;
+  color: #e0e0e0;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* --- 360 Image Section --- */
+.car360-section {
+  padding: 60px 20px;
+  text-align: center;
+  border-bottom: 1px solid #2c2c2c;
+}
+.car360-box {
+  max-width: 1200px;
+  margin: auto;
+}
+.section-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 38px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: #90caf9;
+  text-shadow: 1px 1px 0px rgba(63, 63, 63, 0.697)
+}
+.section-subtitle {
+  font-size: 16px;
+  color: #b0bec5;
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+.car360-panorama {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  cursor: default;
+}
+.car360-panorama img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  top: 0;
+  left: 0;
+}
+
+/* --- Car Detail Section --- */
+.car-detail-section {
+  padding: 60px 20px;
+  margin: 40px auto;
+  color: #ffffff;
+  max-width: 1200px;
+  border-radius: 20px;
+  background-color: #1a1a1a;
+  box-shadow: 0 8px 30px rgba(255, 255, 255, 0.196);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+.car-detail-section h1 {
+  font-family: 'Poppins';
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #bbdefb;
+  text-shadow: 2px 2px rgba(126, 126, 126, 0.233);
+}
+.car-detail-section p.lead-description {
+  font-size: 17px;
+  color: #cfd8dc;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+
+/* --- Specification Grid --- */
+.specifications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+.spec-item {
+  background: #2c2c2c;
+  border: 1px solid #444;
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+.spec-item .icon {
+  font-size: 30px;
+  margin-bottom: 10px;
+  color: #259dff;
+}
+.spec-item h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #e0e0e0;
+}
+.spec-item p {
+  font-size: 15px;
+  color: #b0bec5;
+}
+
+/* --- Headings --- */
+.car-detail-section h2 {
+  font-family: 'LandRoverWeb-Demi';
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: 60px;
+  padding-bottom: 12px;
+  color: #fff176;
+  border-bottom: 2px solid #ffca28;
+}
+
+/* --- Color Swatches --- */
+.color-swatches-section {
+  margin-top: 60px;
+  text-align: center;
+}
+.color-swatches-section h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 26px;
+  margin-bottom: 30px;
+  color: #e0e0e0;
+}
+.color-swatches {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.color-swatches > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+  color: #b0bec5;
+}
+.color-swatches div div {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid #90a4ae;
+  box-shadow: inset 0 0 0 2px #333;
+  margin-bottom: 10px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .section-title,
+  .car-detail-section h1 {
+    font-size: 28px;
+  }
+  .car-detail-section h2 {
+    font-size: 22px;
+  }
+  .specifications-grid {
+    grid-template-columns: 1fr;
+  }
+  .car360-panorama {
+    height: 300px;
+  }
+}
+
+
+.pros-cons {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.pros-cons > div {
+  flex: 1 1 45%;
+  min-width: 250px;
+}
+
+.pros-cons h4 {
+  margin-bottom: 0.5rem;
+}
+
+.pros-cons ul {
+  list-style: none;
+  padding: 0;
+}
+
+.pros-cons li {
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .pros-cons {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    min-height: 80vh;
-    /* padding: 20px; */
-  }
-  
-  .car-detail h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .car-detail p {
-    font-size: 1rem;
-    margin: 0.5rem 0;
-  }
-  
-  .car-detail h2,
-  .car-detail h3 {
-    color: #daa834;
-  }
-  
-  .car-detail ul {
-    list-style: none;
-    padding-left: 1rem;
-  }
-  
-  .car-detail li {
-    background: #47484832;
-    margin: 0.5rem 0;
-    padding: 0.6rem;
-    border-radius: 5px;
-    font-size: 0.95rem;
+    gap: 1.2rem;
   }
 
-  /*FOR RENAULT*/
-  .embed-section {
-    margin-top: 2rem;
+  .pros-cons > div {
+    flex: 1 1 100%;
   }
-  
-  .embed-section h3 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-  }
-  
-  .embed-frame {
-    width: 100vh;
-    height: 50vh; /* 50% of viewport height */
-    border-radius: 10px;
-  }
-  
-  /*Toyota*/
-  .center-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2rem;
-  }
-  
-  .visit-toyota {
-    background-color: #ebc548;
-    color: rgb(17, 17, 17);
-    padding: 0.7rem 1.2rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-  }
-  
-  
+}

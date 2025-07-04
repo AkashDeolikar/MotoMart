@@ -642,12 +642,15 @@ const Home = () => {
       />
 
       {/*Luxury vehicle intro */}
-      <div className="hand-image-box1" data-aos="fade" data-aos-once="true">
-        <div className="hand-image-text1" data-aos="zoom-in" data-aos-once="true">
-          <h2>Stay inspired</h2>
-          <h4>This is just the beginning. <i className="bi bi-gem"></i> </h4>
-        </div>
-      </div>
+      <div className="shimmer-effect">
+  <div className="hand-image-box1" data-aos="fade" data-aos-once="true">
+    <div className="hand-image-text1" data-aos="zoom-in" data-aos-once="true">
+      <h2>Stay inspired</h2>
+      <h4>This is just the beginning. <i className="bi bi-gem"></i> </h4>
+    </div>
+  </div>
+</div>
+
 
       {/* ZIC ZAC SECTION */}
       <div className="zic-zic-blocks">
