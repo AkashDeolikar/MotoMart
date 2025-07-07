@@ -1,4 +1,6 @@
-.home-container/* /* Basic Reset */
+.home-container
+
+/* /* Basic Reset */
 * {
   margin: 0;
   padding: 0;
@@ -18,9 +20,10 @@ body {
   width: 100%;
 }
 
-.carousel-control-next-icon, .carousel-control-prev-icon {
-    border: 2px solid;
-    border-radius: 50%;
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  border: 2px solid;
+  border-radius: 50%;
 }
 
 
@@ -29,7 +32,8 @@ body {
   margin-bottom: 3rem;
   margin: 45px 0px 45px 0px;
 }
-.featured-cars h2{
+
+.featured-cars h2 {
   font-family: 'Jaguar Exuberant', Arial, Helvetica, sans-serif;
   padding: 10px;
 }
@@ -61,11 +65,13 @@ body {
 
 /* Default (Light Mode) */
 .car-cardbox h3 {
+  text-align: center;
   font-family: 'JaguarModernWeb-Bold', sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 42px;
-  color: #333433; /* dark text for light background */
+  color: #333433;
+  /* dark text for light background */
   margin: 0;
   padding: 0 0 15px 0;
   text-transform: none;
@@ -146,19 +152,23 @@ body {
 
 /*zic zac title*/
 .masonrymedia__card-title1 {
-    color: black;
-    text-shadow: 1px 1px #ffffff8c;
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 10px;
+  color: black;
+  text-shadow: 1px 1px #96969673;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
+
 .zic-alternating-content .support .masonrymedia__card-title1,
 .masonrymedia__card-title1 {
-  position: relative; /* Ensure anchor for ::after */
-  display: inline-block; /* Prevents block-level overflow */
+  position: relative;
+  /* Ensure anchor for ::after */
+  display: inline-block;
+  /* Prevents block-level overflow */
 }
 
 @media (min-width: 1440px) {
+
   .dark .zic-alternating-content .support .masonrymedia__card-title1::after,
   .masonrymedia__card-title1::after {
     content: 'Click Me';
@@ -176,7 +186,7 @@ body {
     transition: opacity 0.3s ease, bottom 0.3s ease;
     max-width: 200px;
     z-index: 10;
-    box-shadow: 0px 0px 6px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
   }
 
   .zic-alternating-content .support .masonrymedia__card-title1::after,
@@ -195,9 +205,11 @@ body {
   0% {
     text-shadow: 0 0 10px #4ef63b;
   }
+
   50% {
     text-shadow: 0 0 35px #08f582;
   }
+
   100% {
     text-shadow: 0 0 10px #f20b0b;
   }
@@ -210,6 +222,7 @@ body {
   visibility: visible;
   bottom: -40px;
 }
+
 /* @media screen and (min-width: 1360px) and (max-width: 1440px) {
   .zic-alternating-content .support .masonrymedia__card-title1::after {
     left: 100%;
@@ -231,9 +244,11 @@ body {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   overflow: hidden;
 }
-.dark .zic-alternating-content .support{
+
+.dark .zic-alternating-content .support {
   background-color: #2c3e50;
 }
+
 /* Each clickable section (image + text + arrow) */
 .zic-image-link {
   text-decoration: none;
@@ -251,22 +266,27 @@ body {
 .zic-alternating-content .right-aligned {
   border-radius: 0 50vh 50vh 0;
 }
+
 .zic-alternating-content .right-aligned:hover {
   content: "click";
   transform: scaleX(1.020);
   transition: all 0.5s ease;
 }
+
 .zic-alternating-content .left-aligned {
-    border-radius: 50vh 0 0 50vh ;
+  border-radius: 50vh 0 0 50vh;
 }
+
 .zic-alternating-content .left-aligned:hover {
   transform: scaleX(1.020);
   transition: all 0.5s ease;
 }
+
 /* Right-aligned content */
 .zic-alternating-content .right-aligned .zic-image-link {
   flex-direction: row-reverse;
 }
+
 .zic-alternating-content .right-aligned .zic-image-link p {
   text-align: right;
 }
@@ -275,6 +295,7 @@ body {
 .zic-alternating-content .left-aligned .zic-image-link {
   flex-direction: row;
 }
+
 .zic-alternating-content .left-aligned .zic-image-link p {
   text-align: left;
 }
@@ -316,9 +337,11 @@ body {
   border-radius: 50%;
   transition: background 0.3s;
 }
+
 .zic-image-link:hover .arrow-box {
   background: #0055ff;
 }
+
 @media (max-width: 1400px) {
   .zic-image-link {
     flex-direction: column !important;
@@ -365,7 +388,8 @@ body {
   .arrow-box {
     margin-top: 15px;
   }
-  .masonrymedia__card-title1{
+
+  .masonrymedia__card-title1 {
     margin-top: none;
     font-size: 22px;
     margin-bottom: 15px;
@@ -448,6 +472,7 @@ body {
   .cta h2 {
     font-size: 0.8rem;
   }
+
   .deals {
     max-width: 341px;
   }
@@ -510,7 +535,8 @@ body {
   letter-spacing: 0;
   line-height: 43px;
 }
-.dark .view-btn-car{
+
+.dark .view-btn-car {
   color: #ebebeb;
 }
 
@@ -518,7 +544,8 @@ body {
   border: 1px solid #3ec409;
   background-color: #ffffff;
 }
-.dark .view-btn-car:hover{
+
+.dark .view-btn-car:hover {
   color: #ebebeb;
   background-color: #1e1e1e;
 }
@@ -548,7 +575,7 @@ body {
 }
 
 .backgroundimage {
-  background-image:   url("../Assets/image3.png");
+  background-image: url("../Assets/image3.png");
   background-size: cover, cover, cover;
   background-position: center, center, center;
   background-repeat: no-repeat, no-repeat, no-repeat;
@@ -564,21 +591,23 @@ body {
 }
 
 .backgroundimage::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.863) 0%, rgba(0, 0, 0, 0) 100%);
-    pointer-events: none;
-    z-index: 1;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.863) 0%, rgba(0, 0, 0, 0) 100%);
+  pointer-events: none;
+  z-index: 1;
 }
+
 @media (min-width: 768px) {
-    .backgroundimage {
-        height: 70vh;
-    }
+  .backgroundimage {
+    height: 70vh;
+  }
 }
+
 /*CONSTANT BG SECTION HOME*/
 /* Constant Background Section */
 .ConstantBGHome {
@@ -605,7 +634,8 @@ body {
   background-size: 12%;
 
   display: flex;
-  justify-content: center; /* horizontally centers child like .T1Page */
+  justify-content: center;
+  /* horizontally centers child like .T1Page */
 }
 
 /*BACKGROUND IMG*/
@@ -639,95 +669,99 @@ body {
 /*START HERE*/
 .suatainability-wrp {
   padding: 2.0rem;
-    max-width: 1920px;
-    height: auto;
+  max-width: 1920px;
+  height: auto;
 }
 
 .suatainability-wrp .sus-cvr-wrp {
-    font-family: "math"; 
-    max-width: 1500px;
-    height: 600px; 
-    border: 50px; 
-    background-image: url('https://www.tatamotors.com/wp-content/themes/TataMotors/images/Sustainability-banner-new-home.webp');
-    background-repeat: no-repeat;
-    background-position: bottom left; 
-    padding: 150px 0px;
-    margin: 0 auto;
-    background-size: cover;
-    position: relative;
-    overflow: hidden;
+  font-family: "math";
+  max-width: 1500px;
+  height: 600px;
+  border: 50px;
+  background-image: url('https://www.tatamotors.com/wp-content/themes/TataMotors/images/Sustainability-banner-new-home.webp');
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  padding: 150px 0px;
+  margin: 0 auto;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
 }
 
 /* Gradient and overlay for desktop */
 .sus-cvr-wrp {
-    background-image: linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0.593)), url('https://www.tatamotor.com/wp-content/themes/TataMotors/images/Sustainability-banner-new-home.webp');
-    background-size: cover;
-    background-position: center; /* Changed from bottom left to center for better gradient effect */
-    min-height: 500px; /* Example height */
-    position: relative;
+  background-image: linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0.593)), url('https://www.tatamotor.com/wp-content/themes/TataMotors/images/Sustainability-banner-new-home.webp');
+  background-size: cover;
+  background-position: center;
+  /* Changed from bottom left to center for better gradient effect */
+  min-height: 500px;
+  /* Example height */
+  position: relative;
 }
 
 .sus-cvr-wrp::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0));
-    pointer-events: none;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0));
+  pointer-events: none;
 }
 
 /* Other desktop styles */
 .suatainability-wrp .sus-cvr-wrp .container-1600-wrp {
-    position: relative;
-    z-index: 2;
+  position: relative;
+  z-index: 2;
 }
 
 .container-1600-wrp {
-    max-width: 1600px;
-    margin: 0 auto;
-    margin: 0 0 5rem 5rem;
+  max-width: 1600px;
+  margin: 0 auto;
+  margin: 0 0 5rem 5rem;
 }
 
 .sub-ttle {
-    font-size: 16px;
-    line-height: 24px;
-    margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 10px;
 }
 
 .suatainability-wrp .sus-cvr-wrp .common-ttle {
-    color: #ffffff;
-    margin-bottom: 30px;
-    font-family: 'Jaguar Exuberant light';
-    font-size: 45px;
+  color: #ffffff;
+  margin-bottom: 30px;
+  font-family: 'Jaguar Exuberant light';
+  font-size: 45px;
 }
 
 .common-ttle {
-    font-size: 40px;
-    line-height: 50px;
+  font-size: 40px;
+  line-height: 50px;
 }
 
 .appearIntro {
-    font-family: 'LandRoverWeb-Light';
-    max-width: 600px;
-    font-size: 20px;
-    color: #ffffff;
-    margin-bottom: 20px;
+  font-family: 'LandRoverWeb-Light';
+  max-width: 600px;
+  font-size: 20px;
+  color: #ffffff;
+  margin-bottom: 20px;
 }
+
 .btn-boxx {
-    border: none;
-    background: #090b76;
-    display: inline-block;
-    border-radius: 30px;
-    padding: 12px 35px;
-    color: #ffffff;
-    font-size: 18px;
-    position: relative;
-    z-index: 1;
-    text-decoration: none;
+  border: none;
+  background: #090b76;
+  display: inline-block;
+  border-radius: 30px;
+  padding: 12px 35px;
+  color: #ffffff;
+  font-size: 18px;
+  position: relative;
+  z-index: 1;
+  text-decoration: none;
 }
-.aboutus{
+
+.aboutus {
   padding: 40px;
   font-family: 'LandRoverWeb-Medium';
   font-size: 26px;
@@ -735,10 +769,12 @@ body {
   line-height: 38px;
   position: relative;
 }
-.aboutus h5{
+
+.aboutus h5 {
   text-decoration: underline;
 }
-.passage{
+
+.passage {
   font-size: 15px;
   letter-spacing: 0ch;
   line-height: normal;
@@ -747,6 +783,7 @@ body {
   margin-top: 10px;
   font-family: 'LandRoverWeb-Light';
 }
+
 /*END HERE*/
 
 /* .typing {
@@ -858,7 +895,8 @@ html {
 /* OUTER CARD CONTAINER */
 .offer-card {
   width: 300px;
-  height: 220px; /* 🔥 Required for perspective */
+  height: 220px;
+  /* 🔥 Required for perspective */
   perspective: 1000px;
   text-decoration: none;
   color: inherit;
@@ -900,6 +938,7 @@ html {
 .offer-card-front {
   background: #fff;
 }
+
 .dark .offer-card-front {
   background: #bebdbd;
 }
@@ -917,6 +956,7 @@ html {
   color: #fff;
   transform: rotateY(180deg);
 }
+
 .offer-card-back h6 {
   color: #406cfe;
 }
@@ -976,7 +1016,8 @@ html {
     height: 450px;
     min-height: 400px;
     padding: 80px 0px;
-    border-radius: 20px;background-position: center;
+    border-radius: 20px;
+    background-position: center;
   }
 
   /* Adjust the gradient for mobile */
@@ -1011,21 +1052,164 @@ html {
     margin: 0 0 0rem 0rem;
   }
 }
+@media (max-width: 768px) {
+  /* Grid Scroll Layout */
+  .offers-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 2rem 0px 2rem 0;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  /* .offers-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    padding: 2rem 0 2rem 0;
+    scroll-snap-type: x mandatory;
+  } */
+  /* Clean Tab Card */
+  .offer-card {
+    flex: 0 0 auto;
+    width: 110px;
+    height: 110px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #111;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    scroll-snap-align: start;
+    transition: transform 0.2s ease;
+    overflow: hidden;
+  }
+
+  .offer-card:hover {
+    transform: scale(1.04);
+  }
+
+  .dark .offer-card {
+    background: rgba(44, 44, 46, 0.85);
+    color: #f5f5f5;
+  }
+
+  .offer-card-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .offer-card-front {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .offer-card-front img {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+  }
+
+  .offer-card-back {
+    display: none; /* ❌ HIDE BACK on mobile */
+  }
+
+  /* Remove 3D flip effect on mobile */
+  .offer-card-inner {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .offer-card:hover .offer-card-inner {
+    transform: none !important;
+  }
+}
+
+/* @media (max-width: 768px) {
+  .offers-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    padding: 2rem 0 2rem 0;
+    scroll-snap-type: x mandatory;
+  }
+
+  .offer-card {
+    flex: 0 0 auto;
+    width: 100px;
+    height: 110px;
+    background: #fff;
+    border-radius: 18px;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    padding: 10px 8px;
+    scroll-snap-align: start;
+    transition: transform 0.3s ease;
+  }
+
+  .offer-card:hover {
+    transform: scale(1.04);
+  }
+
+  .dark .offer-card {
+    background: #2c2c2e;
+    color: #eaeaea;
+  }
+
+  .offer-card-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 6px;
+  }
+
+  .offer-card-front img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+  }
+
+  .offer-card-back h3 {
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .offer-card-back p,
+  .offer-card-back h6 {
+    display: none;
+  }
+} */
 
 @media (max-width: 480px) {
   .suatainability-wrp .sus-cvr-wrp {
     min-height: 250px;
   }
+
   /* Adjust the gradient for mobile */
   .sus-cvr-wrp {
     background-image: linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0)), url('https://www.tatamotors.com/wp-content/themes/TataMotors/images/Sustainability-banner-new-home.webp');
     background-position: center;
     background-size: cover;
   }
+
   /* Adjust the pseudo-element gradient for mobile */
   .sus-cvr-wrp::before {
     background: linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0));
   }
+
   .common-ttle {
     font-size: 24px;
     line-height: 32px;
@@ -1047,9 +1231,10 @@ html {
 
   .intro {
     display: inline-block;
-    font-size: 28px;
+    font-size: 22px;
     margin-bottom: 5vh;
   }
+
   .container-1600-wrp {
     padding: 0px 15px;
     margin: 0 0 0rem 0rem;
@@ -1062,7 +1247,7 @@ html {
 .container1 {
   max-width: 1000px;
   padding: 20px;
-  margin: 40px auto 10px auto; 
+  margin: 40px auto 10px auto;
   font-family: Arial, sans-serif;
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -1118,7 +1303,8 @@ html {
 
 
 /* Common card faces */
-.card-front, .card-back {
+.card-front,
+.card-back {
   position: absolute;
   width: 100%;
   height: 80%;
@@ -1139,9 +1325,11 @@ html {
   height: 100%;
   z-index: 2;
 }
+
 .dark .card-front {
   background-color: #4b4b4b;
 }
+
 .card-front img {
   width: 15rem;
   height: 100%;
@@ -1149,6 +1337,7 @@ html {
   display: block;
   border-radius: 10px;
 }
+
 .card-title-overlay {
   position: absolute;
   bottom: 0;
@@ -1163,6 +1352,7 @@ html {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
+
 .card-front h4 {
   margin: 10px 0;
   font-size: 1.6rem;
@@ -1195,9 +1385,10 @@ html {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .container1{
+  .container1 {
     max-width: 350px;
   }
+
   .vehicle-categories-section {
     padding: 40px 0;
   }
@@ -1390,6 +1581,7 @@ html {
   0% {
     background-position: -200% 0;
   }
+
   100% {
     background-position: 200% 0;
   }
@@ -1405,7 +1597,7 @@ html {
 }
 
 /* Hide content behind loading shimmer */
-.car-cardbox.car-loading-card > *:not(.car-loading-card) {
+.car-cardbox.car-loading-card>*:not(.car-loading-card) {
   visibility: hidden;
 }
 
@@ -1419,193 +1611,236 @@ html {
 
 /* ====== CSS Custom Properties (Variables) for theming ====== */
 :root {
-    /* -- Hand Image Box Gradient (Light Mode) -- */
-    --hand-image-box-gradient-start: #ddddddde; /* Deep Indigo */
-    --hand-image-box-gradient-mid1: #a665b1; /* Amethyst Purple */
-    --hand-image-box-gradient-mid2: #ce74a083; /* Bright Blue */
-    --hand-image-box-gradient-end: #b57e3f8c; /* Deep Indigo */
+  /* -- Hand Image Box Gradient (Light Mode) -- */
+  --hand-image-box-gradient-start: #ddddddde;
+  /* Deep Indigo */
+  --hand-image-box-gradient-mid1: #a665b1;
+  /* Amethyst Purple */
+  --hand-image-box-gradient-mid2: #ce74a083;
+  /* Bright Blue */
+  --hand-image-box-gradient-end: #b57e3f8c;
+  /* Deep Indigo */
 
-    /* -- Text Colors (Light Mode) -- */
-    --hand-image-text-color: #ffffff;
-    --hand-image-text-shadow: rgba(0, 0, 0, 0.4);
-    --hand-image-span-color: #64ffda; /* Aqua-Mint Accent (like Gemini's highlight) */
-    --hand-image-p-color: #e0e0e0;
+  /* -- Text Colors (Light Mode) -- */
+  --hand-image-text-color: #ffffff;
+  --hand-image-text-shadow: rgba(0, 0, 0, 0.4);
+  --hand-image-span-color: #64ffda;
+  /* Aqua-Mint Accent (like Gemini's highlight) */
+  --hand-image-p-color: #e0e0e0;
 
-    /* -- Text Reveal Timing (for AOS) -- */
-    --text-reveal-duration: 0.8s;
-    --text-reveal-delay: 0.2s; /* Slight delay after box appears, if AOS is on parent */
-    --text-reveal-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1); /* Gentle spring */
+  /* -- Text Reveal Timing (for AOS) -- */
+  --text-reveal-duration: 0.8s;
+  --text-reveal-delay: 0.2s;
+  /* Slight delay after box appears, if AOS is on parent */
+  --text-reveal-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+  /* Gentle spring */
 }
 
 /* ====== Dark Mode Overrides (Assumes a '.dark' class is toggled on <html> or <body>) ====== */
-html.dark, body.dark { /* Use html.dark or body.dark based on your setup */
-    --hand-image-box-gradient-start: #2c3e50; /* Very Dark Blue */
-    --hand-image-box-gradient-mid1: #191e52; /* Deep Violet */
-    --hand-image-box-gradient-mid2: #030306; /* Darker Blue */
-    --hand-image-box-gradient-end: #2c3e50; /* Very Dark Blue */
+html.dark,
+body.dark {
+  /* Use html.dark or body.dark based on your setup */
+  --hand-image-box-gradient-start: #2c3e50;
+  /* Very Dark Blue */
+  --hand-image-box-gradient-mid1: #191e52;
+  /* Deep Violet */
+  --hand-image-box-gradient-mid2: #030306;
+  /* Darker Blue */
+  --hand-image-box-gradient-end: #2c3e50;
+  /* Very Dark Blue */
 
-    --hand-image-text-color: #f0f0f0;
-    --hand-image-text-shadow: rgba(0, 0, 0, 0.6);
-    --hand-image-span-color: #8cffff; /* Brighter Aqua-Mint for dark contrast */
-    --hand-image-p-color: #bbbbbb;
+  --hand-image-text-color: #f0f0f0;
+  --hand-image-text-shadow: rgba(0, 0, 0, 0.6);
+  --hand-image-span-color: #8cffff;
+  /* Brighter Aqua-Mint for dark contrast */
+  --hand-image-p-color: #bbbbbb;
 }
 
 /* --- */
 
 /* ====== Base Styling for the Box Container ====== */
 .hand-image-box {
-    position: relative;
-    height: 70px; /* Adjust height as needed */
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden; /* Ensures gradient stays within bounds */
-    z-index: 1;
-    font-family: 'Inter', 'Segoe UI', sans-serif;
-    font-weight: 500;
+  position: relative;
+  height: 70px;
+  /* Adjust height as needed */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  /* Ensures gradient stays within bounds */
+  z-index: 1;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  font-weight: 500;
 
-    /* Gradient Background - Always Animated and Visible */
-    background: linear-gradient(
-        270deg,
-        var(--hand-image-box-gradient-start),
-        var(--hand-image-box-gradient-mid1),
-        var(--hand-image-box-gradient-mid2),
-        var(--hand-image-box-gradient-end)
-    );
-    backdrop-filter: blur(55px) saturate(1.8);
-    background-size: 600% 600%;
-    animation: moveGradient 10s cubic-bezier(0, 1.09, 1, -0.03) infinite; /* Continuous gradient animation */
-    transition: background 0.7s ease-in-out; /* Smooth transition for background on theme change */
+  /* Gradient Background - Always Animated and Visible */
+  background: linear-gradient(270deg,
+      var(--hand-image-box-gradient-start),
+      var(--hand-image-box-gradient-mid1),
+      var(--hand-image-box-gradient-mid2),
+      var(--hand-image-box-gradient-end));
+  backdrop-filter: blur(55px) saturate(1.8);
+  background-size: 600% 600%;
+  animation: moveGradient 10s cubic-bezier(0, 1.09, 1, -0.03) infinite;
+  /* Continuous gradient animation */
+  transition: background 0.7s ease-in-out;
+  /* Smooth transition for background on theme change */
 
-    /* Remove AOS-specific initial hidden states from the box itself */
-    /* This ensures the box with its gradient is always visible by default */
-    /* If you want the box itself to fade in with AOS, you'd add data-aos to it and apply similar initial styles. */
+  /* Remove AOS-specific initial hidden states from the box itself */
+  /* This ensures the box with its gradient is always visible by default */
+  /* If you want the box itself to fade in with AOS, you'd add data-aos to it and apply similar initial styles. */
 }
 
 
 /* ====== Gradient Animation (Continuous) ====== */
 @keyframes moveGradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* --- */
 
 /* ====== Text Container Styling (This is where the AOS "fade" will happen) ====== */
 .hand-image-text {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    padding: 0 25px;
-    color: var(--hand-image-text-color);
-    text-shadow: 0 1px 6px var(--hand-image-text-shadow);
-    transition: color 0.5s ease-in-out, text-shadow 0.5s ease-in-out;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 25px;
+  color: var(--hand-image-text-color);
+  text-shadow: 0 1px 6px var(--hand-image-text-shadow);
+  transition: color 0.5s ease-in-out, text-shadow 0.5s ease-in-out;
 
-    /* Initial state for text - hidden and slightly offset, will be revealed by AOS */
-    opacity: 0;
-    transform: translateY(10px); /* Start slightly below final position */
-    /* Define the transition for when AOS applies 'aos-animate' */
-    transition: opacity var(--text-reveal-duration) var(--text-reveal-timing-function),
-                transform var(--text-reveal-duration) var(--text-reveal-timing-function);
-    /* No delay here, as data-aos="fade" on the element itself controls when it starts */
+  /* Initial state for text - hidden and slightly offset, will be revealed by AOS */
+  opacity: 0;
+  transform: translateY(10px);
+  /* Start slightly below final position */
+  /* Define the transition for when AOS applies 'aos-animate' */
+  transition: opacity var(--text-reveal-duration) var(--text-reveal-timing-function),
+    transform var(--text-reveal-duration) var(--text-reveal-timing-function);
+  /* No delay here, as data-aos="fade" on the element itself controls when it starts */
 }
 
 /* ====== AOS Specific Styles for Text (when it's visible) ====== */
 /* AOS will add 'aos-animate' to '.hand-image-text' because of data-aos="fade" */
 .hand-image-text.aos-animate {
-    opacity: 1;
-    transform: translateY(0); /* Animate to final position */
+  opacity: 1;
+  transform: translateY(0);
+  /* Animate to final position */
 }
 
 
 .hand-image-text h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin: 0;
-    text-shadow: 2px 2px rgba(0, 0, 0, 0.638);
-    font-family: 'JaguarModernWeb-Bold';
-    letter-spacing: 0.8px;
-    line-height: 1.3;
-    color: var(--hand-image-text-color); /* Ensures h2 uses the correct text color */
-    /* Removed the previous h2-specific fadeInScale animation */
-    /* Now, the whole .hand-image-text (its parent) animates in with AOS */
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.638);
+  font-family: 'JaguarModernWeb-Bold';
+  letter-spacing: 0.8px;
+  line-height: 1.3;
+  color: var(--hand-image-text-color);
+  /* Ensures h2 uses the correct text color */
+  /* Removed the previous h2-specific fadeInScale animation */
+  /* Now, the whole .hand-image-text (its parent) animates in with AOS */
 }
 
 .hand-image-text h2 span {
-    color: var(--hand-image-span-color);
-    font-weight: 800;
-    text-shadow: 0 0 8px var(--hand-image-span-color), 0 0 15px rgba(100, 255, 218, 0.5); /* Glow effect */
-    transition: color 0.5s ease-in-out, text-shadow 0.5s ease-in-out;
+  color: var(--hand-image-span-color);
+  font-weight: 800;
+  text-shadow: 0 0 8px var(--hand-image-span-color), 0 0 15px rgba(100, 255, 218, 0.5);
+  /* Glow effect */
+  transition: color 0.5s ease-in-out, text-shadow 0.5s ease-in-out;
 }
 
 /* --- */
 
 /* ====== Responsive Adjustments ====== */
 @media (max-width: 600px) {
-    .hand-image-box {
-        height: 70px;
-    }
-    .hand-image-text h2 {
-        font-size: 1.2rem;
-        letter-spacing: 0.5px;
-    }
-    .hand-image-text p {
-        font-size: 0.8rem;
-        margin-top: 2px;
-    }
+  .hand-image-box {
+    height: 70px;
+  }
+
+  .hand-image-text h2 {
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+  }
+
+  .hand-image-text p {
+    font-size: 0.8rem;
+    margin-top: 2px;
+  }
 }
 
 @media (max-width: 400px) {
-    .hand-image-box {
-        height: 80px;
-    }
-    .hand-image-text h2 {
-        font-size: 1rem;
-    }
-    .hand-image-text p {
-        font-size: 0.7rem;
-    }
+  .hand-image-box {
+    height: 80px;
+  }
+
+  .hand-image-text h2 {
+    font-size: 1rem;
+  }
+
+  .hand-image-text p {
+    font-size: 0.7rem;
+  }
 }
 
 
 /* ====== CSS Custom Properties (Variables) for hand-image-box1 theming ====== */
 :root {
-    /* -- Hand Image Box 1 Gradient (Light Mode - Authentic Gemini Green/Teal/Blue) -- */
-    --hand-image-box1-gradient-start: #f4a371; /* Dark Teal 900 */
-    --hand-image-box1-gradient-mid1: #7683f7; /* Deep Indigo 900 */
-    --hand-image-box1-gradient-mid2: #da6bf6; /* Grey 800 (for depth) */
-    --hand-image-box1-gradient-end: #ff6f6f; /* Google Green */
+  /* -- Hand Image Box 1 Gradient (Light Mode - Authentic Gemini Green/Teal/Blue) -- */
+  --hand-image-box1-gradient-start: #f4a371;
+  /* Dark Teal 900 */
+  --hand-image-box1-gradient-mid1: #7683f7;
+  /* Deep Indigo 900 */
+  --hand-image-box1-gradient-mid2: #da6bf6;
+  /* Grey 800 (for depth) */
+  --hand-image-box1-gradient-end: #ff6f6f;
+  /* Google Green */
 
-    /* -- Text Colors (Light Mode) -- */
-    --hand-image-text1-color: #1b1a1a;
-    --text-shadow: 2px 2px #ffffff70;
-    --hand-image-text1-shadow: rgba(0, 0, 0, 0.4);
-    --hand-image-text1-h4-color: #323232;
-    --hand-image-text1-icon-color: #FBBC04; /* Google Yellow (Vibrant Accent) */
+  /* -- Text Colors (Light Mode) -- */
+  --hand-image-text1-color: #1b1a1a;
+  --text-shadow: 2px 2px #ffffff70;
+  --hand-image-text1-shadow: rgba(0, 0, 0, 0.4);
+  --hand-image-text1-h4-color: #323232;
+  --hand-image-text1-icon-color: #FBBC04;
+  /* Google Yellow (Vibrant Accent) */
 
-    /* -- AOS Timing for this specific box -- */
-    --box1-fade-duration: 0.8s;
-    --text1-zoom-duration: 0.9s;
-    --text1-zoom-delay: 0.3s;
-    --aos-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+  /* -- AOS Timing for this specific box -- */
+  --box1-fade-duration: 0.8s;
+  --text1-zoom-duration: 0.9s;
+  --text1-zoom-delay: 0.3s;
+  --aos-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 /* ====== Dark Mode Overrides for hand-image-box1 ====== */
-html.dark, body.dark {
-    /* -- Hand Image Box 1 Gradient (Dark Mode - Deep Gemini Greens/Blues/Grays) -- */
-    --hand-image-box1-gradient-start: #fc6202; /* Dark Teal 900 */
-    --hand-image-box1-gradient-mid1: #0017fa; /* Deep Indigo 900 */
-    --hand-image-box1-gradient-mid2: #cd04ff; /* Grey 800 (for depth) */
-    --hand-image-box1-gradient-end: #ff6f6f; /* Dark Teal 900 */
+html.dark,
+body.dark {
+  /* -- Hand Image Box 1 Gradient (Dark Mode - Deep Gemini Greens/Blues/Grays) -- */
+  --hand-image-box1-gradient-start: #fc6202;
+  /* Dark Teal 900 */
+  --hand-image-box1-gradient-mid1: #0017fa;
+  /* Deep Indigo 900 */
+  --hand-image-box1-gradient-mid2: #cd04ff;
+  /* Grey 800 (for depth) */
+  --hand-image-box1-gradient-end: #ff6f6f;
+  /* Dark Teal 900 */
 
-    /* -- Text Colors (Dark Mode) -- */
-    --hand-image-text1-color: #f0f0f0;
-    --text-shadow: 2px 2px #212121d3;
-    --hand-image-text1-shadow: rgba(0, 0, 0, 0.6);
-    --hand-image-text1-h4-color: #cccccc;
-    --hand-image-text1-icon-color: #FFC107; /* Amber 500 for dark contrast */
+  /* -- Text Colors (Dark Mode) -- */
+  --hand-image-text1-color: #f0f0f0;
+  --text-shadow: 2px 2px #212121d3;
+  --hand-image-text1-shadow: rgba(0, 0, 0, 0.6);
+  --hand-image-text1-h4-color: #cccccc;
+  --hand-image-text1-icon-color: #FFC107;
+  /* Amber 500 for dark contrast */
 }
 
 /* --- */
@@ -1624,12 +1859,10 @@ html.dark, body.dark {
   left: -100%;
   width: 200%;
   height: 100%;
-  background: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.4) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: linear-gradient(120deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0) 100%);
   animation: shimmerMove 1.5s linear infinite;
   pointer-events: none;
   mix-blend-mode: overlay;
@@ -1640,6 +1873,7 @@ html.dark, body.dark {
   0% {
     left: -100%;
   }
+
   100% {
     left: 100%;
   }
@@ -1648,105 +1882,116 @@ html.dark, body.dark {
 
 
 .hand-image-box1 {
-    position: relative;
-    height: 100px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    z-index: 1;
-    font-family: 'Inter', 'Segoe UI', sans-serif;
-    font-weight: 500;
+  position: relative;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 1;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  font-weight: 500;
 
-    background: linear-gradient(
-        210deg,
-        var(--hand-image-box1-gradient-start),
-        #91b062ba,
-        var(--hand-image-box1-gradient-mid2),
-        var(--hand-image-box1-gradient-end)
-    );
-    background-size: 600% 600%;
-    animation: moveGradient1 10s cubic-bezier(1, 0.49, 0.38, 0.88) infinite;
-    /* transition: background 0.7s ease-in-out; */
+  background: linear-gradient(210deg,
+      var(--hand-image-box1-gradient-start),
+      #91b062ba,
+      var(--hand-image-box1-gradient-mid2),
+      var(--hand-image-box1-gradient-end));
+  background-size: 600% 600%;
+  animation: moveGradient1 10s cubic-bezier(1, 0.49, 0.38, 0.88) infinite;
+  /* transition: background 0.7s ease-in-out; */
 
-    opacity: 0;
-    transition: opacity var(--box1-fade-duration) var(--aos-timing-function);
+  opacity: 0;
+  transition: opacity var(--box1-fade-duration) var(--aos-timing-function);
 
-    /* ADD THIS: */
-    backdrop-filter: blur(55px) saturate(1.8);
-    -webkit-backdrop-filter: blur(10px) saturate(180%);
+  /* ADD THIS: */
+  backdrop-filter: blur(55px) saturate(1.8);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
 }
 
 
 .hand-image-box1.aos-animate {
-    opacity: 1;
+  opacity: 1;
 }
 
 /* ====== Gradient Animation (Continuous, specific to box1) ====== */
 @keyframes moveGradient1 {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* --- */
 
 /* ====== Text Container Styling for hand-image-text1 ====== */
 .hand-image-text1 {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    padding: 0 30px;
-    color: var(--hand-image-text1-color);
-    text-shadow: 0 1px 8px var(--hand-image-text1-shadow);
-    transition: color 0.5s ease-in-out, text-shadow 0.5s ease-in-out;
-    line-height: 1.2;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 30px;
+  color: var(--hand-image-text1-color);
+  text-shadow: 0 1px 8px var(--hand-image-text1-shadow);
+  transition: color 0.5s ease-in-out, text-shadow 0.5s ease-in-out;
+  line-height: 1.2;
 
-    opacity: 0;
-    transform: scale(0.8);
-    transition: opacity var(--text1-zoom-duration) var(--aos-timing-function),
-                transform var(--text1-zoom-duration) var(--aos-timing-function);
-    transition-delay: var(--text1-zoom-delay);
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity var(--text1-zoom-duration) var(--aos-timing-function),
+    transform var(--text1-zoom-duration) var(--aos-timing-function);
+  transition-delay: var(--text1-zoom-delay);
 }
 
 .hand-image-text1.aos-animate {
-    opacity: 1;
-    transform: scale(1);
+  opacity: 1;
+  transform: scale(1);
 }
 
 .hand-image-text1 h2 {
-    font-family: 'JaguarModernWeb-Bold';
-    text-shadow: var(--text-shadow);
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin: 0 0 8px 0;
-    letter-spacing: 1px;
-    line-height: 1.1;
-    color: var(--hand-image-text1-color);
+  font-family: 'JaguarModernWeb-Bold';
+  text-shadow: var(--text-shadow);
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  letter-spacing: 1px;
+  line-height: 1.1;
+  color: var(--hand-image-text1-color);
 }
 
 .hand-image-text1 h4 {
-    font-family: 'JaguarModernWeb-Bold';
-    font-size: 1.1rem;
-    font-weight: 500;
-    margin: 0;
-    letter-spacing: 0.5px;
-    color: var(--hand-image-text1-h4-color);
+  font-family: 'JaguarModernWeb-Bold';
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0;
+  letter-spacing: 0.5px;
+  color: var(--hand-image-text1-h4-color);
 }
 
 .hand-image-text1 h4 .bi-gem {
-    color: var(--hand-image-text1-icon-color);
-    font-size: 1.3em;
-    vertical-align: middle;
-    margin-left: 8px;
-    animation: gemGlow1 2s ease-in-out infinite alternate;
+  color: var(--hand-image-text1-icon-color);
+  font-size: 1.3em;
+  vertical-align: middle;
+  margin-left: 8px;
+  animation: gemGlow1 2s ease-in-out infinite alternate;
 }
 
 /* ====== Icon Glow Animation (specific to box1 gem) ====== */
 @keyframes gemGlow1 {
-    0% { text-shadow: 0 0 5px var(--hand-image-text1-icon-color), 0 0 10px rgba(251, 188, 4, 0.5); }
-    100% { text-shadow: 0 0 10px var(--hand-image-text1-icon-color), 0 0 20px rgba(251, 188, 4, 0.8); }
+  0% {
+    text-shadow: 0 0 5px var(--hand-image-text1-icon-color), 0 0 10px rgba(251, 188, 4, 0.5);
+  }
+
+  100% {
+    text-shadow: 0 0 10px var(--hand-image-text1-icon-color), 0 0 20px rgba(251, 188, 4, 0.8);
+  }
 }
 
 
@@ -1754,70 +1999,83 @@ html.dark, body.dark {
 
 /* ====== Responsive Adjustments ====== */
 @media (max-width: 768px) {
-    .hand-image-box1 {
-        height: 120px;
-    }
-    .hand-image-text1 h2 {
-        font-size: 1.8rem;
-        letter-spacing: 0.8px;
-    }
-    .hand-image-text1 h4 {
-        font-size: 1rem;
-    }
-    .hand-image-text1 h4 .bi-gem {
-        font-size: 1.2em;
-    }
+  .hand-image-box1 {
+    height: 120px;
+  }
+
+  .hand-image-text1 h2 {
+    font-size: 1.8rem;
+    letter-spacing: 0.8px;
+  }
+
+  .hand-image-text1 h4 {
+    font-size: 1rem;
+  }
+
+  .hand-image-text1 h4 .bi-gem {
+    font-size: 1.2em;
+  }
 }
 
 @media (max-width: 500px) {
-    .hand-image-box1 {
-        height: 130px;
-        padding: 0 15px;
-    }
-    .hand-image-text1 {
-        padding: 0 15px;
-    }
-    .hand-image-text1 h2 {
-        font-size: 1.5rem;
-        letter-spacing: 0.5px;
-    }
-    .hand-image-text1 h4 {
-        font-size: 0.9rem;
-    }
-    .hand-image-text1 h4 .bi-gem {
-        font-size: 1.1em;
-    }
+  .hand-image-box1 {
+    height: 130px;
+    padding: 0 15px;
+  }
+
+  .hand-image-text1 {
+    padding: 0 15px;
+  }
+
+  .hand-image-text1 h2 {
+    font-size: 1.5rem;
+    letter-spacing: 0.5px;
+  }
+
+  .hand-image-text1 h4 {
+    font-size: 0.9rem;
+  }
+
+  .hand-image-text1 h4 .bi-gem {
+    font-size: 1.1em;
+  }
 }
 
 @media (max-width: 380px) {
-    .hand-image-box1 {
-        height: 140px;
-    }
-    .hand-image-text1 h2 {
-        font-size: 1.3rem;
-    }
-    .hand-image-text1 h4 {
-        font-size: 0.8rem;
-    }
+  .hand-image-box1 {
+    height: 140px;
+  }
+
+  .hand-image-text1 h2 {
+    font-size: 1.3rem;
+  }
+
+  .hand-image-text1 h4 {
+    font-size: 0.8rem;
+  }
 }
 
 .view-btn {
-    display: inline-block;
-    background-color: transparent;
-    border: 1px solid black;
-    color: #4b4949;
-    padding: 12px 15px;
-    border-radius: 50px; /* Pill shape */
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    cursor: pointer; /* Indicate it's clickable */
+  display: inline-block;
+  background-color: transparent;
+  border: 1px solid black;
+  color: #4b4949;
+  padding: 12px 15px;
+  border-radius: 50px;
+  /* Pill shape */
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+  /* Indicate it's clickable */
 }
-.dark .view-btn{
+
+.dark .view-btn {
   border: 1px solid rgb(137, 136, 136);
   color: #ffffff;
 }
+
 .view-btn:hover {
-    background-color: #0055ff43;
-    border-radius: 50px;
+  background-color: #0055ff43;
+  border-radius: 50px;
 }

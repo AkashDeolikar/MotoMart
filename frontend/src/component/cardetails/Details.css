@@ -59,9 +59,10 @@ body, html {
   max-width: 1200px;
   border-radius: 20px;
   background-color: #1a1a1a;
-  box-shadow: 0 8px 30px rgba(255, 255, 255, 0.196);
+  box-shadow: 0 8px 30px rgba(31, 31, 31, 0.156);
   transition: background 0.3s ease, box-shadow 0.3s ease;
 }
+
 .car-detail-section h1 {
   font-family: 'Poppins';
   font-size: 36px;
@@ -85,7 +86,8 @@ body, html {
   gap: 24px;
   margin-top: 40px;
 }
-.spec-item {
+/*DEAD CODE start*/
+/* .spec-item {
   background: #2c2c2c;
   border: 1px solid #444;
   border-radius: 16px;
@@ -108,7 +110,8 @@ body, html {
 .spec-item p {
   font-size: 15px;
   color: #b0bec5;
-}
+} */
+ /*DEAD CODE end*/
 
 /* --- Headings --- */
 .car-detail-section h2 {
@@ -121,8 +124,8 @@ body, html {
   border-bottom: 2px solid #ffca28;
 }
 
-/* --- Color Swatches --- */
-.color-swatches-section {
+/*--- Color Swatches ---*/
+/* .color-swatches-section {
   margin-top: 60px;
   text-align: center;
 }
@@ -152,8 +155,151 @@ body, html {
   border: 3px solid #90a4ae;
   box-shadow: inset 0 0 0 2px #333;
   margin-bottom: 10px;
+} */
+ /* --- Color Swatches --- */
+.color-swatches-section {
+  margin-top: 60px;
+  text-align: center;
+  padding: 40px 20px;
+  background: radial-gradient(circle at center, #1e1e1e 0%, #121212 100%);
+  border-radius: 16px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
 }
 
+.color-swatches-section h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #ffffff;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.color-swatches {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 32px;
+  animation: fadeUp 0.7s ease-in-out both;
+}
+
+.color-swatches > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+  color: #e0e0e0;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  animation: popIn 0.4s ease forwards;
+}
+
+.color-swatches > div:hover {
+  transform: scale(1.1);
+}
+
+.color-swatches div div {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background-clip: padding-box;
+  box-shadow:
+    0 0 15px rgba(0, 0, 0, 0.6),
+    0 0 0 3px rgba(255, 255, 255, 0.1),
+    inset 0 0 8px rgba(0, 0, 0, 0.3);
+  margin-bottom: 10px;
+  transition: all 0.4s ease;
+}
+
+.color-swatches > div:hover div {
+  box-shadow:
+    0 0 15px rgba(255, 255, 255, 0.4),
+    0 0 0 3px rgba(255, 255, 255, 0.2),
+    inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.color-swatches > div span {
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 4px;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@media (max-width: 768px) {
+  .color-swatches-section {
+    margin-top: 50px; /* Reduced top margin for smaller screens */
+    perspective: none; /* Disable 3D perspective for simpler mobile view */
+  }
+
+  .color-swatches-section h2 {
+    font-size: 28px; /* Smaller heading */
+    margin-bottom: 30px;
+    text-shadow: none; /* Simpler text on mobile */
+  }
+
+  .color-swatches {
+    gap: 20px; /* Reduced gap between swatches */
+    padding: 0 10px; /* Add some padding to the sides */
+  }
+
+  .color-swatches > div {
+    flex: 0 0 calc(50% - 15px); /* Two columns, considering gap */
+    max-width: calc(50% - 15px); /* Ensure max width for two columns */
+    font-size: 14px; /* Smaller font size for labels */
+    text-shadow: none; /* Simpler text on mobile */
+  }
+
+  .color-swatches div div {
+    width: 70px; /* Smaller swatch size */
+    height: 70px; /* Smaller swatch size */
+    margin-bottom: 8px; /* Reduced margin below swatch */
+    transform: none; /* Remove initial 3D tilt on mobile */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, background 0.2s ease-out; /* Faster transition for tap feedback */
+  }
+
+  /* Mobile Active State (instead of hover) */
+  .color-swatches > div:active div {
+    transform: scale(0.95); /* Slightly shrink on tap */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* More subtle shadow on tap */
+    background: rgba(255, 255, 255, 0.05); /* Slightly more translucent on tap */
+  }
+
+  /* Remove hover effects and pseudo-element shimmer for mobile */
+  .color-swatches > div:hover div {
+    transform: none; /* Undo desktop hover */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Restore mobile shadow */
+    background: rgba(255, 255, 255, 0.1); /* Restore mobile background */
+  }
+
+  .color-swatches div div::before {
+    display: none; /* Hide shimmer on mobile */
+  }
+}
 /* --- Responsive --- */
 @media (max-width: 768px) {
   .section-title,

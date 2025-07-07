@@ -27,7 +27,7 @@ const ServiceDropdown = ({ closeParentMobileMenu, isParentMobileMenuOpen }) => {
     return (
         <li className={`service-nav-item ${isMobileServiceMenuOpen ? 'mobile-dd-open' : ''}`}>
             <Link
-                to="/overviewpage"
+                to="/partsinfo"
                 title="Service"
                 className="navigationAnalytics icon-arrow-down desktop-service-link"
                 onClick={handleToggleServiceMenu}
@@ -40,7 +40,6 @@ const ServiceDropdown = ({ closeParentMobileMenu, isParentMobileMenuOpen }) => {
 
             <div className="desk-nav-dd">
                 <ul>
-                    <li><Link to="/overviewpage" onClick={handleServiceLinkClick}>Overview <i className="bi bi-arrow-up-right-circle"></i></Link></li>
                     <li><Link to="/servicecostcalculator" onClick={handleServiceLinkClick}>Service Cost Check <i className="bi bi-arrow-up-right-circle"></i></Link></li>
                     <li><Link to="/emicalculator" onClick={handleServiceLinkClick}>EMI Calculator <i className="bi bi-arrow-up-right-circle"></i></Link></li>
                     <li><Link to="/partsinfo" onClick={handleServiceLinkClick}>Parts Info <i className="bi bi-arrow-up-right-circle"></i></Link></li>

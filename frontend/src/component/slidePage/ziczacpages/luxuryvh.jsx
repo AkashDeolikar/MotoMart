@@ -33,27 +33,27 @@ const Luxuryvh = () => {
     mercedes: false,
   });
 
-  // useEffect(() => {
-  //   const timeout = setTimeout(() => {
-  //     setIsLoading(false);
-  //   }, 1000);
-
-  //   return () => clearTimeout(timeout);
-  // }, []); 
   useEffect(() => {
-    const handlePageLoad = () => {
+    const timeout = setTimeout(() => {
       setIsLoading(false);
-    };
+    }, 1000);
 
-    // Check if already loaded
-    if (document.readyState === "complete") {
-      handlePageLoad();
-    } else {
-      window.addEventListener("load", handlePageLoad);
-    }
+    return () => clearTimeout(timeout);
+  }, []); 
+  // useEffect(() => {
+  //   const handlePageLoad = () => {
+  //     setIsLoading(false);
+  //   };
 
-    return () => window.removeEventListener("load", handlePageLoad);
-  }, []);
+  //   // Check if already loaded
+  //   if (document.readyState === "complete") {
+  //     handlePageLoad();
+  //   } else {
+  //     window.addEventListener("load", handlePageLoad);
+  //   }
+
+  //   return () => window.removeEventListener("load", handlePageLoad);
+  // }, []);
 
 
   const handleVehicleClick = (brand, route) => {

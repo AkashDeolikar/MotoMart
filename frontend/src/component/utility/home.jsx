@@ -787,8 +787,8 @@ const Home = () => {
 
       {/* FLIP CARD HEADING */}
       <section className="intro">
-        <p className="cl1">Empower your <i className="bi bi-boxes"></i></p>
-        <p className="cl2">digital Journey</p>
+        <p className="cl1">Drive Smarter with Essentials <i className="bi bi-boxes"></i> </p>
+        <p className="cl2"> Stay ahead with EMI, service, and parts tracking tools.</p>
       </section>
 
       {/* OFFER FLIP CARDS  */}

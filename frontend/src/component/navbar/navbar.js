@@ -6,7 +6,6 @@ import { auth } from "../../firebase";
 import ServiceDropdown from './ServiceDropdown';
 import VehicleDropdown from "./vehicledropdown";
 
-// Memoize the Navbar component to prevent unnecessary re-renders
 const CarNavbar = memo(({ theme, toggleTheme }) => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -14,7 +13,6 @@ const CarNavbar = memo(({ theme, toggleTheme }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isHomePageAtTop, setIsHomePageAtTop] = useState(true);
 
-  // Memoize handleLogout to prevent it from being recreated on every render
   const handleLogout = useCallback(async () => {
     try {
       await auth.signOut();
@@ -22,7 +20,7 @@ const CarNavbar = memo(({ theme, toggleTheme }) => {
     } catch (error) {
       console.error("Error signing out:", error);
     }
-  }, [navigate]); // navigate is stable due to useNavigate
+  }, [navigate]);
 
   const toggleMobileMenu = useCallback(() => {
     setIsMobileMenuOpen(prev => !prev);
@@ -35,25 +33,21 @@ const CarNavbar = memo(({ theme, toggleTheme }) => {
   // ✅ SCROLL AND PAGE LOGIC - Optimized to use useCallback
   useEffect(() => {
     const handleScroll = () => {
-      // Use a consistent variable for location.pathname check
       const isHomePath = location.pathname === "/";
       const scrollTop = window.scrollY;
 
-      // Only update state if it actually changes to prevent unnecessary re-renders
       const newIsHomePageAtTop = isHomePath && scrollTop <= 50;
       if (newIsHomePageAtTop !== isHomePageAtTop) {
         setIsHomePageAtTop(newIsHomePageAtTop);
       }
     };
 
-    // Add passive event listener for better scroll performance
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Run on mount/path change
+    handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [location.pathname, isHomePageAtTop]); // Added isHomePageAtTop to dependencies for accurate state check
+  }, [location.pathname, isHomePageAtTop]); // isHomePageAtTop added for accurate state check
 
-  // Optimize navbarClass computation
   const navbarClass = `car-navbar ${theme} ${isHomePageAtTop ? "homepage-transparent-top" : "scrolled-or-other-page"}`;
 
   return (
@@ -72,7 +66,6 @@ const CarNavbar = memo(({ theme, toggleTheme }) => {
           {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
         </button>
 
-        {/* Conditionally render overlay only when mobile menu is open */}
         {isMobileMenuOpen && (
           <div className="mobile-menu-overlay" onClick={closeMobileMenu}></div>
         )}
@@ -88,7 +81,6 @@ const CarNavbar = memo(({ theme, toggleTheme }) => {
               <Link to="/" className={location.pathname === "/" ? "active" : ""} onClick={closeMobileMenu}>Home</Link>
             </li>
 
-            {/* Pass closeMobileMenu directly */}
             <VehicleDropdown
               closeParentMobileMenu={closeMobileMenu}
               isParentMobileMenuOpen={isMobileMenuOpen}
@@ -100,7 +92,6 @@ const CarNavbar = memo(({ theme, toggleTheme }) => {
               </li>
             )}
 
-            {/* Pass closeMobileMenu directly */}
             <ServiceDropdown
               closeParentMobileMenu={closeMobileMenu}
               isParentMobileMenuOpen={isMobileMenuOpen}
@@ -128,10 +119,25 @@ const CarNavbar = memo(({ theme, toggleTheme }) => {
               </>
             )}
 
+            {/* ✅ CORRECTED THEME TOGGLE BUTTON */}
             <li>
-              <div className="theme-toggle" onClick={() => { toggleTheme(); closeMobileMenu(); }} role="button" tabIndex="0" aria-label={theme === "light" ? "Switch to dark theme" : "Switch to light theme"}>
+              <div
+                className="theme-toggle" // This div contains the FaMoon/FaSun icon
+                onClick={() => { toggleTheme(); closeMobileMenu(); }}
+                role="button"
+                tabIndex="0"
+                aria-label={theme === "light" ? "Switch to dark theme" : "Switch to light theme"}
+              >
                 {theme === "light" ? <FaMoon /> : <FaSun />}
               </div>
+
+              {/* ❌ REMOVE THIS BUTTON: It's redundant and the source of the DOM manipulation issue */}
+              {/*
+              <button id="theme-toggle">
+                <span class="icon light-icon">☀️</span>
+                <span class="icon dark-icon">🌙</span>
+              </button>
+              */}
             </li>
           </ul>
         </div>

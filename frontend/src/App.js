@@ -202,6 +202,7 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister }) =
               <Route path="/servicecostcalculator" element={<ServiceCostCalculator />} />
               <Route path="/emicalculator" element={<EMICalculator />} />
               <Route path="/partsinfo" element={<PartsInfo />} />
+              <Route path="/partsinfo" element={<PartsInfo />} />
 
               {/* Car details */}
               <Route path="/cardetails" element={<CarDetails />} />

@@ -1,156 +1,232 @@
+/* ==== General Layout ==== */
 .container {
-    padding: 20px;
-    max-width: 500px;
-    margin: auto;
-    font-family: Arial, sans-serif;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    margin-top: 40px;
-    /* background: #f9f9f9; */
-    margin: 25px 0 25px 0;
+  max-width: 650px;
+  margin: 40px auto;
+  padding: 24px;
+  background: #1e1e1e;
+  color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  font-family: 'Segoe UI', sans-serif;
 }
 
-h2 {
-    text-align: center;
-    margin-bottom: 20px;
+/* ==== Heading ==== */
+.container h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 28px;
+  color: #4caf50;
+  letter-spacing: 1px;
 }
 
+/* ==== Add Service Section ==== */
 .add-service {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
 }
 
-.add-service input {
-    padding: 5px;
-    width: 120px;
+.add-service input[type="text"],
+.add-service input[type="number"] {
+  flex: 1 1 45%;
+  padding: 10px 12px;
+  background-color: #2a2a2a;
+  border: 1px solid #555;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+.add-service input:focus {
+  border-color: #4caf50;
+  outline: none;
 }
 
 .add-service button {
-    padding: 5px 10px;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
+  flex: 1 1 45%;
+  padding: 10px 14px;
+  background-color: #4caf50;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.add-service .clear-btn {
+  background-color: #f44336;
 }
 
 .add-service button:hover {
-    opacity: 0.9;
+  opacity: 0.9;
 }
 
-.clear-btn {
-    background-color: #dc3545;
-    /* color: white; */
+/* ==== Service List ==== */
+.list {
+  margin-bottom: 24px;
 }
 
 .item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    margin-bottom: 10px;
+  background: #2c2c2c;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
 }
 
 .service-name {
-    flex: 1;
-    min-width: 150px;
+  flex: 1 1 100%;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #eeeeee;
+}
+
+/* ==== Selects & Inputs ==== */
+select,
+.input {
+  padding: 8px 10px;
+  border-radius: 6px;
+  background-color: #3a3a3a;
+  color: #fff;
+  border: 1px solid #555;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+select:focus,
+.input:focus {
+  outline: none;
+  border-color: #81c784;
 }
 
 .input {
-    width: 60px;
-    padding: 4px;
-    text-align: right;
+  width: 80px;
 }
 
+/* ==== Delete Button ==== */
 .delete-btn {
-    background: transparent;
-    border: none;
-    color: red;
-    cursor: pointer;
-    font-size: 16px;
+  background-color: transparent;
+  color: #ff5c5c;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: auto;
+  transition: 0.3s ease;
 }
 
+.delete-btn:hover {
+  color: #ff8a80;
+}
+
+/* ==== Total ==== */
+h3 {
+  margin-top: 20px;
+  text-align: right;
+  font-size: 20px;
+  color: #ffd54f;
+}
+
+/* ==== Bill Summary ==== */
 .bill {
-    margin-top: 20px;
-    padding: 10px;
-    /* background-color: #eef; */
-    border-radius: 8px;
+  margin-top: 20px;
+  padding: 16px;
+  background-color: #292929;
+  border-radius: 12px;
+  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.05);
 }
 
 .bill h4 {
-    margin-bottom: 10px;
+  margin-bottom: 12px;
+  font-size: 18px;
+  color: #4caf50;
 }
 
 .bill ul {
-    list-style-type: none;
-    padding-left: 0;
+  list-style: none;
+  padding-left: 0;
 }
 
 .bill li {
-    margin-bottom: 5px;
+  padding: 6px 0;
+  border-bottom: 1px solid #444;
+  font-size: 14px;
+  color: #eeeeee;
 }
 
-/* Mobile Screen 486p*/
-@media screen and (max-width: 486px) {
-    .add-service {
-        flex-direction: column;
-        align-items: stretch;
-    }
+/* ==== CSS-Based Visual Summary Bar ==== */
+.bar-summary {
+  margin-top: 24px;
+  background: #2c2c2c;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.05);
+}
 
-    .add-service input,
-    .item select,
-    .item input {
-        width: 100%;
-    }
+.bar-row {
+  margin-bottom: 12px;
+}
 
-    .list .item {
-        flex-direction: column;
-        align-items: flex-start;
-        border-bottom: 1px solid #ddd;
-        padding-bottom: 10px;
-        margin-bottom: 15px;
-    }
+.bar-label {
+  font-size: 14px;
+  color: #ccc;
+  display: block;
+  margin-bottom: 6px;
+}
 
-    .service-name {
-        font-size: 15px;
-        margin-bottom: 5px;
-        font-weight: bold;
-    }
+.bar-track {
+  width: 100%;
+  height: 12px;
+  background-color: #444;
+  border-radius: 8px;
+  overflow: hidden;
+}
 
-    /* Wrap brand/wash selectors */
-    .item-controls {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        width: 100%;
-        margin-bottom: 8px;
-    }
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(to right, #4caf50, #81c784);
+  transition: width 0.5s ease;
+  border-radius: 8px 0 0 8px;
+}
 
-    .item-controls select {
-        flex: 1 1 45%;
-    }
+/* ==== Mobile Responsive ==== */
+@media (max-width: 600px) {
+  .container {
+    margin: 20px 12px;
+    padding: 16px;
+  }
 
-    /* Row for Qty + Delete */
-    .item-bottom-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        gap: 10px;
-    }
+  .add-service {
+    flex-direction: column;
+    gap: 10px;
+  }
 
-    .item-bottom-row .input {
-        flex: 1;
-        min-width: 100px;
-    }
+  .add-service input,
+  .add-service button {
+    width: 100%;
+    flex: 1 1 100%;
+  }
 
-    .item-bottom-row .delete-btn {
-        flex-shrink: 0;
-        font-size: 18px;
-        margin-left: auto;
-    }
+  .item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-    .delete-btn {
-        align-self: flex-end;
-    }
+  .input {
+    width: 100%;
+  }
+
+  .delete-btn {
+    align-self: flex-end;
+    margin-top: 6px;
+  }
+
+  h3 {
+    text-align: left;
+  }
 }

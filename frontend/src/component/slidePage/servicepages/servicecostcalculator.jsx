@@ -165,18 +165,27 @@ const ServiceCostCalculator = () => {
         <div className="bill">
           <h4>Bill Summary</h4>
           <ul>
-            {selectedServices.map(service => {
-              const qty = quantities[service.id];
-              const price = getServicePrice(service);
-              const total = qty * price;
-              return (
-                <li key={service.id}>
-                  {service.name}
-                  {service.brands && brands[service.id] ? ` (${brands[service.id]})` : ''}
-                  × {qty} = ₹{total}
-                </li>
-              );
-            })}
+            <div className="bar-summary">
+  {selectedServices.map(service => {
+    const qty = quantities[service.id];
+    const price = getServicePrice(service);
+    const total = qty * price;
+    const widthPercent = (total / calculateTotal()) * 100;
+
+    return (
+      <div key={service.id} className="bar-row">
+        <span className="bar-label">{service.name} ({qty}×₹{price})</span>
+        <div className="bar-track">
+          <div
+            className="bar-fill"
+            style={{ width: `${widthPercent}%` }}
+          ></div>
+        </div>
+      </div>
+    );
+  })}
+</div>
+
           </ul>
         </div>
       )}

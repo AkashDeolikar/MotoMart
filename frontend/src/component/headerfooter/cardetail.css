@@ -1,297 +1,273 @@
-/* CardDetail.css */
+/* Enhanced, modern Car Detail CSS layout with brand theming, shimmer, sticky button, and animations */
 
-/* Base Container Styling */
 .card-detail-container {
-    max-width: 900px;
-    margin: 40px auto; /* Centers the container and adds vertical spacing */
-    padding: 25px; /* Slightly more padding for better spacing */
-    background-color: #ffffff; 
-    /* White background */
-    border-radius: 10px; /* Softer rounded corners */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* More pronounced, softer shadow */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern, readable font */
-    color: #333; /* Darker text for readability */
-    line-height: 1.7; /* Increased line height for better text flow */
-    position: relative; /* For potential absolute positioning of elements inside */
-    overflow: hidden; /* Ensures content doesn't spill out, good for rounded corners */
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.2);
+  color: #1f2937;
+  transition: all 0.4s ease;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  animation: fadeInUp 0.8s ease-in-out;
 }
 
-/* Back Button Styling */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .back-button {
-    background-color: #007bff; /* Primary blue color */
-    color: white;
-    border: none;
-    padding: 12px 20px; /* More generous padding */
-    border-radius: 6px; /* Slightly more rounded */
-    cursor: pointer;
-    font-size: 1em; /* Consistent font size */
-    font-weight: 600; /* Bolder text */
-    margin-bottom: 30px; /* More space below button */
-    display: inline-flex;
-    align-items: center;
-    gap: 8px; /* Space between arrow and text */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
-    text-decoration: none; /* In case it's an <a> tag styled as a button */
+  background: transparent;
+  color: #007bff;
+  border: 2px solid #007bff;
+  padding: 12px 22px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 2em;
+  font-weight: 600;
+  margin-bottom: 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.35s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: sticky;
+  top: 20px;
+  z-index: 100;
+  backdrop-filter: blur(10px);
 }
 
 .back-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-    transform: translateY(-2px); /* Slight lift effect */
+  border-radius: 50px;
+  transform: scale(1.05);
+  background-color: rgba(0, 123, 255, 0.1);
 }
 
-/* Vehicle Title Styling */
-.vehicle-title { /* Renamed from .detail-title for consistency with component */
-    font-size: 2.8em; /* Larger, more impactful title */
-    color: #2c3e50;
-    margin-bottom: 25px; /* More space below title */
-    text-align: center;
-    padding-bottom: 15px; /* Padding for the bottom border */
-    border-bottom: 2px solid #e0e0e0; /* Subtle bottom border */
-    word-break: break-word; /* Prevents long titles from overflowing */
+.back-button span {
+  position: relative;
+  z-index: 1;
 }
 
-/* Media Section (Video/Image) Styling */
-.media-section { /* Renamed from .detail-video-section */
-    margin-bottom: 35px; /* More space below media */
-    border-radius: 10px; /* Matches container border-radius */
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Consistent shadow */
-    background-color: #f0f0f0; 
-    /* Light background for placeholders */
-    display: flex; /* Helps in centering content if it's smaller */
-    justify-content: center;
-    align-items: center;
+.vehicle-title {
+  font-size: 2.6em;
+  font-weight: 700;
+  text-align: center;
+  background: linear-gradient(90deg, #007cf0, #00dfd8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(0, 124, 240, 0.15);
+  animation: shimmerTitle 2.5s infinite linear;
+  background-size: 200% auto;
+}
+
+@keyframes shimmerTitle {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+.media-section {
+  margin-bottom: 30px;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f4;
+  animation: fadeInUp 1.2s ease-in-out;
 }
 
 .media-section iframe,
-.media-section img { /* Renamed from .detail-poster-image */
-    width: 100%;
-    height: 450px; /* Slightly increased height for better visual impact */
-    object-fit: cover; /* Ensures images/videos cover the area nicely */
-    display: block; /* Removes extra space below inline elements */
-    border-radius: 10px; /* Apply border-radius to the media itself */
+.media-section img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 20px;
+  transition: transform 0.4s ease;
 }
 
-/* Details Content Section */
-.details-content { /* Renamed from .detail-content */
-    padding: 15px 0; /* Add some vertical padding */
+.media-section img:hover {
+  transform: scale(1.03);
 }
 
-/* Vehicle Description Styling */
-.vehicle-description { /* Renamed from .detail-description */
-    font-size: 1.05em; /* Slightly larger font for main text */
-    margin-bottom: 30px;
-    text-align: justify;
-    /* color: #e2e1e1; Soft black text */
-    line-height: 1.8; /* Excellent line height for readability */
+.vehicle-description {
+  font-size: 1.15em;
+  color: #444;
+  background: #fefefe;
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: inset 0 0 0 1px #e0e0e0;
+  margin-bottom: 30px;
+  text-align: justify;
+  line-height: 1.8;
+  animation: fadeInUp 1.4s ease-in-out;
 }
 
-/* Vehicle Specifications Heading */
-.spec-heading { /* Renamed from .vehicle-info-section h2 */
-    font-size: 2em; /* Clear heading for specs */
-    /* color: #2c3e50; */
-    margin-top: 30px;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #e0e0e0;
+.spec-heading {
+  font-size: 2.1em;
+  color: #2d3748;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #dcdcdc;
+  padding-bottom: 12px;
+  animation: fadeInUp 1.6s ease-in-out;
 }
 
-/* Vehicle Specifications List */
-.spec-list { /* Renamed from .vehicle-info-section ul */
-    list-style-type: none;
-    padding: 0;
-    margin-bottom: 30px; /* Space below the list */
+.spec-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 0;
+  margin: 0 0 30px 0;
+  list-style: circle;
 }
 
-.spec-list li { /* Renamed from .vehicle-info-section ul li */
-    background-color: #ecf0f1; /* Lighter background for list items */
-    margin-bottom: 12px; /* More space between list items */
-    padding: 15px 20px; /* More padding */
-    border-left: 5px solid #007bff; /* Stronger accent bar */
-    border-radius: 6px; /* Slightly rounded corners */
-    display: flex;
-    flex-wrap: wrap; /* Allows wrapping for long content */
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.05em;
-    transition: background-color 0.2s ease; /* Smooth transition on hover */
+.spec-list li {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border-left: 5px solid #00dfd8;
+  animation: fadeInUp 1.8s ease-in-out;
 }
 
 .spec-list li:hover {
-    background-color: #ecf0f1d9; /* Subtle hover effect */
+  transform: translateY(-4px);
+  background-color: #f7fcff;
 }
 
 .spec-list li strong {
-    color: #333;
-    min-width: 150px; /* Give labels more consistent width for alignment */
-    flex-shrink: 0; /* Prevents label from shrinking */
-    margin-right: 15px; /* Space between label and value */
+  display: block;
+  font-weight: 600;
+  color: #1a202c;
+  margin-bottom: 6px;
 }
 
-.spec-list li ul { /* Nested features list */
-    margin-top: 10px;
-    list-style-type: disc; /* Bullet points for features */
-    padding-left: 25px; /* Indent for features */
-    width: 100%; /* Take full width for nested list */
-    box-sizing: border-box; /* Include padding in width calculation */
+.spec-list li ul {
+  list-style: disc;
+  margin-left: 20px;
+  margin-top: 10px;
+  color: #666;
 }
 
-.spec-list li ul li { /* Individual feature item */
-    background-color: transparent; /* No background for nested items */
-    padding: 5px 0;
-    border-left: none; /* No accent bar */
-    margin-bottom: 5px; /* Less space between features */
-    font-size: 0.95em;
-    color: #666; /* Slightly lighter color for features */
+.spec-list li ul li {
+  margin-bottom: 6px;
+  font-size: 0.95em;
 }
 
-/* External Link Button Styling */
-.external-link-button { /* Renamed from .external-link-section */
-    background-color: #28a745; /* Green for external links */
-    color: white;
-    padding: 14px 30px; /* More generous padding */
-    border-radius: 6px;
-    text-decoration: none;
-    font-size: 1.1em;
-    font-weight: 600;
-    display: block; /* Make it a block element to center with text-align */
-    width: fit-content; /* Only take content width */
-    margin: 30px auto 0 auto; /* Center horizontally, add top margin */
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    text-align: center; /* Ensures text is centered within the button */
+.external-link-button {
+  display: inline-block;
+  background: linear-gradient(to right, #00dfd8, #007cf0);
+  color: white;
+  font-size: 1.1em;
+  font-weight: bold;
+  padding: 14px 30px;
+  border-radius: 60px;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  margin: 0 auto;
+  display: block;
+  animation: fadeInUp 2s ease-in-out;
 }
 
 .external-link-button:hover {
-    background-color: #218838; /* Darker green on hover */
-    transform: translateY(-2px); /* Slight lift effect */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 124, 240, 0.4);
 }
 
-/* --- Responsive Adjustments --- */
-
-/* For Tablets and smaller Desktops (768px to 1024px roughly) */
-@media (max-width: 1024px) {
-    .card-detail-container {
-        margin: 30px 20px; /* Adjust margin for smaller screens, keep side padding */
-        padding: 20px;
-    }
-
-    .vehicle-title {
-        font-size: 2.5em;
-    }
-
-    .media-section iframe,
-    .media-section img {
-        height: 400px; /* Slightly reduce height */
-    }
-}
-
-
-/* For Mobile Devices (max-width 768px) */
-@media (max-width: 768px) {
-    .card-detail-container {
-        margin: 20px 15px; /* Reduced margins for tighter fit */
-        padding: 15px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Softer shadow for mobile */
-    }
-
-    .back-button {
-        padding: 10px 15px;
-        font-size: 0.95em;
-        margin-bottom: 20px;
-    }
-
-    .vehicle-title {
-        font-size: 2em; /* Smaller title for mobile */
-        margin-bottom: 20px;
-        padding-bottom: 10px;
-    }
-
-    .media-section {
-        margin-bottom: 25px;
-    }
-
-    .media-section iframe,
-    .media-section img {
-        height: 280px; /* Optimized height for most mobile screens */
-    }
-
-    .vehicle-description {
-        font-size: 1em; /* Standard font size */
-        margin-bottom: 20px;
-    }
-
-    .spec-heading {
-        font-size: 1.7em;
-        margin-top: 25px;
-        margin-bottom: 15px;
-    }
-
-    .spec-list li {
-        flex-direction: column; /* Stack label and value vertically */
-        align-items: flex-start; /* Align stacked items to the left */
-        padding: 12px 15px;
-        font-size: 1em;
-    }
-
-    .spec-list li strong {
-        min-width: auto; /* Remove fixed width when stacked */
-        margin-right: 0;
-        margin-bottom: 5px; /* Space between label and value */
-    }
-
-    .spec-list li ul {
-        padding-left: 20px; /* Slightly less indent for features */
-    }
-
-    .external-link-button {
-        padding: 12px 25px;
-        font-size: 1em;
-        margin-top: 25px;
-        width: 90%; /* Make button wider on mobile */
-        max-width: 300px; /* Prevent it from getting too wide on slightly larger mobiles */
-    }
-}
-
-/* For Extra Small Mobile Devices (e.g., iPhone SE) */
-@media (max-width: 480px) {
-    .card-detail-container {
-        margin: 15px 10px;
-        padding: 10px;
-    }
-
-    .vehicle-title {
-        font-size: 1.6em;
-    }
-
-    .media-section iframe,
-    .media-section img {
-        height: 220px; /* Further reduced height for very small screens */
-    }
-
-    .back-button {
-        padding: 8px 12px;
-        font-size: 0.9em;
-    }
-
-    .external-link-button {
-        padding: 10px 20px;
-        font-size: 0.95em;
-    }
-
-    .spec-list li,
-    .vehicle-description {
-        font-size: 0.95em;
-    }
-}
-
+/* Dark Mode */
 body.dark .card-detail-container {
-  background-color: #2c3e50;
-  /* color: #f0f0f0;  */
+  background-color: #1e1e1e;
+  color: #cfcfcf;
 }
-body.dark .vehicle-title { /* Renamed from .detail-title for consistency with component */
-    font-size: 2.8em; /* Larger, more impactful title */
-    color: #fbfbfb;
+
+body.dark .vehicle-title {
+  color: #fafafa;
+  border-color: #333;
 }
-body.dark .card-detail-container{
-    color: #a2a2a2;
+
+body.dark .spec-list li {
+  background-color: #2c2c2c;
+  border-left-color: #0a84ff;
+}
+
+body.dark .spec-list li:hover {
+  background-color: #333;
+}
+
+body.dark .spec-list li strong {
+  color: #dcdcdc;
+}
+
+body.dark .external-link-button {
+  background: linear-gradient(to right, #00c46a, #1de9b6);
+  color: #111;
+}
+
+body.dark .external-link-button:hover {
+  background-color: #28a745;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card-detail-container {
+    padding: 20px;
+    margin: 20px;
+  }
+
+  .vehicle-title {
+    font-size: 2em;
+  }
+
+  .media-section iframe,
+  .media-section img {
+    height: 280px;
+  }
+
+  .external-link-button {
+    width: 100%;
+    max-width: 300px;
+    font-size: 1em;
+    padding: 12px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-detail-container {
+    padding: 15px;
+    margin: 15px 10px;
+  }
+
+  .vehicle-title {
+    font-size: 1.5em;
+  }
+
+  .media-section iframe,
+  .media-section img {
+    height: 220px;
+  }
+
+  .back-button {
+    padding: 8px 12px;
+    font-size: 0.9em;
+  }
+
+  .external-link-button {
+    padding: 10px 18px;
+    font-size: 0.95em;
+  }
+
+  .spec-list li,
+  .vehicle-description {
+    font-size: 0.95em;
+  }
 }

@@ -14,7 +14,19 @@ const tabData = [
         specs: [
             { label: "E‑RANGE/HOUR", value: "35", unit: "KM", desc: "Approx. 35 km per hour on 7 kW home charge." },
             { label: "HOME CHARGE (7 kW)", value: "≈4", unit: "HRS", desc: "Full charge in about 4 h for ~140 km" },
-            { label: "PUBLIC CHARGE", value: "<60", unit: "MIN", desc: "0–80% on fast CCS DC chargers" }
+            { label: "PUBLIC CHARGE", value: "<60", unit: "MIN", desc: "0–80% on fast CCS DC chargers" },
+            { label: "BATTERY", value: "19.2", unit: "kWh", desc: "Usable battery capacity for electric driving." },
+        { label: "0-100 KM/H", value: "6.5", unit: "SEC", desc: "Acceleration from 0 to 100 kilometers per hour." },
+        { label: "TOP SPEED", value: "240", unit: "KM/H", desc: "Maximum attainable speed (limited)." },
+        { label: "MAX POWER", value: "300", unit: "PS", desc: "Combined power output of engine and electric motor." },
+        { label: "MAX TORQUE", value: "400", unit: "Nm", desc: "Maximum torque for strong acceleration." },
+        { label: "FUEL ECONOMY", value: "2.0", unit: "L/100KM", desc: "Combined fuel consumption (WLTP)." },
+        { label: "CO2 EMISSIONS", value: "49", unit: "g/km", desc: "Carbon dioxide emissions (WLTP)." },
+        { label: "TRANSMISSION", value: "8-Speed", unit: "Auto", desc: "Automatic transmission for smooth shifts." },
+        { label: "DRIVETRAIN", value: "AWD", unit: "", desc: "All-Wheel Drive system for enhanced traction." },
+        { label: "BOOT SPACE", value: "450", unit: "Litres", desc: "Luggage capacity with rear seats up." },
+        { label: "WEIGHT", value: "1950", unit: "KG", desc: "Curb weight of the vehicle." },
+        { label: "BRAKES", value: "Ventilated Discs", unit: "", desc: "Front and rear braking system." }
         ],
         description: "Available as an extended range plug-in electric hybrid (PHEV), the Jaguar XF offers a blend of efficient electric motoring and dynamic petrol performance.",
         cta: "https://www.jaguarusa.com/all-models/xf/index.html"

@@ -4,301 +4,309 @@
 
 /* CSS Custom Properties */
 :root {
-    --body-bg: #f8f8f8;
-    --text-color: #333;
-    --container-bg: #fff;
-    --shadow-color-light: rgba(0, 0, 0, 0.1);
-    --header-border-color: #f0f0f0;
-    --h1-color: #2c3e50;
-    --h1-color1: #1d446a;
-    --p-intro-color: #555;
-    --section-bg: #fcfcfc;
-    --section-shadow-color: rgba(0, 0, 0, 0.05);
-    --section-shadow-hover-color: rgba(0, 0, 0, 0.1);
-    --h2-color: #34495e;
-    --h2-border-color: #3498db;
-    --h3-color: #2980b9;
-    --p-color: #444;
-    --list-item-bg: #ecf0f1;
-    --list-item-hover-bg: #e0e6e7;
-    --list-item1-hover-bg: #9a9a9a65;
-    --list-item-shadow-color: rgba(0, 0, 0, 0.03);
-    --strong-color: #2c3e50;
-    --strong-color: #1661ac;
-    --code-bg: #2d2d2d;
-    --code-color: #f8f8f2;
-    --code-shadow-color: rgba(0, 0, 0, 0.15);
-    --link-color: #3498db;
-    --link-hover-color: #2980b9;
+  --body-bg: #f8f8f8;
+  --text-color: #333;
+  --container-bg: #fff;
+  --shadow-color-light: rgba(0, 0, 0, 0.1);
+  --header-border-color: #f0f0f0;
+  --h1-color: #2c3e50;
+  --h1-color1: #1d446a;
+  --p-intro-color: #555;
+  --section-bg: #fcfcfc;
+  --section-shadow-color: rgba(0, 0, 0, 0.05);
+  --section-shadow-hover-color: rgba(0, 0, 0, 0.1);
+  --h2-color: #34495e;
+  --h2-border-color: #3498db;
+  --h3-color: #2980b9;
+  --p-color: #444;
+  --list-item-bg: #ecf0f1;
+  --list-item-hover-bg: #e0e6e7;
+  --list-item1-hover-bg: #9a9a9a65;
+  --list-item-shadow-color: rgba(0, 0, 0, 0.03);
+  --strong-color: #1661ac;
+  --code-bg: #2d2d2d;
+  --code-color: #f8f8f2;
+  --code-shadow-color: rgba(0, 0, 0, 0.15);
+  --link-color: #3498db;
+  --link-hover-color: #2980b9;
 }
 
 /* Dark Mode Overrides */
 body.dark-mode {
-    --body-bg: #1a1a1a;
-    --text-color: #e0e0e0;
-    --container-bg: #2b2b2b;
-    --shadow-color-light: rgba(0, 0, 0, 0.4);
-    --header-border-color: #444;
-    --backgrounddark-color: #8b7e7e;
-    --h1-color: #f8f8f8;
-    --p-intro-color: #ccc;
-    --section-bg: #3a3a3a;
-    --section-shadow-color: rgba(79, 79, 79, 0.062);
-    --section-shadow-hover-color: rgba(0, 0, 0, 0.3);
-    --h2-color: #bbd3ec;
-    --h2-border-color: #6cb6eb;
-    --h3-color: #92c4ef;
-    --p-color: #bdbdbd;
-    --list-item-bg: #444;
-    --list-item-hover-bg: #555;
-    --list-item-shadow-color: rgba(0, 0, 0, 0.1);
-    --strong-color: #f0f0f0;
-    --code-bg: #1c1c1c;
-    --code-color: #e0e0e0;
-    --code-shadow-color: rgba(0, 0, 0, 0.3);
-    --link-color: #6cb6eb;
-    --link-hover-color: #92c4ef;
+  --body-bg: #1a1a1a;
+  --text-color: #e0e0e0;
+  --container-bg: #2b2b2b;
+  --shadow-color-light: rgba(0, 0, 0, 0.4);
+  --header-border-color: #444;
+  --backgrounddark-color: #8b7e7e;
+  --h1-color: #f8f8f8;
+  --p-intro-color: #ccc;
+  --section-bg: #3a3a3a;
+  --section-shadow-color: rgba(79, 79, 79, 0.062);
+  --section-shadow-hover-color: rgba(0, 0, 0, 0.3);
+  --h2-color: #bbd3ec;
+  --h2-border-color: #6cb6eb;
+  --h3-color: #92c4ef;
+  --p-color: #bdbdbd;
+  --list-item-bg: #444;
+  --list-item-hover-bg: #555;
+  --list-item-shadow-color: rgba(0, 0, 0, 0.1);
+  --strong-color: #f0f0f0;
+  --code-bg: #1c1c1c;
+  --code-color: #e0e0e0;
+  --code-shadow-color: rgba(0, 0, 0, 0.3);
+  --link-color: #6cb6eb;
+  --link-hover-color: #92c4ef;
 }
 
 /* Global Styles */
 body {
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: var(--body-bg);
-    color: var(--text-color);
-    line-height: 1.6;
-    transition: background-color 0.5s ease, color 0.5s ease;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--body-bg);
+  color: var(--text-color);
+  line-height: 1.6;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .overview-container {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: var(--container-bg);
-    border-radius: 12px;
-    box-shadow: 0 4px 20px var(--shadow-color-light);
-    animation: fadeIn 0.8s ease-out forwards;
-    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: var(--container-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px var(--shadow-color-light);
+  animation: fadeIn 0.8s ease-out forwards;
+  transition: background-color 0.5s ease, box-shadow 0.5s ease;
 }
+
 .dark .overview-container {
-    background-color: rgb(18 18 18);
+  background-color: rgb(18 18 18);
 }
+
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .overview-header {
-    text-align: center;
-    margin-bottom: 40px;
-    padding-bottom: 20px;
-    border-bottom: 2px solid var(--header-border-color);
-    transition: border-color 0.5s ease;
+  text-align: center;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--header-border-color);
+  transition: border-color 0.5s ease;
 }
 
 .overview-header h1 {
-    font-size: 2.8em;
-    color: var(--h1-color);
-    margin: 0;
-    font-weight: 700;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
-    transition: color 0.5s ease;
+  font-size: 2.8em;
+  color: var(--h1-color);
+  margin: 0;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+  transition: color 0.5s ease;
 }
-.head{
-    color: var(--h1-color1);
+
+.head {
+  color: var(--h1-color1);
+  text-align: center;
+  font-size: 2.5em;
+  font-weight: 700;
 }
 
 .overview-intro p {
-    font-size: 1.15em;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 50px;
-    color: var(--p-intro-color);
-    line-height: 1.8;
-    transition: color 0.5s ease;
+  font-size: 1.15em;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 50px;
+  color: var(--p-intro-color);
+  line-height: 1.8;
+  transition: color 0.5s ease;
 }
 
 .overview-section {
-    margin-bottom: 50px;
-    padding: 25px;
-    background-color: transparent;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px var(--section-shadow-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s ease;
+  margin-bottom: 50px;
+  padding: 25px;
+  background-color: transparent;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px var(--section-shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s ease;
 }
 
 .overview-section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 25px var(--section-shadow-hover-color);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 25px var(--section-shadow-hover-color);
 }
 
 .overview-section h2 {
-    font-size: 2.2em;
-    color: var(--h2-color);
-    margin: 0 0 20px;
-    font-weight: 600;
-    border-left: 5px solid var(--h2-border-color);
-    padding-left: 15px;
-    transition: color 0.5s ease, border-color 0.5s ease;
+  font-size: 2.2em;
+  color: var(--h2-color);
+  margin: 0 0 20px;
+  font-weight: 600;
+  border-left: 5px solid var(--h2-border-color);
+  padding-left: 15px;
+  transition: color 0.5s ease, border-color 0.5s ease;
 }
 
 .overview-section h3 {
-    font-size: 1.6em;
-    color: var(--h3-color);
-    margin: 30px 0 15px;
-    font-weight: 600;
-    transition: color 0.5s ease;
+  font-size: 1.6em;
+  color: var(--h3-color);
+  margin: 30px 0 15px;
+  font-weight: 600;
+  transition: color 0.5s ease;
 }
 
 .overview-section p {
-    font-size: 1.05em;
-    color: var(--p-color);
-    margin-bottom: 15px;
-    transition: color 0.5s ease;
+  font-size: 1.05em;
+  color: var(--p-color);
+  margin-bottom: 15px;
+  transition: color 0.5s ease;
 }
+
 .dark .overview-section p {
-    color: rgba(255, 255, 255, 0.793);
+  color: rgba(255, 255, 255, 0.793);
 }
+
 .overview-section ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .overview-section ul li {
-    background-color: var(--list-item-bg);
-    margin-bottom: 10px;
-    padding: 15px 20px;
-    border-radius: 8px;
-    box-shadow: 0 1px 5px var(--list-item-shadow-color);
-    display: flex;
-    align-items: flex-start;
-    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  background-color: var(--list-item-bg);
+  margin-bottom: 10px;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 5px var(--list-item-shadow-color);
+  display: flex;
+  align-items: flex-start;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
+
 .dark .overview-section ul li {
-    background-color: rgba(64, 64, 64, 0.252);
+  background-color: rgba(64, 64, 64, 0.252);
 }
 
 .overview-section ul li:hover {
-    background-color: var(--list-item-hover-bg);
+  background-color: var(--list-item-hover-bg);
 }
+
 .dark .overview-section ul li:hover {
-    background-color: var(--list-item1-hover-bg);
+  background-color: var(--list-item1-hover-bg);
 }
 
 .overview-section ul li strong {
-    color: var(--strong-color);
-    font-weight: 700;
-    margin-right: 10px;
-    flex-shrink: 0;
-    transition: color 0.5s ease;
-}
-.dark .overview-section ul li strong {
-    color: var( --strong-color);
+  color: var(--strong-color);
+  font-weight: 700;
+  margin-right: 10px;
+  flex-shrink: 0;
+  transition: color 0.5s ease;
 }
 
 .overview-section ul li p {
-    margin: 0;
-    flex-grow: 1;
+  margin: 0;
+  flex-grow: 1;
 }
 
 .overview-section pre {
-    background-color: var(--code-bg);
-    color: var(--code-color);
-    padding: 15px;
-    border-radius: 8px;
-    overflow-x: auto;
-    font-family: 'Source Code Pro', monospace;
-    font-size: 0.95em;
-    margin-top: 20px;
-    box-shadow: 0 2px 10px var(--code-shadow-color);
-    transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+  background-color: var(--code-bg);
+  color: var(--code-color);
+  padding: 15px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 0.95em;
+  margin-top: 20px;
+  box-shadow: 0 2px 10px var(--code-shadow-color);
+  transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
 }
 
 .overview-section pre code {
-    white-space: pre-wrap;
-    word-break: break-word;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .overview-section a {
-    color: var(--link-color);
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s ease;
+  color: var(--link-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
 }
 
 .overview-section a:hover {
-    color: var(--link-hover-color);
-    text-decoration: underline;
+  color: var(--link-hover-color);
+  text-decoration: underline;
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-    .overview-container {
-        margin: 20px auto;
-        padding: 15px;
-    }
+  .overview-container {
+    margin: 20px auto;
+    padding: 15px;
+  }
 
-    .overview-header h1 {
-        font-size: 2em;
-    }
+  .overview-header h1,
+  .head {
+    font-size: 2em;
+  }
 
-    .overview-intro p {
-        font-size: 1em;
-        margin-bottom: 30px;
-    }
+  .overview-intro p {
+    font-size: 1em;
+    margin-bottom: 30px;
+  }
 
-    .overview-section h2 {
-        font-size: 1.8em;
-        padding-left: 10px;
-    }
+  .overview-section h2 {
+    font-size: 1.8em;
+    padding-left: 10px;
+  }
 
-    .overview-section h3 {
-        font-size: 1.4em;
-    }
+  .overview-section h3 {
+    font-size: 1.4em;
+  }
 
-    .overview-section ul li {
-        flex-direction: column;
-        padding: 12px 15px;
-    }
+  .overview-section ul li {
+    flex-direction: column;
+    padding: 12px 15px;
+  }
 
-    .overview-section ul li strong {
-        margin-bottom: 5px;
-    }
+  .overview-section ul li strong {
+    margin-bottom: 5px;
+  }
 }
 
 @media (max-width: 480px) {
-    .overview-container {
-        margin: 10px auto;
-        padding: 10px;
-    }
+  .overview-container {
+    margin: 10px auto;
+    padding: 10px;
+  }
 
-    .overview-header h1 {
-        font-size: 1.6em;
-    }
+  .overview-header h1,
+  .head {
+    font-size: 1.6em;
+  }
 
-    .overview-intro p {
-        font-size: 0.9em;
-        margin-bottom: 20px;
-    }
+  .overview-intro p {
+    font-size: 0.9em;
+    margin-bottom: 20px;
+  }
 
-    .overview-section {
-        padding: 15px;
-        margin-bottom: 30px;
-    }
+  .overview-section {
+    padding: 15px;
+    margin-bottom: 30px;
+  }
 
-    .overview-section h2 {
-        font-size: 1.5em;
-    }
+  .overview-section h2 {
+    font-size: 1.5em;
+  }
 
-    .overview-section h3 {
-        font-size: 1.2em;
-    }
+  .overview-section h3 {
+    font-size: 1.2em;
+  }
 }
