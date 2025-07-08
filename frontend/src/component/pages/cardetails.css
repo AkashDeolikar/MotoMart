@@ -414,7 +414,7 @@ body {
     background-color: var(--card-bg-color);
     border-radius: 18px; /* More rounded corners */
     box-shadow: 0 15px 40px var(--shadow-color);
-    color: var(--text-color);
+    /* color: var(--text-color); */
     overflow-x: auto;
     border: 2px solid var(--primary-color); /* Prominent border */
 }
