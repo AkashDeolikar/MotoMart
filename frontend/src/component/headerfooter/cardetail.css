@@ -100,8 +100,8 @@
 
 .vehicle-description {
   font-size: 1.15em;
-  color: #444;
-  background: #fefefe;
+  color: inherit;
+  background: inherit;
   padding: 24px;
   border-radius: 14px;
   box-shadow: inset 0 0 0 1px #e0e0e0;
@@ -113,13 +113,15 @@
 
 .spec-heading {
   font-size: 2.1em;
-  color: #2d3748;
+  color: #273e66;
   margin-bottom: 20px;
   border-bottom: 1px solid #dcdcdc;
   padding-bottom: 12px;
   animation: fadeInUp 1.6s ease-in-out;
 }
-
+.dark .spec-heading{
+  color: #00c46a;
+}
 .spec-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -135,7 +137,7 @@
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
-  border-left: 5px solid #00dfd8;
+  border-left: 5px solid #00df7ed5;
   animation: fadeInUp 1.8s ease-in-out;
 }
 

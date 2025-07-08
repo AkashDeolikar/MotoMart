@@ -1,1016 +1,2350 @@
 {
-  "Suzuki": {
+  "Maruti Suzuki": {
     "Swift": {
-      "models": [
-        "LXI",
-        "VXI",
-        "ZXI",
-        "ZXI+"
-      ],
-      "engine": "1197cc",
-      "engine-Option": "1.2L Z-Series 3-cylinder petrol engine",
-      "fuelType": "Petrol / CNG",
-      "mileage": {
-        "petrolManual": "24.80 km/l",
-        "petrolAMT": "25.75 km/l",
-        "cng": "32.85 km/kg"
+      "common_details": {
+        "engine": "1.2L Z-Series 3-cylinder petrol engine",
+        "fuelType": "Petrol / CNG",
+        "image": "/images/allcarsimage/swift.png",
+        "pricing_location": "Ex-Showroom Delhi"
       },
-      "transmission": [
-        "5-speed Manual",
-        "5-speed AMT (Auto Gear Shift)"
-      ],
-      "performance": {
-        "petrol": {
-          "power": "82 Bhp",
-          "torque": "112 Nm"
+      "variants": {
+        "LXI": {
+          "engine_specs": {
+            "displacement": "1197 cc",
+            "maxPower": "80 bhp @ 5700 rpm",
+            "maxTorque": "111.7 Nm @ 4300 rpm"
+          },
+          "mileage": {
+            "petrolManual": "24.80 kmpl"
+          },
+          "transmission": ["5-speed Manual"],
+          "safety": [
+            "6 Airbags",
+            "ABS with EBD",
+            "Rear Parking Sensors",
+            "Seat Belt Warning",
+            "Child Lock",
+            "ISOFIX Child Seat Anchors (CarTrade)"
+          ],
+          "infotainment": [
+            "Basic Audio System (No Android Auto/Apple CarPlay)",
+            "Bluetooth Connectivity (CarTrade)"
+          ],
+          "interior": [
+            "Manual AC",
+            "Front Power Windows",
+            "Analogue-Digital Instrument Cluster",
+            "Black Interior Door Handles",
+            "Manual ORVM"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "Steel Wheels",
+              "Halogen Headlamps",
+              "Black Exterior Door Handles"
+            ],
+            "colorOptions": [
+              "Solid Fire Red",
+              "Pearl Arctic White"
+            ]
+          },
+          "pricing": "₹6.49 Lakh"
         },
-        "cng": {
-          "power": "69 Bhp",
-          "torque": "102 Nm"
+        "VXI": {
+          "engine_specs": {
+            "displacement": "1197 cc",
+            "maxPower": "80 bhp @ 5700 rpm (Petrol), 69 bhp @ 5700 rpm (CNG)",
+            "maxTorque": "111.7 Nm @ 4300 rpm (Petrol), 101.8 Nm @ 2900 rpm (CNG)"
+          },
+          "mileage": {
+            "petrolManual": "24.80 kmpl",
+            "petrolAMT": "25.75 kmpl",
+            "cng": "32.85 km/kg"
+          },
+          "transmission": ["5-speed Manual", "5-speed AMT"],
+          "safety": [
+            "6 Airbags",
+            "ESP",
+            "Hill Hold Assist",
+            "ABS with EBD",
+            "Rear Parking Sensors",
+            "ISOFIX Child Seat Anchors"
+          ],
+          "infotainment": [
+            "7-inch Touchscreen Infotainment System",
+            "Wireless Android Auto & Apple CarPlay",
+            "Steering Mounted Controls",
+            "2 Speakers"
+          ],
+          "interior": [
+            "Manual AC",
+            "All Power Windows",
+            "Steering Mounted Controls",
+            "Chrome Interior Door Handles",
+            "Electrically Adjustable ORVMs"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "Steel Wheels with Covers",
+              "LED Tail Lamps",
+              "Body Coloured Exterior Door Handles",
+              "Turn Indicators on ORVM"
+            ],
+            "colorOptions": [
+              "Red with Black Roof",
+              "White with Blue Roof",
+              "Silver with Black Roof",
+              "Luster Blue",
+              "Magma Grey",
+              "Solid Fire Red",
+              "Pearl Arctic White"
+            ]
+          },
+          "pricing": "₹7.29 Lakh (Petrol Manual), ₹8.19 Lakh (CNG)"
         },
-        "diesel": {
-          "power": "NA",
-          "torque": "NA"
+        "ZXI": {
+          "engine_specs": {
+            "displacement": "1197 cc",
+            "maxPower": "80 bhp @ 5700 rpm (Petrol), 69 bhp @ 5700 rpm (CNG)",
+            "maxTorque": "111.7 Nm @ 4300 rpm (Petrol), 101.8 Nm @ 2900 rpm (CNG)"
+          },
+          "mileage": {
+            "petrolManual": "24.80 kmpl",
+            "petrolAMT": "25.75 kmpl",
+            "cng": "32.85 km/kg"
+          },
+          "transmission": ["5-speed Manual", "5-speed AMT"],
+          "performance": {
+            "petrol": { "power": "80 Bhp", "torque": "111.7 Nm" }
+          },
+          "safety": [
+            "6 Airbags",
+            "ESP",
+            "Hill Hold Assist",
+            "ABS with EBD",
+            "Rear Parking Sensors with Camera",
+            "ISOFIX Child Seat Anchors"
+          ],
+          "infotainment": [
+            "9-inch Touchscreen Infotainment System",
+            "Wireless Android Auto & Apple CarPlay",
+            "Arkamys 6-Speaker Sound System",
+            "Cruise Control"
+          ],
+          "interior": [
+            "Automatic Climate Control",
+            "Push-Button Start/Stop",
+            "All Power Windows",
+            "Steering Mounted Controls",
+            "Chrome Interior Door Handles",
+            "Electrically Adjustable & Retractable ORVMs",
+            "Rear AC Vents (CarTrade)"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "16-inch Dual-Tone Alloy Wheels",
+              "LED Projector Headlamps with DRLs",
+              "Body Coloured Exterior Door Handles",
+              "Turn Indicators on ORVM"
+            ],
+            "colorOptions": [
+              "Red with Black Roof",
+              "White with Blue Roof",
+              "Silver with Black Roof",
+              "Luster Blue",
+              "Magma Grey",
+              "Solid Fire Red",
+              "Pearl Arctic White"
+            ]
+          },
+          "pricing": "₹8.29 Lakh (Petrol Manual), ₹9.19 Lakh (CNG)"
+        },
+        "ZXI+": {
+          "engine_specs": {
+            "displacement": "1197 cc",
+            "maxPower": "80 bhp @ 5700 rpm",
+            "maxTorque": "111.7 Nm @ 4300 rpm"
+          },
+          "mileage": {
+            "petrolManual": "24.80 kmpl",
+            "petrolAMT": "25.75 kmpl"
+          },
+          "transmission": ["5-speed Manual", "5-speed AMT"],
+          "safety": [
+            "6 Airbags",
+            "ESP",
+            "Hill Hold Assist",
+            "ABS with EBD",
+            "Rear Parking Sensors with Camera",
+            "ISOFIX Child Seat Anchors"
+          ],
+          "infotainment": [
+            "9-inch Touchscreen Infotainment System",
+            "Wireless Android Auto & Apple CarPlay",
+            "Arkamys 6-Speaker Sound System",
+            "Wireless Charging",
+            "Cruise Control",
+            "Push-Button Start/Stop",
+            "Automatic Climate Control"
+          ],
+          "interior": [
+            "Automatic Climate Control",
+            "Push-Button Start/Stop",
+            "Fully Digital Instrument Cluster",
+            "Premium Upholstery with Contrast Stitching",
+            "Ambient Lighting",
+            "Rear AC Vents",
+            "Adjustable Steering Wheel",
+            "Ergonomic Seating for Enhanced Comfort"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "Sleek Honeycomb Grille with Chrome Accents",
+              "LED Projector Headlamps with DRLs",
+              "Redesigned Bumpers and Tail Lamps",
+              "16-inch Dual-Tone Alloy Wheels"
+            ],
+            "colorOptions": [
+              "Red with Black Roof",
+              "White with Blue Roof",
+              "Silver with Black Roof",
+              "Luster Blue",
+              "Magma Grey",
+              "Solid Fire Red",
+              "Pearl Arctic White"
+            ]
+          },
+          "pricing": "₹9.59 Lakh"
         }
-      },
-      "safety": [
-        "6 Airbags (Standard across all variants)",
-        "Electronic Stability Program (ESP)",
-        "Hill Hold Assist",
-        "ABS with EBD",
-        "Rear Parking Sensors with Camera",
-        "ISOFIX Child Seat Anchors"
-      ],
-      "infotainment": [
-        "9-inch Touchscreen Infotainment System",
-        "Wireless Android Auto & Apple CarPlay",
-        "Arkamys 6-Speaker Sound System",
-        "Wireless Charging",
-        "Cruise Control",
-        "Push-Button Start/Stop",
-        "Automatic Climate Control"
-      ],
-      "interior": [
-        "Fully Digital Instrument Cluster",
-        "Premium Upholstery with Contrast Stitching",
-        "Ambient Lighting",
-        "Rear AC Vents",
-        "Adjustable Steering Wheel",
-        "Ergonomic Seating for Enhanced Comfort"
-      ],
-      "exterior": {
-        "designFeatures": [
-          "Sleek Honeycomb Grille with Chrome Accents",
-          "LED Projector Headlamps with DRLs",
-          "Redesigned Bumpers and Tail Lamps",
-          "16-inch Dual-Tone Alloy Wheels"
-        ],
-        "colorOptions": [
-          "Red with Black Roof",
-          "White with Blue Roof",
-          "Silver with Black Roof"
-        ]
-      },
-      "pricing": {
-        "baseModel": "₹6.49 Lakh",
-        "topModel": "₹9.59 Lakh",
-        "location": "Ex-Showroom Delhi"
-      },
-      "image": "/images/allcarsimage/swift.png"
+      }
     },
-    "Baleno": {
-      "models": [
-        "Sigma",
-        "Delta",
-        "Zeta",
-        "Alpha"
-      ],
-      "engine": "1197cc",
-      "engine-Option": "1.2L DualJet VVT Petrol Engine",
+    "Ertiga": {
+    "common_details": {
+      "engine": "1.5L K15C Smart Hybrid petrol engine",
       "fuelType": "Petrol / CNG",
-      "mileage": {
-        "petrolManual": "22.35 km/l",
-        "petrolAMT": "22.94 km/l",
-        "cng": "30.61 km/kg"
-      },
-      "transmission": [
-        "5-speed Manual",
-        "5-speed AMT"
-      ],
-      "performance": {
-        "petrol": {
-          "power": "89.73 Bhp",
-          "torque": "113 Nm"
+      "image": "/images/allcarsimage/ertiga.png",
+      "pricing_location": "Ex-Showroom Delhi"
+    },
+    "variants": {
+      "LXI": {
+        "engine_specs": {
+          "displacement": "1462 cc",
+          "maxPower": "101.6 bhp @ 6000 rpm (Petrol), 86.6 bhp @ 5500 rpm (CNG)",
+          "maxTorque": "136.8 Nm @ 4400 rpm (Petrol), 121.5 Nm @ 4200 rpm (CNG)"
         },
-        "cng": {
-          "power": "76.43 Bhp",
-          "torque": "98.5 Nm"
+        "mileage": {
+          "petrolManual": "20.51 kmpl",
+          "cng": "26.11 km/kg"
         },
-        "diesel": {
-          "power": "NA",
-          "torque": "NA"
-        }
-      },
-      "safety": [
-        "6 Airbags (Standard on Zeta & Alpha)",
-        "Electronic Stability Program (ESP)",
-        "Hill Hold Assist",
-        "ABS with EBD",
-        "Rear Parking Sensors with Camera",
-        "ISOFIX Child Seat Anchors"
-      ],
-      "infotainment": [
-        "9-inch SmartPlay Pro+ Touchscreen Infotainment System",
-        "Wireless Android Auto & Apple CarPlay",
-        "Arkamys Surround Sound System",
-        "Head-Up Display (HUD)",
-        "Cruise Control",
-        "Push-Button Start/Stop",
-        "Automatic Climate Control"
-      ],
-      "interior": [
-        "Digital-cum-Analog Instrument Cluster",
-        "Premium Dual-Tone Interiors",
-        "Flat-Bottom Steering Wheel",
-        "Rear AC Vents",
-        "60:40 Split Rear Seat",
-        "Height Adjustable Driver Seat"
-      ],
-      "exterior": {
-        "designFeatures": [
-          "NEXWave Grille with Chrome Accents",
-          "LED Projector Headlamps with LED DRLs",
-          "LED Tail Lamps with 3D Signature",
-          "16-inch Precision Cut Alloy Wheels"
+        "transmission": ["5-speed Manual"],
+        "safety": [
+          "2 Airbags",
+          "ABS with EBD",
+          "Rear Parking Sensors",
+          "ISOFIX Child Seat Mounts"
         ],
-        "colorOptions": [
-          "Opulent Red",
-          "Pearl Arctic White",
-          "Splendid Silver",
-          "Grandeur Grey",
-          "Celestial Blue",
-          "Luxe Beige"
-        ]
+        "infotainment": [
+          "Manual AC",
+          "Front Power Windows"
+        ],
+        "interior": [
+          "Dual Tone Interiors",
+          "Fabric Upholstery"
+        ],
+        "exterior": {
+          "designFeatures": [
+            "Steel Wheels",
+            "Halogen Projector Headlamps",
+            "Body Coloured Bumpers"
+          ],
+          "colorOptions": [
+            "Pearl Metallic Arctic White",
+            "Metallic Magma Grey"
+          ]
+        },
+        "pricing": "₹8.69 Lakh"
       },
-      "pricing": {
-        "baseModel": "₹6.66 Lakh",
-        "topModel": "₹9.88 Lakh",
-        "location": "Ex-Showroom Delhi"
+      "VXI": {
+        "engine_specs": {
+          "displacement": "1462 cc",
+          "maxPower": "101.6 bhp @ 6000 rpm (Petrol), 86.6 bhp @ 5500 rpm (CNG)",
+          "maxTorque": "136.8 Nm @ 4400 rpm (Petrol), 121.5 Nm @ 4200 rpm (CNG)"
+        },
+        "mileage": {
+          "petrolManual": "20.51 kmpl",
+          "petrolAutomatic": "20.30 kmpl",
+          "cng": "26.11 km/kg"
+        },
+        "transmission": ["5-speed Manual", "6-speed Automatic"],
+        "safety": [
+          "4 Airbags",
+          "ESP",
+          "Hill Hold Assist",
+          "ABS with EBD",
+          "Rear Parking Sensors with Camera",
+          "ISOFIX Child Seat Mounts"
+        ],
+        "infotainment": [
+          "7-inch SmartPlay Pro Touchscreen Infotainment",
+          "Android Auto & Apple CarPlay",
+          "Steering Mounted Audio Controls",
+          "4 Speakers"
+        ],
+        "interior": [
+          "Automatic Climate Control",
+          "All Power Windows",
+          "Push Start/Stop Button",
+          "Adjustable Steering Wheel"
+        ],
+        "exterior": {
+          "designFeatures": [
+            "Steel Wheels with Covers",
+            "Chrome Finish Front Grille",
+            "LED Tail Lamps"
+          ],
+          "colorOptions": [
+            "Pearl Metallic Arctic White",
+            "Metallic Magma Grey",
+            "Pearl Metallic Oxford Blue",
+            "Dignity Brown"
+          ]
+        },
+        "pricing": "₹9.83 Lakh (Petrol Manual), ₹11.23 Lakh (Petrol Automatic), ₹10.73 Lakh (CNG)"
       },
-      "image": "/images/allcarsimage/baleno.png"
+      "ZXI": {
+        "engine_specs": {
+          "displacement": "1462 cc",
+          "maxPower": "101.6 bhp @ 6000 rpm (Petrol), 86.6 bhp @ 5500 rpm (CNG)",
+          "maxTorque": "136.8 Nm @ 4400 rpm (Petrol), 121.5 Nm @ 4200 rpm (CNG)"
+        },
+        "mileage": {
+          "petrolManual": "20.51 kmpl",
+          "petrolAutomatic": "20.30 kmpl",
+          "cng": "26.11 km/kg"
+        },
+        "transmission": ["5-speed Manual", "6-speed Automatic"],
+        "safety": [
+          "4 Airbags",
+          "ESP",
+          "Hill Hold Assist",
+          "ABS with EBD",
+          "Rear Parking Sensors with Camera",
+          "ISOFIX Child Seat Mounts"
+        ],
+        "infotainment": [
+          "7-inch SmartPlay Pro Touchscreen Infotainment",
+          "Android Auto & Apple CarPlay",
+          "Voice Assistant",
+          "Steering Mounted Audio Controls",
+          "6 Speakers",
+          "Suzuki Connect"
+        ],
+        "interior": [
+          "Automatic Climate Control",
+          "Push Start/Stop Button",
+          "Cruise Control",
+          "Wood Finish Interior Accents",
+          "Rear AC Vents"
+        ],
+        "exterior": {
+          "designFeatures": [
+            "15-inch Alloy Wheels",
+            "Chrome Door Handles",
+            "Front Fog Lamps"
+          ],
+          "colorOptions": [
+            "Pearl Metallic Arctic White",
+            "Metallic Magma Grey",
+            "Pearl Metallic Oxford Blue",
+            "Dignity Brown",
+            "Splendid Silver"
+          ]
+        },
+        "pricing": "₹10.93 Lakh (Petrol Manual), ₹12.33 Lakh (Petrol Automatic), ₹11.83 Lakh (CNG)"
+      },
+      "ZXI+": {
+        "engine_specs": {
+          "displacement": "1462 cc",
+          "maxPower": "101.6 bhp @ 6000 rpm",
+          "maxTorque": "136.8 Nm @ 4400 rpm"
+        },
+        "mileage": {
+          "petrolManual": "20.51 kmpl",
+          "petrolAutomatic": "20.30 kmpl"
+        },
+        "transmission": ["5-speed Manual", "6-speed Automatic"],
+        "safety": [
+          "4 Airbags",
+          "ESP",
+          "Hill Hold Assist",
+          "ABS with EBD",
+          "Rear Parking Sensors with Camera",
+          "ISOFIX Child Seat Mounts"
+        ],
+        "infotainment": [
+          "7-inch SmartPlay Pro Touchscreen Infotainment",
+          "Android Auto & Apple CarPlay",
+          "Voice Assistant",
+          "Steering Mounted Audio Controls",
+          "6 Speakers",
+          "Suzuki Connect",
+          "Smartwatch Connectivity"
+        ],
+        "interior": [
+          "Automatic Climate Control",
+          "Push Start/Stop Button",
+          "Cruise Control",
+          "Wood Finish Interior Accents",
+          "Rear AC Vents",
+          "Auto Headlamps"
+        ],
+        "exterior": {
+          "designFeatures": [
+            "15-inch Dual Tone Alloy Wheels",
+            "Chrome Door Handles",
+            "Front Fog Lamps",
+            "Electrically Foldable ORVMs"
+          ],
+          "colorOptions": [
+            "Pearl Metallic Arctic White",
+            "Metallic Magma Grey",
+            "Pearl Metallic Oxford Blue",
+            "Dignity Brown",
+            "Splendid Silver",
+            "Brave Khaki"
+          ]
+        },
+        "pricing": "₹11.63 Lakh (Petrol Manual), ₹12.83 Lakh (Petrol Automatic)"
+      }
     }
+  }
   },
   "Tata": {
     "Nexon": {
-      "models": [
-        "Smart",
-        "Smart+",
-        "Pure",
-        "Pure S",
-        "Creative",
-        "Creative+",
-        "Fearless",
-        "Fearless+"
-      ],
-      "engine": "1199cc / 1497cc",
-      "engine-Option": "1.2L Turbocharged Revotron Petrol / 1.5L Revotorq Diesel Engine",
-      "fuelType": "Petrol / Diesel",
-      "mileage": {
-        "petrolManual": "17.44 km/l",
-        "petrolAMT": "17.18 km/l",
-        "dieselManual": "23.23 km/l",
-        "dieselAMT": "24.08 km/l"
-      },
-      "transmission": [
-        "5-speed Manual (Smart Variants)",
-        "6-speed Manual",
-        "6-speed AMT",
-        "7-speed DCT (Petrol only)"
-      ],
-      "performance": {
-        "petrol": {
-          "power": "118.3 Bhp",
-          "torque": "170 Nm"
-        },
-        "cng": {
-          "power": "113.4 Bhp",
-          "torque": "260 Nm"
-        },
-        "diesel": {
-          "power": "NA",
-          "torque": "NA"
-        }
-      },
-      "safety": [
-        "6 Airbags (Standard)",
-        "Electronic Stability Program (ESP)",
-        "Hill Hold Control",
-        "ABS with EBD",
-        "Rear Parking Sensors with Camera",
-        "3-Point Seatbelts for All Seats",
-        "ISOFIX Child Seat Mounts"
-      ],
-      "infotainment": [
-        "10.25-inch Touchscreen Infotainment System",
-        "Wireless Android Auto & Apple CarPlay",
-        "9-Speaker JBL Sound System with Subwoofer (Top Variant)",
-        "Digital Instrument Cluster",
-        "Connected Car Tech with IRA 2.0",
-        "Voice Commands",
-        "Navigation with OTA Updates"
-      ],
-      "interior": [
-        "Dual-Tone Premium Cabin",
-        "Leatherette Upholstery",
-        "Ambient Lighting",
-        "Ventilated Front Seats (Top Variant)",
-        "Rear AC Vents",
-        "Electric Sunroof (in Creative & above)"
-      ],
-      "exterior": {
-        "designFeatures": [
-          "Humanity Line Front Grille",
-          "LED Headlamps with DRLs",
-          "Sequential LED Turn Indicators",
-          "LED Connected Tail Lamps",
-          "16-inch Alloy Wheels"
+      "common_details": {
+        "engine_options": [
+          "1.2L Turbocharged Revotron Petrol Engine",
+          "1.5L Turbocharged Revotorq Diesel Engine"
         ],
-        "colorOptions": [
-          "Fearless Purple",
-          "Creative Ocean",
-          "Daytona Grey",
-          "Flame Red",
-          "Pristine White",
-          "Empowered Oxide"
-        ]
+        "groundClearance": "208 mm",
+        "globalNCAPRating": "5 Star",
+        "image": "/images/allcarsimage/nexon.png",
+        "pricing_location": "Ex-Showroom Delhi"
       },
-      "pricing": {
-        "baseModel": "₹8.00 Lakh",
-        "topModel": "₹15.80 Lakh",
-        "location": "Ex-Showroom Delhi"
-      },
-      "image": "/images/allcarsimage/nexon.png"
-    },
-    "Punch": {
-      "models": [
-        "Pure",
-        "Adventure",
-        "Accomplished",
-        "Creative"
-      ],
-      "engine": "1199cc",
-      "engine-Option": "1.2L Revotron Petrol Engine with Dynapro Technology",
-      "fuelType": "Petrol / CNG",
-      "mileage": {
-        "petrolManual": "20.09 km/l",
-        "petrolAMT": "18.8 km/l",
-        "cng": "26.99 km/kg"
-      },
-      "transmission": [
-        "5-speed Manual",
-        "5-speed AMT"
-      ],
-      "performance": {
-        "petrol": {
-          "power": "86.63 Bhp",
-          "torque": "115 Nm"
+      "variants": {
+        "Smart": {
+          "engine_specs": {
+            "petrol": {
+              "displacement": "1199 cc",
+              "maxPower": "118.27 bhp @ 5500 rpm",
+              "maxTorque": "170 Nm @ 1750-4000 rpm"
+            }
+          },
+          "mileage": {
+            "petrolManual": "17.44 kmpl"
+          },
+          "transmission": ["5-speed Manual"],
+          "safety": [
+            "6 Airbags",
+            "ABS with EBD",
+            "Electronic Stability Control (ESC)",
+            "Traction Control",
+            "Tyre Pressure Monitoring System (TPMS)",
+            "Hill Assist",
+            "Rear Parking Sensors",
+            "Seat Belt Warning",
+            "Child Safety Locks",
+            "Engine Immobilizer"
+          ],
+          "infotainment": [
+            "No Touchscreen (Basic Audio System)",
+            "No Android Auto/Apple CarPlay"
+          ],
+          "interior": [
+            "Manual AC",
+            "Power Steering",
+            "Front Power Windows Only",
+            "Fabric Upholstery",
+            "Manual ORVMs"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "Steel Wheels",
+              "Halogen Headlamps",
+              "LED DRLs (CarDekho)",
+              "LED Taillights (CarDekho)"
+            ]
+          },
+          "pricing": "Starts from ₹8.15 Lakh"
         },
-        "cng": {
-          "power": "72 Bhp",
-          "torque": "103 Nm"
+        "Pure": {
+          "engine_specs": {
+            "petrol": {
+              "displacement": "1199 cc",
+              "maxPower": "118.27 bhp @ 5500 rpm",
+              "maxTorque": "170 Nm @ 1750-4000 rpm"
+            }
+          },
+          "mileage": {
+            "petrolManual": "17.44 kmpl"
+          },
+          "transmission": ["6-speed Manual"],
+          "safety": [
+            "6 Airbags",
+            "ABS with EBD",
+            "Electronic Stability Control (ESC)",
+            "Traction Control",
+            "Tyre Pressure Monitoring System (TPMS)",
+            "Hill Assist",
+            "Rear Parking Sensors",
+            "Seat Belt Warning",
+            "Child Safety Locks",
+            "Engine Immobilizer"
+          ],
+          "infotainment": [
+            "7-inch Touchscreen Infotainment System",
+            "Android Auto & Apple CarPlay (Wired)",
+            "4 Speakers"
+          ],
+          "interior": [
+            "Manual AC",
+            "Power Steering",
+            "All Power Windows",
+            "Steering Mounted Controls",
+            "Cooled Glovebox",
+            "Fabric Upholstery"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "Wheel Covers",
+              "LED DRLs",
+              "LED Taillights"
+            ]
+          },
+          "pricing": "Starts from ₹9.50 Lakh"
         },
-        "diesel": {
-          "power": "NA",
-          "torque": "NA"
+        "Creative": {
+          "engine_specs": {
+            "petrol": {
+              "displacement": "1199 cc",
+              "maxPower": "118.27 bhp @ 5500 rpm",
+              "maxTorque": "170 Nm @ 1750-4000 rpm"
+            },
+            "diesel": {
+              "displacement": "1497 cc",
+              "maxPower": "113.31 bhp @ 3750 rpm",
+              "maxTorque": "260 Nm @ 1500-2750 rpm"
+            }
+          },
+          "mileage": {
+            "petrolManual": "17.44 kmpl",
+            "dieselManual": "23.23 kmpl"
+          },
+          "transmission": [
+            "6-speed Manual",
+            "6-speed AMT",
+            "7-speed DCA (Dual Clutch Automatic)"
+          ],
+          "safety": [
+            "6 Airbags",
+            "ABS with EBD",
+            "Electronic Stability Control (ESC)",
+            "Traction Control",
+            "Tyre Pressure Monitoring System (TPMS)",
+            "Hill Assist",
+            "Rear Parking Sensors",
+            "Rear Camera with Guidelines",
+            "Child Safety Locks",
+            "Engine Immobilizer",
+            "ISOFIX Child Seat Mounts"
+          ],
+          "infotainment": [
+            "7-inch Touchscreen Infotainment System",
+            "Wireless Android Auto & Apple CarPlay",
+            "Multi-function Steering Wheel",
+            "7-inch Digital Driver Display"
+          ],
+          "interior": [
+            "Automatic Climate Control",
+            "Rear AC Vents",
+            "Push-Button Start/Stop",
+            "Cooled Glovebox",
+            "Height Adjustable Driver Seat",
+            "Adjustable Headrests",
+            "Leather Wrapped Steering Wheel (Creative+)",
+            "Touch-based HVAC Controls"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "16-inch Alloy Wheels (with Aero Inserts for Creative+)",
+              "Bi-Function LED Headlamps",
+              "Sequential LED DRLs and Taillamps",
+              "Electrically Foldable ORVMs",
+              "Shark Fin Antenna"
+            ]
+          },
+          "pricing": "Starts from ₹10.30 Lakh"
+        },
+        "Fearless": {
+          "engine_specs": {
+            "petrol": {
+              "displacement": "1199 cc",
+              "maxPower": "118.27 bhp @ 5500 rpm",
+              "maxTorque": "170 Nm @ 1750-4000 rpm"
+            },
+            "diesel": {
+              "displacement": "1497 cc",
+              "maxPower": "113.31 bhp @ 3750 rpm",
+              "maxTorque": "260 Nm @ 1500-2750 rpm"
+            }
+          },
+          "mileage": {
+            "petrolManual": "17.44 kmpl",
+            "dieselManual": "23.23 kmpl"
+          },
+          "transmission": [
+            "6-speed Manual",
+            "6-speed AMT",
+            "7-speed DCA (Dual Clutch Automatic)"
+          ],
+          "safety": [
+            "6 Airbags",
+            "ABS with EBD",
+            "Electronic Stability Control (ESC)",
+            "Traction Control",
+            "Tyre Pressure Monitoring System (TPMS)",
+            "Hill Assist",
+            "Rear Parking Sensors",
+            "Rear Camera with Guidelines",
+            "360-degree Camera (Fearless+)",
+            "Child Safety Locks",
+            "Engine Immobilizer",
+            "ISOFIX Child Seat Mounts",
+            "Blind Spot View Monitor (Fearless+)"
+          ],
+          "infotainment": [
+            "10.25-inch Touchscreen Infotainment System",
+            "Wireless Android Auto & Apple CarPlay",
+            "Voice Commands",
+            "JBL 9-speaker sound system (Fearless+)",
+            "Connected Car Tech (iRA)"
+          ],
+          "interior": [
+            "Automatic Climate Control",
+            "Rear AC Vents",
+            "Push-Button Start/Stop",
+            "Cooled Glovebox",
+            "Height Adjustable Driver Seat",
+            "Ventilated Front Seats (Fearless+)",
+            "Leatherette Upholstery (Fearless+)",
+            "Sunroof (Fearless+)",
+            "Wireless Phone Charger (Fearless+)"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "16-inch Alloy Wheels",
+              "Bi-Function LED Headlamps",
+              "Sequential LED DRLs and Taillamps",
+              "Electrically Foldable ORVMs",
+              "Shark Fin Antenna",
+              "Roof Rails"
+            ]
+          },
+          "pricing": "Starts from ₹11.70 Lakh"
         }
-      },
-      "safety": [
-        "2 Airbags (Standard)",
-        "ABS with EBD",
-        "Corner Stability Control",
-        "Rear Parking Sensors",
-        "ISOFIX Child Seat Mounts",
-        "Global NCAP 5-Star Safety Rating (for Adult Occupant)"
-      ],
-      "infotainment": [
-        "7-inch Touchscreen Infotainment System",
-        "Android Auto & Apple CarPlay",
-        "4-Speaker Audio System by Harman",
-        "Digital Instrument Cluster",
-        "Steering Mounted Controls",
-        "USB Charging Port"
-      ],
-      "interior": [
-        "Dual Tone Dashboard",
-        "Premium Fabric Seats",
-        "Rear Flat Floor for Better Legroom",
-        "Height Adjustable Driver Seat",
-        "Rear Parcel Tray",
-        "Bottle Holders in All Doors"
-      ],
-      "exterior": {
-        "designFeatures": [
-          "Signature Humanity Line Grille",
-          "Projector Headlamps with LED DRLs",
-          "LED Tail Lamps",
-          "Cladding on Wheel Arches and Doors",
-          "15-inch Styled Steel or Alloy Wheels"
-        ],
-        "colorOptions": [
-          "Tornado Blue",
-          "Calypso Red",
-          "Atomic Orange",
-          "Daytona Grey",
-          "Tropical Mist",
-          "Orcus White"
-        ]
-      },
-      "pricing": {
-        "baseModel": "₹6.13 Lakh",
-        "topModel": "₹9.70 Lakh",
-        "location": "Ex-Showroom Delhi"
-      },
-      "image": "/images/allcarsimage/punch.png"
+      }
     }
   },
   "Toyota": {
     "Innova Crysta": {
-      "models": [
-        "GX",
-        "VX",
-        "ZX"
-      ],
-      "engine": "2393cc",
-      "engine-Option": "2.4L 4-Cylinder Diesel Engine",
-      "fuelType": "Diesel",
-      "mileage": {
-        "dieselManual": "15.6 km/l"
+      "common_details": {
+        "engine": "2.4L Diesel Engine",
+        "fuelType": "Diesel",
+        "image": "/images/allcarsimage/innova_crysta.png",
+        "pricing_location": "Ex-Showroom Delhi"
       },
-      "transmission": [
-        "5-speed Manual"
-      ],
-      "performance": {
-        "diesel": {
-          "power": "147.51 Bhp",
-          "torque": "343 Nm"
+      "variants": {
+        "GX": {
+          "engine_specs": {
+            "displacement": "2393 cc",
+            "maxPower": "148 bhp @ 3400 rpm",
+            "maxTorque": "343 Nm @ 1400 rpm"
+          },
+          "mileage": {
+            "dieselManual": "14.0 kmpl (owner reported)"
+          },
+          "transmission": ["5-speed Manual"],
+          "seating_capacity": ["7 Seater", "8 Seater"],
+          "safety": [
+            "3 Airbags (Driver, Front Passenger, Driver Knee)",
+            "ABS with EBD",
+            "Brake Assist",
+            "Rear Parking Sensors",
+            "ISOFIX Child Seat Mounts",
+            "Seat Belt Warning"
+          ],
+          "infotainment": [
+            "8-inch Touchscreen Infotainment System",
+            "Android Auto & Apple CarPlay",
+            "4 Speakers"
+          ],
+          "interior": [
+            "Manual AC",
+            "All Power Windows",
+            "Fabric Upholstery",
+            "Manual IRVM",
+            "Height Adjustable Driver Seat",
+            "Tilt & Telescopic Steering Adjustment"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "Body Coloured ORVMs",
+              "Halogen Headlamps",
+              "Steel Wheels"
+            ]
+          },
+          "pricing": "₹19.99 Lakh"
         },
-        "petrol": {
-          "power": "NA",
-          "torque": "NA"
+        "VX": {
+          "engine_specs": {
+            "displacement": "2393 cc",
+            "maxPower": "148 bhp @ 3400 rpm",
+            "maxTorque": "343 Nm @ 1400 rpm"
+          },
+          "mileage": {
+            "dieselManual": "14.5 kmpl (owner reported)"
+          },
+          "transmission": ["5-speed Manual"],
+          "seating_capacity": ["7 Seater", "8 Seater"],
+          "safety": [
+            "7 Airbags (Driver, Front Passenger, 2 Curtain, Driver Knee, Driver Side, Front Passenger Side)",
+            "ABS with EBD",
+            "Brake Assist",
+            "Rear Parking Sensors",
+            "Rear Camera",
+            "ISOFIX Child Seat Mounts",
+            "Vehicle Stability Control (VSC)",
+            "Hill-Start Assist Control (HAC)"
+          ],
+          "infotainment": [
+            "8-inch Touchscreen Infotainment System",
+            "Android Auto & Apple CarPlay",
+            "6 Speakers",
+            "Steering Mounted Audio Controls"
+          ],
+          "interior": [
+            "Automatic Climate Control (Single Zone)",
+            "Rear AC Vents (Separate Zone on Roof)",
+            "All Power Windows (Driver One-Touch Up/Down)",
+            "Leather Wrapped Steering Wheel & Gear Knob",
+            "Electrically Adjustable & Retractable ORVMs",
+            "Cruise Control",
+            "Chrome Interior Door Handles"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "Chrome Door Handles",
+              "LED Projector Headlamps",
+              "Fog Lamps",
+              "Alloy Wheels"
+            ]
+          },
+          "pricing": "₹25.19 Lakh"
         },
-        "cng": {
-          "power": "NA",
-          "torque": "NA"
+        "ZX": {
+          "engine_specs": {
+            "displacement": "2393 cc",
+            "maxPower": "148 bhp @ 3400 rpm",
+            "maxTorque": "343 Nm @ 1400 rpm"
+          },
+          "mileage": {
+            "dieselManual": "14.5 kmpl (owner reported)"
+          },
+          "transmission": ["5-speed Manual"],
+          "seating_capacity": ["7 Seater"],
+          "safety": [
+            "7 Airbags (Driver, Front Passenger, 2 Curtain, Driver Knee, Driver Side, Front Passenger Side)",
+            "ABS with EBD",
+            "Brake Assist",
+            "Rear Parking Sensors",
+            "Rear Camera",
+            "ISOFIX Child Seat Mounts",
+            "Vehicle Stability Control (VSC)",
+            "Hill-Start Assist Control (HAC)"
+          ],
+          "infotainment": [
+            "8-inch Touchscreen Infotainment System",
+            "Android Auto & Apple CarPlay",
+            "6 Speakers",
+            "Steering Mounted Audio Controls"
+          ],
+          "interior": [
+            "Automatic Climate Control (Single Zone)",
+            "Rear AC Vents (Separate Zone on Roof)",
+            "All Power Windows (Driver One-Touch Up/Down)",
+            "Leather Seats",
+            "Electrically Adjustable Driver Seat",
+            "Leather Wrapped Steering Wheel & Gear Knob",
+            "Electrically Adjustable & Retractable ORVMs",
+            "Cruise Control",
+            "Chrome Interior Door Handles"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "Chrome Door Handles",
+              "LED Projector Headlamps",
+              "Fog Lamps",
+              "Alloy Wheels"
+            ]
+          },
+          "pricing": "₹26.82 Lakh"
         }
-      },
-      "safety": [
-        "7 Airbags (in top variant)",
-        "Vehicle Stability Control (VSC)",
-        "Hill Start Assist Control (HAC)",
-        "ABS with EBD and Brake Assist",
-        "Rear Parking Sensors with Camera",
-        "ISOFIX Child Seat Mounts",
-        "Speed Alert System"
-      ],
-      "infotainment": [
-        "8-inch Touchscreen Infotainment System",
-        "Android Auto & Apple CarPlay",
-        "6-Speaker Sound System",
-        "Voice Recognition",
-        "Steering-Mounted Controls",
-        "USB & Bluetooth Connectivity"
-      ],
-      "interior": [
-        "Premium Leather Upholstery (ZX Variant)",
-        "Wood Finish Panels",
-        "Ambient Lighting",
-        "Power Adjustable Driver Seat",
-        "2nd Row Captain Seats (VX & ZX)",
-        "Automatic Climate Control with Rear AC Vents"
-      ],
-      "exterior": {
-        "designFeatures": [
-          "Bold Front Grille with Chrome Accents",
-          "LED Projector Headlamps with DRLs",
-          "Front Fog Lamps",
-          "Diamond-Cut Alloy Wheels (16-17 inch)",
-          "Chrome Door Handles and Window Line Garnish"
-        ],
-        "colorOptions": [
-          "Super White",
-          "Attitude Black Mica",
-          "Avant-Garde Bronze",
-          "Silver Metallic",
-          "Garnet Red"
-        ]
-      },
-      "pricing": {
-        "baseModel": "₹19.99 Lakh",
-        "topModel": "₹26.05 Lakh",
-        "location": "Ex-Showroom Delhi"
-      },
-      "image": "/images/allcarsimage/innovacrysta.png"
-    },
-    "Fortuner": {
-      "models": [
-        "2.7L Petrol",
-        "2.8L Diesel",
-        "2.8L Diesel 4x4",
-        "Legender",
-        "GR-S"
-      ],
-      "engine": "2694cc (Petrol) / 2755cc (Diesel)",
-      "engine-Option": "2.7L Dual VVT-i Petrol Engine / 2.8L Turbocharged Diesel Engine",
-      "fuelType": "Petrol / Diesel",
-      "mileage": {
-        "petrolManual": "10.0 km/l",
-        "petrolAT": "10.3 km/l",
-        "dieselManual": "14.6 km/l",
-        "dieselAT": "14.2 km/l"
-      },
-      "transmission": [
-        "5-speed Manual (Petrol)",
-        "6-speed Manual (Diesel)",
-        "6-speed Automatic with Paddle Shifters"
-      ],
-      "performance": {
-        "petrol": {
-          "power": "164.7 Bhp",
-          "torque": "245 Nm"
-        },
-        "diesel": {
-          "power": "201.15 Bhp",
-          "torque": "500 Nm (AT) / 420 Nm (MT)"
-        },
-        "cng": {
-          "power": "NA",
-          "torque": "NA"
-        }
-      },
-      "safety": [
-        "7 Airbags (Top Variants)",
-        "Vehicle Stability Control (VSC)",
-        "Hill Assist Control (HAC)",
-        "Downhill Assist Control (DAC – 4x4)",
-        "ABS with EBD and Brake Assist",
-        "Rear Parking Camera with Front & Rear Sensors",
-        "ISOFIX Child Seat Mounts"
-      ],
-      "infotainment": [
-        "8-inch Touchscreen Infotainment System",
-        "Android Auto & Apple CarPlay",
-        "JBL 11-Speaker Premium Sound System (Legender)",
-        "Multi-Information Display (MID)",
-        "Smart Entry & Push Button Start",
-        "Voice Recognition and Navigation"
-      ],
-      "interior": [
-        "Dual-Tone Leather Upholstery",
-        "Power Adjustable Front Seats",
-        "Ventilated Seats (Legender)",
-        "Ambient Illumination",
-        "Automatic Climate Control with Rear AC Vents",
-        "Wood Finish and Metallic Accents"
-      ],
-      "exterior": {
-        "designFeatures": [
-          "Bold Front Grille with Chrome/Glossy Black Finish",
-          "Bi-LED Projector Headlamps with DRLs",
-          "LED Sequential Turn Indicators (Legender)",
-          "18-inch Alloy Wheels (Diamond-Cut / Machined Finish)",
-          "Electric Tailgate with Kick Sensor (Legender)"
-        ],
-        "colorOptions": [
-          "Platinum White Pearl",
-          "Sparkling Black Crystal Shine",
-          "Super White",
-          "Attitude Black",
-          "Avant-Garde Bronze",
-          "Phantom Brown",
-          "Grey Metallic",
-          "Dual-Tone Pearl White with Black Roof (Legender)"
-        ]
-      },
-      "pricing": {
-        "baseModel": "₹33.43 Lakh",
-        "topModel": "₹51.44 Lakh",
-        "location": "Ex-Showroom Delhi"
-      },
-      "image": "/images/allcarsimage/fortuner.png"
+      }
     }
   },
   "Nissan": {
     "Magnite": {
-      "models": [
-        "XE",
-        "XL",
-        "XV",
-        "XV Premium",
-        "XV Premium (O)"
-      ],
-      "engine": "999cc",
-      "engine-Option": "1.0L B4D Petrol / 1.0L HRA0 Turbocharged Petrol Engine",
-      "fuelType": "Petrol",
-      "mileage": {
-        "petrolManual": "18.75 km/l (NA), 20.0 km/l (Turbo)",
-        "petrolCVT": "17.7 km/l (Turbo CVT)"
-      },
-      "transmission": [
-        "5-speed Manual",
-        "5-speed AMT (NA variants)",
-        "CVT Automatic (Turbo variants)"
-      ],
-      "performance": {
-        "petrol": {
-          "power": "71.02 Bhp/ Turbo 98.63 Bhp",
-          "torque": "96 Nm/ Turbo 160 Nm (MT) / 152 Nm (CVT)"
-        },
-        "diesel": {
-          "power": "",
-          "torque": ""
-        },
-        "cng": {
-          "power": "",
-          "torque": ""
-        }
-      },
-      "safety": [
-        "Dual Airbags",
-        "Vehicle Dynamic Control (VDC)",
-        "Hill Start Assist",
-        "Traction Control System (TCS)",
-        "ABS with EBD",
-        "Rear Parking Sensors with Camera",
-        "TPMS (Tyre Pressure Monitoring System)"
-      ],
-      "infotainment": [
-        "8-inch Touchscreen Infotainment System",
-        "Wireless Android Auto & Apple CarPlay",
-        "7-inch Digital Instrument Cluster",
-        "6-Speaker Sound System",
-        "Voice Recognition",
-        "Around View Monitor (360° Camera)"
-      ],
-      "interior": [
-        "Dual-Tone Cabin Theme",
-        "Leather-Wrapped Steering Wheel",
-        "Premium Fabric Seats",
-        "Rear Seat Armrest with Cup Holders",
-        "Auto AC with Rear Vents",
-        "Adjustable Headrests"
-      ],
-      "exterior": {
-        "designFeatures": [
-          "Sleek Octagonal Grille with Chrome Accents",
-          "LED Bi-Projector Headlamps",
-          "LED DRLs and Fog Lamps",
-          "L-Shaped LED Tail Lamps",
-          "16-inch Diamond Cut Alloy Wheels",
-          "Roof Rails (Functional up to 50kg)"
+      "common_details": {
+        "engine_options": [
+          "1.0L Naturally Aspirated Petrol",
+          "1.0L Turbo Petrol"
         ],
-        "colorOptions": [
-          "Onyx Black",
-          "Sandstone Brown",
-          "Blade Silver",
-          "Flare Garnet Red",
-          "Storm White",
-          "Tourmaline Brown with Onyx Black Roof",
-          "Vivid Blue with Storm White Roof"
-        ]
+        "globalNCAPRating": "4 Star (ASEAN NCAP)",
+        "groundClearance": "205 mm",
+        "image": "/images/allcarsimage/magnite.png",
+        "pricing_location": "Ex-Showroom Delhi"
       },
-      "pricing": {
-        "baseModel": "₹6.00 Lakh",
-        "topModel": "₹11.27 Lakh",
-        "location": "Ex-Showroom Delhi"
-      },
-      "image": "/images/allcarsimage/magnite.png"
-    },
-    "Kicks": {
-      "models": [
-        "XL",
-        "XV",
-        "XV Premium",
-        "XV Turbo",
-        "XV Turbo CVT"
-      ],
-      "engine": "1498cc (NA) / 1330cc (Turbo)",
-      "engine-Option": "1.5L Naturally Aspirated Petrol / 1.3L Turbocharged Petrol",
-      "fuelType": "Petrol",
-      "mileage": {
-        "petrolManual": "13.9 km/l (NA), 15.8 km/l (Turbo)",
-        "petrolCVT": "16.3 km/l (Turbo CVT)"
-      },
-      "transmission": [
-        "5-speed Manual (NA)",
-        "6-speed Manual (Turbo)",
-        "CVT Automatic (Turbo)"
-      ],
-      "performance": {
-        "petrol": {
-          "power": "104 Bhp/ Turbo 154 Bhp",
-          "torque": "142 Nm/ Turbo 254 Nm"
+      "variants": {
+        "XE": {
+          "engine_specs": {
+            "petrolNA": {
+              "displacement": "999 cc",
+              "maxPower": "71 bhp @ 6250 rpm",
+              "maxTorque": "96 Nm @ 3500 rpm"
+            }
+          },
+          "mileage": {
+            "petrolManual": "19.35 kmpl"
+          },
+          "transmission": ["5-speed Manual"],
+          "safety": [
+            "Dual Front Airbags",
+            "ABS with EBD",
+            "Rear Parking Sensors",
+            "Seat Belt Reminder",
+            "High Mount Stop Lamp"
+          ],
+          "infotainment": [
+            "No Infotainment System (Pre-wiring for audio)",
+            "Manual AC"
+          ],
+          "interior": [
+            "Manual AC",
+            "Front Power Windows",
+            "Dual Tone Interior (Light Gray)",
+            "Adjustable Front Headrests"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "16-inch Steel Wheels",
+              "Halogen Headlamps",
+              "Body Coloured Bumpers",
+              "Black ORVMs"
+            ]
+          },
+          "pricing": "₹6.00 Lakh"
         },
-        "diesel": {
-          "power": "",
-          "torque": ""
+        "XL": {
+          "engine_specs": {
+            "petrolNA": {
+              "displacement": "999 cc",
+              "maxPower": "71 bhp @ 6250 rpm",
+              "maxTorque": "96 Nm @ 3500 rpm"
+            },
+            "petrolTurbo": {
+              "displacement": "999 cc",
+              "maxPower": "98.63 bhp @ 5000 rpm",
+              "maxTorque": "160 Nm @ 2800-3600 rpm (MT), 152 Nm @ 2200-4400 rpm (CVT)"
+            }
+          },
+          "mileage": {
+            "petrolManual": "19.35 kmpl",
+            "petrolAMT": "19.70 kmpl (Turbo)",
+            "petrolCVT": "17.7 kmpl (Turbo)"
+          },
+          "transmission": ["5-speed Manual", "CVT (Turbo only)"],
+          "safety": [
+            "Dual Front Airbags",
+            "ABS with EBD",
+            "Rear Parking Sensors",
+            "Vehicle Dynamic Control (VDC) - Turbo",
+            "Hill Start Assist (HSA) - Turbo"
+          ],
+          "infotainment": [
+            "Integrated Music System",
+            "Bluetooth Connectivity",
+            "4 Speakers"
+          ],
+          "interior": [
+            "Manual AC",
+            "All Power Windows",
+            "Electrically Adjustable ORVMs",
+            "Steering Mounted Audio Controls",
+            "Rear Armrest with Cupholders"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "16-inch Steel Wheels with Covers",
+              "Body Coloured Door Handles",
+              "Roof Rails",
+              "Chrome Front Grille"
+            ]
+          },
+          "pricing": "₹7.04 Lakh (NA Petrol MT), ₹8.91 Lakh (Turbo CVT)"
         },
-        "cng": {
-          "power": "",
-          "torque": ""
+        "XV": {
+          "engine_specs": {
+            "petrolNA": {
+              "displacement": "999 cc",
+              "maxPower": "71 bhp @ 6250 rpm",
+              "maxTorque": "96 Nm @ 3500 rpm"
+            },
+            "petrolTurbo": {
+              "displacement": "999 cc",
+              "maxPower": "98.63 bhp @ 5000 rpm",
+              "maxTorque": "160 Nm @ 2800-3600 rpm (MT), 152 Nm @ 2200-4400 rpm (CVT)"
+            }
+          },
+          "mileage": {
+            "petrolManual": "19.35 kmpl",
+            "petrolAMT": "19.70 kmpl (Turbo)",
+            "petrolCVT": "17.4 kmpl (Turbo)"
+          },
+          "transmission": ["5-speed Manual", "CVT (Turbo only)"],
+          "safety": [
+            "Dual Front Airbags",
+            "ABS with EBD",
+            "Rear Parking Sensors & Camera",
+            "Tyre Pressure Monitoring System (TPMS)",
+            "Hill Start Assist (HSA)",
+            "Vehicle Dynamic Control (VDC)"
+          ],
+          "infotainment": [
+            "8-inch Touchscreen Infotainment System",
+            "Wireless Android Auto & Apple CarPlay",
+            "7-inch Digital Instrument Cluster",
+            "Voice Recognition"
+          ],
+          "interior": [
+            "Automatic Climate Control",
+            "Push-Button Start/Stop",
+            "Keyless Entry",
+            "Rear AC Vents",
+            "Front and Rear Power Windows",
+            "Electrically Adjustable & Auto Folding ORVMs"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "16-inch Diamond Cut Alloy Wheels",
+              "LED DRLs",
+              "LED Fog Lamps",
+              "Chrome Door Handles"
+            ]
+          },
+          "pricing": "₹7.82 Lakh (NA Petrol MT), ₹9.19 Lakh (Turbo MT)"
+        },
+        "XV Premium": {
+          "engine_specs": {
+            "petrolNA": {
+              "displacement": "999 cc",
+              "maxPower": "71 bhp @ 6250 rpm",
+              "maxTorque": "96 Nm @ 3500 rpm"
+            },
+            "petrolTurbo": {
+              "displacement": "999 cc",
+              "maxPower": "98.63 bhp @ 5000 rpm",
+              "maxTorque": "160 Nm @ 2800-3600 rpm (MT), 152 Nm @ 2200-4400 rpm (CVT)"
+            }
+          },
+          "mileage": {
+            "petrolManual": "19.35 kmpl",
+            "petrolAMT": "19.70 kmpl (Turbo)",
+            "petrolCVT": "17.4 kmpl (Turbo)"
+          },
+          "transmission": ["5-speed Manual", "CVT (Turbo only)"],
+          "safety": [
+            "Dual Front Airbags",
+            "ABS with EBD",
+            "Rear Parking Sensors & 360° Camera",
+            "Tyre Pressure Monitoring System (TPMS)",
+            "Hill Start Assist (HSA)",
+            "Vehicle Dynamic Control (VDC)"
+          ],
+          "infotainment": [
+            "8-inch Touchscreen Infotainment System",
+            "Wireless Android Auto & Apple CarPlay",
+            "7-inch Digital Instrument Cluster",
+            "Nissan Connect (Connected Car Tech)",
+            "JBL Premium Sound System"
+          ],
+          "interior": [
+            "Automatic Climate Control",
+            "Push-Button Start/Stop",
+            "Keyless Entry",
+            "Cruise Control",
+            "Air Purifier",
+            "Ambient Lighting",
+            "Leatherette Seats",
+            "Puddle Lamps"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "16-inch Dual Tone Alloy Wheels",
+              "LED Bi-Projector Headlamps",
+              "LED DRLs & Fog Lamps",
+              "Chrome Door Handles",
+              "Roof Rails",
+              "Contrast Roof (Optional)"
+            ]
+          },
+          "pricing": "₹8.76 Lakh (NA Petrol MT), ₹9.96 Lakh (Turbo MT)"
         }
-      },
-      "safety": [
-        "Dual Front Airbags",
-        "ABS with EBD and Brake Assist",
-        "Vehicle Stability Management",
-        "Hill Start Assist",
-        "Rear Parking Sensors with Camera",
-        "ISOFIX Child Seat Mounts"
-      ],
-      "infotainment": [
-        "8-inch Floating Touchscreen Infotainment System",
-        "Android Auto & Apple CarPlay",
-        "Voice Recognition",
-        "NissanConnect Telematics System",
-        "Steering-Mounted Controls",
-        "6-Speaker Audio System"
-      ],
-      "interior": [
-        "Leather-Wrapped Steering Wheel",
-        "Premium Dual-Tone Dashboard",
-        "Automatic Climate Control",
-        "Height Adjustable Driver Seat",
-        "Rear AC Vents",
-        "Smart Key with Push Button Start"
-      ],
-      "exterior": {
-        "designFeatures": [
-          "Signature V-Motion Grille",
-          "LED Projector Headlamps with DRLs",
-          "Fog Lamps with Chrome Bezel",
-          "17-inch Machine Cut Alloy Wheels",
-          "Roof Rails and Shark Fin Antenna"
-        ],
-        "colorOptions": [
-          "Night Shade",
-          "Fire Red",
-          "Deep Blue Pearl",
-          "Bronze Grey",
-          "Pearl White",
-          "Dual-Tone Red with Black Roof",
-          "Dual-Tone White with Orange Roof"
-        ]
-      },
-      "pricing": {
-        "baseModel": "₹9.50 Lakh",
-        "topModel": "₹14.90 Lakh",
-        "location": "Ex-Showroom Delhi"
-      },
-      "image": "/images/allcarsimage/kicks.png"
+      }
     }
   },
   "Renault": {
     "Kwid": {
-      "models": [
-        "STD",
-        "RXE",
-        "RXL",
-        "RXT",
-        "Climber"
-      ],
-      "engine": "999cc",
-      "engine-Option": "1.0L SCe Petrol Engine",
-      "fuelType": "Petrol",
-      "mileage": {
-        "petrolManual": "21.46 km/l",
-        "petrolAMT": "22.3 km/l"
-      },
-      "transmission": [
-        "5-speed Manual",
-        "5-speed AMT"
-      ],
-      "performance": {
-        "petrol": {
-          "power": "67 Bhp",
-          "torque": "91 Nm"
-        },
-        "diesel": {
-          "power": "",
-          "torque": ""
-        },
-        "cng": {
-          "power": "",
-          "torque": ""
-        }
-      },
-      "safety": [
-        "Dual Front Airbags",
-        "ABS with EBD",
-        "Reverse Parking Sensors",
-        "Speed Alert System",
-        "Seat Belt Reminder",
-        "Driver Side Pyro-Technic Pretensioner with Load Limiter"
-      ],
-      "infotainment": [
-        "8-inch Touchscreen MediaNAV Infotainment System",
-        "Android Auto & Apple CarPlay",
-        "Voice Recognition",
-        "USB and Bluetooth Connectivity",
-        "Steering-Mounted Audio Controls"
-      ],
-      "interior": [
-        "Dual-Tone Dashboard",
-        "Digital Instrument Cluster",
-        "Piano Black Center Fascia",
-        "Sporty Orange Interior Accents (Climber)",
-        "Front Power Windows",
-        "Rear Parcel Shelf"
-      ],
-      "exterior": {
-        "designFeatures": [
-          "SUV-Inspired Front Grille",
-          "LED DRLs",
-          "Integrated Roof Spoiler",
-          "Wheel Arch Claddings",
-          "14-inch Steel or Flex Wheels",
-          "Skid Plates (Front & Rear)"
+      "common_details": {
+        "engine_options": [
+          "0.8L SCe Petrol",
+          "1.0L SCe Petrol"
         ],
-        "colorOptions": [
-          "Moonlight Silver",
-          "Ice Cool White",
-          "Outback Bronze",
-          "Fiery Red",
-          "Zanskar Blue",
-          "Metal Mustard with Black Roof (Climber)",
-          "Ice Cool White with Black Roof (Climber)"
-        ]
+        "groundClearance": "184 mm",
+        "image": "/images/allcarsimage/kwid.png",
+        "pricing_location": "Ex-Showroom Delhi"
       },
-      "pricing": {
-        "baseModel": "₹4.70 Lakh",
-        "topModel": "₹6.45 Lakh",
-        "location": "Ex-Showroom Delhi"
-      },
-      "image": "/images/allcarsimage/kwid.png"
-    },
-    "Kiger": {
-      "models": [
-        "RXE",
-        "RXL",
-        "RXT",
-        "RXT (O)",
-        "RXZ"
-      ],
-      "engine": "999cc",
-      "engine-Option": "1.0L Energy Petrol / 1.0L Turbocharged Petrol Engine",
-      "fuelType": "Petrol",
-      "mileage": {
-        "petrolManual": "19.66 km/l (NA), 20.5 km/l (Turbo)",
-        "petrolAMT": "19.03 km/l (NA AMT)",
-        "petrolCVT": "18.2 km/l (Turbo CVT)"
-      },
-      "transmission": [
-        "5-speed Manual",
-        "5-speed AMT (NA only)",
-        "CVT Automatic (Turbo variants)"
-      ],
-      "performance": {
-        "petrol": {
-          "power": "71 Bhp/ Turbo 99 Bhp",
-          "torque": "96 Nm/ Turbo160 Nm (MT) / 152 Nm (CVT)"
+      "variants": {
+        "RXE": {
+          "engine_specs": {
+            "petrol0.8": {
+              "displacement": "799 cc",
+              "maxPower": "53 bhp @ 5678 rpm",
+              "maxTorque": "72 Nm @ 4386 rpm"
+            },
+            "petrol1.0": {
+              "displacement": "999 cc",
+              "maxPower": "67 bhp @ 5500 rpm",
+              "maxTorque": "91 Nm @ 4250 rpm"
+            }
+          },
+          "mileage": {
+            "petrol0.8Manual": "22.25 kmpl",
+            "petrol1.0Manual": "21.7 kmpl"
+          },
+          "transmission": ["5-speed Manual"],
+          "safety": [
+            "Dual Front Airbags",
+            "ABS with EBD",
+            "Rear Parking Sensors",
+            "Seat Belt Reminder"
+          ],
+          "infotainment": [
+            "Single DIN Audio System",
+            "USB, AUX-in, Bluetooth"
+          ],
+          "interior": [
+            "Manual AC with Heater",
+            "Front Power Windows",
+            "Fabric Upholstery (Grey Melange)"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "Steel Wheels",
+              "Body Coloured Bumpers",
+              "Halogen Headlamps"
+            ]
+          },
+          "pricing": "₹4.70 Lakh (1.0L)"
         },
-        "diesel": {
-          "power": "",
-          "torque": ""
+        "RXL(O)": {
+          "engine_specs": {
+            "petrol1.0": {
+              "displacement": "999 cc",
+              "maxPower": "67 bhp @ 5500 rpm",
+              "maxTorque": "91 Nm @ 4250 rpm"
+            }
+          },
+          "mileage": {
+            "petrol1.0Manual": "21.7 kmpl",
+            "petrol1.0AMT": "22.0 kmpl"
+          },
+          "transmission": ["5-speed Manual", "5-speed AMT"],
+          "safety": [
+            "Dual Front Airbags",
+            "ABS with EBD",
+            "Rear Parking Sensors",
+            "Seat Belt Reminder",
+            "Rear View Camera (Optional)"
+          ],
+          "infotainment": [
+            "8-inch Touchscreen Infotainment System",
+            "Android Auto & Apple CarPlay",
+            "USB charger"
+          ],
+          "interior": [
+            "Manual AC with Heater",
+            "All Power Windows",
+            "Digital Instrument Cluster",
+            "Fabric Upholstery"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "Steel Wheels with Full Wheel Covers",
+              "Body Coloured Bumpers",
+              "LED DRLs",
+              "Integrated Roof Spoiler"
+            ]
+          },
+          "pricing": "₹5.22 Lakh (1.0L Manual), ₹5.62 Lakh (1.0L AMT)"
         },
-        "cng": {
-          "power": "",
-          "torque": ""
+        "RXT": {
+          "engine_specs": {
+            "petrol1.0": {
+              "displacement": "999 cc",
+              "maxPower": "67 bhp @ 5500 rpm",
+              "maxTorque": "91 Nm @ 4250 rpm"
+            }
+          },
+          "mileage": {
+            "petrol1.0Manual": "21.7 kmpl",
+            "petrol1.0AMT": "22.0 kmpl"
+          },
+          "transmission": ["5-speed Manual", "5-speed AMT"],
+          "safety": [
+            "Dual Front Airbags",
+            "ABS with EBD",
+            "Rear Parking Sensors",
+            "Rear View Camera",
+            "Speed Alert System"
+          ],
+          "infotainment": [
+            "8-inch Touchscreen Infotainment System",
+            "Android Auto & Apple CarPlay",
+            "Voice Recognition",
+            "Fast USB Charger"
+          ],
+          "interior": [
+            "Manual AC with Heater",
+            "All Power Windows (Driver side one-touch down)",
+            "Digital Instrument Cluster",
+            "Glossy Black Centre Console",
+            "Rear Parcel Tray"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "Steel Wheels with Full Wheel Covers",
+              "LED DRLs",
+              "Roof Rails",
+              "Body Coloured ORVMs"
+            ]
+          },
+          "pricing": "₹5.60 Lakh (1.0L Manual), ₹6.00 Lakh (1.0L AMT)"
+        },
+        "Climber": {
+          "engine_specs": {
+            "petrol1.0": {
+              "displacement": "999 cc",
+              "maxPower": "67 bhp @ 5500 rpm",
+              "maxTorque": "91 Nm @ 4250 rpm"
+            }
+          },
+          "mileage": {
+            "petrol1.0Manual": "21.7 kmpl",
+            "petrol1.0AMT": "22.0 kmpl"
+          },
+          "transmission": ["5-speed Manual", "5-speed AMT"],
+          "safety": [
+            "Dual Front Airbags",
+            "ABS with EBD",
+            "Rear Parking Sensors",
+            "Rear View Camera",
+            "Speed Alert System",
+            "ESP (AMT variants)"
+          ],
+          "infotainment": [
+            "8-inch Touchscreen Infotainment System",
+            "Android Auto & Apple CarPlay",
+            "Voice Recognition",
+            "Fast USB Charger"
+          ],
+          "interior": [
+            "Manual AC with Heater",
+            "All Power Windows",
+            "Digital Instrument Cluster",
+            "Orange Accents on Interior",
+            "Climber branded Fabric Seats",
+            "Chrome Interior Door Handles"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "Flex Wheels (Alloy Look)",
+              "Climber Specific Orange Accents",
+              "LED DRLs",
+              "Roof Rails",
+              "Skid Plates (Front & Rear)",
+              "Climber Decals"
+            ]
+          },
+          "pricing": "₹5.88 Lakh (1.0L Manual), ₹6.30 Lakh (1.0L AMT)"
         }
-      },
-      "safety": [
-        "Dual Front Airbags (Side Airbags in Top Variants)",
-        "ABS with EBD",
-        "Vehicle Stability Management (VSM)",
-        "Hill Start Assist",
-        "Rear Parking Sensors with Camera",
-        "ISOFIX Child Seat Mounts",
-        "TPMS (Top Variants)"
-      ],
-      "infotainment": [
-        "8-inch Touchscreen Infotainment System",
-        "Wireless Android Auto & Apple CarPlay",
-        "7-inch Digital Instrument Cluster",
-        "Arkamys 3D Sound System (Top Variants)",
-        "Steering-Mounted Audio Controls",
-        "Voice Recognition and Navigation"
-      ],
-      "interior": [
-        "Dual-Tone Cabin Theme",
-        "Leather-Wrapped Steering Wheel",
-        "Automatic Climate Control with PM2.5 Filter",
-        "Ambient Lighting (Top Trims)",
-        "Rear AC Vents",
-        "Adjustable Driver Seat Height"
-      ],
-      "exterior": {
-        "designFeatures": [
-          "LED DRLs and Tri-octa LED Headlamps",
-          "3D Signature LED Tail Lamps",
-          "17-inch Dual-Tone Alloy Wheels (Top Variant)",
-          "Sporty Roof Rails",
-          "Chrome Front Grille",
-          "Dual Tone Paint Options"
-        ],
-        "colorOptions": [
-          "Ice Cool White",
-          "Moonlight Silver",
-          "Planet Grey",
-          "Mahogany Brown",
-          "Caspian Blue",
-          "Radiant Red",
-          "Stealth Black",
-          "Dual-Tone Options with Black Roof (RXZ & RXT)"
-        ]
-      },
-      "pricing": {
-        "baseModel": "₹6.50 Lakh",
-        "topModel": "₹11.23 Lakh",
-        "location": "Ex-Showroom Delhi"
-      },
-      "image": "/images/allcarsimage/kiger.png"
+      }
     }
   },
   "Mahindra": {
     "XUV700": {
-      "models": [
-        "MX",
-        "AX3",
-        "AX5",
-        "AX7",
-        "AX7L"
-      ],
-      "engine": "1997cc (Petrol) / 2184cc (Diesel)",
-      "engine-Option": "2.0L Turbo Petrol mStallion / 2.2L Turbo Diesel mHawk",
-      "fuelType": "Petrol / Diesel",
-      "mileage": {
-        "petrolManual": "13 km/l",
-        "petrolAutomatic": "12 km/l",
-        "dieselManual": "17 km/l",
-        "dieselAutomatic": "15 km/l"
-      },
-      "transmission": [
-        "6-speed Manual",
-        "6-speed Automatic (TC)"
-      ],
-      "performance": {
-        "petrol": {
-          "power": "197 Bhp",
-          "torque": "380 Nm"
-        },
-        "diesel": {
-          "power": "153 Bhp (MX) / 182 Bhp (AX variants)",
-          "torque": "360 Nm (MX MT) / 420 Nm (AX MT) / 450 Nm (AX AT)"
-        },
-        "cng": {
-          "power": "",
-          "torque": ""
-        }
-      },
-      "safety": [
-        "7 Airbags (AX7 & above)",
-        "ADAS (Advanced Driver Assistance System)",
-        "Electronic Stability Program (ESP)",
-        "Forward Collision Warning & Automatic Emergency Braking",
-        "Lane Keep Assist",
-        "Driver Drowsiness Detection",
-        "360-Degree Camera",
-        "ISOFIX Child Seat Anchors"
-      ],
-      "infotainment": [
-        "10.25-inch Touchscreen Infotainment System",
-        "10.25-inch Digital Instrument Cluster",
-        "AdrenoX Connected Car Technology",
-        "Sony 3D Sound System (AX7L - 12 Speakers)",
-        "Wireless Android Auto & Apple CarPlay (OTA)",
-        "Alexa Built-in Voice Control"
-      ],
-      "interior": [
-        "Panoramic Skyroof",
-        "Dual-Zone Climate Control",
-        "Leatherette Seats (AX7 & above)",
-        "12V Rear Charging Port & USB Type-C",
-        "Push Button Start",
-        "Smart Door Handles"
-      ],
-      "exterior": {
-        "designFeatures": [
-          "C-shaped LED DRLs",
-          "LED Headlamps & Tail Lamps",
-          "Diamond-Cut Alloy Wheels (17-18 inch)",
-          "Flush Door Handles (Pop-out Type)",
-          "Roof Rails",
-          "Sporty Rear Spoiler"
+      "common_details": {
+        "engine_options": [
+          "2.0L Turbo Petrol (mStallion)",
+          "2.2L Turbo Diesel (mHawk)"
         ],
-        "colorOptions": [
-          "Midnight Black",
-          "Dazzling Silver",
-          "Electric Blue",
-          "Everest White",
-          "Red Rage"
-        ]
+        "globalNCAPRating": "5 Star (Global NCAP)",
+        "image": "/images/allcarsimage/xuv700.png",
+        "pricing_location": "Ex-Showroom Delhi"
       },
-      "pricing": {
-        "baseModel": "₹13.99 Lakh",
-        "topModel": "₹26.99 Lakh",
-        "location": "Ex-Showroom Delhi"
+      "variants": {
+        "MX": {
+          "engine_specs": {
+            "petrol": {
+              "displacement": "1997 cc",
+              "maxPower": "197 bhp @ 5000 rpm",
+              "maxTorque": "380 Nm @ 1750-3000 rpm"
+            },
+            "diesel": {
+              "displacement": "2184 cc",
+              "maxPower": "153 bhp @ 3750 rpm",
+              "maxTorque": "360 Nm @ 1500-2800 rpm"
+            }
+          },
+          "mileage": {
+            "petrolManual": "15.0 kmpl",
+            "dieselManual": "16.5 kmpl"
+          },
+          "transmission": ["6-speed Manual"],
+          "seating_capacity": ["5 Seater", "7 Seater"],
+          "safety": [
+            "Dual Front Airbags",
+            "ABS with EBD",
+            "Rear Parking Sensors",
+            "ISOFIX Child Seat Mounts",
+            "All Wheel Disc Brakes"
+          ],
+          "infotainment": [
+            "8-inch Touchscreen Infotainment System",
+            "Android Auto",
+            "4 Speakers",
+            "7-inch Digital Instrument Cluster"
+          ],
+          "interior": [
+            "Manual AC",
+            "All Power Windows",
+            "Fabric Upholstery",
+            "Day/Night IRVM",
+            "Tilt Steering Adjustment"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "17-inch Steel Wheels",
+              "LED Tail Lamps",
+              "Smart Door Handles (Flush fitting)",
+              "Body Coloured Door Handles"
+            ]
+          },
+          "pricing": "₹13.99 Lakh (Petrol), ₹14.49 Lakh (Diesel)"
+        },
+        "AX3": {
+          "engine_specs": {
+            "petrol": {
+              "displacement": "1997 cc",
+              "maxPower": "197 bhp @ 5000 rpm",
+              "maxTorque": "380 Nm @ 1750-3000 rpm"
+            },
+            "diesel": {
+              "displacement": "2184 cc",
+              "maxPower": "182 bhp @ 3500 rpm",
+              "maxTorque": "420 Nm @ 1600-2800 rpm (Manual), 450 Nm @ 1750-2800 rpm (Automatic)"
+            }
+          },
+          "mileage": {
+            "petrolManual": "15.0 kmpl",
+            "petrolAutomatic": "13.0 kmpl",
+            "dieselManual": "16.5 kmpl",
+            "dieselAutomatic": "15.0 kmpl"
+          },
+          "transmission": ["6-speed Manual", "6-speed Automatic"],
+          "seating_capacity": ["5 Seater", "7 Seater"],
+          "safety": [
+            "Dual Front Airbags",
+            "ABS with EBD",
+            "Rear Parking Sensors",
+            "ISOFIX Child Seat Mounts",
+            "Electronic Stability Program (ESP)",
+            "Traction Control System (TCS)",
+            "Hill Hold Control (HHC)"
+          ],
+          "infotainment": [
+            "10.25-inch Touchscreen Infotainment System",
+            "Wireless Android Auto & Apple CarPlay",
+            "AdrenoX Connect (Connected Car Tech)",
+            "6 Speakers",
+            "10.25-inch Digital Instrument Cluster"
+          ],
+          "interior": [
+            "Automatic Climate Control",
+            "All Power Windows",
+            "Fabric Upholstery",
+            "Smart Key with Push-Button Start/Stop",
+            "Adrenox with Voice Commands"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "17-inch Steel Wheels with Covers",
+              "LED DRLs",
+              "LED Turn Indicators",
+              "Body Coloured Door Handles"
+            ]
+          },
+          "pricing": "₹16.39 Lakh (Petrol), ₹16.99 Lakh (Diesel)"
+        },
+        "AX5": {
+          "engine_specs": {
+            "petrol": {
+              "displacement": "1997 cc",
+              "maxPower": "197 bhp @ 5000 rpm",
+              "maxTorque": "380 Nm @ 1750-3000 rpm"
+            },
+            "diesel": {
+              "displacement": "2184 cc",
+              "maxPower": "182 bhp @ 3500 rpm",
+              "maxTorque": "420 Nm @ 1600-2800 rpm (Manual), 450 Nm @ 1750-2800 rpm (Automatic)"
+            }
+          },
+          "mileage": {
+            "petrolManual": "15.0 kmpl",
+            "petrolAutomatic": "13.0 kmpl",
+            "dieselManual": "16.5 kmpl",
+            "dieselAutomatic": "15.0 kmpl"
+          },
+          "transmission": ["6-speed Manual", "6-speed Automatic"],
+          "seating_capacity": ["5 Seater", "7 Seater"],
+          "safety": [
+            "6 Airbags",
+            "ABS with EBD",
+            "Rear Parking Sensors & Camera",
+            "Electronic Stability Program (ESP)",
+            "Traction Control System (TCS)",
+            "Hill Hold Control (HHC)",
+            "Tyre Pressure Monitoring System (TPMS)"
+          ],
+          "infotainment": [
+            "10.25-inch Dual HD Superscreen (Infotainment + Instrument Cluster)",
+            "Wireless Android Auto & Apple CarPlay",
+            "Built-in Alexa Integration",
+            "6 Speakers",
+            "Connected Car Features with AdrenoX"
+          ],
+          "interior": [
+            "Panoramic Sunroof",
+            "Automatic Climate Control",
+            "All Power Windows",
+            "Premium Fabric Upholstery",
+            "Push-Button Start/Stop",
+            "Electrically Adjustable ORVMs with Welcome Function"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "17-inch Diamond Cut Alloy Wheels",
+              "LED Clear-view Headlamps with Auto Booster",
+              "Sequential LED Turn Indicators",
+              "Chrome Door Handles"
+            ]
+          },
+          "pricing": "₹18.09 Lakh (Petrol), ₹18.59 Lakh (Diesel)"
+        },
+        "AX7": {
+          "engine_specs": {
+            "petrol": {
+              "displacement": "1997 cc",
+              "maxPower": "197 bhp @ 5000 rpm",
+              "maxTorque": "380 Nm @ 1750-3000 rpm"
+            },
+            "diesel": {
+              "displacement": "2184 cc",
+              "maxPower": "182 bhp @ 3500 rpm",
+              "maxTorque": "420 Nm @ 1600-2800 rpm (Manual), 450 Nm @ 1750-2800 rpm (Automatic)"
+            }
+          },
+          "mileage": {
+            "petrolManual": "15.0 kmpl",
+            "petrolAutomatic": "13.0 kmpl",
+            "dieselManual": "16.5 kmpl",
+            "dieselAutomatic": "15.0 kmpl"
+          },
+          "transmission": ["6-speed Manual", "6-speed Automatic"],
+          "seating_capacity": ["5 Seater", "7 Seater"],
+          "safety": [
+            "6 Airbags",
+            "ABS with EBD",
+            "Front & Rear Parking Sensors",
+            "Rear Camera",
+            "Electronic Stability Program (ESP)",
+            "Tyre Pressure Monitoring System (TPMS)",
+            "Driver Drowsiness Detection",
+            "ADAS (Advanced Driver-Assistance Systems)",
+            "Forward Collision Warning",
+            "Lane Keep Assist",
+            "Adaptive Cruise Control"
+          ],
+          "infotainment": [
+            "10.25-inch Dual HD Superscreen (Infotainment + Instrument Cluster)",
+            "Wireless Android Auto & Apple CarPlay",
+            "Built-in Alexa Integration",
+            "Sony 3D Sound System (12 Speakers)",
+            "Connected Car Features with AdrenoX"
+          ],
+          "interior": [
+            "Dual Zone Automatic Climate Control",
+            "Leatherette Seat Upholstery",
+            "Electrically Adjustable Driver Seat with Memory Function",
+            "Panoramic Sunroof",
+            "Push-Button Start/Stop",
+            "Electronic Parking Brake",
+            "Wireless Phone Charger"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "18-inch Diamond Cut Alloy Wheels",
+              "LED Clear-view Headlamps with Auto Booster",
+              "Sequential LED Turn Indicators",
+              "Chrome Door Handles",
+              "Dual Tone Roof (Optional)"
+            ]
+          },
+          "pricing": "₹20.69 Lakh (Petrol), ₹21.29 Lakh (Diesel)"
+        },
+        "AX7L": {
+          "engine_specs": {
+            "petrol": {
+              "displacement": "1997 cc",
+              "maxPower": "197 bhp @ 5000 rpm",
+              "maxTorque": "380 Nm @ 1750-3000 rpm"
+            },
+            "diesel": {
+              "displacement": "2184 cc",
+              "maxPower": "182 bhp @ 3500 rpm",
+              "maxTorque": "420 Nm @ 1600-2800 rpm (Manual), 450 Nm @ 1750-2800 rpm (Automatic)"
+            }
+          },
+          "mileage": {
+            "petrolManual": "15.0 kmpl",
+            "petrolAutomatic": "13.0 kmpl",
+            "dieselManual": "16.5 kmpl",
+            "dieselAutomatic": "15.0 kmpl"
+          },
+          "transmission": ["6-speed Manual", "6-speed Automatic"],
+          "seating_capacity": ["7 Seater"],
+          "safety": [
+            "7 Airbags (including Knee Airbag)",
+            "ADAS (Advanced Driver-Assistance Systems) with additional features",
+            "360-degree Surround View System",
+            "Blind Spot Monitoring",
+            "Front & Rear Parking Sensors",
+            "Electronic Stability Program (ESP)",
+            "Tyre Pressure Monitoring System (TPMS)",
+            "All Wheel Drive (AWD) available"
+          ],
+          "infotainment": [
+            "10.25-inch Dual HD Superscreen (Infotainment + Instrument Cluster)",
+            "Wireless Android Auto & Apple CarPlay",
+            "Built-in Alexa Integration",
+            "Sony 3D Sound System (12 Speakers)",
+            "Connected Car Features with AdrenoX",
+            "Live Telematics"
+          ],
+          "interior": [
+            "Dual Zone Automatic Climate Control",
+            "Leatherette Seat Upholstery",
+            "Electrically Adjustable Driver Seat with Memory Function",
+            "Ventilated Front Seats",
+            "Panoramic Sunroof",
+            "Push-Button Start/Stop",
+            "Electronic Parking Brake with Auto Hold",
+            "Wireless Phone Charger",
+            "Power Tailgate"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "18-inch Diamond Cut Alloy Wheels",
+              "LED Clear-view Headlamps with Auto Booster & Dynamic Turn Indicators",
+              "Chrome Door Handles",
+              "Dual Tone Roof (Optional)"
+            ]
+          },
+          "pricing": "₹22.19 Lakh (Petrol), ₹22.79 Lakh (Diesel)"
+        }
+      }
+    }
+  },
+  "Hyundai": {
+    "Creta": {
+      "common_details": {
+        "engine_options": [
+          "1.5L MPi Petrol",
+          "1.5L Turbo GDi Petrol",
+          "1.5L U2 CRDi Diesel"
+        ],
+        "groundClearance": "190 mm",
+        "globalNCAPRating": "4 Star",
+        "image": "/images/allcarsimage/creta.png",
+        "pricing_location": "Ex-Showroom Delhi"
       },
-      "image": "/images/allcarsimage/xuv700.png"
+      "variants": {
+        "E": {
+          "engine_specs": {
+            "petrol": {
+              "displacement": "1497 cc",
+              "maxPower": "113.18 bhp @ 6300 rpm",
+              "maxTorque": "143.8 Nm @ 4500 rpm"
+            }
+          },
+          "mileage": {
+            "petrolManual": "17.4 kmpl"
+          },
+          "transmission": ["6-speed Manual"],
+          "safety": [
+            "6 Airbags",
+            "ABS with EBD",
+            "Rear Parking Sensors",
+            "Seat Belt Reminder",
+            "Vehicle Stability Management (VSM)",
+            "Electronic Stability Control (ESC)",
+            "Hill-Start Assist Control (HAC)"
+          ],
+          "infotainment": [
+            "No Infotainment System (Pre-wiring for audio)"
+          ],
+          "interior": [
+            "Manual AC",
+            "Front Power Windows",
+            "Dual Tone Grey Interiors",
+            "2-step Rear Reclining Seat"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "Steel Wheels",
+              "Halogen Headlamps",
+              "Body Coloured Bumpers",
+              "LED DRLs (CarDekho)"
+            ]
+          },
+          "pricing": "₹11.00 Lakh"
+        },
+        "EX": {
+          "engine_specs": {
+            "petrol": {
+              "displacement": "1497 cc",
+              "maxPower": "113.18 bhp @ 6300 rpm",
+              "maxTorque": "143.8 Nm @ 4500 rpm"
+            }
+          },
+          "mileage": {
+            "petrolManual": "17.4 kmpl",
+            "petrolAutomatic": "17.7 kmpl (IVT)"
+          },
+          "transmission": ["6-speed Manual", "IVT (Automatic)"],
+          "safety": [
+            "6 Airbags",
+            "ABS with EBD",
+            "Rear Parking Sensors",
+            "Rear Camera",
+            "Vehicle Stability Management (VSM)",
+            "Electronic Stability Control (ESC)",
+            "Hill-Start Assist Control (HAC)",
+            "Tyre Pressure Monitoring System (TPMS)"
+          ],
+          "infotainment": [
+            "8-inch Touchscreen Infotainment System",
+            "Wireless Android Auto & Apple CarPlay",
+            "4 Speakers",
+            "Electrically Adjustable ORVMs"
+          ],
+          "interior": [
+            "Manual AC",
+            "All Power Windows",
+            "Height Adjustable Driver Seat",
+            "Rear AC Vents",
+            "USB Charger (Front & Rear)"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "Steel Wheels with Covers",
+              "Shark-fin antenna",
+              "LED DRLs",
+              "Rear Disc Brakes (CarDekho)"
+            ]
+          },
+          "pricing": "₹12.21 Lakh (Petrol Manual)"
+        },
+        "S": {
+          "engine_specs": {
+            "petrol": {
+              "displacement": "1497 cc",
+              "maxPower": "113.18 bhp @ 6300 rpm",
+              "maxTorque": "143.8 Nm @ 4500 rpm"
+            },
+            "diesel": {
+              "displacement": "1493 cc",
+              "maxPower": "114 bhp @ 4000 rpm",
+              "maxTorque": "250 Nm @ 1500-2750 rpm"
+            }
+          },
+          "mileage": {
+            "petrolManual": "17.4 kmpl",
+            "dieselManual": "20.7 kmpl"
+          },
+          "transmission": ["6-speed Manual", "IVT (Petrol)", "6-speed Automatic (Diesel)"],
+          "safety": [
+            "6 Airbags",
+            "ABS with EBD",
+            "Rear Parking Sensors & Camera",
+            "Vehicle Stability Management (VSM)",
+            "Electronic Stability Control (ESC)",
+            "Hill-Start Assist Control (HAC)",
+            "Tyre Pressure Monitoring System (TPMS)",
+            "All Wheel Disc Brakes"
+          ],
+          "infotainment": [
+            "8-inch Touchscreen Infotainment System",
+            "Wireless Android Auto & Apple CarPlay",
+            "6 Speakers",
+            "Voice Recognition"
+          ],
+          "interior": [
+            "Automatic Climate Control",
+            "Rear AC Vents",
+            "Cruise Control",
+            "Push-Button Start/Stop (S(O) variant)",
+            "Panoramic Sunroof (S(O) variant)",
+            "BlueLink Connected Car Tech (S(O) variant)"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "16-inch Styled Steel Wheels",
+              "LED Headlamps",
+              "Roof Rails",
+              "Chrome Door Handles"
+            ]
+          },
+          "pricing": "₹13.43 Lakh (Petrol Manual), ₹14.89 Lakh (Diesel Manual)"
+        },
+        "SX": {
+          "engine_specs": {
+            "petrol": {
+              "displacement": "1497 cc",
+              "maxPower": "113.18 bhp @ 6300 rpm",
+              "maxTorque": "143.8 Nm @ 4500 rpm"
+            },
+            "diesel": {
+              "displacement": "1493 cc",
+              "maxPower": "114 bhp @ 4000 rpm",
+              "maxTorque": "250 Nm @ 1500-2750 rpm"
+            },
+            "turboPetrol": {
+              "displacement": "1482 cc",
+              "maxPower": "158 bhp @ 5500 rpm",
+              "maxTorque": "253 Nm @ 1500-3500 rpm"
+            }
+          },
+          "mileage": {
+            "petrolManual": "17.4 kmpl",
+            "dieselManual": "20.7 kmpl",
+            "turboPetrolDCT": "18.4 kmpl"
+          },
+          "transmission": [
+            "6-speed Manual",
+            "IVT (Petrol)",
+            "6-speed Automatic (Diesel)",
+            "7-speed DCT (Turbo Petrol)"
+          ],
+          "safety": [
+            "6 Airbags",
+            "ABS with EBD",
+            "Front & Rear Parking Sensors",
+            "Rear Camera with Dynamic Guidelines",
+            "Vehicle Stability Management (VSM)",
+            "Electronic Stability Control (ESC)",
+            "Hill-Start Assist Control (HAC)",
+            "Tyre Pressure Monitoring System (TPMS)",
+            "All Wheel Disc Brakes",
+            "Driver Rear View Monitor"
+          ],
+          "infotainment": [
+            "10.25-inch Touchscreen Infotainment System",
+            "Wired Android Auto & Apple CarPlay",
+            "BlueLink Connected Car Tech",
+            "Bose Premium Sound System (8 Speakers - SX(O))",
+            "Wireless Phone Charger"
+          ],
+          "interior": [
+            "Dual Zone Automatic Climate Control",
+            "Panoramic Sunroof",
+            "Ventilated Front Seats (SX(O))",
+            "Power Adjustable Driver Seat (SX(O))",
+            "Push-Button Start/Stop",
+            "Leatherette Upholstery (SX(O))",
+            "Ambient Lighting",
+            "Paddle Shifters (Automatic)"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "17-inch Alloy Wheels (18-inch for SX(O) Turbo)",
+              "LED Headlamps & DRLs",
+              "LED Tail Lamps (Connected LED for SX(O))",
+              "Chrome Door Handles",
+              "Roof Rails",
+              "Rear Window Sunshade"
+            ]
+          },
+          "pricing": "₹15.41 Lakh (Petrol Manual), ₹16.89 Lakh (Diesel Manual)"
+        },
+        "SX(O)": {
+          "engine_specs": {
+            "petrol": {
+              "displacement": "1497 cc",
+              "maxPower": "113.18 bhp @ 6300 rpm",
+              "maxTorque": "143.8 Nm @ 4500 rpm"
+            },
+            "diesel": {
+              "displacement": "1493 cc",
+              "maxPower": "114 bhp @ 4000 rpm",
+              "maxTorque": "250 Nm @ 1500-2750 rpm"
+            },
+            "turboPetrol": {
+              "displacement": "1482 cc",
+              "maxPower": "158 bhp @ 5500 rpm",
+              "maxTorque": "253 Nm @ 1500-3500 rpm"
+            }
+          },
+          "mileage": {
+            "petrolManual": "17.4 kmpl",
+            "dieselManual": "20.7 kmpl",
+            "turboPetrolDCT": "18.4 kmpl"
+          },
+          "transmission": [
+            "6-speed Manual",
+            "IVT (Petrol)",
+            "6-speed Automatic (Diesel)",
+            "7-speed DCT (Turbo Petrol)"
+          ],
+          "safety": [
+            "6 Airbags",
+            "ADAS Level 2 (Forward Collision Warning, Auto Emergency Braking, Lane Keep Assist, Blind Spot Collision Avoidance Assist, Adaptive Cruise Control, High Beam Assist, etc.)",
+            "360-degree Camera with Blind View Monitor",
+            "Front & Rear Parking Sensors",
+            "Vehicle Stability Management (VSM)",
+            "Electronic Stability Control (ESC)",
+            "Hill-Start Assist Control (HAC)",
+            "Tyre Pressure Monitoring System (TPMS)",
+            "All Wheel Disc Brakes",
+            "Electronic Parking Brake with Auto Hold"
+          ],
+          "infotainment": [
+            "10.25-inch Touchscreen Infotainment System",
+            "Wired Android Auto & Apple CarPlay",
+            "BlueLink Connected Car Tech",
+            "Bose Premium Sound System (8 Speakers)",
+            "Wireless Phone Charger",
+            "Integrated Screen for Infotainment & Instrument Cluster"
+          ],
+          "interior": [
+            "Dual Zone Automatic Climate Control",
+            "Panoramic Sunroof",
+            "Ventilated Front Seats",
+            "4-Way Power Adjustable Driver Seat",
+            "Leatherette Upholstery",
+            "Push-Button Start/Stop",
+            "Ambient Lighting",
+            "Paddle Shifters (Automatic)",
+            "Rear Window Sunblinds",
+            "Electric ORVM with Auto Fold"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "17-inch Alloy Wheels (18-inch for Turbo variants)",
+              "LED Headlamps & DRLs",
+              "Connected LED Tail Lamps",
+              "Chrome Door Handles",
+              "Roof Rails",
+              "Dual Tone Paint Options"
+            ]
+          },
+          "pricing": "₹17.46 Lakh (Petrol Manual), ₹19.05 Lakh (Diesel Manual), ₹20.19 Lakh (Turbo Petrol DCT)"
+        }
+      }
+    }
+  },
+  "Kia": {
+    "Seltos": {
+      "common_details": {
+        "engine_options": [
+          "1.5L MPi Petrol",
+          "1.5L Turbo GDi Petrol",
+          "1.5L CRDi VGT Diesel"
+        ],
+        "globalNCAPRating": "3 Star (Global NCAP)",
+        "image": "/images/allcarsimage/seltos.png",
+        "pricing_location": "Ex-Showroom Delhi"
+      },
+      "variants": {
+        "HTE": {
+          "engine_specs": {
+            "petrol": {
+              "displacement": "1497 cc",
+              "maxPower": "113.42 bhp @ 6300 rpm",
+              "maxTorque": "144 Nm @ 4500 rpm"
+            }
+          },
+          "mileage": {
+            "petrolManual": "17.0 kmpl"
+          },
+          "transmission": ["6-speed Manual"],
+          "safety": [
+            "6 Airbags",
+            "ABS with EBD",
+            "Rear Parking Sensors",
+            "All Wheel Disc Brakes",
+            "Vehicle Stability Management (VSM)",
+            "Electronic Stability Control (ESC)",
+            "Hill-Start Assist Control (HAC)",
+            "Tyre Pressure Monitoring System (TPMS)"
+          ],
+          "infotainment": [
+            "No Touchscreen (Provision for audio system)",
+            "Steering Mounted Audio Controls (Optional)"
+          ],
+          "interior": [
+            "Manual AC",
+            "All Power Windows",
+            "Fabric Upholstery",
+            "Height Adjustable Driver Seat"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "16-inch Steel Wheels",
+              "Halogen Projector Headlamps",
+              "Body Coloured Door Handles"
+            ]
+          },
+          "pricing": "₹10.90 Lakh"
+        },
+        "HTK": {
+          "engine_specs": {
+            "petrol": {
+              "displacement": "1497 cc",
+              "maxPower": "113.42 bhp @ 6300 rpm",
+              "maxTorque": "144 Nm @ 4500 rpm"
+            },
+            "diesel": {
+              "displacement": "1493 cc",
+              "maxPower": "114 bhp @ 4000 rpm",
+              "maxTorque": "250 Nm @ 1500-2750 rpm"
+            }
+          },
+          "mileage": {
+            "petrolManual": "17.0 kmpl",
+            "dieselManual": "20.7 kmpl"
+          },
+          "transmission": ["6-speed Manual", "iMT (Petrol)"],
+          "safety": [
+            "6 Airbags",
+            "ABS with EBD",
+            "Rear Parking Sensors & Camera",
+            "All Wheel Disc Brakes",
+            "Vehicle Stability Management (VSM)",
+            "Electronic Stability Control (ESC)",
+            "Hill-Start Assist Control (HAC)",
+            "Tyre Pressure Monitoring System (TPMS)"
+          ],
+          "infotainment": [
+            "8-inch Touchscreen Infotainment System",
+            "Wireless Android Auto & Apple CarPlay",
+            "6 Speakers"
+          ],
+          "interior": [
+            "Manual AC",
+            "All Power Windows",
+            "Semi-leatherette Seats (HTK+)",
+            "Push-Button Start/Stop (HTK+ iMT)"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "16-inch Steel Wheels with Full Cover",
+              "LED DRLs",
+              "LED Tail Lamps",
+              "Shark Fin Antenna (HTK+)"
+            ]
+          },
+          "pricing": "₹12.10 Lakh (Petrol Manual)"
+        },
+        "HTX": {
+          "engine_specs": {
+            "petrol": {
+              "displacement": "1497 cc",
+              "maxPower": "113.42 bhp @ 6300 rpm",
+              "maxTorque": "144 Nm @ 4500 rpm"
+            },
+            "diesel": {
+              "displacement": "1493 cc",
+              "maxPower": "114 bhp @ 4000 rpm",
+              "maxTorque": "250 Nm @ 1500-2750 rpm"
+            }
+          },
+          "mileage": {
+            "petrolManual": "17.0 kmpl",
+            "petrolAutomatic": "17.7 kmpl (CVT)",
+            "dieselManual": "20.7 kmpl",
+            "dieselAutomatic": "19.1 kmpl (AT)"
+          },
+          "transmission": [
+            "6-speed Manual",
+            "IVT (Petrol)",
+            "6-speed iMT (Petrol/Diesel)",
+            "6-speed Automatic (Diesel)"
+          ],
+          "safety": [
+            "6 Airbags",
+            "ABS with EBD",
+            "Front & Rear Parking Sensors",
+            "Rear Camera with Guidelines",
+            "All Wheel Disc Brakes",
+            "Vehicle Stability Management (VSM)",
+            "Electronic Stability Control (ESC)",
+            "Hill-Start Assist Control (HAC)",
+            "Tyre Pressure Monitoring System (TPMS)"
+          ],
+          "infotainment": [
+            "10.25-inch Touchscreen Infotainment System",
+            "Wireless Android Auto & Apple CarPlay",
+            "Connected Car Features (Kia Connect)",
+            "Voice Commands",
+            "6 Speakers"
+          ],
+          "interior": [
+            "Automatic Climate Control (Dual Zone)",
+            "Panoramic Sunroof",
+            "Push-Button Start/Stop",
+            "Leatherette Steering Wheel & Gear Knob",
+            "LED Ambient Sound Lighting",
+            "Rear AC Vents",
+            "Air Purifier"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "17-inch Alloy Wheels",
+              "Crown Jewel LED Headlamps with Star Map LED DRLs",
+              "Star Map LED Connected Tail Lamps",
+              "Chrome Outside Door Handles",
+              "Silver Roof Rack"
+            ]
+          },
+          "pricing": "₹15.40 Lakh (Petrol Manual), ₹16.90 Lakh (Diesel Manual)"
+        },
+        "GTX+": {
+          "engine_specs": {
+            "turboPetrol": {
+              "displacement": "1482 cc",
+              "maxPower": "158 bhp @ 5500 rpm",
+              "maxTorque": "253 Nm @ 1500-3500 rpm"
+            },
+            "diesel": {
+              "displacement": "1493 cc",
+              "maxPower": "114 bhp @ 4000 rpm",
+              "maxTorque": "250 Nm @ 1500-2750 rpm"
+            }
+          },
+          "mileage": {
+            "turboPetrolDCT": "17.9 kmpl",
+            "dieselAutomatic": "19.1 kmpl"
+          },
+          "transmission": ["7-speed DCT (Petrol)", "6-speed Automatic (Diesel)"],
+          "safety": [
+            "6 Airbags",
+            "ADAS Level 1 (Forward Collision Warning, Lane Keep Assist, Lane Departure Warning, High Beam Assist)",
+            "Front & Rear Parking Sensors",
+            "360-degree Camera with Blind View Monitor",
+            "All Wheel Disc Brakes",
+            "Vehicle Stability Management (VSM)",
+            "Electronic Stability Control (ESC)",
+            "Hill-Start Assist Control (HAC)",
+            "Tyre Pressure Monitoring System (TPMS)"
+          ],
+          "infotainment": [
+            "10.25-inch HD Touchscreen Navigation",
+            "Wired Android Auto & Apple CarPlay",
+            "Bose Premium 8-speaker Sound System",
+            "Kia Connect with OTA Updates",
+            "Smart Pure Air Purifier"
+          ],
+          "interior": [
+            "Automatic Climate Control (Dual Zone)",
+            "Panoramic Sunroof",
+            "Ventilated Front Seats",
+            "4-Way Power Driver's Seat",
+            "Leatherette Seats (Black & Brown)",
+            "Push-Button Start/Stop",
+            "Electronic Parking Brake with Auto Hold",
+            "Paddle Shifters"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "18-inch Dual Tone Crystal Cut Alloy Wheels",
+              "GT Line Specific Exterior Styling (Red Accents)",
+              "Dual Exhaust Tips",
+              "Chrome Outside Door Handles"
+            ]
+          },
+          "pricing": "₹19.20 Lakh (Turbo Petrol DCT)"
+        },
+        "X-Line": {
+          "engine_specs": {
+            "turboPetrol": {
+              "displacement": "1482 cc",
+              "maxPower": "158 bhp @ 5500 rpm",
+              "maxTorque": "253 Nm @ 1500-3500 rpm"
+            },
+            "diesel": {
+              "displacement": "1493 cc",
+              "maxPower": "114 bhp @ 4000 rpm",
+              "maxTorque": "250 Nm @ 1500-2750 rpm"
+            }
+          },
+          "mileage": {
+            "turboPetrolDCT": "17.9 kmpl",
+            "dieselAutomatic": "19.1 kmpl"
+          },
+          "transmission": ["7-speed DCT (Petrol)", "6-speed Automatic (Diesel)"],
+          "safety": [
+            "6 Airbags",
+            "ADAS Level 1 (Forward Collision Warning, Lane Keep Assist, Lane Departure Warning, High Beam Assist)",
+            "Front & Rear Parking Sensors",
+            "360-degree Camera with Blind View Monitor",
+            "All Wheel Disc Brakes",
+            "Vehicle Stability Management (VSM)",
+            "Electronic Stability Control (ESC)",
+            "Hill-Start Assist Control (HAC)",
+            "Tyre Pressure Monitoring System (TPMS)"
+          ],
+          "infotainment": [
+            "10.25-inch HD Touchscreen Navigation",
+            "Wired Android Auto & Apple CarPlay",
+            "Bose Premium 8-speaker Sound System",
+            "Kia Connect with OTA Updates",
+            "Smart Pure Air Purifier"
+          ],
+          "interior": [
+            "Automatic Climate Control (Dual Zone)",
+            "Panoramic Sunroof",
+            "Ventilated Front Seats",
+            "4-Way Power Driver's Seat",
+            "Sage Green Leatherette Seats",
+            "Matte Finish Interior Elements",
+            "Push-Button Start/Stop",
+            "Electronic Parking Brake with Auto Hold",
+            "Paddle Shifters"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "18-inch Matte Graphite Alloy Wheels",
+              "Matte Finish Exterior (Xclusive Matte Grey)",
+              "GT Line Specific Exterior Styling (Glossy Black Accents)",
+              "Dual Exhaust Tips",
+              "Chrome Outside Door Handles"
+            ]
+          },
+          "pricing": "₹20.56 Lakh (Turbo Petrol DCT)"
+        }
+      }
     },
-    "Scorpio-N": {
-      "models": [
-        "Z2",
-        "Z4",
-        "Z6",
-        "Z8",
-        "Z8L"
-      ],
-      "engine": "2179cc (Diesel) / 1997cc (Petrol)",
-      "engine-Option": "2.2L mHawk Turbo Diesel / 2.0L mStallion Turbo Petrol",
-      "fuelType": "Petrol / Diesel",
-      "mileage": {
-        "petrolManual": "11.0 km/l",
-        "petrolAutomatic": "10.5 km/l",
-        "dieselManual": "15.4 km/l",
-        "dieselAutomatic": "14.5 km/l"
-      },
-      "transmission": [
-        "6-speed Manual",
-        "6-speed Automatic"
-      ],
-      "performance": {
-        "petrol": {
-          "power": "200 Bhp",
-          "torque": "370 Nm"
-        },
-        "diesel": {
-          "power": "132 Bhp (Z2-Z6) / 175 Bhp (Z8 & Z8L)",
-          "torque": "300 Nm (Z2-Z6) / 400 Nm (Z8 & Z8L)"
-        },
-        "cng": {
-          "power": "",
-          "torque": ""
-        }
-      },
-      "safety": [
-        "6 Airbags (Z8L)",
-        "Electronic Stability Program (ESP)",
-        "ABS with EBD",
-        "Rear Parking Sensors with Camera",
-        "Hill Hold Assist",
-        "ISOFIX Child Seat Anchors",
-        "360-degree Camera (Z8L)",
-        "Driver Drowsiness Detection"
-      ],
-      "infotainment": [
-        "8-inch Touchscreen Infotainment System",
-        "Android Auto & Apple CarPlay",
-        "9-Speaker Sony Sound System",
-        "Voice Recognition",
-        "Steering-Mounted Controls",
-        "Wireless Charging (Z8L)"
-      ],
-      "interior": [
-        "Dual-Tone Leather Upholstery",
-        "Automatic Climate Control",
-        "12V Rear Charging Port",
-        "Power-Adjustable Driver's Seat",
-        "Smart Door Handles",
-        "Ambient Lighting (Z8L)"
-      ],
-      "exterior": {
-        "designFeatures": [
-          "LED Projector Headlamps with DRLs",
-          "C-shaped LED Tail Lamps",
-          "Flush Door Handles",
-          "Diamond Cut Alloy Wheels (18-inch)",
-          "Roof Rails",
-          "Sporty Rear Spoiler"
+    "Sonet": {
+      "common_details": {
+        "engine_options": [
+          "1.2L Smartstream G Petrol",
+          "1.0L Turbo GDi Petrol",
+          "1.5L CRDi VGT Diesel"
         ],
-        "colorOptions": [
-          "Red Rage",
-          "Pearl White",
-          "Navajo Brown",
-          "Dsatling Silver",
-          "Rocky Beige",
-          "Nautical Blue"
-        ]
+        "image": "/images/allcarsimage/sonet.png",
+        "pricing_location": "Ex-Showroom Delhi"
       },
-      "pricing": {
-        "baseModel": "₹11.99 Lakh",
-        "topModel": "₹19.99 Lakh",
-        "location": "Ex-Showroom Delhi"
-      },
-      "image": "/images/allcarsimage/scorpionn.png"
+      "variants": {
+        "HTE": {
+          "engine_specs": {
+            "petrolNA": {
+              "displacement": "1197 cc",
+              "maxPower": "82 bhp @ 6000 rpm",
+              "maxTorque": "115 Nm @ 4200 rpm"
+            }
+          },
+          "mileage": {
+            "petrolManual": "18.83 kmpl"
+          },
+          "transmission": ["5-speed Manual"],
+          "safety": [
+            "6 Airbags",
+            "ABS with EBD",
+            "ESC, HAC, BA, VSM",
+            "Rear Parking Sensors",
+            "Highline Tyre Pressure Monitor"
+          ],
+          "infotainment": [
+            "No Touchscreen (Provision for audio system)",
+            "C-type USB charger"
+          ],
+          "interior": [
+            "Manual AC",
+            "All-black Interiors",
+            "Fabric Seats",
+            "4.2-inch Color Instrument Cluster",
+            "Tilt Steering Wheel",
+            "Rear AC Vents"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "15-inch Steel Wheels with Covers",
+              "Halogen Headlamps",
+              "Body Coloured Outside Door Handles"
+            ]
+          },
+          "pricing": "₹7.99 Lakh"
+        },
+        "HTK": {
+          "engine_specs": {
+            "petrolNA": {
+              "displacement": "1197 cc",
+              "maxPower": "82 bhp @ 6000 rpm",
+              "maxTorque": "115 Nm @ 4200 rpm"
+            },
+            "petrolTurbo": {
+              "displacement": "998 cc",
+              "maxPower": "118 bhp @ 6000 rpm",
+              "maxTorque": "172 Nm @ 1500-4000 rpm"
+            },
+            "diesel": {
+              "displacement": "1493 cc",
+              "maxPower": "114 bhp @ 4000 rpm",
+              "maxTorque": "250 Nm @ 1500-2750 rpm"
+            }
+          },
+          "mileage": {
+            "petrolManual": "18.83 kmpl",
+            "petrolTurboiMT": "18.70 kmpl",
+            "dieselManual": "22.3 kmpl"
+          },
+          "transmission": ["5-speed Manual", "iMT (Turbo Petrol/Diesel)"],
+          "safety": [
+            "6 Airbags",
+            "ABS with EBD",
+            "ESC, HAC, BA, VSM",
+            "Rear Parking Sensors",
+            "Rear View Camera (HTK+)",
+            "Highline Tyre Pressure Monitor"
+          ],
+          "infotainment": [
+            "8-inch Touchscreen Infotainment System (HTK+)",
+            "Wireless Android Auto & Apple CarPlay (HTK+)",
+            "4 Speakers + 2 Tweeters (HTK+)",
+            "Steering Mounted Controls"
+          ],
+          "interior": [
+            "Manual AC",
+            "All Power Windows",
+            "Semi-leatherette Seats (All-black interiors)",
+            "Front Armrest with Storage Box"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "16-inch Steel Wheels with Covers",
+              "LED DRLs (HTK+)",
+              "LED Tail Lamps (HTK+)",
+              "Electric Sunroof (Turbo Petrol HTK+)"
+            ]
+          },
+          "pricing": "₹8.89 Lakh (Petrol NA MT)"
+        },
+        "HTX": {
+          "engine_specs": {
+            "petrolTurbo": {
+              "displacement": "998 cc",
+              "maxPower": "118 bhp @ 6000 rpm",
+              "maxTorque": "172 Nm @ 1500-4000 rpm"
+            },
+            "diesel": {
+              "displacement": "1493 cc",
+              "maxPower": "114 bhp @ 4000 rpm",
+              "maxTorque": "250 Nm @ 1500-2750 rpm"
+            }
+          },
+          "mileage": {
+            "petrolTurboiMT": "18.70 kmpl",
+            "petrolTurboDCT": "19.02 kmpl",
+            "dieselManual": "22.3 kmpl",
+            "dieselAutomatic": "18.6 kmpl"
+          },
+          "transmission": [
+            "6-speed iMT",
+            "7-speed DCT (Petrol)",
+            "6-speed Manual (Diesel)",
+            "6-speed Automatic (Diesel)"
+          ],
+          "safety": [
+            "6 Airbags",
+            "ABS with EBD",
+            "ESC, HAC, BA, VSM",
+            "Front Parking Sensors (HTX+)",
+            "Rear View Camera",
+            "Highline Tyre Pressure Monitor"
+          ],
+          "infotainment": [
+            "8-inch Touchscreen Infotainment System (HTX)",
+            "10.25-inch Touchscreen Infotainment System (HTX+)",
+            "Wireless Android Auto & Apple CarPlay",
+            "Connected Infotainment & Cluster Design",
+            "Kia Connect (HTX+)",
+            "Amazon Alexa (HTX+)"
+          ],
+          "interior": [
+            "Automatic Climate Control",
+            "Electric Sunroof",
+            "Leatherette Steering Wheel & Gear Knob",
+            "Wrapped Door Armrests",
+            "Dual-tone Interior Options",
+            "60:40 Split Fold Seats (HTX+)"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "16-inch Dual Tone Styled Wheels",
+              "Crown Jewel LED Headlamps",
+              "Star Map LED DRLs",
+              "Star Map LED Connected Tail Lamps"
+            ]
+          },
+          "pricing": "₹11.56 Lakh (1.0L Turbo iMT)"
+        },
+        "GTX+": {
+          "engine_specs": {
+            "petrolTurbo": {
+              "displacement": "998 cc",
+              "maxPower": "118 bhp @ 6000 rpm",
+              "maxTorque": "172 Nm @ 1500-4000 rpm"
+            },
+            "diesel": {
+              "displacement": "1493 cc",
+              "maxPower": "114 bhp @ 4000 rpm",
+              "maxTorque": "250 Nm @ 1500-2750 rpm"
+            }
+          },
+          "mileage": {
+            "petrolTurboDCT": "19.02 kmpl",
+            "dieselAutomatic": "18.6 kmpl"
+          },
+          "transmission": ["7-speed DCT (Petrol)", "6-speed Automatic (Diesel)"],
+          "safety": [
+            "6 Airbags",
+            "ADAS Level 1 (Forward Collision Warning, Lane Keep Assist, Lane Following Assist, Lane Depart Warning, High Beam Assist, Leading Vehicle Departure Alert)",
+            "360-degree Camera with Blind View Monitor",
+            "Front & Rear Parking Sensors",
+            "All Wheel Disc Brakes",
+            "ESC, HAC, BA, VSM"
+          ],
+          "infotainment": [
+            "10.25-inch HD Touchscreen Navigation",
+            "Wired Android Auto & Apple CarPlay",
+            "Bose Premium 7-speaker System",
+            "Full Digital Cluster with 10.25-inch Color LCD MID",
+            "Kia Connect"
+          ],
+          "interior": [
+            "Automatic Climate Control",
+            "Electric Sunroof",
+            "4-Way Power Driver's Seat",
+            "Front Ventilated Seats",
+            "Smart Pure Air Purifier with Virus & Bacteria protection",
+            "Leatherette Seats (Black & Beige with Red Accents)",
+            "Paddle Shifters"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "16-inch Sporty Crystal Cut Alloy Wheels",
+              "Red Brake Calipers",
+              "GT Line Specific Exterior Styling",
+              "Crown Jewel LED Headlamps",
+              "Star Map LED Connected Tail Lamps"
+            ]
+          },
+          "pricing": "₹13.39 Lakh (1.0L Turbo Petrol DCT)"
+        },
+        "X-Line": {
+          "engine_specs": {
+            "petrolTurbo": {
+              "displacement": "998 cc",
+              "maxPower": "118 bhp @ 6000 rpm",
+              "maxTorque": "172 Nm @ 1500-4000 rpm"
+            },
+            "diesel": {
+              "displacement": "1493 cc",
+              "maxPower": "114 bhp @ 4000 rpm",
+              "maxTorque": "250 Nm @ 1500-2750 rpm"
+            }
+          },
+          "mileage": {
+            "petrolTurboDCT": "19.02 kmpl",
+            "dieselAutomatic": "18.6 kmpl"
+          },
+          "transmission": ["7-speed DCT (Petrol)", "6-speed Automatic (Diesel)"],
+          "safety": [
+            "6 Airbags",
+            "ADAS Level 1",
+            "360-degree Camera with Blind View Monitor",
+            "Front & Rear Parking Sensors",
+            "All Wheel Disc Brakes",
+            "ESC, HAC, BA, VSM"
+          ],
+          "infotainment": [
+            "10.25-inch HD Touchscreen Navigation",
+            "Wired Android Auto & Apple CarPlay",
+            "Bose Premium 7-speaker System",
+            "Full Digital Cluster with 10.25-inch Color LCD MID",
+            "Kia Connect"
+          ],
+          "interior": [
+            "Automatic Climate Control",
+            "Electric Sunroof",
+            "4-Way Power Driver's Seat",
+            "Front Ventilated Seats",
+            "Smart Pure Air Purifier with Virus & Bacteria protection",
+            "Sage Green Leatherette Seats with Grey Inserts",
+            "Paddle Shifters"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "16-inch Crystal Cut Alloy Wheels (Sporty)",
+              "Matte Graphite Exterior Finish",
+              "X-Line Specific Grille & Accents",
+              "Crown Jewel LED Headlamps",
+              "Star Map LED Connected Tail Lamps"
+            ]
+          },
+          "pricing": "₹14.69 Lakh (1.0L Turbo Petrol DCT)"
+        }
+      }
     }
   }
 }

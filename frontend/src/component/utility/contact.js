@@ -16,7 +16,6 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const response = await fetch("http://localhost:5000/api/contact", {
         method: "POST",
@@ -25,7 +24,6 @@ const Contact = () => {
       });
 
       const data = await response.json();
-
       if (response.ok) {
         alert(data.message);
         setFormData({ name: "", email: "", mobile: "", message: "" });
@@ -39,17 +37,19 @@ const Contact = () => {
 
   return (
     <div className="home-container">
-      {/* Background Section */}
+      {/* Header Section */}
       <div className="contactBG">
         <div className="hero-text">
-          <h2>Contact Us <i className="bi bi-person-rolodex"></i></h2>
+          <h2>
+            Contact Us <i className="bi bi-person-rolodex"></i>
+          </h2>
         </div>
       </div>
 
       {/* Form Section */}
       <div className="contact-container">
         <div className="contact-info">
-          <p><strong>Fill the details</strong></p>
+          <p><strong>Fill the form below to get in touch</strong></p>
         </div>
 
         <form className="contact-form" onSubmit={handleSubmit}>
@@ -60,8 +60,8 @@ const Contact = () => {
             value={formData.name}
             onChange={handleChange}
             required
+            aria-label="Your Name"
           />
-
           <input
             type="email"
             name="email"
@@ -69,8 +69,8 @@ const Contact = () => {
             value={formData.email}
             onChange={handleChange}
             required
+            aria-label="Your Email"
           />
-
           <input
             type="tel"
             name="mobile"
@@ -79,8 +79,8 @@ const Contact = () => {
             value={formData.mobile}
             onChange={handleChange}
             required
+            aria-label="Mobile Number"
           />
-
           <textarea
             name="message"
             placeholder="Your Message"
@@ -88,9 +88,12 @@ const Contact = () => {
             onChange={handleChange}
             rows={4}
             required
+            aria-label="Your Message"
           />
-
-          <button type="submit"><i className="bi bi-send-check"></i></button>
+          <button type="submit">
+            <i className="bi bi-send-check" style={{ marginRight: "8px" }}></i>
+            Send Message
+          </button>
         </form>
       </div>
     </div>

@@ -62,7 +62,9 @@ body, html {
   box-shadow: 0 8px 30px rgba(31, 31, 31, 0.156);
   transition: background 0.3s ease, box-shadow 0.3s ease;
 }
-
+.alignC{
+  text-align: center;
+}
 .car-detail-section h1 {
   font-family: 'Poppins';
   font-size: 36px;

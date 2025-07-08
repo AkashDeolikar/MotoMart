@@ -53,9 +53,9 @@ const ServiceCostCalculator = () => {
     }
     //car wash
     if (service.washTypes) {
-    const selectedType = washTypes[service.id];
-    return service.washTypes[selectedType] || 0;
-  }
+      const selectedType = washTypes[service.id];
+      return service.washTypes[selectedType] || 0;
+    }
     return service.price;
   };
 
@@ -166,25 +166,25 @@ const ServiceCostCalculator = () => {
           <h4>Bill Summary</h4>
           <ul>
             <div className="bar-summary">
-  {selectedServices.map(service => {
-    const qty = quantities[service.id];
-    const price = getServicePrice(service);
-    const total = qty * price;
-    const widthPercent = (total / calculateTotal()) * 100;
+              {selectedServices.map(service => {
+                const qty = quantities[service.id];
+                const price = getServicePrice(service);
+                const total = qty * price;
+                const widthPercent = (total / calculateTotal()) * 100;
 
-    return (
-      <div key={service.id} className="bar-row">
-        <span className="bar-label">{service.name} ({qty}×₹{price})</span>
-        <div className="bar-track">
-          <div
-            className="bar-fill"
-            style={{ width: `${widthPercent}%` }}
-          ></div>
-        </div>
-      </div>
-    );
-  })}
-</div>
+                return (
+                  <div key={service.id} className="bar-row">
+                    <span className="bar-label">{service.name} ({qty}×₹{price})</span>
+                    <div className="bar-track">
+                      <div
+                        className="bar-fill"
+                        style={{ width: `${widthPercent}%` }}
+                      ></div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
 
           </ul>
         </div>

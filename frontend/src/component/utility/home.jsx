@@ -79,8 +79,8 @@ const HeroCarousel = () => {
   // Initial data for carousel items
   const [carouselItems, setCarouselItems] = useState([
     { id: 1, type: 'image', src: "https://www.tatamotors.com/wp-content/themes/TataMotors/images/TM_Home_Desktop4.webp", title: "Connection aspirations.", name: "Delivering values.", description: "Connect with the future of mobility." },
-    { id: 2, type: 'video', src: "https://www.tatamotors.com/wp-content/themes/TataMotors/video/TML-Desktop-video.mp4", title: "A spotlight on", name: "Sustainability.", description: "Embracing clean mobility for a better tomorrow."},
-    { id: 3, type: 'image', src: "https://www.tatamotors.com/wp-content/themes/TataMotors/images/TM_Home_Desktop2.webp", title: "Embracing", name: "Clean mobility.", description: "Innovating for a greener tomorrow."},
+    { id: 2, type: 'video', src: "https://www.tatamotors.com/wp-content/themes/TataMotors/video/TML-Desktop-video.mp4", title: "A spotlight on", name: "Sustainability.", description: "Embracing clean mobility for a better tomorrow." },
+    { id: 3, type: 'image', src: "https://www.tatamotors.com/wp-content/themes/TataMotors/images/TM_Home_Desktop2.webp", title: "Embracing", name: "Clean mobility.", description: "Innovating for a greener tomorrow." },
     { id: 4, type: 'image', src: "https://www.tatamotors.com/wp-content/themes/TataMotors/images/TM_Home_Desktop1.webp", title: "Tomorrow choices,", name: "Today.", description: "Driving the future, one innovation at a time." },
   ]);
 
@@ -355,39 +355,39 @@ const VehicleCategoriesSection = () => {
 
   return (
     <section className="vehicle-section2" data-aos="fade-up">
-  <div className="vehicle-container2">
-    <h2 className="vehicle-title2">Our Vehicles</h2>
-    <div className="card-deck2">
-      {/* Car Card */}
-      <div className="vehicle-card2">
-        <div className="vehicle-card-inner2">
-          <div className="vehicle-card-front2">
-            <Link to="/carcard">
-              <img src="/images/car.jpg" alt="Car" />
-            </Link>
-            <div className="vehicle-title-overlay2">
-              <h3 className="vehicle-overlay-text2">Cars</h3>
+      <div className="vehicle-container2">
+        <h2 className="vehicle-title2">Our Vehicles</h2>
+        <div className="card-deck2">
+          {/* Car Card */}
+          <div className="vehicle-card2">
+            <div className="vehicle-card-inner2">
+              <div className="vehicle-card-front2">
+                <Link to="/carcard">
+                  <img src="/images/car.jpg" alt="Car" />
+                </Link>
+                <div className="vehicle-title-overlay2">
+                  <h3 className="vehicle-overlay-text2">Cars</h3>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      {/* Bike Card */}
-      <div className="vehicle-card2">
-        <div className="vehicle-card-inner2">
-          <div className="vehicle-card-front2">
-            <Link to="/bikecard">
-              <img src="/images/bike.jpg" alt="Bike" />
-            </Link>
-            <div className="vehicle-title-overlay2">
-              <h3 className="vehicle-overlay-text2">Bikes</h3>
+          {/* Bike Card */}
+          <div className="vehicle-card2">
+            <div className="vehicle-card-inner2">
+              <div className="vehicle-card-front2">
+                <Link to="/bikecard">
+                  <img src="/images/bike.jpg" alt="Bike" />
+                </Link>
+                <div className="vehicle-title-overlay2">
+                  <h3 className="vehicle-overlay-text2">Bikes</h3>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
   );
 };
 
@@ -448,8 +448,8 @@ const Home = () => {
       title: "Service Cost Checker",
       description: "Check and manage the service cost by yourself",
       text: "click here",
-      image: require('../Assets/247.png'),
-      link: "/servicecost",
+      image: require('../Assets/servicecc.png'),
+      link: "/servicecostcalculator",
     }
   ];
 
@@ -778,12 +778,13 @@ const Home = () => {
       <div className="deals" data-aos="fade-right" data-aos-delay="400" data-aos-once="true">
         <h2>⚡ Vehicle Powertrain Options</h2>
         <ul>
-          <li>🔋 Electric Vehicles (EV): Zero emissions, silent drive, low maintenance</li>
-          <li>⛽ Petrol Engines: Smooth performance with city-friendly mileage</li>
-          <li>🛢️ Diesel Engines: High torque, great for long-distance and heavy usage</li>
-          <li>🔄 Hybrid Systems: Combines fuel economy of EV with petrol range</li>
+          <li>🔋 <strong>Electric Vehicles (EV)</strong>: Zero emissions, silent drive, low maintenance</li>
+          <li>⛽ <strong>Petrol Engines</strong>: Smooth performance with city-friendly mileage</li>
+          <li>🛢️ <strong>Diesel Engines</strong>: High torque, great for long-distance and heavy usage</li>
+          <li>🔄 <strong>Hybrid Systems</strong>: Combines fuel economy of EV with petrol range</li>
         </ul>
       </div>
+
 
       {/* FLIP CARD HEADING */}
       <section className="intro">

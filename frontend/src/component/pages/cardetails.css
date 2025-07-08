@@ -1,151 +1,691 @@
-.car-search-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; /* Added for vertical alignment */
-  padding: 24px;
-  border-radius: 14px;
-  margin: 40px auto; /* Center horizontally */
-  max-width: 700px; /* Restrict width for consistency */
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+/* ==================================== */
+/* Theme Variables (Light & Dark Mode)  */
+/* ==================================== */
+:root[data-theme='light'] {
+    --bg-color: #ffffff;
+    --form-bg: #f4f6f9;
+    --text-color: #ef0000b0;
+    --input-bg: #ffffff;
+    --border-color: #bbb;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --accent-color: #007bff;
+    --subheading-color: #007bff;
+    --heading-shadow: #f7f7f7;
+    --section-title-color: #444;
+    --card-bg-color: #ffffff;
+    --light-bg: #f9f9f9; /* For table stripe */
+    --primary-color: #007bff; /* Defined for comparison header */
+    --secondary-color: #333; /* For strong text in comparison */
+    --header-bg: #e2eafc; /* For comparison section headers */
+    --border-color-light: #f0f0f0; /* Used for loading spinner border */
 }
 
-h2 {
-  /* color: #f7962e; */
-  margin-bottom: 24px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 1.8rem;
-}
-.heading{
-  margin-top: 15px;
-  color: #d32f2f;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 13px;
-}
-.shift{
-  margin-left: 50px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  width: 100%;
-  max-width: 420px;
+:root[data-theme='dark'] {
+    --text-color: #c3c3c3;
+    --bg-color: #121218;
+    --form-bg: #1f1f2b;
+    --text-color: #eaeaea;
+    --input-bg: #2c2c3f;
+    --border-color: #5a5a5a;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --accent-color: #3399ff;
+    --subheading-color: #3399ff;
+    --heading-shadow: transparent;
+    --section-title-color: #ccc;
+    --card-bg-color: #1f1f2b;
+    --light-bg: #2a2a3b; /* For table stripe */
+    --primary-color: #3399ff; /* Defined for comparison header */
+    --secondary-color: #eee; /* For strong text in comparison */
+    --header-bg: #2b3a5b; /* For comparison section headers */
+    --border-color-light: #555555; /* Used for loading spinner border */
 }
 
-label {
-  display: flex;
-  flex-direction: column;
-  font-weight: 600;
-  font-size: 0.95rem;
+/* ==================================== */
+/* General Body and Container Styling   */
+/* ==================================== */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color); /* Apply base background from theme */
+    color: var(--text-color); /* Apply base text color from theme */
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-select {
-  padding: 10px 14px;
-  border: 1px solid #605f5f;
-  border-radius: 10px;
-  font-size: 15px;
-  transition: all 0.3s ease;
+.getinfo-container {
+    max-width: 960px;
+    margin: 60px auto;
+    padding: 2.5rem;
+    border-radius: 20px;
+    /* Using linear-gradient with theme-dependent background colors */
+    background: linear-gradient(to right, var(--bg-color) 60%, var(--form-bg));
+    box-shadow: 0 15px 35px var(--shadow-color);
+    backdrop-filter: blur(8px);
+    transition: all 0.4s ease;
+    color: inherit; /* Ensure container text matches theme */
 }
 
-select:focus {
-  outline: none;
-  border-color: #ebb222;
-  box-shadow: 0 0 6px rgba(252, 231, 1, 0.938);
+/* ==================================== */
+/* Typography                           */
+/* ==================================== */
+.getinfo-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    color: inherit;
+    text-shadow: 1px 1px 0 var(--heading-shadow);
+    letter-spacing: 1px;
 }
 
-button {
-  padding: 12px;
-  background-color: #fec426;
-  font-weight: bold;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
+.getinfo-subheading {
+    font-size: 1.5rem;
+    color: var(--subheading-color);
+    border-bottom: 3px solid var(--subheading-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
 }
 
-/* button:hover {
-  background-color: #fbb904;
-} */
-
-.result {
-  justify-items: center;
-  margin-top: 2rem;
-  padding: 2rem;
-  border-radius: 14px;
-  border: 1px solid #ddddddcb;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-  width: 100%;
-  max-width: 900px;
-  text-align: left;
+.getinfo-section h5 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.7rem;
+    color: var(--section-title-color);
+    border-left: 5px solid var(--accent-color);
+    padding-left: 10px;
 }
 
-.result h4 {
-  margin-bottom: 1.2rem;
-  font-size: 1.4rem;
-  border-bottom: 3px solid #007bff;
-  padding-bottom: 0.3rem;
-  color: #007bff;
+.getinfo-section ul {
+    list-style: disc inside;
+    padding-left: 20px;
+    color: inherit; /* Ensure list text matches theme */
+}
+.dark .getinfo-section ul {
+    list-style: disc inside;
+    padding-left: 20px;
+    color: rgb(199, 199, 199); /* Ensure list text matches theme */
 }
 
-.car-detail {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: space-between;
-  margin-top: 1.5rem;
+.getinfo-section li {
+    margin-bottom: 5px;
+    font-size: 0.95rem;
 }
 
-.detail-box {
-  flex: 1 1 45%;
-  padding: 1rem 1.5rem;
-  border-left: 6px solid #007bff;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  transition: transform 0.25s ease-in-out;
-  position: relative;
+/* ==================================== */
+/* Form Layout and Elements             */
+/* ==================================== */
+.getinfo-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
 }
 
-.detail-box:hover {
-  transform: translateY(-4px);
+.getinfo-field {
+    flex: 1 1 calc(33.333% - 13.333px);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
-.detail-box p {
-  margin: 0.5rem 0;
-  font-size: 1rem;
-  padding-left: 24px;
-  position: relative;
-  line-height: 1.4;
+.getinfo-field label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: inherit;
 }
 
-.detail-box p::before {
-  content: "  •";
-  position: absolute;
-  left: 50;
-  color: #007bff;
-  font-size: 1.4rem;
-  line-height: 1;
-  top: 0;
+.getinfo-field select {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    background-color: var(--input-bg);
+    color: #646464;
+    font-size: 0.95rem;
+    appearance: none; /* Removes default browser styling for select */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    padding-right: 30px; /* Space for the custom arrow */
+    transition: background-color 0.3s, border 0.3s, color 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    border: 1px solid #7777779e;
 }
 
-.error {
-  color: #d32f2f;
-  margin-top: 1rem;
-  font-weight: bold;
+/* Custom arrow for select - themed */
+[data-theme='light'] .getinfo-field select {
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%231a1a1a' height='24' viewBox='0 0 24 24' width='24'><path d='M7 10l5 5 5-5z'/></svg>");
 }
 
+[data-theme='dark'] .getinfo-field select {
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%23f0f0f0' height='24' viewBox='0 0 24 24' width='24'><path d='M7 10l5 5 5-5z'/></svg>");
+}
+
+.getinfo-field select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 8px var(--accent-color);
+}
+
+/* ==================================== */
+/* Buttons                              */
+/* ==================================== */
+.getinfo-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #ffba00, #ffa500); /* Default for search button */
+    color: #000;
+    cursor: pointer;
+    margin-top: 1rem;
+    box-shadow: 0 5px 15px rgba(255, 165, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.getinfo-btn:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 165, 0, 0.6);
+}
+
+.getinfo-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 10px rgba(255, 165, 0, 0.3);
+}
+
+.getinfo-btn:disabled {
+    background: #cccccc;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Add to Compare Button */
+.add-to-compare-btn {
+    margin-top: 25px; /* Slightly more space */
+    background: linear-gradient(135deg, #4CAF50, #66BB6A); /* Green gradient */
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+    color: white; /* Make text white for better contrast */
+}
+
+.add-to-compare-btn:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(76, 175, 80, 0.6);
+}
+.add-to-compare-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 10px rgba(76, 175, 80, 0.3);
+}
+
+/* Clear Comparison Button */
+.comparison-list-summary .clear-btn {
+    background: linear-gradient(135deg, #dc3545, #e05666); /* Red gradient for clear */
+    box-shadow: 0 5px 15px rgba(220, 53, 69, 0.4);
+    color: white;
+}
+
+.comparison-list-summary .clear-btn:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(220, 53, 69, 0.6);
+}
+.comparison-list-summary .clear-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 10px rgba(220, 53, 69, 0.3);
+}
+
+/* Favorite Button */
+.car-actions {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Space between buttons */
+    justify-content: center;
+}
+
+.favorite-btn {
+    background: linear-gradient(135deg, #FF6F61, #FF9966); /* Red/Orange for favorite */
+    box-shadow: 0 5px 15px rgba(255, 111, 97, 0.4);
+    color: white;
+    padding: 12px 20px;
+    font-size: 0.95em;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    flex-grow: 1; /* Allow buttons to grow */
+    max-width: 220px; /* Max width for consistency */
+}
+
+.favorite-btn:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 111, 97, 0.6);
+}
+
+.favorite-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 10px rgba(255, 111, 97, 0.3);
+}
+
+.favorite-btn.favorited {
+    background: linear-gradient(135deg, #28a745, #218838); /* Green when favorited */
+    box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+}
+
+.favorite-btn.favorited:hover:not(:disabled) {
+    box-shadow: 0 10px 20px rgba(40, 167, 69, 0.6);
+}
+
+.favorite-btn:disabled {
+    background: #cccccc;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* ==================================== */
+/* Result Card & Image                  */
+/* ==================================== */
+.getinfo-result {
+    margin-top: 3rem;
+    padding: 2rem;
+    border-radius: 20px;
+    background-color: var(--card-bg-color);
+    box-shadow: 0 10px 30px var(--shadow-color);
+    border: 2px solid rgba(81, 81, 248, 0.634);
+    animation: fadeIn 0.8s ease-in-out;
+    color: inherit;
+}
+
+.getinfo-image {
+    width: 250px;
+    max-width: 100%; /* Ensure responsiveness */
+    display: block;
+    margin: 0 auto 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+/* ==================================== */
+/* Grid Layout                          */
+/* ==================================== */
+.getinfo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.getinfo-grid p {
+    flex: 1 1 calc(33.333% - 13.333px);
+    font-size: 0.95rem;
+    background-color: var(--form-bg);
+    padding: 10px 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px var(--shadow-color);
+    word-break: break-word;
+}
+
+/* ==================================== */
+/* Loading Indicator Styles             */
+/* ==================================== */
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    color: var(--text-color);
+    font-size: 1.2em;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: var(--card-bg-color); /* Use card-bg-color from theme */
+    box-shadow: 0 10px 30px var(--shadow-color); /* Use shadow-color from theme */
+    margin-top: 20px;
+}
+
+.loading-spinner {
+    border: 4px solid var(--border-color-light); /* Use theme's light border color */
+    border-top: 4px solid var(--accent-color); /* Use theme's accent color */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite; /* Spin animation */
+    margin-bottom: 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ==================================== */
+/* Compare Feature Styles               */
+/* ==================================== */
+.comparison-list-summary {
+    margin-top: 40px; /* More space to separate from search results */
+    padding: 25px;
+    background-color: var(--card-bg-color);
+    border-radius: 15px; /* Slightly rounder corners */
+    box-shadow: 0 10px 25px var(--shadow-color);
+    color: inherit;
+    text-align: center;
+    border: 1px solid var(--border-color); /* Add a subtle border */
+}
+
+.comparison-list-summary h4 {
+    margin-bottom: 20px;
+    font-size: 1.3em;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.comparison-list-summary ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+}
+
+.comparison-list-summary li {
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--border-color); /* Dashed border for visual lightness */
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.comparison-list-summary li:last-child {
+    border-bottom: none;
+}
+
+.comparison-list-summary .getinfo-btn {
+    margin: 5px 15px; /* More space between buttons */
+    padding: 12px 25px; /* Larger buttons */
+    font-size: 1em;
+    width: auto; /* Allow buttons to size to content */
+    display: inline-block; /* Align buttons side-by-side */
+}
+
+.car-comparison-container {
+    margin-top: 50px; /* Significant space to highlight comparison */
+    padding: 35px;
+    background-color: var(--card-bg-color);
+    border-radius: 18px; /* More rounded corners */
+    box-shadow: 0 15px 40px var(--shadow-color);
+    color: var(--text-color);
+    overflow-x: auto;
+    border: 2px solid var(--primary-color); /* Prominent border */
+}
+
+.comparison-title {
+    text-align: center;
+    margin-bottom: 35px;
+    font-size: 2em;
+    color: var(--primary-color);
+    font-weight: 700;
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.1);
+}
+
+.comparison-table {
+    display: table;
+    width: 100%;
+    min-width: 700px; /* Ensures better readability on smaller screens */
+    border-collapse: collapse;
+    background-color: var(--bg-color); /* Table background */
+    border-radius: 10px;
+    overflow: hidden; /* For rounded corners on table */
+}
+
+.comparison-row {
+    display: table-row;
+}
+
+.comparison-row:nth-child(odd) {
+    background-color: var(--light-bg);
+}
+
+.comparison-header {
+    background-color: var(--primary-color);
+    color: inherit; /* Ensure header text is white */
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.comparison-cell {
+    display: table-cell;
+    padding: 15px 20px; /* Slightly more padding */
+    border: 1px solid var(--border-color);
+    vertical-align: top;
+    text-align: left;
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
+.comparison-header .comparison-cell {
+    text-align: center;
+    padding: 20px; /* Larger header cells */
+}
+
+.comparison-cell strong {
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+.compare-image {
+    max-width: 160px; /* Slightly larger images */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.comparison-row.section-header .comparison-cell {
+    background-color: var(--header-bg);
+    font-weight: bold;
+    font-size: 1.15em;
+    text-align: center;
+    padding: 12px;
+    color: var(--primary-color);
+    border-left: none; /* No border for these cells */
+    border-right: none;
+}
+/* Ensure the first cell of a section header spans all columns */
+.comparison-row.section-header .comparison-cell:first-child {
+    /* This style is mainly for grid, but harmless for table-cell */
+    /* For table layout, it will apply to the first cell of the row */
+}
+
+/* ==================================== */
+/* Animations                           */
+/* ==================================== */
+@keyframes fadeIn {
+    from {
+        transform: translateY(25px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-in-out forwards;
+}
+
+.gradient-shadow {
+    background-image: linear-gradient(135deg, #f0cc61, #e0b842);
+    box-shadow: 0 5px 20px rgba(240, 204, 97, 0.4);
+}
+
+
+/* ==================================== */
+/* Responsive Design                    */
+/* ==================================== */
 @media (max-width: 768px) {
-  .detail-box {
-    flex: 1 1 100%;
-  }
+    .getinfo-container {
+        margin: 30px 15px;
+        padding: 1.5rem;
+    }
 
-  .car-search-container {
-    padding: 16px;
-  }
+    .getinfo-form {
+        flex-direction: column;
+    }
 
-  form {
-    width: 90%;
-  }
+    .getinfo-field {
+        flex: 1 1 100%;
+    }
+
+    .getinfo-grid {
+        flex-direction: column;
+    }
+
+    .getinfo-grid p {
+        flex: 1 1 100%;
+    }
+
+    .getinfo-title {
+        font-size: 1.5rem;
+    }
+
+    .getinfo-subheading {
+        font-size: 1.2rem;
+    }
+
+    .getinfo-btn {
+        font-size: 0.95rem;
+    }
+
+    .getinfo-image {
+        width: 180px;
+    }
+
+    .comparison-list-summary {
+        padding: 15px;
+    }
+
+    .comparison-list-summary .getinfo-btn {
+        padding: 8px 15px;
+        font-size: 0.85em;
+        margin: 5px;
+    }
+
+    .car-comparison-container {
+        padding: 20px;
+    }
+
+    .comparison-table {
+        min-width: 500px; /* Adjust min-width for smaller tablets */
+    }
+
+    .comparison-cell {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    .comparison-header .comparison-cell {
+        padding: 12px;
+        font-size: 1em;
+    }
+
+    .compare-image {
+        max-width: 120px;
+    }
+
+    .comparison-row.section-header .comparison-cell {
+        font-size: 1em;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .getinfo-container {
+        padding: 1rem;
+        margin: 20px 10px;
+    }
+
+    .getinfo-title {
+        font-size: 1.3rem;
+    }
+
+    .getinfo-result {
+        padding: 1.2rem;
+    }
+
+    .getinfo-subheading {
+        font-size: 1.1rem;
+    }
+
+    .getinfo-grid p {
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
+
+    .getinfo-section h5 {
+        font-size: 1em;
+    }
+
+    .getinfo-section li {
+        font-size: 0.9em;
+    }
+
+    .add-to-compare-btn {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+
+    .comparison-list-summary {
+        padding: 10px;
+    }
+
+    .comparison-list-summary h4 {
+        font-size: 1.1em;
+        margin-bottom: 10px;
+    }
+
+    .comparison-list-summary li {
+        font-size: 0.85em;
+        padding: 6px 0;
+    }
+
+    .comparison-list-summary .getinfo-btn {
+        padding: 6px 12px;
+        font-size: 0.8em;
+    }
+
+    .car-comparison-container {
+        padding: 15px;
+        margin-top: 30px;
+    }
+
+    .comparison-title {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+
+    .comparison-table {
+        min-width: 320px; /* Minimum width for very small screens */
+    }
+
+    .comparison-cell {
+        padding: 8px;
+        font-size: 0.8em;
+    }
+
+    .comparison-header .comparison-cell {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    .compare-image {
+        max-width: 100px;
+    }
+
+    .comparison-row.section-header .comparison-cell {
+        font-size: 0.9em;
+        padding: 6px;
+    }
 }
