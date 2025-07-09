@@ -73,6 +73,7 @@ main,
 
 /* State for homepage at the very top (transparent, no blur) */
 .car-navbar.homepage-transparent-top {
+  padding: 10px 10px 5px 10px;
   background-color: transparent !important;
   backdrop-filter: none !important;
   box-shadow: none !important;

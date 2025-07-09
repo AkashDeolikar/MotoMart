@@ -610,11 +610,21 @@ const Home = () => {
       </div>
 
       {/* Placeholder div for scroll target */}
-      <div ref={targetSectionRef} className="hand-image-box" >
-        <div className="hand-image-text" data-aos="fade" data-aos-once="true" >
-          <h2>Experience the Future of Driving</h2>
-        </div>
-      </div>
+      <div className="cardetail-sections-wrapper01" ref={targetSectionRef}>
+  <div className="cardetail-sections-bg01"></div>
+  <div className="cardetail-sections-overlay01"></div>
+
+  <div className="cardetail-sections-inner01">
+    <div className="cardetail-sections-content01" data-aos="fade-up" data-aos-once="true">
+      <h1 className="cardetail-sections-title01">Experience the Future of Driving</h1>
+      <p className="cardetail-sections-subtitle01">
+        Discover intelligent features, advanced design, and next-level performance with our new-age vehicles.
+      </p>
+    </div>
+  </div>
+
+  <div className="cardetail-sections-scroll-hint01">SCROLL TO EXPLORE ↓</div>
+</div>
 
       {/* FEATURED CAR SECTION */}
       <FeaturedCarsSection
