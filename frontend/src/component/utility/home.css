@@ -152,13 +152,17 @@ body {
 
 /*zic zac title*/
 .masonrymedia__card-title1 {
+  font-family:"Lato Black", sans-serif;
   color: black;
-  text-shadow: 1px 1px #96969673;
   font-size: 28px;
-  font-weight: bold;
   margin-bottom: 10px;
 }
-
+.dark .masonrymedia__card-title1 {
+  font-family: "Lato Black", sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 28px;
+  margin-bottom: 10px;
+}
 .zic-alternating-content .support .masonrymedia__card-title1,
 .masonrymedia__card-title1 {
   position: relative;
@@ -178,7 +182,6 @@ body {
     background-color: rgba(224, 221, 221, 0.9);
     color: #0f0f0f;
     padding: 5px 10px;
-    border-radius: 4px;
     font-size: 0.75em;
     white-space: nowrap;
     opacity: 0;
@@ -191,28 +194,13 @@ body {
 
   .zic-alternating-content .support .masonrymedia__card-title1::after,
   .masonrymedia__card-title1::after {
-    background-color: #2c3e50;
+    background-color: #080808;
     color: white;
   }
 }
 
 .zic-alternating-content .support:hover .masonrymedia__card-title1::after {
   animation: pulseGlow 2s ease-in-out infinite;
-}
-
-/* Glow animation */
-@keyframes pulseGlow {
-  0% {
-    text-shadow: 0 0 10px #4ef63b;
-  }
-
-  50% {
-    text-shadow: 0 0 35px #08f582;
-  }
-
-  100% {
-    text-shadow: 0 0 10px #f20b0b;
-  }
 }
 
 /* On hover: make it visible */
@@ -222,21 +210,6 @@ body {
   visibility: visible;
   bottom: -40px;
 }
-
-/* @media screen and (min-width: 1360px) and (max-width: 1440px) {
-  .zic-alternating-content .support .masonrymedia__card-title1::after {
-    left: 100%;
-    top: 50%;
-    bottom: auto;
-    transform: translate(10px, -50%);
-    white-space: nowrap;
-  }
-
-  .zic-alternating-content .support {
-    padding-bottom: 0; 
-  }
-}  */
-
 
 /* Support block wrapper */
 .zic-alternating-content .support {
@@ -396,65 +369,7 @@ body {
   }
 }
 
-
-
-.deals {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 25px 30px;
-  border-radius: 18px;
-  border: 1px solid #ffe082;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-  background-color: #fffef9;
-  font-family: 'Segoe UI', sans-serif;
-  transition: transform 0.3s ease, border 0.3s ease;
-}
-
-.deals:hover {
-  transform: scale(1.01);
-  border: 1px solid #ffc107;
-}
-
-.deals h2 {
-  margin-bottom: 16px;
-  font-family: 'Segoe UI Semibold', sans-serif;
-  font-size: 26px;
-  color: #ff6f00;
-  border-bottom: 2px solid #ffc107;
-  padding-bottom: 8px;
-  text-align: center;
-}
-
-.deals ul {
-  padding-left: 20px;
-  margin: 0;
-}
-
-.deals li {
-  font-size: 15px;
-  padding: 10px 0;
-  border-bottom: 1px dashed #ddd;
-  color: #333;
-  line-height: 1.6;
-}
-
-.dark .deals {
-  background-color: #2c2c2c;
-  color: #f0f0f0;
-  border-color: #ffc107;
-}
-
-.dark .deals h2 {
-  color: #ffb300;
-  border-color: #ffca28;
-}
-
-.dark .deals li {
-  border-color: #444;
-  color: #ddd;
-}
-
-
+/* === Main Card Container === */
 .cta {
   text-align: center;
 }
@@ -1465,6 +1380,174 @@ html {
   transition: all 0.4s ease;
 }
 
+/*cardetails page*/
+.cardetail-sections-wrapper {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+.cardetail-sections-bg {
+  background-image: url('../../../public/images/allcarsimage/bgpaper.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.8);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  transform: scale(8.05);
+  animation: zoomIn 5s ease-in-out infinite alternate;
+}
+.dark .cardetail-sections-bg {
+  background-image: url('../../../public/images/allcarsimage/bgpaper.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.5);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  transform: scale(8.05);
+  animation: zoomIn 5s ease-in-out infinite alternate;
+}
+.cardetail-sections-overlay {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: rgba(12, 12, 12, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.cardetail-sections-inner {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 1rem;
+}
+
+.cardetail-sections-content {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  color: #fff;
+  max-width: 720px;
+  width: 100%;
+  animation: fadeInUp 1.2s ease-in-out;
+}
+
+.cardetail-sections-title {
+      font-family: "Lato Black", sans-serif;
+  font-size: clamp(2rem, 6vw, 3rem);
+  /* font-weight: 700; */
+  margin-bottom: 1rem;
+}
+
+.cardetail-sections-subtitle {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 300;
+  color: #ddd;
+  margin-bottom: 2rem;
+}
+
+.cardetail-sections-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  background: linear-gradient(to right, #ff6f00, #ff9500);
+  color: #fff;
+  border: 2px solid #ffbb00;
+  transition: all 0.3s ease-in-out;
+}
+
+.cardetail-sections-btn:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 183, 0, 0.341);
+  border: 2px solid #ff6f00;
+  color: black;
+}
+
+.cardetail-sections-arrow-icon {
+  transition: transform 0.3s ease;
+}
+
+.cardetail-sections-btn:hover .cardetail-sections-arrow-icon {
+  transform: translateX(6px);
+}
+
+.cardetail-sections-scroll-hint {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #eee;
+  letter-spacing: 1px;
+  z-index: 3;
+  animation: bounce 2s infinite;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1.07);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+@media (max-width: 600px) {
+  .cardetail-sections-btn {
+    padding: 0.8rem 1.6rem;
+    font-size: 0.95rem;
+  }
+
+  .cardetail-sections-content {
+    padding: 2rem 1.2rem;
+  }
+
+  .cardetail-sections-scroll-hint {
+    font-size: 0.75rem;
+  }
+}
+
+
 /* ========== Base Card Style ========== */
 .vehicle-card2 {
   width: 300px;
@@ -1860,145 +1943,6 @@ body.dark {
   /* Amber 500 for dark contrast */
 }
 
-/* --- */
-
-/* ====== Base Styling for the Box Container 1 ====== */
-.shimmer-effect {
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.shimmer-effect::after {
-  content: " ";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 200%;
-  height: 100%;
-  background: linear-gradient(120deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.4) 50%,
-      rgba(255, 255, 255, 0) 100%);
-  animation: shimmerMove 1.5s linear infinite;
-  pointer-events: none;
-  mix-blend-mode: overlay;
-  backdrop-filter: blur(4px);
-}
-
-@keyframes shimmerMove {
-  0% {
-    left: -100%;
-  }
-
-  100% {
-    left: 100%;
-  }
-}
-
-
-
-.hand-image-box1 {
-  position: relative;
-  height: 100px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  z-index: 1;
-  font-family: 'Inter', 'Segoe UI', sans-serif;
-  font-weight: 500;
-
-  background: linear-gradient(210deg,
-      var(--hand-image-box1-gradient-start),
-      #91b062ba,
-      var(--hand-image-box1-gradient-mid2),
-      var(--hand-image-box1-gradient-end));
-  background-size: 600% 600%;
-  animation: moveGradient1 10s cubic-bezier(1, 0.49, 0.38, 0.88) infinite;
-  /* transition: background 0.7s ease-in-out; */
-
-  opacity: 0;
-  transition: opacity var(--box1-fade-duration) var(--aos-timing-function);
-
-  /* ADD THIS: */
-  backdrop-filter: blur(55px) saturate(1.8);
-  -webkit-backdrop-filter: blur(10px) saturate(180%);
-}
-
-
-.hand-image-box1.aos-animate {
-  opacity: 1;
-}
-
-/* ====== Gradient Animation (Continuous, specific to box1) ====== */
-@keyframes moveGradient1 {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-/* --- */
-
-/* ====== Text Container Styling for hand-image-text1 ====== */
-.hand-image-text1 {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  padding: 0 30px;
-  color: var(--hand-image-text1-color);
-  text-shadow: 0 1px 8px var(--hand-image-text1-shadow);
-  transition: color 0.5s ease-in-out, text-shadow 0.5s ease-in-out;
-  line-height: 1.2;
-
-  opacity: 0;
-  transform: scale(0.8);
-  transition: opacity var(--text1-zoom-duration) var(--aos-timing-function),
-    transform var(--text1-zoom-duration) var(--aos-timing-function);
-  transition-delay: var(--text1-zoom-delay);
-}
-
-.hand-image-text1.aos-animate {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.hand-image-text1 h2 {
-  font-family: 'JaguarModernWeb-Bold';
-  text-shadow: var(--text-shadow);
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin: 0 0 8px 0;
-  letter-spacing: 1px;
-  line-height: 1.1;
-  color: var(--hand-image-text1-color);
-}
-
-.hand-image-text1 h4 {
-  font-family: 'JaguarModernWeb-Bold';
-  font-size: 1.1rem;
-  font-weight: 500;
-  margin: 0;
-  letter-spacing: 0.5px;
-  color: var(--hand-image-text1-h4-color);
-}
-
-.hand-image-text1 h4 .bi-gem {
-  color: var(--hand-image-text1-icon-color);
-  font-size: 1.3em;
-  vertical-align: middle;
-  margin-left: 8px;
-  animation: gemGlow1 2s ease-in-out infinite alternate;
-}
 
 /* ====== Icon Glow Animation (specific to box1 gem) ====== */
 @keyframes gemGlow1 {
@@ -2095,4 +2039,163 @@ body.dark {
 .view-btn:hover {
   background-color: #0055ff43;
   border-radius: 50px;
+}
+
+/* Our range code*/
+/* ==================================== */
+/* Theme Variables (Light & Dark Mode)  */
+/* ==================================== */
+body.light{
+  --primary-color: #0d2b66;
+  --text-color: #333;
+  --tab-color: #555;
+  --bg-color: #ffffff;
+}
+
+body.dark{
+  --primary-color: #64b5f6;
+  --text-color: #696969;
+  --tab-color: #aaaaaa;
+  --bg-color: #121212;
+}
+
+/* ==================================== */
+/* Base Reset and Font                 */
+/* ==================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ==================================== */
+/* Aks Range Section Styles             */
+/* ==================================== */
+
+/* === Outer Section === */
+.Aks__contentRange {
+  background-color: var(--bg-color);
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* === Inner Centered Container === */
+.Aks__MainRange {
+  max-width: 1200px;
+  width: 100%;
+  text-align: center;
+}
+
+/* === Subtitle === */
+.Aks__subtitle {
+  font-size: 1.5rem;
+  font-weight: 200;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+/* === Title === */
+.Aks__title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-family: 'Lato-Regular';
+  font-weight: 700;
+  color: var(--text-color);
+  line-height: 1.2;
+  position: relative;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.Aks__title::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: var(--primary-color);
+  margin: 16px auto 0;
+  border-radius: 4px;
+}
+
+/* === Tabs Container === */
+.Aks__RangeTabs {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+/* === Individual Tab === */
+.Aks__tab {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--tab-color);
+  cursor: pointer;
+  padding-bottom: 6px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.Aks__tab:hover {
+  color: var(--primary-color);
+}
+
+.Aks__tab::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.Aks__tab:hover::after,
+.Aks__tab.active::after {
+  width: 100%;
+}
+
+.Aks__tab.active {
+  color: var(--primary-color);
+}
+
+/* === Info Content === */
+.Aks__tabInfo {
+  margin-top: 24px;
+  font-size: 1.1rem;
+  color: var(--text-color);
+  line-height: 1.6;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+  text-align: center;
+  opacity: 0.95;
+  transition: all 0.3s ease;
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+  .Aks__RangeTabs {
+    gap: 20px;
+  }
+
+  .Aks__tab {
+    font-size: 0.95rem;
+  }
+
+  .Aks__tabInfo {
+    font-size: 1rem;
+  }
 }

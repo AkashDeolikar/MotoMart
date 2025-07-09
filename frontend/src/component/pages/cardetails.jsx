@@ -5,6 +5,20 @@ import { useNavigate } from 'react-router-dom';
 import { auth } from '../../firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 
+const LoadingOverlay = ({ isLoading }) => {
+    if (!isLoading) return null;
+    return (
+        <div className="app-loading-overlay">
+            <div className="app-glass-loader">
+                <div className="app-spinner"></div>
+                <p className="app-loading-text">
+                    <i className="bi bi-lightning-charge-fill"></i> Please wait... loading details
+                </p>
+            </div>
+        </div>
+    );
+};
+
 const CarDetails = () => {
     const [selectedBrand, setSelectedBrand] = useState('');
     const [selectedCar, setSelectedCar] = useState('');
@@ -16,7 +30,15 @@ const CarDetails = () => {
     const [carsToCompare, setCarsToCompare] = useState([]); // State to store cars selected for comparison
     const [showComparison, setShowComparison] = useState(false); // Controls visibility of the comparison table
     const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(true);
 
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setIsLoading(false);
+        }, 1000);
+
+        return () => clearTimeout(timeout);
+    }, []);
     // Authentication check: Redirects to login if not authenticated
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -127,7 +149,7 @@ const CarDetails = () => {
             }
         }
     };
-    
+
     // Handler to clear all cars from the comparison list
     const handleClearComparison = () => {
         setCarsToCompare([]);
@@ -153,6 +175,7 @@ const CarDetails = () => {
 
     return (
         <div className="getinfo-container advanced-ui" data-theme={document.documentElement.getAttribute('data-theme')}>
+            <LoadingOverlay isLoading={isLoading} />
             <h2 className="getinfo-title">Explore Your Dream Car</h2>
             <form onSubmit={handleSubmit} className="getinfo-form">
                 <div className="getinfo-field">

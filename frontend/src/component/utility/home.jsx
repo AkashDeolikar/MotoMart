@@ -9,6 +9,7 @@ import '../Bootstrap/progressiveBar.css';
 import '../Bootstrap/bootstrapHorizontalSlider.css';
 import '../Bootstrap/bootstrapluxuryvehicle.css';
 import './swipepage.css';
+import { FaArrowRight } from 'react-icons/fa';
 
 // Swiper imports
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -51,15 +52,14 @@ const LoadingOverlay = ({ isLoading }) => {
   if (!isLoading) return null;
   return (
     <div className="loading-overlay">
-      <div className="glass-loader">
-        <div className="spinner"></div>
-        <p className="loading-text">
-          <i className="bi bi-lightning-charge-fill"></i> Please wait... loading details
-        </p>
-      </div>
+      <div className="spinner"></div>
+      <p className="loading-text">
+        <i className="bi bi-lightning-charge-fill"></i> Please wait... loading details
+      </p>
     </div>
   );
 };
+
 
 
 /**
@@ -288,25 +288,6 @@ const FeaturedCarsSection = ({ featuredCars, handlePrev, handleNext, visibleCars
   </div>
 );
 
-
-/**
- * Renders the Sustainability section.
- */
-// const SustainabilitySection = () => (
-//   <section className="suatainability-wrp" data-aos="fade-up">
-//     <div className="sus-cvr-wrp" >
-//       <div className="container-1600-wrp">
-//         <h4 className="sub-ttle appearIntro">Sustainability</h4>
-//         <h2 className="common-ttle appearIntro">Our roadmap<br />
-//           to Net Zero</h2>
-//         <p className="appearIntro" >We are making responsible choices. By prioritizing sustainable mobility, safety,
-//           emission reduction and use of eco-friendly materials, we are driving meaningful change. </p>
-//         <a href="/rover" className="btn-boxx appearIntro">Read more</a>
-//       </div>
-//     </div>
-//   </section>
-// );
-
 /**
  * Renders a grid of offers.
  * @param {object} props - Component props.
@@ -335,59 +316,60 @@ const OffersGridSection = ({ offers }) => (
  * Renders the Vehicle Categories section.
  */
 const VehicleCategoriesSection = () => {
-  //  const volkswagenPoloData = {
-  //     id: 'volkswagen-polo',
-  //     videoPoster: "https://cdn.yellowmessenger.com/7ozMGtvMg8vZ1743425593440.png", // Placeholder, replace with actual image import if available
-  //     videoSrc: "https://www.youtube.com/embed/7S_MIU9_yBw",
-  //     thumbnail: "https://cdn.yellowmessenger.com/7ozMGtvMg8vZ1743425593440.png", // Using a general VW logo or Polo image
-  //     title: "Volkswagen Polo",
-  //     link: "https://www.volkswagen.co.in/", // General VW India link, as Polo is discontinued in India
-  //     description: "The Volkswagen Polo was a highly popular and iconic premium hatchback in India, known for its solid build quality, precise handling, and fun-to-drive nature. It was a benchmark in its segment for many years. (Discontinued in India as of 2022)",
-  //     buttonText: "View Details",
-  //     vehicleInfo: {
-  //       model: "Polo",
-  //       manufacturer: "Volkswagen",
-  //       year: 2022, // Last year of production/sale in India
-  //       features: ["German Build Quality", "Multi-function Steering Wheel", "Dual Airbags", "ABS", "Touchscreen Infotainment (later models)"],
-  //       price: "₹ 6.45 - 10.25 Lakh (at time of discontinuation)" // Price at discontinuation
-  //     }
-  //   };
 
   return (
-    <section className="vehicle-section2" data-aos="fade-up">
-      <div className="vehicle-container2">
-        <h2 className="vehicle-title2">Our Vehicles</h2>
-        <div className="card-deck2">
-          {/* Car Card */}
-          <div className="vehicle-card2">
-            <div className="vehicle-card-inner2">
-              <div className="vehicle-card-front2">
-                <Link to="/carcard">
-                  <img src="/images/car.jpg" alt="Car" />
-                </Link>
-                <div className="vehicle-title-overlay2">
-                  <h3 className="vehicle-overlay-text2">Cars</h3>
-                </div>
-              </div>
-            </div>
-          </div>
+    <section className="cardetail-sections-wrapper">
+      <div className="cardetail-sections-bg" />
+      <div className="cardetail-sections-overlay" />
 
-          {/* Bike Card */}
-          <div className="vehicle-card2">
-            <div className="vehicle-card-inner2">
-              <div className="vehicle-card-front2">
-                <Link to="/bikecard">
-                  <img src="/images/bike.jpg" alt="Bike" />
-                </Link>
-                <div className="vehicle-title-overlay2">
-                  <h3 className="vehicle-overlay-text2">Bikes</h3>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div className="cardetail-sections-inner">
+        <div className="cardetail-sections-content">
+          <h1 className="cardetail-sections-title">Redefine Your Drive</h1>
+          <p className="cardetail-sections-subtitle">
+            Explore luxury, performance, and innovation — all in one place.
+          </p>
+          <Link to="/cardetails" className="cardetail-sections-btn">
+            Discover Cars <FaArrowRight className="cardetail-sections-arrow-icon" />
+          </Link>
         </div>
       </div>
+
+      <div className="cardetail-sections-scroll-hint">SCROLL ↓</div>
     </section>
+    // <section className="vehicle-section2" data-aos="fade-up">
+    //   <div className="vehicle-container2">
+    //     <h2 className="vehicle-title2">Our Vehicles</h2>
+    //     <div className="card-deck2">
+    //       {/* Car Card */}
+    //       <div className="vehicle-card2">
+    //         <div className="vehicle-card-inner2">
+    //           <div className="vehicle-card-front2">
+    //             <Link to="/carcard">
+    //               <img src="/images/car.jpg" alt="Car" />
+    //             </Link>
+    //             <div className="vehicle-title-overlay2">
+    //               <h3 className="vehicle-overlay-text2">Cars</h3>
+    //             </div>
+    //           </div>
+    //         </div>
+    //       </div>
+
+    //       {/* Bike Card */}
+    //       <div className="vehicle-card2">
+    //         <div className="vehicle-card-inner2">
+    //           <div className="vehicle-card-front2">
+    //             <Link to="/bikecard">
+    //               <img src="/images/bike.jpg" alt="Bike" />
+    //             </Link>
+    //             <div className="vehicle-title-overlay2">
+    //               <h3 className="vehicle-overlay-text2">Bikes</h3>
+    //             </div>
+    //           </div>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </section>
   );
 };
 
@@ -399,6 +381,23 @@ const VehicleCategoriesSection = () => {
 const Home = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
+  const [activeTab, setActiveTab] = useState("MUVs/SUVs");
+  // for our range
+  const categories = [
+    "Hatchback",
+    "SUV",
+    "Sedan",
+    "Van",
+    "EV",
+  ];
+
+  const categoryInfo = {
+    Hatchback: "Hatchbacks are compact and fuel-efficient vehicles ideal for city driving. They offer easy maneuverability and affordable ownership.",
+    SUV: "SUVs are built for both urban and off-road terrains, offering higher ground clearance and ample space for family trips.",
+    Sedan: "Sedans are sleek and stylish with a focus on comfort and ride quality. Perfect for daily commuting with premium features.",
+    Van: "Vans are perfect for large families or commercial use. They offer spacious interiors and flexible seating arrangements.",
+    EV: "Electric Vehicles are eco-friendly and cost-effective with zero emissions. Great for the future of sustainable mobility."
+  };// for our range
 
   /* Loading Animation until data load */
   useEffect(() => {
@@ -539,22 +538,6 @@ const Home = () => {
 
       {/* <ABOUT US SECTION /> */}
       <div className="masonrymedia-aka" style={{ position: 'relative' }}>
-        <i
-          className="bi bi-arrow-down-circle bounce-arrow"
-          style={{
-            position: 'absolute',
-            top: '30px',
-            right: '20px',
-            fontSize: '3rem',
-            color: '#fff',
-            borderRadius: '50%',
-            padding: '10px',
-            cursor: 'pointer',
-            zIndex: 1000,
-          }}
-          title="Scroll Down"
-          onClick={scrollToTargetSection} // Your scroll function
-        ></i>
         <div className="masonrymedia__container masonrymedia__container--right masonrymedia__container--visible">
           {/* Text section */}
           <div className="masonrymedia__card">
@@ -563,7 +546,9 @@ const Home = () => {
               <div className="masonrymedia__card-info">
                 <h3 className="masonrymedia__card-title headline headline--xl">JOY OF REDEFINING DRIVING</h3>
                 <div className="masonrymedia__card-description body-copy body-copy--s">
-                  Sophisticated elegance.
+                  <p>Welcome.</p>
+                  <p>To a world created for the young.</p>
+                  <p>The ones who seek innovation with passion.</p>
                 </div>
               </div>
               <div className="masonrymedia__card-ctalist linkContainer">
@@ -642,14 +627,29 @@ const Home = () => {
       />
 
       {/*Luxury vehicle intro */}
-      <div className="shimmer-effect">
-        <div className="hand-image-box1" data-aos="fade" data-aos-once="true">
-          <div className="hand-image-text1" data-aos="zoom-in" data-aos-once="true">
-            <h2>Stay inspired</h2>
-            <h4>This is just the beginning. <i className="bi bi-gem"></i> </h4>
+      <div className="Aks__contentRange">
+        <div className="Aks__MainRange">
+          <div className="Aks__Rangetitle">
+            <p className="Aks__subtitle">Our</p>
+            <h1 className="Aks__title">Range</h1>
+            <div className="Aks__RangeTabs">
+              {categories.map((cat) => (
+                <span
+                  key={cat}
+                  className={activeTab === cat ? "Aks__tab active" : "Aks__tab"}
+                  onClick={() => setActiveTab(cat)}
+                >
+                  {cat}
+                </span>
+              ))}
+            </div>
+            <div className="Aks__tabInfo">
+              <p>{categoryInfo[activeTab]}</p>
+            </div>
           </div>
         </div>
       </div>
+
 
 
       {/* ZIC ZAC SECTION */}
@@ -772,19 +772,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-
-
-      {/* HOT DEALS SECTION */}
-      <div className="deals" data-aos="fade-right" data-aos-delay="400" data-aos-once="true">
-        <h2>⚡ Vehicle Powertrain Options</h2>
-        <ul>
-          <li>🔋 <strong>Electric Vehicles (EV)</strong>: Zero emissions, silent drive, low maintenance</li>
-          <li>⛽ <strong>Petrol Engines</strong>: Smooth performance with city-friendly mileage</li>
-          <li>🛢️ <strong>Diesel Engines</strong>: High torque, great for long-distance and heavy usage</li>
-          <li>🔄 <strong>Hybrid Systems</strong>: Combines fuel economy of EV with petrol range</li>
-        </ul>
-      </div>
-
 
       {/* FLIP CARD HEADING */}
       <section className="intro">

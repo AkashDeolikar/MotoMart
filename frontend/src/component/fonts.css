@@ -116,3 +116,41 @@
   font-style: normal;
   font-display: swap; /* Recommended for better user experience */
 }
+
+
+/*Suzuki fonts*/
+@font-face {
+  font-family: "Lato-Regular"; /* Use a consistent family name */
+  src: url("../component/Fonts/Lato-Regular.woff") format("woff");
+  font-weight: 700; /* Use numerical weights for bold (700 or 'bold') */
+  font-style: normal;
+  font-display: swap; /* Recommended for better user experience */
+}
+@font-face {
+  font-family: "Lato-Black"; /* Use a consistent family name */
+  src: url("../component/Fonts/Lato-Black.woff") format("woff");
+  font-weight: 700; /* Use numerical weights for bold (700 or 'bold') */
+  font-style: normal;
+  font-display: swap; /* Recommended for better user experience */
+}
+@font-face {
+  font-family: "Lato-Bold"; /* Use a consistent family name */
+  src: url("../component/Fonts/Lato-Bold.woff") format("woff");
+  font-weight: 700; /* Use numerical weights for bold (700 or 'bold') */
+  font-style: normal;
+  font-display: swap; /* Recommended for better user experience */
+}
+@font-face {
+  font-family: "Lato-Hairline"; /* Use a consistent family name */
+  src: url("../component/Fonts/Lato-Hairline.woff") format("woff");
+  font-weight: 700; /* Use numerical weights for bold (700 or 'bold') */
+  font-style: normal;
+  font-display: swap; /* Recommended for better user experience */
+}
+@font-face {
+  font-family: "Lato-Light"; /* Use a consistent family name */
+  src: url("../component/Fonts/Lato-Light.woff") format("woff");
+  font-weight: 700; /* Use numerical weights for bold (700 or 'bold') */
+  font-style: normal;
+  font-display: swap; /* Recommended for better user experience */
+}
