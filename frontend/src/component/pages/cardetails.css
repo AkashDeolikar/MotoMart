@@ -517,8 +517,8 @@ body {
 }
 
 .gradient-shadow {
-    background-image: linear-gradient(135deg, #f0cc61, #e0b842);
-    box-shadow: 0 5px 20px rgba(240, 204, 97, 0.4);
+    background-image: linear-gradient(135deg, #ff3d00, #ffbe00);
+    box-shadow: 0 5px 20px rgba(240, 204, 97, 0.266);
 }
 
 

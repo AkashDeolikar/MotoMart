@@ -688,456 +688,456 @@
       }
     },
     "Omni": {
-    "common_details": {
-      "engine": "0.8L F8D 3-cylinder petrol engine",
-      "fuelType": "Petrol / CNG",
-      "image": "/images/allcarsimage/omni.png",
-      "pricing_location": "Ex-Showroom Nagpur",
-      "dimensions": {
-        "length": "3370 mm",
-        "width": "1475 mm",
-        "height": "1640 mm",
-        "wheelbase": "1840 mm",
-        "groundClearance": "165 mm",
-        "bootSpace": "80 litres (with all seats up)"
+      "common_details": {
+        "engine": "0.8L F8D 3-cylinder petrol engine",
+        "fuelType": "Petrol / CNG",
+        "image": "/images/allcarsimage/omni.png",
+        "pricing_location": "Ex-Showroom Nagpur",
+        "dimensions": {
+          "length": "3370 mm",
+          "width": "1475 mm",
+          "height": "1640 mm",
+          "wheelbase": "1840 mm",
+          "groundClearance": "165 mm",
+          "bootSpace": "80 litres (with all seats up)"
+        }
+      },
+      "variants": {
+        "5-Seater Std": {
+          "engine_specs": {
+            "displacement": "796 cc",
+            "maxPower": "34 bhp @ 5000 rpm (Petrol), 29 bhp @ 4500 rpm (CNG)",
+            "maxTorque": "59 Nm @ 2500 rpm (Petrol), 51 Nm @ 2500 rpm (CNG)"
+          },
+          "mileage": {
+            "petrolManual": "16.8 kmpl",
+            "cng": "26.3 km/kg"
+          },
+          "transmission": [
+            "4-speed Manual"
+          ],
+          "safety": [
+            "None (Basic safety features only)"
+          ],
+          "infotainment": [
+            "No Infotainment System"
+          ],
+          "interior": [
+            "Basic Cabin",
+            "Vinyl Upholstery"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "Steel Wheels",
+              "Sliding Rear Doors"
+            ],
+            "colorOptions": [
+              "Superior White",
+              "Silky Silver"
+            ]
+          },
+          "pricing": "₹3.50 Lakh (Petrol), ₹4.50 Lakh (CNG)"
+        },
+        "8-Seater Std": {
+          "engine_specs": {
+            "displacement": "796 cc",
+            "maxPower": "34 bhp @ 5000 rpm (Petrol), 29 bhp @ 4500 rpm (CNG)",
+            "maxTorque": "59 Nm @ 2500 rpm (Petrol), 51 Nm @ 2500 rpm (CNG)"
+          },
+          "mileage": {
+            "petrolManual": "16.8 kmpl",
+            "cng": "26.3 km/kg"
+          },
+          "transmission": [
+            "4-speed Manual"
+          ],
+          "safety": [
+            "None (Basic safety features only)"
+          ],
+          "infotainment": [
+            "No Infotainment System"
+          ],
+          "interior": [
+            "Basic Cabin",
+            "Vinyl Upholstery"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "Steel Wheels",
+              "Sliding Rear Doors"
+            ],
+            "colorOptions": [
+              "Superior White",
+              "Silky Silver"
+            ]
+          },
+          "pricing": "₹3.60 Lakh (Petrol), ₹4.60 Lakh (CNG)"
+        }
       }
     },
-    "variants": {
-      "5-Seater Std": {
-        "engine_specs": {
-          "displacement": "796 cc",
-          "maxPower": "34 bhp @ 5000 rpm (Petrol), 29 bhp @ 4500 rpm (CNG)",
-          "maxTorque": "59 Nm @ 2500 rpm (Petrol), 51 Nm @ 2500 rpm (CNG)"
-        },
-        "mileage": {
-          "petrolManual": "16.8 kmpl",
-          "cng": "26.3 km/kg"
-        },
-        "transmission": [
-          "4-speed Manual"
-        ],
-        "safety": [
-          "None (Basic safety features only)"
-        ],
-        "infotainment": [
-          "No Infotainment System"
-        ],
-        "interior": [
-          "Basic Cabin",
-          "Vinyl Upholstery"
-        ],
-        "exterior": {
-          "designFeatures": [
-            "Steel Wheels",
-            "Sliding Rear Doors"
-          ],
-          "colorOptions": [
-            "Superior White",
-            "Silky Silver"
-          ]
-        },
-        "pricing": "₹3.50 Lakh (Petrol), ₹4.50 Lakh (CNG)"
+    "Eeco": {
+      "common_details": {
+        "engine": "1.2L K12N 4-cylinder petrol engine",
+        "fuelType": "Petrol / CNG",
+        "image": "/images/allcarsimage/eeco.png",
+        "pricing_location": "Ex-Showroom Nagpur",
+        "dimensions": {
+          "length": "3675 mm",
+          "width": "1475 mm",
+          "height": "1825 mm",
+          "wheelbase": "2350 mm",
+          "groundClearance": "160 mm",
+          "bootSpace": "540 litres (with last row folded)"
+        }
       },
-      "8-Seater Std": {
-        "engine_specs": {
-          "displacement": "796 cc",
-          "maxPower": "34 bhp @ 5000 rpm (Petrol), 29 bhp @ 4500 rpm (CNG)",
-          "maxTorque": "59 Nm @ 2500 rpm (Petrol), 51 Nm @ 2500 rpm (CNG)"
-        },
-        "mileage": {
-          "petrolManual": "16.8 kmpl",
-          "cng": "26.3 km/kg"
-        },
-        "transmission": [
-          "4-speed Manual"
-        ],
-        "safety": [
-          "None (Basic safety features only)"
-        ],
-        "infotainment": [
-          "No Infotainment System"
-        ],
-        "interior": [
-          "Basic Cabin",
-          "Vinyl Upholstery"
-        ],
-        "exterior": {
-          "designFeatures": [
-            "Steel Wheels",
-            "Sliding Rear Doors"
+      "variants": {
+        "5-Seater Standard": {
+          "engine_specs": {
+            "displacement": "1197 cc",
+            "maxPower": "80.76 bhp @ 6000 rpm (Petrol), 71.69 bhp @ 6000 rpm (CNG)",
+            "maxTorque": "104.4 Nm @ 3000 rpm (Petrol), 95 Nm @ 3000 rpm (CNG)"
+          },
+          "mileage": {
+            "petrolManual": "19.71 kmpl",
+            "cng": "26.78 km/kg"
+          },
+          "transmission": [
+            "5-speed Manual"
           ],
-          "colorOptions": [
-            "Superior White",
-            "Silky Silver"
-          ]
-        },
-        "pricing": "₹3.60 Lakh (Petrol), ₹4.60 Lakh (CNG)"
-      }
-    }
-  },
-  "Eeco": {
-    "common_details": {
-      "engine": "1.2L K12N 4-cylinder petrol engine",
-      "fuelType": "Petrol / CNG",
-      "image": "/images/allcarsimage/eeco.png",
-      "pricing_location": "Ex-Showroom Nagpur",
-      "dimensions": {
-        "length": "3675 mm",
-        "width": "1475 mm",
-        "height": "1825 mm",
-        "wheelbase": "2350 mm",
-        "groundClearance": "160 mm",
-        "bootSpace": "540 litres (with last row folded)"
-      }
-    },
-    "variants": {
-      "5-Seater Standard": {
-        "engine_specs": {
-          "displacement": "1197 cc",
-          "maxPower": "80.76 bhp @ 6000 rpm (Petrol), 71.69 bhp @ 6000 rpm (CNG)",
-          "maxTorque": "104.4 Nm @ 3000 rpm (Petrol), 95 Nm @ 3000 rpm (CNG)"
-        },
-        "mileage": {
-          "petrolManual": "19.71 kmpl",
-          "cng": "26.78 km/kg"
-        },
-        "transmission": [
-          "5-speed Manual"
-        ],
-        "safety": [
-          "Dual Airbags",
-          "ABS with EBD",
-          "Reverse Parking Sensors"
-        ],
-        "infotainment": [
-          "Basic Music System (Optional accessory)"
-        ],
-        "interior": [
-          "Digital Instrument Cluster",
-          "Manual AC"
-        ],
-        "exterior": {
-          "designFeatures": [
-            "Steel Wheels",
-            "Halogen Headlamps"
+          "safety": [
+            "Dual Airbags",
+            "ABS with EBD",
+            "Reverse Parking Sensors"
           ],
-          "colorOptions": [
-            "Solid White",
-            "Metallic Glistening Grey",
-            "Pearl Midnight Black",
-            "Metallic Silky Silver",
-            "Cerulean Blue"
-          ]
-        },
-        "pricing": "₹5.32 Lakh (Petrol), ₹6.58 Lakh (CNG)"
-      },
-      "7-Seater Standard": {
-        "engine_specs": {
-          "displacement": "1197 cc",
-          "maxPower": "80.76 bhp @ 6000 rpm (Petrol)",
-          "maxTorque": "104.4 Nm @ 3000 rpm (Petrol)"
-        },
-        "mileage": {
-          "petrolManual": "19.71 kmpl"
-        },
-        "transmission": [
-          "5-speed Manual"
-        ],
-        "safety": [
-          "Dual Airbags",
-          "ABS with EBD",
-          "Reverse Parking Sensors"
-        ],
-        "infotainment": [
-          "Basic Music System (Optional accessory)"
-        ],
-        "interior": [
-          "Digital Instrument Cluster",
-          "Manual AC"
-        ],
-        "exterior": {
-          "designFeatures": [
-            "Steel Wheels",
-            "Halogen Headlamps"
+          "infotainment": [
+            "Basic Music System (Optional accessory)"
           ],
-          "colorOptions": [
-            "Solid White",
-            "Metallic Glistening Grey",
-            "Pearl Midnight Black",
-            "Metallic Silky Silver",
-            "Cerulean Blue"
-          ]
-        },
-        "pricing": "₹5.61 Lakh"
-      },
-      "Cargo": {
-        "engine_specs": {
-          "displacement": "1197 cc",
-          "maxPower": "80.76 bhp @ 6000 rpm (Petrol), 71.69 bhp @ 6000 rpm (CNG)",
-          "maxTorque": "104.4 Nm @ 3000 rpm (Petrol), 95 Nm @ 3000 rpm (CNG)"
-        },
-        "mileage": {
-          "petrolManual": "19.71 kmpl",
-          "cng": "26.78 km/kg"
-        },
-        "transmission": [
-          "5-speed Manual"
-        ],
-        "safety": [
-          "Dual Airbags",
-          "ABS with EBD",
-          "Reverse Parking Sensors"
-        ],
-        "infotainment": [
-          "No Infotainment System"
-        ],
-        "interior": [
-          "Basic Cabin"
-        ],
-        "exterior": {
-          "designFeatures": [
-            "Steel Wheels",
-            "Halogen Headlamps"
+          "interior": [
+            "Digital Instrument Cluster",
+            "Manual AC"
           ],
-          "colorOptions": [
-            "Solid White"
-          ]
+          "exterior": {
+            "designFeatures": [
+              "Steel Wheels",
+              "Halogen Headlamps"
+            ],
+            "colorOptions": [
+              "Solid White",
+              "Metallic Glistening Grey",
+              "Pearl Midnight Black",
+              "Metallic Silky Silver",
+              "Cerulean Blue"
+            ]
+          },
+          "pricing": "₹5.32 Lakh (Petrol), ₹6.58 Lakh (CNG)"
         },
-        "pricing": "₹5.42 Lakh (Petrol), ₹6.70 Lakh (CNG)"
-      }
-    }
-  },
-  "Brezza": {
-    "common_details": {
-      "engine": "1.5L K15C Smart Hybrid petrol engine",
-      "fuelType": "Petrol / CNG",
-      "image": "/images/allcarsimage/brezza.png",
-      "pricing_location": "Ex-Showroom Nagpur",
-      "dimensions": {
-        "length": "3995 mm",
-        "width": "1790 mm",
-        "height": "1685 mm",
-        "wheelbase": "2500 mm",
-        "groundClearance": "198 mm",
-        "bootSpace": "328 litres"
+        "7-Seater Standard": {
+          "engine_specs": {
+            "displacement": "1197 cc",
+            "maxPower": "80.76 bhp @ 6000 rpm (Petrol)",
+            "maxTorque": "104.4 Nm @ 3000 rpm (Petrol)"
+          },
+          "mileage": {
+            "petrolManual": "19.71 kmpl"
+          },
+          "transmission": [
+            "5-speed Manual"
+          ],
+          "safety": [
+            "Dual Airbags",
+            "ABS with EBD",
+            "Reverse Parking Sensors"
+          ],
+          "infotainment": [
+            "Basic Music System (Optional accessory)"
+          ],
+          "interior": [
+            "Digital Instrument Cluster",
+            "Manual AC"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "Steel Wheels",
+              "Halogen Headlamps"
+            ],
+            "colorOptions": [
+              "Solid White",
+              "Metallic Glistening Grey",
+              "Pearl Midnight Black",
+              "Metallic Silky Silver",
+              "Cerulean Blue"
+            ]
+          },
+          "pricing": "₹5.61 Lakh"
+        },
+        "Cargo": {
+          "engine_specs": {
+            "displacement": "1197 cc",
+            "maxPower": "80.76 bhp @ 6000 rpm (Petrol), 71.69 bhp @ 6000 rpm (CNG)",
+            "maxTorque": "104.4 Nm @ 3000 rpm (Petrol), 95 Nm @ 3000 rpm (CNG)"
+          },
+          "mileage": {
+            "petrolManual": "19.71 kmpl",
+            "cng": "26.78 km/kg"
+          },
+          "transmission": [
+            "5-speed Manual"
+          ],
+          "safety": [
+            "Dual Airbags",
+            "ABS with EBD",
+            "Reverse Parking Sensors"
+          ],
+          "infotainment": [
+            "No Infotainment System"
+          ],
+          "interior": [
+            "Basic Cabin"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "Steel Wheels",
+              "Halogen Headlamps"
+            ],
+            "colorOptions": [
+              "Solid White"
+            ]
+          },
+          "pricing": "₹5.42 Lakh (Petrol), ₹6.70 Lakh (CNG)"
+        }
       }
     },
-    "variants": {
-      "LXi": {
-        "engine_specs": {
-          "displacement": "1462 cc",
-          "maxPower": "102 bhp @ 6000 rpm (Petrol), 86.63 bhp @ 5500 rpm (CNG)",
-          "maxTorque": "136.8 Nm @ 4400 rpm (Petrol), 121.5 Nm @ 4200 rpm (CNG)"
-        },
-        "mileage": {
-          "petrolManual": "17.38 kmpl",
-          "cng": "25.51 km/kg"
-        },
-        "transmission": [
-          "5-speed Manual"
-        ],
-        "safety": [
-          "Dual Airbags",
-          "ABS with EBD",
-          "Rear Parking Sensors",
-          "ISOFIX Child Seat Anchors",
-          "Electronic Stability Program (ESP)",
-          "Hill Hold Assist"
-        ],
-        "infotainment": [
-          "Basic Audio System",
-          "Bluetooth Connectivity"
-        ],
-        "interior": [
-          "Manual AC",
-          "Front Power Windows",
-          "Analogue Instrument Cluster"
-        ],
-        "exterior": {
-          "designFeatures": [
-            "Steel Wheels",
-            "Halogen Projector Headlamps",
-            "Black Roof Rails"
-          ],
-          "colorOptions": [
-            "Sizzling Red",
-            "Brave Khaki",
-            "Magma Grey",
-            "Exuberant Blue",
-            "Splendid Silver",
-            "Pearl Arctic White"
-          ]
-        },
-        "pricing": "₹8.34 Lakh (Petrol Manual)"
+    "Brezza": {
+      "common_details": {
+        "engine": "1.5L K15C Smart Hybrid petrol engine",
+        "fuelType": "Petrol / CNG",
+        "image": "/images/allcarsimage/brezza.png",
+        "pricing_location": "Ex-Showroom Nagpur",
+        "dimensions": {
+          "length": "3995 mm",
+          "width": "1790 mm",
+          "height": "1685 mm",
+          "wheelbase": "2500 mm",
+          "groundClearance": "198 mm",
+          "bootSpace": "328 litres"
+        }
       },
-      "VXi": {
-        "engine_specs": {
-          "displacement": "1462 cc",
-          "maxPower": "102 bhp @ 6000 rpm (Petrol), 86.63 bhp @ 5500 rpm (CNG)",
-          "maxTorque": "136.8 Nm @ 4400 rpm (Petrol), 121.5 Nm @ 4200 rpm (CNG)"
-        },
-        "mileage": {
-          "petrolManual": "17.38 kmpl",
-          "petrolAutomatic": "17.98 kmpl",
-          "cng": "25.51 km/kg"
-        },
-        "transmission": [
-          "5-speed Manual",
-          "6-speed Automatic"
-        ],
-        "safety": [
-          "Dual Airbags",
-          "ABS with EBD",
-          "Rear Parking Sensors",
-          "ISOFIX Child Seat Anchors",
-          "Electronic Stability Program (ESP)",
-          "Hill Hold Assist"
-        ],
-        "infotainment": [
-          "7-inch SmartPlay Pro Touchscreen Infotainment System",
-          "Wireless Android Auto & Apple CarPlay",
-          "Steering Mounted Controls",
-          "4 Speakers"
-        ],
-        "interior": [
-          "Automatic Climate Control",
-          "All Power Windows",
-          "Height Adjustable Driver Seat",
-          "Rear AC Vents"
-        ],
-        "exterior": {
-          "designFeatures": [
-            "Steel Wheels with Wheel Covers",
-            "LED Projector Headlamps with DRLs",
-            "Body Coloured Door Handles & ORVMs",
-            "Silver Roof Rails"
+      "variants": {
+        "LXi": {
+          "engine_specs": {
+            "displacement": "1462 cc",
+            "maxPower": "102 bhp @ 6000 rpm (Petrol), 86.63 bhp @ 5500 rpm (CNG)",
+            "maxTorque": "136.8 Nm @ 4400 rpm (Petrol), 121.5 Nm @ 4200 rpm (CNG)"
+          },
+          "mileage": {
+            "petrolManual": "17.38 kmpl",
+            "cng": "25.51 km/kg"
+          },
+          "transmission": [
+            "5-speed Manual"
           ],
-          "colorOptions": [
-            "Sizzling Red",
-            "Brave Khaki",
-            "Magma Grey",
-            "Exuberant Blue",
-            "Splendid Silver",
-            "Pearl Arctic White"
-          ]
-        },
-        "pricing": "₹9.69 Lakh (Petrol Manual), ₹11.10 Lakh (Petrol Automatic), ₹10.64 Lakh (CNG)"
-      },
-      "ZXi": {
-        "engine_specs": {
-          "displacement": "1462 cc",
-          "maxPower": "102 bhp @ 6000 rpm (Petrol), 86.63 bhp @ 5500 rpm (CNG)",
-          "maxTorque": "136.8 Nm @ 4400 rpm (Petrol), 121.5 Nm @ 4200 rpm (CNG)"
-        },
-        "mileage": {
-          "petrolManual": "17.38 kmpl",
-          "petrolAutomatic": "17.98 kmpl",
-          "cng": "25.51 km/kg"
-        },
-        "transmission": [
-          "5-speed Manual",
-          "6-speed Automatic"
-        ],
-        "safety": [
-          "6 Airbags",
-          "ABS with EBD",
-          "Rear Parking Camera",
-          "ISOFIX Child Seat Anchors",
-          "Electronic Stability Program (ESP)",
-          "Hill Hold Assist"
-        ],
-        "infotainment": [
-          "9-inch SmartPlay Pro+ Touchscreen Infotainment System",
-          "Wireless Android Auto & Apple CarPlay",
-          "Arkamys Surround Sense Sound System",
-          "Cruise Control",
-          "Voice Assistant"
-        ],
-        "interior": [
-          "Automatic Climate Control",
-          "Push-Button Start/Stop",
-          "Ambient Lighting",
-          "Leather Wrapped Steering Wheel",
-          "Rear AC Vents",
-          "Telescopic Steering Adjustment"
-        ],
-        "exterior": {
-          "designFeatures": [
-            "16-inch Dual-Tone Alloy Wheels",
-            "Dual-Tone Exterior Color Options",
-            "LED Fog Lamps",
-            "Integrated Spoiler"
+          "safety": [
+            "Dual Airbags",
+            "ABS with EBD",
+            "Rear Parking Sensors",
+            "ISOFIX Child Seat Anchors",
+            "Electronic Stability Program (ESP)",
+            "Hill Hold Assist"
           ],
-          "colorOptions": [
-            "Sizzling Red with Midnight Black Roof",
-            "Brave Khaki with Arctic White Roof",
-            "Magma Grey",
-            "Exuberant Blue",
-            "Splendid Silver",
-            "Pearl Arctic White"
-          ]
-        },
-        "pricing": "₹11.14 Lakh (Petrol Manual), ₹12.54 Lakh (Petrol Automatic), ₹12.09 Lakh (CNG)"
-      },
-      "ZXi+": {
-        "engine_specs": {
-          "displacement": "1462 cc",
-          "maxPower": "102 bhp @ 6000 rpm",
-          "maxTorque": "136.8 Nm @ 4400 rpm"
-        },
-        "mileage": {
-          "petrolManual": "17.38 kmpl",
-          "petrolAutomatic": "17.98 kmpl"
-        },
-        "transmission": [
-          "5-speed Manual",
-          "6-speed Automatic"
-        ],
-        "safety": [
-          "6 Airbags",
-          "ABS with EBD",
-          "360-degree Camera",
-          "Head-Up Display (HUD)",
-          "ISOFIX Child Seat Anchors",
-          "Electronic Stability Program (ESP)",
-          "Hill Hold Assist"
-        ],
-        "infotainment": [
-          "9-inch SmartPlay Pro+ Touchscreen Infotainment System",
-          "Wireless Android Auto & Apple CarPlay",
-          "Arkamys Surround Sense Sound System",
-          "Wireless Charger",
-          "Cruise Control",
-          "Voice Assistant"
-        ],
-        "interior": [
-          "Automatic Climate Control",
-          "Push-Button Start/Stop",
-          "Ambient Lighting",
-          "Premium Fabric Upholstery",
-          "Rear AC Vents",
-          "Telescopic Steering Adjustment"
-        ],
-        "exterior": {
-          "designFeatures": [
-            "16-inch Dual-Tone Alloy Wheels",
-            "Dual-Tone Exterior Color Options",
-            "LED Fog Lamps",
-            "Integrated Spoiler"
+          "infotainment": [
+            "Basic Audio System",
+            "Bluetooth Connectivity"
           ],
-          "colorOptions": [
-            "Sizzling Red with Midnight Black Roof",
-            "Brave Khaki with Arctic White Roof",
-            "Magma Grey",
-            "Exuberant Blue",
-            "Splendid Silver",
-            "Pearl Arctic White"
-          ]
+          "interior": [
+            "Manual AC",
+            "Front Power Windows",
+            "Analogue Instrument Cluster"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "Steel Wheels",
+              "Halogen Projector Headlamps",
+              "Black Roof Rails"
+            ],
+            "colorOptions": [
+              "Sizzling Red",
+              "Brave Khaki",
+              "Magma Grey",
+              "Exuberant Blue",
+              "Splendid Silver",
+              "Pearl Arctic White"
+            ]
+          },
+          "pricing": "₹8.34 Lakh (Petrol Manual)"
         },
-        "pricing": "₹12.58 Lakh (Petrol Manual), ₹14.04 Lakh (Petrol Automatic)"
+        "VXi": {
+          "engine_specs": {
+            "displacement": "1462 cc",
+            "maxPower": "102 bhp @ 6000 rpm (Petrol), 86.63 bhp @ 5500 rpm (CNG)",
+            "maxTorque": "136.8 Nm @ 4400 rpm (Petrol), 121.5 Nm @ 4200 rpm (CNG)"
+          },
+          "mileage": {
+            "petrolManual": "17.38 kmpl",
+            "petrolAutomatic": "17.98 kmpl",
+            "cng": "25.51 km/kg"
+          },
+          "transmission": [
+            "5-speed Manual",
+            "6-speed Automatic"
+          ],
+          "safety": [
+            "Dual Airbags",
+            "ABS with EBD",
+            "Rear Parking Sensors",
+            "ISOFIX Child Seat Anchors",
+            "Electronic Stability Program (ESP)",
+            "Hill Hold Assist"
+          ],
+          "infotainment": [
+            "7-inch SmartPlay Pro Touchscreen Infotainment System",
+            "Wireless Android Auto & Apple CarPlay",
+            "Steering Mounted Controls",
+            "4 Speakers"
+          ],
+          "interior": [
+            "Automatic Climate Control",
+            "All Power Windows",
+            "Height Adjustable Driver Seat",
+            "Rear AC Vents"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "Steel Wheels with Wheel Covers",
+              "LED Projector Headlamps with DRLs",
+              "Body Coloured Door Handles & ORVMs",
+              "Silver Roof Rails"
+            ],
+            "colorOptions": [
+              "Sizzling Red",
+              "Brave Khaki",
+              "Magma Grey",
+              "Exuberant Blue",
+              "Splendid Silver",
+              "Pearl Arctic White"
+            ]
+          },
+          "pricing": "₹9.69 Lakh (Petrol Manual), ₹11.10 Lakh (Petrol Automatic), ₹10.64 Lakh (CNG)"
+        },
+        "ZXi": {
+          "engine_specs": {
+            "displacement": "1462 cc",
+            "maxPower": "102 bhp @ 6000 rpm (Petrol), 86.63 bhp @ 5500 rpm (CNG)",
+            "maxTorque": "136.8 Nm @ 4400 rpm (Petrol), 121.5 Nm @ 4200 rpm (CNG)"
+          },
+          "mileage": {
+            "petrolManual": "17.38 kmpl",
+            "petrolAutomatic": "17.98 kmpl",
+            "cng": "25.51 km/kg"
+          },
+          "transmission": [
+            "5-speed Manual",
+            "6-speed Automatic"
+          ],
+          "safety": [
+            "6 Airbags",
+            "ABS with EBD",
+            "Rear Parking Camera",
+            "ISOFIX Child Seat Anchors",
+            "Electronic Stability Program (ESP)",
+            "Hill Hold Assist"
+          ],
+          "infotainment": [
+            "9-inch SmartPlay Pro+ Touchscreen Infotainment System",
+            "Wireless Android Auto & Apple CarPlay",
+            "Arkamys Surround Sense Sound System",
+            "Cruise Control",
+            "Voice Assistant"
+          ],
+          "interior": [
+            "Automatic Climate Control",
+            "Push-Button Start/Stop",
+            "Ambient Lighting",
+            "Leather Wrapped Steering Wheel",
+            "Rear AC Vents",
+            "Telescopic Steering Adjustment"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "16-inch Dual-Tone Alloy Wheels",
+              "Dual-Tone Exterior Color Options",
+              "LED Fog Lamps",
+              "Integrated Spoiler"
+            ],
+            "colorOptions": [
+              "Sizzling Red with Midnight Black Roof",
+              "Brave Khaki with Arctic White Roof",
+              "Magma Grey",
+              "Exuberant Blue",
+              "Splendid Silver",
+              "Pearl Arctic White"
+            ]
+          },
+          "pricing": "₹11.14 Lakh (Petrol Manual), ₹12.54 Lakh (Petrol Automatic), ₹12.09 Lakh (CNG)"
+        },
+        "ZXi+": {
+          "engine_specs": {
+            "displacement": "1462 cc",
+            "maxPower": "102 bhp @ 6000 rpm",
+            "maxTorque": "136.8 Nm @ 4400 rpm"
+          },
+          "mileage": {
+            "petrolManual": "17.38 kmpl",
+            "petrolAutomatic": "17.98 kmpl"
+          },
+          "transmission": [
+            "5-speed Manual",
+            "6-speed Automatic"
+          ],
+          "safety": [
+            "6 Airbags",
+            "ABS with EBD",
+            "360-degree Camera",
+            "Head-Up Display (HUD)",
+            "ISOFIX Child Seat Anchors",
+            "Electronic Stability Program (ESP)",
+            "Hill Hold Assist"
+          ],
+          "infotainment": [
+            "9-inch SmartPlay Pro+ Touchscreen Infotainment System",
+            "Wireless Android Auto & Apple CarPlay",
+            "Arkamys Surround Sense Sound System",
+            "Wireless Charger",
+            "Cruise Control",
+            "Voice Assistant"
+          ],
+          "interior": [
+            "Automatic Climate Control",
+            "Push-Button Start/Stop",
+            "Ambient Lighting",
+            "Premium Fabric Upholstery",
+            "Rear AC Vents",
+            "Telescopic Steering Adjustment"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "16-inch Dual-Tone Alloy Wheels",
+              "Dual-Tone Exterior Color Options",
+              "LED Fog Lamps",
+              "Integrated Spoiler"
+            ],
+            "colorOptions": [
+              "Sizzling Red with Midnight Black Roof",
+              "Brave Khaki with Arctic White Roof",
+              "Magma Grey",
+              "Exuberant Blue",
+              "Splendid Silver",
+              "Pearl Arctic White"
+            ]
+          },
+          "pricing": "₹12.58 Lakh (Petrol Manual), ₹14.04 Lakh (Petrol Automatic)"
+        }
       }
     }
-  }
   },
   "Tata": {
     "Punch": {
@@ -3741,7 +3741,7 @@
             "displacement": "1498 cc",
             "maxPower": "161 bhp @ 4800 rpm",
             "maxTorque": "300 Nm @ 2800-3600 rpm",
-            "engine_type": "KR15 VC-TURBO Petrol with Mild Hybrid (e-POWER)"
+            "engine": "KR15 VC-TURBO Petrol with Mild Hybrid (e-POWER)"
           },
           "mileage": {
             "mildHybridAutomatic": "13.7 kmpl (ARAI)"
@@ -4506,7 +4506,7 @@
           "engine_specs": {
             "displacement": "1199 cc (Estimated)",
             "maxPower": "130 PS (Estimated)",
-            "engine_type": "Turbo Petrol with 48V Mild Hybrid"
+            "engine": "Turbo Petrol with 48V Mild Hybrid"
           },
           "mileage": {
             "petrolManual": "Expected: 18-20 kmpl"
@@ -4667,7 +4667,7 @@
           "engine_specs": {
             "displacement": "1598 cc (Expected)",
             "maxPower": "145 hp (Combined, Expected)",
-            "engine_type": "Full Hybrid (1.6L Petrol + Electric Motor)"
+            "engine": "Full Hybrid (1.6L Petrol + Electric Motor)"
           },
           "mileage": {
             "hybridAutomatic": "Expected: 20-22 kmpl"
@@ -9157,6 +9157,1336 @@
             ]
           },
           "pricing": "₹53.00 Lakh"
+        }
+      }
+    }
+  },
+  "Honda": {
+    "City": {
+      "common_details": {
+        "engine": "1498 cc (1.5L i-VTEC)",
+        "fuelType": "Petrol",
+        "image": "/images/allcarsimage/honda_city.png",
+        "pricing_location": "Ex-Showroom Delhi",
+        "ncap_rating": "5-star (ASEAN NCAP)",
+        "boot_space": "506 Litres",
+        "ground_clearance": "165 mm"
+      },
+      "variants": {
+        "SV": {
+          "engine_specs": {
+            "power": "119.35 bhp",
+            "torque": "145 Nm"
+          },
+          "mileage": {
+            "petrol": "17.8 kmpl (Manual)"
+          },
+          "transmission": [
+            "Manual"
+          ],
+          "safety": [
+            "4 Airbags",
+            "ABS with EBD",
+            "Vehicle Stability Assist (VSA)",
+            "Hill Start Assist (HSA)"
+          ],
+          "infotainment": [
+            "8-inch Touchscreen Infotainment System",
+            "Wired Apple CarPlay & Android Auto",
+            "4 speakers"
+          ],
+          "interior": [
+            "Fabric Upholstery",
+            "Manual AC",
+            "Rear AC Vents"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "Halogen Projector Headlamps",
+              "15-inch Steel Wheels with Covers"
+            ],
+            "colorOptions": [
+              "Radiant Red Metallic",
+              "Platinum White Pearl",
+              "Modern Steel Metallic",
+              "Lunar Silver Metallic",
+              "Golden Brown Metallic"
+            ]
+          },
+          "pricing": "₹12.28 Lakh"
+        },
+        "V": {
+          "engine_specs": {
+            "power": "119.35 bhp",
+            "torque": "145 Nm"
+          },
+          "mileage": {
+            "petrol": "17.8 kmpl (Manual), 18.4 kmpl (Automatic)"
+          },
+          "transmission": [
+            "Manual",
+            "Automatic (CVT)"
+          ],
+          "safety": [
+            "4 Airbags",
+            "ABS with EBD",
+            "Vehicle Stability Assist (VSA)",
+            "Hill Start Assist (HSA)",
+            "Tyre Pressure Monitoring System (TPMS)"
+          ],
+          "infotainment": [
+            "8-inch Touchscreen Infotainment System",
+            "Wireless Apple CarPlay & Android Auto",
+            "4 speakers"
+          ],
+          "interior": [
+            "Fabric Upholstery",
+            "Automatic Climate Control",
+            "Rear AC Vents",
+            "Push Start/Stop Button"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "LED Headlamps with LED DRLs",
+              "15-inch Alloy Wheels"
+            ],
+            "colorOptions": [
+              "Radiant Red Metallic",
+              "Platinum White Pearl",
+              "Modern Steel Metallic",
+              "Lunar Silver Metallic",
+              "Golden Brown Metallic",
+              "Obsidian Blue Pearl"
+            ]
+          },
+          "pricing": "₹13.00 Lakh (Manual), ₹14.30 Lakh (Automatic)"
+        },
+        "ZX": {
+          "engine_specs": {
+            "power": "119.35 bhp",
+            "torque": "145 Nm"
+          },
+          "mileage": {
+            "petrol": "17.8 kmpl (Manual), 18.4 kmpl (Automatic)"
+          },
+          "transmission": [
+            "Manual",
+            "Automatic (CVT)"
+          ],
+          "safety": [
+            "6 Airbags",
+            "ABS with EBD",
+            "Vehicle Stability Assist (VSA)",
+            "Hill Start Assist (HSA)",
+            "Tyre Pressure Monitoring System (TPMS)",
+            "Honda Sensing (ADAS)"
+          ],
+          "infotainment": [
+            "8-inch Touchscreen Infotainment System",
+            "Wireless Apple CarPlay & Android Auto",
+            "8-speaker Premium Sound System",
+            "LaneWatch Camera"
+          ],
+          "interior": [
+            "Leather Upholstery",
+            "Automatic Climate Control",
+            "Rear AC Vents",
+            "Electric Sunroof",
+            "Ambient Lighting"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "Full LED Headlamps",
+              "LED DRLs",
+              "16-inch Dual-Tone Alloy Wheels",
+              "Chrome Door Handles"
+            ],
+            "colorOptions": [
+              "Radiant Red Metallic",
+              "Platinum White Pearl",
+              "Modern Steel Metallic",
+              "Lunar Silver Metallic",
+              "Golden Brown Metallic",
+              "Obsidian Blue Pearl"
+            ]
+          },
+          "pricing": "₹15.00 Lakh (Manual), ₹16.55 Lakh (Automatic)"
+        }
+      }
+    },
+    "Elevate": {
+      "common_details": {
+        "engine": "1498 cc (1.5L i-VTEC)",
+        "fuelType": "Petrol",
+        "image": "/images/allcarsimage/honda_elevate.png",
+        "pricing_location": "Ex-Showroom Delhi",
+        "ncap_rating": "Not Rated Yet (Expected 5-star)",
+        "boot_space": "458 Litres",
+        "ground_clearance": "220 mm"
+      },
+      "variants": {
+        "SV": {
+          "engine_specs": {
+            "power": "119.35 bhp",
+            "torque": "145 Nm"
+          },
+          "mileage": {
+            "petrol": "15.31 kmpl"
+          },
+          "transmission": [
+            "Manual"
+          ],
+          "safety": [
+            "Dual Airbags",
+            "ABS with EBD",
+            "Vehicle Stability Assist (VSA)",
+            "Hill Start Assist (HSA)"
+          ],
+          "infotainment": [
+            "8-inch Touchscreen Infotainment System",
+            "Wired Apple CarPlay & Android Auto"
+          ],
+          "interior": [
+            "Fabric Upholstery",
+            "Manual AC"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "Halogen Projector Headlamps",
+              "16-inch Steel Wheels with Covers"
+            ],
+            "colorOptions": [
+              "Phoenix Orange Pearl",
+              "Platinum White Pearl",
+              "Lunar Silver Metallic",
+              "Obsidian Blue Pearl",
+              "Radiant Red Metallic",
+              "Golden Brown Metallic"
+            ]
+          },
+          "pricing": "₹11.91 Lakh"
+        },
+        "V": {
+          "engine_specs": {
+            "power": "119.35 bhp",
+            "torque": "145 Nm"
+          },
+          "mileage": {
+            "petrol": "15.31 kmpl (Manual), 16.92 kmpl (Automatic)"
+          },
+          "transmission": [
+            "Manual",
+            "Automatic (CVT)"
+          ],
+          "safety": [
+            "Dual Airbags",
+            "ABS with EBD",
+            "Vehicle Stability Assist (VSA)",
+            "Hill Start Assist (HSA)",
+            "Rear Parking Sensors",
+            "Rear View Camera"
+          ],
+          "infotainment": [
+            "8-inch Touchscreen Infotainment System",
+            "Wireless Apple CarPlay & Android Auto",
+            "4 speakers"
+          ],
+          "interior": [
+            "Fabric Upholstery",
+            "Automatic Climate Control",
+            "Rear AC Vents"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "LED Projector Headlamps",
+              "LED DRLs",
+              "16-inch Alloy Wheels"
+            ],
+            "colorOptions": [
+              "Phoenix Orange Pearl",
+              "Platinum White Pearl",
+              "Lunar Silver Metallic",
+              "Obsidian Blue Pearl",
+              "Radiant Red Metallic",
+              "Golden Brown Metallic",
+              "Meteoroid Grey Metallic"
+            ]
+          },
+          "pricing": "₹12.71 Lakh (Manual), ₹13.71 Lakh (Automatic)"
+        },
+        "ZX": {
+          "engine_specs": {
+            "power": "119.35 bhp",
+            "torque": "145 Nm"
+          },
+          "mileage": {
+            "petrol": "15.31 kmpl (Manual), 16.92 kmpl (Automatic)"
+          },
+          "transmission": [
+            "Manual",
+            "Automatic (CVT)"
+          ],
+          "safety": [
+            "6 Airbags",
+            "ABS with EBD",
+            "Vehicle Stability Assist (VSA)",
+            "Hill Start Assist (HSA)",
+            "Rear Parking Sensors",
+            "Multi-angle Rear View Camera",
+            "Honda Sensing (ADAS)"
+          ],
+          "infotainment": [
+            "10.25-inch Touchscreen Infotainment System",
+            "Wireless Apple CarPlay & Android Auto",
+            "Wireless Phone Charger",
+            "6 speakers"
+          ],
+          "interior": [
+            "Leatherette Upholstery",
+            "Automatic Climate Control",
+            "Rear AC Vents",
+            "Electric Sunroof"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "Full LED Headlamps",
+              "LED DRLs",
+              "LED Fog Lamps",
+              "17-inch Dual-Tone Alloy Wheels",
+              "Roof Rails"
+            ],
+            "colorOptions": [
+              "Phoenix Orange Pearl",
+              "Platinum White Pearl",
+              "Lunar Silver Metallic",
+              "Obsidian Blue Pearl",
+              "Radiant Red Metallic",
+              "Golden Brown Metallic",
+              "Meteoroid Grey Metallic",
+              "Urban Titanium Metallic"
+            ]
+          },
+          "pricing": "₹15.00 Lakh (Manual), ₹16.73 Lakh (Automatic)"
+        }
+      }
+    },
+    "Amaze": {
+      "common_details": {
+        "engine": "1199 cc (1.2L i-VTEC)",
+        "fuelType": "Petrol",
+        "image": "/images/allcarsimage/honda_amaze.png",
+        "pricing_location": "Ex-Showroom Delhi",
+        "ncap_rating": "4-star (Global NCAP)",
+        "boot_space": "420 Litres",
+        "ground_clearance": "170 mm"
+      },
+      "variants": {
+        "E": {
+          "engine_specs": {
+            "power": "88.5 bhp",
+            "torque": "110 Nm"
+          },
+          "mileage": {
+            "petrol": "18.6 kmpl"
+          },
+          "transmission": [
+            "Manual"
+          ],
+          "safety": [
+            "Dual Airbags",
+            "ABS with EBD",
+            "Rear Parking Sensors"
+          ],
+          "infotainment": [
+            "2-DIN Audio System",
+            "Bluetooth Connectivity"
+          ],
+          "interior": [
+            "Fabric Upholstery",
+            "Manual AC"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "Halogen Headlamps",
+              "14-inch Steel Wheels with Covers"
+            ],
+            "colorOptions": [
+              "Radiant Red Metallic",
+              "Platinum White Pearl",
+              "Modern Steel Metallic",
+              "Lunar Silver Metallic",
+              "Golden Brown Metallic"
+            ]
+          },
+          "pricing": "₹8.10 Lakh"
+        },
+        "S": {
+          "engine_specs": {
+            "power": "88.5 bhp",
+            "torque": "110 Nm"
+          },
+          "mileage": {
+            "petrol": "18.6 kmpl (Manual), 18.3 kmpl (Automatic)"
+          },
+          "transmission": [
+            "Manual",
+            "Automatic (CVT)"
+          ],
+          "safety": [
+            "Dual Airbags",
+            "ABS with EBD",
+            "Rear Parking Sensors",
+            "Rear View Camera"
+          ],
+          "infotainment": [
+            "7-inch Touchscreen Infotainment System",
+            "Wired Apple CarPlay & Android Auto",
+            "4 speakers"
+          ],
+          "interior": [
+            "Fabric Upholstery",
+            "Automatic Climate Control",
+            "Push Start/Stop Button"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "LED Position Lamps",
+              "15-inch Alloy Wheels"
+            ],
+            "colorOptions": [
+              "Radiant Red Metallic",
+              "Platinum White Pearl",
+              "Modern Steel Metallic",
+              "Lunar Silver Metallic",
+              "Golden Brown Metallic",
+              "Meteoroid Grey Metallic"
+            ]
+          },
+          "pricing": "₹8.80 Lakh (Manual), ₹9.60 Lakh (Automatic)"
+        },
+        "VX": {
+          "engine_specs": {
+            "power": "88.5 bhp",
+            "torque": "110 Nm"
+          },
+          "mileage": {
+            "petrol": "18.6 kmpl (Manual), 18.3 kmpl (Automatic)"
+          },
+          "transmission": [
+            "Manual",
+            "Automatic (CVT)"
+          ],
+          "safety": [
+            "Dual Airbags",
+            "ABS with EBD",
+            "Rear Parking Sensors",
+            "Multi-angle Rear View Camera",
+            "Cruise Control"
+          ],
+          "infotainment": [
+            "7-inch Touchscreen Infotainment System",
+            "Wired Apple CarPlay & Android Auto",
+            "Integrated Navigation",
+            "4 speakers"
+          ],
+          "interior": [
+            "Premium Fabric Upholstery",
+            "Automatic Climate Control",
+            "Paddle Shifters (CVT Only)"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "LED Projector Headlamps",
+              "LED Fog Lamps",
+              "15-inch Dual-Tone Alloy Wheels",
+              "Chrome Door Handles"
+            ],
+            "colorOptions": [
+              "Radiant Red Metallic",
+              "Platinum White Pearl",
+              "Modern Steel Metallic",
+              "Lunar Silver Metallic",
+              "Golden Brown Metallic",
+              "Meteoroid Grey Metallic",
+              "Obsidian Blue Pearl"
+            ]
+          },
+          "pricing": "₹9.90 Lakh (Manual), ₹11.20 Lakh (Automatic)"
+        }
+      }
+    }
+  },
+  "BMW": {
+    "3 Series Gran Limousine": {
+      "common_details": {
+        "engine": "1998 cc (Petrol) / 1995 cc (Diesel)",
+        "fuelType": "Petrol & Diesel",
+        "image": "/images/allcarsimage/bmw_3series_gran_limousine.png",
+        "pricing_location": "Ex-Showroom Delhi",
+        "ncap_rating": "5-star (Euro NCAP)",
+        "boot_space": "480 Litres",
+        "ground_clearance": "135 mm"
+      },
+      "variants": {
+        "330Li M Sport": {
+          "engine_specs": {
+            "power": "255 bhp",
+            "torque": "400 Nm"
+          },
+          "mileage": {
+            "petrol": "15.39 kmpl"
+          },
+          "transmission": [
+            "Automatic (TC)"
+          ],
+          "safety": [
+            "6 Airbags",
+            "ABS with EBD",
+            "Dynamic Stability Control (DSC)",
+            "Traction Control",
+            "Tyre Pressure Monitoring System (TPMS)"
+          ],
+          "infotainment": [
+            "12.3-inch Digital Instrument Display",
+            "14.9-inch Curved Touchscreen Infotainment System",
+            "Wireless Apple CarPlay & Android Auto",
+            "12-speaker Harman Kardon Surround Sound System"
+          ],
+          "interior": [
+            "Sensatec Leather Upholstery",
+            "3-Zone Automatic Climate Control",
+            "Panoramic Sunroof",
+            "Ambient Lighting",
+            "Electrically Adjustable Front Seats with Memory Function"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "LED Headlamps with DRLs",
+              "18-inch Alloy Wheels",
+              "M Sport package styling"
+            ],
+            "colorOptions": [
+              "Mineral White Metallic",
+              "Black Sapphire Metallic",
+              "Carbon Black Metallic",
+              "Skyscraper Grey Metallic"
+            ]
+          },
+          "pricing": "₹60.60 Lakh"
+        },
+        "320Ld M Sport": {
+          "engine_specs": {
+            "power": "188 bhp",
+            "torque": "400 Nm"
+          },
+          "mileage": {
+            "diesel": "19.61 kmpl"
+          },
+          "transmission": [
+            "Automatic (TC)"
+          ],
+          "safety": [
+            "6 Airbags",
+            "ABS with EBD",
+            "Dynamic Stability Control (DSC)",
+            "Traction Control",
+            "Tyre Pressure Monitoring System (TPMS)"
+          ],
+          "infotainment": [
+            "12.3-inch Digital Instrument Display",
+            "14.9-inch Curved Touchscreen Infotainment System",
+            "Wireless Apple CarPlay & Android Auto",
+            "12-speaker Harman Kardon Surround Sound System"
+          ],
+          "interior": [
+            "Sensatec Leather Upholstery",
+            "3-Zone Automatic Climate Control",
+            "Panoramic Sunroof",
+            "Ambient Lighting",
+            "Electrically Adjustable Front Seats with Memory Function"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "LED Headlamps with DRLs",
+              "18-inch Alloy Wheels",
+              "M Sport package styling"
+            ],
+            "colorOptions": [
+              "Mineral White Metallic",
+              "Black Sapphire Metallic",
+              "Carbon Black Metallic",
+              "Skyscraper Grey Metallic"
+            ]
+          },
+          "pricing": "₹62.00 Lakh"
+        }
+      }
+    },
+    "X1": {
+      "common_details": {
+        "engine": "1499 cc (Petrol) / 1995 cc (Diesel)",
+        "fuelType": "Petrol & Diesel",
+        "image": "/images/allcarsimage/bmw_x1.png",
+        "pricing_location": "Ex-Showroom Delhi",
+        "ncap_rating": "5-star (Euro NCAP)",
+        "boot_space": "476 Litres",
+        "ground_clearance": "183 mm"
+      },
+      "variants": {
+        "sDrive18i M Sport": {
+          "engine_specs": {
+            "power": "134.1 bhp",
+            "torque": "230 Nm"
+          },
+          "mileage": {
+            "petrol": "20.37 kmpl"
+          },
+          "transmission": [
+            "Automatic"
+          ],
+          "safety": [
+            "10 Airbags",
+            "ABS with EBD",
+            "Dynamic Stability Control (DSC)",
+            "Traction Control",
+            "Tyre Pressure Monitoring System (TPMS)",
+            "Parking Assistant"
+          ],
+          "infotainment": [
+            "10.25-inch Digital Driver's Display",
+            "10.7-inch Curved Touchscreen Infotainment System",
+            "Wireless Apple CarPlay & Android Auto",
+            "12-speaker Harman Kardon Sound System (Optional)"
+          ],
+          "interior": [
+            "Sensatec Leatherette Upholstery",
+            "Automatic Climate Control (Dual-Zone)",
+            "Panoramic Sunroof",
+            "Electrically Adjustable Front Seats with Memory",
+            "Rear AC Vents"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "Adaptive LED Headlights",
+              "18-inch Light Alloy Wheels",
+              "M Sport styling elements"
+            ],
+            "colorOptions": [
+              "Alpine White",
+              "Black Sapphire Metallic",
+              "Space Silver Metallic",
+              "Cape York Green Metallic"
+            ]
+          },
+          "pricing": "₹50.80 Lakh"
+        },
+        "sDrive18d M Sport": {
+          "engine_specs": {
+            "power": "147.51 bhp",
+            "torque": "360 Nm"
+          },
+          "mileage": {
+            "diesel": "20.37 kmpl"
+          },
+          "transmission": [
+            "Automatic"
+          ],
+          "safety": [
+            "10 Airbags",
+            "ABS with EBD",
+            "Dynamic Stability Control (DSC)",
+            "Traction Control",
+            "Tyre Pressure Monitoring System (TPMS)",
+            "Parking Assistant"
+          ],
+          "infotainment": [
+            "10.25-inch Digital Driver's Display",
+            "10.7-inch Curved Touchscreen Infotainment System",
+            "Wireless Apple CarPlay & Android Auto",
+            "12-speaker Harman Kardon Sound System (Optional)"
+          ],
+          "interior": [
+            "Sensatec Leatherette Upholstery",
+            "Automatic Climate Control (Dual-Zone)",
+            "Panoramic Sunroof",
+            "Electrically Adjustable Front Seats with Memory",
+            "Rear AC Vents"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "Adaptive LED Headlights",
+              "18-inch Light Alloy Wheels",
+              "M Sport styling elements"
+            ],
+            "colorOptions": [
+              "Alpine White",
+              "Black Sapphire Metallic",
+              "Space Silver Metallic",
+              "Cape York Green Metallic"
+            ]
+          },
+          "pricing": "₹54.30 Lakh"
+        }
+      }
+    },
+    "iX": {
+      "common_details": {
+        "engine": "Electric Motor",
+        "fuelType": "Electric",
+        "image": "/images/allcarsimage/bmw_ix.png",
+        "pricing_location": "Ex-Showroom Delhi",
+        "ncap_rating": "5-star (Euro NCAP)",
+        "boot_space": "500 Litres",
+        "ground_clearance": "202 mm"
+      },
+      "variants": {
+        "xDrive 40": {
+          "engine_specs": {
+            "power": "322 bhp",
+            "torque": "630 Nm"
+          },
+          "mileage": {
+            "electric_range_wltp": "425 km"
+          },
+          "transmission": [
+            "Automatic"
+          ],
+          "safety": [
+            "8 Airbags",
+            "ABS with EBD",
+            "Dynamic Stability Control (DSC)",
+            "Driving Assistant (Lane Departure Warning, Blind Spot Detection)",
+            "Parking Assistant Plus with 360-degree camera"
+          ],
+          "infotainment": [
+            "12.3-inch Digital Instrument Display",
+            "14.9-inch Curved Touchscreen Infotainment System",
+            "Wireless Apple CarPlay & Android Auto",
+            "Harman Kardon Surround Sound System",
+            "Gesture Control"
+          ],
+          "interior": [
+            "Sensatec Upholstery",
+            "4-Zone Automatic Climate Control",
+            "Sky Lounge Panoramic Glass Roof",
+            "Heated and Ventilated Front Seats",
+            "Electrically Adjustable Front Seats with Memory Function"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "BMW Laserlight Headlights",
+              "21-inch Aerodynamic Wheels",
+              "Integrated Flush Door Handles"
+            ],
+            "colorOptions": [
+              "Black Sapphire Metallic",
+              "Mineral White Metallic",
+              "Phytonic Blue Metallic",
+              "Sophisto Grey Brilliant Effect Metallic"
+            ]
+          },
+          "pricing": "₹1.26 Crore"
+        },
+        "xDrive 50": {
+          "engine_specs": {
+            "power": "516 bhp",
+            "torque": "765 Nm"
+          },
+          "mileage": {
+            "electric_range_wltp": "575-635 km"
+          },
+          "transmission": [
+            "Automatic"
+          ],
+          "safety": [
+            "8 Airbags",
+            "ABS with EBD",
+            "Dynamic Stability Control (DSC)",
+            "Driving Assistant Professional (Adaptive Cruise Control, Lane Keeping Assist)",
+            "Parking Assistant Plus with 360-degree camera"
+          ],
+          "infotainment": [
+            "12.3-inch Digital Instrument Display",
+            "14.9-inch Curved Touchscreen Infotainment System",
+            "Wireless Apple CarPlay & Android Auto",
+            "Bowers & Wilkins Diamond Surround Sound System",
+            "Gesture Control",
+            "Head-up Display"
+          ],
+          "interior": [
+            "Natural Leather Upholstery",
+            "4-Zone Automatic Climate Control",
+            "Sky Lounge Panoramic Glass Roof",
+            "Heated and Ventilated Front Seats with Massage Function",
+            "Electrically Adjustable Front Seats with Memory Function"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "BMW Laserlight Headlights",
+              "22-inch Aerodynamic Wheels",
+              "Integrated Flush Door Handles"
+            ],
+            "colorOptions": [
+              "Black Sapphire Metallic",
+              "Mineral White Metallic",
+              "Phytonic Blue Metallic",
+              "Sophisto Grey Brilliant Effect Metallic"
+            ]
+          },
+          "pricing": "₹1.46 Crore"
+        }
+      }
+    },
+    "5 Series": {
+      "common_details": {
+        "engine": "1998 cc (Petrol)",
+        "fuelType": "Petrol",
+        "image": "/images/allcarsimage/bmw_5series.png",
+        "pricing_location": "Ex-Showroom Delhi",
+        "ncap_rating": "5-star (Euro NCAP)",
+        "boot_space": "530 Litres",
+        "ground_clearance": "158 mm"
+      },
+      "variants": {
+        "530Li M Sport": {
+          "engine_specs": {
+            "power": "255 bhp",
+            "torque": "400 Nm"
+          },
+          "mileage": {
+            "petrol": "10.9 kmpl (City), 15.7 kmpl (Highway)"
+          },
+          "transmission": [
+            "Automatic"
+          ],
+          "safety": [
+            "8 Airbags",
+            "ABS with EBD",
+            "Dynamic Stability Control (DSC)",
+            "Dynamic Traction Control (DTC)",
+            "Tyre Pressure Monitoring System (TPMS)",
+            "Parking Assistant with Reversing Assistant"
+          ],
+          "infotainment": [
+            "12.3-inch Digital Instrument Display",
+            "12.3-inch Touchscreen Infotainment System",
+            "Wireless Apple CarPlay & Android Auto",
+            "Harman Kardon Surround Sound System",
+            "Gesture Control"
+          ],
+          "interior": [
+            "Sensatec Leather Upholstery",
+            "4-Zone Automatic Climate Control",
+            "Electric Sunroof",
+            "Ambient Lighting",
+            "Electrically Adjustable Front Seats with Memory Function"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "Adaptive LED Headlights",
+              "18-inch M Sport Alloy Wheels",
+              "M Aerodynamics package"
+            ],
+            "colorOptions": [
+              "Alpine White",
+              "Black Sapphire Metallic",
+              "Carbon Black Metallic",
+              "Sophisto Grey Brilliant Effect Metallic"
+            ]
+          },
+          "pricing": "₹74.40 Lakh"
+        }
+      }
+    },
+    "Z4": {
+      "common_details": {
+        "engine": "2998 cc (Petrol)",
+        "fuelType": "Petrol",
+        "image": "/images/allcarsimage/bmw_z4.png",
+        "pricing_location": "Ex-Showroom Delhi",
+        "ncap_rating": "Not Rated Yet",
+        "boot_space": "281 Litres",
+        "ground_clearance": "114 mm"
+      },
+      "variants": {
+        "M40i": {
+          "engine_specs": {
+            "power": "335 bhp",
+            "torque": "500 Nm"
+          },
+          "mileage": {
+            "petrol": "8.5 kmpl"
+          },
+          "transmission": [
+            "Automatic (8-speed Steptronic Sport)"
+          ],
+          "safety": [
+            "4 Airbags",
+            "ABS with EBD",
+            "Dynamic Stability Control (DSC)",
+            "Dynamic Traction Control (DTC)",
+            "Tyre Pressure Monitoring System (TPMS)"
+          ],
+          "infotainment": [
+            "10.25-inch Digital Instrument Cluster",
+            "10.25-inch Touchscreen Infotainment System",
+            "Wireless Apple CarPlay & Android Auto",
+            "Harman Kardon Surround Sound System"
+          ],
+          "interior": [
+            "Vernasca Leather Upholstery",
+            "2-Zone Automatic Climate Control",
+            "Heated Seats",
+            "Electrically Adjustable Sports Seats with Memory"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "Adaptive LED Headlights",
+              "19-inch M Light Alloy Wheels",
+              "Electrically operated soft-top roof"
+            ],
+            "colorOptions": [
+              "Alpine White",
+              "Black Sapphire Metallic",
+              "Misano Blue Metallic",
+              "San Francisco Red Metallic"
+            ]
+          },
+          "pricing": "₹92.90 Lakh"
+        },
+        "M40i Pure Impulse": {
+          "engine_specs": {
+            "power": "335 bhp",
+            "torque": "500 Nm"
+          },
+          "mileage": {
+            "petrol": "8.5 kmpl"
+          },
+          "transmission": [
+            "Manual",
+            "Automatic (8-speed Steptronic Sport)"
+          ],
+          "safety": [
+            "4 Airbags",
+            "ABS with EBD",
+            "Dynamic Stability Control (DSC)",
+            "Dynamic Traction Control (DTC)",
+            "Tyre Pressure Monitoring System (TPMS)"
+          ],
+          "infotainment": [
+            "10.25-inch Digital Instrument Cluster",
+            "10.25-inch Touchscreen Infotainment System",
+            "Wireless Apple CarPlay & Android Auto",
+            "Harman Kardon Surround Sound System"
+          ],
+          "interior": [
+            "Vernasca Leather Upholstery",
+            "2-Zone Automatic Climate Control",
+            "Heated Seats",
+            "Electrically Adjustable Sports Seats with Memory"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "Adaptive LED Headlights",
+              "19-inch M Light Alloy Wheels",
+              "Electrically operated soft-top roof",
+              "Specific Pure Impulse design elements"
+            ],
+            "colorOptions": [
+              "Alpine White",
+              "Black Sapphire Metallic",
+              "Misano Blue Metallic",
+              "San Francisco Red Metallic"
+            ]
+          },
+          "pricing": "₹97.90 Lakh"
+        }
+      }
+    },
+    "M340i xDrive": {
+      "common_details": {
+        "engine": "2998 cc (3.0L Turbocharged I6)",
+        "fuelType": "Petrol",
+        "image": "/images/allcarsimage/bmw_m340i.png",
+        "pricing_location": "Ex-Showroom Delhi",
+        "ncap_rating": "5-star (Euro NCAP for 3 Series)",
+        "boot_space": "480 Litres",
+        "ground_clearance": "165 mm"
+      },
+      "variants": {
+        "xDrive": {
+          "engine_specs": {
+            "power": "369 bhp",
+            "torque": "500 Nm"
+          },
+          "mileage": {
+            "petrol": "13.02 kmpl"
+          },
+          "transmission": [
+            "Automatic (8-speed Steptronic Sport)"
+          ],
+          "safety": [
+            "6 Airbags",
+            "ABS with EBD",
+            "Dynamic Stability Control (DSC)",
+            "Dynamic Traction Control (DTC)",
+            "Tyre Pressure Monitoring System (TPMS)",
+            "360-degree camera with Parking Assist"
+          ],
+          "infotainment": [
+            "12.3-inch Digital Instrument Display",
+            "14.9-inch Curved Touchscreen Infotainment System",
+            "Wireless Apple CarPlay & Android Auto",
+            "Harman Kardon Surround Sound System",
+            "Head-up Display"
+          ],
+          "interior": [
+            "Alcantara/Sensatec Combination Upholstery",
+            "3-Zone Automatic Climate Control",
+            "Electric Sunroof",
+            "M Sport Seats",
+            "Ambient Lighting"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "Adaptive LED Headlights",
+              "19-inch M Light Alloy Wheels",
+              "M Aerodynamics package",
+              "Cerium Grey exterior accents"
+            ],
+            "colorOptions": [
+              "Alpine White",
+              "Black Sapphire Metallic",
+              "Dravit Grey Metallic",
+              "Tanzanite Blue Metallic"
+            ]
+          },
+          "pricing": "₹75.90 Lakh"
+        }
+      }
+    },
+    "X3": {
+      "common_details": {
+        "engine": "1998 cc (Petrol) / 1995 cc (Diesel)",
+        "fuelType": "Petrol & Diesel",
+        "image": "/images/allcarsimage/bmw_x3.png",
+        "pricing_location": "Ex-Showroom Delhi",
+        "ncap_rating": "5-star (Euro NCAP)",
+        "boot_space": "550 Litres",
+        "ground_clearance": "204 mm"
+      },
+      "variants": {
+        "xDrive 20 M Sport": {
+          "engine_specs": {
+            "power": "187 bhp",
+            "torque": "300 Nm"
+          },
+          "mileage": {
+            "petrol": "13.38 kmpl"
+          },
+          "transmission": [
+            "Automatic (8-speed Steptronic)"
+          ],
+          "safety": [
+            "6 Airbags",
+            "ABS with EBD",
+            "Dynamic Stability Control (DSC)",
+            "Dynamic Traction Control (DTC)",
+            "Tyre Pressure Monitoring System (TPMS)",
+            "Parking Assistant with Reversing Assistant"
+          ],
+          "infotainment": [
+            "12.3-inch Digital Instrument Display",
+            "14.9-inch Curved Touchscreen Infotainment System",
+            "Wireless Apple CarPlay & Android Auto",
+            "Hi-Fi Loudspeaker System"
+          ],
+          "interior": [
+            "Sensatec Leatherette Upholstery",
+            "3-Zone Automatic Climate Control",
+            "Panoramic Sunroof",
+            "Ambient Lighting",
+            "Electrically Adjustable Front Seats"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "Adaptive LED Headlights",
+              "19-inch M Light Alloy Wheels",
+              "M Aerodynamics package"
+            ],
+            "colorOptions": [
+              "Alpine White",
+              "Black Sapphire Metallic",
+              "Brooklyn Grey Metallic",
+              "Phytonic Blue Metallic"
+            ]
+          },
+          "pricing": "₹75.80 Lakh"
+        },
+        "xDrive 20d M Sport": {
+          "engine_specs": {
+            "power": "194 bhp",
+            "torque": "400 Nm"
+          },
+          "mileage": {
+            "diesel": "17.86 kmpl"
+          },
+          "transmission": [
+            "Automatic (8-speed Steptronic)"
+          ],
+          "safety": [
+            "6 Airbags",
+            "ABS with EBD",
+            "Dynamic Stability Control (DSC)",
+            "Dynamic Traction Control (DTC)",
+            "Tyre Pressure Monitoring System (TPMS)",
+            "Parking Assistant with Reversing Assistant"
+          ],
+          "infotainment": [
+            "12.3-inch Digital Instrument Display",
+            "14.9-inch Curved Touchscreen Infotainment System",
+            "Wireless Apple CarPlay & Android Auto",
+            "Hi-Fi Loudspeaker System"
+          ],
+          "interior": [
+            "Sensatec Leatherette Upholstery",
+            "3-Zone Automatic Climate Control",
+            "Panoramic Sunroof",
+            "Ambient Lighting",
+            "Electrically Adjustable Front Seats"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "Adaptive LED Headlights",
+              "19-inch M Light Alloy Wheels",
+              "M Aerodynamics package"
+            ],
+            "colorOptions": [
+              "Alpine White",
+              "Black Sapphire Metallic",
+              "Brooklyn Grey Metallic",
+              "Phytonic Blue Metallic"
+            ]
+          },
+          "pricing": "₹77.80 Lakh"
+        }
+      }
+    },
+    "7 Series": {
+      "common_details": {
+        "engine": "2998 cc (Petrol) / 2993 cc (Diesel)",
+        "fuelType": "Petrol & Diesel",
+        "image": "/images/allcarsimage/bmw_7series.png",
+        "pricing_location": "Ex-Showroom Delhi",
+        "ncap_rating": "Not Rated Yet",
+        "boot_space": "515 Litres",
+        "ground_clearance": "152 mm"
+      },
+      "variants": {
+        "740i M Sport": {
+          "engine_specs": {
+            "power": "375 bhp",
+            "torque": "520 Nm"
+          },
+          "mileage": {
+            "petrol": "8 kmpl"
+          },
+          "transmission": [
+            "Automatic (8-speed Steptronic Sport)"
+          ],
+          "safety": [
+            "Multiple Airbags (incl. knee airbags)",
+            "ABS with EBD",
+            "Dynamic Stability Control (DSC)",
+            "Driving Assistant Professional (ADAS suite)",
+            "Parking Assistant Professional with 360-degree camera"
+          ],
+          "infotainment": [
+            "12.3-inch Digital Instrument Cluster",
+            "14.9-inch Curved Touchscreen Infotainment System",
+            "31.3-inch 8K BMW Theatre Screen for rear passengers",
+            "Wireless Apple CarPlay & Android Auto",
+            "Bowers & Wilkins Diamond Surround Sound System",
+            "BMW Interaction Bar"
+          ],
+          "interior": [
+            "Merino Leather Upholstery",
+            "4-Zone Automatic Climate Control",
+            "Panoramic Glass Roof Sky Lounge",
+            "Heated, Ventilated, and Massage Seats (front & rear)",
+            "Executive Lounge Seating"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "BMW Crystal Headlights",
+              "Illuminated BMW Kidney Grille",
+              "21-inch Aerodynamic Wheels",
+              "Automatic and Soft-close Doors"
+            ],
+            "colorOptions": [
+              "Alpine White",
+              "Black Sapphire Metallic",
+              "Brooklyn Grey Metallic",
+              "Oxide Grey Metallic",
+              "Marlboro Red Metallic"
+            ]
+          },
+          "pricing": "₹1.84 Crore"
+        },
+        "740d M Sport": {
+          "engine_specs": {
+            "power": "282 bhp",
+            "torque": "650 Nm"
+          },
+          "mileage": {
+            "diesel": "12.1 kmpl"
+          },
+          "transmission": [
+            "Automatic (8-speed Steptronic Sport)"
+          ],
+          "safety": [
+            "Multiple Airbags (incl. knee airbags)",
+            "ABS with EBD",
+            "Dynamic Stability Control (DSC)",
+            "Driving Assistant Professional (ADAS suite)",
+            "Parking Assistant Professional with 360-degree camera"
+          ],
+          "infotainment": [
+            "12.3-inch Digital Instrument Cluster",
+            "14.9-inch Curved Touchscreen Infotainment System",
+            "31.3-inch 8K BMW Theatre Screen for rear passengers",
+            "Wireless Apple CarPlay & Android Auto",
+            "Bowers & Wilkins Diamond Surround Sound System",
+            "BMW Interaction Bar"
+          ],
+          "interior": [
+            "Merino Leather Upholstery",
+            "4-Zone Automatic Climate Control",
+            "Panoramic Glass Roof Sky Lounge",
+            "Heated, Ventilated, and Massage Seats (front & rear)",
+            "Executive Lounge Seating"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "BMW Crystal Headlights",
+              "Illuminated BMW Kidney Grille",
+              "21-inch Aerodynamic Wheels",
+              "Automatic and Soft-close Doors"
+            ],
+            "colorOptions": [
+              "Alpine White",
+              "Black Sapphire Metallic",
+              "Brooklyn Grey Metallic",
+              "Oxide Grey Metallic",
+              "Marlboro Red Metallic"
+            ]
+          },
+          "pricing": "₹1.87 Crore"
+        }
+      }
+    },
+    "i4": {
+      "common_details": {
+        "engine": "Electric Motor",
+        "fuelType": "Electric",
+        "image": "/images/allcarsimage/bmw_i4.png",
+        "pricing_location": "Ex-Showroom Delhi",
+        "ncap_rating": "5-star (Euro NCAP)",
+        "boot_space": "470 Litres",
+        "ground_clearance": "125 mm"
+      },
+      "variants": {
+        "eDrive35 M Sport": {
+          "engine_specs": {
+            "power": "282 bhp",
+            "torque": "400 Nm"
+          },
+          "mileage": {
+            "electric_range_wltp": "483 km"
+          },
+          "transmission": [
+            "Automatic"
+          ],
+          "safety": [
+            "6 Airbags",
+            "ABS with EBD",
+            "Dynamic Stability Control (DSC)",
+            "Driving Assistant (Lane Departure Warning, Blind Spot Detection)",
+            "Parking Assistant"
+          ],
+          "infotainment": [
+            "12.3-inch Digital Instrument Cluster",
+            "14.9-inch Curved Touchscreen Infotainment System",
+            "Wireless Apple CarPlay & Android Auto",
+            "Harman Kardon Surround Sound System"
+          ],
+          "interior": [
+            "Sensatec Perforated Upholstery",
+            "3-Zone Automatic Climate Control",
+            "Electric Sunroof",
+            "Ambient Lighting",
+            "Electrically Adjustable Sport Seats"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "LED Headlights with DRLs",
+              "17-inch Light Alloy Wheels",
+              "M Aerodynamics package"
+            ],
+            "colorOptions": [
+              "Alpine White",
+              "Black Sapphire Metallic",
+              "Brooklyn Grey Metallic",
+              "Sanremo Green Metallic"
+            ]
+          },
+          "pricing": "₹72.50 Lakh"
+        },
+        "eDrive40 M Sport": {
+          "engine_specs": {
+            "power": "335 bhp",
+            "torque": "430 Nm"
+          },
+          "mileage": {
+            "electric_range_wltp": "590 km"
+          },
+          "transmission": [
+            "Automatic"
+          ],
+          "safety": [
+            "6 Airbags",
+            "ABS with EBD",
+            "Dynamic Stability Control (DSC)",
+            "Driving Assistant (Lane Departure Warning, Blind Spot Detection)",
+            "Parking Assistant"
+          ],
+          "infotainment": [
+            "12.3-inch Digital Instrument Cluster",
+            "14.9-inch Curved Touchscreen Infotainment System",
+            "Wireless Apple CarPlay & Android Auto",
+            "Harman Kardon Surround Sound System"
+          ],
+          "interior": [
+            "Sensatec Perforated Upholstery",
+            "3-Zone Automatic Climate Control",
+            "Electric Sunroof",
+            "Ambient Lighting",
+            "Electrically Adjustable Sport Seats"
+          ],
+          "exterior": {
+            "designFeatures": [
+              "LED Headlights with DRLs",
+              "18-inch M Light Alloy Wheels",
+              "M Aerodynamics package"
+            ],
+            "colorOptions": [
+              "Alpine White",
+              "Black Sapphire Metallic",
+              "Brooklyn Grey Metallic",
+              "Sanremo Green Metallic"
+            ]
+          },
+          "pricing": "₹77.50 Lakh"
         }
       }
     }
