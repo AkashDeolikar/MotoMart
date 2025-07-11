@@ -33,14 +33,9 @@
 body {
   /* You might want to apply this to a wrapper div in App.js instead of body */
   background-color: #202124;
-  /* Dark background matching the screenshot */
   margin: 0;
-  /* Remove default body margin */
   padding: 0;
-  /* Remove default body padding */
-  /* color: #e8eaed; Default text color for the light text on dark background */
   font-family: 'Google Sans', sans-serif;
-  /* Ensure Google Sans is linked in index.html */
 }
 
 /* --- Container for the entire 'More experiments' content (heading + cards) --- */
@@ -427,4 +422,27 @@ body {
     max-width: 100%;
     /* Ensures it doesn’t exceed the window width */
   }
+}
+
+/*THIS IS A SCROLLBAR*/
+.card-slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 1rem 0;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+}
+.card-slider {
+  display: flex;
+  gap: 28px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 0.5rem 0 1.5rem;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #555 transparent;
 }

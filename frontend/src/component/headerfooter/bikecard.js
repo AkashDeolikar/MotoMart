@@ -802,13 +802,28 @@ export const vehicleData = [
           features: ["J-Series Engine", "Dual Channel ABS", "Tripper Navigation", "Halogen Headlamp"],
           price: "₹ 1.93 - 2.25 Lakh",
           mileage: "35-40 kmpl",
-          engineDisplacement: "349cc", // Added spec
-          power: "20.2 bhp", // Added spec
-          torque: "27 Nm", // Added spec
-          fuelTankCapacity: "13 L", // Added spec
-          seatHeight: "805 mm", // Added spec
-          kerbWeight: "195 kg", // Added spec
-          transmission: "5-speed manual" // Added spec
+          engineDisplacement: "349cc",
+          power: "20.2 bhp",
+          torque: "27 Nm",
+          fuelTankCapacity: "13 L",
+          seatHeight: "805 mm",
+          kerbWeight: "195 kg",
+          transmission: "5-speed manual",
+          topSpeed: "114 km/h",
+          coolingSystem: "Air-cooled",
+          fuelSystem: "Fuel Injection",
+          brakes: "Disc (Front & Rear) with Dual Channel ABS",
+          suspension: {
+            front: "Telescopic, 41mm forks",
+            rear: "Twin tube emulsion shock absorbers with 6-step adjustable preload"
+          },
+          tyreType: "Tubeless",
+          wheelBase: "1390 mm",
+          groundClearance: "170 mm",
+          emissionStandard: "BS6",
+          instrumentConsole: ["Analog Speedometer", "Digital Tripmeter", "Fuel Gauge", "Odometer"],
+          warranty: "3 Years / 30,000 km",
+          serviceInterval: "Every 5000 km or 6 months"
         }
       },
       {

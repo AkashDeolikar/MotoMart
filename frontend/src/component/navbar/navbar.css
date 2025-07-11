@@ -374,7 +374,7 @@ main,
 
   .car-navbar.scrolled-or-other-page {
     background-color: rgba(0, 0, 0, 0.353);
-    backdrop-filter: 20px;
+    /* backdrop-filter: blur(25px); */
     box-shadow: 0 2px 10px var(--navbar-shadow);
   }
   
