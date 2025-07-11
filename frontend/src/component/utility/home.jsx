@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import './home.css';
 import './tab.css';
 import './homecard.css';
+import './featuredsection.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import '../Bootstrap/bootstrapHomePage.css';
 import '../Bootstrap/progressiveBar.css';
@@ -258,35 +259,40 @@ const AutoPlayCardSlider = ({ data }) => {
  * @param {function} props.handleViewCarDetails - Function to handle viewing car details.
  * @param {object} props.carRouteMap - Map of car names to their routes.
  */
-const FeaturedCarsSection = ({ featuredCars, handlePrev, handleNext, visibleCars, handleViewCarDetails, carRouteMap }) => (
-  <div className="featured-cars" data-aos="fade-up" data-aos-once="true">
-    <h2>Featured Cars</h2>
-    <div className="carousel-wrapper">
-      <button className="nav-btn left" onClick={handlePrev}>❮</button>
-      <div className="car-grid">
-        {visibleCars.map((car) => (
-          <div key={car.id} className="car-cardbox ">
-            <img className="img" src={car.image} alt={car.name} />
-            <h3>{car.name}</h3>
-            <p>Price: ₹{car.price}<sup>*</sup> </p>
-            <br />
-            <Link
-              onClick={(e) => {
-                e.preventDefault();
-                handleViewCarDetails(car.name);
-              }}
-              to={carRouteMap[car.name]}
-              className="view-btn"
-            >
-              View {car.name}
-            </Link>
+
+/* FEATURED CAR SECTION */
+const FeaturedCarsSection = ({ featuredCars, handleViewCarDetails, carRouteMap }) => (
+  <section className="carslidefeatured-section" data-aos="fade-up" data-aos-once="true">
+    <div className="carslidefeatured-container">
+      <h2 className="carslidefeatured-heading">🔥 Featured Cars</h2>
+
+      <div className="carslidefeatured-slider">
+        {featuredCars.map((car) => (
+          <div key={car.id} className="carslidefeatured-card">
+            <div className="carslidefeatured-img-wrapper">
+              <img src={car.image} alt={car.name} />
+            </div>
+            <div className="carslidefeatured-info">
+              <h3>{car.name}</h3>
+              <p>Starting from ₹{car.price}<sup>*</sup></p>
+              <Link
+                to={carRouteMap[car.name]}
+                className="carslidefeatured-btn"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleViewCarDetails(car.name);
+                }}
+              >
+                Explore {car.name}
+              </Link>
+            </div>
           </div>
         ))}
       </div>
-      <button className="nav-btn right" onClick={handleNext}>❯</button>
     </div>
-  </div>
+  </section>
 );
+
 
 /**
  * Renders a grid of offers.
@@ -336,40 +342,6 @@ const VehicleCategoriesSection = () => {
 
       <div className="cardetail-sections-scroll-hint">SCROLL ↓</div>
     </section>
-    // <section className="vehicle-section2" data-aos="fade-up">
-    //   <div className="vehicle-container2">
-    //     <h2 className="vehicle-title2">Our Vehicles</h2>
-    //     <div className="card-deck2">
-    //       {/* Car Card */}
-    //       <div className="vehicle-card2">
-    //         <div className="vehicle-card-inner2">
-    //           <div className="vehicle-card-front2">
-    //             <Link to="/carcard">
-    //               <img src="/images/car.jpg" alt="Car" />
-    //             </Link>
-    //             <div className="vehicle-title-overlay2">
-    //               <h3 className="vehicle-overlay-text2">Cars</h3>
-    //             </div>
-    //           </div>
-    //         </div>
-    //       </div>
-
-    //       {/* Bike Card */}
-    //       <div className="vehicle-card2">
-    //         <div className="vehicle-card-inner2">
-    //           <div className="vehicle-card-front2">
-    //             <Link to="/bikecard">
-    //               <img src="/images/bike.jpg" alt="Bike" />
-    //             </Link>
-    //             <div className="vehicle-title-overlay2">
-    //               <h3 className="vehicle-overlay-text2">Bikes</h3>
-    //             </div>
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </section>
   );
 };
 
@@ -524,6 +496,11 @@ const Home = () => {
 
   return (
     <div className="home-container">
+      {/* <FeaturedCarsSection
+        featuredCars={featuredCars}
+        handleViewCarDetails={handleViewCarDetails}
+        carRouteMap={carRouteMap}
+      /> */}
       <LoadingOverlay isLoading={isLoading} />  {/* This is a loading animation */}
 
       <HeroCarousel />
@@ -611,20 +588,20 @@ const Home = () => {
 
       {/* Placeholder div for scroll target */}
       <div className="cardetail-sections-wrapper01" ref={targetSectionRef}>
-  <div className="cardetail-sections-bg01"></div>
-  <div className="cardetail-sections-overlay01"></div>
+        <div className="cardetail-sections-bg01"></div>
+        <div className="cardetail-sections-overlay01"></div>
 
-  <div className="cardetail-sections-inner01">
-    <div className="cardetail-sections-content01" data-aos="fade-up" data-aos-once="true">
-      <h1 className="cardetail-sections-title01">Experience the Future of Driving</h1>
-      <p className="cardetail-sections-subtitle01">
-        Discover intelligent features, advanced design, and next-level performance with our new-age vehicles.
-      </p>
-    </div>
-  </div>
+        <div className="cardetail-sections-inner01">
+          <div className="cardetail-sections-content01" data-aos="fade-up" data-aos-once="true">
+            <h1 className="cardetail-sections-title01">Experience the Future of Driving</h1>
+            <p className="cardetail-sections-subtitle01">
+              Discover intelligent features, advanced design, and next-level performance with our new-age vehicles.
+            </p>
+          </div>
+        </div>
 
-  <div className="cardetail-sections-scroll-hint01">SCROLL TO EXPLORE ↓</div>
-</div>
+        <div className="cardetail-sections-scroll-hint01">SCROLL TO EXPLORE ↓</div>
+      </div>
 
       {/* FEATURED CAR SECTION */}
       <FeaturedCarsSection

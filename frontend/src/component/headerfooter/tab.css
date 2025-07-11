@@ -96,7 +96,8 @@ body {
   height: 416px;
   border: 1px solid #252530;
   overflow: hidden;
-  background-color: #252530;
+  backdrop-filter: blur(25px) ;
+  background-color: #25253069;
   /* Adjusted transparency for better consistency */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   display: flex;
