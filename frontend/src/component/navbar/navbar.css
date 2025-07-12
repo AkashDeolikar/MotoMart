@@ -8,7 +8,7 @@
   --red-light: #dc3545;
 
   --bg-dark: #2c3e50;
-  --text-dark: #ecf0f1;
+  --text-dark-navbar: #ecf0f1;
   --primary-dark: #3498db;
   --hover-dark: #686868;
   --accent-dark: #2ecc71;
@@ -34,7 +34,7 @@
 /* Dark Theme */
 .car-navbar.dark {
   --navbar-bg: var(--bg-dark);
-  --navbar-text: var(--text-dark);
+  --navbar-text: var(--text-dark-navbar);
   --navbar-shadow: rgba(0, 0, 0, 0.5);
   --navbar-hover: var(--hover-dark);
   --navbar-active: var(--primary-dark);
@@ -42,7 +42,7 @@
   --dropdown-border: #446688;
   --overlay-bg: rgba(0, 0, 0, 0.7);
   --menu-bg: var(--bg-dark);
-  --menu-link: var(--text-dark);
+  --menu-link: var(--text-dark-navbar);
 }
 
 /* Base Navbar */
@@ -105,7 +105,7 @@ main,
 }
 
 .car-navbar-logo .ProjectName {
-  /* font-family: 'LandRoverWeb-Medium', sans-serif; */
+  font-family: "Aileron-Bold", sans-serif;
   font-size: 28px;
   letter-spacing: 1.5px;
   text-transform: uppercase;

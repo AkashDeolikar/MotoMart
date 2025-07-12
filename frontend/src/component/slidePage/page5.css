@@ -517,18 +517,28 @@ a {
 .d-inline-flex {
   margin-top: 20px;
 }
+.dropheading {
+  font-size: 20px;
+}
+@media (max-width: 786px) {
+  .dropheading {
+  font-size: 16px;
+}
+}
 
 .btn-attractive {
-  background: linear-gradient(to right, #000000, #0f00b8, #000000);
-  color: white;
+  background-color: #00c4ff;
+  color: rgb(35, 35, 35);
   border: none;
-  border-radius: 50px;
-  padding: 10px 24px;
-  font-weight: 500;
+  padding: 5px 12px;
   transition: all 0.3s ease-in-out;
 }
 
 .btn-attractive:hover {
-  transform: scale(1.05);
-  background: linear-gradient(to right, #000000, #0f00b8, #000000);
+  background-color: transparent;
+  border: 1px solid #00c4ff;
+  color: #0f172a;
+}
+.dark .btn-attractive:hover{
+  color: white;
 }

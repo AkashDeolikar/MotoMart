@@ -1,96 +1,125 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import './page1.css';
+
+import vr from './vr-img.jpg';
+import vr2 from './vr-img2.jpg';
 
 const Page1 = () => {
   return (
-    <div className="B1Page">
-      <div className="bgPaper">
-        <h5>Innovations</h5>
-        <h1>Creating tommorows</h1>
-        <h1>Today</h1>
-      </div>
+    <div className="page-container">
 
-      <div className="ConstantBG">
-        <div className="T1Page">
-          <h2 className="constantBGT1page">SHAPING THE UNSEEN</h2>
-          <p className="constantBGT1page">
-            A strong understanding of customer demands, the emerging economic
-            landscape, combined with a purposeful, agile approach drives our
-            growth.
-          </p>
-          <p className="constantBGT1page">
-            Pushing frontiers to reimagine the future, our ‘Open Innovation’
-            strategy accelerates next-gen technology and fosters
-            collaborations with start-ups, scale-ups and like-minded
-            enterprises. We focus on electrification, connectivity, digital
-            services, metaverse, intelligent enterprise, manufacturing, supply
-            chain and sustainability. Building on our engineering and
-            innovation expertise, we enable customers to make the right choices
-            with our future-ready vehicles and mobility solutions.
-          </p>
+      {/* === Hero Section === */}
+      <section className="hero-banner">
+        <div className="hero-text">
+          <h5>Committing to a Good Innovation</h5>
+          <h1>Creating Tomorrows</h1>
+          <h1>Today</h1>
         </div>
-      </div>
+      </section>
 
-      <div className="drops">
-        <div className="firstdrop">
-          <p className="d-inline-flex gap-1">
-            <button
-              className="btn-attractive1"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseDesign"
-              aria-expanded="false"
-              aria-controls="collapseDesign"
-            >
-              <h3 className="dropheading text-center mb-1">DESIGN <i class="bi bi-menu-down"></i></h3>
-            </button>
-          </p>
-          <div className="collapse" id="collapseDesign">
-            <div className="drop-flex">
-              <div className="drop-image">
-                <img
-                  src="https://www.tatamotors.com/wp-content/themes/TataMotors/images/innovation-pix1.jpg"
-                  alt="Design Illustration"
-                />
-              </div>
-              <div className="drop-text">
-                <h3>Building a new paradigm</h3>
-                <p>Design is our bedrock for innovation. We envision the future to develop truly irresistible vehicles for personal, passenger and cargo mobility. Our design teams based in Italy, the UK and India have created a unique, human-centric design language visible in our latest launches and vehicle concepts.</p>
-                <p>Design shapes the way how vehicles look, perform and engage with their drivers and the environment. Our talented designers are bold to predict the future, intelligent to shape it into reality, creative to make it look beautiful, caring to make it safe and conscious to make it environment friendly. By integrating such human-centric designs with new-age technologies, we are building the future today.</p>
-              </div>
+      {/* === Key Focus Areas === */}
+      <section className="info-section">
+        <h2>Our Key Focus Areas</h2>
+        <div className="info-cards">
+          {[
+            {
+              title: "Electrification",
+              desc: "Driving the transition to clean, green mobility solutions."
+            },
+            {
+              title: "Connectivity",
+              desc: "Advanced vehicle-to-cloud integration & real-time data."
+            },
+            {
+              title: "Digital Services",
+              desc: "Smarter UX with intelligent dashboards and AI navigation."
+            },
+            {
+              title: "Manufacturing 4.0",
+              desc: "AI-powered automation and sustainable production."
+            }
+          ].map((card, index) => (
+            <div className="info-card" key={index}>
+              <h3>{card.title}</h3>
+              <p>{card.desc}</p>
             </div>
-          </div>
+          ))}
         </div>
-      </div>
-      <div className="seconddrop">
-        <p className="d-inline-flex gap-1">
+      </section>
+
+      {/* === Accordion Section === */}
+      <section className="accordion-section">
+        <div className="accordion-item">
           <button
-            className="btn-attractive1"
+            className="accordion-toggle"
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#collapseTechnology"
-            aria-expanded="false"
-            aria-controls="collapseTechnology"
+            data-bs-target="#designCollapse"
           >
-            <h3 className="dropheading text-center mb-1">TECHNOLOGY  <i class="bi bi-menu-down"></i></h3>
+            <h3>DESIGN <i className="bi bi-chevron-down"></i></h3>
           </button>
-        </p>
-        <div className="collapse" id="collapseTechnology">
-          <div className="drop-flex">
-            <div className="drop-image">
+          <div className="collapse" id="designCollapse">
+            <div className="accordion-content">
               <img
-                src="https://www.tatamotors.com/wp-content/themes/TataMotors/images/innovation-pix2.jpg"
-                alt="Design Illustration"
+                src={vr}
+                alt="Design"
               />
-            </div>
-            <div className="drop-text">
-              <h3>Shaping concept to reality</h3>
-              <p>Our expertise in understanding and transforming multiple technology trends helps us shape the future of mobility. We are at the forefront of developing efficient, sustainable and convenient transportation solutions to move people and cargo.</p>
-              <p>Automotive technology is an always evolving landscape of advancements. To stay ahead of curve, we challenge the status quo with groundbreaking concepts and game-changing features to make our vehicles smarter and safer. As vehicles rapidly transform into ‘software on wheels’, we are integrating sophisticated systems to connect them seamlessly with the outside world. This enriching experience blends convenience and efficiency, with technology enhancing every aspect of the journey.</p>
+              <div className="accordion-text">
+                <h3>Building a new paradigm</h3>
+                <p>Design is our foundation. Our global studios craft futuristic, human-centric vehicles that blend beauty, safety, and sustainability.</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+
+        <div className="accordion-item">
+          <button
+            className="accordion-toggle"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#techCollapse"
+          >
+            <h3>TECHNOLOGY <i className="bi bi-chevron-down"></i></h3>
+          </button>
+          <div className="collapse" id="techCollapse">
+            <div className="accordion-content">
+              <img
+                src={vr2}
+                alt="Technology"
+              />
+              <div className="accordion-text">
+                <h3>Shaping concept to reality</h3>
+                <p>We innovate with a purpose—combining AI, software, and hardware to create smart, efficient, and connected mobility systems.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* === Stats Highlight: Vehicle Count === */}
+      <section className="stats-highlight-section">
+        <div className="stats-card">
+          <h3>500M+</h3>
+          <p>2-Wheelers Operating Globally</p>
+        </div>
+        <div className="stats-card">
+          <h3>1.5B+</h3>
+          <p>4-Wheelers on Roads Worldwide</p>
+        </div>
+        <div className="stats-card">
+          <h3>80M+</h3>
+          <p>Commercial & Large Vehicles</p>
+        </div>
+      </section>
+
+      {/* === Call to Action === */}
+      <section className="cta-section">
+        <h2>Ready to Drive the Future with Us?</h2>
+        <p>Be a part of our journey to electrify and digitize global mobility solutions.</p>
+        <Link to="/contact" className="cta-button">Get in Touch</Link>
+      </section>
+
     </div>
   );
 };

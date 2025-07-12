@@ -1,109 +1,67 @@
 import React from "react";
 import './page3.css';
 
+import img1 from '../slidePage/img1.jpg'
+import img2 from '../slidePage/img2.jpg'
+import img3 from '../slidePage/img3.jpg'
+
 const Page3 = () => {
     return (
         <div className="B1Page3">
             <div className="bgPaper3">
-                <h5>Working with communities</h5>
-                <h1>Compassion in action</h1>
+                <h5>Automotive Engineering for Society</h5>
+                <h1>Empowering Mobility, Empowering People</h1>
             </div>
 
             <div className="ConstantBG">
                 <div className="T2Page">
-                    <h2 className="constantBGT2page">DRIVING POSITIVE CHANGE</h2>
-                    
+                    <h2 className="constantBGT2page">AUTOMOTIVE ENGINEERING FOR SOCIETY</h2>
+
                     {/* Block 1: Image on Right */}
                     <div className="drop-flex2">
                         <div className="drop-text2">
-                                <p>Working with communities involves collaborating, listening and understanding their needs. It fosters inclusive decision-making, builds trust and promotes shared ownership. Through active engagement, we are creating positive social impact, empowering individuals and contributing to the well-being and development of local communities.</p>
+                            <p>Automotive engineering is not just about building vehicles—it's about building a better future. Engineers today focus on sustainable mobility solutions that improve the quality of life for communities across the globe.</p>
+                            <p>By incorporating advanced materials, electric drivetrains, and eco-friendly designs, the industry is making transportation cleaner, safer, and more accessible for all.</p>
                         </div>
                         <div className="drop-image2">
-                            <img src="https://www.tatamotors.com/wp-content/themes/TataMotors/images/welcome-to-1.png" alt="Design Illustration" />
+                            <img
+                                src={img1}
+                                alt="Sustainable Automotive"
+                            />
                         </div>
                     </div>
 
                     {/* Block 2: Image on Left */}
                     <div className="drop-flex2 reverse">
                         <div className="drop-text2">
-                            <p>We are spearheading the transition to sustainable, connected and safer mobility. Combining our core strength in engineering with innovative technologies and a human-centric design philosophy, we are transforming our entire product portfolio, value chain and operations.</p>
-                            <p>We are exploring every new opportunity to create augmented experiences for customers, in line with their aspirations, needs and lifestyle.</p>
-                            <p>Our focused investments in developing world-class, new-age powertrains will drive super performance – noiseless and with zero emissions. Continually decarbonising mobility is essential to achieve our goal of Net Zero by 2045.</p>
+                            <p>Community-centric automotive innovation addresses local mobility challenges. Whether it's designing last-mile EVs or low-cost public transport systems, engineers are shaping mobility for every socioeconomic layer.</p>
+                            <p>These innovations empower remote and rural areas with reliable and safe transportation, connecting people to education, jobs, and healthcare.</p>
                         </div>
                         <div className="drop-image2">
-                            <img src="https://www.tatamotors.com/wp-content/themes/TataMotors/images/welcome-to-2.png" alt="Design Illustration" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div className="drops">
-                <div className="firstdrop">
-                    <p className="d-inline-flex gap-1">
-                        <button
-                            className="btn-attractive3"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#collapseDesign"
-                            aria-expanded="false"
-                            aria-controls="collapseDesign"
-                        >
-                            <h3 className="dropheading text-center mb-1">DESIGN <i class="bi bi-menu-down"></i></h3>
-                        </button>
-                    </p>
-                    <div className="collapse" id="collapseDesign">
-                        <div className="drop-flex">
-                            <div className="drop-image">
-                                <img
-                                    src="https://www.tatamotors.com/wp-content/themes/TataMotors/images/innovation-pix1.jpg"
-                                    alt="Design Illustration"
-                                />
-                            </div>
-                            <div className="drop-text">
-                                <h3>Building a new paradigm</h3>
-                                <p>Design is our bedrock for innovation. We envision the future to develop truly irresistible vehicles for personal, passenger and cargo mobility. Our design teams based in Italy, the UK and India have created a unique, human-centric design language visible in our latest launches and vehicle concepts.</p>
-                                <p>Design shapes the way how vehicles look, perform and engage with their drivers and the environment. Our talented designers are bold to predict the future, intelligent to shape it into reality, creative to make it look beautiful, caring to make it safe and conscious to make it environment friendly. By integrating such human-centric designs with new-age technologies, we are building the future today.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="seconddrop">
-                <p className="d-inline-flex gap-1">
-                    <button
-                        className="btn-attractive3"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseTechnology"
-                        aria-expanded="false"
-                        aria-controls="collapseTechnology"
-                    >
-                        <h3 className="dropheading text-center mb-1">TECHNOLOGY <i class="bi bi-menu-down"></i></h3>
-                    </button>
-                </p>
-                <div className="collapse" id="collapseTechnology">
-                    <div className="drop-flex3">
-                        <div className="drop-image">
                             <img
-                                src="https://www.tatamotors.com/wp-content/themes/TataMotors/images/innovation-pix2.jpg"
-                                alt="Design Illustration"
+                                src={img2}
+                                alt="Rural EV Mobility"
                             />
                         </div>
-                        <div className="drop-text">
-                            <h3>Shaping concept to reality</h3>
-                            <p>Our expertise in understanding and transforming multiple technology trends helps us shape the future of mobility. We are at the forefront of developing efficient, sustainable and convenient transportation solutions to move people and cargo.</p>
-                            <p>Automotive technology is an always evolving landscape of advancements. To stay ahead of curve, we challenge the status quo with groundbreaking concepts and game-changing features to make our vehicles smarter and safer. As vehicles rapidly transform into ‘software on wheels’, we are integrating sophisticated systems to connect them seamlessly with the outside world. This enriching experience blends convenience and efficiency, with technology enhancing every aspect of the journey.</p>
+                    </div>
+
+                    {/* Block 3: Image on Right */}
+                    <div className="drop-flex2">
+                        <div className="drop-text2">
+                            <p>Skill development in automotive engineering is driving socio-economic upliftment. Through training programs on electric vehicles, autonomous systems, and vehicle diagnostics, youth from underserved communities are finding career paths in future mobility.</p>
+                            <p>This transformation is turning engineering into a tool for societal equity and sustainable progress.</p>
+                        </div>
+                        <div className="drop-image2">
+                            <img
+                                src={img3}
+                                alt="Engineering Training for Youth"
+                            />
                         </div>
                     </div>
                 </div>
             </div>
 
-            {/* <div className="btn-group" role="group" aria-label="Basic outlined example">
-                <button type="button" className="btn btn-outline-primary">Left</button><p>Lorem ipsum dolor sit.</p>
-                <button type="button" className="btn btn-outline-primary">Middle</button>
-                <button type="button" className="btn btn-outline-primary">Right</button>
-            </div> */}
-        </div >
+        </div>
     );
 };
 

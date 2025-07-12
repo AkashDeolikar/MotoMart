@@ -1,7 +1,8 @@
 @import '../fonts.css';
+
 /* Global Styles */
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Lato Black", sans-serif;
   background-color: #f4f4f4;
   margin: 0;
   padding: 0;
@@ -12,18 +13,18 @@ a {
   color: inherit;
 }
 
-/* Page1 Container */
 .B1Page3 {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
 /* Background Section */
 .bgPaper3 {
   width: 100vw;
-  height: 600px;
+  min-height: 500px;
   margin-left: calc(-50vw + 50%);
-  padding: 80px 0px;
+  padding: 80px 1.5rem;
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
@@ -31,49 +32,50 @@ a {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  /* background-image: linear-gradient(to right, #00000 0 50%, transparent 0%, url('https://www.tatamotors.com/wp-content/themes/TataMotors/images/InnovationBanner.jpg')); */
   color: white;
-  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
+
 .bgPaper3::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* background: linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0)); */
-    background: linear-gradient(to right, rgb(0 0 0) 0%, rgba(248, 248, 248, 0) 100%);;
-    pointer-events: none;
-    /* z-index: 1; */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgb(0 0 0) 0%, rgba(248, 248, 248, 0) 100%);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .bgPaper3 h5,
 .bgPaper3 h1 {
   text-align: left;
-  margin-left: 10vh;
-  font-family: 'Jaguar Exuberant';
+  margin-left: 5vh;
+  font-family: "Lato Black", sans-serif;
   letter-spacing: 1.25px;
-  position: relative; 
-  z-index: 2; 
+  position: relative;
+  z-index: 2;
 }
 
 .bgPaper3 h5 {
-  font-size: 25px;
-  margin-top: 35px;
+  font-size: clamp(16px, 2vw, 24px);
+  margin-bottom: 12px;
 }
 
 .bgPaper3 h1 {
-  font-size: 50px;
+  font-size: clamp(28px, 5vw, 50px);
+  line-height: 1.2;
 }
 
-/* Constant Background Section */
+/* Content Section */
 .ConstantBG {
   width: 100vw;
-  padding: 80px 20px;
+  padding: 80px 1rem;
   margin-left: calc(-50vw + 50%);
-  box-sizing: border-box;
-  background-color: #242427;
+  background-color: #121212;
   background-image: url('../slidePage/pattern-dotted1.jpg'), url('../slidePage/pattern-dotted2.jpg');
   background-repeat: no-repeat;
   background-position: left top 30px, right top 30px;
@@ -82,135 +84,36 @@ a {
   justify-content: center;
 }
 
-@media screen and (max-width: 991px) {
-  .ConstantBG {
-    padding-top: 50px !important;
-    padding-bottom: 50px !important;
-  }
-}
-
 .T2Page {
+  max-width: 1100px;
   width: 100%;
-  max-width: 890px;
-  border-radius: 8px;
-  background-color: transparent;
+  font-family: "Lato Black", sans-serif;
+  text-align: center;
+  padding: 0 1rem;
 }
 
 .T2Page h2 {
-  font-size: 2.5rem;
-  color: #ffffff;
-  margin-bottom: 20px;
-}
-
-.T2Page h3 {
-  font-size: 1.6rem;
-  color: #ffffff;
-  margin-bottom: 20px;
+  font-size: clamp(26px, 3vw, 40px);
+  color: #64b5f6;
+  margin-bottom: 30px;
 }
 
 .T2Page p {
-  font-size: 1.1rem;
-  color: #ffffff;
+  font-size: clamp(14px, 1.3vw, 18px);
+  color: #d0d0d0;
   margin-bottom: 20px;
-  font-size: 16px;
+  line-height: 1.6;
+  text-align: justify;
 }
 
-@media (min-width: 768px) {
-  .T2Page, .constantBGT2page {
-    max-width: 720px;
-  }
-}
-
-@media (min-width: 576px) {
-  .T2Page , .constantBGT2page {
-    max-width: 1100px;
-  }
-}
-
-.T2Page, .constantBGT2page {
-  font-family: 'LandRoverWeb-Demi';
-  --bs-gutter-x: 1.5rem;
-  --bs-gutter-y: 0;
-  width: 100%;
-  padding-right: calc(var(--bs-gutter-x) * .5);
-  padding-left: calc(var(--bs-gutter-x) * .5);
-  margin-right: auto;
-  margin-left: auto;
-  text-align: center;
-}
-
-/* Collapse Section */
-.collapse {
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
-
-.card-body {
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  font-size: 1rem;
-  color: #333;
-}
-
-/* Buttons */
-.btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
-  padding: 10px 20px;
-  font-size: 1rem;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.btn-primary:hover {
-  background-color: #0056b3;
-  border-color: #004085;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .bgPaper2 {
-    width: 100vw;
-    height: 350px;
-  }
-
-  .bgPaper2 h1 {
-    font-size: 2.5rem;
-  }
-
-  .T1Page h2 {
-    font-size: 2rem;
-  }
-
-  .T1Page p {
-    font-size: 1rem;
-  }
-
-  .drop-flex2 {
-    flex-direction: column !important;
-    align-items: center;
-    text-align: center;
-  }
-
-  .drop-image2 {
-    margin-bottom: 20px;
-  }
-
-  .drop-text2 {
-    width: 100%;
-  }
-}
-
-/* Image + Text Flexbox Section */
+/* Flexbox Blocks */
 .drop-flex2 {
   display: flex;
   flex-direction: row;
   gap: 30px;
   align-items: center;
   flex-wrap: wrap;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
 .drop-flex2.reverse {
@@ -225,33 +128,33 @@ a {
 }
 
 .drop-text2 {
-  font-family: 'LandRoverWeb-Light', Arial, sans-serif;
   flex: 1;
-  min-width: 250px;
-  margin-top: 30px;
-  text-align: justify;
-}
-
-/* Button styling */
-.d-inline-flex {
+  min-width: 280px;
   margin-top: 20px;
+  font-family: "Lato Black", sans-serif;
 }
 
-.btn-attractive3 {
-    color: white;
-    border: none;
-    border-radius: 10px;
-    padding: 4px 24px;
-    font-weight: 500;
-    transition: all 0.3s ease-in-out;
-    font-family: 'LandRoverWeb-Medium';
-    BACKGROUND: BLACK;
-}
+/* Responsive */
+@media (max-width: 768px) {
+  .bgPaper3 {
+    padding: 50px 1rem;
+    min-height: 360px;
+  }
 
-.dark .btn-attractive3 {
-  background-color: #181818; 
-  border: 1px solid white; 
-}
-.firstdrop, .seconddrop{
-  padding: 0px 15px 10px 20px;
+  .drop-flex2 {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .drop-image2 {
+    margin-bottom: 20px;
+  }
+
+  .drop-text2 {
+    width: 100%;
+  }
+
+  .bgPaper3 h1 {
+    font-size: 2rem;
+  }
 }

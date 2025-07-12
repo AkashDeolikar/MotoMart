@@ -154,3 +154,40 @@
   font-style: normal;
   font-display: swap; /* Recommended for better user experience */
 }
+
+/*NEW FONT from san-serif*/
+@font-face {
+  font-family: "Aileron-Black"; /* Use a consistent family name */
+  src: url("../component/Fonts/Aileron-Black.otf") format("otf");
+  font-weight: 700; /* Use numerical weights for bold (700 or 'bold') */
+  font-style: normal;
+  font-display: swap; /* Recommended for better user experience */
+}
+@font-face {
+  font-family: "Aileron-Bold"; /* Use a consistent family name */
+  src: url("../component/Fonts/Aileron-Bold.otf") format("otf");
+  font-weight: 700; /* Use numerical weights for bold (700 or 'bold') */
+  font-style: normal;
+  font-display: swap; /* Recommended for better user experience */
+}
+@font-face {
+  font-family: "Aileron-Heavy"; /* Use a consistent family name */
+  src: url("../component/Fonts/Aileron-Heavy.otf") format("otf");
+  font-weight: 700; /* Use numerical weights for bold (700 or 'bold') */
+  font-style: normal;
+  font-display: swap; /* Recommended for better user experience */
+}
+@font-face {
+  font-family: "Aileron-Light"; /* Use a consistent family name */
+  src: url("../component/Fonts/Aileron-Light.otf") format("otf");
+  font-weight: 700; /* Use numerical weights for bold (700 or 'bold') */
+  font-style: normal;
+  font-display: swap; /* Recommended for better user experience */
+}
+@font-face {
+  font-family: "Aileron-Regular"; /* Use a consistent family name */
+  src: url("../component/Fonts/Aileron-Regular.otf") format("otf");
+  font-weight: 700; /* Use numerical weights for bold (700 or 'bold') */
+  font-style: normal;
+  font-display: swap; /* Recommended for better user experience */
+}

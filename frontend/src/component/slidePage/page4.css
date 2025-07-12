@@ -1,1 +1,300 @@
-@import '../fonts.css';
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+}
+
+.B1Page {
+  padding: 3rem 1rem;
+  font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.7;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh; /* Ensures the page takes at least the full viewport height */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers content horizontally within the page if it's narrower */
+}
+
+/* ========= LIGHT THEME ========= */
+.light .B1Page {
+  background-color: #f8f9fa;
+  color: #1a1a1a;
+}
+
+.light .bgPaper h5 {
+  color: #0d6efd;
+}
+
+.light .bgPaper h1 {
+  color: #1a1a1a;
+}
+
+.light .ConstantBG {
+  background: #ffffff;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+}
+
+.light .drop-flex {
+  background: #ffffff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.light .drop-text h3 {
+  color: #212529;
+}
+
+.light .drop-text p {
+  color: #495057;
+}
+
+.light .btn-attractive {
+  background-color: #0d6efd;
+  color: #fff;
+}
+
+.light .btn-attractive:hover {
+  background-color: #0b5ed7;
+}
+
+/* ========= DARK THEME ========= */
+.dark .B1Page {
+  background-color: #101418;
+  color: #e9ecef;
+}
+
+.dark .bgPaper h5 {
+  color: #4dd0e1;
+}
+
+.dark .bgPaper h1 {
+  color: #ffffff;
+}
+
+.dark .ConstantBG {
+  background: #1a1f24;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
+}
+
+.dark .drop-flex {
+  background: #1e252b;
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.04);
+}
+
+.dark .drop-text h3 {
+  color: #ffffff;
+}
+
+.dark .drop-text p {
+  color: #ced4da;
+}
+
+.dark .btn-attractive {
+  background-color: #4dd0e1;
+  color: #0f1113;
+}
+
+.dark .btn-attractive:hover {
+  background-color: #26c6da;
+}
+
+/* ========= SHARED STRUCTURE ========= */
+
+.bgPaper {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 0 1rem;
+  width: 100%; /* Ensure it takes full width within its parent */
+  max-width: 1100px; /* Aligns with ConstantBG max-width for consistency */
+}
+
+.bgPaper h5 {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.bgPaper h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0.25rem 0;
+}
+
+.ConstantBG {
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%; /* Ensure it takes full width up to max-width */
+}
+
+.constantBGT1page {
+  text-align: center;
+  font-size: 1.05rem;
+  margin-bottom: 1.2rem;
+  font-weight: 400;
+  padding: 0 0.5rem;
+}
+
+/* Accordion Sections */
+.drops,
+.seconddrop {
+  max-width: 1200px;
+  margin-left: auto; /* Center these elements if they are standalone sections */
+  margin-right: auto;
+  padding: 0 1rem; /* Add some horizontal padding for smaller screens */
+  width: 100%;
+}
+
+.btn-attractive {
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-block;
+  width: 100%;
+  max-width: 320px;
+  text-align: center; /* Ensure text inside button is centered */
+}
+
+.dropheading {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Flex Container */
+.drop-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  border-radius: 12px;
+  padding: 2rem;
+  transition: background 0.3s ease;
+  align-items: center; /* Vertically centers items if they have different heights */
+  justify-content: center; /* Horizontally centers items when wrapping or fewer items */
+}
+
+/* Image */
+.drop-image {
+  flex: 1 1 350px;
+  text-align: center;
+  min-width: 280px; /* Prevents image from becoming too small */
+}
+
+.drop-image img {
+  max-width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 12px;
+  display: block; /* Removes extra space below image */
+  margin: 0 auto; /* Centers image if its max-width is less than parent */
+}
+
+/* Text */
+.drop-text {
+  flex: 1 1 300px;
+  min-width: 280px; /* Prevents text block from becoming too small */
+}
+
+.drop-text h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.drop-text p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+/* ========= RESPONSIVE ========= */
+@media (max-width: 992px) {
+  .bgPaper h1 {
+    font-size: 2.2rem;
+  }
+
+  .ConstantBG {
+    padding: 1.5rem; /* Slightly reduce padding on medium screens */
+  }
+
+  .drop-flex {
+    padding: 1.5rem; /* Adjust padding for flex sections */
+    gap: 1.5rem; /* Slightly reduce gap */
+  }
+
+  .drop-image,
+  .drop-text {
+    flex-basis: auto; /* Allow content to dictate size more flexibly before stacking */
+  }
+}
+
+@media (max-width: 768px) {
+  .B1Page {
+    padding: 2rem 0.8rem; /* Reduce overall page padding */
+  }
+
+  .drop-flex {
+    flex-direction: column; /* Stack image and text vertically */
+    padding: 1.5rem;
+    gap: 1rem; /* Adjust gap for stacked items */
+  }
+
+  .bgPaper h1 {
+    font-size: 2rem;
+  }
+
+  .dropheading {
+    font-size: 1.15rem;
+  }
+
+  .drop-text,
+  .drop-image {
+    flex: 1 1 100%; /* Ensure they take full width when stacked */
+    text-align: center;
+  }
+
+  .drop-text h3 {
+    font-size: 1.3rem;
+  }
+
+  .drop-text p {
+    text-align: justify; /* Maintain justify for paragraphs, or change to center/left if preferred */
+  }
+}
+
+@media (max-width: 480px) {
+  .B1Page {
+    padding: 1.5rem 0.5rem; /* Further reduce padding on very small screens */
+  }
+  .bgPaper h1 {
+    font-size: 1.75rem;
+  }
+
+  .btn-attractive {
+    font-size: 0.95rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .drop-text h3 {
+    font-size: 1.2rem; /* Slightly smaller heading on tiny screens */
+  }
+
+  .drop-text p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .ConstantBG {
+    padding: 1rem; /* Reduced padding for the main content block */
+  }
+
+  .drop-flex {
+    padding: 1rem; /* Reduced padding for flex sections */
+  }
+}
