@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.dark {
+  --primary-color: #14ff72cb;
+  --background: #0d0d0d;
+  --card-bg: rgba(30, 30, 30, 0.655);
+  --glass-blur: blur(14px);
+  --text-light: #fff;
+  --text-muted: #ccc;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+.light {
+  --primary-color: #ff4f14;
+  --background: #e4e4e44a;
+  --card-bg: rgba(249, 163, 163, 0.774);
+  --glass-blur: blur(14px);
+  --text-light: #2e2e2e;
+  --text-muted: #101010;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.144);
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background);
+  color: var(--text-light);
+  margin: 0;
+  padding: 0;
+}
+
+/* -------- Main Section -------- */
+.statsreportmechanism {
+  padding: 80px 20px;
+  background-color: var(--background);
+  text-align: center;
+}
+
+.statsreportmechanism__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* -------- Card -------- */
+.statsreportmechanism__card {
+  background: var(--card-bg);
+  backdrop-filter: var(--glass-blur);
+  padding: 35px 30px;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  height: 200px;
+  flex: 1 1 280px;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.dark .statsreportmechanism__card::before {
+  content: '';
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.08), transparent);
+  top: -20%;
+  left: -20%;
+  transform: rotate(25deg);
+  z-index: 0;
+}
+.light .statsreportmechanism__card::before {
+  content: '';
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle at top left, rgb(243, 225, 91), transparent);
+  top: -20%;
+  left: -20%;
+  transform: rotate(25deg);
+  z-index: 0;
+}
+.statsreportmechanism__card::before {
+  background: radial-gradient(circle at top left, rgb(198, 198, 198), transparent);
+}
+.statsreportmechanism__card:hover {
+  transform: translateY(-8px);
+}
+
+/* -------- Count -------- */
+.statsreportmechanism__count {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  z-index: 1;
+  text-align: center;
+}
+
+/* -------- Label -------- */
+.statsreportmechanism__label {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  z-index: 1;
+  max-width: 260px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* -------- Optional Icon -------- */
+.statsreportmechanism__icon {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  z-index: 1;
+}
+
+/* -------- AOS Animations (optional) -------- */
+[data-aos] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+[data-aos].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* -------- Responsive (Tablet) -------- */
+@media (max-width: 768px) {
+    .statsreportmechanism__card {
+    background: var(--card-bg);
+    backdrop-filter: var(--glass-blur);
+    padding: 35px 30px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    height: 120px;
+    flex: 1 1 140px;
+    max-width: 340px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+  .statsreportmechanism {
+    padding: 60px 15px;
+  }
+
+  .statsreportmechanism__container {
+    gap: 25px;
+  }
+
+  .statsreportmechanism__card {
+    height: 180px;
+    padding: 25px 20px;
+  }
+
+  .statsreportmechanism__count {
+    font-size: 2.2rem;
+  }
+
+  .statsreportmechanism__label {
+    font-size: 1rem;
+  }
+}
+
+/* -------- Responsive (Mobile) -------- */
+@media (max-width: 480px) {
+  .statsreportmechanism {
+    padding: 40px 10px;
+  }
+
+  .statsreportmechanism__container {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .statsreportmechanism__card {
+    width: 100%;
+    max-width: 100%;
+    height: 160px;
+    padding: 16px 12px;
+  }
+
+  .statsreportmechanism__count {
+    font-size: 2.2rem;
+  }
+
+  .statsreportmechanism__label {
+    font-size: 1.1rem;
+  }
+}

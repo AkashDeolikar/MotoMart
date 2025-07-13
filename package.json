@@ -2,6 +2,7 @@
   "dependencies": {
     "aos": "^2.3.4",
     "bootstrap": "^5.3.6",
+    "gsap": "^3.13.0",
     "swiper": "^11.2.8"
   }
 }

@@ -93,7 +93,11 @@ import Mahindrapickup from "./component/slidePage/subpages/commercialcarpages/ma
 import Isuzupickup from "./component/slidePage/subpages/commercialcarpages/isuzupickup";
 import Ashokpickup from "./component/slidePage/subpages/commercialcarpages/ashokpickup";
 import Suzukipickup from "./component/slidePage/subpages/commercialcarpages/suzukipickup";
+import StatsHighlightSection from "./component/utility/statshighlightsection";
+import VehicleShowcase from "./component/utility/VehicleShowcase";
 
+import showcaseData from "./component/utility/showcaseData";
+import AllVehicleShowcase from "./component/utility/AllVehicleShowcase";
 // Debug logs
 // console.log("Bike Data:", Bikecard);
 console.log("Bike Data:", bikeVehicleData);
@@ -163,6 +167,10 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister }) =
               <Route path="/page5" element={<Page5 />} />
               <Route path="/page6" element={<Page6 />} />
               <Route path="/rover" element={<Rover />} />
+              <Route path="/statshighlightsection" element={<StatsHighlightSection />} />
+              <Route path="/VehicleShowcase" element={<AllVehicleShowcase />} />
+              <Route path="AllVehicleShowcase" element={<AllVehicleShowcase />} />
+              {/* <Route path="/VehicleShowcase" element={<VehicleShowcase />} /> */}
               <Route path="/jaguar" element={<Jaguar />} />
               <Route path="/bmw" element={<Bmw />} />
               <Route path="/mercedes" element={<Mercedes />}/>

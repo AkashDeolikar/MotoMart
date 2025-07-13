@@ -10,6 +10,7 @@ import '../Bootstrap/progressiveBar.css';
 import '../Bootstrap/bootstrapHorizontalSlider.css';
 import '../Bootstrap/bootstrapluxuryvehicle.css';
 import './swipepage.css';
+import StatsHighlightSection from '../utility/statshighlightsection';
 import { FaArrowRight } from 'react-icons/fa';
 
 // Swiper imports
@@ -39,6 +40,9 @@ import bimg1 from './assetimg/bimg1.jpg';
 import bimg2 from './assetimg/bimg2.jpg';
 import bimg3 from './assetimg/bimg3.jpg';
 import bimg4 from './assetimg/bimg4.jpg';
+import VehicleShowcase from "./VehicleShowcase";
+
+import GoToShowcaseButton from '../utility/VehicleShowcase'; // adjust the path
 
 // ===============================================
 // Extracted Components for Better Structure
@@ -67,7 +71,7 @@ const LoadingOverlay = ({ isLoading }) => {
  * Renders the Bootstrap Carousel for the hero section.
  */
 const HeroCarousel = () => {
-  const timeRunning = 3000; // Duration of the slide transition animation in ms
+  const timeRunning = 7000; // Duration of the slide transition animation in ms
   const timeAutoNext = 7000; // Time before auto-advancing to next slide in ms
 
   const carouselRef = useRef(null);
@@ -186,6 +190,7 @@ const HeroCarousel = () => {
               <div className="title">{item.title}</div>
               <div className="name">{item.name}</div>
               <div className="des">{item.description}</div>
+              {/* {item.id === 1 && <StatsHighlightSection />} */}
             </div>
           </div>
         ))}
@@ -354,6 +359,10 @@ const Home = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [activeTab, setActiveTab] = useState("MUVs/SUVs");
+
+  const handleClick = () => {
+    navigate('/VehicleShowcase');
+  };
   // for our range
   const categories = [
     "Hatchback",
@@ -506,6 +515,9 @@ const Home = () => {
       <HeroCarousel />
 
       <AutoPlayCardSlider data={fold2CardsData} />
+
+      {/*Statistic data of vehicles*/}
+      <StatsHighlightSection />
 
       {/* NEW RECOMMENDED POSITION FOR VEHICLE CATEGORIES SECTION */}
       <VehicleCategoriesSection />
@@ -768,6 +780,23 @@ const Home = () => {
 
       {/* OFFER FLIP CARDS  */}
       <OffersGridSection offers={offers} />
+
+      
+      <button
+      style={{
+        padding: '10px 20px',
+        background: '#14ff72',
+        color: '#000',
+        fontSize: '1rem',
+        border: 'none',
+        borderRadius: '8px',
+        cursor: 'pointer',
+      }}
+      onClick={handleClick}
+    >
+      Go to Vehicle Showcase
+    </button>
+      <VehicleShowcase />
     </div>
   );
 };
