@@ -392,9 +392,9 @@ const Home = () => {
     { id: 1, name: "Maruti Suzuki Swift", price: "5.99 Lakh", image: "./images/swift/SUZUKI_SWIFT_EXT_360_RED_V-1_5.webp" },
     { id: 2, name: "Hyundai Creta", price: "10.87 Lakh", image: "./images/creta/abyss-black_7.png" },
     { id: 3, name: "Tata Nexon", price: "8.15 Lakh", image: "./images/nexon/PureGrey-0.png" },
-    { id: 4, name: "Suzuki Ertiga", price: "9.50 Lakh", image: "./images/ertiga/ertiga.png" },
-    { id: 5, name: "Renault Kwid", price: "3.50 Lakh", image: "./images/renault/renault.png" },
-    { id: 6, name: "Toyota Innova", price: "17.50 Lakh", image: "https://www.jansatta.com/wp-content/uploads/2019/03/toyota-innova-crysta-small-2.jpg?w=440" },
+    { id: 4, name: "Suzuki Ertiga", price: "9.50 Lakh", image: "./images/ertiga.png" },
+    { id: 5, name: "Renault Kwid", price: "3.50 Lakh", image: "./images/kwid.png" },
+    { id: 6, name: "Toyota Innova", price: "17.50 Lakh", image: "./images/crysta.png" },
   ];
 
   /*Scroll up animation */
@@ -510,8 +510,11 @@ const Home = () => {
         carRouteMap={carRouteMap}
       /> */}
       <LoadingOverlay isLoading={isLoading} />  {/* This is a loading animation */}
-
-      <HeroCarousel />
+      
+      <HeroSlider /> {/* SlideItem is already handled inside */}
+      {/* Slider From Zero point site replica */}
+      
+      {/* <HeroCarousel /> */}
 
       <AutoPlayCardSlider data={fold2CardsData} />
 
@@ -781,8 +784,7 @@ const Home = () => {
       <OffersGridSection offers={offers} />
 
 
-        <HeroSlider /> {/* SlideItem is already handled inside */}
-      {/* Slider From Zero point site replica */}
+        
     </div>
   );
 };

@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import './HeroSlider.css';
 import SlideItem from './SlideItem';
 
-import img1 from '../utility/slideasset/blueberry.png';
+// import img1 from '../utility/slideasset/blueberry.png';
+import img1 from '../utility/ertiga.png';
 import img2 from '../utility/slideasset/coke.png';
 import img3 from '../utility/slideasset/berry.png';
 
@@ -10,25 +11,32 @@ import bg1 from './slideasset/s-bg1.jpg';
 import bg2 from './slideasset/s-bg2.jpg';
 import bg3 from './slideasset/s-bg3.jpg';
 
+import downbg1 from './slideasset/rocks1.png';
+import downbg2 from './slideasset/rock2.png';
+import downbg3 from './slideasset/rocks3.png';
+
 const slides = [
   {
-    title: "Plasma Shock",
-    subtitle: "Shock your senses with citrus energy.",
+    title: "MotoMart Drive",
+    subtitle: "Unleash performance with every ride.",
     img: img1,
     bgImage: bg1,
+    downimg: downbg1,
   },
   {
-    title: "Titan Burn",
-    subtitle: "Fuel the fire within.",
+    title: "Tomorrow's Mobility",
+    subtitle: "Driving the future, one innovation at a time.",
     img: img2,
     bgImage: bg2,
+    downimg: downbg2,
   },
   {
-    title: "Nebula Berry",
-    subtitle: "Berry beyond the stars.",
+    title: "Explore the Road",
+    subtitle: "Where style meets performance.",
     img: img3,
     bgImage: bg3,
-  },
+    downimg: downbg3,
+  }
 ];
 
 const HeroSlider = () => {
@@ -49,6 +57,7 @@ const HeroSlider = () => {
         title={currentSlide.title}
         subtitle={currentSlide.subtitle}
         img={currentSlide.img}
+        downimg={currentSlide.downimg}
         bgImage={currentSlide.bgImage}
       />
 
@@ -57,17 +66,6 @@ const HeroSlider = () => {
         <button onClick={nextSlide}>Next ➡</button>
       </div>
 
-      <div className="slider-flavors">
-        {slides.map((slide, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrent(index)}
-            className={index === current ? 'active' : ''}
-          >
-            {slide.title.split(" ")[0]}
-          </button>
-        ))}
-      </div>
     </div>
   );
 };

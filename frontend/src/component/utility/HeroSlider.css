@@ -13,7 +13,7 @@
     align-items: center;
     justify-content: center;
     color: white;
-    min-height: 100vh;
+    min-height: 97vh;
     text-align: center;
     font-family: 'Orbitron', sans-serif;
     position: relative;
@@ -23,63 +23,71 @@
 /* ❌ Removed .hero-slider::before and background-image/gradient */
 
 .slider-nav {
-    margin-top: -4rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    z-index: 2;
+  margin-top: -8rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  /* background: rgba(255, 255, 255, 0.03); */
+  border-radius: 20px;
+  /* backdrop-filter: blur(14px);
+  box-shadow: 0 10px 40px rgba(0, 255, 140, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08); */
+  z-index: 10;
+  max-width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeInUp 0.8s ease-out;
 }
 
 .slider-nav button {
-    padding: 0.75rem 1.6rem;
-    font-size: 0.95rem;
-    font-weight: bold;
-    background: var(--glass-bg);
-    color: #fff;
-    border-radius: 10px;
-    cursor: pointer;
-    backdrop-filter: blur(8px);
-    transition: 0.3s;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.slider-nav button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, var(--neon-green), var(--neon-blue));
+  opacity: 0;
+  transition: 0.4s ease;
+  z-index: -1;
+  border-radius: inherit;
+}
+
+.slider-nav button:hover::after {
+  opacity: 1;
+  filter: blur(2px);
 }
 
 .slider-nav button:hover {
-    background-color: var(--neon-green);
-    color: #000;
+  color: #000;
+  transform: translateY(-2px) scale(1.02);
 }
 
-.slider-flavors {
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
-    gap: 1rem;
-    flex-wrap: wrap;
+.slider-nav button.active {
+  background: linear-gradient(145deg, var(--neon-blue), var(--neon-green));
+  color: #000;
 }
 
-.slider-flavors button {
-    padding: 0.6rem 1.2rem;
-    /* Current styles (keeping for now unless specified to change) */
-    font-size: 0.9rem; /* Keeping original button font size for readability */
-    font-weight: bold; /* Keeping original button font weight for emphasis */
-    background: transparent;
-    border-radius: 10px;
-    cursor: pointer;
-    backdrop-filter: blur(6px);
-    transition: 0.3s;
-
-    /* Styles to make it similar to "Plasma Shock", "Titan Burn", "Nebula Berry" text */
-    font-family: "Zen Dots", sans-serif; /* Apply the "Zen Dots" font */
-    color: rgba(255, 255, 255, 0.5); /* Apply the faded white color */
-    text-transform: uppercase; /* Ensure it's uppercase */
-}
-
-.slider-flavors button:hover,
-.slider-flavors button.active {
-    color: #e3e3e3;
-}
 
 @media (max-width:480x) {
     .slider-nav {
         margin-top: -4rem;
     }
 }
+

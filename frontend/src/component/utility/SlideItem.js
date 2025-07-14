@@ -1,23 +1,15 @@
 import React from 'react';
 import './SlideItem.css';
 
-const SlideItem = ({ title, subtitle, img, bgImage }) => {
+const SlideItem = ({ title, subtitle, img, bgImage, downimg }) => {
   return (
-    <div
-      className="slide-item"
-      style={{
-        backgroundImage: `url(${bgImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    >
+    <div className="slide-item" style={{ backgroundImage: `url(${bgImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div className="slide-background-title">{title}</div>
 
       <div className="slide-content-wrapper">
         <div className="slide-text">
           <h1>{title}</h1>
           <p>{subtitle}</p>
-          <button className="cta-btn">Order Today</button>
         </div>
 
         <div className="slide-img">
@@ -25,7 +17,15 @@ const SlideItem = ({ title, subtitle, img, bgImage }) => {
           <div className="img-glow-circle"></div>
         </div>
       </div>
+
+      {/* ✅ Move here */}
+      {downimg && (
+        <div className="slide-down-img">
+          <img src={downimg} alt="Decorative bottom" />
+        </div>
+      )}
     </div>
+
   );
 };
 
