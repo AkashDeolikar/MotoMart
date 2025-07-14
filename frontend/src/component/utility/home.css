@@ -1582,7 +1582,7 @@ html {
   color: #eee;
   letter-spacing: 1px;
   z-index: 3;
-  animation: bounce 2s infinite;
+  animation: bounce01 2s infinite;
 }
 
 @keyframes fadeInUp {

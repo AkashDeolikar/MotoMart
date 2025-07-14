@@ -40,10 +40,10 @@ import bimg1 from './assetimg/bimg1.jpg';
 import bimg2 from './assetimg/bimg2.jpg';
 import bimg3 from './assetimg/bimg3.jpg';
 import bimg4 from './assetimg/bimg4.jpg';
-import VehicleShowcase from "./VehicleShowcase";
 
-import GoToShowcaseButton from '../utility/VehicleShowcase'; // adjust the path
 import Viewmore from "../cardetails/viewmore";
+import HeroSlider from "./HeroSlider";
+import SlideItem from "./SlideItem";
 
 // ===============================================
 // Extracted Components for Better Structure
@@ -362,9 +362,6 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [activeTab, setActiveTab] = useState("MUVs/SUVs");
 
-  const handleClick = () => {
-    navigate('/VehicleShowcase');
-  };
   // for our range
   const categories = [
     "Hatchback",
@@ -783,22 +780,9 @@ const Home = () => {
       {/* OFFER FLIP CARDS  */}
       <OffersGridSection offers={offers} />
 
-      
-      <button
-      style={{
-        padding: '10px 20px',
-        background: '#14ff72',
-        color: '#000',
-        fontSize: '1rem',
-        border: 'none',
-        borderRadius: '8px',
-        cursor: 'pointer',
-      }}
-      onClick={handleClick}
-    >
-      Go to Vehicle Showcase
-    </button>
-      <VehicleShowcase />
+
+        <HeroSlider /> {/* SlideItem is already handled inside */}
+      {/* Slider From Zero point site replica */}
     </div>
   );
 };

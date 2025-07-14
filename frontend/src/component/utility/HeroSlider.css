@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+:root {
+    --neon-green: #14ff72;
+    --neon-blue: #00e0ff;
+    --text-glow: 0 0 15px var(--neon-green), 0 0 25px var(--neon-blue);
+    --glass-bg: rgba(255, 255, 255, 0.08);
+}
+
+.hero-slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    min-height: 100vh;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ❌ Removed .hero-slider::before and background-image/gradient */
+
+.slider-nav {
+    margin-top: -4rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    z-index: 2;
+}
+
+.slider-nav button {
+    padding: 0.75rem 1.6rem;
+    font-size: 0.95rem;
+    font-weight: bold;
+    background: var(--glass-bg);
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    transition: 0.3s;
+}
+
+.slider-nav button:hover {
+    background-color: var(--neon-green);
+    color: #000;
+}
+
+.slider-flavors {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.slider-flavors button {
+    padding: 0.6rem 1.2rem;
+    /* Current styles (keeping for now unless specified to change) */
+    font-size: 0.9rem; /* Keeping original button font size for readability */
+    font-weight: bold; /* Keeping original button font weight for emphasis */
+    background: transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    backdrop-filter: blur(6px);
+    transition: 0.3s;
+
+    /* Styles to make it similar to "Plasma Shock", "Titan Burn", "Nebula Berry" text */
+    font-family: "Zen Dots", sans-serif; /* Apply the "Zen Dots" font */
+    color: rgba(255, 255, 255, 0.5); /* Apply the faded white color */
+    text-transform: uppercase; /* Ensure it's uppercase */
+}
+
+.slider-flavors button:hover,
+.slider-flavors button.active {
+    color: #e3e3e3;
+}
+
+@media (max-width:480x) {
+    .slider-nav {
+        margin-top: -4rem;
+    }
+}

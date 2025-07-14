@@ -94,11 +94,10 @@ import Isuzupickup from "./component/slidePage/subpages/commercialcarpages/isuzu
 import Ashokpickup from "./component/slidePage/subpages/commercialcarpages/ashokpickup";
 import Suzukipickup from "./component/slidePage/subpages/commercialcarpages/suzukipickup";
 import StatsHighlightSection from "./component/utility/statshighlightsection";
-import VehicleShowcase from "./component/utility/VehicleShowcase";
 
-import showcaseData from "./component/utility/showcaseData";
-import AllVehicleShowcase from "./component/utility/AllVehicleShowcase";
 import Viewmore from "./component/cardetails/viewmore";
+import HeroSlider from "./component/utility/HeroSlider";
+import SlideItem from "./component/utility/SlideItem";
 // Debug logs
 // console.log("Bike Data:", Bikecard);
 console.log("Bike Data:", bikeVehicleData);
@@ -170,9 +169,7 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister }) =
               <Route path="/rover" element={<Rover />} />
               <Route path="/viewmore" element={<Viewmore />} />
               <Route path="/statshighlightsection" element={<StatsHighlightSection />} />
-              <Route path="/VehicleShowcase" element={<AllVehicleShowcase />} />
-              <Route path="AllVehicleShowcase" element={<AllVehicleShowcase />} />
-              {/* <Route path="/VehicleShowcase" element={<VehicleShowcase />} /> */}
+              
               <Route path="/jaguar" element={<Jaguar />} />
               <Route path="/bmw" element={<Bmw />} />
               <Route path="/mercedes" element={<Mercedes />}/>
@@ -220,6 +217,9 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister }) =
                 path="/cardetail/:vehicleId"
                 element={<CarDetail bikeData={bikeVehicleData} carData={carVehicleData} />}
               />
+
+              <Route path="/HeroSlider" element={<HeroSlider />}/>
+              <Route path="/SlideItem" element={<SlideItem />} />
               {/* <Route
                 path="/cardetail/:vehicleId"
                 element={<CarDetail bikeData={[]} carData={carVehicleData} />}
