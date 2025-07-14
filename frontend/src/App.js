@@ -98,6 +98,7 @@ import VehicleShowcase from "./component/utility/VehicleShowcase";
 
 import showcaseData from "./component/utility/showcaseData";
 import AllVehicleShowcase from "./component/utility/AllVehicleShowcase";
+import Viewmore from "./component/cardetails/viewmore";
 // Debug logs
 // console.log("Bike Data:", Bikecard);
 console.log("Bike Data:", bikeVehicleData);
@@ -167,6 +168,7 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister }) =
               <Route path="/page5" element={<Page5 />} />
               <Route path="/page6" element={<Page6 />} />
               <Route path="/rover" element={<Rover />} />
+              <Route path="/viewmore" element={<Viewmore />} />
               <Route path="/statshighlightsection" element={<StatsHighlightSection />} />
               <Route path="/VehicleShowcase" element={<AllVehicleShowcase />} />
               <Route path="AllVehicleShowcase" element={<AllVehicleShowcase />} />

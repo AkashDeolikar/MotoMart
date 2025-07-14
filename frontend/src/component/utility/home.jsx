@@ -43,6 +43,7 @@ import bimg4 from './assetimg/bimg4.jpg';
 import VehicleShowcase from "./VehicleShowcase";
 
 import GoToShowcaseButton from '../utility/VehicleShowcase'; // adjust the path
+import Viewmore from "../cardetails/viewmore";
 
 // ===============================================
 // Extracted Components for Better Structure
@@ -293,6 +294,7 @@ const FeaturedCarsSection = ({ featuredCars, handleViewCarDetails, carRouteMap }
             </div>
           </div>
         ))}
+        <Viewmore />
       </div>
     </div>
   </section>

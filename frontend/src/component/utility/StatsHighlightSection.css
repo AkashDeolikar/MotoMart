@@ -9,6 +9,7 @@
   --text-muted: #ccc;
   --shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
+
 .light {
   --primary-color: #ff4f14;
   --background: #e4e4e44a;
@@ -75,6 +76,7 @@ body {
   transform: rotate(25deg);
   z-index: 0;
 }
+
 .light .statsreportmechanism__card::before {
   content: '';
   position: absolute;
@@ -86,9 +88,11 @@ body {
   transform: rotate(25deg);
   z-index: 0;
 }
+
 .statsreportmechanism__card::before {
   background: radial-gradient(circle at top left, rgb(198, 198, 198), transparent);
 }
+
 .statsreportmechanism__card:hover {
   transform: translateY(-8px);
 }
@@ -122,7 +126,7 @@ body {
 }
 
 /* -------- AOS Animations (optional) -------- */
-[data-aos] {
+/* [data-aos] {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
@@ -131,11 +135,11 @@ body {
 [data-aos].aos-animate {
   opacity: 1;
   transform: translateY(0);
-}
+} */
 
 /* -------- Responsive (Tablet) -------- */
 @media (max-width: 768px) {
-    .statsreportmechanism__card {
+  .statsreportmechanism__card {
     background: var(--card-bg);
     backdrop-filter: var(--glass-blur);
     padding: 35px 30px;
@@ -148,10 +152,11 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: all 0.4s ease;
+    /* transition: all 0.4s ease; */
     position: relative;
     overflow: hidden;
-}
+  }
+
   .statsreportmechanism {
     padding: 60px 15px;
   }
@@ -181,16 +186,16 @@ body {
   }
 
   .statsreportmechanism__container {
-    flex-direction: column;
-    align-items: center;
-    gap: 18px;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* Optional: to wrap in case of many cards */
   }
 
   .statsreportmechanism__card {
-    width: 100%;
-    max-width: 100%;
-    height: 160px;
-    padding: 16px 12px;
+    width: 300px;
+    /* or auto depending on your design */
+    height: 180px;
   }
 
   .statsreportmechanism__count {
