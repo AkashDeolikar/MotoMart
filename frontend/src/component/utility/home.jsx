@@ -344,6 +344,10 @@ const VehicleCategoriesSection = () => {
           <Link to="/cardetails" className="cardetail-sections-btn">
             Discover Cars <FaArrowRight className="cardetail-sections-arrow-icon" />
           </Link>
+
+          <Link to="/BikeCompareDetails" className="cardetail-sections-btn">
+            Discover Bikes <FaArrowRight className="cardetail-sections-arrow-icon" />
+          </Link>
         </div>
       </div>
 
@@ -510,10 +514,10 @@ const Home = () => {
         carRouteMap={carRouteMap}
       /> */}
       <LoadingOverlay isLoading={isLoading} />  {/* This is a loading animation */}
-      
+
       <HeroSlider /> {/* SlideItem is already handled inside */}
       {/* Slider From Zero point site replica */}
-      
+
       {/* <HeroCarousel /> */}
 
       <AutoPlayCardSlider data={fold2CardsData} />
@@ -784,7 +788,7 @@ const Home = () => {
       <OffersGridSection offers={offers} />
 
 
-        
+
     </div>
   );
 };

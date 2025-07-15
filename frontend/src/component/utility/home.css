@@ -1558,6 +1558,7 @@ html {
   color: #fff;
   border: 2px solid #ffbb00;
   transition: all 0.3s ease-in-out;
+  margin-left: 10px;
 }
 
 .cardetail-sections-btn:hover {
@@ -1620,6 +1621,7 @@ html {
   .cardetail-sections-btn {
     padding: 0.8rem 1.6rem;
     font-size: 0.95rem;
+    margin-bottom: 10px;
   }
 
   .cardetail-sections-content {
@@ -2113,3 +2115,7 @@ body.dark{
     font-size: 1rem;
   }
 }
+
+
+
+

@@ -13,7 +13,7 @@
     align-items: center;
     justify-content: center;
     color: white;
-    min-height: 97vh;
+    min-height: 90vh;
     text-align: center;
     font-family: 'Orbitron', sans-serif;
     position: relative;
@@ -23,7 +23,7 @@
 /* ❌ Removed .hero-slider::before and background-image/gradient */
 
 .slider-nav {
-  margin-top: -8rem;
+  margin-top: -10rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -90,4 +90,6 @@
         margin-top: -4rem;
     }
 }
+
+
 

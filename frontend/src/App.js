@@ -98,6 +98,7 @@ import StatsHighlightSection from "./component/utility/statshighlightsection";
 import Viewmore from "./component/cardetails/viewmore";
 import HeroSlider from "./component/utility/HeroSlider";
 import SlideItem from "./component/utility/SlideItem";
+import BikeCompareDetails from "./component/pages/BikeCompareDetails";
 // Debug logs
 // console.log("Bike Data:", Bikecard);
 console.log("Bike Data:", bikeVehicleData);
@@ -213,6 +214,7 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister }) =
 
               {/* Car details */}
               <Route path="/cardetails" element={<CarDetails />} />
+              <Route path="/BikeCompareDetails" element={<BikeCompareDetails />} />
               <Route
                 path="/cardetail/:vehicleId"
                 element={<CarDetail bikeData={bikeVehicleData} carData={carVehicleData} />}

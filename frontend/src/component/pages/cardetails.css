@@ -54,17 +54,24 @@ body {
 }
 
 .getinfo-container {
-    max-width: 960px;
-    margin: 60px auto;
-    padding: 2.5rem;
-    border-radius: 20px;
-    /* Using linear-gradient with theme-dependent background colors */
-    background: linear-gradient(to right, var(--bg-color) 60%, var(--form-bg));
-    box-shadow: 0 15px 35px var(--shadow-color);
-    backdrop-filter: blur(8px);
-    transition: all 0.4s ease;
-    color: inherit; /* Ensure container text matches theme */
+  position: relative; /* Needed for ::before absolute positioning */
+  max-width: 960px;
+  margin: 60px auto;
+  padding: 2.5rem;
+  border-radius: 20px;
+  background: linear-gradient(23deg, #cdbb557b, #ede19f74, #cdb75566);
+  box-shadow: 0 15px 35px var(--shadow-color);
+  backdrop-filter: blur(8px);
+  transition: all 0.4s ease;
+  color: inherit;
+  overflow: hidden; /* Ensure ::before doesn't overflow container */
 }
+
+.dark .getinfo-container {
+  background: linear-gradient(23deg, #3737375c, #40344428, #4545435c);
+}
+
+
 
 /* ==================================== */
 /* Typography                           */
@@ -187,8 +194,10 @@ body {
 }
 
 .getinfo-btn:hover:not(:disabled) {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(255, 165, 0, 0.6);
+    background: linear-gradient(135deg, #fdc419, #ff4a13);
+}
+.dark .getinfo-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #14ff72, #00d4ff);
 }
 
 .getinfo-btn:active {
@@ -518,9 +527,10 @@ body {
 
 .gradient-shadow {
     background-image: linear-gradient(135deg, #ff3d00, #ffbe00);
-    box-shadow: 0 5px 20px rgba(240, 204, 97, 0.266);
 }
-
+.dark .gradient-shadow {
+    background: linear-gradient(135deg, #00d4ff, #14ff72);
+}
 
 /* ==================================== */
 /* Responsive Design                    */
