@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import "./combineouter.css";
@@ -21,7 +21,7 @@ const Evvh = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const fromNavigation = location.state?.fromCardClick || false;
-  const [isLoading, setIsLoading] = useState(true); // default true
+  const [isLoading, setIsLoading] = useState(true);
 
   const [loadingStates, setLoadingStates] = useState({
     bmwEV: false,
@@ -30,14 +30,42 @@ const Evvh = () => {
     teslaEV: false,
   });
 
-  useEffect(() => {
-  const timeout = setTimeout(() => {
-    setIsLoading(false); // hide after full load
-  }, 1000); // or 500ms
+  // ✅ Loader stays until all <img> tags load
+  useLayoutEffect(() => {
+    const checkImages = () => {
+      const images = Array.from(document.querySelectorAll("img"));
+      if (images.length === 0) {
+        setIsLoading(false);
+        return;
+      }
 
-  return () => clearTimeout(timeout);
-}, []); // ✅ only run once on first mount
+      let loadedCount = 0;
+      const onImgLoad = () => {
+        loadedCount++;
+        if (loadedCount === images.length) {
+          setIsLoading(false);
+        }
+      };
 
+      images.forEach(img => {
+        if (img.complete) {
+          onImgLoad();
+        } else {
+          img.addEventListener("load", onImgLoad);
+          img.addEventListener("error", onImgLoad);
+        }
+      });
+
+      return () => {
+        images.forEach(img => {
+          img.removeEventListener("load", onImgLoad);
+          img.removeEventListener("error", onImgLoad);
+        });
+      };
+    };
+
+    setTimeout(checkImages, 100);
+  }, []);
 
   const handleVehicleClick = (brand, route) => {
     setLoadingStates(prev => ({ ...prev, [brand]: true }));
@@ -51,28 +79,36 @@ const Evvh = () => {
 
   const vehicles = [
     {
-      name: "BMW", /* TITLE */
-      key: "bmwEV",/* CSS CODE AND IMG LINK NAME */
-      route: "/bmwcarev", /* PAGE LINK */
-      description: "Introducing a new era characterised by the advent of all-electric vehicles, combining exhilarating performance, dramatic design, and a captivating sense of theatre."
+      name: "BMW",
+      key: "bmwEV",
+      route: "/bmwcarev",
+      image: "/images/bmwEV.webp",
+      description:
+        "Introducing a new era characterised by the advent of all-electric vehicles, combining exhilarating performance, dramatic design, and a captivating sense of theatre.",
     },
     {
       name: "Kia",
       key: "kiaEV",
       route: "/kiacarev",
-      description: "Introducing a new era defined by the seamless fusion of dynamic performance, intelligent design, and sustainable luxury."
+      image: "/images/kiaEV.webp",
+      description:
+        "Introducing a new era defined by the seamless fusion of dynamic performance, intelligent design, and sustainable luxury.",
     },
     {
       name: "Mercedes",
       key: "mercedesEV",
       route: "/mercedescarev",
-      description: "Introducing a new era characterized by the powerful transformation of electric mobility, combining rugged capability, innovative technology, and a commitment to everyday utility."
+      image: "/images/mercedesEV.webp",
+      description:
+        "Introducing a new era characterized by the powerful transformation of electric mobility, combining rugged capability, innovative technology, and a commitment to everyday utility.",
     },
     {
       name: "Tesla",
       key: "teslaEV",
       route: "/teslacarev",
-      description: "Introducing a new era characterized by the progressive evolution of electric mobility, combining sophisticated design, exhilarating performance, and cutting-edge technology."
+      image: "/images/teslaEV.webp",
+      description:
+        "Introducing a new era characterized by the progressive evolution of electric mobility, combining sophisticated design, exhilarating performance, and cutting-edge technology.",
     },
   ];
 
@@ -89,10 +125,19 @@ const Evvh = () => {
               <div className="app-luxury-card app-loading-card app-appear-intro"></div>
             ) : (
               <div className={`app-luxury-card app-luxury-card-${vehicle.key} app-appear-intro`}>
+                <img
+                  src={vehicle.image}
+                  alt={vehicle.name}
+                  loading="lazy"
+                  style={{ width: "100%", height: "auto", borderRadius: "10px" }}
+                />
                 <div className="app-card-caption-wrapper">
                   <h2 className="app-margin-bottom-2">{vehicle.name}</h2>
                   <p className="app-margin-bottom-paragraph">{vehicle.description}</p>
-                  <a className="app-readmore-cta" onClick={() => handleVehicleClick(vehicle.key, vehicle.route)}>
+                  <a
+                    className="app-readmore-cta"
+                    onClick={() => handleVehicleClick(vehicle.key, vehicle.route)}
+                  >
                     Visit website
                   </a>
                 </div>
@@ -106,6 +151,7 @@ const Evvh = () => {
 };
 
 export default Evvh;
+
 
 
 // import React, { useState } from "react";

@@ -142,7 +142,7 @@
 
 // export default Luxuryvh;
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import "./combineouter.css";
@@ -165,6 +165,7 @@ const Luxuryvh = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const fromNavigation = location.state?.fromCardClick || false;
+
   const [isLoading, setIsLoading] = useState(true);
 
   const [loadingStates, setLoadingStates] = useState({
@@ -177,38 +178,42 @@ const Luxuryvh = () => {
     mercedes: false,
   });
 
-  // Wait for all images to load before removing loader
-  useEffect(() => {
-    const images = Array.from(document.images);
-    let loadedCount = 0;
-
-    if (images.length === 0) {
-      setIsLoading(false);
-      return;
-    }
-
-    const handleImageLoad = () => {
-      loadedCount++;
-      if (loadedCount === images.length) {
+  // 👇 This runs after DOM (images) is painted
+  useLayoutEffect(() => {
+    const checkImages = () => {
+      const images = Array.from(document.querySelectorAll("img"));
+      if (images.length === 0) {
         setIsLoading(false);
+        return;
       }
-    };
 
-    images.forEach(img => {
-      if (img.complete) {
-        handleImageLoad();
-      } else {
-        img.addEventListener("load", handleImageLoad);
-        img.addEventListener("error", handleImageLoad);
-      }
-    });
+      let loadedCount = 0;
+      const onImgLoad = () => {
+        loadedCount++;
+        if (loadedCount === images.length) {
+          setIsLoading(false);
+        }
+      };
 
-    return () => {
       images.forEach(img => {
-        img.removeEventListener("load", handleImageLoad);
-        img.removeEventListener("error", handleImageLoad);
+        if (img.complete) {
+          onImgLoad();
+        } else {
+          img.addEventListener("load", onImgLoad);
+          img.addEventListener("error", onImgLoad);
+        }
       });
+
+      return () => {
+        images.forEach(img => {
+          img.removeEventListener("load", onImgLoad);
+          img.removeEventListener("error", onImgLoad);
+        });
+      };
     };
+
+    // Delay execution slightly to ensure DOM is ready
+    setTimeout(checkImages, 100);
   }, []);
 
   const handleVehicleClick = (brand, route) => {
@@ -226,6 +231,7 @@ const Luxuryvh = () => {
       name: "Jaguar",
       key: "jaguar",
       route: "/jaguarcar",
+      image: "/images/jaguar.webp",
       description:
         "Introducing a new era characterised by the advent of all-electric vehicles, combining exhilarating performance, dramatic design, and a captivating sense of theatre.",
     },
@@ -233,6 +239,7 @@ const Luxuryvh = () => {
       name: "BMW",
       key: "bmw",
       route: "/bmwcar",
+      image: "/images/bmw.webp",
       description:
         "Introducing a new era defined by the seamless fusion of dynamic performance, intelligent design, and sustainable luxury.",
     },
@@ -240,6 +247,7 @@ const Luxuryvh = () => {
       name: "Ford",
       key: "ford",
       route: "/fordcar",
+      image: "/images/ford.webp",
       description:
         "Introducing a new era characterized by the powerful transformation of electric mobility, combining rugged capability, innovative technology, and a commitment to everyday utility.",
     },
@@ -247,6 +255,7 @@ const Luxuryvh = () => {
       name: "Audi",
       key: "audi",
       route: "/audicar",
+      image: "/images/audi.webp",
       description:
         "Introducing a new era characterized by the progressive evolution of electric mobility, combining sophisticated design, exhilarating performance, and cutting-edge technology.",
     },
@@ -254,6 +263,7 @@ const Luxuryvh = () => {
       name: "RangeRover",
       key: "discovery",
       route: "/rangerovercar",
+      image: "/images/discovery.webp",
       description:
         "Introducing a new era characterized by the uncompromising evolution of electric capability, combining legendary luxury, commanding presence, and silent power.",
     },
@@ -261,6 +271,7 @@ const Luxuryvh = () => {
       name: "RollsRoyls",
       key: "rollsroyls",
       route: "/rollsroylscar",
+      image: "/images/rollsroyls.webp",
       description:
         "Introducing a new era defined by the whisper-quiet ascent into electric super-luxury, combining unparalleled craftsmanship, serene performance, and an ethereal sense of presence.",
     },
@@ -268,6 +279,7 @@ const Luxuryvh = () => {
       name: "Mercedes",
       key: "mercedes",
       route: "/mercedescar",
+      image: "/images/mercedes.webp",
       description:
         "Introducing a new era characterized by the pioneering spirit of electric innovation, combining iconic luxury, refined performance, and intuitive technology.",
     },
@@ -286,8 +298,8 @@ const Luxuryvh = () => {
               <div className="app-luxury-card app-loading-card app-appear-intro"></div>
             ) : (
               <div className={`app-luxury-card app-luxury-card-${vehicle.key} app-appear-intro`}>
-                {/* Optional: Add real image here to trigger loading */}
-                {/* <img src={`/images/${vehicle.key}.jpg`} alt={vehicle.name} loading="lazy" /> */}
+                {/* ✅ Add real image so loader waits */}
+                <img src={vehicle.image} alt={vehicle.name} loading="lazy" style={{ width: "100%", height: "auto", borderRadius: "10px" }} />
                 <div className="app-card-caption-wrapper">
                   <h2 className="app-margin-bottom-2">{vehicle.name}</h2>
                   <p className="app-margin-bottom-paragraph">{vehicle.description}</p>

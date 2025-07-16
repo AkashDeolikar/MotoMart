@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import "./combineouter.css";
@@ -21,7 +21,7 @@ const Passengervh = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const fromNavigation = location.state?.fromCardClick || false;
-  const [isLoading, setIsLoading] = useState(true); // default true
+  const [isLoading, setIsLoading] = useState(true);
 
   const [loadingStates, setLoadingStates] = useState({
     honda: false,
@@ -32,14 +32,42 @@ const Passengervh = () => {
     suzuki: false,
   });
 
-  useEffect(() => {
-  const timeout = setTimeout(() => {
-    setIsLoading(false); // hide after full load
-  }, 1000); // or 500ms
+  // ✅ Wait for all <img> to load before removing loader
+  useLayoutEffect(() => {
+    const checkImages = () => {
+      const images = Array.from(document.querySelectorAll("img"));
+      if (images.length === 0) {
+        setIsLoading(false);
+        return;
+      }
 
-  return () => clearTimeout(timeout);
-}, []); // ✅ only run once on first mount
+      let loadedCount = 0;
+      const onImgLoad = () => {
+        loadedCount++;
+        if (loadedCount === images.length) {
+          setIsLoading(false);
+        }
+      };
 
+      images.forEach(img => {
+        if (img.complete) {
+          onImgLoad();
+        } else {
+          img.addEventListener("load", onImgLoad);
+          img.addEventListener("error", onImgLoad);
+        }
+      });
+
+      return () => {
+        images.forEach(img => {
+          img.removeEventListener("load", onImgLoad);
+          img.removeEventListener("error", onImgLoad);
+        });
+      };
+    };
+
+    setTimeout(checkImages, 100);
+  }, []);
 
   const handleVehicleClick = (brand, route) => {
     setLoadingStates(prev => ({ ...prev, [brand]: true }));
@@ -53,40 +81,52 @@ const Passengervh = () => {
 
   const vehicles = [
     {
-      name: "Honda",/* TITLE */
-      key: "honda",/* CSS CODE AND IMG LINK NAME */
-      route: "/hondacar", /* PAGE LINK */
-      description: "Introducing a new era characterised by the advent of all-electric vehicles, combining exhilarating performance, dramatic design, and a captivating sense of theatre."
+      name: "Honda",
+      key: "honda",
+      route: "/hondacar",
+      image: "/images/honda.webp",
+      description:
+        "Introducing a new era characterised by the advent of all-electric vehicles, combining exhilarating performance, dramatic design, and a captivating sense of theatre.",
     },
     {
       name: "Hyndai",
       key: "hyndai",
       route: "/hyundaicar",
-      description: "Introducing a new era defined by the seamless fusion of dynamic performance, intelligent design, and sustainable luxury."
+      image: "/images/hyndai.webp",
+      description:
+        "Introducing a new era defined by the seamless fusion of dynamic performance, intelligent design, and sustainable luxury.",
     },
     {
       name: "Jeep",
       key: "jeep",
       route: "/jeepcar",
-      description: "Introducing a new era characterized by the powerful transformation of electric mobility, combining rugged capability, innovative technology, and a commitment to everyday utility."
+      image: "/images/jeep.webp",
+      description:
+        "Introducing a new era characterized by the powerful transformation of electric mobility, combining rugged capability, innovative technology, and a commitment to everyday utility.",
     },
     {
       name: "Nissan",
       key: "nissan",
       route: "/nissancar",
-      description: "Introducing a new era characterized by the progressive evolution of electric mobility, combining sophisticated design, exhilarating performance, and cutting-edge technology."
+      image: "/images/nissan.webp",
+      description:
+        "Introducing a new era characterized by the progressive evolution of electric mobility, combining sophisticated design, exhilarating performance, and cutting-edge technology.",
     },
     {
       name: "Renault",
       key: "renault",
       route: "/renaultcar",
-      description: "Introducing a new era characterized by the uncompromising evolution of electric capability, combining legendary luxury, commanding presence, and silent power."
+      image: "/images/renault.webp",
+      description:
+        "Introducing a new era characterized by the uncompromising evolution of electric capability, combining legendary luxury, commanding presence, and silent power.",
     },
     {
       name: "Suzuki",
       key: "suzuki",
       route: "/suzukicar",
-      description: "Introducing a new era defined by the whisper-quiet ascent into electric super-luxury, combining unparalleled craftsmanship, serene performance, and an ethereal sense of presence."
+      image: "/images/suzuki.webp",
+      description:
+        "Introducing a new era defined by the whisper-quiet ascent into electric super-luxury, combining unparalleled craftsmanship, serene performance, and an ethereal sense of presence.",
     },
   ];
 
@@ -103,10 +143,19 @@ const Passengervh = () => {
               <div className="app-luxury-card app-loading-card app-appear-intro"></div>
             ) : (
               <div className={`app-luxury-card app-luxury-card-${vehicle.key} app-appear-intro`}>
+                <img
+                  src={vehicle.image}
+                  alt={vehicle.name}
+                  loading="lazy"
+                  style={{ width: "100%", height: "auto", borderRadius: "10px" }}
+                />
                 <div className="app-card-caption-wrapper">
                   <h2 className="app-margin-bottom-2">{vehicle.name}</h2>
                   <p className="app-margin-bottom-paragraph">{vehicle.description}</p>
-                  <a className="app-readmore-cta" onClick={() => handleVehicleClick(vehicle.key, vehicle.route)}>
+                  <a
+                    className="app-readmore-cta"
+                    onClick={() => handleVehicleClick(vehicle.key, vehicle.route)}
+                  >
                     Visit website
                   </a>
                 </div>
@@ -120,6 +169,7 @@ const Passengervh = () => {
 };
 
 export default Passengervh;
+
 
 // import React, { useState } from "react";
 // import { Link, useNavigate } from "react-router-dom";
