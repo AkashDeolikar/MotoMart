@@ -3,17 +3,17 @@ import './HeroSlider.css';
 import SlideItem from './SlideItem';
 
 // import img1 from '../utility/slideasset/blueberry.png';
-import img1 from '../utility/ertiga.png';
+import img1 from '../utility/im3.png';
 import img2 from '../utility/slideasset/coke.png';
-import img3 from '../utility/slideasset/berry.png';
+import img3 from '../utility/im41.png';
 
-import bg1 from './slideasset/s-bg1.jpg';
+import bg1 from './slideasset/s-bg3.jpg';
 import bg2 from './slideasset/s-bg2.jpg';
-import bg3 from './slideasset/s-bg3.jpg';
+import bg3 from './slideasset/s-bg1.jpg';
 
-import downbg1 from './slideasset/rocks1.png';
+import downbg1 from './slideasset/rocks3.png';
 import downbg2 from './slideasset/rock2.png';
-import downbg3 from './slideasset/rocks3.png';
+import downbg3 from './slideasset/rocks1.png';
 
 const slides = [
   {
@@ -26,9 +26,10 @@ const slides = [
   {
     title: "Tomorrow's Mobility",
     subtitle: "Driving the future, one innovation at a time.",
-    img: img2,
+    img: null,
     bgImage: bg2,
     downimg: downbg2,
+    video: "https://www.tatamotors.com/wp-content/themes/TataMotors/video/TML-Desktop-video.mp4", 
   },
   {
     title: "Explore the Road",
@@ -59,6 +60,7 @@ const HeroSlider = () => {
         img={currentSlide.img}
         downimg={currentSlide.downimg}
         bgImage={currentSlide.bgImage}
+        video={currentSlide.video}
       />
 
       <div className="slider-nav">
