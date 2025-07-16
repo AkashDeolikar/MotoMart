@@ -1,6 +1,5 @@
 import React, { useState, useLayoutEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./combineouter.css";
 
 const LoadingOverlay = ({ isLoading }) => {
@@ -20,9 +19,8 @@ const LoadingOverlay = ({ isLoading }) => {
 const Passengervh = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const fromNavigation = location.state?.fromCardClick || false;
+  
   const [isLoading, setIsLoading] = useState(true);
-
   const [loadingStates, setLoadingStates] = useState({
     honda: false,
     hyndai: false,
@@ -32,7 +30,7 @@ const Passengervh = () => {
     suzuki: false,
   });
 
-  // ✅ Wait for all <img> to load before removing loader
+  // ✅ Wait for all <img> tags to load before hiding loader
   useLayoutEffect(() => {
     const checkImages = () => {
       const images = Array.from(document.querySelectorAll("img"));
@@ -143,12 +141,11 @@ const Passengervh = () => {
               <div className="app-luxury-card app-loading-card app-appear-intro"></div>
             ) : (
               <div className={`app-luxury-card app-luxury-card-${vehicle.key} app-appear-intro`}>
-                <img
-                  src={vehicle.image}
-                  alt={vehicle.name}
-                  loading="lazy"
-                  style={{ width: "100%", height: "auto", borderRadius: "10px" }}
-                />
+                  <img
+                    src={vehicle.image}
+                    alt={vehicle.name}
+                    style={{ display: "none" }} // hidden but still triggers load
+                  />
                 <div className="app-card-caption-wrapper">
                   <h2 className="app-margin-bottom-2">{vehicle.name}</h2>
                   <p className="app-margin-bottom-paragraph">{vehicle.description}</p>
@@ -170,6 +167,128 @@ const Passengervh = () => {
 
 export default Passengervh;
 
+// import React, { useState, useEffect } from "react";
+// import { useNavigate } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
+// import "./combineouter.css";
+
+// const LoadingOverlay = ({ isLoading }) => {
+//   if (!isLoading) return null;
+//   return (
+//     <div className="app-loading-overlay">
+//       <div className="app-glass-loader">
+//         <div className="app-spinner"></div>
+//         <p className="app-loading-text">
+//           <i className="bi bi-lightning-charge-fill"></i> Please wait... loading details
+//         </p>
+//       </div>
+//     </div>
+//   );
+// };
+
+// const Passengervh = () => {
+//   const navigate = useNavigate();
+//   const location = useLocation();
+//   const fromNavigation = location.state?.fromCardClick || false;
+//   const [isLoading, setIsLoading] = useState(true); // default true
+
+//   const [loadingStates, setLoadingStates] = useState({
+//     honda: false,
+//     hyndai: false,
+//     jeep: false,
+//     nissan: false,
+//     renault: false,
+//     suzuki: false,
+//   });
+
+//   useEffect(() => {
+//   const timeout = setTimeout(() => {
+//     setIsLoading(false); // hide after full load
+//   }, 1000); // or 500ms
+
+//   return () => clearTimeout(timeout);
+// }, []); // ✅ only run once on first mount
+
+
+//   const handleVehicleClick = (brand, route) => {
+//     setLoadingStates(prev => ({ ...prev, [brand]: true }));
+//     setIsLoading(true);
+//     setTimeout(() => {
+//       setIsLoading(false);
+//       setLoadingStates(prev => ({ ...prev, [brand]: false }));
+//       navigate(route);
+//     }, 2000);
+//   };
+
+//   const vehicles = [
+//     {
+//       name: "Honda",/* TITLE */
+//       key: "honda",/* CSS CODE AND IMG LINK NAME */
+//       route: "/hondacar", /* PAGE LINK */
+//       description: "Introducing a new era characterised by the advent of all-electric vehicles, combining exhilarating performance, dramatic design, and a captivating sense of theatre."
+//     },
+//     {
+//       name: "Hyndai",
+//       key: "hyndai",
+//       route: "/hyundaicar",
+//       description: "Introducing a new era defined by the seamless fusion of dynamic performance, intelligent design, and sustainable luxury."
+//     },
+//     {
+//       name: "Jeep",
+//       key: "jeep",
+//       route: "/jeepcar",
+//       description: "Introducing a new era characterized by the powerful transformation of electric mobility, combining rugged capability, innovative technology, and a commitment to everyday utility."
+//     },
+//     {
+//       name: "Nissan",
+//       key: "nissan",
+//       route: "/nissancar",
+//       description: "Introducing a new era characterized by the progressive evolution of electric mobility, combining sophisticated design, exhilarating performance, and cutting-edge technology."
+//     },
+//     {
+//       name: "Renault",
+//       key: "renault",
+//       route: "/renaultcar",
+//       description: "Introducing a new era characterized by the uncompromising evolution of electric capability, combining legendary luxury, commanding presence, and silent power."
+//     },
+//     {
+//       name: "Suzuki",
+//       key: "suzuki",
+//       route: "/suzukicar",
+//       description: "Introducing a new era defined by the whisper-quiet ascent into electric super-luxury, combining unparalleled craftsmanship, serene performance, and an ethereal sense of presence."
+//     },
+//   ];
+
+//   return (
+//     <div className="app-luxury-vehicle-page">
+//       <LoadingOverlay isLoading={isLoading} />
+//       <div className="app-luxury-page-header">
+//         <h2>PASSENGER VEHICLE</h2>
+//       </div>
+//       <div className="app-row">
+//         {vehicles.map(vehicle => (
+//           <div className="app-col-md-6" key={vehicle.key}>
+//             {loadingStates[vehicle.key] ? (
+//               <div className="app-luxury-card app-loading-card app-appear-intro"></div>
+//             ) : (
+//               <div className={`app-luxury-card app-luxury-card-${vehicle.key} app-appear-intro`}>
+//                 <div className="app-card-caption-wrapper">
+//                   <h2 className="app-margin-bottom-2">{vehicle.name}</h2>
+//                   <p className="app-margin-bottom-paragraph">{vehicle.description}</p>
+//                   <a className="app-readmore-cta" onClick={() => handleVehicleClick(vehicle.key, vehicle.route)}>
+//                     Visit website
+//                   </a>
+//                 </div>
+//               </div>
+//             )}
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Passengervh;
 
 // import React, { useState } from "react";
 // import { Link, useNavigate } from "react-router-dom";

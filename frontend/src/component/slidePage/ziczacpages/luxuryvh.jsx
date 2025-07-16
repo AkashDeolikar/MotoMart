@@ -299,7 +299,11 @@ const Luxuryvh = () => {
             ) : (
               <div className={`app-luxury-card app-luxury-card-${vehicle.key} app-appear-intro`}>
                 {/* ✅ Add real image so loader waits */}
-                <img src={vehicle.image} alt={vehicle.name} loading="lazy" style={{ width: "100%", height: "auto", borderRadius: "10px" }} />
+                  <img
+                    src={vehicle.image}
+                    alt={vehicle.name}
+                    style={{ display: "none" }} // hidden but still triggers load
+                  />
                 <div className="app-card-caption-wrapper">
                   <h2 className="app-margin-bottom-2">{vehicle.name}</h2>
                   <p className="app-margin-bottom-paragraph">{vehicle.description}</p>
