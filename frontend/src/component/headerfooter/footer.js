@@ -16,13 +16,13 @@ const Footer = () => {
   return (
     <footer className="footer">
       <h2 className="ProjectName">MotoMart</h2>
-      <div class="Xp8JS"></div>
+      <div className="Xp8JS"></div>
       <div className="footer-container">
         <div className="footer-section">
           <h5 style={{color:'Highlight'}}>Project Links</h5>
           <ul>
-            <li><a href="https://github.com/AkashDeolikar/MotoMart">GitHub <i class="bi bi-github"></i></a></li>
-            <li><a href="https://motomart-ten.vercel.app">Vercel Hosting <i class="bi bi-git"></i></a></li>
+            <li><a href="https://github.com/AkashDeolikar/MotoMart">GitHub <i className="bi bi-github"></i></a></li>
+            <li><a href="https://motomart-ten.vercel.app">Vercel Hosting <i className="bi bi-git"></i></a></li>
           </ul>
         </div>
 

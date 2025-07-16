@@ -5,6 +5,7 @@ import './navbar.css';
 import { auth } from "../../firebase";
 import ServiceDropdown from './ServiceDropdown';
 import VehicleDropdown from "./vehicledropdown";
+import navlogo from './navlogo.png';
 
 const CarNavbar = memo(({ theme, toggleTheme }) => {
   const location = useLocation();
@@ -30,12 +31,13 @@ const CarNavbar = memo(({ theme, toggleTheme }) => {
     setIsMobileMenuOpen(false);
   }, []);
 
-  // ✅ SCROLL AND PAGE LOGIC - Optimized to use useCallback
+  // SCROLL AND PAGE LOGIC - Optimized to use useCallback
   useEffect(() => {
     const handleScroll = () => {
       const isHomePath = location.pathname === "/";
       const scrollTop = window.scrollY;
 
+      // Only update state if it actually changes to prevent unnecessary re-renders
       const newIsHomePageAtTop = isHomePath && scrollTop <= 50;
       if (newIsHomePageAtTop !== isHomePageAtTop) {
         setIsHomePageAtTop(newIsHomePageAtTop);
@@ -43,18 +45,22 @@ const CarNavbar = memo(({ theme, toggleTheme }) => {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
+    handleScroll(); // Call once on mount to set initial state
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [location.pathname, isHomePageAtTop]); // isHomePageAtTop added for accurate state check
+  }, [location.pathname, isHomePageAtTop]); // Added isHomePageAtTop to dependency array for correct closure
 
-  const navbarClass = `car-navbar ${theme} ${isHomePageAtTop ? "homepage-transparent-top" : "scrolled-or-other-page"}`;
+  const navbarClass = `car-navbar ${isHomePageAtTop ? "homepage-transparent-top" : "scrolled-or-other-page"}`;
 
   return (
     <nav className={navbarClass} aria-label="Main Navigation">
       <div className="car-navbar-container">
         <div className="car-navbar-logo">
-          <h1 className="ProjectName">MotoMart</h1>
+          <img
+            className="ProjectName"
+            src={navlogo}
+            alt="MotoMart Logo"
+          />
         </div>
 
         <button
@@ -83,7 +89,7 @@ const CarNavbar = memo(({ theme, toggleTheme }) => {
 
             <VehicleDropdown
               closeParentMobileMenu={closeMobileMenu}
-              isParentMobileMenuOpen={isMobileMenuOpen}
+              isParentMobileMenuOpen={isMobileMenuOpen} // This prop might be redundant if dropdowns manage their own mobile open state
             />
 
             {user?.email === "admin@gmail.com" && (
@@ -94,7 +100,7 @@ const CarNavbar = memo(({ theme, toggleTheme }) => {
 
             <ServiceDropdown
               closeParentMobileMenu={closeMobileMenu}
-              isParentMobileMenuOpen={isMobileMenuOpen}
+              isParentMobileMenuOpen={isMobileMenuOpen} // This prop might be redundant
             />
 
             <li>
@@ -119,25 +125,23 @@ const CarNavbar = memo(({ theme, toggleTheme }) => {
               </>
             )}
 
-            {/* ✅ CORRECTED THEME TOGGLE BUTTON */}
+            {/* Theme Toggle Button */}
             <li>
               <div
-                className="theme-toggle" // This div contains the FaMoon/FaSun icon
+                className="theme-toggle"
                 onClick={() => { toggleTheme(); closeMobileMenu(); }}
                 role="button"
                 tabIndex="0"
                 aria-label={theme === "light" ? "Switch to dark theme" : "Switch to light theme"}
+                onKeyDown={(e) => { // Add keyboard accessibility
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    toggleTheme();
+                    closeMobileMenu();
+                  }
+                }}
               >
                 {theme === "light" ? <FaMoon /> : <FaSun />}
               </div>
-
-              {/* ❌ REMOVE THIS BUTTON: It's redundant and the source of the DOM manipulation issue */}
-              {/*
-              <button id="theme-toggle">
-                <span class="icon light-icon">☀️</span>
-                <span class="icon dark-icon">🌙</span>
-              </button>
-              */}
             </li>
           </ul>
         </div>

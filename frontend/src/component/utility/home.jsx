@@ -87,7 +87,7 @@ const HeroCarousel = () => {
     { id: 1, type: 'image', src: "https://www.tatamotors.com/wp-content/themes/TataMotors/images/TM_Home_Desktop4.webp", title: "Connection aspirations.", name: "Delivering values.", description: "Connect with the future of mobility." },
     { id: 2, type: 'video', src: "https://www.tatamotors.com/wp-content/themes/TataMotors/video/TML-Desktop-video.mp4", title: "A spotlight on", name: "Sustainability.", description: "Embracing clean mobility for a better tomorrow." },
     { id: 3, type: 'image', src: "https://www.tatamotors.com/wp-content/themes/TataMotors/images/TM_Home_Desktop2.webp", title: "Embracing", name: "Clean mobility.", description: "Innovating for a greener tomorrow." },
-    { id: 4, type: 'image', src: "https://www.tatamotors.com/wp-content/themes/TataMotors/images/TM_Home_Desktop1.webp", title: "Tomorrow choices,", name: "Today.", description: "Driving the future, one innovation at a time." },
+    // { id: 4, type: 'image', src: "https://www.tatamotors.com/wp-content/themes/TataMotors/images/TM_Home_Desktop1.webp", title: "Tomorrow choices,", name: "Today.", description: "Driving the future, one innovation at a time." },
   ]);
 
   // Refs for managing timeouts to ensure they are cleared correctly across renders
@@ -110,13 +110,13 @@ const HeroCarousel = () => {
     if (type === 'next') {
       const firstItem = newItems.shift(); // Remove the first item
       newItems.push(firstItem); // Add it to the end
-      setIsNextTransitioning(true); // Apply 'next' class for CSS transition
-      setIsPrevTransitioning(false); // Ensure 'prev' class is removed
+      setIsNextTransitioning(true); // Apply 'next' className for CSS transition
+      setIsPrevTransitioning(false); // Ensure 'prev' className is removed
     } else { // 'prev'
       const lastItem = newItems.pop(); // Remove the last item
       newItems.unshift(lastItem); // Add it to the beginning
-      setIsPrevTransitioning(true); // Apply 'prev' class for CSS transition
-      setIsNextTransitioning(false); // Ensure 'next' class is removed
+      setIsPrevTransitioning(true); // Apply 'prev' className for CSS transition
+      setIsNextTransitioning(false); // Ensure 'next' className is removed
     }
     setCarouselItems(newItems); // Update state to trigger re-render with new item order
 
@@ -515,10 +515,11 @@ const Home = () => {
       /> */}
       <LoadingOverlay isLoading={isLoading} />  {/* This is a loading animation */}
 
-      <HeroSlider /> {/* SlideItem is already handled inside */}
+      {/* <HeroSlider />  */}
+      {/* SlideItem is already handled inside */}
       {/* Slider From Zero point site replica */}
 
-      {/* <HeroCarousel /> */}
+      <HeroCarousel />
 
       <AutoPlayCardSlider data={fold2CardsData} />
 
@@ -668,37 +669,37 @@ const Home = () => {
                 <picture className="roverimg">
                   <img alt="roverRRJ" className="zic-zac-block-img" src={luxury} />
                 </picture>
-                <h3 class="masonrymedia__card-title1 headline headline--xl">LUXURY VEHICLES</h3>
+                <h3 className="masonrymedia__card-title1 headline headline--xl">LUXURY VEHICLES</h3>
               </Link>
             </div>
 
             {/* Image 3: Left aligned - Clickable */}
-            <div className="support left-aligned" data-aos="slide-left" data-aos-delay="300">
+            <div className="support left-aligned" data-aos="slide-left" data-aos-delay="200">
               <Link to="/passengervh" className="zic-image-link">
                 <picture className="roverimg">
                   <img alt="passenger" className="zic-zac-block-img" src={passenger} />
                 </picture>
-                <h3 class="masonrymedia__card-title1 headline headline--xl">PASSENGER VEHICLE</h3>
+                <h3 className="masonrymedia__card-title1 headline headline--xl">PASSENGER VEHICLE</h3>
               </Link>
             </div>
 
             {/* Image 2: Right aligned - Clickable */}
-            <div className="support right-aligned" data-aos="slide-right" data-aos-delay="350">
+            <div className="support right-aligned" data-aos="slide-right" data-aos-delay="200">
               <Link to="/evvh" className="zic-image-link">
                 <picture className="roverimg">
                   <img alt="ev" className="zic-zac-block-img" src={ev} />
                 </picture>
-                <h3 class="masonrymedia__card-title1 headline headline--xl">EV VEHICLE</h3>
+                <h3 className="masonrymedia__card-title1 headline headline--xl">EV VEHICLE</h3>
               </Link>
             </div>
 
             {/* Image 4: Left aligned - Clickable */}
-            <div className="support left-aligned" data-aos="slide-left" data-aos-delay="400">
+            <div className="support left-aligned" data-aos="slide-left" data-aos-delay="200">
               <Link to="/commercialvh" className="zic-image-link">
                 <picture className="roverimg">
                   <img alt="commercial" className="zic-zac-block-img" src={commercial} />
                 </picture>
-                <h3 class="masonrymedia__card-title1 headline headline--xl">COMMERCIAL VEHICLE</h3>
+                <h3 className="masonrymedia__card-title1 headline headline--xl">COMMERCIAL VEHICLE</h3>
               </Link>
             </div>
           </div>

@@ -92,7 +92,7 @@ a:hover {
 
 /* Positioning for smaller items on the right */
 .carousel .list .item:nth-child(3) {
-    left: 67%;
+    left: 80%;
 }
 
 .carousel .list .item:nth-child(4) {
@@ -134,7 +134,7 @@ a:hover {
 .content .title {
     font-size: 85px;
     text-transform: uppercase;
-    color: #14ff72cb;
+    color: #48e085cb;
     text-shadow: 3px 4px 4px rgb(26 26 26 / 90%);
     font-weight: bold;
     line-height: 1;

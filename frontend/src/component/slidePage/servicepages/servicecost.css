@@ -1,6 +1,6 @@
 /* ==== General Layout ==== */
 .container {
-  max-width: 650px;
+  max-width: 700px;
   margin: 40px auto;
   padding: 24px;
   background: #1e1e1e;
@@ -15,9 +15,31 @@
 .container h2 {
   text-align: center;
   margin-bottom: 24px;
-  font-size: 28px;
+  font-size: 30px;
   color: #4caf50;
   letter-spacing: 1px;
+}
+
+/* ==== Vehicle Type Selector ==== */
+.vehicle-selector {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.vehicle-selector label {
+  font-weight: 500;
+  color: #ccc;
+}
+
+.vehicle-selector select {
+  padding: 8px 10px;
+  background-color: #2d2d2d;
+  color: #fff;
+  border: 1px solid #555;
+  border-radius: 8px;
+  font-size: 14px;
 }
 
 /* ==== Add Service Section ==== */
@@ -37,7 +59,6 @@
   border-radius: 8px;
   color: #fff;
   font-size: 14px;
-  transition: 0.3s ease;
 }
 
 .add-service input:focus {
@@ -63,12 +84,6 @@
 
 .add-service button:hover {
   opacity: 0.9;
-}
-
-/* Disabled button (optional for future logic) */
-.add-service button:disabled {
-  cursor: not-allowed;
-  opacity: 0.6;
 }
 
 /* ==== Service List ==== */

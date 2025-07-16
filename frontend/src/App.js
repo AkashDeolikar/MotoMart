@@ -9,7 +9,6 @@ import { Navigate } from "react-router-dom";
 import Login from "./component/auth/login";
 import Register from "./component/auth/register";
 import CarList from "./component/utility/carlist";
-import AddCar from "./component/utility/addcar";
 import Home from "./component/utility/home";
 import Contact from "./component/utility/contact";
 import ForgotPassword from "./component/auth/forgotpassword";
@@ -121,7 +120,7 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister }) =
               <Route path="/" element={<AnimatedPage><Home /></AnimatedPage>} />
               <Route path="/home" element={<Navigate to="/" />} />
               <Route path="/carlist" element={<AnimatedPage><CarList /></AnimatedPage>} />
-              <Route path="/add-car" element={<AddCar />} />
+              {/* <Route path="/add-car" element={<AddCar />} /> */}
               <Route path="/ServiceDropdown" element={<ServiceDropdown />} />
 
               {/* Auth */}

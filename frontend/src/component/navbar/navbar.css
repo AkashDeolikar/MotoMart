@@ -74,11 +74,15 @@ main,
 /* State for homepage at the very top (transparent, no blur) */
 .car-navbar.homepage-transparent-top {
   padding: 10px 10px 5px 10px;
-  background-color: transparent !important;
+  background-color: rgb(221, 221, 221) !important;
   backdrop-filter: none !important;
   box-shadow: none !important;
   color: var(--navbar-text) !important;
   /* Keep original text color if needed */
+}
+.dark .car-navbar.homepage-transparent-top {
+  padding: 10px 10px 5px 10px;
+  background-color: rgb(60, 60, 60) !important;
 }
 
 /* State for scrolled OR on any other page (blurred background) */
@@ -104,13 +108,13 @@ main,
   width: 100%;
 }
 
-.car-navbar-logo .ProjectName {
-  font-family: "Aileron-Bold", sans-serif;
-  font-size: 28px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--navbar-active);
+.ProjectName {
+  height: 60px;
+  vertical-align: middle;
+  margin-right: 12px;
+  transition: all 0.3s ease-in-out;
 }
+
 
 .car-navbar-links {
   display: flex;
@@ -183,7 +187,7 @@ main,
 }
 
 .logout-btn:hover {
-  background-color: #b93b3bbc;
+  background-color: #ff0000bc;
 }
 
 .car-navbar.dark .logout-btn:hover {

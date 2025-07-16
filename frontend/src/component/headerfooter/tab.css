@@ -86,7 +86,7 @@ body {
 .card-container {
   width: 100%;
   /* Take full width of its grid cell */
-  max-width: 356px;
+  max-width: 320px;
   /* But don't exceed the specified card width */
   height: 416px;
   border: 1px solid #252530;
