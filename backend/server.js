@@ -200,7 +200,7 @@ const carSchema = new mongoose.Schema({
   common_details: Object,
   variants: Object
 });
-const Car = mongoose.model('Bike', carSchema);
+const Car = mongoose.model('Car', carSchema);
 
 // GET all bikes
 app.get('/api/cars', async (req, res) => {
