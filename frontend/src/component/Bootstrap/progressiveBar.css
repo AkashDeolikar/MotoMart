@@ -41,7 +41,7 @@
     #ea4b95 5%,
     #8e5ff7 30%,
     #ea4b95 60%,
-    #ea4b9500 100%
+    #4bea4e00 100%
   );
   filter: blur(25px);
   z-index: -1;
@@ -90,14 +90,14 @@
   animation: spin 1.8s ease-in-out infinite;
   filter: drop-shadow(0 0 8px rgba(142, 95, 247, 0.25));
   border-radius: 4px;
-  border: 2px solid rgba(255, 255, 255, 0.04);
+  border: 2px solid rgba(255, 255, 255, 0.112);
 }
 
 /* === Loading Text === */
 .app-loading-text {
   font-size: 1.35rem;
   color: #ffffffcc;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: 1px;
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
   animation: pulseText 3s ease-in-out infinite, textShimmer 2s ease-in-out infinite;

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import '../../subpages/mainstyle.css';
 
-import FordEdgeST from '../PageAsset/ford/FordEdgeST.jpg';
-import fordendeavour from '../PageAsset/ford/fordendeavour.jpg';
-import FordF150Lobo from '../PageAsset/ford/FordF150Lobo.jpg';
-import FordMustangGTD from '../PageAsset/ford/FordMustangGTD.jpg';
+import FordEdgeST from '../PageAsset/ford/FordEdgeST.WebP';
+import fordendeavour from '../PageAsset/ford/fordendeavour.WebP';
+import FordF150Lobo from '../PageAsset/ford/FordF150Lobo.WebP';
+import FordMustangGTD from '../PageAsset/ford/FordMustangGTD.WebP';
 
 const tabData = [
     {

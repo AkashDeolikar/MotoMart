@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import '../../subpages/mainstyle.css';
 
-import MercedesCClass from '../PageAsset/mercedes/Cclass.jpg';
-import MercedesEClass from '../PageAsset/mercedes/Eclass.jpg';
-import MercedesSClass from '../PageAsset/mercedes/Sclass.jpg';
-import MercedesGLC from '../PageAsset/mercedes/GLC.jpg';
-import MercedesEQS from '../PageAsset/mercedes/EQS.jpg';
+import MercedesCClass from '../PageAsset/mercedes/Cclass.WebP';
+import MercedesEClass from '../PageAsset/mercedes/Eclass.WebP';
+import MercedesSClass from '../PageAsset/mercedes/Sclass.WebP';
+import MercedesGLC from '../PageAsset/mercedes/GLC.WebP';
+import MercedesEQS from '../PageAsset/mercedes/EQS.WebP';
 
 
 const tabData = [

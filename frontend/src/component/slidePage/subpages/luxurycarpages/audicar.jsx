@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import '../../subpages/mainstyle.css';
 
-import AudiA3 from '../PageAsset/audi/Audia3.jpg';
-import AudiA6 from '../PageAsset/audi/Audia6.jpg'
-import AudiA8 from '../PageAsset/audi/AudiA8.jpg'
-import AudiQ3 from '../PageAsset/audi/AudiQ3.jpg'
-import AudiQ5 from '../PageAsset/audi/AudiQ5.jpg'
+import AudiA3 from '../PageAsset/audi/Audia3.WebP';
+import AudiA6 from '../PageAsset/audi/Audia6.WebP'
+import AudiA8 from '../PageAsset/audi/AudiA8.WebP'
+import AudiQ3 from '../PageAsset/audi/AudiQ3.WebP'
+import AudiQ5 from '../PageAsset/audi/AudiQ5.WebP'
 
 const tabData = [
     {

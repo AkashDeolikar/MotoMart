@@ -1,14 +1,23 @@
-import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
+import { useLocation, useNavigationType } from 'react-router-dom';
 
 const ScrollToTop = () => {
-  const { pathname } = useLocation();
+  const location = useLocation();
+  const navType = useNavigationType();
+  const prevPath = useRef(location.pathname);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    // Scroll only if pathname truly changed and it's a PUSH navigation
+    if (location.pathname !== prevPath.current && navType === 'PUSH') {
+      window.scrollTo(0, 0);
+    }
+
+    // Update previous pathname
+    prevPath.current = location.pathname;
+  }, [location.pathname, navType]);
 
   return null;
 };
 
 export default ScrollToTop;
+

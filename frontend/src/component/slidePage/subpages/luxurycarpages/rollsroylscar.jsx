@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import '../../subpages/mainstyle.css';
 
-import RollsRoycePhantom from '../PageAsset/RollsRoyls/RRPhantom.jpg';
-import RollsRoyceGhost from '../PageAsset/RollsRoyls/RRGhost.jpg';
-import RollsRoyceCullinan from '../PageAsset/RollsRoyls/RRCullinan.jpg';
-import RollsRoyceSpectre from '../PageAsset/RollsRoyls/RRSpectre.jpg';
+import RollsRoycePhantom from '../PageAsset/RollsRoyls/RRPhantom.WebP';
+import RollsRoyceGhost from '../PageAsset/RollsRoyls/RRGhost.WebP';
+import RollsRoyceCullinan from '../PageAsset/RollsRoyls/RRCullinan.WebP';
+import RollsRoyceSpectre from '../PageAsset/RollsRoyls/RRSpectre.WebP';
 
 const tabData = [
     {

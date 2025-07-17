@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import '../../subpages/mainstyle.css';
 
-import BMWi4 from '../PageAsset/bmw/BMWi4.jpg';
-import BMWi7 from '../PageAsset/bmw/BMWi7.jpg';
-import BMWiXM60 from '../PageAsset/bmw/BMWiXM60.jpg';
-import BMWX7 from '../PageAsset/bmw/BMWX7.jpg';
-import BMWXMLabelRed from '../PageAsset/bmw/BMWXMLabelRed.jpg';
+import BMWi4 from '../PageAsset/bmw/BMWi4.WebP';
+import BMWi7 from '../PageAsset/bmw/BMWi7.WebP';
+import BMWiXM60 from '../PageAsset/bmw/BMWiXM60.WebP';
+import BMWX7 from '../PageAsset/bmw/BMWX7.WebP';
+import BMWXMLabelRed from '../PageAsset/bmw/BMWXMLabelRed.WebP';
 
 const tabData = [
     {

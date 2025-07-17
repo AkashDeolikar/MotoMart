@@ -36,10 +36,10 @@ import luxury from './assetimg/luxury.jpg';
 import passenger from './assetimg/passenger.jpg';
 import ev from './assetimg/ev.jpg';
 import commercial from './assetimg/commercial1.jpg'
-import bimg1 from './assetimg/bimg1.jpg';
-import bimg2 from './assetimg/bimg2.jpg';
-import bimg3 from './assetimg/bimg3.jpg';
-import bimg4 from './assetimg/bimg4.jpg';
+import bimg1 from './assetimg/bimg1.WebP';
+import bimg2 from './assetimg/bimg2.WebP';
+import bimg3 from './assetimg/bimg3.WebP';
+import bimg4 from './assetimg/bimg4.WebP';
 
 import Viewmore from "../cardetails/viewmore";
 import HeroSlider from "./HeroSlider";

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import '../../subpages/mainstyle.css';
 
-import jaguarxf from '../PageAsset/jaguar/jaguarxf.jpg';
-import jaguarXE from '../PageAsset/jaguar/JaguarXEReims.jpg';
-import jaguarF from '../PageAsset/jaguar/JaguarFPace.jpg';
-import jaguarE from '../PageAsset/jaguar/JaguarEPACE.jpg';
-import Fpace from '../PageAsset/jaguar/2025Fpace.jpg';
+import jaguarxf from '../PageAsset/jaguar/jaguarxf.WebP';
+import jaguarXE from '../PageAsset/jaguar/JaguarXEReims.WebP';
+import jaguarF from '../PageAsset/jaguar/JaguarFPace.WebP';
+import jaguarE from '../PageAsset/jaguar/JaguarEPACE.WebP';
+import Fpace from '../PageAsset/jaguar/2025Fpace.WebP';
 
 const tabData = [
     {

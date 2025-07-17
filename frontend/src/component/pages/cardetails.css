@@ -185,6 +185,7 @@ body {
 /* Typography                           */
 /* ==================================== */
 .getinfo-title {
+  font-family: 'Lato-Regular';
   text-align: center;
   font-size: 2.8rem; /* Slightly larger for impact */
   margin-bottom: var(--space-xl);
