@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import carData from '../data/cars.json'; // Make sure this path is correct
+// import carData from '../data/cars.json';
 import './cardetails.css'; // Your CSS file
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../firebase';
@@ -50,6 +50,33 @@ const CarDetails = () => {
         });
         return () => unsubscribe();
     }, [navigate]);
+
+    // Fetch live bike data from API
+    useEffect(() => {
+        const fetchCars = async () => {
+            try {
+                const res = await fetch('https://motomartbackend.onrender.com/api/cars');
+                const data = await res.json();
+
+                const structuredData = {};
+                data.forEach(car => {
+                    if (!structuredData[car.brand]) {
+                        structuredData[car.brand] = {};
+                    }
+                    structuredData[car.brand][car.model] = {
+                        common_details: car.common_details,
+                        variants: car.variants
+                    };
+                });
+
+                setCarData(structuredData);
+            } catch (err) {
+                console.error("Failed to fetch Car data:", err);
+            }
+        };
+
+        fetchCars();
+    }, []);
 
     // Don't render anything until authentication state is confirmed
     if (!authChecked) {

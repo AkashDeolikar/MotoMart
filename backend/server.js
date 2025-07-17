@@ -193,33 +193,72 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
-// === Vehicle Routes ===
-const Vehicle = require('./models/vehicle-model-backend');
+// === Bike Schema & Routes ===
+const carSchema = new mongoose.Schema({
+  brand: String,
+  model: String,
+  common_details: Object,
+  variants: Object
+});
+const Car = mongoose.model('Bike', carSchema);
 
-app.get('/api/vehicles', async (req, res) => {
+// GET all bikes
+app.get('/api/cars', async (req, res) => {
   try {
-    const vehicles = await Vehicle.find();
-    res.json(vehicles);
+    const cars = await Bike.find();
+    res.json(cars);
   } catch (error) {
-    console.error('Error fetching vehicles:', error);
+    console.error('Error fetching cars:', error);
+    res.status(500).json({ error: 'Failed to fetch cars' });
+  }
+});
+
+// GET bike by brand and model (strict match, now case-insensitive)
+app.get('/api/cars/:brand/:model', async (req, res) => {
+  const { brand, model } = req.params;
+  try {
+    const car = await Bike.findOne({
+      brand: { $regex: new RegExp(`^${brand}$`, 'i') },
+      model: { $regex: new RegExp(`^${model}$`, 'i') }
+    });
+    if (!car) return res.status(404).json({ error: 'Car not found' });
+    res.json(car);
+  } catch (error) {
+    console.error('Error fetching car:', error);
     res.status(500).json({ error: 'Server error' });
   }
 });
 
-app.get('/api/vehicles/search', async (req, res) => {
-  const { manufacturer, model } = req.query;
+// SEARCH bikes by brand and/or model (partial, case-insensitive)
+app.get('/api/cars/search', async (req, res) => {
+  const { brand, model } = req.query;
   try {
     const query = {};
-    if (manufacturer) query.manufacturer = { $regex: manufacturer, $options: 'i' };
-    if (model) query['vehicles.vehicleInfo.model'] = { $regex: model, $options: 'i' };
-    const vehicles = await Vehicle.find(query);
-    res.json(vehicles);
+    if (brand) query.brand = { $regex: brand, $options: 'i' };
+    if (model) query.model = { $regex: model, $options: 'i' };
+
+    const cars = await Car.find(query);
+    res.json(cars);
   } catch (error) {
-    console.error('Error during search:', error);
+    console.error('Search error:', error);
     res.status(500).json({ error: 'Search failed' });
   }
 });
 
+// POST new bike (admin/testing)
+app.post('/api/cars', async (req, res) => {
+  try {
+    const { brand, model, common_details, variants } = req.body;
+    const newBike = new Car({ brand, model, common_details, variants });
+    await newCar.save();
+    res.status(201).json({ message: 'car added successfully' });
+  } catch (error) {
+    console.error('Error adding car:', error);
+    res.status(500).json({ error: 'Failed to add car' });
+  }
+});
+
+//-----------***------------
 // === Bike Schema & Routes ===
 const bikeSchema = new mongoose.Schema({
   brand: String,

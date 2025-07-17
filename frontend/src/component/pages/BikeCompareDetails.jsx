@@ -398,7 +398,7 @@ const BikeCompareDetails = () => {
     useEffect(() => {
         const fetchBikes = async () => {
             try {
-                const res = await fetch('http://localhost:5000/api/bikes');
+                const res = await fetch('https://motomartbackend.onrender.com/api/bikes');
                 const data = await res.json();
 
                 const structuredData = {};
