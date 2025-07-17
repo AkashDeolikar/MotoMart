@@ -5,7 +5,7 @@ import './navbar.css';
 import { auth } from "../../firebase";
 import ServiceDropdown from './ServiceDropdown';
 import VehicleDropdown from "./vehicledropdown";
-import navlogo from './navlogo.png';
+import navlogo from './navlogo.WebP';
 
 const CarNavbar = memo(({ theme, toggleTheme }) => {
   const location = useLocation();
