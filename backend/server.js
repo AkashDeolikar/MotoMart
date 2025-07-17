@@ -205,7 +205,7 @@ const Car = mongoose.model('Car', carSchema);
 // GET all bikes
 app.get('/api/cars', async (req, res) => {
   try {
-    const cars = await Bike.find();
+    const cars = await Car.find();
     res.json(cars);
   } catch (error) {
     console.error('Error fetching cars:', error);
@@ -217,7 +217,7 @@ app.get('/api/cars', async (req, res) => {
 app.get('/api/cars/:brand/:model', async (req, res) => {
   const { brand, model } = req.params;
   try {
-    const car = await Bike.findOne({
+    const car = await Car.findOne({
       brand: { $regex: new RegExp(`^${brand}$`, 'i') },
       model: { $regex: new RegExp(`^${model}$`, 'i') }
     });
@@ -249,7 +249,7 @@ app.get('/api/cars/search', async (req, res) => {
 app.post('/api/cars', async (req, res) => {
   try {
     const { brand, model, common_details, variants } = req.body;
-    const newBike = new Car({ brand, model, common_details, variants });
+    const newCar = new Car({ brand, model, common_details, variants });
     await newCar.save();
     res.status(201).json({ message: 'car added successfully' });
   } catch (error) {
