@@ -514,6 +514,11 @@ const BikeCompareDetails = () => {
         }
     };
 
+    // Don't render anything until authentication state is confirmed and carData is loaded
+    if (!authChecked || Object.keys(bikeData).length === 0) {
+        return <LoadingOverlay isLoading={true} />;
+    }
+
     const handleClearComparison = () => {
         setBikesToCompare([]);
         setShowComparison(false);
