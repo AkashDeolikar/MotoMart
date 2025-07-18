@@ -324,6 +324,44 @@ app.post('/api/bikes', async (req, res) => {
   }
 });
 
+// POST /api/favorites
+app.post('/api/favorites', async (req, res) => {
+  const { userId, vehicleId, title, image, details } = req.body;
+
+  if (!userId || !vehicleId) {
+    return res.status(400).json({ message: 'Missing userId or vehicleId' });
+  }
+
+  try {
+    // ✅ Check if already exists
+    const existing = await Favorite.findOne({ userId, vehicleId });
+    if (existing) {
+      return res.status(409).json({ message: 'Already added to favorites.' });
+    }
+
+    const favorite = new Favorite({ userId, vehicleId, title, image, details });
+    await favorite.save();
+    res.status(201).json({ message: 'Favorite saved successfully' });
+  } catch (err) {
+    console.error('Error saving favorite:', err.message, err);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+// GET all favorites for a specific user
+app.get('/api/favorites/:userId', async (req, res) => {
+  const { userId } = req.params;
+
+  try {
+    const favorites = await Favorite.find({ userId });
+    res.json(favorites);
+  } catch (err) {
+    console.error('Error fetching favorites:', err.message, err);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
+
+
 // Root route
 app.get('/', (req, res) => {
   res.send('✅ Motomart backend is running.');

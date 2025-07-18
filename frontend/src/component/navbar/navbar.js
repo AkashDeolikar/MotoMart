@@ -115,6 +115,11 @@ const CarNavbar = memo(({ theme, toggleTheme }) => {
             ) : (
               <>
                 <li>
+                  <Link to="/myfavorites" className={location.pathname === "/myfavorites" ? "active" : ""} onClick={closeMobileMenu}>
+                    My Favorites
+                  </Link>
+                </li>
+                <li>
                   <button className="logout-btn" onClick={() => { handleLogout(); closeMobileMenu(); }}>
                     <i className="bi bi-box-arrow-right"></i> Logout
                   </button>

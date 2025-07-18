@@ -612,7 +612,7 @@ const Home = () => {
 
         <div className="cardetail-sections-inner01">
           <div className="cardetail-sections-content01" data-aos="fade-up" data-aos-once="true">
-            <h1 className="cardetail-sections-title01">Experience the Future of Driving</h1>
+            {/* <h1 className="cardetail-sections-title01">Experience the Future of Driving</h1> */}
             <p className="cardetail-sections-subtitle01">
               Discover intelligent features, advanced design, and next-level performance with our new-age vehicles.
             </p>

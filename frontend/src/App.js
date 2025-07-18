@@ -25,7 +25,7 @@ import SlideItem from "./component/utility/SlideItem";
 // Navbar & Footer
 import CarNavbar from "./component/navbar/navbar";
 import Footer from "./component/headerfooter/footer";
-import FeedBack from "./component/headerfooter/feedback";
+// import FeedBack from "./component/headerfooter/feedback";
 import Next from "./component/headerfooter/next";
 import Temp from "./component/headerfooter/temp";
 
@@ -99,6 +99,11 @@ import Mahindrapickup from "./component/slidePage/subpages/commercialcarpages/ma
 import Isuzupickup from "./component/slidePage/subpages/commercialcarpages/isuzupickup";
 import Ashokpickup from "./component/slidePage/subpages/commercialcarpages/ashokpickup";
 import Suzukipickup from "./component/slidePage/subpages/commercialcarpages/suzukipickup";
+import FavoriteVehicle from "./component/headerfooter/FavoriteVehicle";
+import MyFavorites from "./component/headerfooter/MyFavorites";
+
+//DB pages
+
 
 console.log("Bike Data:", bikeVehicleData);
 console.log("Car Data:", carVehicleData);
@@ -123,7 +128,7 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister }) =
               <Route path="/carlist" element={<CarList />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/contactclick" element={<ContactClick />} />
-              <Route path="/feedback" element={<FeedBack />} />
+              {/* <Route path="/feedback" element={<FeedBack />} /> */}
               <Route path="/next" element={<Next />} />
               <Route path="/temp" element={<Temp />} />
               <Route path="/overviewpage" element={<OverviewPage />} />
@@ -197,6 +202,11 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister }) =
               <Route path="/statshighlightsection" element={<StatsHighlightSection />} />
               <Route path="/HeroSlider" element={<HeroSlider />} />
               <Route path="/SlideItem" element={<SlideItem />} />
+            
+              {/* DB */}
+              <Route path="/FacoriteVehicle" element={< FavoriteVehicle />} />
+              <Route path="/MyFavorites" element={<MyFavorites />} />
+
             </Routes>
           </AnimatePresence>
           <Footer />
