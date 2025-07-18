@@ -148,6 +148,7 @@ require('dotenv').config();
 const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
+const Favorite = require('./models/Favorite');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -328,25 +329,31 @@ app.post('/api/bikes', async (req, res) => {
 app.post('/api/favorites', async (req, res) => {
   const { userId, vehicleId, title, image, details } = req.body;
 
+  console.log("📥 Incoming Favorite Payload:", req.body);
+
   if (!userId || !vehicleId) {
+    console.log("❌ Missing userId or vehicleId");
     return res.status(400).json({ message: 'Missing userId or vehicleId' });
   }
 
   try {
-    // ✅ Check if already exists
     const existing = await Favorite.findOne({ userId, vehicleId });
     if (existing) {
+      console.log("⚠️ Already exists");
       return res.status(409).json({ message: 'Already added to favorites.' });
     }
 
     const favorite = new Favorite({ userId, vehicleId, title, image, details });
     await favorite.save();
+
+    console.log("✅ Favorite saved");
     res.status(201).json({ message: 'Favorite saved successfully' });
   } catch (err) {
-    console.error('Error saving favorite:', err.message, err);
+    console.error('❌ Error saving favorite:', err.message, err);
     res.status(500).json({ message: 'Server error' });
   }
 });
+
 // GET all favorites for a specific user
 app.get('/api/favorites/:userId', async (req, res) => {
   try {
