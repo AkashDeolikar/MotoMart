@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../firebase';
-import './favorite.css'; // style this as needed
+import './favorite.css';
 
 const MyFavorites = () => {
   const [user, setUser] = useState(null);
@@ -9,7 +9,7 @@ const MyFavorites = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         setUser(currentUser);
         fetchFavorites(currentUser.uid);
@@ -27,44 +27,55 @@ const MyFavorites = () => {
     try {
       const res = await fetch(`https://motomartbackend.onrender.com/api/favorites/${userId}`);
       const data = await res.json();
-      console.log("🔎 Fetched favorites:", data);
       setFavorites(Array.isArray(data) ? data : []);
     } catch (err) {
-      console.error("Failed to fetch favorites:", err);
+      console.error("❌ Failed to fetch favorites:", err);
     } finally {
       setLoading(false);
     }
   };
 
-  if (!user) {
-    return <div className="fav-page">Please log in to view your favorites.</div>;
-  }
+  const handleDelete = async (id) => {
+    try {
+      const res = await fetch(`https://motomartbackend.onrender.com/api/favorites/delete/${id}`, {
+        method: 'DELETE',
+      });
+      if (res.ok) {
+        setFavorites((prev) => prev.filter((fav) => fav._id !== id));
+      } else {
+        console.error("❌ Failed to delete favorite");
+      }
+    } catch (err) {
+      console.error("❌ Delete error:", err);
+    }
+  };
 
-  if (loading) {
-    return <div className="fav-page">Loading your favorites...</div>;
-  }
+  if (!user) return <div className="fav-page">Please log in to view your favorites.</div>;
+  if (loading) return <div className="fav-page">Loading your favorites...</div>;
 
   return (
     <div className="fav-page">
       <h2>❤️ My Favorite Vehicles</h2>
-
-      {Array.isArray(favorites) && favorites.length > 0 ? (
+      {favorites.length === 0 ? (
+        <p>No favorites yet.</p>
+      ) : (
         <div className="fav-grid">
           {favorites.map((fav) => (
             <div key={fav._id} className="fav-card">
               <img src={fav.image} alt={fav.title} />
-              <h3>{fav.title}</h3>
-              <p>{fav.details?.price}</p>
-              <ul>
-                {fav.details?.features?.map((f, i) => (
-                  <li key={i}>🚗 {f}</li>
-                ))}
-              </ul>
+              <div className="fav-info">
+                <h3>{fav.title}</h3>
+                <p className="price">{fav.details?.price}</p>
+                <ul className="features">
+                  {fav.details?.features?.map((f, i) => (
+                    <li key={i}>🚗 {f}</li>
+                  ))}
+                </ul>
+              </div>
+              <button className="remove-btn" onClick={() => handleDelete(fav._id)}>🗑️ Remove</button>
             </div>
           ))}
         </div>
-      ) : (
-        <p>No favorites yet.</p>
       )}
     </div>
   );

@@ -365,6 +365,16 @@ app.get('/api/favorites/:userId', async (req, res) => {
   }
 });
 
+// DELETE /api/favorites/delete/:id
+app.delete('/api/favorites/delete/:id', async (req, res) => {
+  try {
+    await Favorite.findByIdAndDelete(req.params.id);
+    res.status(200).json({ message: 'Favorite deleted' });
+  } catch (err) {
+    console.error('❌ Delete error:', err);
+    res.status(500).json({ message: 'Failed to delete favorite' });
+  }
+});
 
 
 
