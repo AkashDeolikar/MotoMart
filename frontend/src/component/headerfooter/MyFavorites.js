@@ -27,7 +27,8 @@ const MyFavorites = () => {
     try {
       const res = await fetch(`https://motomartbackend.onrender.com/api/favorites/${userId}`);
       const data = await res.json();
-      setFavorites(data);
+      console.log("🔎 Fetched favorites:", data);
+      setFavorites(Array.isArray(data) ? data : []);
     } catch (err) {
       console.error("Failed to fetch favorites:", err);
     } finally {
@@ -46,9 +47,8 @@ const MyFavorites = () => {
   return (
     <div className="fav-page">
       <h2>❤️ My Favorite Vehicles</h2>
-      {favorites.length === 0 ? (
-        <p>No favorites yet.</p>
-      ) : (
+
+      {Array.isArray(favorites) && favorites.length > 0 ? (
         <div className="fav-grid">
           {favorites.map((fav) => (
             <div key={fav._id} className="fav-card">
@@ -63,6 +63,8 @@ const MyFavorites = () => {
             </div>
           ))}
         </div>
+      ) : (
+        <p>No favorites yet.</p>
       )}
     </div>
   );

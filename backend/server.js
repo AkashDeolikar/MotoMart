@@ -349,16 +349,15 @@ app.post('/api/favorites', async (req, res) => {
 });
 // GET all favorites for a specific user
 app.get('/api/favorites/:userId', async (req, res) => {
-  const { userId } = req.params;
-
   try {
-    const favorites = await Favorite.find({ userId });
-    res.json(favorites);
+    const favorites = await Favorite.find({ userId: req.params.userId });
+    res.json(favorites); // This MUST return an array
   } catch (err) {
-    console.error('Error fetching favorites:', err.message, err);
+    console.error("Error fetching favorites:", err);
     res.status(500).json({ message: 'Server error' });
   }
 });
+
 
 
 
