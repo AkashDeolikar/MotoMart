@@ -88,11 +88,11 @@ const MyFavorites = () => {
                                         <p className="price">{fav.details?.price}</p>
                                         <ul className="features">
                                             {fav.details?.features?.map((f, i) => (
-                                                <li key={i}>🚗 {f}</li>
+                                                <li key={i}>⚫ {f}</li>
                                             ))}
                                         </ul>
                                     </div>
-                                    <button className="remove-btn" onClick={() => handleDelete(fav._id)}>🗑️ Remove</button>
+                                    <button className="remove-btn" onClick={() => handleDelete(fav._id)}>Remove</button>
                                 </div>
                             ))}
                         </div>

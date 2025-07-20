@@ -100,7 +100,6 @@ const FavoriteVehicle = ({ vehicle }) => {
             return;
         }
 
-        // ✅ Defensive check: ensure vehicle object is valid
         if (!vehicle || !vehicle.id || !vehicle.title) {
             console.error("❌ Invalid vehicle data:", vehicle);
             setError('Vehicle data is missing or invalid.');
@@ -115,9 +114,21 @@ const FavoriteVehicle = ({ vehicle }) => {
             details: vehicle.vehicleInfo,
         };
 
-        console.log("📤 Sending to backend:", payload);
-
         try {
+            // 🔍 Step 1: Check if the vehicle is already in favorites
+            const checkResponse = await fetch(`https://motomartbackend.onrender.com/api/favorites/check?userId=${user.uid}&vehicleId=${vehicle.id}`);
+
+            if (checkResponse.ok) {
+                const result = await checkResponse.json();
+
+                if (result.exists) {
+                    console.log("ℹ️ Vehicle already added to favorites.");
+                    setError('This vehicle is already in your favorites.');
+                    return;
+                }
+            }
+
+            // 📨 Step 2: Proceed to save if not already present
             const response = await fetch('https://motomartbackend.onrender.com/api/favorites', {
                 method: 'POST',
                 headers: {
@@ -128,16 +139,16 @@ const FavoriteVehicle = ({ vehicle }) => {
 
             if (!response.ok) {
                 const errorResponse = await response.json();
-                console.error("❌ Backend error:", errorResponse);
                 throw new Error(errorResponse.message || 'Failed to save favorite');
             }
 
             setIsSubmitted(true);
             setError('');
             setTimeout(() => setIsSubmitted(false), 2000);
+
         } catch (err) {
-            console.error("🚨 Error while saving favorite:", err.message);
-            setError('Something went wrong while saving your favorite.');
+            console.error("🚨 Error:", err.message);
+            setError(err.message || 'Something went wrong while saving your favorite.');
         }
     };
 

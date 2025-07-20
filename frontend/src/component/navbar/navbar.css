@@ -59,9 +59,7 @@
   transition: all 0.3s ease-in-out;
   color: var(--navbar-text);
   background-color: var(--navbar-bg);
-  /* Default, will be overridden */
   box-shadow: none;
-  /* Default, will be overridden */
 }
 
 /* Add padding to main content area instead of body */
@@ -78,7 +76,6 @@ main,
   backdrop-filter: none !important;
   box-shadow: none !important;
   color: var(--navbar-text) !important;
-  /* Keep original text color if needed */
 }
 .dark .car-navbar.homepage-transparent-top {
   padding: 10px 10px 5px 10px;
@@ -86,17 +83,24 @@ main,
 }
 
 /* State for scrolled OR on any other page (blurred background) */
-@media (min-width:789px) {
+@media (min-width: 789px) {
   .car-navbar.scrolled-or-other-page {
     background-color: rgba(0, 0, 0, 0.292);
     backdrop-filter: blur(55px) saturate(1.8);
     box-shadow: 0 2px 10px var(--navbar-shadow);
   }
-  
+
   .car-navbar.light.scrolled-or-other-page {
     background-color: rgba(109, 109, 109, 0.314);
     backdrop-filter: blur(55px) saturate(1.8);
     box-shadow: 0 2px 10px var(--navbar-shadow);
+  }
+
+  /* Specific dark mode gradient for scrolled/other-page state */
+  .car-navbar.dark.scrolled-or-other-page {
+    background: linear-gradient(95.48deg, #7abef7 1.81%, #407ff5d6 43.03%, #7647d5d0 68.71%, #582ac2c2 89.75%);
+    backdrop-filter: blur(55px) saturate(1.8); /* Keep the blur */
+    box-shadow: 0 2px 10px var(--navbar-shadow); /* Keep the shadow */
   }
 }
 /* The rest of your CSS remains the same */
@@ -104,7 +108,7 @@ main,
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
+  max-width: 1370px;
   width: 100%;
 }
 
@@ -114,7 +118,6 @@ main,
   margin-right: 12px;
   transition: all 0.3s ease-in-out;
 }
-
 
 .car-navbar-links {
   display: flex;
@@ -200,7 +203,6 @@ main,
   margin-left: 15px;
   color: black;
   -webkit-text-stroke: 0.5px #444;
-  /* thin stroke around icon */
 }
 
 .dark .theme-toggle {
@@ -342,12 +344,9 @@ main,
     padding: 12px 20px;
     border-radius: 8px;
     backdrop-filter: blur(20px) saturate(1.8);
-    /* Original */
-    /* background-color: #34495e00; */
     box-shadow: 0 2px 5px var(--box-shadow);
     font-size: 1.2em;
     color: var(--menu-link);
-    /* Use the theme variable for consistency */
   }
 
   .desk-nav-dd {
@@ -378,13 +377,19 @@ main,
 
   .car-navbar.scrolled-or-other-page {
     background-color: rgba(0, 0, 0, 0.353);
-    /* backdrop-filter: blur(25px); */
     box-shadow: 0 2px 10px var(--navbar-shadow);
   }
-  
+
   .car-navbar.light.scrolled-or-other-page {
     background-color: rgba(109, 109, 109, 0.353);
     backdrop-filter: 20px;
+    box-shadow: 0 2px 10px var(--navbar-shadow);
+  }
+
+  /* Specific dark mode gradient for scrolled/other-page state in mobile */
+  .car-navbar.dark.scrolled-or-other-page {
+    background: linear-gradient(95.48deg, #7abef7 1.81%, #407ff5d6 43.03%, #7647d5d0 68.71%, #582ac2c2 89.75%);
+    backdrop-filter: blur(20px) saturate(1.8); /* Keep a blur, possibly adjusted for mobile */
     box-shadow: 0 2px 10px var(--navbar-shadow);
   }
 }

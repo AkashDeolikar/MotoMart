@@ -191,3 +191,47 @@
   font-style: normal;
   font-display: swap; /* Recommended for better user experience */
 }
+
+/**/
+@font-face {
+  font-family: "HCLTechRoobert-Bold"; /* Use a consistent family name */
+  src: url("../component/Fonts/HCLTechRoobert-Bold.woff2") format("woff2");
+  font-weight: 700; /* Use numerical weights for bold (700 or 'bold') */
+  font-style: normal;
+  font-display: swap; /* Recommended for better user experience */
+}
+@font-face {
+  font-family: "HCLTechRoobert-Light"; /* Use a consistent family name */
+  src: url("../component/Fonts/HCLTechRoobert-Light.woff2") format("woff2");
+  font-weight: 700; /* Use numerical weights for bold (700 or 'bold') */
+  font-style: normal;
+  font-display: swap; /* Recommended for better user experience */
+}
+@font-face {
+  font-family: "HCLTechRoobert-Medium"; /* Use a consistent family name */
+  src: url("../component/Fonts/HCLTechRoobert-Medium.woff2") format("woff2");
+  font-weight: 700; /* Use numerical weights for bold (700 or 'bold') */
+  font-style: normal;
+  font-display: swap; /* Recommended for better user experience */
+}
+@font-face {
+  font-family: "HCLTechRoobert-Regular"; /* Use a consistent family name */
+  src: url("../component/Fonts/HCLTechRoobert-Regular.woff2") format("woff2");
+  font-weight: 700; /* Use numerical weights for bold (700 or 'bold') */
+  font-style: normal;
+  font-display: swap; /* Recommended for better user experience */
+}
+@font-face {
+  font-family: "HCLTechRoobert-RegularItalic"; /* Use a consistent family name */
+  src: url("../component/Fonts/HCLTechRoobert-RegularItalic.woff2") format("woff2");
+  font-weight: 700; /* Use numerical weights for bold (700 or 'bold') */
+  font-style: normal;
+  font-display: swap; /* Recommended for better user experience */
+}
+@font-face {
+  font-family: "HCLTechRoobert-SemiBold"; /* Use a consistent family name */
+  src: url("../component/Fonts/HCLTechRoobert-SemiBold.woff2") format("woff2");
+  font-weight: 700; /* Use numerical weights for bold (700 or 'bold') */
+  font-style: normal;
+  font-display: swap; /* Recommended for better user experience */
+}
