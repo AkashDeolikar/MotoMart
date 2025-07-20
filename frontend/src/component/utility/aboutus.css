@@ -1,40 +1,55 @@
-.about-us-section {
-  font-family: 'Arial', sans-serif;
+.aboutus-section {
+  font-family: "HCLTechRoobert-Medium", sans-serif;
   padding: 40px 20px;
+  background: -webkit-linear-gradient(359.7deg, #773cce .28%, #3a70ef 99.78%);
+  background: -o-linear-gradient(359.7deg, #773cce .28%, #3a70ef 99.78%);
+  background: linear-gradient(90.3deg, #773cce .28%, #3a70ef 99.78%);
+  -webkit-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  transition: all .5s ease;
+  /* background: linear-gradient(85.48deg, #7abef7 1.81%, #407ff5d6 43.03%, #7647d5d0 68.71%, #582ac2c2 89.75%); */
+  color: #131313;
   line-height: 1.6;
-  background-color: #f9f9f9;
-  color: #333;
 }
 
-.dark .about-us-section {
+.dark .aboutus-section {
   background-color: #253443;
-  color: #f0f0f0;
+  /* color: #f0f0f0; */
 }
 
-.about-us-section h1 {
+.aboutus-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.aboutus-title {
+  font-family: "HCLTechRoobert-Bold", sans-serif;
   font-size: 2.5rem;
   margin-bottom: 20px;
 }
 
-.about-us-section h2 {
+.aboutus-subheading {
+  font-family: "HCLTechRoobert-Medium", sans-serif;
   font-size: 1.6rem;
   margin-top: 30px;
-  color: #0055ff;
+  /* color: #0055ff; */
 }
 
-.about-us-section ul {
+.aboutus-feature-list {
+  font-family: "HCLTechRoobert-Light", sans-serif;
   padding-left: 20px;
+  list-style-type: none;
 }
 
-.about-us-section ul li {
+.aboutus-feature-list li {
   margin-bottom: 10px;
 }
 
-.about-us-section .cta-button {
+.aboutus-cta-button {
   display: inline-block;
   margin-top: 30px;
   padding: 12px 25px;
-  background-color: #0055ff;
+  background-color: #5100b3;
   color: white;
   text-decoration: none;
   border-radius: 6px;
@@ -42,16 +57,24 @@
   transition: background 0.3s ease;
 }
 
-.about-us-section .cta-button:hover {
-  background-color: #003cb3;
+.aboutus-cta-button:hover {
+  background-color: #5100b3;
 }
 
-/* Optional: Style GitHub link */
-.about-us-section a {
-  color: #0055ff;
+.aboutus-description {
+  margin-bottom: 16px;
+}
+
+.aboutus-footer {
+  padding: 20px 0;
+  font-size: 0.95rem;
+}
+
+.aboutus-footer a {
+  color: #edaa02;
   text-decoration: underline;
 }
 
-.about-us-section a:hover {
+.aboutus-footer a:hover {
   color: #002b80;
 }

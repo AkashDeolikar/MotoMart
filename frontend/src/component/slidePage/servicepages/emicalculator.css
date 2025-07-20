@@ -1,3 +1,5 @@
+@import '../../fonts.css';
+
 .emi-container {
   max-width: 480px;
   margin: 40px auto;
@@ -6,10 +8,11 @@
   color: #fff;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "HCLTechRoobert-Regular", sans-serif;
 }
 
 .emi-container h2 {
+  font-family: "HCLTechRoobert-Regular", sans-serif;
   text-align: center;
   font-size: 24px;
   margin-bottom: 24px;

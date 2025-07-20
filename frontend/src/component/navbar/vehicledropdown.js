@@ -43,7 +43,8 @@ const VehicleDropdown = ({ closeParentMobileMenu, isParentMobileMenuOpen }) => {
                     <li><Link to="/overviewpage" onClick={handleLinkClick}>Overview <i className="bi bi-arrow-up-right-circle"></i></Link></li>
                     <li><Link to="/Carcard" onClick={handleLinkClick}>Explore Car <i className="bi bi-arrow-up-right-circle"></i></Link></li>
                     <li><Link to="/Bikecard" onClick={handleLinkClick}>Explore Bike <i className="bi bi-arrow-up-right-circle"></i></Link></li>
-                    <li><Link to="/cardetails" onClick={handleLinkClick}>Car Details <i className="bi bi-arrow-up-right-circle"></i></Link></li>
+                    <li><Link to="/cardetails" onClick={handleLinkClick}>Car Compare <i className="bi bi-arrow-up-right-circle"></i></Link></li>
+                    <li><Link to="/BikeCompareDetails" onClick={handleLinkClick}>Bike Compare<i className="bi bi-arrow-up-right-circle"></i></Link></li>
                 </ul>
             </div>
         </li>

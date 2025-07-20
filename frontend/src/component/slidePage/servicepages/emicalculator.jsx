@@ -15,10 +15,11 @@ const EMICalculator = () => {
     const R = parseFloat(interestRate) / 12 / 100;
     const N = parseInt(tenure);
 
-    if (!P || P <= 0 || !R || !N) {
-      alert("Please enter valid values.");
+    if (isNaN(P) || P <= 0 || isNaN(R) || isNaN(N) || N <= 0) {
+      alert("Please enter all values correctly.");
       return;
     }
+
 
     const emiValue = P * R * Math.pow(1 + R, N) / (Math.pow(1 + R, N) - 1);
     const totalPay = emiValue * N;
