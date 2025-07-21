@@ -7,15 +7,15 @@ const Aboutus = () => {
   }, []);
 
   return (
-    <section className="aboutus-section">
-      <div className="aboutus-container">
-        <h1 className="aboutus-title">About MotoMart</h1>
-        <p className="aboutus-description">
+    <section className="aboutus-info-section">
+      <div className="aboutus-info-container">
+        <h1 className="aboutus-info-title">About MotoMart</h1>
+        <p className="aboutus-info-description">
           <strong>MotoMart</strong> is your one-stop automotive companion platform, offering a seamless experience for exploring, comparing, and evaluating both <strong>cars and bikes</strong> across all segments—luxury, electric, commercial, budget, and performance.
         </p>
 
-        <h2 className="aboutus-subheading">What We Offer</h2>
-        <ul className="aboutus-feature-list">
+        <h2 className="aboutus-info-subheading">What We Offer</h2>
+        <ul className="aboutus-info-feature-list">
           <li>🔍 <strong>Quick Vehicle View</strong>: Instantly preview specs and images of cars and bikes.</li>
           <li>💰 <strong>Price Information</strong>: Access accurate on-road and showroom prices with EMI/fuel breakdowns.</li>
           <li>🧮 <strong>EMI Calculator</strong>: Plan your monthly payments with adjustable tenure, rate, and down payment.</li>
@@ -26,23 +26,23 @@ const Aboutus = () => {
           <li>⭐ <strong>Add to Favorites</strong>: Save preferred vehicles for quicker access anytime.</li>
         </ul>
 
-        <h2 className="aboutus-subheading">🎯 Our Goal</h2>
-        <p className="aboutus-description">
+        <h2 className="aboutus-info-subheading">🎯 Our Goal</h2>
+        <p className="aboutus-info-description">
           MotoMart is built to simplify vehicle exploration and ownership decisions. Whether you're a first-time buyer, enthusiast, or professional, MotoMart saves you time by bringing everything under one virtual roof.
         </p>
 
-        <h2 className="aboutus-subheading">🌐 Visit the Original Manufacturers</h2>
-        <p className="aboutus-description">
+        <h2 className="aboutus-info-subheading">🌐 Visit the Original Manufacturers</h2>
+        <p className="aboutus-info-description">
           We believe in transparency. All vehicle data links directly to the official manufacturer's site for more detailed brochures, configurations, and booking options.
         </p>
 
-        <p className="aboutus-description">
+        <p className="aboutus-info-description">
           MotoMart is your trusted digital pit stop—get informed, compare wisely, and drive confidently.
         </p>
 
-        <a href="/" className="aboutus-cta-button">Explore MotoMart</a>
+        <a href="/" className="aboutus-info-cta-button">Explore MotoMart</a>
 
-        <div className="aboutus-footer">
+        <div className="aboutus-info-footer">
           <p>
             <strong>Creator</strong>: Akash Deolikar
             <br />
