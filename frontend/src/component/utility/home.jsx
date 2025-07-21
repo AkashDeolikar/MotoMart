@@ -84,10 +84,10 @@ const HeroCarousel = () => {
 
   // Initial data for carousel items
   const [carouselItems, setCarouselItems] = useState([
-    // { id: 1, type: 'image', src: "https://www.tatamotors.com/wp-content/themes/TataMotors/images/TM_Home_Desktop4.webp", title: "Connection aspirations.", name: "Delivering values.", description: "Connect with the future of mobility." },
-    { id: 2, type: 'image', src: "https://www.tatamotors.com/wp-content/themes/TataMotors/images/TM_Home_Desktop1.webp", title: "Tomorrow choices,", name: "Today.", description: "Driving the future, one innovation at a time." },
-    { id: 3, type: 'video', src: "https://www.tatamotors.com/wp-content/themes/TataMotors/video/TML-Desktop-video.mp4", title: "A spotlight on", name: "Sustainability.", description: "Embracing clean mobility for a better tomorrow." },
-    { id: 4, type: 'image', src: "https://www.tatamotors.com/wp-content/themes/TataMotors/images/TM_Home_Desktop2.webp", title: "Embracing", name: "Clean mobility.", description: "Innovating for a greener tomorrow." },
+    { id: 1, type: 'image', src: "https://www.tatamotors.com/wp-content/themes/TataMotors/images/TM_Home_Desktop4.webp", title: "Connection aspirations.", name: "Delivering values.", description: "Connect with the future of mobility." },
+    { id: 2, type: 'video', src: "https://www.tatamotors.com/wp-content/themes/TataMotors/video/TML-Desktop-video.mp4", title: "A spotlight on", name: "Sustainability.", description: "Embracing clean mobility for a better tomorrow." },
+    { id: 3, type: 'image', src: "https://www.tatamotors.com/wp-content/themes/TataMotors/images/TM_Home_Desktop2.webp", title: "Embracing", name: "Clean mobility.", description: "Innovating for a greener tomorrow." },
+    // { id: 4, type: 'image', src: "https://www.tatamotors.com/wp-content/themes/TataMotors/images/TM_Home_Desktop1.webp", title: "Tomorrow choices,", name: "Today.", description: "Driving the future, one innovation at a time." },
   ]);
 
   // Refs for managing timeouts to ensure they are cleared correctly across renders

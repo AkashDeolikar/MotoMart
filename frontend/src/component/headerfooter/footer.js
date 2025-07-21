@@ -70,7 +70,7 @@ Footer.defaultProps = {
       title: 'Quick Links',
       links: [
         { text: 'Home', href: '/home' },
-        // { text: 'Car Detail', href: '/cardetails' },
+        { text: 'Car Detail', href: '/cardetails' },
         { text: 'Contact Us', href: '/contact' },
       ],
     },

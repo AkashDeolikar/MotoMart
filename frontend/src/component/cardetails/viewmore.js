@@ -6,7 +6,7 @@ const Viewmore = () => {
     const navigate = useNavigate();
 
     const handleClick = () => {
-        navigate('/carcard');
+        navigate('/cardetails');
     };
 
     return (
