@@ -1,54 +1,55 @@
 import React, { useEffect } from "react";
 import './aboutus.css';
 
-const Aboutus = () => {
+const AboutUs = () => {
   useEffect(() => {
-    localStorage.setItem("aboutusReady", "true");
+    localStorage.setItem("aboutUsVisited", "true");
   }, []);
 
   return (
-    <section className="aboutus-info-section">
-      <div className="aboutus-info-container">
-        <h1 className="aboutus-info-title">About MotoMart</h1>
-        <p className="aboutus-info-description">
-          <strong>MotoMart</strong> is your one-stop automotive companion platform, offering a seamless experience for exploring, comparing, and evaluating both <strong>cars and bikes</strong> across all segments—luxury, electric, commercial, budget, and performance.
+    <section className="aboutus-section">
+      <div className="aboutus-container">
+        <h1 className="aboutus-title">About MotoMart</h1>
+
+        <p className="aboutus-description">
+          <strong>MotoMart</strong> is your all-in-one digital platform for discovering, comparing, and evaluating <strong>cars</strong> and <strong>bikes</strong>—whether you're interested in luxury, electric, performance, commercial, or budget segments.
         </p>
 
-        <h2 className="aboutus-info-subheading">What We Offer</h2>
-        <ul className="aboutus-info-feature-list">
-          <li>🔍 <strong>Quick Vehicle View</strong>: Instantly preview specs and images of cars and bikes.</li>
-          <li>💰 <strong>Price Information</strong>: Access accurate on-road and showroom prices with EMI/fuel breakdowns.</li>
-          <li>🧮 <strong>EMI Calculator</strong>: Plan your monthly payments with adjustable tenure, rate, and down payment.</li>
-          <li>🛠️ <strong>Service Cost Estimator</strong>: Predict maintenance costs by model, mileage, and intervals.</li>
-          <li>🧪 <strong>Parts & Fluids Info</strong>: Discover OEM and aftermarket components, with fluid specifications.</li>
-          <li>⚡ <strong>EV Section</strong>: Explore electric vehicle specs, battery range, charge time, and fuel savings.</li>
-          <li>🆚 <strong>Car & Bike Comparison</strong>: Compare any car and bike side-by-side by performance and price.</li>
-          <li>⭐ <strong>Add to Favorites</strong>: Save preferred vehicles for quicker access anytime.</li>
+        <h2 className="aboutus-subheading">🚗 What Makes MotoMart Stand Out?</h2>
+        <ul className="aboutus-feature-list">
+          <li>🔍 <strong>Quick Preview</strong>: Instantly view vehicle specs and media content.</li>
+          <li>💸 <strong>Accurate Pricing</strong>: Access showroom and on-road prices with EMI breakdowns.</li>
+          <li>📊 <strong>EMI Calculator</strong>: Customize tenure, interest, and down payment live.</li>
+          <li>🔧 <strong>Service Cost Estimator</strong>: Predict maintenance costs by model and usage.</li>
+          <li>🛠️ <strong>Parts & Fluids Info</strong>: OEM parts and recommended fluids at a glance.</li>
+          <li>⚡ <strong>Electric Vehicle Explorer</strong>: Dive into EV range, battery life, and charge time.</li>
+          <li>🆚 <strong>Side-by-Side Comparisons</strong>: Compare multiple vehicles instantly.</li>
+          <li>⭐ <strong>Favorites Feature</strong>: Save your picks and revisit anytime.</li>
         </ul>
 
-        <h2 className="aboutus-info-subheading">🎯 Our Goal</h2>
-        <p className="aboutus-info-description">
-          MotoMart is built to simplify vehicle exploration and ownership decisions. Whether you're a first-time buyer, enthusiast, or professional, MotoMart saves you time by bringing everything under one virtual roof.
+        <h2 className="aboutus-subheading">🎯 Our Mission</h2>
+        <p className="aboutus-description">
+          We aim to simplify how users approach buying, comparing, and maintaining vehicles. Whether you're a daily commuter or an enthusiast, MotoMart helps you make smarter decisions with reliable data and intuitive tools.
         </p>
 
-        <h2 className="aboutus-info-subheading">🌐 Visit the Original Manufacturers</h2>
-        <p className="aboutus-info-description">
-          We believe in transparency. All vehicle data links directly to the official manufacturer's site for more detailed brochures, configurations, and booking options.
+        <h2 className="aboutus-subheading">🔗 Official Source Links</h2>
+        <p className="aboutus-description">
+          For maximum transparency, MotoMart links directly to the official manufacturer websites for brochures, bookings, and authentic configurations.
         </p>
 
-        <p className="aboutus-info-description">
-          MotoMart is your trusted digital pit stop—get informed, compare wisely, and drive confidently.
+        <p className="aboutus-description">
+          MotoMart is your trusted automotive sidekick—<em>compare wisely, drive confidently</em>.
         </p>
 
-        <a href="/" className="aboutus-info-cta-button">Explore MotoMart</a>
+        <a href="/" className="aboutus-cta-button">Explore MotoMart</a>
 
-        <div className="aboutus-info-footer">
+        <div className="aboutus-footer">
           <p>
-            <strong>Creator</strong>: Akash Deolikar
+            <strong>Creator:</strong> Akash Deolikar
             <br />
-            <strong>GitHub</strong>:{" "}
+            <strong>GitHub:</strong>{" "}
             <a href="https://github.com/AkashDeolikar/MotoMart" target="_blank" rel="noopener noreferrer">
-              <i className="bi bi-github"></i> GitHub Repo
+              GitHub Repository
             </a>
           </p>
         </div>
@@ -57,4 +58,4 @@ const Aboutus = () => {
   );
 };
 
-export default Aboutus;
+export default AboutUs;

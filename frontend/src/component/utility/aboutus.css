@@ -1,48 +1,57 @@
 .aboutus-section {
   font-family: "HCLTechRoobert-Medium", sans-serif;
   padding: 40px 20px;
-  background: -webkit-linear-gradient(359.7deg, #773cce .28%, #3a70ef 99.78%);
-  background: -o-linear-gradient(359.7deg, #773cce .28%, #3a70ef 99.78%);
-  background: linear-gradient(90.3deg, #773cce .28%, #3a70ef 99.78%);
-  -webkit-transition: all .5s ease;
-  -o-transition: all .5s ease;
-  transition: all .5s ease;
-  /* background: linear-gradient(85.48deg, #7abef7 1.81%, #407ff5d6 43.03%, #7647d5d0 68.71%, #582ac2c2 89.75%); */
+  background-color: #1f2a3629;
+  background: linear-gradient(130.3deg, #8034f1b6 35%, #4f7fef 100%);
   color: #131313;
   line-height: 1.6;
+  transition: all 0.5s ease;
 }
 
 .dark .aboutus-section {
-  background-color: #253443;
-  /* color: #f0f0f0; */
+  background-color: #1f2a3629;
+  color: #f0f0f0;
 }
 
 .aboutus-container {
-  max-width: 900px;
+  max-width: 960px;
   margin: 0 auto;
 }
 
 .aboutus-title {
-  font-family: "HCLTechRoobert-Bold", sans-serif;
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+  font-family: "HCLTechRoobert-Medium", sans-serif;
+  font-size: 3rem;
+  margin-bottom: 24px;
+  color: #fff;
 }
 
 .aboutus-subheading {
-  font-family: "HCLTechRoobert-Medium", sans-serif;
+  font-family: "HCLTechRoobert-Bold", sans-serif;
   font-size: 1.6rem;
-  margin-top: 30px;
-  /* color: #0055ff; */
+  font-weight: 600;
+  margin-top: 36px;
+  color: #fff;
+}
+
+.aboutus-description {
+  font-family: "HCLTechRoobert-Light", sans-serif;
+  font-size: 1.05rem;
+  margin-bottom: 16px;
+  color: #e0e0e0;
 }
 
 .aboutus-feature-list {
   font-family: "HCLTechRoobert-Light", sans-serif;
-  padding-left: 20px;
   list-style-type: none;
+  padding-left: 0;
+  margin-top: 16px;
 }
 
 .aboutus-feature-list li {
+  font-family: "HCLTechRoobert-Light", sans-serif;
   margin-bottom: 10px;
+  font-size: 1rem;
+  color: #e0e0e0;
 }
 
 .aboutus-cta-button {
@@ -50,7 +59,7 @@
   margin-top: 30px;
   padding: 12px 25px;
   background-color: #5100b3;
-  color: white;
+  color: #fff;
   text-decoration: none;
   border-radius: 6px;
   font-weight: bold;
@@ -58,23 +67,41 @@
 }
 
 .aboutus-cta-button:hover {
-  background-color: #5100b3;
-}
-
-.aboutus-description {
-  margin-bottom: 16px;
+  background-color: #7d3cff;
+  color: #fff;
 }
 
 .aboutus-footer {
-  padding: 20px 0;
+  margin-top: 40px;
   font-size: 0.95rem;
 }
 
 .aboutus-footer a {
-  color: #edaa02;
+  color: #ffcc33;
   text-decoration: underline;
 }
 
 .aboutus-footer a:hover {
-  color: #002b80;
+  color: #d4a600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .aboutus-title {
+    font-size: 2.2rem;
+  }
+
+  .aboutus-subheading {
+    font-size: 1.3rem;
+  }
+
+  .aboutus-description,
+  .aboutus-feature-list li {
+    font-size: 0.98rem;
+  }
+
+  .aboutus-cta-button {
+    font-size: 0.95rem;
+    padding: 10px 20px;
+  }
 }

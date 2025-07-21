@@ -84,10 +84,10 @@ const HeroCarousel = () => {
 
   // Initial data for carousel items
   const [carouselItems, setCarouselItems] = useState([
-    { id: 1, type: 'image', src: "https://www.tatamotors.com/wp-content/themes/TataMotors/images/TM_Home_Desktop4.webp", title: "Connection aspirations.", name: "Delivering values.", description: "Connect with the future of mobility." },
+    // { id: 1, type: 'image', src: "https://www.tatamotors.com/wp-content/themes/TataMotors/images/TM_Home_Desktop4.webp", title: "Connection aspirations.", name: "Delivering values.", description: "Connect with the future of mobility." },
     { id: 2, type: 'video', src: "https://www.tatamotors.com/wp-content/themes/TataMotors/video/TML-Desktop-video.mp4", title: "A spotlight on", name: "Sustainability.", description: "Embracing clean mobility for a better tomorrow." },
     { id: 3, type: 'image', src: "https://www.tatamotors.com/wp-content/themes/TataMotors/images/TM_Home_Desktop2.webp", title: "Embracing", name: "Clean mobility.", description: "Innovating for a greener tomorrow." },
-    // { id: 4, type: 'image', src: "https://www.tatamotors.com/wp-content/themes/TataMotors/images/TM_Home_Desktop1.webp", title: "Tomorrow choices,", name: "Today.", description: "Driving the future, one innovation at a time." },
+    { id: 4, type: 'image', src: "https://www.tatamotors.com/wp-content/themes/TataMotors/images/TM_Home_Desktop1.webp", title: "Tomorrow choices,", name: "Today.", description: "Driving the future, one innovation at a time." },
   ]);
 
   // Refs for managing timeouts to ensure they are cleared correctly across renders
@@ -211,6 +211,7 @@ const HeroCarousel = () => {
  * @param {Array<object>} props.data - Array of card data.
  */
 const AutoPlayCardSlider = ({ data }) => {
+  const canLoop = data.length >= 3; // adjust as per your design
   return (
     <section className="coverflow-section">
       <Swiper
@@ -218,8 +219,8 @@ const AutoPlayCardSlider = ({ data }) => {
         grabCursor={true}
         centeredSlides={true}
         slidesPerView="auto"
-        loop={true}
-        autoplay={{ delay: 4000 }}
+        loop={canLoop}
+        autoplay={canLoop ? { delay: 4000 } : false}
         coverflowEffect={{
           rotate: 50,
           stretch: 0,
@@ -247,6 +248,7 @@ const AutoPlayCardSlider = ({ data }) => {
     </section>
   );
 };
+
 
 
 /**
