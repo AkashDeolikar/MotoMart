@@ -11,26 +11,25 @@ const EMICalculator = () => {
   const [totalPayment, setTotalPayment] = useState(null);
 
   const calculateEMI = () => {
-    const P = parseFloat(loanAmount) - parseFloat(downPayment || 0);
-    const R = parseFloat(interestRate) / 12 / 100;
-    const N = parseInt(tenure);
+    const principal = parseFloat(loanAmount) - parseFloat(downPayment || 0);
+    const monthlyRate = parseFloat(interestRate) / 12 / 100;
+    const months = parseInt(tenure);
 
-    if (isNaN(P) || P <= 0 || isNaN(R) || isNaN(N) || N <= 0) {
-      alert("Please enter all values correctly.");
+    if (isNaN(principal) || principal <= 0 || isNaN(monthlyRate) || isNaN(months) || months <= 0) {
+      alert("Please enter valid input values.");
       return;
     }
 
+    const emiVal = principal * monthlyRate * Math.pow(1 + monthlyRate, months) / (Math.pow(1 + monthlyRate, months) - 1);
+    const total = emiVal * months;
+    const interest = total - principal;
 
-    const emiValue = P * R * Math.pow(1 + R, N) / (Math.pow(1 + R, N) - 1);
-    const totalPay = emiValue * N;
-    const interestPay = totalPay - P;
-
-    setEmi(emiValue.toFixed(2));
-    setTotalPayment(totalPay.toFixed(2));
-    setTotalInterest(interestPay.toFixed(2));
+    setEmi(emiVal.toFixed(2));
+    setTotalPayment(total.toFixed(2));
+    setTotalInterest(interest.toFixed(2));
   };
 
-  const clearFields = () => {
+  const clearAll = () => {
     setLoanAmount('');
     setDownPayment('');
     setInterestRate('');
@@ -42,59 +41,63 @@ const EMICalculator = () => {
 
   return (
     <div className="emi-container">
-      <h2>EMI Calculator</h2>
+      <h2>Loan EMI Calculator</h2>
 
       <div className="input-group">
-        <label>Loan Amount (₹)</label>
+        <label htmlFor="loanAmount">Loan Amount (₹)</label>
         <input
+          id="loanAmount"
           type="number"
           value={loanAmount}
           onChange={e => setLoanAmount(e.target.value)}
-          placeholder="Enter total loan amount"
+          placeholder="e.g., 500000"
         />
       </div>
 
       <div className="input-group">
-        <label>Down Payment (₹)</label>
+        <label htmlFor="downPayment">Down Payment (₹)</label>
         <input
+          id="downPayment"
           type="number"
           value={downPayment}
           onChange={e => setDownPayment(e.target.value)}
-          placeholder="Enter down payment"
+          placeholder="e.g., 50000"
         />
       </div>
 
       <div className="input-group">
-        <label>Interest Rate (% per annum)</label>
+        <label htmlFor="interestRate">Interest Rate (%/year)</label>
         <input
+          id="interestRate"
           type="number"
           value={interestRate}
           onChange={e => setInterestRate(e.target.value)}
-          placeholder="Enter interest rate"
+          placeholder="e.g., 8.5"
         />
       </div>
 
       <div className="input-group">
-        <label>Loan Tenure (months)</label>
+        <label htmlFor="tenure">Loan Tenure (months)</label>
         <input
+          id="tenure"
           type="number"
           value={tenure}
           onChange={e => setTenure(e.target.value)}
-          placeholder="Enter tenure in months"
+          placeholder="e.g., 60"
         />
       </div>
 
       <div className="buttons">
         <button onClick={calculateEMI}>Calculate</button>
-        <button onClick={clearFields} className="clear-btn">Clear</button>
+        <button onClick={clearAll} className="clear-btn">Clear</button>
       </div>
 
       {emi && (
         <div className="result">
-          <h3>EMI Details</h3>
+          <h3>EMI Summary</h3>
           <p><strong>Monthly EMI:</strong> ₹{emi}</p>
           <p><strong>Total Interest:</strong> ₹{totalInterest}</p>
-          <p><strong>Total Payment:</strong> ₹{totalPayment}</p>
+          <p><strong>Total Amount Payable:</strong> ₹{totalPayment}</p>
         </div>
       )}
     </div>
