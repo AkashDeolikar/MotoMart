@@ -101,6 +101,7 @@ import Ashokpickup from "./component/slidePage/subpages/commercialcarpages/ashok
 import Suzukipickup from "./component/slidePage/subpages/commercialcarpages/suzukipickup";
 import FavoriteVehicle from "./component/headerfooter/FavoriteVehicle";
 import MyFavorites from "./component/headerfooter/MyFavorites";
+import HondaActivaDetail from "./component/cardetails/HondaActiva";
 
 //DB pages
 
@@ -140,6 +141,7 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister }) =
               <Route path="/ertiga" element={<SuzukiErtigaDetail />} />
               <Route path="/omni" element={<OmniDetail />} />
               <Route path="/innova" element={<ToyotaInnovaDetail />} />
+              <Route path="/activa" element={<HondaActivaDetail />}/>
 
               <Route path="/carcard" element={<Carcard />} />
               <Route path="/bikecard" element={<Bikecard />} />

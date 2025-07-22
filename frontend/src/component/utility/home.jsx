@@ -28,6 +28,7 @@ import 'swiper/css/effect-fade';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+// Asset Imports
 import img1 from './assetimg/img1.jpg';
 import img2 from './assetimg/img2.jpg';
 import img3 from './assetimg/img3.jpg';
@@ -42,8 +43,8 @@ import bimg3 from './assetimg/bimg3.WebP';
 import bimg4 from './assetimg/bimg4.WebP';
 
 import Viewmore from "../cardetails/viewmore";
-import HeroSlider from "./HeroSlider";
-import SlideItem from "./SlideItem";
+import HeroSlider from "./HeroSlider"; // This component seems unused based on commented out usage
+import SlideItem from "./SlideItem"; // This component seems unused based on commented out usage
 
 // ===============================================
 // Extracted Components for Better Structure
@@ -65,8 +66,6 @@ const LoadingOverlay = ({ isLoading }) => {
     </div>
   );
 };
-
-
 
 /**
  * Renders the Bootstrap Carousel for the hero section.
@@ -249,26 +248,13 @@ const AutoPlayCardSlider = ({ data }) => {
   );
 };
 
-
-
-/**
- * Renders the About Us section with a background image and scroll-down arrow.
- * @param {object} props - Component props.
- * @param {function} props.scrollToTargetSection - Function to scroll to a target section.
- */
-
 /**
  * Renders the Featured Cars Section with a horizontal slider.
  * @param {object} props - Component props.
  * @param {Array<object>} props.featuredCars - Array of featured car data.
- * @param {function} props.handlePrev - Function for previous button.
- * @param {function} props.handleNext - Function for next button.
- * @param {Array<object>} props.visibleCars - Array of cars currently visible in the slider.
  * @param {function} props.handleViewCarDetails - Function to handle viewing car details.
  * @param {object} props.carRouteMap - Map of car names to their routes.
  */
-
-/* FEATURED CAR SECTION */
 const FeaturedCarsSection = ({ featuredCars, handleViewCarDetails, carRouteMap }) => (
   <section className="carslidefeatured-section" data-aos="fade-up" data-aos-once="true">
     <div className="carslidefeatured-container">
@@ -296,12 +282,11 @@ const FeaturedCarsSection = ({ featuredCars, handleViewCarDetails, carRouteMap }
             </div>
           </div>
         ))}
-        <Viewmore />
+        <Viewmore /> {/* This component is rendered for all cars, typically it's a single "view more" link */}
       </div>
     </div>
   </section>
 );
-
 
 /**
  * Renders a grid of offers.
@@ -331,7 +316,6 @@ const OffersGridSection = ({ offers }) => (
  * Renders the Vehicle Categories section.
  */
 const VehicleCategoriesSection = () => {
-
   return (
     <section className="cardetail-sections-wrapper">
       <div className="cardetail-sections-bg" />
@@ -358,7 +342,6 @@ const VehicleCategoriesSection = () => {
   );
 };
 
-
 // ===============================================
 // Main Home Component
 // ===============================================
@@ -366,9 +349,9 @@ const VehicleCategoriesSection = () => {
 const Home = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-  const [activeTab, setActiveTab] = useState("MUVs/SUVs");
+  const [activeTab, setActiveTab] = useState("MUVs/SUVs"); // Initial active tab
 
-  // for our range
+  // Data for "Our Range" section
   const categories = [
     "Hatchback",
     "SUV",
@@ -383,7 +366,7 @@ const Home = () => {
     Sedan: "Sedans are sleek and stylish with a focus on comfort and ride quality. Perfect for daily commuting with premium features.",
     Van: "Vans are perfect for large families or commercial use. They offer spacious interiors and flexible seating arrangements.",
     EV: "Electric Vehicles are eco-friendly and cost-effective with zero emissions. Great for the future of sustainable mobility."
-  };// for our range
+  };
 
   /* Loading Animation until data load */
   useEffect(() => {
@@ -391,9 +374,9 @@ const Home = () => {
       setIsLoading(false); // hide after full load
     }, 2000); // or 500ms
     return () => clearTimeout(timeout);
-  }, []); // ✅ only run once on first mount
+  }, []);
 
-
+  /* FEATURED CAR AND BIKE SECTION */
   const featuredCars = [
     { id: 1, name: "Maruti Suzuki Swift", price: "5.99 Lakh", image: "./images/swift/SUZUKI_SWIFT_EXT_360_RED_V-1_5.webp" },
     { id: 2, name: "Hyundai Creta", price: "10.87 Lakh", image: "./images/creta/abyss-black_7.png" },
@@ -401,6 +384,7 @@ const Home = () => {
     { id: 4, name: "Suzuki Ertiga", price: "9.50 Lakh", image: "./images/ertiga.png" },
     { id: 5, name: "Renault Kwid", price: "3.50 Lakh", image: "./images/kwid.png" },
     { id: 6, name: "Toyota Innova", price: "17.50 Lakh", image: "./images/crysta.png" },
+    { id: 7, name: "Honda Activa", price: "1.20 Lakh", image: "./images/activa/13.png" },
   ];
 
   /*Scroll up animation */
@@ -411,6 +395,7 @@ const Home = () => {
     });
   }, []);
 
+  // Data for "Offers Grid Section"
   const offers = [
     {
       id: 1,
@@ -418,7 +403,7 @@ const Home = () => {
       description: "Calculate your EMI and know the ROI",
       text: "click here",
       image: require('../Assets/emi.png'),
-      link: "/emicalculator", // <-- Add this
+      link: "/emicalculator",
     },
     {
       id: 2,
@@ -438,6 +423,7 @@ const Home = () => {
     }
   ];
 
+  // State for featured cars slider (though currently FeaturedCarsSection is not using visibleCars)
   const [startIndex, setStartIndex] = useState(0);
 
   const handleNext = () => {
@@ -448,44 +434,49 @@ const Home = () => {
     setStartIndex((prev) => (prev - 3 + featuredCars.length) % featuredCars.length);
   };
 
+  // This `visibleCars` array is currently not used by `FeaturedCarsSection` as it maps all `featuredCars`.
   const visibleCars = [
     featuredCars[startIndex],
     featuredCars[(startIndex + 1) % featuredCars.length],
     featuredCars[(startIndex + 2) % featuredCars.length],
   ];
 
+  // Data for AutoPlayCardSlider ("Fold2" cards)
   const fold2CardsData = [
     {
       className: 'fold2-pic1',
       heading: 'The electric advantage',
-      link: '/page1',
+      link: '/page1', // Link to a specific page
     },
     {
       className: 'fold2-pic2',
       heading: 'Building for progress',
-      link: '/page2',
+      link: '/page2', // Link to a specific page
     },
     {
       className: 'fold2-pic3',
       heading: 'Future-ready begins here',
-      link: '/page3',
+      link: '/page3', // Link to a specific page
     },
     {
       className: 'fold2-pic4',
       heading: 'Committed to do good',
-      link: '/page4',
+      link: '/page4', // Link to a specific page
     },
   ];
 
+  // Mapping of car names to their respective routes for navigation
   const carRouteMap = {
     "Maruti Suzuki Swift": "/swift",
     "Hyundai Creta": "/creta",
     "Tata Nexon": "/nexon",
     "Suzuki Ertiga": "/ertiga",
-    "Renault Kwid": "/omni", // Changed from "/page5" for consistency
+    "Renault Kwid": "/omni", // Changed from "/page5" for consistency, assuming this is the correct route
     "Toyota Innova": "/innova",
+    "Honda Activa": "/activa",
   };
 
+  // Function to handle navigation to car details page with loading animation
   const handleViewCarDetails = (carName) => {
     setIsLoading(true);
     setTimeout(() => {
@@ -499,8 +490,8 @@ const Home = () => {
     }, 1500);
   };
 
-  // --- SCROLL SLIDER ---
-  const targetSectionRef = useRef(null); // Ref for scroll target
+  // Ref for a scroll target section (currently used for a placeholder div)
+  const targetSectionRef = useRef(null);
   const scrollToTargetSection = () => {
     targetSectionRef.current?.scrollIntoView({
       behavior: 'smooth',
@@ -510,36 +501,25 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      {/* <FeaturedCarsSection
-        featuredCars={featuredCars}
-        handleViewCarDetails={handleViewCarDetails}
-        carRouteMap={carRouteMap}
-      /> */}
-      <LoadingOverlay isLoading={isLoading} />  {/* This is a loading animation */}
+      <LoadingOverlay isLoading={isLoading} />
 
-      {/* <HeroSlider />  */}
-      {/* SlideItem is already handled inside */}
-      {/* Slider From Zero point site replica */}
-
+      {/* Hero Section - Bootstrap Carousel Replica */}
       <HeroCarousel />
 
+      {/* Auto-Playing Card Slider (Fold2 Cards) */}
       <AutoPlayCardSlider data={fold2CardsData} />
 
-      {/*Statistic data of vehicles*/}
+      {/* Statistic Data Highlight Section */}
       <StatsHighlightSection />
 
-      {/* NEW RECOMMENDED POSITION FOR VEHICLE CATEGORIES SECTION */}
+      {/* Vehicle Categories Section (Discover Cars/Bikes) */}
       <VehicleCategoriesSection />
-      {/* END NEW RECOMMENDED POSITION */}
 
-      {/* <SustainabilitySection /> */}
-
-      {/* <ABOUT US SECTION /> */}
+      {/* About Us Section */}
       <div className="masonrymedia-aka" style={{ position: 'relative' }}>
         <div className="masonrymedia__container masonrymedia__container--right masonrymedia__container--visible">
           {/* Text section */}
           <div className="masonrymedia__card">
-
             <div className="masonrymedia__card-inner">
               <div className="masonrymedia__card-info">
                 <h3 className="masonrymedia__card-title headline headline--xl">JOY OF REDEFINING DRIVING</h3>
@@ -554,7 +534,7 @@ const Home = () => {
                   <a
                     className="primary-link icon-arrow-right"
                     onClick={() => {
-                      localStorage.setItem("aboutusReady", "false");
+                      localStorage.setItem("aboutusReady", "false"); // Assuming this is for internal loading state
                       setIsLoading(true);
 
                       const checkPageReady = setInterval(() => {
@@ -564,7 +544,7 @@ const Home = () => {
                         }
                       }, 100);
 
-                      navigate('/aboutus');
+                      navigate('/aboutus'); // Navigates to About Us page
                     }}
                   >
                     <span className="cta-content">ABOUT US</span>
@@ -572,11 +552,9 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <br />
-            {/* <h3 className="masonrymedia__card-title headline headline--xl"></h3> */}
           </div>
+          {/* Image mosaic for About Us section */}
           <div className="masonrymedia__mosaic">
-            {/* Top row */}
             <div className="masonrymedia__row masonrymedia__row--supportive" >
               <div className="masonrymedia__cell" >
                 <picture className="masonrymedia__picture" data-aos="zoom-in-right" data-aos-delay="100" data-aos-once="true">
@@ -589,8 +567,6 @@ const Home = () => {
                 </picture>
               </div>
             </div>
-
-            {/* Bottom row */}
             <div className="masonrymedia__row masonrymedia__row--main">
               <div className="masonrymedia__cell masonrymedia__cell--narrow">
                 <picture className="masonrymedia__picture" data-aos="zoom-in" data-aos-delay="300" data-aos-once="true">
@@ -607,34 +583,31 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Placeholder div for scroll target */}
+      {/* Placeholder div for scroll target (appears to be a decorative section) */}
       <div className="cardetail-sections-wrapper01" ref={targetSectionRef}>
         <div className="cardetail-sections-bg01"></div>
         <div className="cardetail-sections-overlay01"></div>
-
         <div className="cardetail-sections-inner01">
           <div className="cardetail-sections-content01" data-aos="fade-up" data-aos-once="true">
-            {/* <h1 className="cardetail-sections-title01">Experience the Future of Driving</h1> */}
             <p className="cardetail-sections-subtitle01">
               Discover intelligent features, advanced design, and next-level performance with our new-age vehicles.
             </p>
           </div>
         </div>
-
         <div className="cardetail-sections-scroll-hint01">SCROLL TO EXPLORE ↓</div>
       </div>
 
-      {/* FEATURED CAR SECTION */}
+      {/* Featured Cars Section */}
       <FeaturedCarsSection
         featuredCars={featuredCars}
-        handlePrev={handlePrev}
-        handleNext={handleNext}
-        visibleCars={visibleCars}
+        handlePrev={handlePrev} // These handlers are passed but not used within FeaturedCarsSection
+        handleNext={handleNext} // as it currently maps all `featuredCars` directly.
+        visibleCars={visibleCars} // This prop is passed but not used within FeaturedCarsSection.
         handleViewCarDetails={handleViewCarDetails}
         carRouteMap={carRouteMap}
       />
 
-      {/*Luxury vehicle intro */}
+      {/* Our Range - Category Tabs Section */}
       <div className="Aks__contentRange">
         <div className="Aks__MainRange">
           <div className="Aks__Rangetitle">
@@ -658,14 +631,12 @@ const Home = () => {
         </div>
       </div>
 
-
-
-      {/* ZIC ZAC SECTION */}
+      {/* Zic-Zac Section - Vehicle Categories with Images and Links */}
       <div className="zic-zic-blocks">
         <div className="zic-data">
           <div className="zic-alternating-content">
             <div className="mobile-note"> Tap the card to explore more features!</div>
-            {/* Image 1: Right aligned - Clickable */}
+            {/* Luxury Vehicles */}
             <div className="support right-aligned" data-aos="slide-right" data-aos-delay="200">
               <Link to="/luxuryvh" className="zic-image-link">
                 <picture className="roverimg">
@@ -675,7 +646,7 @@ const Home = () => {
               </Link>
             </div>
 
-            {/* Image 3: Left aligned - Clickable */}
+            {/* Passenger Vehicles */}
             <div className="support left-aligned" data-aos="slide-left" data-aos-delay="200">
               <Link to="/passengervh" className="zic-image-link">
                 <picture className="roverimg">
@@ -685,7 +656,7 @@ const Home = () => {
               </Link>
             </div>
 
-            {/* Image 2: Right aligned - Clickable */}
+            {/* EV Vehicles */}
             <div className="support right-aligned" data-aos="slide-right" data-aos-delay="200">
               <Link to="/evvh" className="zic-image-link">
                 <picture className="roverimg">
@@ -695,7 +666,7 @@ const Home = () => {
               </Link>
             </div>
 
-            {/* Image 4: Left aligned - Clickable */}
+            {/* Commercial Vehicles */}
             <div className="support left-aligned" data-aos="slide-left" data-aos-delay="200">
               <Link to="/commercialvh" className="zic-image-link">
                 <picture className="roverimg">
@@ -708,12 +679,11 @@ const Home = () => {
         </div>
       </div>
 
-
-      {/* <PREMIUM CAR SECTION /> */}
+      {/* Premium Car Section - Image Mosaic with Text */}
       <div className="masonrymedia-aka">
         <div className="masonrymedia__container masonrymedia__container--right masonrymedia__container--visible">
           <div className="masonrymedia__mosaic">
-            {/* Top row */}
+            {/* Image row 1 */}
             <div className="masonrymedia__row masonrymedia__row--supportive">
               <div className="masonrymedia__cell">
                 <picture className="masonrymedia__picture" data-aos="zoom-in-right" data-aos-delay="100" data-aos-once="true">
@@ -726,8 +696,7 @@ const Home = () => {
                 </picture>
               </div>
             </div>
-
-            {/* Bottom row */}
+            {/* Image row 2 */}
             <div className="masonrymedia__row masonrymedia__row--main">
               <div className="masonrymedia__cell masonrymedia__cell--narrow">
                 <picture className="masonrymedia__picture" data-aos="zoom-in" data-aos-delay="350" data-aos-once="true">
@@ -742,7 +711,7 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Text section */}
+          {/* Text section for Premium Car Section */}
           <div className="masonrymedia__card">
             <div className="masonrymedia__card-inner">
               <div className="masonrymedia__card-info">
@@ -759,7 +728,7 @@ const Home = () => {
                       setIsLoading(true);
                       setTimeout(() => {
                         setIsLoading(false);
-                        navigate('/page5');
+                        navigate('/page5'); // Navigates to a generic page 5
                       }, 1500); // Adjust the delay if needed
                     }}
                   >
@@ -769,7 +738,7 @@ const Home = () => {
                 <div className="secondaryLinkContainer">
                   <a
                     className="secondary-link"
-                    href="/carcard"
+                    href="/carcard" // Direct link to car search
                     target="_blank"
                   >
                     <span className="cta-content">Re-direct to Car Search</span>
@@ -781,17 +750,14 @@ const Home = () => {
         </div>
       </div>
 
-      {/* FLIP CARD HEADING */}
+      {/* Flip Card Section - Introduction */}
       <section className="intro">
         <p className="cl1">Drive Smarter with Essentials <i className="bi bi-boxes"></i> </p>
         <p className="cl2"> Stay ahead with EMI, service, and parts tracking tools.</p>
       </section>
 
-      {/* OFFER FLIP CARDS  */}
+      {/* Offers Flip Cards Grid */}
       <OffersGridSection offers={offers} />
-
-
-
     </div>
   );
 };
