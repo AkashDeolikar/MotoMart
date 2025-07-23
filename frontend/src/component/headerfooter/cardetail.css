@@ -1,492 +1,414 @@
-/* --- CSS Custom Properties (Variables) --- */
-/*
-  Centralizing design tokens improves maintainability, consistency,
-  and scalability. Easily change themes or brand colors.
-*/
-:root {
-  /* Colors - Light Theme */
-  --color-primary: #007bff; /* Main brand blue */
-  --color-primary-light: #00aaff;
-  --color-primary-dark: #0056b3;
-  --color-accent-gradient-start: #00dfd8; /* Cyan for gradients */
-  --color-accent-gradient-end: #007cf0;   /* Blue for gradients */
-  --color-success: #28a745;
-  --color-danger: #dc3545;
-  --color-warning: #ffc107;
+/* Light Theme */
+.light {
+    --cardetail-primary-color: #0052cc;           /* Premium deep blue */
+    --cardetail-primary-hover-color: #003d99;     /* Darker blue on hover */
 
-  --color-text-dark: #1f2937; /* Default dark text */
-  --color-text-light: #f8f8f8; /* Default light text */
-  --color-text-muted: #666;
-  --color-text-heading: #273e66;
-  --color-border-light: rgba(0, 0, 0, 0.1);
-  --color-border-subtle: #dcdcdc;
+    --cardetail-text-dark: #1c1c1e;               /* Dark charcoal */
+    --cardetail-text-medium: #4a4a4f;             /* Slightly muted for body text */
+    --cardetail-text-light: #6e6e73;              /* For labels, subtitles */
 
-  --color-surface-light: #ffffff;
-  --color-surface-translucent: rgba(255, 255, 255, 0.1);
-  --color-background-light: #f4f4f4; /* For media section background */
+    --cardetail-bg-light: #f4f6f8;                /* Clean off-white background */
+    --cardetail-bg-white: #ffffff;                /* Pure white card/bg */
 
-  /* Colors - Dark Theme Overrides */
-  --dark-color-background: #121212;
-  --dark-color-surface: #1e1e1e;
-  --dark-color-card-background: #2c2c2c;
-  --dark-color-text-primary: #e0e0e0;
-  --dark-color-text-secondary: #cfcfcf;
-  --dark-color-heading: #00c46a; /* Specific heading color for dark mode */
-  --dark-color-border: #333;
-  --dark-color-spec-border: #0a84ff; /* Accent border for spec list */
-  --dark-color-external-button-start: #00c46a;
-  --dark-color-external-button-end: #1de9b6;
+    --cardetail-border-light: #e0e0e0;            /* Subtle border */
+    --cardetail-shadow-light: rgba(0, 0, 0, 0.08);/* Soft depth */
+    --cardetail-shadow-medium: rgba(0, 0, 0, 0.12);
 
-  /* Spacing */
-  --spacing-xs: 4px;
-  --spacing-sm: 8px;
-  --spacing-md: 15px; /* Renamed from 15px for clarity */
-  --spacing-lg: 20px;
-  --spacing-xl: 25px;
-  --spacing-xxl: 30px;
-  --spacing-xxxl: 40px;
-
-  /* Border Radii */
-  --border-radius-sm: 8px;
-  --border-radius-md: 12px;
-  --border-radius-lg: 16px;
-  --border-radius-xl: 20px;
-  --border-radius-xxl: 24px;
-  --border-radius-full: 50px;
-
-  /* Box Shadows */
-  --shadow-elevation-1: 0 4px 16px rgba(0, 0, 0, 0.05);
-  --shadow-elevation-2: 0 6px 20px rgba(0, 0, 0, 0.25);
-  --shadow-elevation-3: 0 12px 48px rgba(0, 0, 0, 0.2);
-  --shadow-inset-light: inset 0 0 0 1px #e0e0e0; /* Used for description box */
-  --shadow-button-hover: 0 6px 18px rgba(0, 124, 240, 0.4);
-
-  /* Transitions */
-  --transition-speed-fast: 0.2s;
-  --transition-speed-normal: 0.3s;
-  --transition-speed-medium: 0.35s;
-  --transition-speed-slow: 0.4s;
-  --transition-speed-slower: 0.8s;
-  --transition-easing: ease-in-out;
-
-  /* Font Sizes */
-  --font-size-base: 1rem;
-  --font-size-sm: 0.95em;
-  --font-size-md: 1.15em;
-  --font-size-lg: 1.5em;
-  --font-size-xl: 2em;
-  --font-size-xxl: 2.1em;
-  --font-size-xxxl: 2.6em;
+    /* Custom button shadow variables for better control in light theme */
+    --cardetail-shadow-light-button: rgba(0, 123, 255, 0.2);
+    --cardetail-shadow-hover-button: rgba(0, 123, 255, 0.3);
 }
 
-/* --- Base Styles & Accessibility --- */
-/* Universal box-sizing for consistent layout */
-*, *::before, *::after {
-  box-sizing: border-box;
+/* Dark Theme */
+.dark {
+    --cardetail-primary-color: #4c8fff;           /* Bright blue that pops on dark */
+    --cardetail-primary-hover-color: #6aa9ff;     /* Lighter hover blue */
+
+    --cardetail-text-dark: #f5f5f7;               /* Off-white for titles */
+    --cardetail-text-medium: #cfd2dc;             /* For body text */
+    --cardetail-text-light: #9ca0a8;              /* Muted text and labels */
+
+    --cardetail-bg-light: #111214;                /* Ultra dark background */
+    --cardetail-bg-white: #1c1e22;                /* Darker card bg (e.g., panels) */
+
+    --cardetail-border-light: #2c2f34;            /* Subtle border for dark */
+    --cardetail-shadow-light: rgba(255, 255, 255, 0.04); /* Very subtle light shadows */
+    --cardetail-shadow-medium: rgba(255, 255, 255, 0.08);
+
+    /* Custom button shadow variables for better control in dark theme */
+    --cardetail-shadow-light-button: rgba(76, 143, 255, 0.15);
+    --cardetail-shadow-hover-button: rgba(76, 143, 255, 0.25);
 }
 
-/* Default font and background for the body */
+/* Base styles */
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  line-height: 1.6;
-  background-color: var(--color-background-light); /* Light theme default */
-  transition: background-color var(--transition-speed-normal) var(--transition-easing);
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    transition: background-color 0.3s ease;
+    background-color: var(--cardetail-bg-light); /* Apply theme background */
 }
 
-/* Focus Ring for Accessibility */
-/* Ensures clear visual focus for keyboard navigation. */
-:focus-visible {
-  outline: 3px solid var(--color-primary-light);
-  outline-offset: 4px;
-  border-radius: var(--border-radius-md);
-}
 
-/* --- Dark Mode Toggle --- */
-body.dark {
-  background-color: var(--dark-color-background);
-}
-
-/* ==== Container Layout ==== */
 .card-detail-container {
-  max-width: 1000px;
-  margin: var(--spacing-xxxl) auto;
-  padding: var(--spacing-xxl);
-  background: var(--color-surface-translucent); /* Translucent background */
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%); /* Vendor prefix for Safari */
-  border-radius: var(--border-radius-xxl);
-  border: 1px solid rgba(255, 255, 255, 0.125);
-  box-shadow: var(--shadow-elevation-3);
-  color: var(--color-text-dark); /* Default text color */
-  transition: all var(--transition-speed-slow) var(--transition-easing);
-  animation: fadeInUp var(--transition-speed-slower) var(--transition-easing);
-  overflow: hidden; /* Ensures border-radius is respected for inner content */
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: var(--cardetail-bg-light);
+    border-radius: 16px;
+    box-shadow: 0 8px 30px var(--cardetail-shadow-light);
+    color: var(--cardetail-text-dark);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
 }
 
-/* Dark mode overrides for container */
-body.dark .card-detail-container {
-  background-color: var(--dark-color-surface);
-  color: var(--dark-color-text-secondary);
-  border-color: rgba(255, 255, 255, 0.05); /* Lighter border for contrast */
-}
-
-/* --- Animations --- */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(var(--spacing-xxl)); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes shimmerTitle {
-  0% { background-position: 200% center; }
-  100% { background-position: -200% center; }
-}
-
-/* ==== Back Button ==== */
+/* Back Button */
 .back-button {
-  background: transparent;
-  color: var(--color-primary);
-  border: 2px solid var(--color-primary);
-  padding: var(--spacing-md) var(--spacing-xl); /* Adjusted padding */
-  border-radius: var(--border-radius-lg); /* Using variable */
-  cursor: pointer;
-  font-size: var(--font-size-xl);
-  font-weight: 600;
-  margin-bottom: var(--spacing-xxl);
-  display: inline-flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-  transition: all var(--transition-speed-medium) var(--transition-easing);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  position: sticky; /* Sticky positioning for fixed placement on scroll */
-  top: var(--spacing-lg);
-  z-index: 100; /* Ensure it stays on top */
-  backdrop-filter: blur(10px); /* Blurs content behind it */
-  text-decoration: none; /* In case it's an anchor tag */
-  /* Added for a subtle hover effect that scales the text slightly */
-  overflow: hidden;
+    background: none;
+    border: none;
+    font-size: 1.05rem;
+    color: var(--cardetail-primary-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    margin-bottom: 25px;
+    transition: color 0.2s ease-in-out;
 }
 
 .back-button:hover {
-  border-radius: var(--border-radius-full); /* Pill shape on hover */
-  transform: scale(1.02); /* Subtle scale effect */
-  background-color: rgba(0, 123, 255, 0.1);
+    color: var(--cardetail-primary-hover-color);
+    text-decoration: underline;
 }
 
-/* --- Back Button - Shimmer Effect (optional, for advanced UX) --- */
-/* Could add a shimmer for interaction prompt */
-/*
-.back-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent);
-  transition: left .5s ease;
+.back-button i {
+    margin-right: 10px;
+    font-size: 1.2rem;
 }
-.back-button:hover::before {
-  left: 100%;
-}
-*/
 
-/* ==== Vehicle Title ==== */
+/* Sticky Header */
+.card-header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+    position: sticky;
+    top: 0;
+    background: var(--cardetail-bg-light);
+    z-index: 10;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--cardetail-border-light);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
 .vehicle-title {
-  font-size: var(--font-size-xxxl);
-  font-weight: 700;
-  text-align: center;
-  /* Use variables for gradient colors */
-  background: linear-gradient(90deg, var(--color-accent-gradient-end), var(--color-accent-gradient-start));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: var(--spacing-xl);
-  padding-bottom: var(--spacing-md);
-  border-bottom: 2px solid rgba(0, 124, 240, 0.15);
-  animation: shimmerTitle 2.5s infinite linear;
-  background-size: 200% auto; /* For shimmer effect */
-  transition: color var(--transition-speed-normal) var(--transition-easing), border-color var(--transition-speed-normal) var(--transition-easing);
+  font-family: "HCLTeachRoobert-Bold", sans-serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--cardetail-text-dark);
+    line-height: 1.2;
+    margin-bottom: 0;
+    transition: color 0.3s ease;
 }
 
-/* Dark mode override for title */
-body.dark .vehicle-title {
-  background: linear-gradient(90deg, var(--dark-color-heading), var(--dark-color-external-button-end)); /* Different gradient for dark mode */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; /* Keep transparent for gradient */
-  border-color: var(--dark-color-border);
+/* Media + Info Section */
+.card-main-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 40px;
+    align-items: flex-start;
 }
 
-/* ==== Media Section (Image/Video) ==== */
-.media-section {
-  margin-bottom: var(--spacing-xxl);
-  overflow: hidden; /* Ensures content stays within rounded corners */
-  border-radius: var(--border-radius-xl);
-  box-shadow: var(--shadow-elevation-2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--color-background-light); /* Light background for placeholder */
-  animation: fadeInUp 1.2s var(--transition-easing);
-  border: 1px solid var(--color-border-light); /* Subtle border */
+.media-block {
+    /* Adjusted flex to give it more priority to grow */
+    flex: 2 1 65%; /* flex-grow: 2, flex-shrink: 1, flex-basis: 65% */
+    min-width: 320px;
+    background-color: var(--cardetail-bg-white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 18px var(--cardetail-shadow-light);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.media-section iframe,
+/* Aspect ratio box for responsive videos */
+.video-responsive {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    background-color: #000; /* Background for video area to avoid flash of background */
+    border-radius: 8px; /* Apply here for iframe to match */
+}
+
+.video-responsive iframe,
+.video-responsive object,
+.video-responsive embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none; /* Remove default iframe border */
+}
+
+/* Styles for images within media-section (if not using video-responsive) */
 .media-section img {
-  width: 100%;
-  height: 450px; /* Fixed height for consistency */
-  object-fit: cover; /* Ensures image covers area without distortion */
-  border-radius: var(--border-radius-xl); /* Match parent radius */
-  transition: transform var(--transition-speed-slow) var(--transition-easing);
-  display: block; /* Removes extra space below images */
+    width: 100%;
+    border-radius: 8px; /* Maintain consistent border radius for images */
+    max-height: 550px;
+    object-fit: cover;
+    display: block;
 }
 
-.media-section img:hover {
-  transform: scale(1.03); /* Subtle zoom on hover */
+
+.info-block {
+    /* Adjusted flex to keep it proportionate but let media-block dominate */
+    flex: 1 1 30%; /* flex-grow: 1, flex-shrink: 1, flex-basis: 30% */
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 25px;
+    background-color: var(--cardetail-bg-white);
+    border-radius: 12px;
+    box-shadow: 0 4px 18px var(--cardetail-shadow-medium);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Dark mode override for media section */
-body.dark .media-section {
-  background-color: var(--dark-color-card-background);
-  border-color: rgba(255, 255, 255, 0.08);
+/* Price and Link Section */
+.price-section {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--cardetail-text-dark);
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--cardetail-border-light);
+    transition: color 0.3s ease, border-color 0.3s ease;
 }
 
-/* ==== Vehicle Description ==== */
-.vehicle-description {
-  font-size: var(--font-size-md);
-  color: inherit; /* Inherits color from container (handles dark mode) */
-  background: transparent; /* Inherits background from container (handles translucency) */
-  padding: var(--spacing-xl);
-  border-radius: var(--border-radius-md);
-  box-shadow: var(--shadow-inset-light); /* Consistent inset shadow */
-  margin-bottom: var(--spacing-xxl);
-  text-align: justify;
-  line-height: 1.8;
-  animation: fadeInUp 1.4s var(--transition-easing);
-  transition: all var(--transition-speed-normal) var(--transition-easing);
+.price-heading {
+  font-family: "HCLTeachRoobert-Bold", sans-serif;
+    font-size: 1.15rem;
+    margin-bottom: 6px;
+    color: var(--cardetail-text-medium);
+    transition: color 0.3s ease;
 }
 
-/* Dark mode override for description */
-body.dark .vehicle-description {
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-  color: var(--dark-color-text-secondary);
+.price-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--cardetail-primary-color);
+    transition: color 0.3s ease;
 }
 
-/* ==== Specifications Heading ==== */
-.spec-heading {
-  font-size: var(--font-size-xxl);
-  color: var(--color-text-heading); /* Specific heading color */
-  margin-bottom: var(--spacing-lg);
-  border-bottom: 1px solid var(--color-border-subtle);
-  padding-bottom: var(--spacing-md);
-  animation: fadeInUp 1.6s var(--transition-easing);
-  transition: color var(--transition-speed-normal) var(--transition-easing), border-color var(--transition-speed-normal) var(--transition-easing);
-}
-
-/* Dark mode override for spec heading */
-body.dark .spec-heading {
-  color: var(--dark-color-heading); /* Specific dark mode color */
-  border-color: var(--dark-color-border);
-}
-
-/* ==== Specifications List ==== */
-.spec-list {
-  display: grid;
-  /* Responsive grid: 280px minimum width, fills remaining space */
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--spacing-lg);
-  padding: 0;
-  margin: 0 0 var(--spacing-xxl) 0;
-  list-style: none; /* Remove default list style */
-}
-
-.spec-list li {
-  background: var(--color-surface-light);
-  padding: var(--spacing-lg);
-  border-radius: var(--border-radius-md);
-  box-shadow: var(--shadow-elevation-1);
-  transition: all var(--transition-speed-normal) var(--transition-easing);
-  border-left: 5px solid var(--color-accent-gradient-start); /* Consistent accent border color */
-  animation: fadeInUp 1.8s var(--transition-easing);
-  position: relative; /* For custom list styling if needed */
-  overflow: hidden; /* Ensures border-radius for inner elements */
-}
-
-.spec-list li:hover {
-  transform: translateY(-4px);
-  background-color: #f7fcff; /* Subtle hover background */
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); /* Enhanced shadow on hover */
-}
-
-/* Dark mode override for spec list items */
-body.dark .spec-list li {
-  background-color: var(--dark-color-card-background);
-  border-left-color: var(--dark-color-spec-border);
-  box-shadow: var(--shadow-elevation-1); /* Keep a subtle shadow */
-}
-
-body.dark .spec-list li:hover {
-  background-color: color-mix(in srgb, var(--dark-color-card-background) 90%, white); /* Slightly lighten on hover */
-}
-
-.spec-list li strong {
-  display: block;
-  font-weight: 600;
-  color: var(--color-text-dark); /* Strong text color */
-  margin-bottom: var(--spacing-sm);
-  font-size: var(--font-size-base); /* Ensure consistent base font size */
-  transition: color var(--transition-speed-normal) var(--transition-easing);
-}
-
-/* Dark mode override for strong text */
-body.dark .spec-list li strong {
-  color: var(--dark-color-text-primary);
-}
-
-.spec-list li ul {
-  list-style: disc; /* Keep disc for nested lists */
-  margin-left: var(--spacing-lg);
-  margin-top: var(--spacing-sm);
-  color: var(--color-text-muted); /* Muted text for sub-items */
-  padding: 0; /* Ensure no extra padding */
-}
-
-.spec-list li ul li {
-  margin-bottom: var(--spacing-xs);
-  font-size: var(--font-size-sm);
-  background: none; /* Remove background from nested list items */
-  padding: 0; /* Remove padding from nested list items */
-  box-shadow: none; /* Remove shadow from nested list items */
-  border-left: none; /* Remove border from nested list items */
-  animation: none; /* Remove animation from nested list items */
-}
-
-/* Dark mode override for nested list items */
-body.dark .spec-list li ul li {
-  color: var(--dark-color-text-secondary);
-}
-
-/* ==== External Link Button ==== */
 .external-link-button {
-  display: block; /* Changed to block for easier centering with margin auto */
-  width: fit-content; /* Only take content width */
-  background: linear-gradient(to right, var(--color-accent-gradient-start), var(--color-accent-gradient-end));
-  color: var(--color-surface-light); /* White text on button */
-  font-size: 1.1em;
-  font-weight: bold;
-  padding: var(--spacing-md) var(--spacing-xxl); /* Adjusted padding */
-  border-radius: var(--border-radius-full); /* Pill shape */
-  text-align: center;
-  text-decoration: none; /* Remove underline */
-  transition: transform var(--transition-speed-fast) var(--transition-easing), box-shadow var(--transition-speed-normal) var(--transition-easing);
-  margin: var(--spacing-xxl) auto 0 auto; /* Center button with top margin */
-  animation: fadeInUp 2s var(--transition-easing);
-  border: none; /* Ensure no default button border */
-  cursor: pointer; /* Indicate interactivity if it's a button */
+    display: block;
+    margin-top: 10px;
+    padding: 14px 20px;
+    background-color: var(--cardetail-primary-color);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px var(--cardetail-shadow-light-button);
+    position: relative;
 }
 
 .external-link-button:hover {
-  transform: translateY(-3px); /* Slightly more pronounced lift */
-  box-shadow: var(--shadow-button-hover);
+    background-color: var(--cardetail-primary-hover-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px var(--cardetail-shadow-hover-button);
 }
 
-/* Dark mode override for external link button */
-body.dark .external-link-button {
-  background: linear-gradient(to right, var(--dark-color-external-button-start), var(--dark-color-external-button-end));
-  color: var(--color-text-dark); /* Dark text on lighter button */
+.vehicle-description {
+  font-family: "HCLTeachRoobert-Medium", sans-serif;
+    font-size: 1.05rem;
+    color: var(--cardetail-text-medium);
+    padding-top: 10px;
+    margin-bottom: 0;
+    transition: color 0.3s ease;
 }
 
-body.dark .external-link-button:hover {
-  background: linear-gradient(to right, color-mix(in srgb, var(--dark-color-external-button-start) 90%, black), color-mix(in srgb, var(--dark-color-external-button-end) 90%, black));
-  box-shadow: 0 6px 20px rgba(0, 196, 106, 0.4); /* Adjusted shadow for dark mode */
+/* Specifications */
+.specs-container {
+    background-color: var(--cardetail-bg-white);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px var(--cardetail-shadow-light);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* ==== Responsive Design ==== */
+.basic-specs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+    font-size: 1.05rem;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--cardetail-border-light);
+    transition: border-color 0.3s ease;
+}
+
+.basic-specs div strong {
+    color: var(--cardetail-text-dark);
+    transition: color 0.3s ease;
+}
+
+/* Accordion Sections */
+.spec-section {
+    margin-bottom: 25px;
+    border-top: 1px solid var(--cardetail-border-light);
+    padding-top: 20px;
+    transition: border-color 0.3s ease;
+}
+
+.section-toggle {
+  font-family: "HCLTeachRoobert-Medium", sans-serif;
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--cardetail-text-dark);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+    transition: color 0.2s ease;
+}
+
+.section-toggle:hover {
+    color: var(--cardetail-primary-color);
+}
+
+.arrow {
+    transition: transform 0.3s ease, color 0.3s ease;
+    font-size: 0.9em;
+    color: var(--cardetail-text-medium);
+}
+
+.arrow.open {
+    transform: rotate(180deg);
+}
+
+.section-details {
+    margin-top: 15px;
+    padding: 15px 20px;
+    border-left: 3px solid var(--cardetail-primary-color);
+    background-color: var(--cardetail-bg-white);
+    border-radius: 8px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.spec-item {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: var(--cardetail-text-medium);
+    transition: color 0.3s ease;
+}
+
+.spec-item:last-child {
+    margin-bottom: 0;
+}
+
+.spec-item strong {
+    color: var(--cardetail-text-dark);
+    margin-right: 5px;
+    transition: color 0.3s ease;
+}
+
+/* Loading/Error */
+.loading-message,
+.not-found-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--cardetail-text-medium);
+    padding: 50px 0;
+    transition: color 0.3s ease;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1024px) {
+    .card-detail-container {
+        padding: 25px;
+        margin: 30px auto;
+    }
+    .card-main-content {
+        flex-direction: column;
+        gap: 25px;
+    }
+    .media-block,
+    .info-block {
+        flex: 1 1 100%; /* At smaller screens, they both take full width */
+    }
+    .vehicle-title {
+        font-size: 2.2rem;
+    }
+}
+
 @media (max-width: 768px) {
-  .card-detail-container {
-    padding: var(--spacing-lg);
-    margin: var(--spacing-lg) var(--spacing-lg);
-    border-radius: var(--border-radius-lg); /* Slightly smaller radius for mobile */
-  }
-
-  .vehicle-title {
-    font-size: var(--font-size-xl);
-    margin-bottom: var(--spacing-lg);
-  }
-
-  .media-section iframe,
-  .media-section img {
-    height: 280px;
-    border-radius: var(--border-radius-lg);
-  }
-
-  .spec-heading {
-    font-size: var(--font-size-lg);
-    margin-bottom: var(--spacing-md);
-  }
-
-  .external-link-button {
-    width: 90%; /* Wider on smaller screens */
-    max-width: 300px;
-    font-size: var(--font-size-base);
-    padding: var(--spacing-md) var(--spacing-lg);
-    margin-top: var(--spacing-xl);
-  }
-
-  .back-button {
-    padding: var(--spacing-sm) var(--spacing-md);
-    font-size: var(--font-size-base); /* Base font size for better legibility */
-    margin-bottom: var(--spacing-xl);
-    top: var(--spacing-md); /* Adjust sticky position */
-    border-radius: var(--border-radius-md);
-  }
-
-  .spec-list {
-    grid-template-columns: 1fr; /* Stack items vertically */
-    gap: var(--spacing-md);
-  }
+    .card-detail-container {
+        padding: 20px;
+        margin: 20px auto;
+        border-radius: 10px;
+    }
+    .vehicle-title {
+        font-size: 1.8rem;
+    }
+    .card-header {
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+    }
+    .back-button {
+        font-size: 0.95rem;
+        margin-bottom: 15px;
+    }
+    .info-block,
+    .specs-container {
+        padding: 20px;
+    }
+    .price-heading {
+        font-size: 1.05rem;
+    }
+    .price-value {
+        font-size: 1.4rem;
+    }
+    .external-link-button {
+        padding: 12px 16px;
+        font-size: 0.95rem;
+    }
+    .vehicle-description {
+        font-size: 0.95rem;
+    }
+    .basic-specs {
+        grid-template-columns: 1fr;
+        font-size: 0.95rem;
+        gap: 12px;
+    }
+    .section-toggle {
+        font-size: 1.1rem;
+    }
+    .spec-item {
+        font-size: 0.9rem;
+    }
+    .section-details {
+        padding: 10px 15px;
+    }
 }
 
 @media (max-width: 480px) {
-  .card-detail-container {
-    padding: var(--spacing-md);
-    margin: var(--spacing-md) var(--spacing-sm);
-    border-radius: var(--border-radius-md);
-  }
-
-  .vehicle-title {
-    font-size: var(--font-size-lg);
-    margin-bottom: var(--spacing-md);
-  }
-
-  .media-section iframe,
-  .media-section img {
-    height: 200px;
-    border-radius: var(--border-radius-md);
-  }
-
-  .back-button {
-    padding: var(--spacing-xs) var(--spacing-sm);
-    font-size: var(--font-size-sm);
-    margin-bottom: var(--spacing-lg);
-    top: var(--spacing-sm);
-    border-radius: var(--border-radius-sm);
-  }
-
-  .external-link-button {
-    padding: var(--spacing-sm) var(--spacing-md);
-    font-size: var(--font-size-sm);
-    margin-top: var(--spacing-lg);
-  }
-
-  .spec-list li,
-  .vehicle-description {
-    font-size: var(--font-size-sm);
-    padding: var(--spacing-md); /* Reduced padding */
-  }
-
-  .spec-heading {
-    font-size: var(--font-size-base);
-    padding-bottom: var(--spacing-sm);
-  }
+    .card-detail-container {
+        padding: 15px;
+        margin: 15px;
+    }
+    .vehicle-title {
+        font-size: 1.6rem;
+    }
+    .info-block,
+    .specs-container {
+        padding: 15px;
+    }
 }

@@ -635,7 +635,7 @@ const Home = () => {
       <div className="zic-zic-blocks">
         <div className="zic-data">
           <div className="zic-alternating-content">
-            <div className="mobile-note"> Tap the card to explore more features!</div>
+            <div className="note"> Tap the card to explore more features!</div>{/* className="mobile-note" => className="note"  */}
             {/* Luxury Vehicles */}
             <div className="support right-aligned" data-aos="slide-right" data-aos-delay="200">
               <Link to="/luxuryvh" className="zic-image-link">

@@ -1,147 +1,221 @@
+/* Base container styling */
 .parts-container {
-  margin: auto;
-  padding: 20px;
-  font-family: 'Segoe UI', sans-serif;
+    max-width: 1200px;
+    margin: 20px auto; /* Centers the container and adds margin to top/bottom */
+    padding: 20px;
+    font-family: 'Segoe UI', Arial, sans-serif; /* Prefer Segoe UI, fallback to Arial/sans-serif */
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    color: #333; /* Default text color for light mode */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth transition for theme changes */
 }
 
 /* Heading */
 .parts-container h2 {
-  margin-bottom: 20px;
-  font-size: 24px;
-  font-weight: 600;
-  color: #4caf50;
+  font-family: "HCLTechRoobert-Medium";
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #4caf50; /* A pleasant green */
+    transition: color 0.3s ease; /* Smooth transition for heading color */
 }
 
 /* Filters */
 .filters {
-  margin-bottom: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+    display: flex;
+    flex-wrap: wrap; /* Allows filters to wrap on smaller screens */
+    gap: 15px;
+    margin-bottom: 30px;
+    justify-content: center; /* Center filters */
 }
 
-.filters input {
-  padding: 8px 12px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 14px;
-  flex: 1;
-  min-width: 100px;
-  background-color: #f5f5f5;
+.filters input,
+.filters select { /* Apply styles to both input and select */
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    flex: 1; /* Allows inputs to grow and share space */
+    min-width: 200px; /* Ensures filters don't get too small */
+    background-color: #f5f5f5; /* Light grey background for consistency */
+    color: #333; /* Default text color */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
 }
 
-.dark .filters input {
-  background-color: #333;
-  color: #fff;
-  border-color: #555;
+/* Specific style for the vehicle type select, making it stand out slightly */
+.vehicle-type-select {
+    background-color: #e9ecef; /* Slightly different background for select */
+    cursor: pointer;
+    /* Remove default arrow and add custom SVG for consistent look */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e"); /* Dark arrow for light mode */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 18px;
+}
+
+.filters input:focus,
+.filters select:focus {
+    outline: none;
+    border-color: #007bff; /* Standard blue focus border */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Subtle blue glow */
 }
 
 /* Table */
 .parts-table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: #fff;
-  font-size: 14px;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff; /* White background for the table itself */
+    font-size: 14px;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
 }
 
 .parts-table th,
 .parts-table td {
-  border: 1px solid #ccc;
-  padding: 10px;
-  text-align: left;
+    border: 1px solid #e0e0e0; /* Lighter border for cells */
+    padding: 12px 15px;
+    text-align: left;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
 }
 
 .parts-table th {
-  background-color: #eaeaea;
-  font-weight: bold;
+    background-color: #1690bd; /* Bold blue header */
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+.parts-table tr:nth-child(even) {
+    background-color: #f2f2f2; /* Subtle zebra striping */
+    transition: background-color 0.3s ease;
 }
 
 .parts-table tr:hover {
-  background-color: #f1f1f1;
+    background-color: #e9f5ff; /* Light blue hover effect */
+    transition: background-color 0.3s ease;
 }
 
+/* Dark Mode Styles - Apply .dark class to a parent element (e.g., body or a container) */
+.dark .parts-container {
+    background-color: #1a1a1a; /* Dark background */
+    color: #eee; /* Light text color */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Darker shadow for contrast */
+}
+
+.dark .parts-container h2 {
+    color: #90ee90; /* Lighter green for dark mode heading */
+}
+
+.dark .filters input,
+.dark .filters select {
+    background-color: #333; /* Darker input background */
+    color: #fff; /* White text for inputs */
+    border-color: #555; /* Darker border */
+}
+
+.dark .vehicle-type-select {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e"); /* White arrow for dark mode */
+}
+
+.dark .filters input:focus,
+.dark .filters select:focus {
+    border-color: #66b3ff; /* Lighter blue focus border for dark mode */
+    box-shadow: 0 0 0 3px rgba(102, 179, 255, 0.4); /* Lighter blue glow for dark mode */
+}
+
+
 .dark .parts-table {
-  background-color: #1e1e1e;
-  color: #ddd;
+    background-color: #1e1e1e; /* Darker table background */
+    color: #ddd; /* Lighter text for table */
 }
 
 .dark .parts-table th {
-  background-color: #444;
-  color: #fff;
+    background-color: #444; /* Darker header background */
+    color: #fff; /* White header text */
 }
 
 .dark .parts-table td {
-  border-color: #555;
+    border-color: #555; /* Darker cell borders */
+}
+
+.dark .parts-table tr:nth-child(even) {
+    background-color: #2a2a2a; /* Darker zebra striping */
 }
 
 .dark .parts-table tr:hover {
-  background-color: #333;
+    background-color: #383838; /* Darker hover effect */
 }
 
-/* Add Part Section (if used later) */
-.add-part input,
-.add-part select {
-  display: block;
-  margin-bottom: 10px;
-  width: 100%;
-  padding: 8px;
-  font-size: 14px;
-}
-
-.add-part button {
-  padding: 10px 16px;
-  background-color: #2196f3;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-/* Part Card (Optional Visual Style) */
-.part-card {
-  background: #f5f5f5;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-left: 5px solid #4CAF50;
-}
-
-/* Note */
+/* Note Section - Adjusted for better visibility in dark mode */
 .note {
-  color: red;
-  margin-top: 16px;
-  padding: 8px 10px;
-  font-size: 13px;
+    text-align: center;
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #ffeeba; /* Light mode: Warm yellow background */
+    border: 1px solid #ffda6a; /* Light mode: Corresponding border color */
+    color: #856404; /* Light mode: Darker yellow/brown text */
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
+}
+
+.dark .note {
+    background-color: #403200; /* Dark mode: Darker yellow/brown background */
+    border-color: #6a4f00; /* Dark mode: Darker border */
+    color: #ffda6a; /* Dark mode: Lighter text for contrast */
+}
+
+.note p {
+    margin: 0;
 }
 
 /* Mobile Styles */
-@media screen and (max-width: 486px) {
-  .parts-container {
-    padding: 12px;
-  }
+@media screen and (max-width: 768px) { /* Tablet/mobile breakpoint */
+    .parts-container {
+        padding: 15px;
+        margin: 10px;
+    }
 
-  .parts-table {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
+    .filters {
+        flex-direction: column; /* Stack filters vertically */
+        align-items: stretch; /* Make filters take full width */
+        gap: 10px;
+    }
 
-  .parts-table th,
-  .parts-table td {
-    font-size: 13px;
-    padding: 8px;
-  }
+    .filters input,
+    .filters select {
+        min-width: unset; /* Remove min-width when stacked */
+        width: 100%; /* Ensure they take full width */
+    }
 
-  .filters input {
-    width: 100%;
-    font-size: 14px;
-  }
+    .parts-table {
+        display: block;
+        width: 100%;
+        overflow-x: auto; /* Enables horizontal scrolling for wide tables */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    }
 
-  .add-part input,
-  .add-part select,
-  .add-part button {
-    font-size: 14px;
-    width: 100%;
-  }
+    .parts-table th,
+    .parts-table td {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+}
+
+/* Additional smaller mobile adjustment for very narrow screens */
+@media screen and (max-width: 480px) {
+    .parts-container h2 {
+        font-size: 20px;
+    }
+    .note {
+        font-size: 0.8rem;
+        padding: 10px;
+    }
 }
