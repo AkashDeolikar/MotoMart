@@ -1,38 +1,82 @@
 /* src/component/ServiceDropdown.css */
 
-/* Desktop Dropdown Container (visibility controlled by parent li:hover) */
+/* Base Variables - These act as fallbacks if .light or .dark are not applied */
+:root {
+    /* Light Mode Defaults (for contrast and clarity) */
+    --primary-brand-color: #007bff; /* A standard, professional blue */
+    --secondary-bg-color: #ffffff; /* Pure white background */
+    --text-color-primary: #343a40; /* Dark gray for primary text */
+    --text-color-secondary: #6c757d; /* Muted gray for secondary text/icons */
+    --hover-bg-color: #f2f2f2; /* Light gray for subtle hover */
+    --border-line-color: #e9ecef; /* Very light gray for borders */
+    --shadow-color: rgba(0, 0, 0, 0.08); /* Lighter, subtle shadow */
+
+    /* Mobile specific defaults (for light mode) */
+    --mobile-item-bg: rgba(245, 245, 245, 0.95); /* Near-opaque light background */
+    --mobile-item-text: #343a40;
+    --mobile-item-hover-bg: #e0e0e0;
+}
+
+/* Light Theme Specific Colors */
+.light {
+    --primary-brand-color: #007bff;
+    --secondary-bg-color: #ffffff;
+    --text-color-primary: #343a40;
+    --text-color-secondary: #6c757d;
+    --hover-bg-color: #f2f2f2;
+    --border-line-color: #e9ecef;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+
+    /* Mobile specific light theme colors */
+    --mobile-item-bg: rgba(245, 245, 245, 0.95);
+    --mobile-item-text: #343a40;
+    --mobile-item-hover-bg: #e0e0e0;
+}
+
+/* Dark Theme Specific Colors */
+.dark {
+    --primary-brand-color: #66b2ff; /* Brighter blue for contrast in dark mode */
+    --secondary-bg-color: #2c313a; /* Darker charcoal background */
+    --text-color-primary: #e0e6ed; /* Light gray for primary text */
+    --text-color-secondary: #9aa3af; /* Muted light gray for secondary text/icons */
+    --hover-bg-color: #3a404a; /* Slightly lighter dark for hover */
+    --border-line-color: #495057; /* Darker border */
+    --shadow-color: rgba(0, 0, 0, 0.35); /* More pronounced shadow in dark mode */
+
+    /* Mobile specific dark theme colors */
+    --mobile-item-bg: rgba(44, 49, 58, 0.85); /* Slightly transparent dark for mobile items */
+    --mobile-item-text: #e0e6ed;
+    --mobile-item-hover-bg: #1a1e22; /* Even darker hover for mobile */
+}
+
+
+/* Desktop Dropdown Container */
 .desk-nav-dd {
-    margin-top: 10px;
-    display: none; /* Hidden by default */
+    margin-top: 6px; /* Reduced margin for more compactness */
+    display: none;
     position: absolute;
-    top: 100%; /* Position below the main nav item */
+    top: 100%;
     left: 0;
-    background-color: #ababab93; /* Light background with alpha */
-    backdrop-filter: blur(10px) saturate(1.8);
-    -webkit-backdrop-filter: blur(10px) saturate(1.8); /* For Safari */
-    min-width: 200px;
-    box-shadow: 0px 8px 16px 0px var(--box-shadow);
+    background-color: var(--secondary-bg-color); /* Uses theme-specific var */
+    min-width: 200px; /* Slightly narrower to be more compact */
+    box-shadow: 0px 4px 12px var(--shadow-color); /* More subtle shadow */
     z-index: 10;
-    border-radius: 5px;
-    overflow: hidden;
-    transform: translateY(10px);
+    border-radius: 4px;
+    overflow: hidden; /* Ensures content respects border-radius */
+    transform: translateY(8px); /* Reduced initial transform */
     opacity: 0;
     visibility: hidden;
     transition:
-        transform 0.3s ease-out,
-        opacity 0.3s ease-out,
-        visibility 0.3s ease-out;
-}
-
-.dark .desk-nav-dd {
-    background-color: #45484b9d; 
-    backdrop-filter: blur(10px) saturate(1.8);
-    -webkit-backdrop-filter: blur(10px) saturate(1.8); /* Safari fallback */
+        transform 0.18s ease-out, /* Slightly faster transition */
+        opacity 0.18s ease-out,
+        visibility 0.18s ease-out;
+    border: 1px solid var(--border-line-color); /* Uses theme-specific var */
 }
 
 
-/* Show desktop dropdown on hover over the service-nav-item */
-.service-nav-item:hover .desk-nav-dd {
+/* Show desktop dropdown on hover over the service-nav-item or vehicle-nav-item */
+.service-nav-item:hover .desk-nav-dd,
+.vehicle-nav-item:hover .desk-nav-dd {
     display: block;
     transform: translateY(0);
     opacity: 1;
@@ -41,120 +85,136 @@
 
 .desk-nav-dd ul {
     list-style: none;
-    padding: 0;
+    padding: 0; /* No padding on the ul itself */
     margin: 0;
-    flex-direction: column; /* Stack dropdown items vertically */
-    gap: 5px; /* No gap between dropdown items */
-    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* No gap between list items */
 }
 
 .desk-nav-dd ul li a {
-    color: var(--navbar-text);
-    padding: 10px 20px;
+    color: var(--text-color-primary); /* Uses theme-specific var */
+    padding: 8px 18px; /* Reduced vertical padding for more compactness */
     text-decoration: none;
-    display: block;
-    font-size: 1em;
-    border-bottom: 2px solid var(--dropdown-border);
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-.dark .desk-nav-dd ul li a {
-    border-bottom: 2px solid rgb(148, 168, 246);
+    display: flex; /* Flex for alignment of text and icon */
+    align-items: center; /* Vertically align content */
+    font-size: 0.9em; /* Slightly smaller font size for density */
+    border-bottom: 1px solid var(--border-line-color); /* Cleaner 1px border */
+    transition: background-color 0.15s ease, color 0.15s ease; /* Fast hover transition */
 }
 
 .desk-nav-dd ul li:last-child a {
-    border-bottom: none;
+    border-bottom: none; /* No border for the last item */
 }
 
-.dark .desk-nav-dd ul li a:hover {
-    background-color: var(--navbar-hover);
-    color: #fff;
-}
-
-
-/* Mobile Service Dropdown (Submenu) */
-.mobile-nav-dd {
-    position: fixed; /* Or absolute, depending on desired overlay */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9); /* Dark overlay */
-    z-index: 2000;
-    display: flex; /* Use flex for centering content */
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    box-sizing: border-box;
-    transform: translateX(100%); /* Start off-screen */
-    transition: transform 0.4s ease-in-out;
-}
-
-.mobile-nav-dd.mobile-open {
-    transform: translateX(0); /* Slide in */
-}
-
-.mobile-nav-dd .custom-btn.back-nav-btn {
-    background-color: var(--navbar-red);
-    color: #fff;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 8px;
-    margin-bottom: 25px;
-    font-size: 1.1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.mobile-nav-dd .custom-btn.back-nav-btn:hover {
-    background-color: #c0392b;
-}
-
-.mob-nav-options {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 80%; /* Adjust width as needed for mobile options */
-    max-width: 400px; /* Max width for larger phones */
-}
-
-.nav-opt {
-    background-color: var(--dropdown-bg);
-    border-radius: 10px;
-    padding: 15px;
-    text-align: center;
-    box-shadow: 0 4px 8px var(--box-shadow);
-}
-
-.nav-opt h4 {
-    color: var(--navbar-text);
-    margin-bottom: 10px;
-    font-size: 1.15em;
-}
-
-.mobile-nav-cta {
-    background-color: var(--navbar-red);
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
-}
-
-.mobile-nav-cta:hover {
-    background-color: #c0392b;
-}
-
-/* Media Queries for d-none/d-inline-block classes (can remain in navbar.css if global, or adapted) */
-
-@media (min-width: 768px) {
-    .d-md-inline-block { display: inline-block !important; }
-    .d-md-none { display: none !important; }
-}
-@media (max-width: 767px) {
-    .d-md-inline-block { display: none !important; }
-    .d-md-none { display: inline-block !important; }
+.desk-nav-dd ul li a:hover {
+    background-color: var(--hover-bg-color); /* Uses theme-specific var */
+    color: var(--primary-brand-color); /* Highlight text with primary brand color on hover */
 }
 
 
+/* General Link styles for icons */
+.desk-nav-dd ul li a i {
+    margin-left: auto; /* Push icon to the right */
+    font-size: 0.7em; /* Slightly smaller icon */
+    color: var(--text-color-secondary); /* Muted icon color, uses theme-specific var */
+    transition: color 0.15s ease;
+}
+
+.desk-nav-dd ul li a:hover i {
+    color: var(--primary-brand-color); /* Icon color matches text on hover */
+}
+
+
+/* Mobile specific styles for the dropdown (when 'mobile-dd-open' is applied) */
+@media (max-width: 768px) {
+    .service-nav-item .desk-nav-dd,
+    .vehicle-nav-item .desk-nav-dd {
+        display: block; /* Always block on mobile, controlled by max-height */
+        position: static; /* Position statically within the flow */
+        width: 100%;
+        min-width: auto;
+        box-shadow: none; /* No shadow for mobile submenu */
+        border-radius: 0; /* No border-radius for mobile submenu */
+        margin-top: 0; /* No top margin for mobile submenu */
+        background-color: transparent; /* Keep transparent for mobile slide-down */
+        backdrop-filter: none; /* Ensure no backdrop filter on mobile */
+        -webkit-backdrop-filter: none;
+        max-height: 0; /* Initial hidden state for slide-down */
+        overflow: hidden;
+        transition: max-height 0.25s ease-in-out; /* Slightly faster slide-down transition */
+        opacity: 1; /* Always visible when max-height > 0 */
+        visibility: visible; /* Always visible when max-height > 0 */
+        transform: none; /* Remove any previous transforms */
+        border: none; /* No border for the mobile submenu container */
+    }
+
+    .service-nav-item.mobile-dd-open .desk-nav-dd,
+    .vehicle-nav-item.mobile-dd-open .desk-nav-dd {
+        max-height: 400px; /* Reduced max-height; adjust if content is taller */
+    }
+
+    .desk-nav-dd ul {
+        padding: 5px 15px; /* Add internal padding to the list for mobile items */
+    }
+
+    .desk-nav-dd ul li a {
+        padding: 10px 15px; /* Slightly reduced vertical padding for mobile touch targets */
+        font-size: 0.98em; /* Slightly smaller font size */
+        background-color: var(--mobile-item-bg); /* Uses theme-specific var */
+        margin: 3px 0; /* Reduced margin between items */
+        border-radius: 4px; /* Slightly rounded corners for mobile items */
+        border-bottom: none; /* No individual item border */
+        color: var(--mobile-item-text); /* Uses theme-specific var */
+        box-shadow: none; /* No shadow for mobile items */
+        justify-content: space-between; /* Space out text and icon */
+    }
+
+    .desk-nav-dd ul li a:hover {
+        background-color: var(--mobile-item-hover-bg); /* Uses theme-specific var */
+        color: var(--mobile-item-text); /* Keep text color consistent on hover or change as needed */
+    }
+
+    .desk-nav-dd ul li:last-child a {
+        border-bottom: none;
+    }
+
+    /* Adjust the main link for mobile */
+    .desktop-service-link {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding-right: 15px;
+    }
+
+    .mobile-chevron {
+        display: block; /* Show chevron on mobile */
+    }
+
+    .desktop-title-text {
+        flex-grow: 1;
+    }
+}
+
+/* Ensure chevron is always visible and styled for desktop */
+@media (min-width: 769px) {
+    .mobile-chevron {
+        display: block;
+        margin-left: 6px; /* Reduced spacing */
+        font-size: 0.75em; /* Adjusted icon size for subtlety */
+        color: var(--text-color-secondary); /* Uses theme-specific var */
+        transition: transform 0.18s ease; /* Faster rotation for chevron */
+    }
+
+    /* Rotate chevron when desktop dropdown is open (on hover) */
+    .service-nav-item:hover .mobile-chevron,
+    .vehicle-nav-item:hover .mobile-chevron {
+        transform: rotate(180deg);
+    }
+
+    .desktop-service-link {
+        display: flex;
+        align-items: center;
+    }
+}
