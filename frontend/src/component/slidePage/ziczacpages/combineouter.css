@@ -257,6 +257,7 @@
 }
 
 .app-card-caption-wrapper h2.app-margin-bottom-2 {
+    color: rgb(234, 233, 233);
     font-size: 2.2rem;
     margin-bottom: 15px;
 }

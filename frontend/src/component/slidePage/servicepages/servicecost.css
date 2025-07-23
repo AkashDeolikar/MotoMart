@@ -147,7 +147,7 @@ body, html {
   overflow: hidden;
 }
 
-h2, h3, h4 {
+h2, h3, h4 .sc{
   text-align: center;
   color: var(--header-color);
   margin-bottom: 20px;

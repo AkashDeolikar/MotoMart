@@ -194,7 +194,7 @@ function ServiceCostCalculator() {
         {theme === 'light-mode' ? '🌙' : '☀️'}
       </button> */}
 
-      <h2>Vehicle Service Cost Calculator</h2>
+      <h2 className='sc'>Vehicle Service Cost Calculator</h2>
       <p className="description">
         Calculate the estimated cost of vehicle services for your {selectedVehicleType === VEHICLE_TYPES.TWO_WHEELER ? '2-wheeler' : '4-wheeler'}. Add services, adjust quantities, and get a real-time estimate.
       </p>
@@ -221,7 +221,7 @@ function ServiceCostCalculator() {
 
       {/* Add Custom Service Section */}
       <div className="add-service-section">
-        <h3>Add Services</h3>
+        <h3 className='sc'>Add Services</h3>
         <div className="add-service-inputs">
           {availableServices.map(service => (
             <button
@@ -365,7 +365,7 @@ function ServiceCostCalculator() {
 
       {/* Bill Summary (Optional - can populate based on selectedServices) */}
       <div className="bill-summary-section">
-        <h4>Bill Summary</h4>
+        <h4 className='sc'>Bill Summary</h4>
         {selectedServices.length === 0 ? (
           <p className="no-services-msg">Add services to see the summary.</p>
         ) : (

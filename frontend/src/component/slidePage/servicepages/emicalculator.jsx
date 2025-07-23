@@ -143,7 +143,7 @@ const EMICalculator = () => {
 
   return (
     <div className="emi-container">
-      <h2>EMI Calculator</h2>
+      <h2 className='EMI'>EMI Calculator</h2>
       <p className="description">
         Calculate your Equated Monthly Installment (EMI) and get a full breakdown of your loan.
       </p>

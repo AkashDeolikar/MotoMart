@@ -9,6 +9,10 @@ import Login from "./component/auth/login";
 import Register from "./component/auth/register";
 import ForgotPassword from "./component/auth/forgotpassword";
 import Modal from "./component/auth/modal";
+// IMPORTANT: useInactivityLogout is now imported but NOT called directly in App.js
+import useInactivityLogout from './component/auth/useInactivityLogout'; // Keep import for AnimatedRoutes
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./firebase"; // IMPORTANT: Adjust this path if your firebase.js is located differently
 
 // Pages - Utility
 import CarList from "./component/utility/carlist";
@@ -25,7 +29,7 @@ import SlideItem from "./component/utility/SlideItem";
 // Navbar & Footer
 import CarNavbar from "./component/navbar/navbar";
 import Footer from "./component/headerfooter/footer";
-// import FeedBack from "./component/headerfooter/feedback";
+// import FeedBack from "./component/headerfooter/feedback"; // Commented out as per your original code
 import Next from "./component/headerfooter/next";
 import Temp from "./component/headerfooter/temp";
 
@@ -93,7 +97,7 @@ import Teslacar from "./component/slidePage/subpages/evcarpages/teslacarev";
 import Bmwcarev from "./component/slidePage/subpages/evcarpages/bmwcarev";
 import Kiacarev from "./component/slidePage/subpages/evcarpages/kiacarev";
 import Mercedescarev from "./component/slidePage/subpages/evcarpages/mercedescarev";
-import Teslacarev from "./component/slidePage/subpages/evcarpages/teslacarev";
+// import Teslacarev from "./component/slidePage/subpages/evcarpages/teslacarev"; // Duplicate import, removed this line
 
 import Mahindrapickup from "./component/slidePage/subpages/commercialcarpages/mahindrapickup";
 import Isuzupickup from "./component/slidePage/subpages/commercialcarpages/isuzupickup";
@@ -109,8 +113,37 @@ import HondaActivaDetail from "./component/cardetails/HondaActiva";
 console.log("Bike Data:", bikeVehicleData);
 console.log("Car Data:", carVehicleData);
 
-const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister }) => {
+/**
+ * ProtectedRoute Component:
+ * Wraps routes that require user authentication.
+ * Redirects to login if user is not authenticated.
+ */
+const ProtectedRoute = ({ children, user, loadingAuth }) => {
+  if (loadingAuth) {
+    // Show a loading indicator while Firebase is determining auth state
+    return <div>Loading authentication...</div>;
+  }
+  if (!user) {
+    // If no user, redirect to the login page
+    return <Navigate to="/login" replace />;
+  }
+  // If authenticated, render the children (the protected component)
+  return children;
+};
+
+/**
+ * AnimatedRoutes Component:
+ * Handles all routing logic and applies Framer Motion animations.
+ * IMPORTANT: This component is a direct child of <Router> in App.js,
+ * so it's a valid place to call hooks like useLocation and useInactivityLogout.
+ */
+const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister, user, loadingAuth }) => {
   const location = useLocation();
+
+  // IMPORTANT: Call useInactivityLogout here, within the Router's context.
+  // The hook's internal logic will handle when to start/stop the timer
+  // based on the 'user' prop and 'loadingAuth'.
+  useInactivityLogout(user);
 
   return (
     <>
@@ -120,21 +153,31 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister }) =
         <div className="ContentWrapper">
           <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
+              {/* Public Routes - accessible to all */}
               <Route path="/" element={<Home />} />
-              <Route path="/home" element={<Navigate to="/" />} />
+              <Route path="/home" element={<Navigate to="/" replace />} /> {/* Redirect old /home to / */}
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
+              {/* Modal route (if used as a separate route, otherwise handle with state) */}
               <Route path="/register-modal" element={<Modal isOpen={showRegister} onClose={() => setShowRegister(false)}><Register closeModal={() => setShowRegister(false)} /></Modal>} />
-              <Route path="/carlist" element={<CarList />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/contactclick" element={<ContactClick />} />
               {/* <Route path="/feedback" element={<FeedBack />} /> */}
               <Route path="/next" element={<Next />} />
               <Route path="/temp" element={<Temp />} />
               <Route path="/overviewpage" element={<OverviewPage />} />
+              <Route path="/aboutus" element={<Aboutus />} /> {/* Assuming About Us is public */}
 
-              {/* Car detail routes */}
+              {/* Protected Routes - wrapped with ProtectedRoute */}
+              <Route path="/carlist" element={<ProtectedRoute user={user} loadingAuth={loadingAuth}><CarList /></ProtectedRoute>} />
+              <Route path="/cardetails" element={<ProtectedRoute user={user} loadingAuth={loadingAuth}><CarDetails /></ProtectedRoute>} />
+              <Route path="/BikeCompareDetails" element={<ProtectedRoute user={user} loadingAuth={loadingAuth}><BikeCompareDetails /></ProtectedRoute>} />
+              <Route path="/cardetail/:vehicleId" element={<ProtectedRoute user={user} loadingAuth={loadingAuth}><CarDetail bikeData={bikeVehicleData} carData={carVehicleData} /></ProtectedRoute>} />
+              <Route path="/FavoriteVehicle" element={<ProtectedRoute user={user} loadingAuth={loadingAuth}><FavoriteVehicle /></ProtectedRoute>} />
+              <Route path="/MyFavorites" element={<ProtectedRoute user={user} loadingAuth={loadingAuth}><MyFavorites /></ProtectedRoute>} />
+
+              {/* Other Specific Car/Bike Details (assuming some might be public for viewing, but for actual interaction like adding to cart, would be protected) */}
               <Route path="/swift" element={<MarutSwiftDetail />} />
               <Route path="/creta" element={<HyundaiCretaDetail />} />
               <Route path="/nexon" element={<TataNexonDetail />} />
@@ -143,13 +186,11 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister }) =
               <Route path="/innova" element={<ToyotaInnovaDetail />} />
               <Route path="/activa" element={<HondaActivaDetail />}/>
 
+              {/* Vehicle Cards (assuming public access to browse) */}
               <Route path="/carcard" element={<Carcard />} />
               <Route path="/bikecard" element={<Bikecard />} />
-              <Route path="/cardetails" element={<CarDetails />} />
-              <Route path="/BikeCompareDetails" element={<BikeCompareDetails />} />
-              <Route path="/cardetail/:vehicleId" element={<CarDetail bikeData={bikeVehicleData} carData={carVehicleData} />} />
 
-              {/* Slider Pages */}
+              {/* Slider/Navigation Pages (assuming public for showcasing) */}
               <Route path="/page1" element={<Page1 />} />
               <Route path="/page2" element={<Page2 />} />
               <Route path="/page3" element={<Page3 />} />
@@ -157,21 +198,20 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister }) =
               <Route path="/page5" element={<Page5 />} />
               <Route path="/page6" element={<Page6 />} />
 
-              {/* Brand Pages */}
+              {/* Brand Pages (assuming public for Browse) */}
               <Route path="/rover" element={<Rover />} />
               <Route path="/jaguar" element={<Jaguar />} />
               <Route path="/bmw" element={<Bmw />} />
               <Route path="/mercedes" element={<Mercedes />} />
               <Route path="/luxury" element={<Luxury />} />
-              <Route path="/aboutus" element={<Aboutus />} />
 
-              {/* Vehicle Category Pages */}
+              {/* Vehicle Category Pages (assuming public for Browse) */}
               <Route path="/luxuryvh" element={<Luxuryvh />} />
               <Route path="/passengervh" element={<Passengervh />} />
               <Route path="/commercialvh" element={<Commercialvh />} />
               <Route path="/evvh" element={<Evvh />} />
 
-              {/* Sub Brand Pages */}
+              {/* Sub Brand Pages (assuming public for Browse) */}
               <Route path="/audicar" element={<Audicar />} />
               <Route path="/jaguarcar" element={<Jaguarcar />} />
               <Route path="/mercedescar" element={<Mercedescar />} />
@@ -185,7 +225,7 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister }) =
               <Route path="/nissancar" element={<Nissancar />} />
               <Route path="/renaultcar" element={<Renaultcar />} />
               <Route path="/suzukicar" element={<Suzukicar />} />
-              <Route path="/teslacarev" element={<Teslacarev />} />
+              <Route path="/teslacarev" element={<Teslacar />} />
               <Route path="/bmwcarev" element={<Bmwcarev />} />
               <Route path="/kiacarev" element={<Kiacarev />} />
               <Route path="/mercedescarev" element={<Mercedescarev />} />
@@ -194,21 +234,19 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister }) =
               <Route path="/ashokpickup" element={<Ashokpickup />} />
               <Route path="/suzukipickup" element={<Suzukipickup />} />
 
-              {/* Service */}
+              {/* Service Pages (assuming public or can be protected if needed) */}
               <Route path="/servicecostcalculator" element={<ServiceCostCalculator />} />
               <Route path="/emicalculator" element={<EMICalculator />} />
               <Route path="/partsinfo" element={<PartsInfo />} />
 
-              {/* Misc */}
+              {/* Miscellaneous Components (assuming public) */}
               <Route path="/viewmore" element={<Viewmore />} />
               <Route path="/statshighlightsection" element={<StatsHighlightSection />} />
               <Route path="/HeroSlider" element={<HeroSlider />} />
               <Route path="/SlideItem" element={<SlideItem />} />
-            
-              {/* DB */}
-              <Route path="/FacoriteVehicle" element={< FavoriteVehicle />} />
-              <Route path="/MyFavorites" element={<MyFavorites />} />
 
+              {/* Catch-all for undefined routes (optional, but good practice) */}
+              {/* <Route path="*" element={<div>404 Not Found</div>} /> */}
             </Routes>
           </AnimatePresence>
           <Footer />
@@ -218,14 +256,47 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister }) =
   );
 };
 
+/**
+ * App Component:
+ * The main component of the application.
+ * Manages theme state and Firebase authentication state.
+ * Renders the BrowserRouter and AnimatedRoutes.
+ */
 function App() {
   const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "light");
-  const [showRegister, setShowRegister] = useState(false);
+  const [showRegister, setShowRegister] = useState(false); // For modal control
+  const [user, setUser] = useState(null); // Firebase authenticated user
+  const [loadingAuth, setLoadingAuth] = useState(true); // Tracks Firebase auth loading state
 
+  // Effect to listen for Firebase authentication state changes
+  useEffect(() => {
+    // onAuthStateChanged returns an unsubscribe function
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser); // Update user state
+      setLoadingAuth(false); // Auth state is now known
+    });
+
+    // Cleanup subscription on component unmount
+    return () => unsubscribe();
+  }, []); // Empty dependency array means this runs only once on mount
+
+  // Effect to apply theme to the document body and persist in localStorage
   useEffect(() => {
     document.body.className = theme;
     localStorage.setItem("theme", theme);
-  }, [theme]);
+  }, [theme]); // Re-run when 'theme' changes
+
+  // IMPORTANT: No direct call to useInactivityLogout here.
+  // It is now managed within AnimatedRoutes.
+
+  // Show a loading indicator while Firebase is determining the initial auth state
+  if (loadingAuth) {
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', fontSize: '24px' }}>
+        Loading web application...
+      </div>
+    );
+  }
 
   return (
     <Router>
@@ -234,6 +305,8 @@ function App() {
         toggleTheme={() => setTheme((prev) => (prev === "light" ? "dark" : "light"))}
         showRegister={showRegister}
         setShowRegister={setShowRegister}
+        user={user} // Pass user state to AnimatedRoutes
+        loadingAuth={loadingAuth} // Pass loadingAuth state to AnimatedRoutes
       />
     </Router>
   );
