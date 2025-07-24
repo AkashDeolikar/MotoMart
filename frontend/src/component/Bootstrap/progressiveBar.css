@@ -358,3 +358,25 @@
     font-size: 0.95rem;
   }
 }
+
+
+.partinfo-loader {
+  text-align: center;
+  padding: 40px;
+}
+
+.partinfo-spinner {
+  width: 40px;
+  height: 40px;
+  border: 5px solid #ccc;
+  border-top-color: #007bff;
+  border-radius: 50%;
+  animation: partinfo-spin 1s linear infinite;
+  margin: 0 auto 10px;
+}
+
+@keyframes partinfo-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
