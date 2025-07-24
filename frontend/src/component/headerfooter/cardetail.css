@@ -1,68 +1,63 @@
 /* Light Theme */
 .light {
-    --cardetail-primary-color: #0052cc;           /* Premium deep blue */
-    --cardetail-primary-hover-color: #003d99;     /* Darker blue on hover */
+    --cardetail-primary-color: #0052cc;
+    --cardetail-primary-hover-color: #003d99;
 
-    --cardetail-text-dark: #1c1c1e;               /* Dark charcoal */
-    --cardetail-text-medium: #4a4a4f;             /* Slightly muted for body text */
-    --cardetail-text-light: #6e6e73;              /* For labels, subtitles */
+    --cardetail-text-dark: #1c1c1e;
+    --cardetail-text-medium: #4a4a4f;
+    --cardetail-text-light: #6e6e73;
 
-    --cardetail-bg-light: #f4f6f8;                /* Clean off-white background */
-    --cardetail-bg-white: #ffffff;                /* Pure white card/bg */
+    --cardetail-bg-light: #eef1f5;
+    --cardetail-bg-white: #ffffff;
 
-    --cardetail-border-light: #e0e0e0;            /* Subtle border */
-    --cardetail-shadow-light: rgba(0, 0, 0, 0.08);/* Soft depth */
+    --cardetail-border-light: #e0e0e0;
+    --cardetail-shadow-light: rgba(0, 0, 0, 0.08);
     --cardetail-shadow-medium: rgba(0, 0, 0, 0.12);
 
-    /* Custom button shadow variables for better control in light theme */
     --cardetail-shadow-light-button: rgba(0, 123, 255, 0.2);
     --cardetail-shadow-hover-button: rgba(0, 123, 255, 0.3);
 }
 
 /* Dark Theme */
 .dark {
-    --cardetail-primary-color: #4c8fff;           /* Bright blue that pops on dark */
-    --cardetail-primary-hover-color: #6aa9ff;     /* Lighter hover blue */
+    --cardetail-primary-color: #7f7f7f;
+    --cardetail-primary-hover-color: #000000;
 
-    --cardetail-text-dark: #f5f5f7;               /* Off-white for titles */
-    --cardetail-text-medium: #cfd2dc;             /* For body text */
-    --cardetail-text-light: #9ca0a8;              /* Muted text and labels */
+    --cardetail-text-dark: #f5f5f7;
+    --cardetail-text-medium: #cfd2dc;
+    --cardetail-text-light: #9ca0a8;
 
-    --cardetail-bg-light: #111214;                /* Ultra dark background */
-    --cardetail-bg-white: #1c1e22;                /* Darker card bg (e.g., panels) */
+    --cardetail-bg-light: #111214;
+    --cardetail-bg-white: #1c1e22;
 
-    --cardetail-border-light: #2c2f34;            /* Subtle border for dark */
-    --cardetail-shadow-light: rgba(255, 255, 255, 0.04); /* Very subtle light shadows */
+    --cardetail-border-light: #2c2f34;
+    --cardetail-shadow-light: rgba(255, 255, 255, 0.04);
     --cardetail-shadow-medium: rgba(255, 255, 255, 0.08);
 
-    /* Custom button shadow variables for better control in dark theme */
     --cardetail-shadow-light-button: rgba(76, 143, 255, 0.15);
     --cardetail-shadow-hover-button: rgba(76, 143, 255, 0.25);
 }
 
-/* Base styles */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Inter', 'Segoe UI', sans-serif;
     transition: background-color 0.3s ease;
-    background-color: var(--cardetail-bg-light); /* Apply theme background */
+    background-color: var(--cardetail-bg-light);
 }
 
-
 .card-detail-container {
-    max-width: 1400px;
+    max-width: 1450px;
     margin: 40px auto;
     padding: 30px;
     background-color: var(--cardetail-bg-light);
-    border-radius: 16px;
-    box-shadow: 0 8px 30px var(--cardetail-shadow-light);
+    /* border-radius: 16px; */
+    /* box-shadow: 0 8px 30px var(--cardetail-shadow-light); */
     color: var(--cardetail-text-dark);
     line-height: 1.6;
     transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
 }
 
-/* Back Button */
 .back-button {
     background: none;
     border: none;
@@ -86,7 +81,6 @@ body {
     font-size: 1.2rem;
 }
 
-/* Sticky Header */
 .card-header {
     display: flex;
     flex-direction: column;
@@ -102,16 +96,14 @@ body {
 }
 
 .vehicle-title {
-  font-family: "HCLTeachRoobert-Bold", sans-serif;
-    font-size: 2.8rem;
-    font-weight: 700;
+    font-family: "HCLTeachRoobert-Bold", sans-serif;
+    font-size: 2.1rem;
     color: var(--cardetail-text-dark);
     line-height: 1.2;
-    margin-bottom: 0;
+    /* margin-bottom: 0; */
     transition: color 0.3s ease;
 }
 
-/* Media + Info Section */
 .card-main-content {
     display: flex;
     flex-wrap: wrap;
@@ -121,24 +113,21 @@ body {
 }
 
 .media-block {
-    /* Adjusted flex to give it more priority to grow */
-    flex: 2 1 65%; /* flex-grow: 2, flex-shrink: 1, flex-basis: 65% */
+    flex: 2 1 65%;
     min-width: 320px;
     background-color: var(--cardetail-bg-white);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 18px var(--cardetail-shadow-light);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Aspect ratio box for responsive videos */
 .video-responsive {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
-    background-color: #000; /* Background for video area to avoid flash of background */
-    border-radius: 8px; /* Apply here for iframe to match */
+    background-color: #000;
+    border-radius: 8px;
 }
 
 .video-responsive iframe,
@@ -149,34 +138,28 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    border: none; /* Remove default iframe border */
+    border: none;
 }
 
-/* Styles for images within media-section (if not using video-responsive) */
 .media-section img {
     width: 100%;
-    border-radius: 8px; /* Maintain consistent border radius for images */
+    border-radius: 8px;
     max-height: 550px;
     object-fit: cover;
     display: block;
 }
 
-
 .info-block {
-    /* Adjusted flex to keep it proportionate but let media-block dominate */
-    flex: 1 1 30%; /* flex-grow: 1, flex-shrink: 1, flex-basis: 30% */
+    flex: 1 1 30%;
     min-width: 280px;
     display: flex;
     flex-direction: column;
     gap: 20px;
     padding: 25px;
     background-color: var(--cardetail-bg-white);
-    border-radius: 12px;
-    box-shadow: 0 4px 18px var(--cardetail-shadow-medium);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Price and Link Section */
 .price-section {
     font-size: 1.3rem;
     font-weight: 600;
@@ -187,7 +170,7 @@ body {
 }
 
 .price-heading {
-  font-family: "HCLTeachRoobert-Bold", sans-serif;
+    font-family: "HCLTeachRoobert-Bold", sans-serif;
     font-size: 1.15rem;
     margin-bottom: 6px;
     color: var(--cardetail-text-medium);
@@ -195,7 +178,8 @@ body {
 }
 
 .price-value {
-    font-size: 1.8rem;
+        font-family: 'HCLTechRoobert-Medium';
+    font-size: 1.4rem;
     font-weight: bold;
     color: var(--cardetail-primary-color);
     transition: color 0.3s ease;
@@ -208,35 +192,29 @@ body {
     background-color: var(--cardetail-primary-color);
     color: #fff;
     text-decoration: none;
-    border-radius: 8px;
     text-align: center;
     font-weight: 600;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 10px var(--cardetail-shadow-light-button);
     position: relative;
 }
 
 .external-link-button:hover {
     background-color: var(--cardetail-primary-hover-color);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px var(--cardetail-shadow-hover-button);
 }
 
 .vehicle-description {
-  font-family: "HCLTeachRoobert-Medium", sans-serif;
-    font-size: 1.05rem;
+    font-family: "HCLTeachRoobert-Medium", sans-serif;
+    font-size: 0.94rem;
     color: var(--cardetail-text-medium);
     padding-top: 10px;
     margin-bottom: 0;
     transition: color 0.3s ease;
 }
 
-/* Specifications */
 .specs-container {
     background-color: var(--cardetail-bg-white);
     padding: 30px;
-    border-radius: 16px;
-    box-shadow: 0 6px 20px var(--cardetail-shadow-light);
+    /* border-radius: 16px; */
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -256,19 +234,16 @@ body {
     transition: color 0.3s ease;
 }
 
-/* Accordion Sections */
 .spec-section {
-    margin-bottom: 25px;
     border-top: 1px solid var(--cardetail-border-light);
-    padding-top: 20px;
     transition: border-color 0.3s ease;
 }
 
 .section-toggle {
-  font-family: "HCLTeachRoobert-Medium", sans-serif;
+    font-family: "HCLTeachRoobert-Medium", sans-serif;
     background: none;
     border: none;
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--cardetail-text-dark);
     cursor: pointer;
@@ -295,11 +270,9 @@ body {
 }
 
 .section-details {
-    margin-top: 15px;
-    padding: 15px 20px;
+    padding: 3px 20px;
     border-left: 3px solid var(--cardetail-primary-color);
     background-color: var(--cardetail-bg-white);
-    border-radius: 8px;
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
@@ -320,7 +293,6 @@ body {
     transition: color 0.3s ease;
 }
 
-/* Loading/Error */
 .loading-message,
 .not-found-message {
     text-align: center;
@@ -330,7 +302,6 @@ body {
     transition: color 0.3s ease;
 }
 
-/* Media Queries for Responsive Design */
 @media (max-width: 1024px) {
     .card-detail-container {
         padding: 25px;
@@ -342,7 +313,7 @@ body {
     }
     .media-block,
     .info-block {
-        flex: 1 1 100%; /* At smaller screens, they both take full width */
+        flex: 1 1 100%;
     }
     .vehicle-title {
         font-size: 2.2rem;
@@ -385,17 +356,17 @@ body {
     }
     .basic-specs {
         grid-template-columns: 1fr;
-        font-size: 0.95rem;
+        font-size: 14px;
         gap: 12px;
     }
     .section-toggle {
-        font-size: 1.1rem;
-    }
-    .spec-item {
         font-size: 0.9rem;
     }
+    .spec-item {
+        font-size: 12px;
+    }
     .section-details {
-        padding: 10px 15px;
+        padding: 2px 15px;
     }
 }
 

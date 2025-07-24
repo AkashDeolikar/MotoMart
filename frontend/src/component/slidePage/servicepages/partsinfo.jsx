@@ -9,7 +9,7 @@ const PartsInfo = () => {
     const [vehicleType, setVehicleType] = useState('all');
 
     useEffect(() => {
-        fetch('/partsData.json')
+        fetch('https://motomartbackend.onrender.com/api/parts')
             .then(res => res.json())
             .then(data => {
                 setPartsData(data);

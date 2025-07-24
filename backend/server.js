@@ -149,6 +149,7 @@ const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
 const Favorite = require('./models/Favorite');
+const Part = require('./models/Parts');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -376,7 +377,15 @@ app.delete('/api/favorites/delete/:id', async (req, res) => {
   }
 });
 
-
+// API endpoint Parts.JSON
+app.get('/api/parts', async (req, res) => {
+  try {
+    const parts = await Part.find();
+    res.json(parts);
+  } catch (err) {
+    res.status(500).json({ message: 'Server error' });
+  }
+});
 
 // Root route
 app.get('/', (req, res) => {

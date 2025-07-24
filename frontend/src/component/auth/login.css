@@ -190,7 +190,7 @@ body.dark .input-box input {
 }
 
 .bgimage {
-    background-image: url("../Assets/login2.jpg");
+    background-image: url("../Assets/login2.webp");
     background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -222,7 +222,7 @@ body.dark .input-box input {
 }
 
 .bgimageregister {
-    background-image: url("../Assets/register.jpg");
+    background-image: url("../Assets/register.webp");
     background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

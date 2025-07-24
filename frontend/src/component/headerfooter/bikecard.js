@@ -731,13 +731,16 @@ import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import './tab.css'; // Make sure this path is correct for your styles
 import { SlArrowRight } from "react-icons/sl";
 import { VscFeedback } from "react-icons/vsc";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 //authentication checking
 import { auth } from '../../firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 //scroll up animation
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+
+//store DB 
+import FavoriteVehicle from './FavoriteVehicle';
 
 // Bike images import
 import royalEnfieldClassic350 from './cardbox/royalEnfieldClassic350.jpg';
@@ -778,7 +781,19 @@ import harleydavidsonfatboy from './cardbox/harley-davidson-fat-boy.jpg';
 import harleydavidsonx440 from './cardbox/harley-davidson-x440.jpg';
 import kawasakininja300 from './cardbox/kawasaki-ninja-300.jpg';
 import kawasakiz900 from './cardbox/kawasakiz900.jpg';
-
+import Pl150 from './cardbox/150.webp';
+import Acruise from './cardbox/Acruise.webp';
+import Avenger from './cardbox/Avenger.webp';
+import N160 from './cardbox/N160.webp';
+import NS125 from './cardbox/NS125.webp';
+import NS160 from './cardbox/NS160.webp';
+import P150 from './cardbox/P150.webp';
+import S400 from './cardbox/speed-400.webp';
+import SC400X from './cardbox/scrambler-400-x.webp';
+import T660 from './cardbox/trident-660.webp';
+import S660 from './cardbox/tiger-sport-660.webp';
+import twin from './cardbox/street-twin.webp';
+import T110 from './cardbox/bonneville-t100.webp';
 
 // Centralized data for your bikes, grouped by manufacturer
 export const vehicleData = [
@@ -964,6 +979,181 @@ export const vehicleData = [
         }
       },
       {
+        "id": "bajaj-pulsar-ns125",
+        "videoPoster": NS125,
+        "videoSrc": "https://www.youtube.com/embed/IjVpkMwSrqo",
+        "thumbnail": "https://cdn.bajajauto.com/-/media/assets/bajajauto/global/bajaj-logo2.png",
+        "title": "Bajaj Pulsar NS125",
+        "link": "https://www.bajajauto.com/bikes/pulsar/pulsar-ns125",
+        "description": "The Bajaj Pulsar NS125 is a sportbike that blends aggressive styling with a powerful 125cc engine, offering a dynamic riding experience for its segment.",
+        "buttonText": "View Details",
+        "vehicleInfo": {
+          "model": "Pulsar NS125",
+          "manufacturer": "Bajaj",
+          "year": 2024,
+          "features": ["Wolf-eyed headlamp", "Infinity twin-strip LED tail lamp", "Perimeter frame", "Mono shock suspension", "Disc brake with CBS"],
+          "price": "₹ 1,00,000 - ₹ 1,05,000",
+          "mileage": "46.9 - 50 kmpl",
+          "engineDisplacement": "124.45 cc",
+          "power": "12 PS (11.84 bhp)",
+          "torque": "11 Nm",
+          "fuelTankCapacity": "12 L",
+          "seatHeight": "790 mm",
+          "kerbWeight": "144 kg",
+          "transmission": "5-speed manual"
+        }
+      },
+      {
+        "id": "bajaj-pulsar-ns160",
+        "videoPoster": NS160,
+        "videoSrc": "https://www.youtube.com/embed/IjVpkMwSrqo",
+        "thumbnail": "https://cdn.bajajauto.com/-/media/assets/bajajauto/global/bajaj-logo2.png",
+        "title": "Bajaj Pulsar NS160",
+        "link": "https://www.bajajauto.com/bikes/pulsar/pulsar-ns160",
+        "description": "The Bajaj Pulsar NS160 offers a thrilling ride with its potent 160cc engine and aggressive naked street design, complemented by modern features and safety.",
+        "buttonText": "View Details",
+        "vehicleInfo": {
+          "model": "Pulsar NS160",
+          "manufacturer": "Bajaj",
+          "year": 2024,
+          "features": ["Upside-down forks", "Dual-channel ABS", "Digital instrument cluster with Bluetooth connectivity", "LED DRLs"],
+          "price": "₹ 1,27,000 - ₹ 1,35,000",
+          "mileage": "40.36 - 52.2 kmpl",
+          "engineDisplacement": "160.3 cc",
+          "power": "17.2 PS (17.03 bhp)",
+          "torque": "14.6 Nm",
+          "fuelTankCapacity": "12 L",
+          "seatHeight": "805 mm",
+          "kerbWeight": "152 kg",
+          "transmission": "5-speed manual"
+        }
+      },
+      {
+        "id": "bajaj-pulsar-n160",
+        "videoPoster": N160,
+        "videoSrc": "https://www.youtube.com/embed/IjVpkMwSrqo",
+        "thumbnail": "https://cdn.bajajauto.com/-/media/assets/bajajauto/global/bajaj-logo2.png",
+        "title": "Bajaj Pulsar N160",
+        "link": "https://www.bajajauto.com/bikes/pulsar/pulsar-n160",
+        "description": "The Bajaj Pulsar N160 is a stylish and capable naked streetfighter, featuring a refined engine, comfortable ergonomics, and advanced tech like dual-channel ABS.",
+        "buttonText": "View Details",
+        "vehicleInfo": {
+          "model": "Pulsar N160",
+          "manufacturer": "Bajaj",
+          "year": 2024,
+          "features": ["Projector LED headlamp", "Digital instrument console with Bluetooth connectivity", "USB charging port", "Dual-channel ABS"],
+          "price": "₹ 1,22,000 - ₹ 1,37,000",
+          "mileage": "44.38 - 59.11 kmpl",
+          "engineDisplacement": "164.82 cc",
+          "power": "16 PS (15.78 bhp)",
+          "torque": "14.65 Nm",
+          "fuelTankCapacity": "14 L",
+          "seatHeight": "795 mm",
+          "kerbWeight": "147 kg",
+          "transmission": "5-speed manual"
+        }
+      },
+      {
+        "id": "bajaj-pulsar-p150",
+        "videoPoster": P150,
+        "videoSrc": "https://www.youtube.com/embed/IjVpkMwSrqo",
+        "thumbnail": "https://cdn.bajajauto.com/-/media/assets/bajajauto/global/bajaj-logo2.png",
+        "title": "Bajaj Pulsar P150",
+        "link": "https://www.bajajauto.com/bikes/pulsar/pulsar-p150",
+        "description": "The Bajaj Pulsar P150 is designed for urban commuting, offering a balance of comfortable ride, good mileage, and modern features in a sporty package.",
+        "buttonText": "View Details",
+        "vehicleInfo": {
+          "model": "Pulsar P150",
+          "manufacturer": "Bajaj",
+          "year": 2024,
+          "features": ["Semi-digital instrument cluster", "LED projector headlamp", "USB charging port", "Single-channel ABS"],
+          "price": "₹ 1,16,000 - ₹ 1,20,000",
+          "mileage": "49.7 kmpl",
+          "engineDisplacement": "149.68 cc",
+          "power": "14.5 PS (14.3 bhp)",
+          "torque": "13.5 Nm",
+          "fuelTankCapacity": "14 L",
+          "seatHeight": "790 mm",
+          "kerbWeight": "140 kg",
+          "transmission": "5-speed manual"
+        }
+      },
+      {
+        "id": "bajaj-pulsar-150",
+        "videoPoster": Pl150,
+        "videoSrc": "https://www.youtube.com/embed/IjVpkMwSrqo",
+        "thumbnail": "https://cdn.bajajauto.com/-/media/assets/bajajauto/global/bajaj-logo2.png",
+        "title": "Bajaj Pulsar 150",
+        "link": "https://www.bajajauto.com/bikes/pulsar/pulsar-150",
+        "description": "The iconic Bajaj Pulsar 150 continues to be a popular choice, known for its muscular design, reliable performance, and fuel efficiency, making it a strong commuter.",
+        "buttonText": "View Details",
+        "vehicleInfo": {
+          "model": "Pulsar 150",
+          "manufacturer": "Bajaj",
+          "year": 2024,
+          "features": ["Digital instrument console with Bluetooth", "LED tail light", "Single-channel ABS", "Tubeless tyres"],
+          "price": "₹ 1,14,000 - ₹ 1,21,000",
+          "mileage": "47.5 kmpl",
+          "engineDisplacement": "149.5 cc",
+          "power": "14 PS (13.8 bhp)",
+          "torque": "13.25 Nm",
+          "fuelTankCapacity": "15 L",
+          "seatHeight": "785 mm",
+          "kerbWeight": "148-150 kg",
+          "transmission": "5-speed manual"
+        }
+      },
+      {
+        "id": "bajaj-avenger-street-160",
+        "videoPoster": Avenger,
+        "videoSrc": "https://www.youtube.com/embed/IjVpkMwSrqo",
+        "thumbnail": "https://cdn.bajajauto.com/-/media/assets/bajajauto/global/bajaj-logo2.png",
+        "title": "Bajaj Avenger Street 160",
+        "link": "https://www.bajajauto.com/bikes/avenger/avenger-street-160",
+        "description": "The Bajaj Avenger Street 160 offers an accessible cruiser experience with its relaxed ergonomics, comfortable ride, and peppy 160cc engine.",
+        "buttonText": "View Details",
+        "vehicleInfo": {
+          "model": "Avenger Street 160",
+          "manufacturer": "Bajaj",
+          "year": 2024,
+          "features": ["Low slung seating", "Roadster design", "Single-channel ABS", "Digital-analog instrument cluster"],
+          "price": "₹ 1,21,000",
+          "mileage": "47.2 - 53.72 kmpl",
+          "engineDisplacement": "160 cc",
+          "power": "15 PS (14.79 bhp)",
+          "torque": "13.7 Nm",
+          "fuelTankCapacity": "13 L",
+          "seatHeight": "737 mm",
+          "kerbWeight": "156 kg",
+          "transmission": "5-speed manual"
+        }
+      },
+      {
+        "id": "bajaj-avenger-cruise-220",
+        "videoPoster": Acruise,
+        "videoSrc": "https://www.youtube.com/embed/IjVpkMwSrqo",
+        "thumbnail": "https://cdn.bajajauto.com/-/media/assets/bajajauto/global/bajaj-logo2.png",
+        "title": "Bajaj Avenger Cruise 220",
+        "link": "https://www.bajajauto.com/bikes/avenger/avenger-cruise-220",
+        "description": "The Bajaj Avenger Cruise 220 is designed for long-distance touring, featuring a comfortable cruising posture, windscreen, and a powerful 220cc oil-cooled engine.",
+        "buttonText": "View Details",
+        "vehicleInfo": {
+          "model": "Avenger Cruise 220",
+          "manufacturer": "Bajaj",
+          "year": 2024,
+          "features": ["Long wheelbase", "Pillion backrest", "Windshield", "Single-channel ABS", "Digital instrument cluster"],
+          "price": "₹ 1,48,000",
+          "mileage": "39 - 40 kmpl",
+          "engineDisplacement": "220 cc",
+          "power": "19.03 PS (18.76 bhp)",
+          "torque": "17.55 Nm",
+          "fuelTankCapacity": "13 L",
+          "seatHeight": "737 mm",
+          "kerbWeight": "163 kg",
+          "transmission": "5-speed manual"
+        }
+      },
+      {
         id: 'bajaj-pulsar-ns200',
         videoPoster: bajajPulsarNS200,
         videoSrc: "https://www.youtube.com/embed/nSw6pAqJ0PE",
@@ -1061,6 +1251,162 @@ export const vehicleData = [
           seatHeight: "795 mm",
           kerbWeight: "164 kg",
           transmission: "5-speed manual"
+        }
+      }
+    ]
+  },
+  {
+    manufacturer: 'Triumph  ',
+    idPrefix: 'triumph',
+    vehicles: [
+      {
+        "id": "triumph-speed-400",
+        "videoPoster": S400,
+        "videoSrc": "https://www.youtube.com/embed/IjVpkMwSrqo",
+        "thumbnail": "https://media.triumphmotorcycles.co.uk/image/upload/f_auto/q_auto:eco/sitecoremedialibrary/media-library/misc/misc-images/logo.svg?la=en-IN&hash=E17E2246CD7E080DCAEAF7230C22FFDD0E46356B",
+        "title": "Triumph Speed 400",
+        "link": "https://www.triumphmotorcycles.in/motorcycles/classic/speed-400",
+        "description": "The Triumph Speed 400 combines authentic Triumph roadster style with a new, performance-oriented 398cc engine, offering an agile and exhilarating riding experience for all.",
+        "buttonText": "View Details",
+        "vehicleInfo": {
+          "model": "Speed 400",
+          "manufacturer": "Triumph",
+          "year": 2024,
+          "features": ["Liquid-cooled 398cc single-cylinder engine", "Upside-down forks", "Monoshock rear suspension", "Ride-by-wire throttle", "Switchable Traction Control", "Dual-channel ABS", "All-LED lighting"],
+          "price": "₹ 2,42,000 - ₹ 2,46,000",
+          "mileage": "30.3 - 34 kmpl",
+          "engineDisplacement": "398.15 cc",
+          "power": "40 PS (39.5 bhp)",
+          "torque": "37.5 Nm",
+          "fuelTankCapacity": "13 L",
+          "seatHeight": "790 - 803 mm",
+          "kerbWeight": "170 - 179 kg",
+          "transmission": "6-speed manual"
+        }
+      },
+      {
+        "id": "triumph-scrambler-400-x",
+        "videoPoster": SC400X,
+        "videoSrc": "https://www.youtube.com/embed/IjVpkMwSrqo",
+        "thumbnail": "https://media.triumphmotorcycles.co.uk/image/upload/f_auto/q_auto:eco/sitecoremedialibrary/media-library/misc/misc-images/logo.svg?la=en-IN&hash=E17E2246CD7E080DCAEAF7230C22FFDD0E46356B",
+        "title": "Triumph Scrambler 400 X",
+        "link": "https://www.triumphmotorcycles.in/motorcycles/classic/scrambler-400-x",
+        "description": "The Triumph Scrambler 400 X is a rugged and versatile scrambler designed for both urban commutes and light off-road adventures, sharing its engine with the Speed 400 but with more off-road focused features.",
+        "buttonText": "View Details",
+        "vehicleInfo": {
+          "model": "Scrambler 400 X",
+          "manufacturer": "Triumph",
+          "year": 2024,
+          "features": ["Liquid-cooled 398cc single-cylinder engine", "Longer travel suspension (150mm)", "Larger 19-inch front wheel", "Wide handlebars", "Switchable ABS (rear can be disabled)", "Switchable Traction Control", "All-LED lighting"],
+          "price": "₹ 2,66,000 - ₹ 2,67,207",
+          "mileage": "28.3 kmpl",
+          "engineDisplacement": "398.15 cc",
+          "power": "40 PS (39.5 bhp)",
+          "torque": "37.5 Nm",
+          "fuelTankCapacity": "13 L",
+          "seatHeight": "835 mm",
+          "kerbWeight": "185 kg",
+          "transmission": "6-speed manual"
+        }
+      },
+      {
+        "id": "triumph-trident-660",
+        "videoPoster": T660,
+        "videoSrc": "https://www.youtube.com/embed/IjVpkMwSrqo",
+        "thumbnail": "https://media.triumphmotorcycles.co.uk/image/upload/f_auto/q_auto:eco/sitecoremedialibrary/media-library/misc/misc-images/logo.svg?la=en-IN&hash=E17E2246CD7E080DCAEAF7230C22FFDD0E46356B",
+        "title": "Triumph Trident 660",
+        "link": "https://www.triumphmotorcycles.in/motorcycles/roadsters/trident",
+        "description": "The Triumph Trident 660 is an agile and affordable middleweight roadster, powered by a smooth triple engine, offering a perfect blend of performance, technology, and stylish design.",
+        "buttonText": "View Details",
+        "vehicleInfo": {
+          "model": "Trident 660",
+          "manufacturer": "Triumph",
+          "year": 2024,
+          "features": ["660cc inline 3-cylinder engine", "Showa upside-down forks", "Preload-adjustable monoshock", "Two riding modes (Road, Rain)", "Switchable Traction Control", "ABS", "TFT instrument display with optional My Triumph Connectivity"],
+          "price": "₹ 7,45,000",
+          "mileage": "15 - 19.2 kmpl",
+          "engineDisplacement": "660 cc",
+          "power": "81 PS (80 bhp)",
+          "torque": "64 Nm",
+          "fuelTankCapacity": "14 L",
+          "seatHeight": "805 mm",
+          "kerbWeight": "189 kg",
+          "transmission": "6-speed manual"
+        }
+      },
+      {
+        "id": "triumph-tiger-sport-660",
+        "videoPoster": S660,
+        "videoSrc": "https://www.youtube.com/embed/IjVpkMwSrqo",
+        "thumbnail": "https://media.triumphmotorcycles.co.uk/image/upload/f_auto/q_auto:eco/sitecoremedialibrary/media-library/misc/misc-images/logo.svg?la=en-IN&hash=E17E2246CD7E080DCAEAF7230C22FFDD0E46356B",
+        "title": "Triumph Tiger Sport 660",
+        "link": "https://www.triumphmotorcycles.in/motorcycles/adventure/tiger-sport-660",
+        "description": "The Triumph Tiger Sport 660 is a versatile sport touring motorcycle, built for everyday riding and long-distance adventures, offering comfortable ergonomics and the engaging performance of a triple engine.",
+        "buttonText": "View Details",
+        "vehicleInfo": {
+          "model": "Tiger Sport 660",
+          "manufacturer": "Triumph",
+          "year": 2024,
+          "features": ["660cc inline 3-cylinder engine", "Long travel Showa suspension", "Adjustable windscreen", "Two riding modes (Road, Rain)", "Switchable Traction Control", "ABS", "TFT instrument display with optional My Triumph Connectivity", "17.2L fuel tank"],
+          "price": "₹ 8,95,000",
+          "mileage": "22 kmpl",
+          "engineDisplacement": "660 cc",
+          "power": "81 PS (80 bhp)",
+          "torque": "64 Nm",
+          "fuelTankCapacity": "17.2 L",
+          "seatHeight": "835 mm",
+          "kerbWeight": "206 kg",
+          "transmission": "6-speed manual"
+        }
+      },
+      {
+        "id": "triumph-bonneville-t100",
+        "videoPoster": T110,
+        "videoSrc": "https://www.youtube.com/embed/IjVpkMwSrqo",
+        "thumbnail": "https://media.triumphmotorcycles.co.uk/image/upload/f_auto/q_auto:eco/sitecoremedialibrary/media-library/misc/misc-images/logo.svg?la=en-IN&hash=E17E2246CD7E080DCAEAF7230C22FFDD0E46356B",
+        "title": "Triumph Bonneville T100",
+        "link": "https://www.triumphmotorcycles.in/motorcycles/classic/bonneville-t100",
+        "description": "The Triumph Bonneville T100 is a classic icon, embodying timeless British styling with modern capabilities, including a torquey 900cc parallel-twin engine for a relaxed and enjoyable ride.",
+        "buttonText": "View Details",
+        "vehicleInfo": {
+          "model": "Bonneville T100",
+          "manufacturer": "Triumph",
+          "year": 2024,
+          "features": ["900cc 'High Torque' parallel-twin engine", "Classic spoked wheels", "Comfortable dual seat", "Torque-assist clutch", "ABS", "Switchable Traction Control", "Under-seat USB charging"],
+          "price": "₹ 9,49,000 - ₹ 10,09,000",
+          "mileage": "24.39 - 26.3 kmpl",
+          "engineDisplacement": "900 cc",
+          "power": "65 PS (64.1 bhp)",
+          "torque": "80 Nm",
+          "fuelTankCapacity": "14.5 L",
+          "seatHeight": "790 mm",
+          "kerbWeight": "228 kg",
+          "transmission": "5-speed manual"
+        }
+      },
+      {
+        "id": "triumph-street-twin",
+        "videoPoster": twin,
+        "videoSrc": "https://www.youtube.com/embed/IjVpkMwSrqo",
+        "thumbnail": "https://media.triumphmotorcycles.co.uk/image/upload/f_auto/q_auto:eco/sitecoremedialibrary/media-library/misc/misc-images/logo.svg?la=en-IN&hash=E17E2246CD7E080DCAEAF7230C22FFDD0E46356B",
+        "title": "Triumph Street Twin (now Speed Twin 900)",
+        "link": "https://www.triumphmotorcycles.in/motorcycles/classic/bonneville-speed-twin-900",
+        "description": "The Triumph Street Twin, now known as the Speed Twin 900, is a contemporary classic roadster with a powerful 900cc High Torque engine, offering an engaging ride and iconic Bonneville styling.",
+        "buttonText": "View Details",
+        "vehicleInfo": {
+          "model": "Speed Twin 900 (formerly Street Twin)",
+          "manufacturer": "Triumph",
+          "year": 2024,
+          "features": ["900cc High Torque parallel-twin engine", "Two riding modes (Road, Rain)", "ABS", "Switchable Traction Control", "Torque-assist clutch", "LED rear light", "USB power socket"],
+          "price": "₹ 7,95,000 - ₹ 8,08,000",
+          "mileage": "24.39 - 25.6 kmpl",
+          "engineDisplacement": "900 cc",
+          "power": "65 PS (64 bhp)",
+          "torque": "80 Nm",
+          "fuelTankCapacity": "12 L",
+          "seatHeight": "765 mm",
+          "kerbWeight": "216 kg",
+          "transmission": "5-speed manual"
         }
       }
     ]
@@ -1993,6 +2339,7 @@ const Bikecard = () => {
       .filter(Boolean);
   }, [manufacturer, model]);
 
+  // Handler functions for button clicks
   const handleFeedbackClick = () => {
     console.log('Feedback button clicked!');
     navigate('/feedback');
@@ -2046,10 +2393,11 @@ const Bikecard = () => {
           <p className="description">{vehicle.description}</p>
           {/* <p className="mileage-info">Mileage: {vehicle.vehicleInfo?.mileage || 'N/A'}</p> */}
           <div className="button-row">
-            <button className="feedback-btn" onClick={handleFeedbackClick}>
+            {/* <button className="feedback-btn" onClick={handleFeedbackClick}>
               <VscFeedback />
               Feedback
-            </button>
+            </button> */}
+            <FavoriteVehicle vehicle={vehicle} />
             <div className="main-action-group" onClick={() => handleActionButtonClick(vehicle.id)}>
               <div className="turn-on-button">{vehicle.buttonText}</div>
             </div>
