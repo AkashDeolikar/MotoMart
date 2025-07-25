@@ -40,7 +40,7 @@
   --overviewspacing-lg: 24px;
   --overviewspacing-xl: 32px;
   --overviewspacing-xxl: 40px;
-  --overviewspacing-3xl: 60px;
+  --overviewspacing-3xl: 20px;
   --overviewspacing-4xl: 80px;
 
   /* === Border Radii === */
@@ -148,7 +148,7 @@ a {
 
 .vehicle-revolution-hero-title {
   font-family: 'HCLTechRoobert-Bold', sans-serif;
-  font-size: clamp(2.8rem, 4vw, 3.2rem); /* Keep clamp for fluid typography */
+  font-size: clamp(2.1rem, 2.5vw, 3.2rem); /* Keep clamp for fluid typography */
   color: var(--overviewtext-primary);
   line-height: 1.1;
   letter-spacing: -0.03em;
@@ -156,8 +156,6 @@ a {
 
 .vehicle-revolution-hero-title span {
   color: var(--overviewaccent);
-  /* Use RGBA for consistent shadow color with accent */
-  text-shadow: 0 0.25rem 0.75rem rgba(254, 149, 36, 0.4); /* Converted to rem, using accent color for consistency */
 }
 
 .vehicle-revolution-hero-subtext {
@@ -179,7 +177,7 @@ a {
 
 .vehicle-revolution-timeline-heading {
   font-family: 'HCLTechRoobert-Medium', sans-serif;
-  font-size: clamp(2rem, 4.5vw, 3rem); /* Keep clamp for fluid typography */
+  font-size: clamp(2rem, 2.5vw, 3rem); /* Keep clamp for fluid typography */
   margin: var(--overviewspacing-3xl) 0 var(--overviewspacing-xxl); /* Using spacing variables */
   border-left: 6px solid var(--overviewaccent);
   padding-left: var(--overviewspacing-md); /* Using spacing variables */
@@ -251,14 +249,14 @@ a {
 
 .vehicle-revolution-future-heading {
   font-family: 'HCLTechRoobert-Medium', sans-serif;
-  font-size: clamp(2rem, 4.5vw, 2.8rem); /* Keep clamp for fluid typography */
+  font-size: clamp(2rem, 2.5vw, 2.8rem); /* Keep clamp for fluid typography */
   color: var(--overviewtext-primary);
   font-weight: 700;
   margin-bottom: var(--overviewspacing-lg); /* Using spacing variables */
 }
 
 .vehicle-revolution-future-description {
-  font-size: clamp(1.05rem, 2.2vw, 1.25rem); /* Keep clamp for fluid typography */
+  font-size: clamp(1.05rem, 2.2vw, 1rem); /* Keep clamp for fluid typography */
   color: var(--overviewtext-secondary);
   max-width: 800px;
   margin: var(--overviewspacing-xs) auto 0; /* Using spacing variables */

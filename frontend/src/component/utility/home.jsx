@@ -58,12 +58,14 @@ import SlideItem from "./SlideItem"; // This component seems unused based on com
 const LoadingOverlay = ({ isLoading }) => {
   if (!isLoading) return null;
   return (
-    <div className="loading-overlay">
-      <div className="spinner"></div>
-      <p className="loading-text">
-        <i className="bi bi-lightning-charge-fill"></i> Please wait... loading details
-      </p>
+    <div className="app-loading-overlay">
+    <div className="app-glass-loader">
+        <div className="app-spinner"></div>
+        <p className="app-loading-text">
+            <i className="bi bi-lightning-charge-fill"></i> Please wait... loading details
+        </p>
     </div>
+</div>
   );
 };
 
