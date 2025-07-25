@@ -3,28 +3,30 @@
 
   <url>
     <loc>https://motomart-ten.vercel.app/</loc>
-    <lastmod>2025-06-11</lastmod> <changefreq>daily</changefreq> <priority>1.0</priority>
+    <lastmod>2025-07-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://motomart-ten.vercel.app/about</loc>
-    <lastmod>2025-06-11</lastmod> <changefreq>monthly</changefreq> <priority>0.8</priority>
+    <loc>https://motomart-ten.vercel.app/emicalculator</loc>
+    <lastmod>2025-07-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://motomart-ten.vercel.app/contact</loc>
-    <lastmod>2025-06-11</lastmod> <changefreq>monthly</changefreq>
+    <loc>https://motomart-ten.vercel.app/aboutus</loc>
+    <lastmod>2025-07-25</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://motomart-ten.vercel.app/login</loc>
-    <changefreq>never</changefreq>
-    <priority>0.5</priority> </url>
+    <loc>https://motomart-ten.vercel.app/contact</loc>
+    <lastmod>2025-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
-  <url>
-    <loc>https://motomart-ten.vercel.app/register</loc>
-    <changefreq>never</changefreq>
-    <priority>0.5</priority> </url>
-
-  </urlset>
+</urlset>
