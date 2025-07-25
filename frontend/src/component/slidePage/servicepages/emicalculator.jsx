@@ -148,22 +148,34 @@ const EMICalculator = () => {
         <title>EMI Calculator - Car, Home & Personal Loan Estimator | MotoMart</title>
         <meta name="description" content="Use MotoMart's EMI Calculator to calculate your monthly car, bike, home, or personal loan EMI. Simple, fast, and responsive calculator." />
         <meta name="keywords" content="EMI Calculator, Loan EMI, Car Loan EMI, Home Loan EMI, Personal Loan EMI" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://motomart-ten.vercel.app/emicalculator" />
+
+        {/* Open Graph for social sharing */}
         <meta property="og:title" content="EMI Calculator - MotoMart" />
         <meta property="og:description" content="Free EMI calculator for car, home and personal loans. Calculate monthly installments instantly." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://motomart-ten.vercel.app/emicalculator" />
+
+        {/* Enhanced JSON-LD */}
         <script type="application/ld+json">
-          {`{
+          {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "FinancialProduct",
+            "@type": "WebPage",
             "name": "EMI Calculator",
-            "description": "A simple EMI calculator to estimate monthly payments for car, home, or personal loans.",
-            "brand": {
-              "@type": "Brand",
-              "name": "MotoMart"
-            },
-            "url": "https://motomart-ten.vercel.app/emicalculator"
-          }`}
+            "url": "https://motomart-ten.vercel.app/emicalculator",
+            "description": "Use MotoMart's EMI Calculator to estimate monthly payments for car, home, and personal loans. Simple, fast and accurate EMI estimation tool.",
+            "mainEntity": {
+              "@type": "FinancialProduct",
+              "name": "Loan EMI Calculator",
+              "application": {
+                "@type": "WebApplication",
+                "name": "MotoMart EMI Calculator",
+                "operatingSystem": "All",
+                "url": "https://motomart-ten.vercel.app/emicalculator"
+              }
+            }
+          })}
         </script>
       </Helmet>
 
