@@ -112,6 +112,10 @@ const FavoriteVehicle = ({ vehicle }) => {
             title: vehicle.title,
             image: vehicle.videoPoster,
             details: vehicle.vehicleInfo,
+            details: {
+                ...vehicle.vehicleInfo,
+                link: vehicle.link
+            },
         };
 
         try {
@@ -144,7 +148,7 @@ const FavoriteVehicle = ({ vehicle }) => {
 
             setIsSubmitted(true);
             setError('');
-            setTimeout(() => setIsSubmitted(false), 2000);
+            // setTimeout(() => setIsSubmitted(false), 5000); //it will returned add to Fav in 2sec
 
         } catch (err) {
             console.error("🚨 Error:", err.message);
@@ -158,9 +162,13 @@ const FavoriteVehicle = ({ vehicle }) => {
                 <div
                     className={`turn-on-button ${isSubmitted ? 'saved' : ''}`}
                     onClick={handleAddToFavorites}
-                    style={{ cursor: isSubmitted ? 'not-allowed' : 'pointer' }}
+                    style={{
+                        cursor: isSubmitted ? 'not-allowed' : 'pointer',
+                        backgroundColor: isSubmitted ? '#28a745': '#8ab4f8',
+                        backdropFilter: 'blur(10px)',
+                    }}
                 >
-                    {isSubmitted ? '✅ Saved' : 'Add to ❤️'}
+                    {isSubmitted ? 'Saved in ❤️' : 'Add to ❤️'}
                 </div>
             </div>
 

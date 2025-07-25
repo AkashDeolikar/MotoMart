@@ -27,6 +27,13 @@ const CarDetail = ({ bikeData, carData }) => {
   const [expandedSections, setExpandedSections] = useState(['engineAndTransmission', 'dimensionsAndWeight']);
   const [loading, setLoading] = useState(true); // Loading state
 
+  // this useEffect will start the server automatically
+  useEffect(() => {
+    fetch('https://motomartbackend.onrender.com', { method: 'GET' })
+      .then(() => console.log('Backend warmed up'))
+      .catch((err) => console.error('Backend warmup failed', err));
+  }, []);
+
   const allVehicles = useMemo(() => {
     // Ensure data is always an array to prevent errors
     const bikes = Array.isArray(bikeData) ? bikeData.flatMap(group => group.vehicles || []) : [];
@@ -220,16 +227,16 @@ const CarDetail = ({ bikeData, carData }) => {
                   {Array.isArray(data?.features) // Handle array of features directly
                     ? data.features.length > 0
                       ? data.features.map((item, i) => (
-                          <div className="spec-item" key={i}>{item}</div>
-                        ))
+                        <div className="spec-item" key={i}>{item}</div>
+                      ))
                       : <div className="spec-item">No specific features listed.</div>
                     : typeof data === 'object' // Handle object of key-value pairs
                       ? Object.entries(data).length > 0
                         ? Object.entries(data).map(([key, val], idx) => (
-                            <div key={idx} className="spec-item">
-                              <strong>{formatHeading(key)}:</strong> {val || 'N/A'}
-                            </div>
-                          ))
+                          <div key={idx} className="spec-item">
+                            <strong>{formatHeading(key)}:</strong> {val || 'N/A'}
+                          </div>
+                        ))
                         : <div className="spec-item">No detailed specifications available for this section.</div>
                       : <div className="spec-item">{data || 'N/A'}</div> // Handle direct string values
                   }

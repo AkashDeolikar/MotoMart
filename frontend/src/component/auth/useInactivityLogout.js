@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase'; // Adjust path if necessary, assuming firebase.js is at root/firebase.js
 
-const INACTIVITY_TIMEOUT = 10 * 60 * 1000; // 10 minutes in milliseconds
+const INACTIVITY_TIMEOUT = 30 * 60 * 1000; // 10 minutes in milliseconds
 
 // Accept 'user' as a prop
 const useInactivityLogout = (user) => { // <--- Added user parameter

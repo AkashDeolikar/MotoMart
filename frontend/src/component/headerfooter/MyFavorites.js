@@ -87,10 +87,36 @@ const MyFavorites = () => {
                                         <h3>{fav.title}</h3>
                                         <p className="price">{fav.details?.price}</p>
                                         <ul className="features">
+                                            {/* Static engine info */}
+                                            {/* For CAR only */}
+                                            {fav.details?.engineAndTransmission?.engineType && (
+                                                <li> {fav.details.engineAndTransmission.engineType}</li>
+                                            )}
+                                            {fav.details?.engineAndTransmission?.displacement && (
+                                                <li> {fav.details.engineAndTransmission.displacement}</li>
+                                            )}
+                                            {fav.details?.fuelAndPerformance?.mileage && (
+                                                <li> {fav.details.fuelAndPerformance.mileage}</li>
+                                            )}
+
+                                            {/* For BIKE only */}
                                             {fav.details?.features?.map((f, i) => (
                                                 <li key={i}>⚫ {f}</li>
                                             ))}
                                         </ul>
+
+                                        {/* ✅ Add external link button if link exists */}
+                                        {fav.details?.link && (
+                                            <a
+                                                href={fav.details.link}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="external-link-button"
+                                                aria-label={`Visit official page for ${fav.title}`}
+                                            >
+                                                Visit Official Page
+                                            </a>
+                                        )}
                                     </div>
                                     <button className="remove-btn" onClick={() => handleDelete(fav._id)}>Remove</button>
                                 </div>

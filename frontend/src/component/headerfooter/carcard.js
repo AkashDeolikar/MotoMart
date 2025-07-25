@@ -9225,8 +9225,8 @@ const Carcard = () => {
   // Initialize AOS (Animate On Scroll) library once on component mount
   useEffect(() => {
     AOS.init({
-      duration: 300, // animation duration in ms
-      once: false, // repeat animation every time you scroll up/down
+      duration: 200, // animation duration in ms
+      once: true, // repeat animation every time you scroll up/down
     });
   }, []);
 
