@@ -71,7 +71,7 @@ Footer.defaultProps = {
       links: [
         { text: 'Home', href: '/home' },
         { text: 'Car Detail', href: '/cardetails' },
-        { text: 'Contact Us', href: '/contact' },
+        { text: 'EMI Calculator', href: '/emicalculator' },
       ],
     },
   ],

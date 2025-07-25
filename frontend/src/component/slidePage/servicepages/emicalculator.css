@@ -127,7 +127,7 @@ body {
   transition: all 0.3s ease; /* Smooth transition for all properties */
 }
 
-h2 .EMI {
+h1, h2 .EMI {
   text-align: center;
   font-size: 2em;
   margin-bottom: 10px;
