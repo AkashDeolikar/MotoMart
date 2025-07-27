@@ -346,7 +346,7 @@
 
 
 import React, { useState, useEffect } from 'react';
-import './cardetails.css'; 
+import './cardetails.css';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../firebase';
 import { onAuthStateChanged } from 'firebase/auth';
@@ -631,7 +631,7 @@ const BikeCompareDetails = () => {
                     <h4 className="getinfo-subheading">Specifications for {selectedBike} - {bikeInfo.selectedVariantName}</h4>
 
                     <div className="getinfo-grid">
-                        {displayFeatures.map(feature => (
+                        {/* {displayFeatures.map(feature => (
                             bikeInfo[feature.key] !== undefined && (
                                 <p key={feature.key}>
                                     <strong>{feature.label}:</strong>{' '}
@@ -642,7 +642,31 @@ const BikeCompareDetails = () => {
                                             : bikeInfo[feature.key]}
                                 </p>
                             )
-                        ))}
+                        ))} */}
+                        {displayFeatures.map(feature => {
+                            const value = bikeInfo[feature.key];
+
+                            if (value === undefined) return null;
+
+                            let displayValue = '';
+
+                            if (feature.key === 'pricing' && typeof value === 'object') {
+                                displayValue = `Ex-Showroom: ${value.exShowroomPrice}, On-Road: ${value.onRoadPrice}`;
+                            } else if (feature.type === 'array') {
+                                displayValue = value.join(', ');
+                            } else if (feature.type === 'boolean') {
+                                displayValue = value ? 'Yes' : 'No';
+                            } else {
+                                displayValue = value;
+                            }
+
+                            return (
+                                <p key={feature.key}>
+                                    <strong>{feature.label}:</strong> {displayValue}
+                                </p>
+                            );
+                        })}
+
                     </div>
 
                     <button className="getinfo-btn add-to-compare-btn" onClick={handleAddToCompare}>
