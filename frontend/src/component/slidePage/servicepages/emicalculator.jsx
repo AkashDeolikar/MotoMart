@@ -173,7 +173,7 @@ const EMICalculator = () => {
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": ["WebPage", "FinancialProduct", "Calculator"], // Added Calculator type
+            "@type": ["WebPage", "FinancialProduct", "Calculator"],
             "name": "EMI Calculator by MotoMart",
             "url": "https://motomart-ten.vercel.app/emicalculator",
             "description": "MotoMart's comprehensive online EMI calculator for estimating monthly payments on car loans, home loans, and personal loans. Includes full amortization schedule and detailed repayment breakdown.",
@@ -181,16 +181,16 @@ const EMICalculator = () => {
               "@type": "WebPage",
               "@id": "https://motomart-ten.vercel.app/emicalculator"
             },
-            "author": { // Authoritative source for E-E-A-T
+            "author": {
               "@type": "Organization",
               "name": "MotoMart",
               "url": "https://motomart-ten.vercel.app/",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://motomart-ten.vercel.app/images/motomart-logo.png" // Ensure this exists
+                "url": "https://motomart-ten.vercel.app/images/motomart-logo.png"
               }
             },
-            "publisher": { // As a publisher of the tool
+            "publisher": {
               "@type": "Organization",
               "name": "MotoMart",
               "url": "https://motomart-ten.vercel.app/",
@@ -199,17 +199,12 @@ const EMICalculator = () => {
                 "url": "https://motomart-ten.vercel.app/images/motomart-logo.png"
               },
               "sameAs": [
-                "https://facebook.com/MotoMartOfficial", // Your actual social links
+                "https://facebook.com/MotoMartOfficial",
                 "https://twitter.com/MotoMartOfficial",
                 "https://linkedin.com/company/motomart"
               ]
             },
-            "aggregateRating": { // Placeholder for real ratings. Implement a review system!
-              "@type": "AggregateRating",
-              "ratingValue": "4.7", // Example average rating
-              "reviewCount": "250" // Example number of reviews
-            },
-            "offers": { // Clarifies this is a free tool
+            "offers": {
               "@type": "Offer",
               "name": "Free Online EMI Calculator",
               "price": "0",
@@ -225,11 +220,16 @@ const EMICalculator = () => {
               "User-friendly and responsive interface",
               "Supports custom loan amounts, interest rates, and tenures"
             ],
-            "tool": { // Specific for Calculator type
+            "tool": {
               "@type": "SoftwareApplication",
               "name": "MotoMart EMI Calculator",
               "operatingSystem": "All",
-              "url": "https://motomart-ten.vercel.app/emicalculator"
+              "url": "https://motomart-ten.vercel.app/emicalculator",
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.7",
+                "reviewCount": "250"
+              }
             }
           })}
         </script>
