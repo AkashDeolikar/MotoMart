@@ -953,7 +953,7 @@ const CarDetails = () => {
     return (
         <div className="getinfo-container advanced-ui" data-theme={document.documentElement.getAttribute('data-theme')}>
             <LoadingOverlay isLoading={isLoading} />
-            <h2 className="getinfo-title">Explore Your Dream Car</h2>
+            <h2 className="getinfo-title">Explore Your Car</h2>
             <form onSubmit={handleSubmit} className="getinfo-form">
                 <div className="getinfo-field">
                     <label htmlFor="brand">Brand:</label>
