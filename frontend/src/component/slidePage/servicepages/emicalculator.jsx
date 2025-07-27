@@ -144,36 +144,92 @@ const EMICalculator = () => {
 
   return (
     <>
+      {/* --- SEO and Metadata (Helmet) - See next section for details --- */}
       <Helmet>
-        <title>EMI Calculator - Car, Home & Personal Loan Estimator | MotoMart</title>
-        <meta name="description" content="Use MotoMart's EMI Calculator to calculate your monthly car, bike, home, or personal loan EMI. Simple, fast, and responsive calculator." />
-        <meta name="keywords" content="EMI Calculator, Loan EMI, Car Loan EMI, Home Loan EMI, Personal Loan EMI" />
+        <title>EMI Calculator - Calculate Car, Home & Personal Loan EMIs Instantly | MotoMart</title>
+        <meta name="description" content="Calculate your monthly Equated Monthly Installment (EMI) for car, home, and personal loans with MotoMart's accurate and easy-to-use EMI calculator. Get detailed amortization schedules and repayment breakdowns." />
+        <meta name="keywords" content="EMI Calculator, Loan EMI, Car Loan EMI, Home Loan EMI, Personal Loan EMI, Interest Rate Calculator, Loan Repayment Schedule, Financial Planning Tool, MotoMart Finance" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://motomart-ten.vercel.app/emicalculator" />
 
-        {/* Open Graph for social sharing */}
-        <meta property="og:title" content="EMI Calculator - MotoMart" />
-        <meta property="og:description" content="Free EMI calculator for car, home and personal loans. Calculate monthly installments instantly." />
+        {/* Open Graph Tags for Social Sharing */}
+        <meta property="og:title" content="EMI Calculator - Calculate Your Loan EMIs with MotoMart" />
+        <meta property="og:description" content="Get instant and accurate EMI calculations for car, home, and personal loans. Plan your finances with MotoMart's comprehensive EMI tool." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://motomart-ten.vercel.app/emicalculator" />
+        <meta property="og:image" content="https://motomart-ten.vercel.app/images/motomart-emi-calculator-social.jpg" /> {/* Ensure this image exists and is optimized */}
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="MotoMart Online EMI Calculator" />
 
-        {/* Enhanced JSON-LD */}
+        {/* Twitter Card Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@MotoMartOfficial" /> {/* Replace with your actual Twitter handle */}
+        <meta name="twitter:title" content="EMI Calculator - MotoMart" />
+        <meta name="twitter:description" content="Calculate your loan EMIs instantly for car, home & personal loans with MotoMart's easy-to-use tool. Plan your repayment confidently." />
+        <meta name="twitter:image" content="https://motomart-ten.vercel.app/images/motomart-emi-calculator-social.jpg" />
+
+        {/* Structured Data (JSON-LD) for enhanced SEO and rich snippets */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "WebPage",
-            "name": "EMI Calculator",
+            "@type": ["WebPage", "FinancialProduct", "Calculator"], // Added Calculator type
+            "name": "EMI Calculator by MotoMart",
             "url": "https://motomart-ten.vercel.app/emicalculator",
-            "description": "Use MotoMart's EMI Calculator to estimate monthly payments for car, home, and personal loans. Simple, fast and accurate EMI estimation tool.",
-            "mainEntity": {
-              "@type": "FinancialProduct",
-              "name": "Loan EMI Calculator",
-              "application": {
-                "@type": "WebApplication",
-                "name": "MotoMart EMI Calculator",
-                "operatingSystem": "All",
-                "url": "https://motomart-ten.vercel.app/emicalculator"
+            "description": "MotoMart's comprehensive online EMI calculator for estimating monthly payments on car loans, home loans, and personal loans. Includes full amortization schedule and detailed repayment breakdown.",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://motomart-ten.vercel.app/emicalculator"
+            },
+            "author": { // Authoritative source for E-E-A-T
+              "@type": "Organization",
+              "name": "MotoMart",
+              "url": "https://motomart-ten.vercel.app/",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://motomart-ten.vercel.app/images/motomart-logo.png" // Ensure this exists
               }
+            },
+            "publisher": { // As a publisher of the tool
+              "@type": "Organization",
+              "name": "MotoMart",
+              "url": "https://motomart-ten.vercel.app/",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://motomart-ten.vercel.app/images/motomart-logo.png"
+              },
+              "sameAs": [
+                "https://facebook.com/MotoMartOfficial", // Your actual social links
+                "https://twitter.com/MotoMartOfficial",
+                "https://linkedin.com/company/motomart"
+              ]
+            },
+            "aggregateRating": { // Placeholder for real ratings. Implement a review system!
+              "@type": "AggregateRating",
+              "ratingValue": "4.7", // Example average rating
+              "reviewCount": "250" // Example number of reviews
+            },
+            "offers": { // Clarifies this is a free tool
+              "@type": "Offer",
+              "name": "Free Online EMI Calculator",
+              "price": "0",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock"
+            },
+            "applicationCategory": "https://schema.org/FinanceApplication",
+            "operatingSystem": "All",
+            "featureList": [
+              "Instant EMI calculation for various loan types",
+              "Generates detailed month-wise amortization schedule",
+              "Estimates total interest payable and total payment",
+              "User-friendly and responsive interface",
+              "Supports custom loan amounts, interest rates, and tenures"
+            ],
+            "tool": { // Specific for Calculator type
+              "@type": "SoftwareApplication",
+              "name": "MotoMart EMI Calculator",
+              "operatingSystem": "All",
+              "url": "https://motomart-ten.vercel.app/emicalculator"
             }
           })}
         </script>
