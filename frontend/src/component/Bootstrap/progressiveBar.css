@@ -13,11 +13,10 @@
 
 /* === Dialog Box (White, minimal, with shadow) === */
 .app-glass-loader {
-    background-color: #fff; /* White background like Google's dialogs */
+    /* background-color: #fff;  */
     border-radius: 8px; /* Slightly rounded corners */
     padding: 30px 40px; /* Adjust padding to match dialog size */
     text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Subtle shadow */
     width: 380px; /* Approximate width from screenshot */
     max-width: 90%; /* Responsive width */
     position: relative;
@@ -49,7 +48,7 @@
     left: 0;
     height: 100%;
     width: 0%; /* Start at 0% width */
-    background-color: #1a73e8; /* Google's blue color */
+    background-color: #1a73e8; 
     border-radius: 2px;
     animation: googleProgress 1.5s ease-in-out infinite forwards; /* Animation for the progress */
     /* No filter, no drop-shadow, no border from previous design */
@@ -145,7 +144,7 @@
 /* === Dialog Box (White, minimal, with shadow) === */
 /* The 'spinner' class will now act as the dialog box, adopting properties from .app-glass-loader */
 .spinner { /* Renamed from app-glass-loader */
-    background-color: #fff; /* White background like Google's dialogs */
+    background-color: #fff; 
     border-radius: 8px; /* Slightly rounded corners */
     padding: 30px 40px; /* Adjust padding to match dialog size */
     text-align: center;
