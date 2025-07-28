@@ -1,0 +1,105 @@
+
+/* --- Theme Variables --- */
+:root {
+  --bg-light: #ffffff;
+  --text-light: #070707;
+  --primary-light: #007bff;
+  --hover-light: #929293;
+  --accent-light: #28a745;
+  --red-light: #dc3545;
+
+  --bg-dark: #000000;
+  --text-dark-navbar: #ecf0f1;
+  --primary-dark: #3498db;
+  --hover-dark: #686868;
+  --accent-dark: #2ecc71;
+  --red-dark: #e74c3c;
+
+  --primary-color: #007bff;
+}
+
+/* Light Theme */
+.car-navbar.light {
+  --navbar-bg: var(--bg-light);
+  --navbar-text: var(--text-light);
+  --navbar-shadow: rgba(0, 0, 0, 0.08);
+  --navbar-hover: var(--hover-light);
+  --navbar-active: var(--primary-light);
+  --dropdown-bg: #f9f9f9;
+  --dropdown-border: #ddd;
+  --overlay-bg: rgba(255, 255, 255, 0.85);
+  --menu-bg: var(--bg-light);
+  --menu-link: var(--text-light);
+}
+
+/* Dark Theme */
+.car-navbar.dark {
+  --navbar-bg: var(--bg-dark);
+  --navbar-text: var(--text-dark-navbar);
+  --navbar-shadow: rgba(0, 0, 0, 0.5);
+  --navbar-hover: var(--hover-dark);
+  --navbar-active: var(--primary-dark);
+  --dropdown-bg: #1c1c1c;
+  --dropdown-border: #333;
+  --overlay-bg: rgba(0, 0, 0, 0.7);
+  --menu-bg: var(--bg-dark);
+  --menu-link: var(--text-dark-navbar);
+}
+
+/* Base Navbar */
+.car-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 5px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+  color: var(--navbar-text);
+  background-color: var(--navbar-bg);
+  box-shadow: none;
+}
+
+/* Transparent top for homepage */
+.car-navbar.homepage-transparent-top {
+  padding: 10px 10px 5px 10px;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+  color: var(--navbar-text) !important;
+}
+
+/* Black bg for dark homepage top */
+.dark .car-navbar.homepage-transparent-top {
+  background-color: #000 !important;
+  color: var(--text-dark-navbar);
+  transition: all 0.5s ease;
+}
+
+/* Scrolled/Other Page - Desktop */
+@media (min-width: 789px) {
+  .car-navbar.scrolled-or-other-page {
+    backdrop-filter: blur(55px) saturate(1.8);
+    box-shadow: 0 2px 10px var(--navbar-shadow);
+  }
+
+  .car-navbar.light.scrolled-or-other-page {
+    background-color: rgba(109, 109, 109, 0.314);
+  }
+
+  .car-navbar.dark.scrolled-or-other-page {
+    background-color: #000 !important;
+    color: var(--text-dark-navbar);
+  }
+}
+
+/* Scrolled/Other Page - Mobile */
+@media (max-width: 767px), (max-width: 486px) {
+  .car-navbar.dark.scrolled-or-other-page {
+    background-color: #000 !important;
+    backdrop-filter: blur(20px) saturate(1.8);
+    box-shadow: 0 2px 10px var(--navbar-shadow);
+  }
+}

@@ -2,7 +2,7 @@
   font-family: "HCLTechRoobert-Medium", sans-serif;
   padding: 40px 20px;
   background-color: #1f2a3629;
-  background: linear-gradient(130.3deg, #8034f1b6 35%, #4f7fef 100%);
+  background: linear-gradient(130.3deg, #3b3b3bb6 35%, #353840 100%);
   color: #131313;
   line-height: 1.6;
   transition: all 0.5s ease;
@@ -16,6 +16,14 @@
 .aboutus-container {
   max-width: 960px;
   margin: 0 auto;
+}
+
+.aboutus-section:before{
+  background: radial-gradient(circle at top left, rgba(157, 152, 152, 0.289), transparent);
+    top: -20%;
+    left: -20%;
+    transform: rotate(25deg);
+    z-index: 0;
 }
 
 .aboutus-title {

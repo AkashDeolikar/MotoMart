@@ -5,7 +5,10 @@ import './navbar.css';
 import { auth } from "../../firebase";
 import ServiceDropdown from './ServiceDropdown';
 import VehicleDropdown from "./vehicledropdown";
-import navlogo from './navlogo.WebP';
+
+// ✅ Import different logos for theme
+import lightLogo from './logo2.png';   // used in light theme (dark logo)
+import darkLogo from './logo1.png';   // used in dark theme (light logo)
 
 const CarNavbar = memo(({ theme, toggleTheme }) => {
   const location = useLocation();
@@ -31,13 +34,10 @@ const CarNavbar = memo(({ theme, toggleTheme }) => {
     setIsMobileMenuOpen(false);
   }, []);
 
-  // SCROLL AND PAGE LOGIC - Optimized to use useCallback
   useEffect(() => {
     const handleScroll = () => {
       const isHomePath = location.pathname === "/";
       const scrollTop = window.scrollY;
-
-      // Only update state if it actually changes to prevent unnecessary re-renders
       const newIsHomePageAtTop = isHomePath && scrollTop <= 50;
       if (newIsHomePageAtTop !== isHomePageAtTop) {
         setIsHomePageAtTop(newIsHomePageAtTop);
@@ -45,20 +45,20 @@ const CarNavbar = memo(({ theme, toggleTheme }) => {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Call once on mount to set initial state
-
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [location.pathname, isHomePageAtTop]); // Added isHomePageAtTop to dependency array for correct closure
+  }, [location.pathname, isHomePageAtTop]);
 
   const navbarClass = `car-navbar ${isHomePageAtTop ? "homepage-transparent-top" : "scrolled-or-other-page"}`;
 
   return (
     <nav className={navbarClass} aria-label="Main Navigation">
       <div className="car-navbar-container">
+        {/* Logo that switches with theme */}
         <div className="car-navbar-logo">
           <img
             className="ProjectName"
-            src={navlogo}
+            src={theme === "dark" ? darkLogo : lightLogo}
             alt="MotoMart Logo"
           />
         </div>
@@ -89,7 +89,7 @@ const CarNavbar = memo(({ theme, toggleTheme }) => {
 
             <VehicleDropdown
               closeParentMobileMenu={closeMobileMenu}
-              isParentMobileMenuOpen={isMobileMenuOpen} // This prop might be redundant if dropdowns manage their own mobile open state
+              isParentMobileMenuOpen={isMobileMenuOpen}
             />
 
             {user?.email === "admin@gmail.com" && (
@@ -100,7 +100,7 @@ const CarNavbar = memo(({ theme, toggleTheme }) => {
 
             <ServiceDropdown
               closeParentMobileMenu={closeMobileMenu}
-              isParentMobileMenuOpen={isMobileMenuOpen} // This prop might be redundant
+              isParentMobileMenuOpen={isMobileMenuOpen}
             />
 
             <li>
@@ -138,7 +138,7 @@ const CarNavbar = memo(({ theme, toggleTheme }) => {
                 role="button"
                 tabIndex="0"
                 aria-label={theme === "light" ? "Switch to dark theme" : "Switch to light theme"}
-                onKeyDown={(e) => { // Add keyboard accessibility
+                onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
                     toggleTheme();
                     closeMobileMenu();
@@ -156,3 +156,164 @@ const CarNavbar = memo(({ theme, toggleTheme }) => {
 });
 
 export default CarNavbar;
+
+
+// import React, { useState, useEffect, useCallback, memo } from "react";
+// import { Link, useLocation, useNavigate } from "react-router-dom";
+// import { FaSun, FaMoon, FaBars, FaTimes } from "react-icons/fa";
+// import './navbar.css';
+// import { auth } from "../../firebase";
+// import ServiceDropdown from './ServiceDropdown';
+// import VehicleDropdown from "./vehicledropdown";
+// import lightLogo from './logo2.webp';
+// import darkLogo from './logo2.webp';
+
+// const CarNavbar = memo(({ theme, toggleTheme }) => {
+//   const location = useLocation();
+//   const navigate = useNavigate();
+//   const user = auth.currentUser;
+//   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+//   const [isHomePageAtTop, setIsHomePageAtTop] = useState(true);
+
+//   const handleLogout = useCallback(async () => {
+//     try {
+//       await auth.signOut();
+//       navigate("/login");
+//     } catch (error) {
+//       console.error("Error signing out:", error);
+//     }
+//   }, [navigate]);
+
+//   const toggleMobileMenu = useCallback(() => {
+//     setIsMobileMenuOpen(prev => !prev);
+//   }, []);
+
+//   const closeMobileMenu = useCallback(() => {
+//     setIsMobileMenuOpen(false);
+//   }, []);
+
+//   // SCROLL AND PAGE LOGIC - Optimized to use useCallback
+//   useEffect(() => {
+//     const handleScroll = () => {
+//       const isHomePath = location.pathname === "/";
+//       const scrollTop = window.scrollY;
+
+//       // Only update state if it actually changes to prevent unnecessary re-renders
+//       const newIsHomePageAtTop = isHomePath && scrollTop <= 50;
+//       if (newIsHomePageAtTop !== isHomePageAtTop) {
+//         setIsHomePageAtTop(newIsHomePageAtTop);
+//       }
+//     };
+
+//     window.addEventListener("scroll", handleScroll, { passive: true });
+//     handleScroll(); // Call once on mount to set initial state
+
+//     return () => window.removeEventListener("scroll", handleScroll);
+//   }, [location.pathname, isHomePageAtTop]); // Added isHomePageAtTop to dependency array for correct closure
+
+//   const navbarClass = `car-navbar ${isHomePageAtTop ? "homepage-transparent-top" : "scrolled-or-other-page"}`;
+
+//   return (
+//     <nav className={navbarClass} aria-label="Main Navigation">
+//       <div className="car-navbar-container">
+//         <div className="car-navbar-logo">
+//           <img
+//             className="ProjectName"
+//             src={theme === "dark" ? darkLogo : lightLogo}
+//             alt="MotoMart Logo"
+//           />
+//         </div>
+
+//         <button
+//           className="mobile-menu-button"
+//           onClick={toggleMobileMenu}
+//           aria-controls="main-navbar-links"
+//           aria-expanded={isMobileMenuOpen}
+//         >
+//           {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+//         </button>
+
+//         {isMobileMenuOpen && (
+//           <div className="mobile-menu-overlay" onClick={closeMobileMenu}></div>
+//         )}
+
+//         <div
+//           id="main-navbar-links"
+//           role="navigation"
+//           aria-hidden={!isMobileMenuOpen}
+//           className={`car-navbar-links ${isMobileMenuOpen ? "mobile-open" : ""}`}
+//         >
+//           <ul>
+//             <li>
+//               <Link to="/" className={location.pathname === "/" ? "active" : ""} onClick={closeMobileMenu}>Home</Link>
+//             </li>
+
+//             <VehicleDropdown
+//               closeParentMobileMenu={closeMobileMenu}
+//               isParentMobileMenuOpen={isMobileMenuOpen} // This prop might be redundant if dropdowns manage their own mobile open state
+//             />
+
+//             {user?.email === "admin@gmail.com" && (
+//               <li>
+//                 <Link to="/add-car" className={location.pathname === "/add-car" ? "active" : ""} onClick={closeMobileMenu}>Add Car</Link>
+//               </li>
+//             )}
+
+//             <ServiceDropdown
+//               closeParentMobileMenu={closeMobileMenu}
+//               isParentMobileMenuOpen={isMobileMenuOpen} // This prop might be redundant
+//             />
+
+//             <li>
+//               <Link to="/contact" className={location.pathname === "/contact" ? "active" : ""} onClick={closeMobileMenu}>Contact</Link>
+//             </li>
+
+//             {!user ? (
+//               <>
+//                 <li><Link to="/login" className={location.pathname === "/login" ? "active" : ""} onClick={closeMobileMenu}>Login</Link></li>
+//                 <li><Link to="/register" className={location.pathname === "/register" ? "active" : ""} onClick={closeMobileMenu}>Register</Link></li>
+//               </>
+//             ) : (
+//               <>
+//                 <li>
+//                   <Link to="/myfavorites" className={location.pathname === "/myfavorites" ? "active" : ""} onClick={closeMobileMenu}>
+//                     My Favorites
+//                   </Link>
+//                 </li>
+//                 <li>
+//                   <button className="logout-btn" onClick={() => { handleLogout(); closeMobileMenu(); }}>
+//                     <i className="bi bi-box-arrow-right"></i> Logout
+//                   </button>
+//                 </li>
+//                 <li className="user-info">
+//                   <i className="bi bi-person-circle"></i> {user.displayName || user.email.split('@')[0]}
+//                 </li>
+//               </>
+//             )}
+
+//             {/* Theme Toggle Button */}
+//             <li>
+//               <div
+//                 className="theme-toggle"
+//                 onClick={() => { toggleTheme(); closeMobileMenu(); }}
+//                 role="button"
+//                 tabIndex="0"
+//                 aria-label={theme === "light" ? "Switch to dark theme" : "Switch to light theme"}
+//                 onKeyDown={(e) => { // Add keyboard accessibility
+//                   if (e.key === 'Enter' || e.key === ' ') {
+//                     toggleTheme();
+//                     closeMobileMenu();
+//                   }
+//                 }}
+//               >
+//                 {theme === "light" ? <FaMoon /> : <FaSun />}
+//               </div>
+//             </li>
+//           </ul>
+//         </div>
+//       </div>
+//     </nav>
+//   );
+// });
+
+// export default CarNavbar;
