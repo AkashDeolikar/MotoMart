@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import './index.css'; // For Tailwind's base
+import logo from "./component/navbar/logo2.png";
 
 // Pages - Auth
 import Login from "./component/auth/login";
@@ -299,18 +300,29 @@ function App() {
   //   );
   // }
   if (loadingAuth) {
-    return (
-      <div className="h-screen w-screen flex items-center justify-center bg-gradient-to-br from-[#0f2027] via-[#203a43] to-[#2c5364]">
-        <div className="text-center bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-lg">
-          <p className="text-white text-lg font-semibold mb-4">Starting the engine...</p>
+  return (
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100vh',
+        fontSize: '20px',
+        color: 'white',
+        textAlign: 'center',
+      }}
+    >
+      <img
+        src={logo}
+        alt="Loading..."
+        style={{ width: '80px', height: '80px', objectFit: 'contain', marginBottom: '16px' }}
+      />
+      Starting the engine...
+    </div>
+  );
+}
 
-          <div className="w-48 h-2 bg-white/20 rounded-full overflow-hidden mx-auto">
-            <div className="h-full bg-yellow-500 animate-loading-bar rounded-full"></div>
-          </div>
-        </div>
-      </div>
-    );
-  }
 
 
   return (
