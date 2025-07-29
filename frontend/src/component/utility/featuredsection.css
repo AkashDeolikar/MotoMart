@@ -47,8 +47,7 @@
 }
 
 .carslidefeatured-card:hover{
-    transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 20px 40px rgba(0, 255, 255, 0.3);
+    transform: translateY(-2px) scale(0.7);
 }
 
 .carslidefeatured-slider::-webkit-scrollbar {
@@ -109,14 +108,14 @@
   color: #000;
   font-weight: 600;
   font-size: 0.9rem;
-  border-radius: 50px;
+  /* border-radius: 50px; */
   text-decoration: none;
   transition: background 0.3s ease-in-out;
 }
 
 .carslidefeatured-btn:hover {
-  background-color: #00a8d1;
-  color: #fff;
+  background-color: #b1e8f8;
+  color: #000000;
 }
 
 .carslidefeatured-nav-btn {
@@ -144,9 +143,6 @@
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-  .carslidefeatured-card {
-    width: 80%;
-  }
 
   .carslidefeatured-heading {
     font-size: 1.5rem;

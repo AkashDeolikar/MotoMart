@@ -3,6 +3,7 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
+import './index.css'; // For Tailwind's base
 
 // Pages - Auth
 import Login from "./component/auth/login";
@@ -184,7 +185,7 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister, use
               <Route path="/ertiga" element={<SuzukiErtigaDetail />} />
               <Route path="/omni" element={<OmniDetail />} />
               <Route path="/innova" element={<ToyotaInnovaDetail />} />
-              <Route path="/activa" element={<HondaActivaDetail />}/>
+              <Route path="/activa" element={<HondaActivaDetail />} />
 
               {/* Vehicle Cards (assuming public access to browse) */}
               <Route path="/carcard" element={<Carcard />} />
@@ -289,14 +290,28 @@ function App() {
   // IMPORTANT: No direct call to useInactivityLogout here.
   // It is now managed within AnimatedRoutes.
 
-  // Show a loading indicator while Firebase is determining the initial auth state
+  // // Show a loading indicator while Firebase is determining the initial auth state
+  // if (loadingAuth) {
+  //   return (
+  //     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', fontSize: '24px' }}>
+  //       Loading web application...
+  //     </div>
+  //   );
+  // }
   if (loadingAuth) {
     return (
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', fontSize: '24px' }}>
-        Loading web application...
+      <div className="h-screen w-screen flex items-center justify-center bg-gradient-to-br from-[#0f2027] via-[#203a43] to-[#2c5364]">
+        <div className="text-center bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-lg">
+          <p className="text-white text-lg font-semibold mb-4">Starting the engine...</p>
+
+          <div className="w-48 h-2 bg-white/20 rounded-full overflow-hidden mx-auto">
+            <div className="h-full bg-yellow-500 animate-loading-bar rounded-full"></div>
+          </div>
+        </div>
       </div>
     );
   }
+
 
   return (
     <Router>

@@ -45,8 +45,7 @@ const AboutUs = () => {
 
         <div className="aboutus-footer">
           <p>
-            <strong>Creator:</strong> Akash Deolikar
-            <br />
+            {/* <strong>Creator:</strong> Akash Deolikar */}
             <strong>GitHub:</strong>{" "}
             <a href="https://github.com/AkashDeolikar/MotoMart" target="_blank" rel="noopener noreferrer">
               GitHub Repository

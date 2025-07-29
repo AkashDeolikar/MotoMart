@@ -1,8 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types'; // Import PropTypes for type checking
-import './footer.css'; // Assuming the CSS file is in the same directory
+import PropTypes from 'prop-types';
+import './footer.css';
+import logo from './footerlogo.webp';
 
-// Define prop types for better code quality and documentation
 const FooterLinkSection = PropTypes.shape({
   title: PropTypes.string.isRequired,
   links: PropTypes.arrayOf(
@@ -10,7 +10,7 @@ const FooterLinkSection = PropTypes.shape({
       text: PropTypes.string.isRequired,
       href: PropTypes.string.isRequired,
       isExternal: PropTypes.bool,
-      iconClass: PropTypes.string, // For Bootstrap icons, e.g., "bi bi-github"
+      iconClass: PropTypes.string,
     })
   ).isRequired,
 });
@@ -19,35 +19,43 @@ const Footer = ({ projectName, linkSections }) => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="footer">
-      {/* Project Name Section */}
-      <h2 className="footer__project-name">{projectName}</h2>
+    <footer className="footer-swiper">
+      <div className="footer-container">
+        {/* Project Brand */}
+        <div className="footer-brand">
+          <img src={logo} alt="Logo" className="footer-logo" />
+          <span className="footer-title">{projectName}</span>
+        </div>
 
-      {/* Main Footer Content Container */}
-      <div className="footer__container">
-        {linkSections.map((section, index) => (
-          <div className="footer__section" key={index}>
-            <h5 className="footer__section-title">{section.title}</h5>
-            <ul className="footer__list">
-              {section.links.map((link, linkIndex) => (
-                <li className="footer__list-item" key={linkIndex}>
-                  <a
-                    href={link.href}
-                    {...(link.isExternal && { target: "_blank", rel: "noopener noreferrer" })}
-                    className="footer__link"
-                  >
-                    {link.text} {link.iconClass && <i className={link.iconClass}></i>}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        {/* Link Sections */}
+        <div className="footer-links">
+          {linkSections.map((section, idx) => (
+            <div className="footer-section" key={idx}>
+              <h4>{section.title}</h4>
+              <ul>
+                {section.links.map((link, i) => (
+                  <li key={i}>
+                    <a
+                      href={link.href}
+                      {...(link.isExternal && {
+                        target: "_blank",
+                        rel: "noopener noreferrer",
+                      })}
+                    >
+                      {link.text}
+                      {link.iconClass && <i className={link.iconClass}></i>}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
 
-      {/* Footer Bottom Section */}
-      <div className="footer__bottom">
-        <p className="footer__copyright">
+      <div className="footer-bottom">
+        <p>
+          All product names, logos and brands are property of their respective owners. <br />
           &copy; {currentYear} {projectName} TrueValue. All rights reserved.
         </p>
       </div>
@@ -55,7 +63,6 @@ const Footer = ({ projectName, linkSections }) => {
   );
 };
 
-// Define default props for easier usage
 Footer.defaultProps = {
   projectName: 'MotoMart',
   linkSections: [
@@ -63,7 +70,7 @@ Footer.defaultProps = {
       title: 'Project Links',
       links: [
         { text: 'GitHub', href: 'https://github.com/AkashDeolikar/MotoMart', isExternal: true, iconClass: 'bi bi-github' },
-        { text: 'Vercel Hosting', href: 'https://motomart-ten.vercel.app', isExternal: true, iconClass: 'bi bi-box-arrow-up-right' }, // Changed to a more general external link icon
+        { text: 'Vercel Hosting', href: 'https://motomart-ten.vercel.app', isExternal: true, iconClass: 'bi bi-box-arrow-up-right' },
       ],
     },
     {
@@ -77,7 +84,6 @@ Footer.defaultProps = {
   ],
 };
 
-// Add PropTypes for validation
 Footer.propTypes = {
   projectName: PropTypes.string,
   linkSections: PropTypes.arrayOf(FooterLinkSection),

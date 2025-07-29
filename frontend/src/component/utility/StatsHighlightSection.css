@@ -93,10 +93,6 @@ body {
   background: radial-gradient(circle at top left, rgb(198, 198, 198), transparent);
 }
 
-.statsreportmechanism__card:hover {
-  transform: translateY(-8px);
-}
-
 /* -------- Count -------- */
 .statsreportmechanism__count {
   font-size: 3rem;

@@ -2,15 +2,15 @@
   font-family: "HCLTechRoobert-Medium", sans-serif;
   padding: 40px 20px;
   background-color: #1f2a3629;
-  background: linear-gradient(130.3deg, #3b3b3bb6 35%, #353840 100%);
+  background: linear-gradient(130.3deg, #e5e5e5 35%, #d4c9c9 100%);
   color: #131313;
   line-height: 1.6;
   transition: all 0.5s ease;
 }
 
 .dark .aboutus-section {
-  background-color: #1f2a3629;
-  color: #f0f0f0;
+  background: linear-gradient(130.3deg, #666666 35%, #3b3333 100%);
+  color: inherit;
 }
 
 .aboutus-container {
@@ -30,7 +30,6 @@
   font-family: "HCLTechRoobert-Medium", sans-serif;
   font-size: 3rem;
   margin-bottom: 24px;
-  color: #fff;
 }
 
 .aboutus-subheading {
@@ -38,14 +37,12 @@
   font-size: 1.6rem;
   font-weight: 600;
   margin-top: 36px;
-  color: #fff;
 }
 
 .aboutus-description {
   font-family: "HCLTechRoobert-Light", sans-serif;
   font-size: 1.05rem;
   margin-bottom: 16px;
-  color: #e0e0e0;
 }
 
 .aboutus-feature-list {
@@ -59,24 +56,16 @@
   font-family: "HCLTechRoobert-Light", sans-serif;
   margin-bottom: 10px;
   font-size: 1rem;
-  color: #e0e0e0;
 }
 
 .aboutus-cta-button {
   display: inline-block;
   margin-top: 30px;
   padding: 12px 25px;
-  background-color: #5100b3;
-  color: #fff;
+  background-color: #23ec0ddd;
+  color: inherit;
   text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
   transition: background 0.3s ease;
-}
-
-.aboutus-cta-button:hover {
-  background-color: #7d3cff;
-  color: #fff;
 }
 
 .aboutus-footer {
@@ -85,12 +74,8 @@
 }
 
 .aboutus-footer a {
-  color: #ffcc33;
+  color: #ff8400;
   text-decoration: underline;
-}
-
-.aboutus-footer a:hover {
-  color: #d4a600;
 }
 
 /* Responsive */

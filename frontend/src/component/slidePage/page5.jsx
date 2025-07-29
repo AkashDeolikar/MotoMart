@@ -102,19 +102,7 @@ const Page5 = () => {
                     </p>
                     <a className="btn-boxpage5 mt-4 appearIntroPage5" href="/luxury" target="_blank">Discover</a>
                 </div>
-                <div className="premium-highlight-section">
-                    <p className="premium-text">
-                        Explore our exclusive collection of <strong>Premium Cars</strong> handpicked for enthusiasts & connoisseurs.
-                        <a
-                            className="premium-cta-button"
-                            href="/luxuryvh"
-                            //   target="_blank"
-                            title="Browse Premium Segment"
-                        >
-                            View Collection
-                        </a>
-                    </p>
-                </div>
+                
 
                 <div className="row">
                     {/* Jaguar Card */}
@@ -183,6 +171,19 @@ const Page5 = () => {
                             </div>
                         )}
                     </div>
+                </div>
+                <div className="premium-highlight-section">
+                    <p className="premium-text">
+                        Explore our exclusive collection of <strong>Premium Cars</strong> handpicked for enthusiasts & connoisseurs.
+                        <a
+                            className="premium-cta-button"
+                            href="/luxuryvh"
+                            //   target="_blank"
+                            title="Browse Premium Segment"
+                        >
+                            View Collection
+                        </a>
+                    </p>
                 </div>
             </div>
         </div>

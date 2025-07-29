@@ -1,7 +1,7 @@
 /* Light Theme */
 .light {
-    --cardetail-primary-color: #0052cc;
-    --cardetail-primary-hover-color: #003d99;
+    --cardetail-primary-color: #1a1a1a;
+    --cardetail-primary-hover-color: #000000;
 
     --cardetail-text-dark: #1c1c1e;
     --cardetail-text-medium: #4a4a4f;
@@ -20,7 +20,7 @@
 
 /* Dark Theme */
 .dark {
-    --cardetail-primary-color: #7f7f7f;
+    --cardetail-primary-color: #808080;
     --cardetail-primary-hover-color: #000000;
 
     --cardetail-text-dark: #f5f5f7;
@@ -47,8 +47,8 @@ body {
 }
 
 .card-detail-container {
-    max-width: 1450px;
-    margin: 40px auto;
+    max-width: 100%;
+    /* margin: 40px auto; */
     padding: 30px;
     background-color: var(--cardetail-bg-light);
     /* border-radius: 16px; */
@@ -187,6 +187,7 @@ body {
 }
 
 .external-link-button {
+    text-transform: uppercase;
     display: block;
     margin-top: 10px;
     padding: 14px 20px;
@@ -194,7 +195,6 @@ body {
     color: #fff;
     text-decoration: none;
     text-align: center;
-    font-weight: 600;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     position: relative;
 }

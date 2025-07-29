@@ -10,7 +10,6 @@
   cursor: pointer;
   display: inline-block;
   transition: all 0.3s ease;
-  box-shadow: 0 8px 20px rgba(0, 212, 255, 0.25);
   letter-spacing: 1px;
 }
 .carslidefeatured-img-wrapper {

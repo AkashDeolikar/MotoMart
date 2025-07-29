@@ -52,7 +52,6 @@
 
 /* Desktop Dropdown Container */
 .desk-nav-dd {
-    margin-top: 6px; /* Reduced margin for more compactness */
     display: none;
     position: absolute;
     top: 100%;

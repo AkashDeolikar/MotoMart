@@ -1,7 +1,14 @@
 /* === Page Wrapper === */
 .fav-page {
   padding: 2rem 1rem;
-  background: linear-gradient(95.48deg, #7abef7 1.81%, #407ff5d6 43.03%, #7647d5d0 68.71%, #582ac2c2 89.75%);
+  background: linear-gradient(130.48deg, #f3f3f3 1.81%, #d9d9d9d8 43.03%, #f8f8f8  68.71%, #d9d9d9d8 89.75%);
+  min-height: 100vh;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.dark .fav-page{
+  padding: 2rem 1rem;
+  background: linear-gradient(130.48deg, #49494982 1.81%, #ababab7d 43.03%, #49494982  68.71%, #b8b8b885 89.75%);
   min-height: 100vh;
   font-family: 'Segoe UI', 'Roboto', sans-serif;
 }
@@ -30,7 +37,6 @@
 .fav-card {
   background: linear-gradient(135deg, #e8bdfe 0%, #9eb9fa 100%);
   position: relative;
-  border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -39,7 +45,6 @@
 }
 
 .fav-card:hover {
-  transform: translateY(-6px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
   border-color: #cfd8dc;
 }
@@ -51,7 +56,6 @@
   object-fit: cover;
   background-color: #f8f9fa;
   border-bottom: 1px solid #eee;
-  border-radius: 14px 14px 0 0;
 }
 
 /* === Card Content === */

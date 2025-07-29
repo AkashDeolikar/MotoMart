@@ -30,7 +30,7 @@
 
   /* Button Gradients - Light Theme */
   --gradient-btn-default: linear-gradient(45deg, #ffc107, #ff9800); /* Warm orange/yellow */
-  --gradient-btn-default-hover: linear-gradient(45deg, #ffca2c, #fb8c00);
+  --gradient-btn-default-hover: linear-gradient(45deg, #ff970e, #fb8c00);
   --gradient-btn-default-shadow: rgba(255, 165, 0, 0.25);
   --gradient-btn-default-hover-shadow: rgba(255, 165, 0, 0.4);
 
@@ -114,7 +114,7 @@
 
   /* Button Gradients - Dark Theme */
   --gradient-btn-default: linear-gradient(45deg, #f6ad55, #ed8936); /* Darker, richer orange */
-  --gradient-btn-default-hover: linear-gradient(45deg, #fbd38d, #f6ad55);
+  --gradient-btn-default-hover: linear-gradient(45deg, #ed8936, #f9af0e);
   --gradient-btn-default-shadow: rgba(246, 173, 85, 0.3);
   --gradient-btn-default-hover-shadow: rgba(246, 173, 85, 0.5);
 
@@ -170,8 +170,7 @@ body {
   position: relative;
   max-width: 1000px; /* Slightly wider */
   margin: var(--space-container-margin) auto;
-  padding: var(--space-xl) var(--space-xxl); /* More refined padding */
-  border-radius: var(--radius-xxl);
+  padding: var(--space-xl) var(--space-xxl);
   background: var(--gradient-container-bg);
   box-shadow: var(--shadow-lg); /* Using --shadow-lg for container */
   backdrop-filter: blur(8px);
@@ -302,7 +301,6 @@ body {
   color: #fff; /* White text for better contrast on gradients */
   cursor: pointer;
   margin-top: var(--space-lg);
-  box-shadow: 0 5px 15px var(--gradient-btn-default-shadow);
   transition: transform var(--transition-speed-normal) var(--transition-easing-smooth),
               box-shadow var(--transition-speed-normal) var(--transition-easing-smooth),
               background var(--transition-speed-normal) var(--transition-easing-smooth);
@@ -311,8 +309,6 @@ body {
 
 .getinfo-btn:hover:not(:disabled) {
   background: var(--gradient-btn-default-hover);
-  transform: translateY(-3px); /* More pronounced lift */
-  box-shadow: 0 8px 20px var(--gradient-btn-default-hover-shadow);
 }
 
 .getinfo-btn:active {
@@ -408,8 +404,7 @@ body {
 /* ==================================== */
 .getinfo-result {
   margin-top: var(--space-xxxl);
-  padding: var(--space-xxl); /* More padding */
-  border-radius: var(--radius-xxl);
+  padding: var(--space-xxl);
   background-color: var(--color-card-bg);
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--border-color-getinfo-result); /* Subtle border for better definition */
@@ -579,7 +574,7 @@ body {
 
 .comparison-header {
   background-color: var(--color-comparison-primary);
-  color: white;
+  color: inherit;
   font-weight: bold;
   font-size: 1.1em;
 }
@@ -606,7 +601,7 @@ body {
 .comparison-header .comparison-cell {
   text-align: center;
   padding: var(--space-lg);
-  color: white;
+  color: inherit;
   border: none; /* No individual cell borders for header */
 }
 

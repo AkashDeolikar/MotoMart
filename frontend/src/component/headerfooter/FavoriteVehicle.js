@@ -119,7 +119,7 @@ const FavoriteVehicle = ({ vehicle }) => {
         };
 
         try {
-            // 🔍 Step 1: Check if the vehicle is already in favorites
+            // Step 1: Check if the vehicle is already in favorites
             const checkResponse = await fetch(`https://motomartbackend.onrender.com/api/favorites/check?userId=${user.uid}&vehicleId=${vehicle.id}`);
 
             if (checkResponse.ok) {
@@ -132,7 +132,7 @@ const FavoriteVehicle = ({ vehicle }) => {
                 }
             }
 
-            // 📨 Step 2: Proceed to save if not already present
+            // Step 2: Proceed to save if not already present
             const response = await fetch('https://motomartbackend.onrender.com/api/favorites', {
                 method: 'POST',
                 headers: {
@@ -151,7 +151,7 @@ const FavoriteVehicle = ({ vehicle }) => {
             // setTimeout(() => setIsSubmitted(false), 5000); //it will returned add to Fav in 2sec
 
         } catch (err) {
-            console.error("🚨 Error:", err.message);
+            console.error("Error:", err.message);
             setError(err.message || 'Something went wrong while saving your favorite.');
         }
     };
@@ -164,7 +164,7 @@ const FavoriteVehicle = ({ vehicle }) => {
                     onClick={handleAddToFavorites}
                     style={{
                         cursor: isSubmitted ? 'not-allowed' : 'pointer',
-                        backgroundColor: isSubmitted ? '#28a745': '#8ab4f8',
+                        backgroundColor: isSubmitted ? '#16d643ff': '#8ab4f8',
                         backdropFilter: 'blur(10px)',
                     }}
                 >
