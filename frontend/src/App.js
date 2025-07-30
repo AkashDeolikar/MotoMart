@@ -4,7 +4,8 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import './index.css'; // For Tailwind's base
-import logo from "./component/navbar/logo2.png";
+import logoDark from "./component/navbar/logo2.png";
+import logoLight from "./component/navbar/logo1.png";
 
 // Pages - Auth
 import Login from "./component/auth/login";
@@ -290,38 +291,28 @@ function App() {
 
   // IMPORTANT: No direct call to useInactivityLogout here.
   // It is now managed within AnimatedRoutes.
-
-  // // Show a loading indicator while Firebase is determining the initial auth state
-  // if (loadingAuth) {
-  //   return (
-  //     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', fontSize: '24px' }}>
-  //       Loading web application...
-  //     </div>
-  //   );
-  // }
   if (loadingAuth) {
-  return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100vh',
-        fontSize: '20px',
-        color: 'white',
-        textAlign: 'center',
-      }}
-    >
-      <img
-        src={logo}
-        alt="Loading..."
-        style={{ width: '80px', height: '80px', objectFit: 'contain', marginBottom: '16px' }}
-      />
-      Starting the engine...
-    </div>
-  );
-}
+    return (
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '100vh',
+          fontSize: '20px',
+          color: 'white',
+          textAlign: 'center',
+        }}
+      >
+        <img
+          src={theme === 'dark' ? logoDark: logoLight}
+          alt="Loading..."
+          style={{ width: '80px', height: '80px', objectFit: 'contain', marginBottom: '16px' }}
+        />
+      </div>
+    );
+  }
 
 
 

@@ -1567,13 +1567,14 @@ html {
   color: black;
 }
 
+.cardetail-sections-btn:hover .cardetail-sections-arrow-icon {
+  transform: translateX(6px);
+}
+
 .cardetail-sections-arrow-icon {
   transition: transform 0.3s ease;
 }
 
-.cardetail-sections-btn:hover .cardetail-sections-arrow-icon {
-  transform: translateX(6px);
-}
 
 .cardetail-sections-scroll-hint {
   position: absolute;
