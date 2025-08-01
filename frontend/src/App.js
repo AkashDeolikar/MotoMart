@@ -311,7 +311,7 @@ function App() {
           src={logoDark}
           // src={theme === 'dark' ? logoDark: logoLight}
           alt="Loading..."
-          style={{ width: '100px', height: '100px', objectFit: 'contain', marginBottom: '16px' }}
+          style={{ width: '150px', height: '150px', objectFit: 'contain', marginBottom: '16px' }}
         />
       </div>
     );
