@@ -109,6 +109,7 @@ import Suzukipickup from "./component/slidePage/subpages/commercialcarpages/suzu
 import FavoriteVehicle from "./component/headerfooter/FavoriteVehicle";
 import MyFavorites from "./component/headerfooter/MyFavorites";
 import HondaActivaDetail from "./component/cardetails/HondaActiva";
+import NS200Detail from "./component/cardetails/NS200";
 
 //DB pages
 
@@ -188,6 +189,7 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister, use
               <Route path="/omni" element={<OmniDetail />} />
               <Route path="/innova" element={<ToyotaInnovaDetail />} />
               <Route path="/activa" element={<HondaActivaDetail />} />
+              <Route path="/ns" element={<NS200Detail />} />
 
               {/* Vehicle Cards (assuming public access to browse) */}
               <Route path="/carcard" element={<Carcard />} />
@@ -306,9 +308,10 @@ function App() {
         }}
       >
         <img
-          src={theme === 'dark' ? logoDark: logoLight}
+          src={logoDark}
+          // src={theme === 'dark' ? logoDark: logoLight}
           alt="Loading..."
-          style={{ width: '80px', height: '80px', objectFit: 'contain', marginBottom: '16px' }}
+          style={{ width: '100px', height: '100px', objectFit: 'contain', marginBottom: '16px' }}
         />
       </div>
     );

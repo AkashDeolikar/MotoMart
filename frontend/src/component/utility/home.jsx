@@ -261,7 +261,7 @@ const AutoPlayCardSlider = ({ data }) => {
 const FeaturedCarsSection = ({ featuredCars, handleViewCarDetails, carRouteMap }) => (
   <section className="carslidefeatured-section" data-aos="fade-up" data-aos-once="true">
     <div className="carslidefeatured-container">
-      <h2 className="carslidefeatured-heading">🔥 Featured Cars</h2>
+      <h2 className="carslidefeatured-heading">🔥 Featured Vehicle</h2>
 
       <div className="carslidefeatured-slider">
         {featuredCars.map((car) => (
@@ -388,6 +388,7 @@ const Home = () => {
     { id: 5, name: "Renault Kwid", price: "3.50 Lakh", image: "./images/kwid.png" },
     { id: 6, name: "Toyota Innova", price: "17.50 Lakh", image: "./images/crysta.png" },
     { id: 7, name: "Honda Activa", price: "1.20 Lakh", image: "./images/activa/13.png" },
+    { id: 8, name: "Bajaj NS200", price: "1.45 Lakh", image: "./images/ns200/7.webp" },
   ];
 
   /*Scroll up animation */
@@ -477,6 +478,7 @@ const Home = () => {
     "Renault Kwid": "/omni", // Changed from "/page5" for consistency, assuming this is the correct route
     "Toyota Innova": "/innova",
     "Honda Activa": "/activa",
+    "Bajaj NS200" : "/ns",
   };
 
   // Function to handle navigation to car details page with loading animation
@@ -640,7 +642,7 @@ const Home = () => {
           <div className="zic-alternating-content">
             <div className="note"> Tap the card to explore more features!</div>{/* className="mobile-note" => className="note"  */}
             {/* Luxury Vehicles */}
-            <div className="support right-aligned" data-aos="slide-right" data-aos-delay="200">
+            <div className="support right-aligned" data-aos="slide-right" data-aos-delay="200" data-aos-once="true">
               <Link to="/luxuryvh" className="zic-image-link">
                 <picture className="roverimg">
                   <img alt="roverRRJ" className="zic-zac-block-img" src={luxury} />
@@ -650,7 +652,7 @@ const Home = () => {
             </div>
 
             {/* Passenger Vehicles */}
-            <div className="support left-aligned" data-aos="slide-left" data-aos-delay="200">
+            <div className="support left-aligned" data-aos="slide-left" data-aos-delay="200" data-aos-once="true">
               <Link to="/passengervh" className="zic-image-link">
                 <picture className="roverimg">
                   <img alt="passenger" className="zic-zac-block-img" src={passenger} />
@@ -660,7 +662,7 @@ const Home = () => {
             </div>
 
             {/* EV Vehicles */}
-            <div className="support right-aligned" data-aos="slide-right" data-aos-delay="200">
+            <div className="support right-aligned" data-aos="slide-right" data-aos-delay="200" data-aos-once="true">
               <Link to="/evvh" className="zic-image-link">
                 <picture className="roverimg">
                   <img alt="ev" className="zic-zac-block-img" src={ev} />
@@ -670,7 +672,7 @@ const Home = () => {
             </div>
 
             {/* Commercial Vehicles */}
-            <div className="support left-aligned" data-aos="slide-left" data-aos-delay="200">
+            <div className="support left-aligned" data-aos="slide-left" data-aos-delay="200" data-aos-once="true">
               <Link to="/commercialvh" className="zic-image-link">
                 <picture className="roverimg">
                   <img alt="commercial" className="zic-zac-block-img" src={commercial} />

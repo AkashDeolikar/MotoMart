@@ -100,7 +100,7 @@ a {
 
 .T2Page p {
   font-size: clamp(14px, 1.3vw, 18px);
-  color: #d0d0d0;
+  color: inherit;
   margin-bottom: 20px;
   line-height: 1.6;
   text-align: justify;

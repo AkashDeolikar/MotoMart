@@ -3,6 +3,8 @@
 /* =============================== */
 /* Root Variables for Themes       */
 /* =============================== */
+@import '../../fonts.css';
+
 :root {
   /* Light Mode Defaults */
   --bg-color-main: #f0f2f5; /* Light grey background for body/html */
@@ -116,12 +118,10 @@ body {
 }
 
 .emi-container {
-  max-width: 1000px;
+  max-width: auto;
   margin: 40px auto;
   padding: 10px;
-  background-color: var(--container-bg);
-  border-radius: 12px;
-  box-shadow: var(--container-shadow);
+  /* background-color: var(--container-bg); */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: var(--text-color-primary);
   transition: all 0.3s ease; /* Smooth transition for all properties */
@@ -146,10 +146,15 @@ h1, h2 .EMI {
 
 /* Input Area */
 .input-grid {
+  padding: 0 1.5rem; /* Safe default padding */
   display: grid;
   gap: 20px;
   grid-template-columns: 1fr;
   margin-bottom: 30px;
+  max-width: 1000px; 
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 
 @media (min-width: 600px) {
@@ -219,7 +224,6 @@ h1, h2 .EMI {
   font-size: 1.1em;
   font-weight: 600;
   border: none;
-  border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
 }
@@ -314,6 +318,11 @@ h1, h2 .EMI {
   background: var(--table-bg);
   box-shadow: var(--summary-item-shadow); /* Reusing shadow for consistency */
   transition: all 0.3s ease;
+}
+@media (max-width: 486px) {
+  .amortization-table-container {
+  padding: 10px;
+}
 }
 
 .amortization-table-container h4 {

@@ -1,35 +1,42 @@
 .aboutus-section {
   font-family: "HCLTechRoobert-Medium", sans-serif;
   padding: 40px 20px;
-  background-color: #1f2a3629;
-  background: linear-gradient(130.3deg, #e5e5e5 35%, #d4c9c9 100%);
-  color: #131313;
+  background-image: url('../utility/premium-bg.webp'); /* Adjust the path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #ffffff;
   line-height: 1.6;
   transition: all 0.5s ease;
+  opacity: 0.95;
+  position: relative;
+  z-index: 1;
 }
 
-.dark .aboutus-section {
-  background: linear-gradient(130.3deg, #666666 35%, #3b3333 100%);
-  color: inherit;
+/* Optional overlay effect for better readability */
+.aboutus-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.3));
+  z-index: 0;
 }
 
 .aboutus-container {
   max-width: 960px;
   margin: 0 auto;
-}
-
-.aboutus-section:before{
-  background: radial-gradient(circle at top left, rgba(157, 152, 152, 0.289), transparent);
-    top: -20%;
-    left: -20%;
-    transform: rotate(25deg);
-    z-index: 0;
+  position: relative;
+  z-index: 2;
 }
 
 .aboutus-title {
   font-family: "HCLTechRoobert-Medium", sans-serif;
   font-size: 3rem;
   margin-bottom: 24px;
+  color: #ffffff;
 }
 
 .aboutus-subheading {
@@ -37,12 +44,14 @@
   font-size: 1.6rem;
   font-weight: 600;
   margin-top: 36px;
+  color: #ffffff;
 }
 
 .aboutus-description {
   font-family: "HCLTechRoobert-Light", sans-serif;
   font-size: 1.05rem;
   margin-bottom: 16px;
+  color: #ffffff;
 }
 
 .aboutus-feature-list {
@@ -56,25 +65,29 @@
   font-family: "HCLTechRoobert-Light", sans-serif;
   margin-bottom: 10px;
   font-size: 1rem;
+  color: #ffffff;
 }
 
 .aboutus-cta-button {
   display: inline-block;
   margin-top: 30px;
   padding: 12px 25px;
-  background-color: #23ec0ddd;
-  color: inherit;
+  background-color: #8a8a8a47;
+  backdrop-filter: blur(5px);
+  color: #ffffff;
   text-decoration: none;
   transition: background 0.3s ease;
+  font-weight: 600;
 }
 
 .aboutus-footer {
   margin-top: 40px;
   font-size: 0.95rem;
+  color: #ffffff;
 }
 
 .aboutus-footer a {
-  color: #ff8400;
+  color: #f5a623;
   text-decoration: underline;
 }
 

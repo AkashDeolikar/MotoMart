@@ -1,6 +1,4 @@
-/* .bbb{
-    padding: 10px;
-} */
+
 .rover-det-spec-block {
     background-color: #fefefef1;
 }
@@ -40,6 +38,10 @@
 .spec-item {
     border-bottom: 1px solid #ccc;
     padding-bottom: 12px;
+}
+
+.spec-desc{
+    color: #000;
 }
 
 .title1 {
@@ -106,6 +108,7 @@
     font-family: 'LandRoverWeb-Bold';
     font-size: 24px;
     font-weight: bolder;
+    color: #000;
 }
 
 .titleH {

@@ -332,25 +332,19 @@ body {
   color: white;
 }
 
-.add-to-compare-btn:hover:not(:disabled) {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px var(--gradient-btn-compare-hover-shadow);
-}
 .add-to-compare-btn:active {
   transform: translateY(0);
-  box-shadow: 0 3px 10px var(--gradient-btn-compare-shadow);
 }
 
 /* Clear Comparison Button */
 .comparison-list-summary .clear-btn {
   background: var(--gradient-btn-clear);
-  box-shadow: 0 5px 15px var(--gradient-btn-clear-shadow);
   color: white;
 }
 
 .comparison-list-summary .clear-btn:hover:not(:disabled) {
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px var(--gradient-btn-clear-hover-shadow);
+  box-shadow: 0 5px 10px var(--gradient-btn-clear-hover-shadow);
 }
 .comparison-list-summary .clear-btn:active {
   transform: translateY(0);

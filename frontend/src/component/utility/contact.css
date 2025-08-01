@@ -95,8 +95,7 @@
 .contact-form button {
   padding: 12px;
   border: none;
-  border-radius: 10px;
-  background: linear-gradient(135deg, #f0cc61, #e0b842);
+  background: linear-gradient(135deg, #f5a623, #f5a623);
   color: #000;
   font-weight: bold;
   font-size: 1rem;
@@ -109,8 +108,7 @@
 }
 
 .contact-form button:hover {
-  transform: translateY(-2px);
-  background: linear-gradient(135deg, #25f961, #3df571);
+  background: linear-gradient(135deg, #25f961b9, #3df571be);
 }
 
 .contact-form button i {
