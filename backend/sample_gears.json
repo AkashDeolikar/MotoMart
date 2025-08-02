@@ -1,0 +1,78 @@
+[
+  {
+    "type": "Riding Jacket",
+    "brand": "Rynox",
+    "model": "Stealth Evo 3",
+    "price": 9950,
+    "imageUrl": "https://rynoxgear.com/cdn/shop/products/stealth-evo-3-jacket-black-1.jpg",
+    "certification": "CE Level 2",
+    "compatibleBikes": [
+      "All"
+    ],
+    "features": [
+      "Invista Cordura fabric",
+      "Ventilated mesh panels",
+      "Detachable thermal liner",
+      "Level 2 shoulder/elbow/back protectors"
+    ],
+    "rating": 4.8,
+    "productLink": "https://rynoxgear.com/products/stealth-evo-3-jacket-black"
+  },
+  {
+    "type": "Riding Gloves",
+    "brand": "Rynox",
+    "model": "Shield Pro",
+    "price": 3650,
+    "imageUrl": "https://rynoxgear.com/cdn/shop/products/shield-pro-gloves-black-1.jpg",
+    "certification": "CE Certified",
+    "compatibleBikes": [
+      "All"
+    ],
+    "features": [
+      "Knuckle protection",
+      "Goatskin leather",
+      "Touchscreen compatible",
+      "Double-stitched seams"
+    ],
+    "rating": 4.6,
+    "productLink": "https://rynoxgear.com/products/shield-pro-gloves-black"
+  },
+  {
+    "type": "Helmet",
+    "brand": "Steelbird",
+    "model": "SBH-34 Transformer",
+    "price": 3499,
+    "imageUrl": "https://www.steelbirdhelmet.com/cdn/shop/products/sbh-34-transformer-matt-black-red.jpg",
+    "certification": "ISI Certified",
+    "compatibleBikes": [
+      "All"
+    ],
+    "features": [
+      "Flip-up design",
+      "Dual visor system",
+      "Aerodynamic shell",
+      "ISI certified safety"
+    ],
+    "rating": 4.4,
+    "productLink": "https://www.steelbirdhelmet.com/products/sbh-34-transformer-matt-black-red"
+  },
+  {
+    "type": "Helmet",
+    "brand": "Steelbird",
+    "model": "SBH-21 Tank",
+    "price": 2899,
+    "imageUrl": "https://www.steelbirdhelmet.com/cdn/shop/products/sbh-21-tank-glossy-black-orange.jpg",
+    "certification": "ISI Certified",
+    "compatibleBikes": [
+      "All"
+    ],
+    "features": [
+      "High-impact ABS shell",
+      "UV resistant paint",
+      "Micro-metric buckle",
+      "Scratch-resistant visor"
+    ],
+    "rating": 4.3,
+    "productLink": "https://www.steelbirdhelmet.com/products/sbh-21-tank-glossy-black-orange"
+  }
+]

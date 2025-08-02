@@ -111,6 +111,11 @@ import MyFavorites from "./component/headerfooter/MyFavorites";
 import HondaActivaDetail from "./component/cardetails/HondaActiva";
 import NS200Detail from "./component/cardetails/NS200";
 
+//Riding GEAR page imports
+import GearCard from "./component/RidingGears/GearCard";
+import GearPage from "./component/RidingGears/RidingGearPreview";
+import MainPageGear from "./component/RidingGears/MainPageGear";
+
 //DB pages
 
 
@@ -249,6 +254,11 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister, use
               <Route path="/statshighlightsection" element={<StatsHighlightSection />} />
               <Route path="/HeroSlider" element={<HeroSlider />} />
               <Route path="/SlideItem" element={<SlideItem />} />
+
+              {/* Riding gear pages */}
+              <Route path="/GearCard" element={< GearCard />} />
+              <Route path="/GearPage" element={<GearPage />} />
+              <Route path="/MainPageGear" element={<MainPageGear />}/>
 
               {/* Catch-all for undefined routes (optional, but good practice) */}
               {/* <Route path="*" element={<div>404 Not Found</div>} /> */}

@@ -47,6 +47,9 @@ import Viewmore from "../cardetails/viewmore";
 import HeroSlider from "./HeroSlider"; // This component seems unused based on commented out usage
 import SlideItem from "./SlideItem"; // This component seems unused based on commented out usage
 
+//Riding GEAR page import
+import GearPage from "../RidingGears/RidingGearPreview";
+
 // ===============================================
 // Extracted Components for Better Structure
 // ===============================================
@@ -763,6 +766,8 @@ const Home = () => {
 
       {/* Offers Flip Cards Grid */}
       <OffersGridSection offers={offers} />
+
+      <GearPage />
     </div>
   );
 };

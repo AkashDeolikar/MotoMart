@@ -1,0 +1,49 @@
+.gear-preview {
+  padding: 4rem 2rem;
+  background: linear-gradient(145deg, #1e1e2f, #121212);
+  color: #fff;
+  text-align: center;
+}
+
+.gear-preview-header h2 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.gear-subtext {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 2rem;
+}
+
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  margin-bottom: 2.5rem;
+  padding: 0 1rem;
+}
+
+.gear-preview-btn-wrapper {
+  text-align: center;
+}
+
+.preview-button {
+  text-transform: uppercase;
+  padding: 12px 28px;
+  background-color: #00c2ff;
+  color: #000;
+  font-weight: 400;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.preview-button:hover {
+  background-color: transparent;
+  border: 1px solid #00a0d1;
+  color: #fff;
+}
