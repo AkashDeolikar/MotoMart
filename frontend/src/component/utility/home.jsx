@@ -44,12 +44,19 @@ import bimg4 from './assetimg/bimg4.WebP';
 import premiumBg from "./premium-bg.webp";
 
 import Viewmore from "../cardetails/viewmore";
-import HeroSlider from "./HeroSlider"; // This component seems unused based on commented out usage
 import SlideItem from "./SlideItem"; // This component seems unused based on commented out usage
 
 //Riding GEAR page import
 import GearPage from "../RidingGears/RidingGearPreview";
 
+import wintage from './slideimgasset/wintage.webp';
+import wintagemb from './slideimgasset/wintagemb.webp';
+import bgt from './slideimgasset/bgt.webp';
+import bgtmb from './slideimgasset/bgtmb.webp';
+import innovation from './slideimgasset/innovation.webp';
+import innovationmb from './slideimgasset/innovationmb.webp';
+import busa from './slideimgasset/busa.webp';
+import busamb from './slideimgasset/busamb.webp';
 // ===============================================
 // Extracted Components for Better Structure
 // ===============================================
@@ -63,13 +70,13 @@ const LoadingOverlay = ({ isLoading }) => {
   if (!isLoading) return null;
   return (
     <div className="app-loading-overlay">
-    <div className="app-glass-loader">
+      <div className="app-glass-loader">
         <div className="app-spinner"></div>
         <p className="app-loading-text">
-            <i className="bi bi-lightning-charge-fill"></i> Please wait... loading details
+          <i className="bi bi-lightning-charge-fill"></i> Please wait... loading details
         </p>
+      </div>
     </div>
-</div>
   );
 };
 
@@ -206,6 +213,111 @@ const HeroCarousel = () => {
         <button className="prev" onClick={() => showSlider('prev')}>❮</button>
         <button className="next" onClick={() => showSlider('next')}>❯</button>
       </div>
+    </div>
+  );
+};
+
+const Slidemoto = () => {
+  const slidesData = [
+    {
+      id: 'slide-1',
+      title: 'HERITAGE AND CLASSIC DESIGN',
+      description: 'For the timeless rider: Gear that combines vintage style with modern protection.',
+      desktopImg: wintage,
+      mobileImg: wintagemb,
+    },
+    {
+      id: 'slide-2',
+      title: 'ENGINEERING & PERFORMANCE',
+      description: 'Inspired by speed: Gear that mirrors the precision and power of a hypercar.',
+      desktopImg: bgt,
+      mobileImg: bgtmb,
+    },
+    
+    {
+      id: 'slide-3',
+      title: 'THE EVOLUTION OF RIDING GEAR',
+      description: 'Experience the next generation of ventilated, visible, and incredibly light jackets.',
+      desktopImg: 'https://rynoxgear.com/cdn/shop/files/Home_Page_Banner-100_1_1280x.jpg?v=1753511998',
+      mobileImg: 'https://rynoxgear.com/cdn/shop/files/Mobile_banner-100_400x.jpg?v=1753512016'
+    },
+    {
+      id: 'slide-4',
+      title: 'CUTTING-EDGE PROTECTION TECHNOLOGY',
+      description: 'Engineered for strength and designed for ultimate protection on any road.',
+      desktopImg: 'https://rynoxgear.com/cdn/shop/files/Defender_handguard_Website_Asset_Home_page_Banner_4_2400x.jpg?v=1753091974',
+      mobileImg: 'https://rynoxgear.com/cdn/shop/files/WhatsApp_Image_2025-07-12_at_11.16.45_AM_400x.jpg?v=1752299225'
+    },
+    {
+      id: 'slide-5',
+      title: 'PERFORMANCE MEETS INNOVATION',
+      description: 'Track precision and road performance, now CE Certified Class AA.',
+      desktopImg: innovation,
+      mobileImg: innovationmb,
+    },
+    {
+      id: 'slide-6',
+      title: 'SAFETY TECHNOLOGY IN HELMETS',
+      description: 'Dream big, ride safe, and explore the exclusive helmet range with advanced safety features.',
+      desktopImg: 'https://images.wallpaperscraft.com/image/single/motorcycle_motorcyclist_bike_172850_2560x1080.jpg',
+      mobileImg: 'https://w0.peakpx.com/wallpaper/159/383/HD-wallpaper-motorcyclist-helmet-motorcycle-equipment.jpg'
+    },
+    {
+      id: 'slide-7',
+      title: 'ADVENTURE-READY HYDRATION SYSTEMS',
+      description: 'Stay hydrated on-the-go with hassle-free and integrated hydration bladders.',
+      desktopImg: 'https://rynoxgear.com/cdn/shop/files/Home_page_copy_4_1280x.jpg?v=1744892193',
+      mobileImg: 'https://rynoxgear.com/cdn/shop/files/Mobile_Banner_6_400x.jpg?v=1744892246'
+    },
+    {
+      id: 'slide-8',
+      title: 'THE ULTIMATE SPEED MACHINE',
+      description: 'Experience unparalleled speed and performance. Designed for those who live life in the fast lane.',
+      desktopImg: busa,
+      mobileImg: busamb,
+    },
+    
+  ];
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slidesData.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slidesData.length) % slidesData.length);
+  const goToSlide = (i) => setCurrentSlide(i);
+
+  useEffect(() => {
+    const interval = setInterval(nextSlide, 5000);
+    return () => clearInterval(interval);
+  }, [currentSlide]);
+
+  return (
+    <div className="main-page-gear">
+
+      {/* Hero Slider Section */}
+      <section className="gear-hero-section">
+        <div className="gear-slider">
+          <div className="gear-slider-track" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+            {slidesData.map((slide, index) => (
+              <a href={slide.link} key={slide.id} className={`gear-slide ${index === currentSlide ? 'gear-slide-active' : ''}`}>
+                <div className="gear-slide-content">
+                  <h2>{slide.title}</h2>
+                  <p>{slide.description}</p>
+                  {/* <span className="gear-explore-button">EXPLORE NOW</span> */}
+                </div>
+                <picture>
+                  <source media="(max-width: 768px)" srcSet={slide.mobileImg} />
+                  <img src={slide.desktopImg} alt={slide.title} className="gear-slide-image" />
+                </picture>
+              </a>
+            ))}
+          </div>
+          <button className="gear-slider-arrow gear-slider-arrow-left" onClick={prevSlide}>&lt;</button>
+          <button className="gear-slider-arrow gear-slider-arrow-right" onClick={nextSlide}>&gt;</button>
+          <div className="gear-slider-dots">
+            {slidesData.map((_, i) => (
+              <button key={i} className={`gear-slider-dot ${i === currentSlide ? 'gear-dot-active' : ''}`} onClick={() => goToSlide(i)} />
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
@@ -481,7 +593,7 @@ const Home = () => {
     "Renault Kwid": "/omni", // Changed from "/page5" for consistency, assuming this is the correct route
     "Toyota Innova": "/innova",
     "Honda Activa": "/activa",
-    "Bajaj NS200" : "/ns",
+    "Bajaj NS200": "/ns",
   };
 
   // Function to handle navigation to car details page with loading animation
@@ -512,7 +624,8 @@ const Home = () => {
       <LoadingOverlay isLoading={isLoading} />
 
       {/* Hero Section - Bootstrap Carousel Replica */}
-      <HeroCarousel />
+      {/* <HeroCarousel /> */}
+      <Slidemoto />
 
       {/* Auto-Playing Card Slider (Fold2 Cards) */}
       <AutoPlayCardSlider data={fold2CardsData} />

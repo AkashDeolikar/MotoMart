@@ -26,7 +26,6 @@ import Aboutus from "./component/utility/aboutus";
 import StatsHighlightSection from "./component/utility/statshighlightsection";
 import ScrollToTop from "./component/utility/ScrollToTop";
 import Viewmore from "./component/cardetails/viewmore";
-import HeroSlider from "./component/utility/HeroSlider";
 import SlideItem from "./component/utility/SlideItem";
 
 // Navbar & Footer
@@ -252,7 +251,6 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister, use
               {/* Miscellaneous Components (assuming public) */}
               <Route path="/viewmore" element={<Viewmore />} />
               <Route path="/statshighlightsection" element={<StatsHighlightSection />} />
-              <Route path="/HeroSlider" element={<HeroSlider />} />
               <Route path="/SlideItem" element={<SlideItem />} />
 
               {/* Riding gear pages */}

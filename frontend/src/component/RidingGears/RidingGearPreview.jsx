@@ -8,7 +8,7 @@ const RidingGearPreview = () => {
   const [featuredGears, setFeaturedGears] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/gears')
+    axios.get('https://motomartbackend.onrender.com/api/gears')
       .then(res => setFeaturedGears(res.data.slice(0, 4))) // Only 3 items
       .catch(err => console.error('Failed to load preview:', err));
   }, []);
