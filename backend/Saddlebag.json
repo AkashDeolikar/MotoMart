@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Rynox Expedition Saddle Bags",
+    "slug": "rynox-expedition-saddle-bags",
+    "price": 7650,
+    "category": "saddlebags",
+    "variants": ["Black Grey"],
+    "description": "Expandable 64L (32L x 2) waterproof saddle bags for adventure touring.",
+    "image": "https://rynoxgear.com/cdn/shop/files/Rynox_Pod_saddlebags_001.1_700x.jpg?v=1745934356"
+  },
+  {
+    "title": "Rynox Drystack Saddle Bags",
+    "slug": "rynox-drystack-saddle-bags",
+    "price": 5950,
+    "category": "saddlebags",
+    "variants": ["Black"],
+    "description": "100% waterproof, 50L capacity saddle bags with roll-top closure for long-distance touring.",
+    "image": "https://rynoxgear.com/cdn/shop/files/Rynox_ExpeditionSaddlebags_DarkGrey_1_499x@2x.jpg?v=1684413191"
+  },
+  {
+    "title": "Tarmac Storm Saddle Bags",
+    "slug": "tarmac-storm-saddle-bags",
+    "price": 4999,
+    "category": "saddlebags",
+    "variants": ["Black Grey"],
+    "description": "Water-resistant saddle bags with 48L combined storage and reflective piping.",
+    "image": "https://motocentral.in/cdn/shop/files/01.png?v=1686837699"
+  },
+  {
+    "title": "Raida GearPod Saddlebags",
+    "slug": "raida-gearpod-saddlebags",
+    "price": 4750,
+    "category": "saddlebags",
+    "variants": ["Black Orange"],
+    "description": "Expandable saddle bags from Raida with integrated rain cover and 50L capacity.",
+    "image": "https://raidagears.com/wp-content/uploads/2022/11/12.webp"
+  }
+]

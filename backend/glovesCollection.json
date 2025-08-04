@@ -1,0 +1,157 @@
+[
+  {
+    "title": "Tornado Pro 4 Gloves - Black",
+    "slug": "tornado-pro-4-gloves-black",
+    "brand": "Rynox",
+    "price": 3950,
+    "category": "gloves",
+    "type": "riding",
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "variants": [
+      "Black",
+      "Red",
+      "Desert Storm"
+    ],
+    "description": "Premium mesh riding gloves with CE-certified knuckle protection and ventilation.",
+    "image": "https://rynoxgear.com/cdn/shop/files/RYNOX_TORNADO_2024_Hi_Viz_499x@2x.jpg?v=1736504398"
+  },
+  {
+    "title": "Storm Evo 3 Gloves - Grey",
+    "slug": "storm-evo-3-gloves-grey",
+    "brand": "Rynox",
+    "price": 4250,
+    "category": "gloves",
+    "type": "riding",
+    "sizes": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "variants": [
+      "Grey",
+      "Black"
+    ],
+    "description": "Sport-touring gloves with all-weather protection and full gauntlet coverage.",
+    "image": "https://rynoxgear.com/cdn/shop/products/Redstormevoglove_2_499x@2x.jpg?v=1672993776"
+  },
+  {
+    "title": "Gravel Dualsport Gloves - Red/Black",
+    "slug": "gravel-dualsport-gloves-red-black",
+    "brand": "Rynox",
+    "price": 2950,
+    "category": "gloves",
+    "type": "riding",
+    "sizes": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "variants": [
+      "Red/Black",
+      "Grey/Blue"
+    ],
+    "description": "Dualsport gloves with knuckle and palm sliders for aggressive offroad use.",
+    "image": "https://rynoxgear.com/cdn/shop/products/RynoxGravelNewGlovesOrange01_499x@2x.png?v=1672912405"
+  },
+  {
+    "title": "Royal Enfield Winter Gloves",
+    "slug": "royal-enfield-winter-gloves",
+    "brand": "Royal Enfield",
+    "price": 2450,
+    "category": "gloves",
+    "type": "winter",
+    "sizes": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "variants": [
+      "Black",
+      "Grey"
+    ],
+    "description": "Thermal insulated gloves designed for winter rides and daily commuting.",
+    "image": "https://store.royalenfield.com/media/catalog/product/g/l/glss21002olive_1re.jpg?width=550&height=550&canvas=550,550&optimize=high&bg-color=255,255,255&fit=bounds"
+  },
+  {
+    "title": "Scala Gears Winter Touring Gloves",
+    "slug": "scala-winter-touring-gloves",
+    "brand": "Scala Gears",
+    "price": 1999,
+    "category": "gloves",
+    "type": "winter",
+    "sizes": [
+      "L",
+      "XL"
+    ],
+    "variants": [
+      "Black",
+      "Camo"
+    ],
+    "description": "All-weather winter gloves with waterproof lining and thermal fleece comfort.",
+    "image": "https://scalagears.com/cdn/shop/files/SCALA_ATLASGLOVE-Gray-NEON.png?v=1720593486"
+  },
+  {
+    "title": "BBG Carbon Pro Gloves",
+    "slug": "bbg-carbon-pro-gloves",
+    "brand": "BBG",
+    "price": 3499,
+    "category": "gloves",
+    "type": "riding",
+    "sizes": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "variants": [
+      "Black",
+      "Hi-Viz"
+    ],
+    "description": "Carbon-knuckle gloves for long touring and spirited rides with mesh panels.",
+    "image": "https://motocentral.in/cdn/shop/products/BBG0030-scaled_1024x1024.jpg?v=1630753271"
+  },
+  {
+    "title": "Raida Tourer Pro Gloves",
+    "slug": "raida-tourer-pro-gloves",
+    "brand": "Raida",
+    "price": 2699,
+    "category": "gloves",
+    "type": "riding",
+    "sizes": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "variants": [
+      "Red",
+      "Hi-Viz Yellow"
+    ],
+    "description": "Touring gloves with hard knuckle protectors, touchscreen tips, and wrist Velcro.",
+    "image": "https://motocentral.in/cdn/shop/files/4_b98e08b5-3516-4bed-8661-038e56ccf7bf.png?v=1736771868"
+  },
+  {
+    "title": "Tarmac Drifter V3 Gloves",
+    "slug": "tarmac-drifter-v3-gloves",
+    "brand": "Tarmac",
+    "price": 2999,
+    "category": "gloves",
+    "type": "riding",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "variants": [
+      "Black",
+      "Neon",
+      "Camo"
+    ],
+    "description": "Short cuff riding gloves with reinforced protection and breathable mesh.",
+    "image": "https://motocentral.in/cdn/shop/products/7211-thickbox_leoshoe_large.jpg?v=1647686182"
+  }
+]

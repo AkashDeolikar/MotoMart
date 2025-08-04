@@ -1,0 +1,47 @@
+[
+  {
+    "title": "Quest Pro Protective Base Layer - Upper",
+    "slug": "quest-pro-upper",
+    "price": 9550,
+    "category": "base-layer",
+    "variants": ["Grey"],
+    "description": "Upper body base layer for protection and performance. Designed to be worn under riding jackets for optimal armor placement.",
+    "image": "https://rynoxgear.com/cdn/shop/files/Rynox_Protective_Base_Layer_Upper_02_700x.jpg?v=1700484440"
+  },
+  {
+    "title": "Quest Pro Protective Base Layer - Lower",
+    "slug": "quest-pro-lower",
+    "price": 5750,
+    "category": "base-layer",
+    "variants": ["Grey"],
+    "description": "Lower body base layer for riders seeking comfort and protection. Designed for use beneath riding pants.",
+    "image": "https://rynoxgear.com/cdn/shop/files/RynoxQuestProProtectiveBaseLayer_Lower_Grey02_700x.jpg?v=1699263978"
+  },
+  {
+    "title": "Rynox Drycore Full Sleeves Base Layer Top",
+    "slug": "drycore-top",
+    "price": 1550,
+    "category": "base-layer",
+    "variants": ["Black"],
+    "description": "Moisture-wicking full sleeves top base layer made with Drycore fabric for long touring rides.",
+    "image": "https://rynoxgear.com/cdn/shop/files/VAPOURPROPERFORMANCEBASELAYER-BLACKUPPER_01_499x@2x.jpg?v=1706175939"
+  },
+  {
+    "title": "Rynox Drycore Pants Base Layer",
+    "slug": "drycore-pants",
+    "price": 1550,
+    "category": "base-layer",
+    "variants": ["Black"],
+    "description": "Drycore fabric riding base layer pants to maintain comfort in all climates under riding pants.",
+    "image": "https://rynoxgear.com/cdn/shop/files/VAPOUR_PRO_PERFORMANCE_BASE_LAYER_-_BLACK_LOWER_02_700x.jpg?v=1729752300"
+  },
+  {
+    "title": "VAPOUR PRO PERFORMANCE BALACLAVA - Black",
+    "slug": "face",
+    "price": 1850,
+    "category": "base-layer",
+    "variants": ["Black"],
+    "description": "Thermal insulated full sleeve top base layer designed to retain body heat during winter rides and dirt proof.",
+    "image": "https://rynoxgear.com/cdn/shop/products/Rynox_Vapour_Pro_Balaclava_Grey_01-100_1_499x@2x.jpg?v=1660381754"
+  }
+]

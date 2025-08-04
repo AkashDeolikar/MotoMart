@@ -1,0 +1,47 @@
+[
+  {
+    "title": "Rynox Tornado Pro 4 Pants",
+    "slug": "rynox-tornado-pro-4-pants",
+    "price": 9450,
+    "category": "pants",
+    "variants": ["Black", "Grey Hi-Viz"],
+    "description": "All-weather touring pants with CE level 2 protection and ventilation panels.",
+    "image": "https://rynoxgear.com/cdn/shop/files/WhatsAppImage2025-01-20at22.58.56_3_57cdd04d-d895-4904-9972-50f82585b49f_499x@2x.jpg?v=1737964087"
+  },
+  {
+    "title": "Rynox Stealth Evo 4 Pants",
+    "slug": "rynox-stealth-evo-4-pants",
+    "price": 11850,
+    "category": "pants",
+    "variants": ["Black", "Grey"],
+    "description": "Stealth Evo pants built for serious touring with enhanced abrasion resistance and armor.",
+    "image": "https://rynoxgear.com/cdn/shop/files/Artboard_1_2_499x@2x.jpg?v=1737970963"
+  },
+  {
+    "title": "Rynox Air GT 4 Pants",
+    "slug": "rynox-air-gt-4-pants",
+    "price": 7650,
+    "category": "pants",
+    "variants": ["Black Grey", "Hi-Viz"],
+    "description": "Mesh touring pants for Indian climates, paired best with Air GT jackets.",
+    "image": "https://rynoxgear.com/cdn/shop/files/Rynox_GT_Pants_01_UPDATED_1_1200x.jpg?v=1721719183"
+  },
+  {
+    "title": "Tarmac Drystar Waterproof Pants",
+    "slug": "tarmac-drystar-waterproof-pants",
+    "price": 6250,
+    "category": "pants",
+    "variants": ["Black"],
+    "description": "Waterproof overpants by Tarmac for protection during monsoons and wet rides.",
+    "image": "https://www.customelements.in/wp-content/uploads/2023/01/Alpinestars-Andes-V3-Drystar-Black-Riding-Pants.webp"
+  },
+  {
+    "title": "Raida Explorer Pants",
+    "slug": "raida-explorer-pants",
+    "price": 7250,
+    "category": "pants",
+    "variants": ["Black", "Camo"],
+    "description": "Raida’s Explorer dual-layer mesh pants with CE certified protectors and waterproof liner.",
+    "image": "https://wroom.co.in/wp-content/uploads/Raida-Tourer-Riding-Pant-Black-Grey-Online-Buy-India_01.jpg"
+  }
+]

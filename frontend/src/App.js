@@ -114,6 +114,13 @@ import NS200Detail from "./component/cardetails/NS200";
 import GearCard from "./component/RidingGears/GearCard";
 import GearPage from "./component/RidingGears/RidingGearPreview";
 import MainPageGear from "./component/RidingGears/MainPageGear";
+import RaidOffroadGear from "./component/RidingGears/Categorypages/RaidOffroadGear";
+import GlovesPage from "./component/RidingGears/Categorypages/GlovesPage";
+import JacketsPage from "./component/RidingGears/Categorypages/JacketsPage";
+import BaseLayerPage from "./component/RidingGears/Categorypages/BaseLayerPage";
+import RidingPantsPage from "./component/RidingGears/Categorypages/RidingPantsPage";
+import TailBagPage from "./component/RidingGears/Categorypages/TailBagPage";
+import SaddleBagPage from "./component/RidingGears/Categorypages/SaddleBagPage";
 
 //DB pages
 
@@ -257,6 +264,13 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister, use
               <Route path="/GearCard" element={< GearCard />} />
               <Route path="/GearPage" element={<GearPage />} />
               <Route path="/MainPageGear" element={<MainPageGear />}/>
+              <Route path="/RaidOffroadGear" element={<RaidOffroadGear />} />
+              <Route path="/Glovespage" element={<GlovesPage />}/>
+              <Route path="/JacketsPage" element={<JacketsPage />} />
+              <Route path="/BaseLayerPage" element={<BaseLayerPage />} />
+              <Route path="/RidingPantsPage" element={<RidingPantsPage />} />
+              <Route path="/TailBagPage" element={<TailBagPage />} />
+              <Route path="/SaddleBagPage" element={<SaddleBagPage />} />
 
               {/* Catch-all for undefined routes (optional, but good practice) */}
               {/* <Route path="*" element={<div>404 Not Found</div>} /> */}

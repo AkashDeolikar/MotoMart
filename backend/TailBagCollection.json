@@ -1,0 +1,47 @@
+[
+  {
+    "title": "Rynox Expedition Trail Bag",
+    "slug": "rynox-expedition-trail-bag",
+    "price": 4950,
+    "category": "tail-bags",
+    "variants": ["Black", "Grey"],
+    "description": "Waterproof 42L trail bag designed for rugged travel and off-road use.",
+    "image": "https://rynoxgear.com/cdn/shop/files/Rynox_ExpeditionTrailBag_Dark_Grey_1_499x@2x.jpg?v=1684414117"
+  },
+  {
+    "title": "Rynox Nomad Saddle/Tail Bag",
+    "slug": "rynox-nomad-saddle-tail-bag",
+    "price": 2950,
+    "category": "tail-bags",
+    "variants": ["Black"],
+    "description": "Modular tail bag designed to be mounted as saddle or tail using MOLLE webbing.",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSA7qRugxJuq7NGRamZ8N8WYjC_BXacAaQrtw&s"
+  },
+  {
+    "title": "Tarmac Tornado Tail Bag",
+    "slug": "tarmac-tornado-tail-bag",
+    "price": 3299,
+    "category": "tail-bags",
+    "variants": ["Black"],
+    "description": "Water-resistant tail bag with a 40L capacity and compression straps.",
+    "image": "https://www.customelements.in/wp-content/uploads/2020/09/Enduristan-Tornado-2-Waterproof-Drybag-Rok-Straps-new-all-1.jpg"
+  },
+  {
+    "title": "Raida Trailpack Tail Bag",
+    "slug": "raida-trailpack-tail-bag",
+    "price": 3599,
+    "category": "tail-bags",
+    "variants": ["Black", "Olive"],
+    "description": "Expandable 50L tail bag with weather protection and universal straps.",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPTuZ5yx8JkfJ2yh0whIllbpmpptIdaol00w&s"
+  },
+  {
+    "title": "BBG Dry Tail Bag 40L",
+    "slug": "bbg-dry-tail-bag",
+    "price": 3499,
+    "category": "tail-bags",
+    "variants": ["Black", "Orange"],
+    "description": "Fully waterproof 40L tail bag with roll-top closure and reflective strips.",
+    "image": "https://ridersjunction.com/wp-content/uploads/2024/04/Solace-Suska-Tail-Bag-40L-100-waterproof-Universal-Dry-Bag-1.jpg"
+  }
+]

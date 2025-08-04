@@ -5,6 +5,13 @@ const mongoose = require('mongoose');
 const Favorite = require('./models/Favorite');
 const Part = require('./models/Parts');
 const Gear = require('./models/Gear');
+const RidingGear = require('./models/RidingGear');
+const Glove = require('./models/Glove');
+const Jacket = require('./models/Jacket');
+const BaseLayer = require('./models/BaseLayer');
+const RidingPant = require('./models/RidingPant');
+const TailBag = require('./models/TailBag');
+const SaddleBag = require('./models/SaddleBag');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -252,6 +259,76 @@ app.get('/api/gears', async (req, res) => {
   }
 });
 
+
+//** DATABASE QUERY FOR RIDING ASSETS */
+app.get('/api/raid-offroad', async (req, res) => {
+  try {
+    const gears = await RidingGear.find({ category: 'offroad' });
+    res.json(gears);
+  } catch (err) {
+    res.status(500).json({ message: 'Failed to fetch offroad gears' });
+  }
+});
+
+// GET all gloves
+app.get('/api/gloves', async (req, res) => {
+  try {
+    const gloves = await Glove.find();
+    res.json(gloves);
+  } catch (err) {
+    res.status(500).json({ message: 'Failed to load gloves' });
+  }
+});
+
+// GET all jackets
+app.get('/api/jackets', async (req, res) => {
+  try {
+    const jackets = await Jacket.find();
+    res.json(jackets);
+  } catch (err) {
+    res.status(500).json({ message: 'Failed to load jackets' });
+  }
+});
+
+// GET all base layers
+app.get('/api/base-layers', async (req, res) => {
+  try {
+    const layers = await BaseLayer.find();
+    res.json(layers);
+  } catch (err) {
+    res.status(500).json({ message: 'Error fetching base layers' });
+  }
+});
+
+// GET all pants
+app.get('/api/pants', async (req, res) => {
+  try {
+    const pants = await RidingPant.find();
+    res.json(pants);
+  } catch (err) {
+    res.status(500).json({ message: 'Error fetching pants' });
+  }
+});
+
+//GET all tail bags
+app.get('/api/tail-bags', async (req, res) => {
+  try {
+    const data = await TailBag.find();
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to fetch tail bags' });
+  }
+});
+
+//GET all Saddles bags
+app.get('/api/saddlebags', async (req, res) => {
+  try {
+    const bags = await SaddleBag.find();
+    res.json(bags);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to fetch saddlebags' });
+  }
+});
 
 // Root route
 app.get('/', (req, res) => {

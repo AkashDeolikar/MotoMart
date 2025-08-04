@@ -6,22 +6,39 @@ import './RidingGearPreview.css';
 
 const RidingGearPreview = () => {
   const [featuredGears, setFeaturedGears] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios.get('https://motomartbackend.onrender.com/api/gears')
-      .then(res => setFeaturedGears(res.data.slice(0, 4))) // Only 3 items
-      .catch(err => console.error('Failed to load preview:', err));
+      .then(res => {
+        setFeaturedGears(res.data.slice(0, 4));
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error('Failed to load preview:', err);
+        setLoading(false);
+      });
   }, []);
 
   return (
     <section className="gear-preview">
       <h2>Moto Riding Essentials</h2>
-      <div className="preview-grid">
-        {featuredGears.map(gear => (
-          <GearCard key={gear._id} gear={gear} />
-        ))}
-      </div>
-      <Link to="/MainPageGear" className="preview-button">View All Riding Gear</Link>
+
+      {loading ? (
+        <div className="partinfo-loader">
+          <div className="partinfo-spinner"></div>
+          <p>Preparing your riding essentials...</p>
+        </div>
+      ) : (
+        <>
+          <div className="preview-grid">
+            {featuredGears.map(gear => (
+              <GearCard key={gear._id} gear={gear} />
+            ))}
+          </div>
+          <Link to="/MainPageGear" className="preview-button">View All Riding Gear</Link>
+        </>
+      )}
     </section>
   );
 };

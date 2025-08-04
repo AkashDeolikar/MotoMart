@@ -1,6 +1,7 @@
 .gear-card {
   /* background: #1a1a1a; */
-  background: linear-gradient(145deg, #1e1e2f, #121212);
+  background: linear-gradient(145deg, #31316f, #131111);
+  /* background: linear-gradient(145deg, #1e1e2f, #121212); */
   border-radius: 16px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -37,7 +38,7 @@
 
 .gear-info h3 span {
   font-weight: 400;
-  color: #aaa;
+  color: #6e6e6e;
 }
 
 .gear-price {
@@ -47,11 +48,10 @@
 }
 
 .gear-features {
-  margin: 0.75rem 0;
   padding: 0;
   list-style: none;
   font-size: 0.85rem;
-  color: #ccc;
+  color: #757575;
 }
 
 .gear-features li {
@@ -59,7 +59,7 @@
 }
 
 .gear-btn {
-  align-self: flex-start;
+  align-self: center;
   padding: 8px 16px;
   background-color: #00c2ff;
   color: #000;

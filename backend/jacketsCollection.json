@@ -1,0 +1,101 @@
+[
+  {
+    "title": "Rynox Urban X Jacket",
+    "slug": "rynox-urban-x-jacket",
+    "price": 5450,
+    "category": "jackets",
+    "variants": ["Black", "Navy Blue"],
+    "description": "Urban-styled mesh jacket with CE level 1 protection, perfect for city rides.",
+    "image": "https://rynoxgear.com/cdn/shop/files/HeliumGT3_Jacket_lable_Hi-Viz_002_499x@2x.jpg?v=1753448050"
+  },
+  {
+    "title": "Tarmac Fury Riding Jacket",
+    "slug": "tarmac-fury-jacket",
+    "price": 5999,
+    "category": "jackets",
+    "variants": ["Black Grey", "Olive"],
+    "description": "Aggressive design, dual layer mesh jacket for Indian weather conditions.",
+    "image": "https://www.customelements.in/wp-content/uploads/2023/09/Tarmac-Adventure-Black-Riding-Jacket-768x778.webp"
+  },
+  {
+    "title": "Raida Bolt Mesh Riding Jacket",
+    "slug": "raida-bolt-jacket",
+    "price": 5799,
+    "category": "jackets",
+    "variants": ["Hi-Viz Yellow", "Black White"],
+    "description": "A lightweight mesh jacket with enhanced airflow and CE certified armor.",
+    "image": "https://raidagears.com/wp-content/uploads/2024/03/1.png"
+  },
+  {
+    "title": "Stealth Evo 4 Jacket",
+    "slug": "stealth-evo-4-jacket",
+    "price": 13850,
+    "category": "jackets",
+    "variants": ["Black", "Grey", "Red"],
+    "description": "Stealth Evo 4 is a touring jacket with CE Level 2 armor and ventilation.",
+    "image": "https://rynoxgear.com/cdn/shop/files/Artboard_1_1_499x@2x.jpg?v=1738306045"
+  },
+  {
+    "title": "Air GT 4 Jacket",
+    "slug": "air-gt-4-jacket",
+    "price": 6950,
+    "category": "jackets",
+    "variants": ["Black Grey", "Hi-Viz", "Orange"],
+    "description": "Mesh jacket with CE protection, high airflow, and removable liner options.",
+    "image": "https://6kiom.com/wp-content/uploads/2024/12/Rynox_Air_GT_4_Jacket_Grey_Hi-Viz_Green_01_800x.webp"
+  },
+  {
+    "title": "Tornado Pro 4 Jacket",
+    "slug": "tornado-pro-4-jacket",
+    "price": 8650,
+    "category": "jackets",
+    "variants": ["Black Red", "Blue", "Grey Hi-Viz"],
+    "description": "Tornado Pro 4 jacket offers all-weather touring comfort and CE level protection.",
+    "image": "https://rynoxgear.com/cdn/shop/files/Tornado_Jacket_CE_Certified_Lable_A_499x@2x.jpg?v=1751031016"
+  },
+  {
+    "title": "Royal Enfield Khardungla V2 Jacket",
+    "slug": "re-khardungla-v2-jacket",
+    "price": 11500,
+    "category": "jackets",
+    "variants": ["Black", "Grey"],
+    "description": "Adventure touring jacket with waterproof layers and D3O protection.",
+    "image": "https://m.media-amazon.com/images/I/71WtWLsAUVL.jpg"
+  },
+  {
+    "title": "Scala Gears Defender Pro Jacket",
+    "slug": "scala-defender-pro-jacket",
+    "price": 7999,
+    "category": "jackets",
+    "variants": ["Black Blue", "Camo", "Black Neon"],
+    "description": "Versatile touring jacket with multiple ventilation zones and waterproof liner.",
+    "image": "https://scalagears.com/cdn/shop/files/Scala_Brave_Neon.png?v=1722261087"
+  },
+  {
+    "title": "BBG Xplorer Jacket",
+    "slug": "bbg-xplorer-jacket",
+    "price": 7499,
+    "category": "jackets",
+    "variants": ["Black", "Army Green"],
+    "description": "BBG’s adventure jacket with reflective panels and high impact protection.",
+    "image": "https://static.wixstatic.com/media/1c9405_e085453625c841a69f56c0065cab4169~mv2.jpg/v1/fill/w_550,h_458,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/1c9405_e085453625c841a69f56c0065cab4169~mv2.jpg"
+  },
+  {
+    "title": "Raida Tour Breathe Jacket",
+    "slug": "raida-tour-breathe-jacket",
+    "price": 6899,
+    "category": "jackets",
+    "variants": ["Black White", "Hi-Viz"],
+    "description": "Raida mesh touring jacket with rain liner and breathable mesh for summer rides.",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1PcKwCjmuHjbIvJwZEyIISm0_5LhQ-Utfhg&s"
+  },
+  {
+    "title": "Tarmac Tex Jacket V2",
+    "slug": "tarmac-tex-jacket-v2",
+    "price": 6299,
+    "category": "jackets",
+    "variants": ["Black Grey", "Black Red"],
+    "description": "Lightweight textile jacket with dual-layer and CE certified armor.",
+    "image": "https://www.helmetwala.com/cdn/shop/files/7011.jpg?v=1712391323&width=1400"
+  }
+]

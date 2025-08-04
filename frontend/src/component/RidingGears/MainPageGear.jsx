@@ -56,13 +56,13 @@ const slidesData = [
 ];
 
 const categoryData = [
-  { title: 'OFFROAD', img: img1, link: '/collections/offroad-gear', size: 'large' },
-  { title: 'GLOVES', img: img2, link: '/collections/gloves', size: 'large' },
-  { title: 'JACKETS', img: img3, link: '/collections/jackets', size: 'large' },
-  { title: 'BASE LAYERS', img: img4, link: '/collections/base-layers', size: 'small' },
-  { title: 'PANTS', img: img5, link: '/collections/pants', size: 'small' },
-  { title: 'TAIL BAGS', img: img6, link: '/collections/tail-bags', size: 'small' },
-  { title: 'SADDLEBAGS', img: img7, link: '/collections/saddlebags', size: 'small' }
+  { title: 'OFFROAD', img: img1, link: '/RaidOffroadGear', size: 'large' },
+  { title: 'GLOVES', img: img2, link: '/Glovespage', size: 'large' },
+  { title: 'JACKETS', img: img3, link: '/JacketsPage', size: 'large' },
+  { title: 'BASE LAYERS', img: img4, link: '/BaseLayerPage', size: 'small' },
+  { title: 'PANTS', img: img5, link: '/RidingPantsPage', size: 'small' },
+  { title: 'TAIL BAGS', img: img6, link: '/TailBagPage', size: 'small' },
+  { title: 'SADDLEBAGS', img: img7, link: '/SaddleBagPage', size: 'small' }
 ];
 
 const MainPageGear = () => {
