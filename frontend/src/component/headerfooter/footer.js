@@ -81,6 +81,14 @@ Footer.defaultProps = {
         { text: 'EMI Calculator', href: '/emicalculator' },
       ],
     },
+    {
+      title: 'Bike Riding Gears',
+      links: [
+        { text: 'Gears Page', href: '/MainPageGear' },
+        { text: 'Off-Road Asset', href: '/RaidOffroadGear' },
+        { text: 'Jacket', href: '/JacketPage' },
+      ],
+    },
   ],
 };
 

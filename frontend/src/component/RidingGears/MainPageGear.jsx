@@ -9,6 +9,7 @@ import img5 from './GearAssets/img5.webp';
 import img6 from './GearAssets/img6.webp';
 import img7 from './GearAssets/img7.webp';
 import banner from './GearAssets/banner.webp';
+import { Helmet } from 'react-helmet';
 
 const slidesData = [
   {
@@ -78,6 +79,12 @@ const MainPageGear = () => {
 
   return (
     <div className="gear-main-page-container">
+      <Helmet>
+        <title>Buy Premium Riding Gear | MotoMart</title>
+        <meta name="description" content="Explore top-notch riding jackets, gloves, base layers, pants, and bags. Lightweight, safe, and stylish gear for bikers." />
+        <meta name="keywords" content="riding gear, motorcycle jackets, gloves, tail bags, saddlebags, base layers, rynox" />
+        <link rel="canonical" href="https://motomart-ten.vercel.app/MainPageGear" />
+      </Helmet>
 
       {/* Hero Slider Section */}
       <section className="gear-hero-section">
@@ -88,11 +95,11 @@ const MainPageGear = () => {
                 <div className="gear-slide-content">
                   <h2>{slide.title}</h2>
                   <p>{slide.description}</p>
-                  <span className="gear-explore-button">EXPLORE NOW</span>
+                  {/* <span className="gear-explore-button">EXPLORE NOW</span>   */}
                 </div>
                 <picture>
                   <source media="(max-width: 768px)" srcSet={slide.mobileImg} />
-                  <img src={slide.desktopImg} alt={slide.title} className="gear-slide-image" />
+                  <img src={slide.desktopImg} alt={slide.title} className="gear-slide-image" loading="lazy" />
                 </picture>
               </a>
             ))}
