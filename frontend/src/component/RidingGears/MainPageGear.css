@@ -255,7 +255,17 @@ body {
   align-items: center;
   color: #fff;
 }
-
+.gear-pro-overlay1 {
+  background-image: url('https://c4.wallpaperflare.com/wallpaper/144/238/446/biker-helmet-hd-wallpaper-preview.jpg');
+  background-size: cover;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  border-radius: 12px;
+}
 .gear-pro-overlay h3 {
   font-size: 2rem;
   margin-bottom: 1rem;

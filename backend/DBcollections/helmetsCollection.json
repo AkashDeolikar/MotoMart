@@ -1,0 +1,194 @@
+[
+  {
+    "id": "sbh-32-trickster",
+    "name": "Steelbird SBH-32 ISS BT DOT TRICKSTER",
+    "brand": "Steelbird",
+    "type": "Full Face",
+    "price_inr": 4599,
+    "image": "https://www.steelbirdhelmet.com/uploads/products/677fc0f3195331.png"
+  },
+  {
+    "id": "sbh-32-glossy-black",
+    "name": "Steelbird SBH-32 ISS BT DOT GLOSSY BLACK",
+    "brand": "Steelbird",
+    "type": "Full Face",
+    "price_inr": 4399,
+    "image": "https://www.steelbirdhelmet.com/uploads/products/677fbd99165fb3.png"
+  },
+  {
+    "id": "sbh-40-assasin",
+    "name": "Steelbird SBH-40 ISS BT ASSASIN",
+    "brand": "Steelbird",
+    "type": "Full Face",
+    "price_inr": 3999,
+    "image": "https://www.steelbirdhelmet.com/uploads/products/6644d69804967_MG_8789.png"
+  },
+  {
+    "id": "sbh-40-evil-eye",
+    "name": "Steelbird SBH-40 ISS BT EVIL EYE",
+    "brand": "Steelbird",
+    "type": "Full Face",
+    "price_inr": 3999,
+    "image": "https://www.steelbirdhelmet.com/uploads/products/6660446933afb0T4A2434.png"
+  },
+  {
+    "id": "sah-5-race-lab",
+    "name": "Steelbird SA-5 DOT RACE LAB WITH ANTI-FOG SHIELD VISOR",
+    "brand": "Aeronautics",
+    "type": "Full Face",
+    "price_inr": 4199,
+    "image": "https://www.steelbirdhelmet.com/uploads/products/6230272a5efbfIMG_6039.png"
+  },
+  {
+    "id": "sah-5-flydekok",
+    "name": "Aeronautics SA-5 DOT FLYDECK WITH ANTI-FOG SHIELD VISOR",
+    "brand": "Aeronautics",
+    "type": "Full Face",
+    "price_inr": 4199,
+    "image": "https://www.steelbirdhelmet.com/uploads/products/61a7233edbb79IMG_4098.png"
+  },
+  {
+    "id": "sba-8-iss-bt",
+    "name": "Steelbird Air SBA-8 ISS BT",
+    "brand": "Steelbird Air",
+    "type": "Full Face",
+    "price_inr": 3999,
+    "image": "https://static.wixstatic.com/media/2ea4ef_73841353c39647d3b3dc292c691a1262~mv2.png/v1/fill/w_980,h_980,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/2ea4ef_73841353c39647d3b3dc292c691a1262~mv2.png"
+  },
+  {
+    "id": "sba-20-monocolor-bt",
+    "name": "Steelbird Air SBA-20 ISS MONOCOLOR BT",
+    "brand": "Steelbird Air",
+    "type": "Full Face",
+    "price_inr": 3999,
+    "image": "https://www.steelbirdhelmet.com/uploads/products/66701f353c54aIMG_3557%20(2).png"
+  },
+  {
+    "id": "sbr-5-triple-nine",
+    "name": "Steelbird SBH-5 Triple Nine Glossy Black",
+    "brand": "Steelbird",
+    "type": "Full Face",
+    "price_inr": 2999,
+    "image": "https://www.steelbirdhelmet.com/uploads/products/64870851943e6IMG_1605.png"
+  },
+  {
+    "id": "sbh-23-ava-dashing-black",
+    "name": "Steelbird SBH-23 AVA Dashing Black",
+    "brand": "Steelbird",
+    "type": "Full Face",
+    "price_inr": 3999,
+    "image": "https://www.steelbirdhelmet.com/uploads/products/62f6545d3f45fIMG_4303.png"
+  },
+  {
+    "id": "sbh-64-zip-rf",
+    "name": "Steelbird SBH-64 ZIP RF Dashing Black",
+    "brand": "Steelbird",
+    "type": "Full Face",
+    "price_inr": 2499,
+    "image": "https://www.steelbirdhelmet.com/uploads/products/67e3e2c19a7d43.png"
+  },
+  {
+    "id": "sbh-24-vox-dashing",
+    "name": "Steelbird SBH-24 VOX Dashing Black",
+    "brand": "Steelbird",
+    "type": "Full Face",
+    "price_inr": 1629,
+    "image": "https://www.steelbirdhelmet.com/uploads/products/624c11276c10eIMG_9381.png"
+  },
+  {
+    "id": "sb-42-bargy-race-track",
+    "name": "Steelbird SB-42 Bargy Design Race Track",
+    "brand": "Steelbird",
+    "type": "Motocross",
+    "price_inr": 2949,
+    "image": "https://www.steelbirdhelmet.com/uploads/products/680f4a386b53d5a478ba503f2a1C4A7456.png"
+  },
+  {
+    "id": "sb-42-bang-enduro",
+    "name": "Steelbird SB-42 Bang Enduro",
+    "brand": "Steelbird",
+    "type": "Motocross",
+    "price_inr": 2419,
+    "image": "https://www.steelbirdhelmet.com/media/catalog/product/2021/sb-42-bang-enduro.jpg"
+  },
+  {
+    "id": "sb-42-bang-pixels",
+    "name": "Steelbird SB-42 Bang Pixels",
+    "brand": "Steelbird",
+    "type": "Motocross",
+    "price_inr": 2399,
+    "image": "https://www.steelbirdhelmet.com/uploads/products/5c3c92d1b5c8cblack%20with%20dark%20grey.png"
+  },
+  {
+    "id": "sb-42-xcx",
+    "name": "Steelbird SB-42 XCX",
+    "brand": "Steelbird",
+    "type": "Motocross",
+    "price_inr": 2499,
+    "image": "https://www.steelbirdhelmet.com/uploads/products/5bcae322203571C4A6155.png"
+  },
+  {
+    "id": "sbh-57-iss-fighter-f6",
+    "name": "Steelbird SBH-57 ISS Fighter F6",
+    "brand": "Steelbird",
+    "type": "Full Face",
+    "price_inr": 2999,
+    "image": "https://www.steelbirdhelmet.com/uploads/products/678647ce0fc253%20(4).png"
+  },
+  {
+    "id": "sbh-25-iss-tiger",
+    "name": "Steelbird SBH-25 ISS Tiger",
+    "brand": "Steelbird",
+    "type": "Full Face",
+    "price_inr": 2399,
+    "image": "https://www.steelbirdhelmet.com/uploads/products/6662f358733af0T4A2840%20(4).png"
+  },
+  {
+    "id": "sbh-25-iss-ghost",
+    "name": "Steelbird SBH-25 ISS Ghost",
+    "brand": "Steelbird",
+    "type": "Full Face",
+    "price_inr": 2399,
+    "image": "https://www.steelbirdhelmet.com/uploads/products/66a73cf8364940T4A2957%20(2).png"
+  },
+  {
+    "id": "sbh-25-breeze-on",
+    "name": "Steelbird SBH-25 Breeze On ISS",
+    "brand": "Steelbird",
+    "type": "Full Face",
+    "price_inr": 2199,
+    "image": "https://www.steelbirdhelmet.com/uploads/products/663630c64bebc02.png"
+  },
+  {
+    "id": "sbh-25-sharp-spirit",
+    "name": "Steelbird SBH-25 SV Sharp Spirit",
+    "brand": "Steelbird",
+    "type": "Open Face",
+    "price_inr": 1499,
+    "image": "https://www.steelbirdhelmet.com/uploads/products/673db257cf6990T4A1370%20(5).png"
+  },
+  {
+    "id": "sbh-25-sharp-canvas",
+    "name": "Steelbird SBH-25 SV Sharp Canvas",
+    "brand": "Steelbird",
+    "type": "Open Face",
+    "price_inr": 1499,
+    "image": "https://www.steelbirdhelmet.com/uploads/products/679769e0356e60T4A7859%20(5).png"
+  },
+  {
+    "id": "sbh-25-sharp-dashing",
+    "name": "Steelbird SBH-25 SV Sharp Dashing",
+    "brand": "Steelbird",
+    "type": "Open Face",
+    "price_inr": 1199,
+    "image": "https://www.steelbirdhelmet.com/uploads/products/673d92fb9746d3%20(3).png"
+  },
+  {
+    "id": "sbh-24-vox-red",
+    "name": "Steelbird SBH-24 VOX Dashing Pink",
+    "brand": "Steelbird",
+    "type": "Open Face",
+    "price_inr": 1049,
+    "image": "https://www.steelbirdhelmet.com/uploads/products/624c114582dbbIMG_9395.png"
+  }
+]

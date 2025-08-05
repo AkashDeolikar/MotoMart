@@ -121,6 +121,7 @@ import BaseLayerPage from "./component/RidingGears/Categorypages/BaseLayerPage";
 import RidingPantsPage from "./component/RidingGears/Categorypages/RidingPantsPage";
 import TailBagPage from "./component/RidingGears/Categorypages/TailBagPage";
 import SaddleBagPage from "./component/RidingGears/Categorypages/SaddleBagPage";
+import HelmetStore from "./component/RidingGears/Categorypages/HelmetStore";
 
 //DB pages
 
@@ -271,6 +272,7 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister, use
               <Route path="/RidingPantsPage" element={<RidingPantsPage />} />
               <Route path="/TailBagPage" element={<TailBagPage />} />
               <Route path="/SaddleBagPage" element={<SaddleBagPage />} />
+              <Route path="/HelmetStore" element={<HelmetStore />} />
 
               {/* Catch-all for undefined routes (optional, but good practice) */}
               {/* <Route path="*" element={<div>404 Not Found</div>} /> */}

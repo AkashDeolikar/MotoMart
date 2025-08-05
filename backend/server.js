@@ -12,6 +12,7 @@ const BaseLayer = require('./models/BaseLayer');
 const RidingPant = require('./models/RidingPant');
 const TailBag = require('./models/TailBag');
 const SaddleBag = require('./models/SaddleBag');
+const Helmet = require("./models/Helmet");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -328,6 +329,12 @@ app.get('/api/saddlebags', async (req, res) => {
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch saddlebags' });
   }
+});
+
+// GET helmets
+app.get("/api/helmets", async (req, res) => {
+  const helmets = await Helmet.find();
+  res.json(helmets);
 });
 
 // Root route

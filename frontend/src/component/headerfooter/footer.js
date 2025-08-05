@@ -87,6 +87,7 @@ Footer.defaultProps = {
         { text: 'Gears Page', href: '/MainPageGear' },
         { text: 'Off-Road Asset', href: '/RaidOffroadGear' },
         { text: 'Jacket', href: '/JacketPage' },
+        { text: 'Helmet', href: '/HelmetStore' },
       ],
     },
   ],

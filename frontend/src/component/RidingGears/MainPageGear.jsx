@@ -133,16 +133,33 @@ const MainPageGear = () => {
           </a>
         ))}
       </section>
+      
+      {/* Pro Series & Featured Product Section */}
+      <section className="gear-pro-series-section">
+        <a href="/HelmetStore" className="gear-pro-card">
+          <div className="gear-pro-overlay1">
+            <h3>HELMET</h3>
+            <span className="gear-explore-more-btn">EXPLORE MORE</span>
+          </div>
+        </a>
+        <a href="/HelmetStore" className="gear-featured-product-card">
+          <img
+            src="https://c4.wallpaperflare.com/wallpaper/144/238/446/biker-helmet-hd-wallpaper-preview.jpg"
+            alt="Helmet Series"
+            className="gear-featured-image"
+          />
+        </a>
+      </section>
 
       {/* Pro Series & Featured Product Section */}
       <section className="gear-pro-series-section">
-        <a href="/pro-series" className="gear-pro-card">
+        <a href="/RaidOffroadGear" className="gear-pro-card">
           <div className="gear-pro-overlay">
             <h3>PRO SERIES</h3>
             <span className="gear-explore-more-btn">EXPLORE MORE</span>
           </div>
         </a>
-        <a href="/featured-product" className="gear-featured-product-card">
+        <a href="/RaidOffroadGear" className="gear-featured-product-card">
           <img
             src={banner}
             alt="Featured Jacket"
