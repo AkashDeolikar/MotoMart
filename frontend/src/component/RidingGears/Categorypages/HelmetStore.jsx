@@ -16,14 +16,14 @@ const HelmetStore = () => {
                 setLoading(false);
             })
             .catch(err => {
-                console.error('Error fetching jackets:', err);
+                console.error('Error fetching helmets:', err);
                 setLoading(false);
             });
     }, []);
 
     useEffect(() => {
         applyFilters(helmets, sortOrder, brandFilter);
-    }, [sortOrder, brandFilter]);
+    }, [helmets, sortOrder, brandFilter]);
 
     const applyFilters = (data, sort, brand) => {
         let result = [...data];
