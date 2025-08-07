@@ -7,38 +7,54 @@ import './RidingGearPreview.css';
 const RidingGearPreview = () => {
   const [featuredGears, setFeaturedGears] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get('https://motomartbackend.onrender.com/api/gears')
-      .then(res => {
-        setFeaturedGears(res.data.slice(0, 4));
+    const fetchFeaturedGears = async () => {
+      try {
+        const response = await axios.get('https://motomartbackend.onrender.com/api/gears');
+        setFeaturedGears(response.data.slice(0, 4));
         setLoading(false);
-      })
-      .catch(err => {
-        console.error('Failed to load preview:', err);
+      } catch (err) {
+        console.error('Failed to load riding gear preview:', err);
+        setError('Unable to fetch riding essentials. Please try again later.');
         setLoading(false);
-      });
+      }
+    };
+
+    fetchFeaturedGears();
   }, []);
 
   return (
-    <section className="gear-preview">
-      <h2>Moto Riding Essentials</h2>
+    <section className="riding-gear-preview">
+      <div className="container">
+        <header className="preview-header">
+          <h2 className='titlegear'>RIDING GEAR</h2>
+        </header>
 
-      {loading ? (
-        <div className="partinfo-loader">
-          <div className="partinfo-spinner"></div>
-          <p>Preparing your riding essentials...</p>
-        </div>
-      ) : (
-        <>
-          <div className="preview-grid">
-            {featuredGears.map(gear => (
-              <GearCard key={gear._id} gear={gear} />
-            ))}
+        {loading ? (
+          <div className="riding-gear-loader">
+            <div className="riding-gear-spinner"></div>
+            <p>Loading essentials...</p>
           </div>
-          <Link to="/MainPageGear" className="preview-button">View All Riding Gear</Link>
-        </>
-      )}
+        ) : error ? (
+          <div className="riding-gear-error">
+            <p>{error}</p>
+          </div>
+        ) : (
+          <>
+            <div className="riding-gear-grid">
+              {featuredGears.map(gear => (
+                <GearCard key={gear._id} gear={gear} />
+              ))}
+            </div>
+
+            <Link to="/MainPageGear" className="riding-gear-button">
+              View All Riding Gear
+            </Link>
+          </>
+        )}
+      </div>
     </section>
   );
 };

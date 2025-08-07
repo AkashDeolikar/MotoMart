@@ -1,50 +1,120 @@
-.gear-preview {
-  padding: 4rem 2rem;
+/* === Riding Gear Preview Section === */
+.riding-gear-preview {
+  padding: 4rem 1rem;
   background: linear-gradient(145deg, #1e1e2f, #121212);
-  color: #fff;
+  color: #ffffff;
   text-align: center;
 }
 
-.gear-preview-header h2 {
-  font-size: 2.3rem;
+.riding-gear-preview .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  background: rgba(102, 102, 102, 0.2);
+  border-radius: 10px;
+}
+
+/* === Header === */
+.preview-header {
+  margin-bottom: 1.5rem;
+}
+
+.preview-title {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
   font-weight: 700;
-  color: #fff;
+  color: #ffffff;
   margin-bottom: 0.5rem;
+  line-height: 1.3;
+  letter-spacing: 0.5px;
 }
 
-.gear-subtext {
-  font-size: 1rem;
-  color: #ccc;
-  margin-bottom: 2rem;
-}
-
-.preview-grid {
+/* === Grid Layout === */
+.riding-gear-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.5rem;
   justify-items: center;
   margin-bottom: 2.5rem;
-  padding: 0 1rem;
 }
 
-.gear-preview-btn-wrapper {
-  text-align: center;
+/* === Loader & Error === */
+.riding-gear-loader,
+.riding-gear-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2.5rem 0;
+  font-size: 1rem;
+  color: #bbbbbb;
 }
 
-.preview-button {
-  text-transform: uppercase;
+.riding-gear-spinner {
+  width: 44px;
+  height: 44px;
+  border: 5px solid #333333;
+  border-top: 5px solid #00c2ff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* === CTA Button === */
+.riding-gear-button {
+  display: inline-block;
   padding: 12px 28px;
   background-color: #00c2ff;
-  border-radius: 25px;
-  color: #000;
-  font-weight: 400;
+  color: #000000;
   font-size: 1rem;
+  font-weight: 600;
+  border-radius: 30px;
+  text-transform: uppercase;
   text-decoration: none;
-  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease, transform 0.2s ease;
 }
 
-.preview-button:hover {
+.riding-gear-button:hover {
   background-color: transparent;
-  border: 1px solid #00a0d1;
-  color: #fff;
+  border-color: #00a0d1;
+  color: #ffffff;
+}
+
+/* === Mobile Responsiveness === */
+@media screen and (max-width: 768px) {
+  .riding-gear-preview {
+    padding: 3rem 1rem;
+  }
+
+  .riding-gear-preview .container {
+    padding: 0 0.5rem;
+  }
+
+  .preview-header {
+    margin-bottom: 2rem;
+  }
+
+  .preview-title {
+    font-size: 1.4rem;
+  }
+
+  .preview-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .riding-gear-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .riding-gear-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
 }
