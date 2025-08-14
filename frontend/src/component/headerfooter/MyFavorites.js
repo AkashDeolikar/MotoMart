@@ -8,14 +8,22 @@ const endpointList = (uid) => `${API_BASE}/${uid}`;
 const endpointDeleteOne = (id) => `${API_BASE}/delete/${id}`;
 const endpointDeleteMany = `${API_BASE}/delete-multiple`;
 
-const LoadingSkeleton = () => (
-  <div className="fav-grid">
-    {Array.from({ length: 6 }).map((_, i) => (
-      <div key={i} className="fav-card skeleton-card" />
-    ))}
-  </div>
-);
+/* LOADER */
+const LoadingOverlay = ({ isLoading }) => {
+    if (!isLoading) return null;
+    return (
+        <div className="app-loading-overlay">
+            <div className="app-glass-loader">
+                <div className="app-spinner"></div>
+                <p className="app-loading-text">
+                    <i className="bi bi-lightning-charge-fill"></i> Please wait... loading details
+                </p>
+            </div>
+        </div>
+    );
+};
 
+/* POP-UPs */
 const Notification = ({ items }) => (
   <div className="notification-container">
     {items.map((n) => (
@@ -260,7 +268,7 @@ export default function MyFavorites() {
       </div>
 
       {isLoading ? (
-        <LoadingSkeleton />
+        <LoadingOverlay isLoading={isLoading} />
       ) : isEmpty ? (
         <div className="empty-state">
           <img src="/assets/empty-fav.svg" alt="No favorites" />
