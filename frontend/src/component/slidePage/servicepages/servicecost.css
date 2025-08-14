@@ -347,7 +347,7 @@ h4 { font-size: 1.2em; }
 
 @media (min-width: 600px) {
   .add-service-inputs {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
   .add-service-inputs .full-width {
     grid-column: span 2;

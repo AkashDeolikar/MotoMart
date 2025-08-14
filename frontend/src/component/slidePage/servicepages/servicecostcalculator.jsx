@@ -2,73 +2,86 @@ import React, { useState, useEffect } from 'react';
 import {
   SERVICE_TYPES,
   VEHICLE_TYPES,
-  // eslint-disable-next-line no-unused-vars
-  VEHICLE_SEGMENTS, // **** Used indirectly via initialServices
-  // eslint-disable-next-line no-unused-vars
-  WASH_TYPES, //***** */ Used indirectly via initialServices
+  VEHICLE_SEGMENTS,
+  WASH_TYPES,
   initialServices
 } from './constants';
 import './servicecost.css';
+import AddMoreServiceCostCalculator from './AddMoreServiceCostCalculator';
 
-// ... rest of your ServiceCostCalculator component code
+// ----------------- Floating Notification Component -----------------
+const Notification = ({ notices }) => (
+  <div className="notification-container">
+    {notices.map((n) => (
+      <div key={n.id} className={`notification ${n.type}`}>
+        {n.message}
+      </div>
+    ))}
+  </div>
+);
 
 // Helper function to calculate service price
 const calculateServicePrice = (service, selectedVehicleType, selectedOption = null, selectedSegment = null) => {
   if (service.type === SERVICE_TYPES.FIXED) {
     return service.price;
   } else if (service.type === SERVICE_TYPES.BRAND_BASED && selectedOption && service.brands) {
-    // Now, brands have prices nested by vehicle type
     return service.brands[selectedOption]?.[selectedVehicleType] || 0;
   } else if (service.type === SERVICE_TYPES.WASH_BASED && selectedOption && service.washTypes) {
     return service.washTypes[selectedOption] || 0;
   } else if (service.type === SERVICE_TYPES.SIZE_BASED && selectedSegment && service.pricesBySegment) {
     return service.pricesBySegment[selectedSegment] || 0;
   } else if (service.type === SERVICE_TYPES.ESTIMATE_BASED) {
-    return null; // Or undefined, to indicate no fixed price for calculation
+    return null;
   }
-  return 0; // Default or error case for other types
+  if (service.isCustom) {
+      return service.cost;
+  }
+  return 0;
 };
 
 function ServiceCostCalculator() {
-  const [selectedVehicleType, setSelectedVehicleType] = useState(VEHICLE_TYPES.FOUR_WHEELER); // Default to 4-wheeler
-  // Note: selectedVehicleSegment will be used per service for SIZE_BASED, not globally for all.
-  // The 'defaultSegment' in service definition will handle initial selection.
-  const [selectedServices, setSelectedServices] = useState([]); // Array to store services added by user
-  // const [theme, setTheme] = useState('light-mode');
-  const [errorMessage, setErrorMessage] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
+  const [selectedVehicleType, setSelectedVehicleType] = useState(VEHICLE_TYPES.FOUR_WHEELER);
+  const [selectedServices, setSelectedServices] = useState([]);
+  const [notices, setNotices] = useState([]);
 
-  // Effect to apply theme to body
-  // useEffect(() => {
-  //   document.body.className = theme;
-  // }, [theme]);
+  // -------- Notification Handler --------
+  const showNote = (message, type = "success", ms = 3000) => {
+    const id = Date.now() + Math.random();
+    setNotices((prev) => [...prev, { id, message, type }]);
+    setTimeout(() => {
+      setNotices((prev) => prev.filter((x) => x.id !== id));
+    }, ms);
+  };
 
-  // const toggleTheme = () => {
-  //   setTheme(prevTheme => (prevTheme === 'light-mode' ? 'dark-mode' : 'light-mode'));
-  // };
+  // Function to handle adding a new custom service from the child component
+  const addCustomService = (serviceName, serviceCost) => {
+      const newServiceInstance = {
+          name: serviceName,
+          cost: serviceCost,
+          isCustom: true,
+          instanceId: Date.now() + Math.random(),
+          quantity: 1,
+          currentPrice: serviceCost,
+          type: "CUSTOM_FIXED",
+      };
+      setSelectedServices(prev => [...prev, newServiceInstance]);
+      showNote(`${serviceName} added successfully!`, "success");
+  };
 
   const addService = (serviceId) => {
     const serviceToAdd = initialServices.find(s => s.id === serviceId);
     if (!serviceToAdd) {
-      setErrorMessage('Service not found!');
+      showNote('Service not found!', "error");
       return;
     }
 
-    // Check if the service is already added (you might want to allow multiple instances,
-    // or prevent duplicates. Current code allows multiple instances via instanceId)
-    // If you want to prevent adding the same serviceId multiple times:
-    // if (selectedServices.some(s => s.id === serviceId && s.type !== SERVICE_TYPES.ESTIMATE_BASED)) {
-    //   setErrorMessage(`${serviceToAdd.name} is already added.`);
-    //   return;
-    // }
-
     const newServiceInstance = {
       ...serviceToAdd,
-      instanceId: Date.now() + Math.random(), // Unique ID for each added instance
+      instanceId: Date.now() + Math.random(),
       quantity: 1,
-      selectedOption: null, // For brand/wash types
-      selectedSegment: null, // For size-based types
-      currentPrice: null, // Use null for estimate-based or initial uncalculated state
+      selectedOption: null,
+      selectedSegment: null,
+      currentPrice: null,
     };
 
     if (serviceToAdd.type === SERVICE_TYPES.BRAND_BASED) {
@@ -79,35 +92,31 @@ function ServiceCostCalculator() {
       newServiceInstance.selectedSegment = serviceToAdd.defaultSegment;
     }
 
-    // Calculate initial price for non-estimate services
     if (newServiceInstance.type !== SERVICE_TYPES.ESTIMATE_BASED) {
       newServiceInstance.currentPrice = calculateServicePrice(
         newServiceInstance,
-        selectedVehicleType, // Pass selectedVehicleType for BRAND_BASED
+        selectedVehicleType,
         newServiceInstance.selectedOption,
         newServiceInstance.selectedSegment
       );
     } else {
-        newServiceInstance.currentPrice = null; // Explicitly set to null for ESTIMATE_BASED
+        newServiceInstance.currentPrice = null;
     }
 
-
     setSelectedServices(prev => [...prev, newServiceInstance]);
-    setSuccessMessage(`${serviceToAdd.name} added!`);
-    setErrorMessage('');
+    showNote(`${serviceToAdd.name} added!`);
   };
 
   const removeService = (instanceId) => {
     setSelectedServices(prev => prev.filter(service => service.instanceId !== instanceId));
-    setSuccessMessage('Service removed.');
-    setErrorMessage('');
+    showNote('Service removed.');
   };
-
+  
   const updateServiceQuantity = (instanceId, newQuantity) => {
     setSelectedServices(prev =>
       prev.map(service =>
         service.instanceId === instanceId
-          ? { ...service, quantity: Math.max(1, parseInt(newQuantity) || 1) } // Ensure quantity is at least 1
+          ? { ...service, quantity: Math.max(1, parseInt(newQuantity) || 1) }
           : service
       )
     );
@@ -120,7 +129,7 @@ function ServiceCostCalculator() {
           const updatedService = { ...service, selectedOption: newOption };
           updatedService.currentPrice = calculateServicePrice(
             updatedService,
-            selectedVehicleType, // Pass selectedVehicleType
+            selectedVehicleType,
             updatedService.selectedOption
           );
           return updatedService;
@@ -137,8 +146,8 @@ function ServiceCostCalculator() {
           const updatedService = { ...service, selectedSegment: newSegment };
           updatedService.currentPrice = calculateServicePrice(
             updatedService,
-            selectedVehicleType, // Pass selectedVehicleType (though not directly used for SIZE_BASED, keeps signature consistent)
-            null, // No option for SIZE_BASED
+            selectedVehicleType,
+            null,
             updatedService.selectedSegment
           );
           return updatedService;
@@ -148,13 +157,10 @@ function ServiceCostCalculator() {
     );
   };
 
-  // Recalculate prices for all selected services when vehicle type changes
   useEffect(() => {
     setSelectedServices(prevServices => {
         return prevServices.map(service => {
             if (service.type === SERVICE_TYPES.BRAND_BASED || service.type === SERVICE_TYPES.SIZE_BASED) {
-                // For services that might have price changes based on vehicle type or segment
-                // Also ensures SIZE_BASED services are re-evaluated if segment-based logic needs vehicle type (though not in current data)
                 const newPrice = calculateServicePrice(
                     service,
                     selectedVehicleType,
@@ -164,43 +170,35 @@ function ServiceCostCalculator() {
                 return { ...service, currentPrice: newPrice };
             }
             return service;
-        }).filter(service => service.applicableTo.includes(selectedVehicleType)); // Filter out services not applicable to new vehicle type
+        }).filter(service => service.isCustom || service.applicableTo.includes(selectedVehicleType));
     });
-    setErrorMessage(''); // Clear messages on vehicle type change
-    setSuccessMessage('');
+    setNotices([]);
   }, [selectedVehicleType]);
 
 
   const clearAllServices = () => {
     setSelectedServices([]);
-    setSuccessMessage('All services cleared!');
-    setErrorMessage('');
+    showNote('All services cleared!');
   };
 
-  // Total cost only includes services with a numerical price
   const totalCost = selectedServices.reduce((sum, service) => {
-    const price = service.currentPrice !== null ? service.currentPrice : 0; // Treat null as 0 for sum
+    const price = service.currentPrice !== null ? service.currentPrice : 0;
     return sum + (price * service.quantity);
   }, 0);
 
-  // Filter available services based on selected vehicle type
   const availableServices = initialServices.filter(service =>
     service.applicableTo.includes(selectedVehicleType)
   );
 
   return (
     <div className="container">
-      {/* <button className="theme-toggle-btn" onClick={toggleTheme}>
-        {theme === 'light-mode' ? '🌙' : '☀️'}
-      </button> */}
+      <Notification notices={notices} />
+      <AddMoreServiceCostCalculator onAddCustomService={addCustomService} />
 
       <h2 className='sc'>Vehicle Service Cost Calculator</h2>
       <p className="description">
         Calculate the estimated cost of vehicle services for your {selectedVehicleType === VEHICLE_TYPES.TWO_WHEELER ? '2-wheeler' : '4-wheeler'}. Add services, adjust quantities, and get a real-time estimate.
       </p>
-
-      {errorMessage && <div className="message error-message">{errorMessage}</div>}
-      {successMessage && <div className="message success-message">{successMessage}</div>}
 
       {/* Vehicle Selector */}
       <div className="input-group vehicle-selector">
@@ -210,7 +208,6 @@ function ServiceCostCalculator() {
           value={selectedVehicleType}
           onChange={(e) => {
             setSelectedVehicleType(e.target.value);
-            // Services are now cleared and re-filtered/re-priced by useEffect
           }}
         >
           {Object.values(VEHICLE_TYPES).map(type => (
@@ -219,7 +216,7 @@ function ServiceCostCalculator() {
         </select>
       </div>
 
-      {/* Add Custom Service Section */}
+      {/* Add Services Section */}
       <div className="add-service-section">
         <h3 className='sc'>Add Services</h3>
         <div className="add-service-inputs">
@@ -256,14 +253,11 @@ function ServiceCostCalculator() {
                     onClick={() => removeService(service.instanceId)}
                     aria-label={`Remove ${service.name}`}
                   >
-                    &times; {/* Using simple X or Bootstrap Icons for trash icon */}
-                    {/* <i class="bi bi-trash" aria-hidden="true"></i> */}
+                    &times;
                   </button>
                 </div>
                 {service.description && <p className="help-text">{service.description}</p>}
                 {service.timeEstimate && <p className="help-text">Est. Time: {service.timeEstimate}</p>}
-
-
                 <div className="item-controls">
                   {service.type === SERVICE_TYPES.BRAND_BASED && (
                     <div className="input-group">
@@ -319,7 +313,7 @@ function ServiceCostCalculator() {
                     </div>
                   )}
 
-                  {service.type !== SERVICE_TYPES.ESTIMATE_BASED && ( // Hide quantity/price for estimate-based
+                  {service.type !== SERVICE_TYPES.ESTIMATE_BASED && (
                     <div className="quantity-price">
                       <div className="input-group" style={{ flexGrow: 1 }}>
                         <label htmlFor={`quantity-input-${service.instanceId}`} className="sr-only">Quantity for {service.name}</label>
@@ -333,7 +327,7 @@ function ServiceCostCalculator() {
                         />
                       </div>
                       <span className="current-price">
-                        ₹{service.currentPrice ? service.currentPrice : 'N/A'}
+                        ₹{service.currentPrice ? service.currentPrice.toFixed(2) : 'N/A'}
                       </span>
                     </div>
                   )}
@@ -363,7 +357,7 @@ function ServiceCostCalculator() {
         </button>
       </div>
 
-      {/* Bill Summary (Optional - can populate based on selectedServices) */}
+      {/* Bill Summary */}
       <div className="bill-summary-section">
         <h4 className='sc'>Bill Summary</h4>
         {selectedServices.length === 0 ? (
@@ -391,24 +385,21 @@ function ServiceCostCalculator() {
               <span>Grand Total:</span>
               <span>₹{totalCost.toLocaleString('en-IN')}</span>
             </div>
-            {/* Example of a bar summary if you want to integrate it conceptually */}
             <div className="bar-summary">
                 <div className="bar-row">
                     <div className="bar-label">
                         <span>Total Service Cost</span>
-                        <strong>{Math.min(100, (totalCost / 5000) * 100).toFixed(0)}% {/* Example: relative to an arbitrary 5000 threshold */}</strong>
+                        <strong>{Math.min(100, (totalCost / 5000) * 100).toFixed(0)}%</strong>
                     </div>
                     <div className="bar-track">
                         <div className="bar-fill" style={{ width: `${Math.min(100, (totalCost / 5000) * 100)}%` }}></div>
                     </div>
                 </div>
-                {/* Add more bar rows for other categories if needed */}
             </div>
           </div>
         )}
       </div>
 
-      {/* Disclaimer */}
       <div className="disclaimer">
         <p>
           Disclaimer: This is an estimated cost. Actual prices may vary based on specific vehicle model, parts required, additional labor, and any unforeseen issues. Please confirm the final cost with the service provider.

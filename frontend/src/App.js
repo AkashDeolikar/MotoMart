@@ -122,6 +122,7 @@ import RidingPantsPage from "./component/RidingGears/Categorypages/RidingPantsPa
 import TailBagPage from "./component/RidingGears/Categorypages/TailBagPage";
 import SaddleBagPage from "./component/RidingGears/Categorypages/SaddleBagPage";
 import HelmetStore from "./component/RidingGears/Categorypages/HelmetStore";
+import AddMoreServiceCostCalculator from "./component/slidePage/servicepages/AddMoreServiceCostCalculator";
 
 //DB pages
 
@@ -274,6 +275,7 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister, use
               <Route path="/SaddleBagPage" element={<SaddleBagPage />} />
               <Route path="/HelmetStore" element={<HelmetStore />} />
 
+              <Route path="/AddMoreServiceCostCalculator" element={<AddMoreServiceCostCalculator />} />
               {/* Catch-all for undefined routes (optional, but good practice) */}
               {/* <Route path="*" element={<div>404 Not Found</div>} /> */}
             </Routes>

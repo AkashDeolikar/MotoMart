@@ -1,0 +1,74 @@
+[
+  {
+    "id": "urban-pink-with-white-strip",
+    "name": "URBAN PINK WITH WHITE STRIP",
+    "brand": "Studds",
+    "type": null,
+    "price_inr": 1295,
+    "image": "https://www.studds.com/Adminpanel/uploads/URBAN_PINK_WITH_CARBON_CENTRE_STRIP.png"
+  },
+  {
+    "id": "urban-black-with-black-strip",
+    "name": "URBAN BLACK WITH BLACK STRIP",
+    "brand": "Studds",
+    "type": null,
+    "price_inr": 1295,
+    "image": "https://www.studds.com/Adminpanel/uploads/URBAN_BLACK_WITH_CARBON_CENTRE_STRIP1.png"
+  },
+  {
+    "id": "urban-red-with-black-strip",
+    "name": "URBAN RED WITH BLACK STRIP",
+    "brand": "Studds",
+    "type": null,
+    "price_inr": 1295,
+    "image": "https://shop.studds.com/wp-content/uploads/2022/06/URBAN-RED-WITH-BLACK-CARBON-STRIP_01.jpg"
+  },
+  {
+    "id": "cub-white",
+    "name": "CUB WHITE",
+    "brand": "Studds",
+    "type": null,
+    "price_inr": 1445,
+    "image": "https://shop.studds.com/wp-content/uploads/2022/07/CUB-WHITE-03.jpg"
+  },
+  {
+    "id": "cub-matt-sports-red",
+    "name": "CUB MATT SPORTS RED",
+    "brand": "Studds",
+    "type": null,
+    "price_inr": 1445,
+    "image": "https://shop.studds.com/wp-content/uploads/2022/07/CUB-MATT-SPORTS-RED-ISOMETRIC.png"
+  },
+  {
+    "id": "ray-super-baby-pink",
+    "name": "RAY SUPER BABY PINK",
+    "brand": "Studds",
+    "type": null,
+    "price_inr": 1050,
+    "image": "https://shop.studds.com/wp-content/uploads/2023/02/Ray-Super-Baby-pink_01-1.jpg"
+  },
+  {
+    "id": "ray-super-vibrant-orange",
+    "name": "RAY SUPER VIBRANT ORANGE",
+    "brand": "Studds",
+    "type": null,
+    "price_inr": 1050,
+    "image": "https://shop.studds.com/wp-content/uploads/2023/02/RAY-SUPER-VIBRANT-ORAGNE_01-1.jpg"
+  },
+  {
+    "id": "marshall-cherry-red",
+    "name": "MARSHALL CHERRY RED",
+    "brand": "Studds",
+    "type": null,
+    "price_inr": 1545,
+    "image": "https://shop.studds.com/wp-content/uploads/2023/02/ISOMATRIC-3.jpg"
+  },
+  {
+    "id": "marshall-matt-sports-red",
+    "name": "MARSHALL MATT SPORTS RED",
+    "brand": "Studds",
+    "type": null,
+    "price_inr": 1545,
+    "image": "https://shop.studds.com/wp-content/uploads/2023/02/MARSHALL-SPORTS-RED_05.jpg"
+  }
+]

@@ -1,0 +1,126 @@
+/* ---------------- Notification Styles ---------------- */
+.addmore-service-notification-container {
+  position: fixed;
+  top: 50px;
+  right: 20px;
+  z-index: 5000; /* above Bootstrap modals */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.addmore-service-notification {
+  all: unset;
+  display: inline-block;
+  font-family: 'HCLTechRoobert-Bold', sans-serif;
+  padding: 10px 18px;
+  border-radius: 10px;
+  color: white;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  animation: fadeIn 0.3s ease, fadeOut 0.3s ease 2.7s forwards;
+}
+
+.addmore-service-notification.success {
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.9), rgba(46, 125, 50, 0.9));
+}
+
+.addmore-service-notification.error {
+  background: linear-gradient(135deg, rgba(229, 57, 53, 0.9), rgba(183, 28, 28, 0.9));
+}
+
+/* ---------------- Animations ---------------- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; transform: translateX(30px); }
+}
+
+/* ---------------- Remove Button ---------------- */
+.addmore-service-remove-btn {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'HCLTechRoobert-Bold', sans-serif;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.15);
+  color: #c62828;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.addmore-service-remove-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  color: #b71c1c;
+  transform: scale(1.12);
+}
+
+.addmore-service-remove-btn:active {
+  transform: scale(0.94);
+}
+
+/* ---------------- Input Group ---------------- */
+.addmore-service-input-group {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+/* Reset styles but keep box model */
+.addmore-service-input-group input,
+.addmore-service-input-group button {
+  all: unset;
+  box-sizing: border-box;
+  font-family: 'HCLTechRoobert-Bold', sans-serif;
+}
+
+/* Input fields */
+.addmore-service-input-group input {
+  flex: 1;
+  min-width: 200px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  color: #333;
+  transition: border 0.25s ease, box-shadow 0.25s ease;
+}
+
+.addmore-service-input-group input:focus {
+  border-color: #1976d2;
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.15);
+}
+
+/* Add button */
+.addmore-service-input-group button {
+  padding: 10px 18px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #1976d2, #0d47a1);
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.addmore-service-input-group button:hover {
+  background: linear-gradient(135deg, #1565c0, #0b3c87);
+  transform: translateY(-1px);
+}
+
+.addmore-service-input-group button:active {
+  transform: translateY(1px);
+}
