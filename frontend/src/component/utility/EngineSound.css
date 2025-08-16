@@ -1,0 +1,149 @@
+.engine-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  width: 100%;
+  overflow: hidden;
+  background: black; /* fallback background */
+}
+
+.bike-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85); /* darken slightly for better contrast */
+}
+
+/* ============= Waves ============= */
+.waves {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  pointer-events: none;
+
+  /* Base size = same as button */
+  width: 14vw;
+  height: 14vw;
+  max-width: 180px;
+  max-height: 180px;
+  min-width: 100px;
+  min-height: 100px;
+}
+
+/* Side alignment */
+.waves.right { right: 12%; }
+.waves.left { left: 12%; }
+
+/* Ripple spans */
+.waves span {
+  position: absolute;
+  border: 2px solid rgba(228, 197, 197, 0.875);
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  animation: wave 2s ease-out infinite;
+  opacity: 0;
+}
+
+/* Multiple ripples with delay */
+.waves span:nth-child(1) { animation-delay: 0s; }
+.waves span:nth-child(2) { animation-delay: 0.5s; }
+.waves span:nth-child(3) { animation-delay: 1s; }
+.waves span:nth-child(4) { animation-delay: 1.2s; }
+.waves span:nth-child(5) { animation-delay: 1.5s; }
+
+@keyframes wave {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(var(--scale, 2.8)); /* dynamically updated from JS */
+    opacity: 0;
+  }
+}
+
+/* Hide waves when not playing */
+.waves:not(.active) span {
+  display: none;
+}
+
+
+
+/* ============= Circle Button ============= */
+.circle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(60, 60, 60);
+  font-weight: bold;
+  font-size: 1.8rem;
+  line-height: 1;
+  text-align: center;
+  cursor: pointer;
+  z-index: 15;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+
+  /* Responsive size */
+  width: 14vw;
+  height: 14vw;
+  max-width: 180px;
+  max-height: 180px;
+  min-width: 100px;
+  min-height: 100px;
+}
+
+/* Side positioning */
+.circle.right { right: 12%; }
+.circle.left { left: 12%; }
+
+.circle:hover {
+    color: rgb(0, 0, 0);
+  transform: translateY(-50%) scale(1.05);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* ============= Responsive Tweaks ============= */
+@media (max-width: 768px) {
+  .circle.right,
+  .waves.right { right: 8%; }
+
+  .circle.left,
+  .waves.left { left: 8%; }
+
+  .circle {
+    width: 22vw;
+    height: 22vw;
+    font-size: 0.9rem;
+  }
+
+  .waves {
+    width: 22vw;
+    height: 22vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .circle {
+    width: 28vw;
+    height: 28vw;
+    font-size: 0.8rem;
+  }
+
+  .waves {
+    width: 28vw;
+    height: 28vw;
+  }
+}

@@ -22,9 +22,13 @@ const TailBagPage = () => {
     <section className="jackets-page">
       <h2>Tail Bags Collection</h2>
       {loading ? (
-        <div className="gear-loader">
-          <div className="gear-spinner"></div>
-          <p>Loading tail bags...</p>
+        <div className="app-loading-overlay">
+            <div className="app-glass-loader">
+                <div className="app-spinner"></div>
+                <p className="app-loading-text">
+                    <i className="bi bi-lightning-charge-fill"></i>Loading Tail Bags...
+                </p>
+            </div>
         </div>
       ) : (
         <div className="gear-grid">

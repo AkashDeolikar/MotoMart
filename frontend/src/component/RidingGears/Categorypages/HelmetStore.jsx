@@ -42,10 +42,14 @@ const HelmetStore = () => {
     return (
         <section>
             {loading ? (
-                <div className="gear-loader">
-                    <div className="gear-spinner"></div>
-                    <p>Loading Helmets...</p>
-                </div>
+                <div className="app-loading-overlay">
+            <div className="app-glass-loader">
+                <div className="app-spinner"></div>
+                <p className="app-loading-text">
+                    <i className="bi bi-lightning-charge-fill"></i> Loading Helmets....
+                </p>
+            </div>
+        </div>
             ) : (
                 <div className="helmet-store-container">
                     <h1>Helmets</h1>

@@ -23,9 +23,13 @@ const JacketsPage = () => {
       <h2>Riding Jackets Collection</h2>
 
       {loading ? (
-        <div className="gear-loader">
-          <div className="gear-spinner"></div>
-          <p>Loading jackets...</p>
+        <div className="app-loading-overlay">
+            <div className="app-glass-loader">
+                <div className="app-spinner"></div>
+                <p className="app-loading-text">
+                    <i className="bi bi-lightning-charge-fill"></i> Loading Jackets....
+                </p>
+            </div>
         </div>
       ) : (
         <div className="gear-grid">

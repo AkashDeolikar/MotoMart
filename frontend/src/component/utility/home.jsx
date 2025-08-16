@@ -57,6 +57,7 @@ import innovation from './slideimgasset/innovation.webp';
 import innovationmb from './slideimgasset/innovationmb.webp';
 import busa from './slideimgasset/busa.webp';
 import busamb from './slideimgasset/busamb.webp';
+import EngineSound from "./EngineSound";
 // ===============================================
 // Extracted Components for Better Structure
 // ===============================================
@@ -631,6 +632,7 @@ const Home = () => {
       <AutoPlayCardSlider data={fold2CardsData} />
 
       {/* Statistic Data Highlight Section */}
+      <EngineSound />
       <StatsHighlightSection />
 
       {/* Vehicle Categories Section (Discover Cars/Bikes) */}

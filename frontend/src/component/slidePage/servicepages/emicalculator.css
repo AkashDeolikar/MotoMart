@@ -236,8 +236,13 @@ h1, h2 .EMI {
 }
 
 .buttons button:first-child {
-  background-color: var(--button-primary-bg);
-  color: var(--button-primary-text);
+  padding: 10px 18px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #19d263, #21a10d);
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.2s ease;
 }
 
 .buttons button:first-child:hover:not(:disabled) {
@@ -246,8 +251,13 @@ h1, h2 .EMI {
 }
 
 .buttons button.clear-btn {
-  background-color: var(--button-secondary-bg);
-  color: var(--button-secondary-text);
+  padding: 10px 18px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #1976d2, #0d47a1);
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.2s ease;
 }
 
 .buttons button.clear-btn:hover:not(:disabled) {

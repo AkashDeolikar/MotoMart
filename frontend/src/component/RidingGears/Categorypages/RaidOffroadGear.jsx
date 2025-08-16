@@ -22,10 +22,14 @@ const RaidOffroadGear = () => {
 
   if (loading) {
     return (
-      <div className="gear-loader">
-        <div className="gear-spinner"></div>
-        <p>Loading Raid Offroad Collection...</p>
-      </div>
+      <div className="app-loading-overlay">
+            <div className="app-glass-loader">
+                <div className="app-spinner"></div>
+                <p className="app-loading-text">
+                    <i className="bi bi-lightning-charge-fill"></i>Loading Raid Offroad Collection...
+                </p>
+            </div>
+        </div>
     );
   }
 
