@@ -61,8 +61,8 @@
 .gear-btn {
   align-self: center;
   padding: 8px 16px;
-  background-color: #00c2ff;
-  color: #000;
+  background: linear-gradient(135deg, #1976d2, #0d47a1);
+  color: #ffffff;
   font-weight: 400;
   text-decoration: none;
   font-size: 0.9rem;

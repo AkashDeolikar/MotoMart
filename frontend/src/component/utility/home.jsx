@@ -58,6 +58,7 @@ import innovationmb from './slideimgasset/innovationmb.webp';
 import busa from './slideimgasset/busa.webp';
 import busamb from './slideimgasset/busamb.webp';
 import EngineSound from "./EngineSound";
+import BikeColorSwitcher from "./BikeColorSwitcher";
 // ===============================================
 // Extracted Components for Better Structure
 // ===============================================
@@ -633,10 +634,10 @@ const Home = () => {
 
       {/* Statistic Data Highlight Section */}
       <EngineSound />
-      <StatsHighlightSection />
 
       {/* Vehicle Categories Section (Discover Cars/Bikes) */}
       <VehicleCategoriesSection />
+      
 
       {/* About Us Section */}
       <div className="masonrymedia-aka" style={{ position: 'relative' }}>
@@ -834,6 +835,8 @@ const Home = () => {
             </div>
           </div>
 
+          
+
           {/* Text section for Premium Car Section */}
           <div className="masonrymedia__card">
             <div className="masonrymedia__card-inner">
@@ -872,6 +875,9 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      <BikeColorSwitcher />
+      <StatsHighlightSection />
 
       {/* Flip Card Section - Introduction */}
       <section className="intro">

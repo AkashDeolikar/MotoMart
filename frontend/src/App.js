@@ -125,6 +125,7 @@ import HelmetStore from "./component/RidingGears/Categorypages/HelmetStore";
 import AddMoreServiceCostCalculator from "./component/slidePage/servicepages/AddMoreServiceCostCalculator";
 import EngineSound from "./component/utility/EngineSound";
 import EngineShowcase from "./component/utility/EngineShowcase";
+import BikeColorSwitcher from "./component/utility/BikeColorSwitcher";
 
 //DB pages
 
@@ -280,6 +281,7 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister, use
               <Route path="/AddMoreServiceCostCalculator" element={<AddMoreServiceCostCalculator />} />
               <Route path="/EngineSound" element={<EngineSound />} />
               <Route path="/EngineShowcase" element={<EngineShowcase />} />
+              <Route path="/BikeColorSwitcher" element={<BikeColorSwitcher />} />
               {/* Catch-all for undefined routes (optional, but good practice) */}
               {/* <Route path="*" element={<div>404 Not Found</div>} /> */}
             </Routes>

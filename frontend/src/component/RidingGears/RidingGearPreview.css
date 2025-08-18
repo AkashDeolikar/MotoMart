@@ -1,40 +1,71 @@
 /* === Riding Gear Preview Section === */
 .riding-gear-preview {
-  padding: 4rem 1rem;
-  background: linear-gradient(145deg, #1e1e2f, #121212);
-  color: #ffffff;
+  padding: 4rem 1.5rem;
+  background: linear-gradient(145deg, #0f0f1c, #1a1a2e);
+  color: #fff;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle overlay effect */
+.riding-gear-preview::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.05), transparent 70%);
+  animation: pulse 10s infinite alternate;
+}
+
+@keyframes pulse {
+  from { transform: scale(1); opacity: 0.4; }
+  to   { transform: scale(1.2); opacity: 0.6; }
 }
 
 .riding-gear-preview .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
-  background: rgba(102, 102, 102, 0.2);
-  border-radius: 10px;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  z-index: 2;
+  position: relative;
 }
 
 /* === Header === */
 .preview-header {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .preview-title {
-  font-size: clamp(1.6rem, 4vw, 2.2rem);
-  font-weight: 700;
-  color: #ffffff;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 800;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   margin-bottom: 0.5rem;
-  line-height: 1.3;
+}
+
+.preview-subtitle {
+  font-size: 1rem;
+  color: #cccccc;
   letter-spacing: 0.5px;
 }
 
 /* === Grid Layout === */
 .riding-gear-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
   justify-items: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
 }
 
 /* === Loader & Error === */
@@ -44,46 +75,34 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  padding: 2.5rem 0;
-  font-size: 1rem;
+  padding: 3rem 0;
+  font-size: 1.1rem;
   color: #bbbbbb;
 }
 
 .riding-gear-spinner {
-  width: 44px;
-  height: 44px;
-  border: 5px solid #333333;
-  border-top: 5px solid #00c2ff;
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255,255,255,0.2);
+  border-top: 5px solid #00c6ff;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
 
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
+@keyframes spin { to { transform: rotate(360deg); } }
 
 /* === CTA Button === */
 .riding-gear-button {
   display: inline-block;
-  padding: 12px 28px;
-  background-color: #00c2ff;
-  color: #000000;
+  padding: 14px 36px;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: #fff;
   font-size: 1rem;
-  font-weight: 600;
-  border-radius: 30px;
+  font-weight: 700;
   text-transform: uppercase;
   text-decoration: none;
-  border: 2px solid transparent;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   transition: all 0.3s ease, transform 0.2s ease;
-}
-
-.riding-gear-button:hover {
-  background-color: transparent;
-  border-color: #00a0d1;
-  color: #ffffff;
 }
 
 /* === Mobile Responsiveness === */
@@ -93,28 +112,111 @@
   }
 
   .riding-gear-preview .container {
-    padding: 0 0.5rem;
-  }
-
-  .preview-header {
-    margin-bottom: 2rem;
+    padding: 1rem;
   }
 
   .preview-title {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
 
   .preview-subtitle {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 
   .riding-gear-grid {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 1.5rem;
   }
 
   .riding-gear-button {
+    padding: 12px 28px;
+    font-size: 0.95rem;
+  }
+}
+
+/* === Small Mobile (max 480px) === */
+@media screen and (max-width: 480px) {
+  .riding-gear-preview {
+    padding: 2rem 0.75rem;
+  }
+
+  .riding-gear-preview .container {
+    padding: 0.75rem;
+    border-radius: 12px;
+  }
+
+  .preview-title {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .preview-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .riding-gear-grid {
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .riding-gear-button {
+    width: 100%;
     padding: 10px 20px;
     font-size: 0.9rem;
   }
+
+  .riding-gear-loader,
+  .riding-gear-error {
+    font-size: 0.9rem;
+    padding: 2rem 0.5rem;
+  }
+}
+
+
+
+/* === Smooth Fade-in for content === ⚡ */
+.fade-in {
+  animation: fadeIn 0.8s ease-in forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* === Error box styled ⚡ === */
+.riding-gear-error {
+  background: rgba(255, 77, 77, 0.1);
+  border: 1px solid rgba(255, 77, 77, 0.4);
+  color: #ff4d4d;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  font-weight: 600;
+}
+
+/* === CTA Button Ripple Effect ⚡ === */
+.riding-gear-button {
+  position: relative;
+  overflow: hidden;
+}
+.riding-gear-button::after {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 0; height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease, opacity 0.8s;
+}
+.riding-gear-button:active::after {
+  width: 300px;
+  height: 300px;
+  opacity: 0;
+  transition: 0s;
+}
+
+/* === Grid item max width ⚡ === */
+.riding-gear-grid > * {
+  max-width: 320px;
+  width: 100%;
 }
