@@ -13,13 +13,18 @@ const RidingPant = require('./models/RidingPant');
 const TailBag = require('./models/TailBag');
 const SaddleBag = require('./models/SaddleBag');
 const Helmet = require("./models/Helmet");
-// const fetch = require('node-fetch');
+// const fetch = require("node-fetch");
+const { GoogleGenAI } = require('@google/genai');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
+
+const ai = new GoogleGenAI({
+  apiKey: process.env.GEMINI_API_KEY
+});
 
 // === MongoDB Connection ===
 const dbURI = process.env.MONGO_URI
@@ -35,28 +40,48 @@ mongoose.connect(dbURI, {
 .catch((err) => console.error('❌ MongoDB connection error:', err));
 
 /* ---------------- ChatGPT Endpoint ---------------- */
-app.post("/api/chat", async (req, res) => {
+// app.post("/api/chat", async (req, res) => {
+//   try {
+//     const { question } = req.body;
+//     if (!question) return res.status(400).json({ error: "Question is required" });
+
+//     const response = await fetch("https://api.openai.com/v1/chat/completions", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//         "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
+//       },
+//       body: JSON.stringify({
+//         model: "gpt-4o-mini", 
+//         messages: [{ role: "user", content: question }],
+//       }),
+//     });
+
+//     const data = await response.json();
+
+//     if (!data.choices || !data.choices[0].message) {
+//       return res.status(500).json({ error: "Invalid AI response" });
+//     }
+
+//     res.json({ answer: data.choices[0].message.content });
+//   } catch (error) {
+//     console.error("❌ Chat error:", error);
+//     res.status(500).json({ error: "Failed to get response from AI" });
+//   }
+// });
+app.post('/api/chat', async (req, res) => {
+  const { question } = req.body;
+  if (!question) return res.status(400).json({ error: 'Question is required' });
+
   try {
-    const { question } = req.body;
-    if (!question) return res.status(400).json({ error: "Question is required" });
-
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`, // set in .env
-      },
-      body: JSON.stringify({
-        model: "gpt-3.5-turbo", // or gpt-4 if available
-        messages: [{ role: "user", content: question }],
-      }),
+    const response = await ai.models.generateContent({
+      model: 'gemini-2.5-flash', // choose the model you prefer
+      contents: question,
     });
-
-    const data = await response.json();
-    res.json({ answer: data.choices[0].message.content });
-  } catch (error) {
-    console.error("❌ Chat error:", error);
-    res.status(500).json({ error: "Failed to get response from AI" });
+    res.json({ answer: response.text });
+  } catch (err) {
+    console.error('Chat error:', err);
+    res.status(500).json({ error: 'Gemini API request failed' });
   }
 });
 
