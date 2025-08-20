@@ -303,3 +303,16 @@
     min-height: 35vh;
   }
 }
+
+/* Normal button */
+.chat-toggle-button {
+  background: var(--user-message-bg);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* When page is scrolled */
+.chatbot-widget.scrolled .chat-toggle-button {
+  background: transparent;
+  border: 2px solid rgba(245, 245, 245, 0.152); /* optional: keep outline */
+  box-shadow: none; /* optional: remove shadow */
+}

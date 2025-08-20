@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Chatbot.css";
 
 function Chatbot() {
@@ -6,10 +6,26 @@ function Chatbot() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showButton, setShowButton] = useState(false); // 👈 control toggle button visibility
+const [isScrolled, setIsScrolled] = useState(false);
+
+useEffect(() => {
+  const handleScroll = () => {
+    if (window.scrollY > 200) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+
+
 
   const toggleChat = () => {
     setIsOpen(!isOpen);
-    // Add an initial welcome message when the chat opens for the first time
     if (!isOpen && messages.length === 0) {
       setMessages([{ sender: "bot", text: "Hello! How can I help you today?" }]);
     }
@@ -19,7 +35,7 @@ function Chatbot() {
     if (input.trim() === "") return;
 
     const userMessage = input;
-    setMessages((prevMessages) => [...prevMessages, { sender: "user", text: userMessage }]);
+    setMessages((prev) => [...prev, { sender: "user", text: userMessage }]);
     setInput("");
     setLoading(true);
 
@@ -31,10 +47,13 @@ function Chatbot() {
       });
 
       const data = await res.json();
-      setMessages((prevMessages) => [...prevMessages, { sender: "bot", text: data.answer || "⚠️ No response from AI." }]);
+      setMessages((prev) => [
+        ...prev,
+        { sender: "bot", text: data.answer || "⚠️ No response from AI." },
+      ]);
     } catch (err) {
       console.error("Chat error:", err);
-      setMessages((prevMessages) => [...prevMessages, { sender: "bot", text: "❌ Error connecting to AI." }]);
+      setMessages((prev) => [...prev, { sender: "bot", text: "❌ Error connecting to AI." }]);
     } finally {
       setLoading(false);
     }
@@ -48,7 +67,7 @@ function Chatbot() {
   };
 
   return (
-    <div className={`chatbot-widget ${isOpen ? "open" : ""}`}>
+    <div className={`chatbot-widget ${isOpen ? "open" : ""} ${isScrolled ? "scrolled" : ""}`}>
       <div className="chat-container">
         <h2 className="chat-header">
           <span className="icon">
@@ -59,11 +78,15 @@ function Chatbot() {
           AI Assistant
           <button className="close-btn" onClick={toggleChat}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-              <path fillRule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
+              <path
+                fillRule="evenodd"
+                d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
+                clipRule="evenodd"
+              />
             </svg>
           </button>
         </h2>
-        
+
         <div className="chat-box">
           {messages.map((msg, index) => (
             <div key={index} className={`message ${msg.sender === "user" ? "user-message" : "bot-message"}`}>
