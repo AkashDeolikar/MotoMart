@@ -126,6 +126,7 @@ import AddMoreServiceCostCalculator from "./component/slidePage/servicepages/Add
 import EngineSound from "./component/utility/EngineSound";
 import EngineShowcase from "./component/utility/EngineShowcase";
 import BikeColorSwitcher from "./component/utility/BikeColorSwitcher";
+import Chatbot from "./component/openai/Chatbot";
 
 //DB pages
 
@@ -169,6 +170,7 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister, use
     <>
       <CarNavbar theme={theme} toggleTheme={toggleTheme} />
       <ScrollToTop />
+      <Chatbot />
       <div className="app-wrapper">
         <div className="ContentWrapper">
           <AnimatePresence mode="wait">
@@ -282,6 +284,8 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister, use
               <Route path="/EngineSound" element={<EngineSound />} />
               <Route path="/EngineShowcase" element={<EngineShowcase />} />
               <Route path="/BikeColorSwitcher" element={<BikeColorSwitcher />} />
+              
+              <Route path="/Chatbot" element={<Chatbot />} />
               {/* Catch-all for undefined routes (optional, but good practice) */}
               {/* <Route path="*" element={<div>404 Not Found</div>} /> */}
             </Routes>

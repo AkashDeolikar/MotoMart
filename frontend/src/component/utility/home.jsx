@@ -59,6 +59,7 @@ import busa from './slideimgasset/busa.webp';
 import busamb from './slideimgasset/busamb.webp';
 import EngineSound from "./EngineSound";
 import BikeColorSwitcher from "./BikeColorSwitcher";
+import Chatbot from "../openai/Chatbot";
 // ===============================================
 // Extracted Components for Better Structure
 // ===============================================
@@ -625,6 +626,7 @@ const Home = () => {
     <div className="home-container">
       <LoadingOverlay isLoading={isLoading} />
 
+      {/* <Chatbot /> */}
       {/* Hero Section - Bootstrap Carousel Replica */}
       {/* <HeroCarousel /> */}
       <Slidemoto />

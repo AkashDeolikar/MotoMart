@@ -13,6 +13,7 @@ const RidingPant = require('./models/RidingPant');
 const TailBag = require('./models/TailBag');
 const SaddleBag = require('./models/SaddleBag');
 const Helmet = require("./models/Helmet");
+// const fetch = require('node-fetch');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -32,6 +33,32 @@ mongoose.connect(dbURI, {
 })
 .then(() => console.log('✅ MongoDB connected'))
 .catch((err) => console.error('❌ MongoDB connection error:', err));
+
+/* ---------------- ChatGPT Endpoint ---------------- */
+app.post("/api/chat", async (req, res) => {
+  try {
+    const { question } = req.body;
+    if (!question) return res.status(400).json({ error: "Question is required" });
+
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`, // set in .env
+      },
+      body: JSON.stringify({
+        model: "gpt-3.5-turbo", // or gpt-4 if available
+        messages: [{ role: "user", content: question }],
+      }),
+    });
+
+    const data = await response.json();
+    res.json({ answer: data.choices[0].message.content });
+  } catch (error) {
+    console.error("❌ Chat error:", error);
+    res.status(500).json({ error: "Failed to get response from AI" });
+  }
+});
 
 // === Contact Schema ===
 const contactSchema = new mongoose.Schema({
