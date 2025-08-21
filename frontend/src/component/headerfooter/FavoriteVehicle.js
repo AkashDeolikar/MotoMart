@@ -95,66 +95,56 @@ const FavoriteVehicle = ({ vehicle }) => {
     }, [error]);
 
     const handleAddToFavorites = async () => {
-        if (!user) {
-            setError('You must be logged in to save favorites.');
-            return;
-        }
+    if (!user) {
+        setError('You must be logged in to save favorites.');
+        return;
+    }
 
-        if (!vehicle || !vehicle.id || !vehicle.title) {
-            console.error("❌ Invalid vehicle data:", vehicle);
-            setError('Vehicle data is missing or invalid.');
-            return;
-        }
+    if (!vehicle?.id || !vehicle?.title) {
+        setError('Vehicle data is missing or invalid.');
+        return;
+    }
 
-        const payload = {
-            userId: user.uid,
-            vehicleId: vehicle.id,
-            title: vehicle.title,
-            image: vehicle.videoPoster,
-            details: vehicle.vehicleInfo,
-            details: {
-                ...vehicle.vehicleInfo,
-                link: vehicle.link
-            },
-        };
+    // ✅ Optimistically update UI first
+    setIsSubmitted(true);
+    setError('');
 
-        try {
-            // Step 1: Check if the vehicle is already in favorites
-            const checkResponse = await fetch(`https://motomartbackend.onrender.com/api/favorites/check?userId=${user.uid}&vehicleId=${vehicle.id}`);
-
-            if (checkResponse.ok) {
-                const result = await checkResponse.json();
-
-                if (result.exists) {
-                    console.log("ℹ️ Vehicle already added to favorites.");
-                    setError('This vehicle is already in your favorites.');
-                    return;
-                }
-            }
-
-            // Step 2: Proceed to save if not already present
-            const response = await fetch('https://motomartbackend.onrender.com/api/favorites', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(payload),
-            });
-
-            if (!response.ok) {
-                const errorResponse = await response.json();
-                throw new Error(errorResponse.message || 'Failed to save favorite');
-            }
-
-            setIsSubmitted(true);
-            setError('');
-            // setTimeout(() => setIsSubmitted(false), 5000); //it will returned add to Fav in 2sec
-
-        } catch (err) {
-            console.error("Error:", err.message);
-            setError(err.message || 'Something went wrong while saving your favorite.');
-        }
+    const payload = {
+        userId: user.uid,
+        vehicleId: vehicle.id,
+        title: vehicle.title,
+        image: vehicle.videoPoster,
+        details: {
+            ...vehicle.vehicleInfo,
+            link: vehicle.link
+        },
     };
+
+    try {
+        // Fire & forget saving
+        const response = await fetch(
+            'https://motomartbackend.onrender.com/api/favorites',
+            {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+            }
+        );
+
+        if (!response.ok) {
+            const errRes = await response.json();
+            throw new Error(errRes.message || 'Failed to save favorite');
+        }
+
+    } catch (err) {
+        console.error("❌ Error saving favorite:", err.message);
+
+        // Rollback optimistic update
+        setIsSubmitted(false);
+        setError(err.message || 'Something went wrong.');
+    }
+};
+
 
     return (
         <>
@@ -168,7 +158,7 @@ const FavoriteVehicle = ({ vehicle }) => {
                         backdropFilter: 'blur(10px)',
                     }}
                 >
-                    {isSubmitted ? 'Saved in ❤️' : 'Add to ❤️'}
+                    {isSubmitted ? 'Saved ❤️' : 'Add to ❤️'}
                 </div>
             </div>
 

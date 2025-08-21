@@ -157,70 +157,59 @@ export default function MyFavorites() {
 
   // ---------- actions ----------
   const handleDeleteOne = async (id, title) => {
-    if (!window.confirm(`Remove "${title || "this item"}" from your favorites?`)) return;
-    if (!user) return showNote("❌ Please log in again.", "error");
+  if (!window.confirm(`Remove "${title || "this item"}" from your favorites?`)) return;
+  if (!user) return showNote("X Please log in again.", "error");
 
-    setBusy(true);
-    try {
-      const res = await apiFetch(endpointDeleteOne(id), { method: "DELETE" });
-      const body = (await parseJSON(res)) ?? (await res.text());
-      if (!res.ok) throw new Error(typeof body === "string" ? body : JSON.stringify(body));
+  //  Optimistic update
+  const oldFavorites = [...favorites];
+  setFavorites((prev) => prev.filter((f) => f._id !== id));
+  setSelected((p) => p.filter((x) => x !== id));
+  setBusy(true);
 
-      await refetch(); // trust server
-      setSelected((p) => p.filter((x) => x !== id));
-      showNote("✅ Removed from favorites.");
-    } catch (e) {
-      showNote("❌ Failed to remove.", "error");
-    } finally {
-      setBusy(false);
-    }
-  };
+  try {
+    const res = await apiFetch(endpointDeleteOne(id), { method: "DELETE" });
+    const body = (await parseJSON(res)) ?? (await res.text());
+    if (!res.ok) throw new Error(typeof body === "string" ? body : JSON.stringify(body));
+    showNote("✅ Removed from favorites.");
+  } catch (e) {
+    //  Rollback if fail
+    setFavorites(oldFavorites);
+    showNote("X Failed to remove.", "error");
+  } finally {
+    setBusy(false);
+  }
+};
+
 
   const handleBulkDelete = async () => {
-    if (!hasSelection) return;
-    if (!window.confirm(`Delete ${selected.length} selected item(s)?`)) return;
-    if (!user) return showNote("❌ Please log in again.", "error");
+  if (!hasSelection) return;
+  if (!window.confirm(`Delete ${selected.length} selected item(s)?`)) return;
+  if (!user) return showNote("❌ Please log in again.", "error");
 
-    setBusy(true);
-    try {
-      // Primary: POST { ids: [...] }
-      let res = await apiFetch(endpointDeleteMany, {
-        method: "POST",
-        body: JSON.stringify({ ids: selected }),
-      });
-      let data = await parseJSON(res);
+  const oldFavorites = [...favorites];
+  setFavorites((prev) => prev.filter((f) => !selected.includes(f._id)));
+  setBusy(true);
 
-      // Fallbacks if backend expects different shapes
-      if (!res.ok || !payloadSuccess(data)) {
-        // Try POST with plain array
-        res = await apiFetch(endpointDeleteMany, {
-          method: "POST",
-          body: JSON.stringify(selected),
-        });
-        data = await parseJSON(res);
-      }
-      if (!res.ok || !payloadSuccess(data)) {
-        // Try DELETE with querystring (servers that ignore DELETE bodies)
-        const qs = encodeURIComponent(selected.join(","));
-        res = await apiFetch(`${endpointDeleteMany}?ids=${qs}`, { method: "DELETE" });
-        data = await parseJSON(res);
-      }
+  try {
+    const res = await apiFetch(endpointDeleteMany, {
+      method: "POST",
+      body: JSON.stringify({ ids: selected }),
+    });
+    const data = await parseJSON(res);
 
-      if (!res.ok || !payloadSuccess(data)) {
-        throw new Error(
-          typeof data === "string" ? data : JSON.stringify(data || { error: "Bulk delete failed" })
-        );
-      }
+    if (!res.ok || !payloadSuccess(data)) throw new Error("Bulk delete failed");
 
-      await refetch(); // trust server
-      setSelected([]);
-      showNote("✅ Selected items removed.");
-    } catch (e) {
-      showNote("❌ Bulk delete failed on server.", "error");
-    } finally {
-      setBusy(false);
-    }
-  };
+    setSelected([]);
+    showNote("✅ Selected items removed.");
+  } catch (e) {
+    // Rollback
+    setFavorites(oldFavorites);
+    showNote("❌ Bulk delete failed on server.", "error");
+  } finally {
+    setBusy(false);
+  }
+};
+
 
   const isEmpty = useMemo(() => !isLoading && favorites.length === 0, [isLoading, favorites]);
 
