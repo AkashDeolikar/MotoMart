@@ -7,20 +7,21 @@ function Chatbot() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [showButton, setShowButton] = useState(false); // 👈 control toggle button visibility
-const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-useEffect(() => {
-  const handleScroll = () => {
-    if (window.scrollY > 200) {
-      setIsScrolled(true);
-    } else {
-      setIsScrolled(false);
-    }
-  };
 
-  window.addEventListener("scroll", handleScroll);
-  return () => window.removeEventListener("scroll", handleScroll);
-}, []);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 200) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
 
 
@@ -89,12 +90,12 @@ useEffect(() => {
 
         <div className="chat-box">
           {messages.map((msg, index) => (
-            <div key={index} className={`message ${msg.sender === "user" ? "user-message" : "bot-message"}`}>
+            <div key={index} className={`messageAI ${msg.sender === "user" ? "user-message" : "bot-message"}`}>
               {msg.text}
             </div>
           ))}
           {loading && (
-            <div className="message bot-message bot-loading">
+            <div className="messageAI bot-message bot-loading">
               <span className="dot dot-1"></span>
               <span className="dot dot-2"></span>
               <span className="dot dot-3"></span>
@@ -123,6 +124,31 @@ useEffect(() => {
           <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
         </svg>
       </button>
+
+
+      {/* <button className="chat-toggle-button" onClick={toggleChat}>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 90" width="42" height="42">
+          <defs>
+            <linearGradient id="botGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#3DDC84" />
+              <stop offset="100%" stopColor="#00C853" />
+            </linearGradient>
+          </defs>
+          <rect x="12" y="18" width="40" height="28" rx="12" ry="12"
+            fill="url(#botGrad)" stroke="#222" strokeWidth="2" />
+          <circle cx="24" cy="32" r="4" fill="#FFF" />
+          <circle cx="40" cy="32" r="4" fill="#FFF" />
+          <path d="M24 40 Q32 46 40 40" stroke="#FFF" strokeWidth="2" fill="none" strokeLinecap="round" />
+          <line x1="20" y1="14" x2="26" y2="20" stroke="url(#botGrad)" strokeWidth="3" strokeLinecap="round" />
+          <line x1="44" y1="14" x2="38" y2="20" stroke="url(#botGrad)" strokeWidth="3" strokeLinecap="round" />
+          <circle cx="32" cy="10" r="3" fill="url(#botGrad)" stroke="#222" strokeWidth="1" />
+          <text x="32" y="75" fontSize="43" fontWeight="bold" textAnchor="middle"
+            fill="#3DDC84" style={{ fontFamily: "'Segoe UI', sans-serif" }}>
+            AI
+          </text>
+        </svg>
+      </button> */}
+
     </div>
   );
 }
