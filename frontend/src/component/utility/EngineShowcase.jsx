@@ -1,26 +1,26 @@
-// import React from "react";
-// import EngineSound from "./EngineSound";
+import React, { useState } from "react";
+import "./EngineShowcase.css";
 
-// // Import your media
-// import bikeImg from "../utility/sound/bmw.png";
-// import bikeSound from "../utility/sound/bmw_s1000rr.mp3";
+function EngineShowcase() {
+  const [engineOn, setEngineOn] = useState(false);
 
-// import carImg from "../utility/sound/bmwcar.png";   // <-- add a car image here
-// import carSound from "../utility/sound/bmw_s1000rr.mp3"; // <-- add a car sound file
+  const toggleEngine = () => {
+    setEngineOn(!engineOn);
+  };
 
-// import "./EngineShowcase.css";
+  return (
+    <div className="engine-status-container">
+      <div className="engine-indicator">
+        <span
+          className={`status-light ${engineOn ? "on" : "off"}`}
+        ></span>
+        <p>{engineOn ? "Engine Running" : "Engine Stopped"}</p>
+      </div>
+      <button onClick={toggleEngine} className="toggle-btn">
+        {engineOn ? "Stop Engine" : "Start Engine"}
+      </button>
+    </div>
+  );
+}
 
-// function EngineShowcase() {
-//   return (
-//     <div className="showcase-container">
-//       <div className="vehicle">
-//         <EngineSound image={bikeImg} sound={bikeSound} title="BMW S1000RR" />
-//       </div>
-//       <div className="vehicle">
-//         <EngineSound image={carImg} sound={carSound} title="BMW M4" />
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default EngineShowcase;
+export default EngineShowcase;

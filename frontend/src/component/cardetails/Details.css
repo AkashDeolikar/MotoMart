@@ -33,7 +33,8 @@
 /* =========================
    Base Elements
 ========================= */
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
@@ -43,7 +44,10 @@ body, html {
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
 }
@@ -143,8 +147,9 @@ h1, h2, h3, h4 {
 }
 
 .car-detail-section h2 {
-  font-family: "Lato Black",sans-serif;
+  font-family: 'LandRoverWeb-Medium', sans-serif;
   letter-spacing: 1.5px;
+  text-transform: uppercase;
   font-size: 28px;
   color: var(--accent-color);
   border-bottom: 2px solid var(--accent-color);
@@ -165,43 +170,58 @@ h1, h2, h3, h4 {
 }
 
 .color-swatches-section h2 {
-  font-size: 28px;
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 600;
   color: var(--text-color);
   margin-bottom: 30px;
+  letter-spacing: 0.5px;
 }
 
 .color-swatches {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 32px;
+  gap: clamp(16px, 3vw, 32px);
   animation: fadeUp 0.7s ease-in-out both;
 }
 
-.color-swatches > div {
+/* Swatch container */
+.color-swatches>div {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 14px;
+  font-size: clamp(12px, 1.8vw, 14px);
   color: var(--text-color);
   cursor: pointer;
   transition: transform 0.3s ease;
   animation: popIn 0.4s ease forwards;
+  text-transform: capitalize;
 }
 
-.color-swatches > div:hover {
-  transform: scale(1.1);
+.color-swatches>div:hover {
+  transform: scale(1.08);
 }
 
+/* Swatch Circle (default) */
 .color-swatches div div {
-  width: 70px;
-  height: 70px;
+  width: clamp(55px, 6vw, 75px);
+  height: clamp(55px, 6vw, 75px);
   border-radius: 50%;
   border: 2px solid var(--swatch-border);
   background-clip: padding-box;
   margin-bottom: 10px;
   transition: all 0.4s ease;
+  box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.2),
+    0 2px 6px rgba(0, 0, 0, 0.15);
 }
+
+/* Pill shape option */
+.color-swatches .pill div {
+  border-radius: 30px;
+  width: clamp(70px, 8vw, 100px);
+  height: clamp(30px, 4vw, 45px);
+}
+
 
 /* =========================
    Pros and Cons
@@ -214,7 +234,7 @@ h1, h2, h3, h4 {
   flex-wrap: wrap;
 }
 
-.pros-cons > div {
+.pros-cons>div {
   flex: 1 1 45%;
   min-width: 250px;
   background-color: var(--card-bg);
@@ -248,6 +268,7 @@ h1, h2, h3, h4 {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -259,6 +280,7 @@ h1, h2, h3, h4 {
     transform: scale(0.8);
     opacity: 0;
   }
+
   to {
     transform: scale(1);
     opacity: 1;
@@ -269,6 +291,7 @@ h1, h2, h3, h4 {
    Responsive
 ========================= */
 @media (max-width: 768px) {
+
   .section-title,
   .car-detail-section h1 {
     font-size: 28px;
@@ -291,7 +314,7 @@ h1, h2, h3, h4 {
     padding: 0 10px;
   }
 
-  .color-swatches > div {
+  .color-swatches>div {
     flex: 0 0 calc(50% - 15px);
     max-width: calc(50% - 15px);
     font-size: 13px;
@@ -307,12 +330,13 @@ h1, h2, h3, h4 {
     gap: 1.2rem;
   }
 
-  .pros-cons > div {
+  .pros-cons>div {
     flex: 1 1 100%;
   }
 }
 
 /*TAB*/
+/* Base styles for all screen sizes */
 .tab-buttons {
   display: flex;
   justify-content: center;
@@ -350,4 +374,38 @@ h1, h2, h3, h4 {
 .tab-content.active {
   display: block;
   animation: fadeUp 0.4s ease;
+}
+
+/* Mobile-specific styles 
+  This media query applies styles only on screens 
+  that are 768px wide or smaller.
+*/
+@media (max-width: 768px) {
+  .tab-buttons {
+    /* Make buttons stack vertically if they don't fit horizontally */
+    flex-direction: column;
+    gap: 8px;
+    /* Reduce the spacing between buttons */
+    margin: 20px 0;
+    /* Less margin on top/bottom */
+    border-bottom: none;
+    /* Remove the bottom border for a cleaner look */
+  }
+
+  .tab-btn {
+    width: 100%;
+    /* Make each button take the full width */
+    text-align: center;
+    padding: 10px;
+    /* Adjust padding for a smaller button size */
+    font-size: 14px;
+    /* Slightly smaller font size */
+    border-bottom: 2px solid transparent;
+    /* Use a thinner border for mobile */
+  }
+
+  .tab-btn.active {
+    border-bottom: 2px solid var(--primary-color);
+    /* Thinner active border */
+  }
 }

@@ -18,28 +18,33 @@ function EngineSound() {
   };
 
   return (
-    <div className="engine-container">
+    <div className="sport-engine-container">
       {/* Background Bike Image */}
-      <img src={bmwimg} alt="BMW S1000RR" className="bike-img" />
+      <img src={bmwimg} alt="BMW S1000RR" className="sport-bike-img" />
 
       {/* Sound Waves */}
-      <div className={`waves ${playing ? "active" : ""}`}>
+      <div className={`sport-waves ${playing ? "active" : ""}`}>
         {[...Array(5)].map((_, i) => (
           <span key={i}></span>
         ))}
       </div>
 
       {/* Engine Start/Stop Button */}
-      <div className="circle" onClick={toggleEngine}>
+      <div
+        className="sport-circle"
+        onClick={toggleEngine}
+        style={{ backgroundColor: playing ? "red" : "green", color: "white", opacity: "0.9"}}
+      >
         {playing ? "STOP ENGINE" : "START ENGINE"}
       </div>
+
 
       {/* Audio with onEnded listener */}
       <audio
         ref={audioRef}
         src={enginesound}
         preload="auto"
-        onEnded={() => setPlaying(false)} // 👈 stop animation when music ends
+        onEnded={() => setPlaying(false)} // stop animation when music ends
       />
     </div>
   );

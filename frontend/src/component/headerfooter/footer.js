@@ -56,7 +56,7 @@ const Footer = ({ projectName, linkSections }) => {
       <div className="footer-bottom">
         <p>
           All product names, logos and brands are property of their respective owners. <br />
-          &copy; {currentYear} {projectName} TrueValue. All rights reserved.
+          &copy; {currentYear} {projectName} | All rights reserved.
         </p>
       </div>
     </footer>

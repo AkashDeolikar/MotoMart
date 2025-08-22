@@ -59,14 +59,11 @@
 
 .chatbot-widget.open {
   width: 400px;
-  height: 600px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3); /* Deeper shadow when open */
-}
-
-@media (max-width:1200px) {
-  .chatbot-widget.open {
-  height: 550px;
-}
+  /* Use viewport-relative height for better fitting */
+  height: 85vh;
+  /* Set a maximum height to prevent it from getting too tall on large monitors */
+  max-height: 600px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
 .chat-toggle-button {
@@ -118,7 +115,7 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 12px;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease; /* Match transition with width/height */
@@ -179,7 +176,8 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  min-height: 400px;          /*scrollbar*/
+  /* Remove min-height to allow flexibility */
+  /* min-height: 400px; */
   scrollbar-width: thin;
   scrollbar-color: var(--highlight-color) var(--chat-box-bg);
 }
