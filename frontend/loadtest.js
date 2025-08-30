@@ -11,3 +11,6 @@ export default function () {
   check(res, { "status is 200": (r) => r.status === 200 });
   sleep(1);
 }
+
+
+//* THIS IS NOT USING AS A J-METER USED TO DO FOR BOTH FRONTEND AND BACKEND*/ */
