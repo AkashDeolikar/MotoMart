@@ -1,30 +1,86 @@
 import React, { useState, useEffect } from "react";
 import "./Chatbot.css";
 
+// ✅ OpenAI swirl logo component
+const OpenAiLogo = ({ size = 32 }) => (
+   <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 240 240"
+    fill="none"
+  >
+    {/* Main central diamond shape */}
+    <path
+      d="M120 0L240 120L120 240L0 120L120 0Z"
+      fill="url(#geminiGradientMain)"
+    />
+    <path
+      d="M120 120L208.6 31.4L120 120L31.4 120L120 120Z"
+      fill="url(#geminiGradientOverlay)"
+    />
+
+    {/* Text added in the middle */}
+    <text
+      x="120"
+      y="135" 
+      fontFamily="Arial, sans-serif" 
+      fontSize="120" 
+      // fill="white"
+      textAnchor="middle"
+      dominantBaseline="middle"
+    >
+      AI
+    </text>
+
+    <defs>
+      {/* Gradient for the main diamond */}
+      <linearGradient
+        id="geminiGradientMain"
+        x1="120"
+        y1="0"
+        x2="120"
+        y2="210"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stopColor="#ff5858ff" /> {/* Lighter blue at the top */}
+        <stop offset="1" stopColor="#731cffff" /> {/* Purple at the bottom */}
+      </linearGradient>
+
+      {/* Gradient for the overlapping diamond, creating the distinct light blue and purple segments */}
+      <linearGradient
+        id="geminiGradientOverlay"
+        x1="120"
+        y1="31.4"
+        x2="120"
+        y2="120"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stopColor="#42f466ff" /> {/* Bright blue for the top segments */}
+        <stop offset="1" stopColor="#ff0921ff" /> {/* Fading to purple */}
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
 function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
-  const [showButton, setShowButton] = useState(false); // 👈 control toggle button visibility
   const [isScrolled, setIsScrolled] = useState(false);
 
-
+  // ✅ Scroll tracking
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 200) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 200);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-
-
+  // ✅ Toggle chatbot
   const toggleChat = () => {
     setIsOpen(!isOpen);
     if (!isOpen && messages.length === 0) {
@@ -32,6 +88,7 @@ function Chatbot() {
     }
   };
 
+  // ✅ Send message
   const sendMessage = async () => {
     if (input.trim() === "") return;
 
@@ -54,12 +111,16 @@ function Chatbot() {
       ]);
     } catch (err) {
       console.error("Chat error:", err);
-      setMessages((prev) => [...prev, { sender: "bot", text: "❌ Error connecting to AI." }]);
+      setMessages((prev) => [
+        ...prev,
+        { sender: "bot", text: "❌ Error connecting to AI." },
+      ]);
     } finally {
       setLoading(false);
     }
   };
 
+  // ✅ Handle Enter key
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
@@ -70,11 +131,10 @@ function Chatbot() {
   return (
     <div className={`chatbot-widget ${isOpen ? "open" : ""} ${isScrolled ? "scrolled" : ""}`}>
       <div className="chat-container">
+        {/* Header */}
         <h2 className="chat-header">
           <span className="icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
-            </svg>
+            <OpenAiLogo size={24} />
           </span>
           AI Assistant
           <button className="close-btn" onClick={toggleChat}>
@@ -88,9 +148,13 @@ function Chatbot() {
           </button>
         </h2>
 
-        <div className="chat-box">
+        {/* Chat messages */}
+        {/* <div className="chat-box">
           {messages.map((msg, index) => (
-            <div key={index} className={`messageAI ${msg.sender === "user" ? "user-message" : "bot-message"}`}>
+            <div
+              key={index}
+              className={`messageAI ${msg.sender === "user" ? "user-message" : "bot-message"}`}
+            >
               {msg.text}
             </div>
           ))}
@@ -101,8 +165,44 @@ function Chatbot() {
               <span className="dot dot-3"></span>
             </div>
           )}
+        </div> */}
+        <div className="chat-box">
+  {messages.map((msg, index) => (
+    <React.Fragment key={index}>
+      {msg.sender === "bot" && typeof msg.text === "object" ? (
+        <div className="bot-response">
+          <h4>🔑 Key Points</h4>
+          <ul>
+            {msg.text.summary.map((point, i) => (
+              <li key={i}>{point}</li>
+            ))}
+          </ul>
+          <h4>📋 Full Answer</h4>
+          <p>{msg.text.details}</p>
         </div>
+      ) : (
+        <div
+          className={`messageAI ${
+            msg.sender === "user" ? "user-message" : "bot-message"
+          }`}
+        >
+          {typeof msg.text === "string" ? msg.text : JSON.stringify(msg.text)}
+        </div>
+      )}
+    </React.Fragment>
+  ))}
+  
+  {loading && (
+    <div className="messageAI bot-message bot-loading">
+      <span className="dot dot-1"></span>
+      <span className="dot dot-2"></span>
+      <span className="dot dot-3"></span>
+    </div>
+  )}
+</div>
 
+
+        {/* Input area */}
         <div className="input-area">
           <textarea
             rows="1"
@@ -112,43 +212,22 @@ function Chatbot() {
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
           />
-          <button onClick={sendMessage} disabled={loading || input.trim() === ""} className="btn">
+          <button
+            onClick={sendMessage}
+            disabled={loading || input.trim() === ""}
+            className="btn"
+          >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
               <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
             </svg>
           </button>
         </div>
       </div>
+
+      {/* ✅ Floating toggle button with AI logo */}
       <button className="chat-toggle-button" onClick={toggleChat}>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
-        </svg>
+        <OpenAiLogo size={32} />
       </button>
-
-
-      {/* <button className="chat-toggle-button" onClick={toggleChat}>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 90" width="42" height="42">
-          <defs>
-            <linearGradient id="botGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#3DDC84" />
-              <stop offset="100%" stopColor="#00C853" />
-            </linearGradient>
-          </defs>
-          <rect x="12" y="18" width="40" height="28" rx="12" ry="12"
-            fill="url(#botGrad)" stroke="#222" strokeWidth="2" />
-          <circle cx="24" cy="32" r="4" fill="#FFF" />
-          <circle cx="40" cy="32" r="4" fill="#FFF" />
-          <path d="M24 40 Q32 46 40 40" stroke="#FFF" strokeWidth="2" fill="none" strokeLinecap="round" />
-          <line x1="20" y1="14" x2="26" y2="20" stroke="url(#botGrad)" strokeWidth="3" strokeLinecap="round" />
-          <line x1="44" y1="14" x2="38" y2="20" stroke="url(#botGrad)" strokeWidth="3" strokeLinecap="round" />
-          <circle cx="32" cy="10" r="3" fill="url(#botGrad)" stroke="#222" strokeWidth="1" />
-          <text x="32" y="75" fontSize="43" fontWeight="bold" textAnchor="middle"
-            fill="#3DDC84" style={{ fontFamily: "'Segoe UI', sans-serif" }}>
-            AI
-          </text>
-        </svg>
-      </button> */}
-
     </div>
   );
 }

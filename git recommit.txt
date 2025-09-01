@@ -34,3 +34,29 @@ CMD->    git push origin main
 --------------------------------
 Replace main with your branch name if different (like master or develop).
 
+**********************************************
+Step 1: Make sure you’re on main
+git checkout main
+**********************************************
+🔹 Step 2: Fetch the latest remote branch
+git fetch origin
+*********************************************
+🔹 Step 3: Merge/rebase with remote
+
+Now run either:
+
+git pull origin main --rebase
+
+*************************************************
+If that still fails, try a normal merge:
+
+git pull origin main
+****************************************
+🔹 Step 4: Push again
+git push origin main
+****************************************
+🚑 Last Resort (force push)
+
+If you want your local changes to completely overwrite GitHub (⚠️ this will remove any changes made on GitHub, e.g., LICENSE file you added there), run:
+
+git push origin main --force

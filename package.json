@@ -4,6 +4,7 @@
     "aos": "^2.3.4",
     "bootstrap": "^5.3.6",
     "gsap": "^3.13.0",
+    "lucide-react": "^0.542.0",
     "node-fetch": "^3.3.2",
     "react-helmet": "^6.1.0",
     "swiper": "^11.2.8"

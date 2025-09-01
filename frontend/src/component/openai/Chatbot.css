@@ -17,7 +17,7 @@
   --close-btn-hover-color: #555;
   --input-bg: #fff;
   --input-border: #e0e0e0;
-  --highlight-color: #007bff;
+  --highlight-color: #ffa7a7;
   --shadow-color: rgba(0, 123, 255, 0.2);
 }
 
@@ -70,12 +70,12 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 45px; /* Match widget size */
+  width: 45px; 
   height: 45px;
   background: var(--highlight-color); /* Use a common highlight variable */
   color: var(--user-message-text);
   border: none;
-  border-radius: 50%;
+  border-radius: 20px 20px 20px 20px;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -85,9 +85,10 @@
   box-shadow: 0 4px 15px var(--shadow-color); /* Use shadow variable */
 }
 
+
 .chat-toggle-button svg {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   fill: currentColor;
   transition: transform 0.3s ease;
 }
@@ -98,7 +99,7 @@
 }
 
 .chat-toggle-button:hover svg {
-  transform: scale(1.25); 
+  transform: scale(1.10); 
 }
 
 .chatbot-widget.open .chat-toggle-button {
@@ -141,9 +142,9 @@
 }
 
 .chat-header .icon svg {
-  width: 24px;
-  height: 24px;
-  fill: var(--highlight-color);
+  width: 32px;
+  height: 32px;
+  fill: black;
 }
 
 .close-btn {
