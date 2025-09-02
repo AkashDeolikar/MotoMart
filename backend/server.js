@@ -72,63 +72,19 @@ mongoose.connect(dbURI, {
 
 app.post('/api/chat', async (req, res) => {
   const { question } = req.body;
-  if (!question) return res.status(400).json({ error: "Question is required" });
+  if (!question) return res.status(400).json({ error: 'Question is required' });
 
   try {
     const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
-      contents: [
-        {
-          role: "user",
-          parts: [
-            { text: `Answer the following question in JSON format with exactly these fields:
-            {
-              "summary": ["short bullet list (max 5 points)"],
-              "details": "longer detailed explanation"
-            }
-            Do not include any extra text or markdown formatting.
-            
-            Question: ${question}` }
-          ]
-        }
-      ]
+      model: 'gemini-2.5-flash',
+      contents: question,
     });
-
-    let answer = await response.text();
-
-    // Clean possible code fences
-    answer = answer.replace(/```json|```/g, "").trim();
-
-    // Try parsing JSON
-    let parsed;
-    try {
-      parsed = JSON.parse(answer);
-    } catch (err) {
-      parsed = { summary: ["⚠️ Could not parse structured response"], details: answer };
-    }
-
-    res.json(parsed);
+    res.json({ answer: response.text });
   } catch (err) {
-    console.error("Chat error:", err);
-    res.status(500).json({ error: "Gemini API request failed" });
+    console.error('Chat error:', err);
+    res.status(500).json({ error: 'Gemini API request failed' });
   }
 });
-
-// app.post('/api/chat', async (req, res) => {
-//   const { question } = req.body;
-//   if (!question) return res.status(400).json({ error: 'Question is required' });
-
-//   try {
-//     const response = await ai.models.generateContent({
-//       model: 'gemini-2.5-flash',
-//       contents: question,
-//     });
-//     res.json({ answer: response.text });
-//   } catch (err) {
-//     console.error('Chat error:', err);
-//     res.status(500).json({ error: 'Gemini API request failed' });
-//   }
-// });
 
 
 // === Contact Schema ===

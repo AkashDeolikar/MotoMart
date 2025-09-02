@@ -90,36 +90,35 @@ function Chatbot() {
 
   // ✅ Send message
   const sendMessage = async () => {
-  if (input.trim() === "") return;
+    if (input.trim() === "") return;
 
-  const userMessage = input;
-  setMessages((prev) => [...prev, { sender: "user", text: userMessage }]);
-  setInput("");
-  setLoading(true);
+    const userMessage = input;
+    setMessages((prev) => [...prev, { sender: "user", text: userMessage }]);
+    setInput("");
+    setLoading(true);
 
-  try {
-    const res = await fetch("https://motomartbackend.onrender.com/api/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ question: userMessage }),
-    });
+    try {
+      const res = await fetch("https://motomartbackend.onrender.com/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question: userMessage }),
+      });
 
-    const data = await res.json();
-    setMessages((prev) => [
-      ...prev,
-      { sender: "bot", text: data.summary ? data : "⚠️ No response from AI." },
-    ]);
-  } catch (err) {
-    console.error("Chat error:", err);
-    setMessages((prev) => [
-      ...prev,
-      { sender: "bot", text: "❌ Error connecting to AI." },
-    ]);
-  } finally {
-    setLoading(false);
-  }
-};
-
+      const data = await res.json();
+      setMessages((prev) => [
+        ...prev,
+        { sender: "bot", text: data.answer || "⚠️ No response from AI." },
+      ]);
+    } catch (err) {
+      console.error("Chat error:", err);
+      setMessages((prev) => [
+        ...prev,
+        { sender: "bot", text: "❌ Error connecting to AI." },
+      ]);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   // ✅ Handle Enter key
   const handleKeyDown = (e) => {
