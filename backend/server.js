@@ -69,6 +69,51 @@ mongoose.connect(dbURI, {
 //     res.status(500).json({ error: "Failed to get response from AI" });
 //   }
 // });
+
+app.post('/api/chat', async (req, res) => {
+  const { question } = req.body;
+  if (!question) return res.status(400).json({ error: "Question is required" });
+
+  try {
+    const response = await ai.models.generateContent({
+      model: "gemini-2.5-flash",
+      contents: [
+        {
+          role: "user",
+          parts: [
+            { text: `Answer the following question in JSON format with exactly these fields:
+            {
+              "summary": ["short bullet list (max 5 points)"],
+              "details": "longer detailed explanation"
+            }
+            Do not include any extra text or markdown formatting.
+            
+            Question: ${question}` }
+          ]
+        }
+      ]
+    });
+
+    let answer = await response.text();
+
+    // Clean possible code fences
+    answer = answer.replace(/```json|```/g, "").trim();
+
+    // Try parsing JSON
+    let parsed;
+    try {
+      parsed = JSON.parse(answer);
+    } catch (err) {
+      parsed = { summary: ["⚠️ Could not parse structured response"], details: answer };
+    }
+
+    res.json(parsed);
+  } catch (err) {
+    console.error("Chat error:", err);
+    res.status(500).json({ error: "Gemini API request failed" });
+  }
+});
+
 // app.post('/api/chat', async (req, res) => {
 //   const { question } = req.body;
 //   if (!question) return res.status(400).json({ error: 'Question is required' });
@@ -84,36 +129,6 @@ mongoose.connect(dbURI, {
 //     res.status(500).json({ error: 'Gemini API request failed' });
 //   }
 // });
-app.post('/api/chat', async (req, res) => {
-  const { question } = req.body;
-  if (!question) return res.status(400).json({ error: "Question is required" });
-
-  try {
-    const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
-      contents: `Answer the following question in JSON format with two fields:
-                 1. "summary": a short bullet list (max 5 points).
-                 2. "details": a longer detailed explanation or list.
-                 
-                 Question: ${question}`,
-    });
-
-    let answer = response.text;
-
-    // Try parsing JSON (if Gemini follows instructions)
-    let parsed;
-    try {
-      parsed = JSON.parse(answer);
-    } catch (err) {
-      parsed = { summary: ["⚠️ Could not parse structured response"], details: answer };
-    }
-
-    res.json(parsed);
-  } catch (err) {
-    console.error("Chat error:", err);
-    res.status(500).json({ error: "Gemini API request failed" });
-  }
-});
 
 
 // === Contact Schema ===
