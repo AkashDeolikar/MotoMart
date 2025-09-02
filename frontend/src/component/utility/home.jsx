@@ -878,7 +878,9 @@ const Home = () => {
         </div>
       </div>
 
-      <BikeColorSwitcher />
+      {/* FOR BMW S1000RR */}
+      {/* <BikeColorSwitcher />  */}
+
       <StatsHighlightSection />
 
       {/* Flip Card Section - Introduction */}

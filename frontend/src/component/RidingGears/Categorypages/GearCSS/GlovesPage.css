@@ -78,7 +78,7 @@ body {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  min-height: 48px;
+  min-height: 25px;
 }
 
 .gear-brand {
@@ -148,7 +148,8 @@ body {
 /* === Responsive Adjustments === */
 @media screen and (max-width: 480px) {
   .gear-card img {
-    height: 250px;
+    height: 200px;
+    width: 100%;
   }
 
   .gear-info h3 {

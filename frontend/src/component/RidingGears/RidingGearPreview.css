@@ -45,8 +45,9 @@
 .preview-title {
   font-size: clamp(1.8rem, 4vw, 2.6rem);
   font-weight: 800;
-  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  background: linear-gradient(135deg, rgb(255, 58, 58), rgb(26, 80, 255));
   -webkit-background-clip: text;
+  font-family: 'Roboto';
   -webkit-text-fill-color: transparent;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -95,7 +96,7 @@
 .riding-gear-button {
   display: inline-block;
   padding: 14px 36px;
-  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  background: linear-gradient(135deg, #ff5858ff, rgb(46, 95, 255));
   color: #fff;
   font-size: 1rem;
   font-weight: 700;
@@ -155,9 +156,34 @@
   }
 
   .riding-gear-grid {
+    display: flex;              /* change grid → flex */
     gap: 1rem;
     margin-bottom: 2rem;
+    overflow-x: auto;           /* enable horizontal scroll */
+    scroll-snap-type: x mandatory; /* smooth snap scroll */
+    -webkit-overflow-scrolling: touch; /* smooth iOS scroll */
+    padding-bottom: 0.5rem;     /* space for scrollbar */
+        display: flex
+;
+    gap: 28px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 0.5rem 0 1.5rem;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #555 transparent;
   }
+
+  .riding-gear-grid > * {
+    flex: 0 0 auto;             /* prevent items from shrinking */
+    scroll-snap-align: start;   /* each item snaps */
+    min-width: 250px;           /* set a min width per card */
+  }
+  /* .riding-gear-grid {
+    gap: 1rem;
+    margin-bottom: 2rem;
+  } */
 
   .riding-gear-button {
     width: 100%;

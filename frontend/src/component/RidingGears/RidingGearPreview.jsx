@@ -6,37 +6,33 @@ import "./RidingGearPreview.css";
 
 const RidingGearPreview = () => {
   const [featuredGears, setFeaturedGears] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [status, setStatus] = useState("loading"); // "loading" | "error" | "success"
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    let isMounted = true; // cleanup flag
+    const controller = new AbortController(); // ✅ cancel API request on unmount
 
     const fetchFeaturedGears = async () => {
       try {
-        const response = await axios.get(
-          "https://motomartbackend.onrender.com/api/gears"
+        const { data } = await axios.get(
+          "https://motomartbackend.onrender.com/api/gears",
+          { signal: controller.signal }
         );
 
-        if (isMounted) {
-          const gears = response.data;
-          setFeaturedGears(gears.slice(0, 4)); // only keep first 4
-          setLoading(false);
-        }
+        setFeaturedGears(data.slice(0, 4)); // ✅ no need to store all
+        setStatus("success");
       } catch (err) {
-        console.error("Failed to load riding gear preview:", err);
-        if (isMounted) {
+        if (!axios.isCancel(err)) {
+          console.error("Failed to load riding gear preview:", err);
           setError("⚠️ Unable to fetch riding essentials. Please try again.");
-          setLoading(false);
+          setStatus("error");
         }
       }
     };
 
     fetchFeaturedGears();
 
-    return () => {
-      isMounted = false; // avoid state update on unmount
-    };
+    return () => controller.abort(); // ✅ cleanup
   }, []);
 
   return (
@@ -46,16 +42,20 @@ const RidingGearPreview = () => {
           <h3 className="preview-title">🏍 Riding Gear</h3>
         </header>
 
-        {loading ? (
+        {status === "loading" && (
           <div className="riding-gear-loader" role="status" aria-live="polite">
-            <div className="riding-gear-spinner"></div>
+            <div className="riding-gear-spinner" />
             <p>Loading essentials...</p>
           </div>
-        ) : error ? (
+        )}
+
+        {status === "error" && (
           <div className="riding-gear-error" role="alert">
             <p>{error}</p>
           </div>
-        ) : (
+        )}
+
+        {status === "success" && (
           <>
             <div className="riding-gear-grid fade-in">
               {featuredGears.map((gear) => (

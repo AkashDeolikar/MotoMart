@@ -113,7 +113,7 @@ function Chatbot() {
       console.error("Chat error:", err);
       setMessages((prev) => [
         ...prev,
-        { sender: "bot", text: "❌ Error connecting to AI." },
+        { sender: "bot", text: "❌ Error connecting to AI."},
       ]);
     } finally {
       setLoading(false);
