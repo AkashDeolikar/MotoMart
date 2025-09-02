@@ -87,6 +87,7 @@ app.post('/api/chat', async (req, res) => {
 });
 
 
+
 // === Contact Schema ===
 const contactSchema = new mongoose.Schema({
   name: String,
