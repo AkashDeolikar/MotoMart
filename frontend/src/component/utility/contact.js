@@ -8,8 +8,10 @@ const Contact = () => {
     mobile: "",
     message: "",
   });
-  const [isSent, setIsSent] = useState(false); // Track if message is sent
-  const [errorMsg, setErrorMsg] = useState(""); // Optional: track error
+
+  const [status, setStatus] = useState("idle"); 
+  // idle | sending | sent
+  const [errorMsg, setErrorMsg] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,7 +20,9 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrorMsg(""); // Reset previous error
+    setErrorMsg("");
+    setStatus("sending"); // show loading effect
+
     try {
       const response = await fetch("https://motomartbackend.onrender.com/api/contact", {
         method: "POST",
@@ -28,14 +32,16 @@ const Contact = () => {
 
       const data = await response.json();
       if (response.ok) {
-        setIsSent(true); // success
+        setStatus("sent"); 
         setFormData({ name: "", email: "", mobile: "", message: "" });
-        setTimeout(() => setIsSent(false), 3000); // reset after 3s
+        setTimeout(() => setStatus("idle"), 4000); // reset after 3s
       } else {
         setErrorMsg(data.error || "Something went wrong");
+        setStatus("idle");
       }
     } catch (err) {
       setErrorMsg("Failed to send feedback. Please try again.");
+      setStatus("idle");
     }
   };
 
@@ -58,12 +64,41 @@ const Contact = () => {
           <input type="tel" name="mobile" placeholder="Mobile Number" pattern="[0-9]{10}" value={formData.mobile} onChange={handleChange} required />
           <textarea name="message" placeholder="Your Message" value={formData.message} onChange={handleChange} rows={4} required />
 
-          <button type="submit" className={isSent ? "sent" : ""}>
-            <i className="bi bi-send-check" style={{ marginRight: "8px" }}></i>
-            {isSent ? "Message Sent Successfully!" : "Send Message"}
-          </button>
+          {/* <button
+            type="submit"
+            className={`status-btn ${status}`}
+            disabled={status === "sending"} // disable while sending
+          >
+            {status === "sending" && (
+              <span className="spinner"></span>
+            )}
+            {status === "idle" && (
+              <>
+                <i className="bi bi-send" style={{ marginRight: "8px" }}></i>
+                Send Message
+              </>
+            )}
+            {status === "sending" && " Sending..."}
+            {status === "sent" && (
+              <>
+                <i className="bi bi-send-check" style={{ marginRight: "8px" }}></i>
+                Message Sent Successfully!
+              </>
+            )}
+          </button> */}
+          <button 
+  type="submit" 
+  className={`contact-form-button ${status}`} 
+  disabled={status === "sending"}
+>
+  <span>
+    {status === "idle" && "Send Message"}
+    {status === "sending" && "Sending..."}
+    {status === "sent" && "Message Sent ✅"}
+  </span>
+</button>
 
-          {/* Optional error message */}
+
           {errorMsg && <p className="error-msg">{errorMsg}</p>}
         </form>
       </div>

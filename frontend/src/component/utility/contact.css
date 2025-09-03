@@ -92,30 +92,66 @@
 }
 
 /* === Button === */
-
+/* Base button */
 .contact-form button {
-  padding: 12px;
+  position: relative;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 500;
   border: none;
-  background: linear-gradient(135deg, #1976d2, #0d47a1);
-  color: #000;
-  font-weight: bold;
-  font-size: 1rem;
-  padding: 12px;
-  cursor: pointer;
   border-radius: 8px;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-}
-
-/* Button sent state */
-.contact-form button.sent {
-  background: linear-gradient(135deg, #26a69a, #00897b);
   color: #fff;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: #1976d2; /* Brand Blue */
+  box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
 }
 
+/* Sending state */
+.contact-form button.sending {
+  background: #1565c0; /* Darker base */
+  cursor: not-allowed;
+}
+
+/* Animated progress overlay */
+.contact-form button.sending::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #42a5f5, #2196f3, #42a5f5);
+  background-size: 200% 100%;
+  animation: fillStatus 2s forwards, shimmer 1.5s infinite linear;
+  border-radius: inherit;
+  z-index: 0;
+}
+
+/* Ensure text is above animation */
+.contact-form button.sending span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Success state (same palette, green accent) */
+.contact-form button.sent {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  box-shadow: 0 6px 16px rgba(39, 174, 96, 0.4);
+}
+
+/* Fill animation */
+@keyframes fillStatus {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+/* Shimmer sweep */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
 
 /* Optional error message */
 .error-msg {

@@ -144,6 +144,9 @@
   color: #b71c1c;
   transform: scale(1.05);
 } */
+ .fav-page{
+  color: white;
+ }
  .remove-btn {
   font-family: 'HCLTechRoobert-Bold', sans-serif;
   text-transform: uppercase;
