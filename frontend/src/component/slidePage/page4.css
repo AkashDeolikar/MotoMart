@@ -1,110 +1,76 @@
+/* ================================
+   Global Resets & Base
+================================ */
 *,
 *::before,
 *::after {
-  box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+  box-sizing: border-box;
 }
 
-.B1Page {
-  /* padding: 3rem 1rem; */
+body {
+  margin: 0;
   font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
   line-height: 1.7;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  min-height: 100vh; /* Ensures the page takes at least the full viewport height */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ================================
+   Root Variables (Design Tokens)
+================================ */
+:root {
+  /* Light Theme */
+  --color-bg-light: #f8f9fa;
+  --color-text-light: #1a1a1a;
+  --color-accent-light: #0d6efd;
+  --color-surface-light: #ffffff;
+  --shadow-light: 0 6px 24px rgba(0, 0, 0, 0.06);
+
+  /* Dark Theme */
+  --color-bg-dark: #101418;
+  --color-text-dark: #e9ecef;
+  --color-accent-dark: #4dd0e1;
+  --color-surface-dark: #1a1f24;
+  --shadow-dark: 0 6px 24px rgba(0, 0, 0, 0.6);
+
+  /* Shared */
+  --radius: 12px;
+  --transition: all 0.3s ease;
+  --max-width: 1200px;
+}
+
+/* ================================
+   Page Wrapper
+================================ */
+.B1Page {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centers content horizontally within the page if it's narrower */
+  align-items: center;
+  padding: 3rem 1rem;
+  transition: var(--transition);
 }
 
-/* ========= LIGHT THEME ========= */
+/* Light Mode */
 .light .B1Page {
-  background-color: #f8f9fa;
-  color: #1a1a1a;
+  background: var(--color-bg-light);
+  color: var(--color-text-light);
 }
 
-.light .bgPaper h5 {
-  color: #0d6efd;
-}
-
-.light .bgPaper h1 {
-  color: #1a1a1a;
-}
-
-.light .ConstantBG {
-  background: #ffffff;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
-}
-
-.light .drop-flex {
-  background: #ffffff;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-}
-
-.light .drop-text h3 {
-  color: #212529;
-}
-
-.light .drop-text p {
-  color: #495057;
-}
-
-.light .btn-attractive {
-  background-color: #0d6efd;
-  color: #fff;
-}
-
-.light .btn-attractive:hover {
-  background-color: #0b5ed7;
-}
-
-/* ========= DARK THEME ========= */
+/* Dark Mode */
 .dark .B1Page {
-  background-color: #101418;
-  color: #e9ecef;
+  background: var(--color-bg-dark);
+  color: var(--color-text-dark);
 }
 
-.dark .bgPaper h5 {
-  color: #4dd0e1;
-}
-
-.dark .bgPaper h1 {
-  color: #ffffff;
-}
-
-.dark .ConstantBG {
-  background: #1a1f24;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
-}
-
-.dark .drop-flex {
-  background: #1e252b;
-  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.04);
-}
-
-.dark .drop-text h3 {
-  color: #ffffff;
-}
-
-.dark .drop-text p {
-  color: #ced4da;
-}
-
-.dark .btn-attractive {
-  background-color: #4dd0e1;
-  color: #0f1113;
-}
-
-.dark .btn-attractive:hover {
-  background-color: #26c6da;
-}
-
-/* ========= SHARED STRUCTURE ========= */
-
+/* ================================
+   Hero Section
+================================ */
 .bgPaper {
   text-align: center;
   margin-bottom: 3rem;
   padding: 0 1rem;
-  width: 100%; /* Ensure it takes full width within its parent */
-  max-width: 1100px; /* Aligns with ConstantBG max-width for consistency */
+  width: 100%;
+  max-width: var(--max-width);
 }
 
 .bgPaper h5 {
@@ -116,16 +82,35 @@
 }
 
 .bgPaper h1 {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 5vw, 2.8rem);
   font-weight: 800;
   margin: 0.25rem 0;
+  background: linear-gradient(90deg, #f200ff, #1855ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
+/* ================================
+   Content Section
+================================ */
 .ConstantBG {
+  background: var(--color-surface-light);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-light);
+  width: 100%;
   padding: 2rem;
-  max-width: 1100px;
-  margin: 0 auto;
-  width: 100%; /* Ensure it takes full width up to max-width */
+  margin-bottom: 3rem;
+  transition: var(--transition);
+}
+
+.drop-item{
+  margin-bottom: 5px;
+}
+
+.dark .ConstantBG {
+  background: var(--color-surface-dark);
+  box-shadow: var(--shadow-dark);
 }
 
 .constantBGT1page {
@@ -136,67 +121,84 @@
   padding: 0 0.5rem;
 }
 
-/* Accordion Sections */
-.drops,
-.seconddrop {
-  max-width: 1200px;
-  margin-left: auto; /* Center these elements if they are standalone sections */
-  margin-right: auto;
-  padding: 0 1rem; /* Add some horizontal padding for smaller screens */
+/* ================================
+   Accordion Sections
+================================ */
+.drops {
   width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
+/* Button with Gradient */
 .btn-attractive {
   padding: 0.75rem 2rem;
   border: none;
-  border-radius: 8px;
   font-size: 1rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  display: inline-block;
+  font-weight: 600;
+  background: linear-gradient(45deg, #f200ff, #1855ff);
+  color: #fff;
+  cursor: pointer;
+  transition: var(--transition);
   width: 100%;
   max-width: 320px;
-  text-align: center; /* Ensure text inside button is centered */
+  text-align: center;
 }
 
+.btn-attractive:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* Drop headings */
 .dropheading {
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 1.3rem;
+  font-weight: 700;
   margin: 0;
 }
 
-/* Flex Container */
+/* ================================
+   Drop Flex Container
+================================ */
 .drop-flex {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
   margin-top: 1.5rem;
-  border-radius: 12px;
+  border-radius: var(--radius);
   padding: 2rem;
-  transition: background 0.3s ease;
-  align-items: center; /* Vertically centers items if they have different heights */
-  justify-content: center; /* Horizontally centers items when wrapping or fewer items */
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface-light);
+  box-shadow: var(--shadow-light);
+  transition: var(--transition);
 }
 
-/* Image */
+.dark .drop-flex {
+  background: var(--color-surface-dark);
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.04);
+}
+
+/* Drop Image */
 .drop-image {
   flex: 1 1 350px;
   text-align: center;
-  min-width: 280px; /* Prevents image from becoming too small */
+  min-width: 280px;
 }
 
 .drop-image img {
   max-width: 100%;
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 12px;
-  display: block; /* Removes extra space below image */
-  margin: 0 auto; /* Centers image if its max-width is less than parent */
+  height: auto;
+  border-radius: var(--radius);
+  display: block;
+  margin: 0 auto;
 }
 
-/* Text */
+/* Drop Text */
 .drop-text {
   flex: 1 1 300px;
-  min-width: 280px; /* Prevents text block from becoming too small */
+  min-width: 280px;
 }
 
 .drop-text h3 {
@@ -212,67 +214,37 @@
   font-weight: 400;
 }
 
-/* ========= RESPONSIVE ========= */
+/* ================================
+   Responsive
+================================ */
 @media (max-width: 992px) {
-  .bgPaper h1 {
-    font-size: 2.2rem;
-  }
-
-  .ConstantBG {
-    padding: 1.5rem; /* Slightly reduce padding on medium screens */
-  }
-
   .drop-flex {
-    padding: 1.5rem; /* Adjust padding for flex sections */
-    gap: 1.5rem; /* Slightly reduce gap */
-  }
-
-  .drop-image,
-  .drop-text {
-    flex-basis: auto; /* Allow content to dictate size more flexibly before stacking */
+    padding: 1.5rem;
+    gap: 1.5rem;
   }
 }
 
 @media (max-width: 768px) {
-  .B1Page {
-    padding: 2rem 0.8rem; /* Reduce overall page padding */
-  }
-
   .drop-flex {
-    flex-direction: column; /* Stack image and text vertically */
+    flex-direction: column;
     padding: 1.5rem;
-    gap: 1rem; /* Adjust gap for stacked items */
-  }
-
-  .bgPaper h1 {
-    font-size: 2rem;
-  }
-
-  .dropheading {
-    font-size: 1.15rem;
+    gap: 1rem;
   }
 
   .drop-text,
   .drop-image {
-    flex: 1 1 100%; /* Ensure they take full width when stacked */
+    flex: 1 1 100%;
     text-align: center;
   }
 
   .drop-text h3 {
     font-size: 1.3rem;
   }
-
-  .drop-text p {
-    text-align: justify; /* Maintain justify for paragraphs, or change to center/left if preferred */
-  }
 }
 
 @media (max-width: 480px) {
   .B1Page {
-    padding: 1.5rem 0.5rem; /* Further reduce padding on very small screens */
-  }
-  .bgPaper h1 {
-    font-size: 1.75rem;
+    padding: 1.5rem 0.5rem;
   }
 
   .btn-attractive {
@@ -281,7 +253,7 @@
   }
 
   .drop-text h3 {
-    font-size: 1.2rem; /* Slightly smaller heading on tiny screens */
+    font-size: 1.2rem;
   }
 
   .drop-text p {
@@ -289,11 +261,7 @@
     line-height: 1.6;
   }
 
-  .ConstantBG {
-    padding: 1rem; /* Reduced padding for the main content block */
-  }
-
   .drop-flex {
-    padding: 1rem; /* Reduced padding for flex sections */
+    padding: 1rem;
   }
 }

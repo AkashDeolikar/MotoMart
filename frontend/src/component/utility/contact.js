@@ -34,7 +34,7 @@ const Contact = () => {
       if (response.ok) {
         setStatus("sent"); 
         setFormData({ name: "", email: "", mobile: "", message: "" });
-        setTimeout(() => setStatus("idle"), 4000); // reset after 3s
+        setTimeout(() => setStatus("idle"), 4000); // reset after 4s
       } else {
         setErrorMsg(data.error || "Something went wrong");
         setStatus("idle");

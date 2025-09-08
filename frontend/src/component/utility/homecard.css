@@ -197,7 +197,7 @@
 /* Very small mobile phones (e.g., iPhone 5/SE) */
 @media (max-width: 480px) {
   .cardbox {
-    margin-top: 50px;
+    /* margin-top: 50px; */
     padding: 15px 15px;
     /* Minimal padding for very small screens */
     overflow-x: visible;

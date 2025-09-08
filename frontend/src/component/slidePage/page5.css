@@ -95,7 +95,7 @@ a {
 
 /* Page1 Container */
 .B1Page2 {
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin: 0 auto;
 }
 

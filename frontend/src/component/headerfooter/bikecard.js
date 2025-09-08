@@ -2562,34 +2562,36 @@ const Bikecard = () => {
   return (
     <div className="seeoffer-background">
       <div className="cardbox">
-        <div className="manufacturer-filter" style={{ textAlign: 'center', marginBottom: '20px' }}>
+        <div className="manufacturer-filter" style={{ textAlign: 'center', marginBottom: '5px' }}>
           <input
             type="text"
             placeholder="Search by Manufacturer (e.g. Yamaha)"
             value={manufacturer}
             onChange={(e) => setManufacturer(e.target.value)}
             style={{
-              padding: '10px 15px',
+              padding: '5px 15px',
               width: '350px',
-              borderRadius: '8px',
+              borderRadius: '5px',
               border: '1px solid #ccc',
-              fontSize: '16px',
+              fontSize: '14px',
+              background: '#e4e4e4',
             }}
           />
         </div>
 
-        <div className="model-filter" style={{ textAlign: 'center', marginBottom: '20px' }}>
+        <div className="model-filter" style={{ textAlign: 'center', marginBottom: '10px' }}>
           <input
             type="text"
             placeholder="Search by Model (e.g. Activa, Apache)"
             value={model}
             onChange={(e) => setModel(e.target.value)}
             style={{
-              padding: '10px 15px',
+              padding: '5px 15px',
               width: '350px',
-              borderRadius: '8px',
+              borderRadius: '5px',
               border: '1px solid #ccc',
-              fontSize: '16px',
+              fontSize: '14px',
+              background: '#e4e4e4',
             }}
           />
         </div>

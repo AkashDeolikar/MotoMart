@@ -1,12 +1,12 @@
 /* tab.css */
 .seeoffer-background {
   position: relative;
-  background-image: url('https://img.freepik.com/free-photo/modern-futuristic-sci-fi-background_35913-2152.jpg?ga=GA1.1.2026843993.1740826384&semt=ais_items_boosted&w=740');
+  background-image: url('https://www.gstatic.com/search-labs/2ed7270e-629a-45a3-9da2-a2fe00ad1898.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  padding: 2rem;
+  padding: 0.5rem 1rem 0rem 1rem;
   z-index: 0;
 }
 
@@ -40,7 +40,7 @@ body {
 
 /* --- Container for the entire 'More experiments' content (heading + cards) --- */
 .cardbox {
-  padding: 40px 82px;
+  padding: 0px 80px;
   /* Top/bottom 40px, left/right 82px as per the screenshot's perceived padding */
   display: flex;
   flex-direction: column;

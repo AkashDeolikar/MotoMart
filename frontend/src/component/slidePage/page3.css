@@ -14,9 +14,9 @@ a {
 }
 
 .B1Page3 {
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin: 0 auto;
-  padding: 0 1rem;
+  /* padding: 0 1rem; */
 }
 
 /* Background Section */
@@ -93,9 +93,15 @@ a {
 }
 
 .T2Page h2 {
-  font-size: clamp(26px, 3vw, 40px);
-  color: #64b5f6;
-  margin-bottom: 30px;
+  font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+    background: linear-gradient(10deg, #ff0000, #ff9900, #ffcc00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: 'HCLTechRoobert-Medium';
 }
 
 .T2Page p {
