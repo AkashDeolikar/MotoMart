@@ -1,0 +1,52 @@
+@import "./styles/variables";
+
+.user-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  a, button {
+    font-size: 16px;
+    font-weight: 500;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-primary);
+  }
+
+  .cta {
+    background: var(--accent-color);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+  }
+
+  .theme-toggle {
+    background: var(--bg-secondary);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+  }
+
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+
+    span {
+      display: block;
+      height: 2px;
+      background: var(--text-primary);
+    }
+
+    &.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+    &.active span:nth-child(2) { opacity: 0; }
+    &.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+  }
+
+  @media (max-width: 1024px) {
+    .menu-toggle { display: flex; }
+  }
+}

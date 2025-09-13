@@ -1,0 +1,32 @@
+@import "./styles/variables";
+@import "./styles/mixins";
+@import "./styles/themes";
+
+.car-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background var(--transition-speed), backdrop-filter var(--transition-speed);
+  backdrop-filter: blur(12px);
+
+  &.transparent {
+    background: transparent;
+    border-bottom: none;
+  }
+
+  &.scrolled {
+    background: rgba(0, 0, 0, 0.8);
+    border-bottom: 1px solid var(--border-color);
+  }
+}
+
+.car-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--nav-height);
+  padding: 0 24px;
+  max-width: 1440px;
+  margin: 0 auto;
+}

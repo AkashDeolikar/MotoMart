@@ -54,6 +54,7 @@ body {
   position: relative;
   width: 100%;
   height: 650px;
+  padding-top: 45px;
 }
 
 .gear-slider-track {
@@ -151,16 +152,92 @@ body {
 .gear-slider-dot {
   width: 12px;
   height: 12px;
-  background: rgba(255, 255, 255, 0.4);
   border-radius: 50%;
   border: none;
   cursor: pointer;
-  transition: 0.3s;
+  background: rgba(255, 255, 255, 0.3);
+  transition: transform 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+  position: relative;
+  overflow: hidden;
 }
 
+/* Hover */
+.gear-slider-dot:hover {
+  transform: scale(1.25);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* Active state with one-time animation */
 .gear-dot-active {
   background: #c9e943;
+  box-shadow: 0 0 6px rgba(201, 233, 67, 0.6);
+  transform: scale(1.2);
+  animation: dotPop 0.6s ease forwards;
 }
+
+.gear-dot-active::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,233,67,0.8) 30%, transparent 70%);
+  animation: rippleOnce 0.6s ease forwards;
+}
+
+/* Click ripple */
+.gear-slider-dot:active::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.6) 30%, transparent 70%);
+  animation: rippleClick 0.6s ease-out;
+}
+
+/* Pop effect */
+@keyframes dotPop {
+  0% {
+    transform: scale(0.8);
+    box-shadow: 0 0 0 rgba(201, 233, 67, 0);
+  }
+  60% {
+    transform: scale(1.5);
+    box-shadow: 0 0 12px rgba(201, 233, 67, 0.8);
+  }
+  100% {
+    transform: scale(1.2);
+    box-shadow: 0 0 6px rgba(201, 233, 67, 0.6);
+  }
+}
+
+/* Auto ripple when active */
+@keyframes rippleOnce {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.6);
+  }
+  80% {
+    opacity: 0;
+    transform: scale(2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
+/* Manual click ripple */
+@keyframes rippleClick {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
 
 /* ===== Category Grids ===== */
 .gear-category-grid {

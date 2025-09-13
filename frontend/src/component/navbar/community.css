@@ -1,0 +1,91 @@
+:root {
+  --google-blue: #1a73e8;
+  --google-text-primary: #202124;
+  --google-text-secondary: #5f6368;
+  --google-bg: #fff;
+  --google-shadow-lg: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.gemini-landing-community {
+  position: relative;
+  background: var(--google-bg);
+  overflow: hidden;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.gemini-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+}
+
+.gemini-block {
+  position: relative;
+}
+
+.gemini-svg {
+  width: 100%;
+  height: 260px;
+}
+
+.gemini-section-hero {
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+.gemini-cta {
+  background: var(--google-bg);
+  padding: 40px 24px;
+  border-radius: 12px;
+  box-shadow: var(--google-shadow-lg);
+}
+
+.gemini-type-d4 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--google-text-primary);
+  margin-bottom: 16px;
+}
+
+.gemini-type-t1 {
+  font-size: 1.125rem;
+  color: var(--google-text-secondary);
+  margin-bottom: 32px;
+}
+
+.gemini-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 24px;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.gemini-primary {
+  background: var(--google-blue);
+  color: white;
+}
+
+.gemini-primary:hover {
+  background: #174ea6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .gemini-type-d4 {
+    font-size: 2rem;
+  }
+  .gemini-type-t1 {
+    font-size: 1rem;
+  }
+  .gemini-cta {
+    padding: 24px 16px;
+  }
+}

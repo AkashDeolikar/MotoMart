@@ -1,189 +1,501 @@
-import React, { useState, useEffect, useCallback, memo } from "react";
+import React, {
+  useState,
+  useEffect,
+  useCallback,
+  memo,
+  useMemo,
+  useRef,
+} from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaSun, FaMoon, FaBars, FaTimes } from "react-icons/fa";
-import './navbar.css';
-import '../openai/Chatbot.css';
+import {
+  FaSun,
+  FaMoon,
+  FaChevronDown,
+  FaChevronUp,
+  FaChevronRight,
+} from "react-icons/fa";
+import "./googlenavbar.css";
 import { auth } from "../../firebase";
-import ServiceDropdown from './ServiceDropdown';
-import VehicleDropdown from "./vehicledropdown";
 
-// ✅ Import different logos for theme
-import lightLogo from './logo2.png';   // used in light theme (dark logo)
-import darkLogo from './logo1.png';   // used in dark theme (light logo)
+import lightLogo from "./logo2.png";
+// import darkLogo from "./logo1.png";
 
 const CarNavbar = memo(({ theme, toggleTheme }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const user = auth.currentUser;
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeFlyout, setActiveFlyout] = useState(null);
   const [isHomePageAtTop, setIsHomePageAtTop] = useState(true);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+
+  const lastScrollYRef = useRef(
+    typeof window !== "undefined" ? window.scrollY : 0
+  );
+  const tickingRef = useRef(false);
+
+  const navItems = useMemo(
+    () => ({
+      vehicle: [
+        { to: "/overviewpage", title: "Overview", desc: "All vehicle highlights" },
+        { to: "/carcard", title: "Explore Car", desc: "Discover our cars" },
+        { to: "/bikecard", title: "Explore Bike", desc: "Check out bikes" },
+        { to: "/cardetails", title: "Car Compare", desc: "Compare different cars" },
+        { to: "/bikecomparedetails", title: "Bike Compare", desc: "Compare different bikes" },
+        { to: "/mainpagegear", title: "Bike Riding Gear", desc: "Find essential riding gear" },
+      ],
+      service: [
+        { to: "/servicecostcalculator", title: "Service Cost Check", desc: "Estimate your service costs easily" },
+        { to: "/emicalculator", title: "EMI Calculator", desc: "Plan payments with ease" },
+        { to: "/partsinfo", title: "Parts Info", desc: "Find genuine parts info" },
+      ],
+    }),
+    []
+  );
+
+  const closeMenu = useCallback(() => {
+    setIsMobileMenuOpen(false);
+    setActiveFlyout(null);
+  }, []);
+
+  const handleLinkClick = useCallback(() => {
+    closeMenu();
+  }, [closeMenu]);
 
   const handleLogout = useCallback(async () => {
     try {
       await auth.signOut();
       navigate("/login");
+      closeMenu();
     } catch (error) {
       console.error("Error signing out:", error);
     }
-  }, [navigate]);
+  }, [navigate, closeMenu]);
 
   const toggleMobileMenu = useCallback(() => {
-    setIsMobileMenuOpen(prev => !prev);
+    setIsMobileMenuOpen((prev) => !prev);
+    setActiveFlyout(null);
+    setIsHeaderVisible(true);
   }, []);
 
-  const closeMobileMenu = useCallback(() => {
-    setIsMobileMenuOpen(false);
+  const handleFlyoutToggle = useCallback((menu, event) => {
+    if (event?.stopPropagation) event.stopPropagation();
+    setActiveFlyout((prev) => (prev === menu ? null : menu));
+  }, []);
+
+  const handleDocumentClick = useCallback((e) => {
+    const target = e.target;
+    if (
+      !target.closest(".main-menu__item") &&
+      !target.closest(".mobile-section")
+    ) {
+      setActiveFlyout(null);
+    }
+    if (!target.closest(".user-menu")) {
+      // safe close
+    }
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const isHomePath = location.pathname === "/";
-      const scrollTop = window.scrollY;
-      const newIsHomePageAtTop = isHomePath && scrollTop <= 50;
-      if (newIsHomePageAtTop !== isHomePageAtTop) {
-        setIsHomePageAtTop(newIsHomePageAtTop);
+    document.addEventListener("click", handleDocumentClick);
+    return () => document.removeEventListener("click", handleDocumentClick);
+  }, [handleDocumentClick]);
+
+  useEffect(() => {
+    function updateVisibility() {
+      const currentY = window.scrollY;
+
+      if (window.innerWidth < 1024) {
+        setIsHeaderVisible(true);
+        lastScrollYRef.current = currentY;
+        tickingRef.current = false;
+        return;
       }
+
+      if (isMobileMenuOpen) {
+        setIsHeaderVisible(true);
+        lastScrollYRef.current = currentY;
+        tickingRef.current = false;
+        return;
+      }
+
+      if (currentY <= 50) {
+        setIsHeaderVisible(true);
+      } else {
+        if (currentY > lastScrollYRef.current && currentY > 120) {
+          setIsHeaderVisible(false);
+        } else {
+          setIsHeaderVisible(true);
+        }
+      }
+
+      lastScrollYRef.current = currentY;
+      tickingRef.current = false;
+    }
+
+    function onScroll() {
+      if (!tickingRef.current) {
+        tickingRef.current = true;
+        window.requestAnimationFrame(updateVisibility);
+      }
+    }
+
+    updateVisibility();
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    function onResize() {
+      if (window.innerWidth < 1024) setIsHeaderVisible(true);
+    }
+    window.addEventListener("resize", onResize);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
     };
+  }, [isMobileMenuOpen]);
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [location.pathname, isHomePageAtTop]);
+  useEffect(() => {
+    const onScrollForHome = () => {
+      setIsHomePageAtTop(location.pathname === "/" && window.scrollY <= 50);
+    };
+    window.addEventListener("scroll", onScrollForHome, { passive: true });
+    onScrollForHome();
+    return () => window.removeEventListener("scroll", onScrollForHome);
+  }, [location.pathname]);
 
-  const navbarClass = `car-navbar ${isHomePageAtTop ? "homepage-transparent-top" : "scrolled-or-other-page"}`;
+  const navbarClass = useMemo(() => {
+    let cls = `header ${isHomePageAtTop ? "homepage-transparent" : "scrolled"}`;
+    if (!isHeaderVisible) cls += " hidden";
+    return cls;
+  }, [isHomePageAtTop, isHeaderVisible]);
 
   return (
-    <nav className={navbarClass} aria-label="Main Navigation">
-      <div className="car-navbar-container">
-        {/* Logo that switches with theme */}
-        <div className="car-navbar-logo">
-          <img
-            className="ProjectName"
-            src={theme === "dark" ? darkLogo : lightLogo}
-            alt="MotoMart Logo"
-          />
-        </div>
-
-        {/* <button
-          className="mobile-menu-button"
-          onClick={toggleMobileMenu}
-          aria-controls="main-navbar-links"
-          aria-expanded={isMobileMenuOpen}
-        >
-          {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
-        </button> */}
-        <button
-          className="mobile-menu-button"
-          onClick={toggleMobileMenu}
-          aria-controls="main-navbar-links"
-          aria-expanded={isMobileMenuOpen}
-        >
-          {isMobileMenuOpen ? (
-            // ✅ Custom close button SVG
-            <svg xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              width="24"
-              height="24">
-              <path
-                fillRule="evenodd"
-                d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
-                clipRule="evenodd"
-              />
-            </svg>
-          ) : (
-            // ✅ Custom hamburger (three lines)
-            <svg xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              width="24"
-              height="24">
-              <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-            </svg>
-          )}
-        </button>
-
-
-        {isMobileMenuOpen && (
-          <div className="mobile-menu-overlay" onClick={closeMobileMenu}></div>
-        )}
-
-        <div
-          id="main-navbar-links"
-          role="navigation"
-          aria-hidden={!isMobileMenuOpen}
-          className={`car-navbar-links ${isMobileMenuOpen ? "mobile-open" : ""}`}
-        >
-          <ul>
-            <li>
-              <Link to="/" className={location.pathname === "/" ? "active" : ""} onClick={closeMobileMenu}>Home</Link>
-            </li>
-
-            <VehicleDropdown
-              closeParentMobileMenu={closeMobileMenu}
-              isParentMobileMenuOpen={isMobileMenuOpen}
-            />
-
-            {user?.email === "admin@gmail.com" && (
-              <li>
-                <Link to="/add-car" className={location.pathname === "/add-car" ? "active" : ""} onClick={closeMobileMenu}>Add Car</Link>
-              </li>
-            )}
-
-            <ServiceDropdown
-              closeParentMobileMenu={closeMobileMenu}
-              isParentMobileMenuOpen={isMobileMenuOpen}
-            />
-
-            <li>
-              <Link to="/contact" className={location.pathname === "/contact" ? "active" : ""} onClick={closeMobileMenu}>Contact</Link>
-            </li>
-
-            {!user ? (
-              <>
-                <li><Link to="/login" className={location.pathname === "/login" ? "active" : ""} onClick={closeMobileMenu}>Login</Link></li>
-                <li><Link to="/register" className={location.pathname === "/register" ? "active" : ""} onClick={closeMobileMenu}>Register</Link></li>
-              </>
-            ) : (
-              <>
-                <li>
-                  <Link to="/myfavorites" className={location.pathname === "/myfavorites" ? "active" : ""} onClick={closeMobileMenu}>
-                    My Favorites
-                  </Link>
-                </li>
-                <li>
-                  <button className="logout-btn" onClick={() => { handleLogout(); closeMobileMenu(); }}>
-                    <i className="bi bi-box-arrow-right"></i> Logout
-                  </button>
-                </li>
-                <li className="user-info">
-                  <i className="bi bi-person-circle"></i> {user.displayName || user.email.split('@')[0]}
-                </li>
-              </>
-            )}
-
-            {/* Theme Toggle Button */}
-            <li>
-              <div
-                className="theme-toggle"
-                onClick={() => { toggleTheme(); closeMobileMenu(); }}
-                role="button"
-                tabIndex="0"
-                aria-label={theme === "light" ? "Switch to dark theme" : "Switch to light theme"}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    toggleTheme();
-                    closeMobileMenu();
-                  }
-                }}
-              >
-                {theme === "light" ? <FaMoon /> : <FaSun />}
-              </div>
-            </li>
-          </ul>
+    <header
+      className={navbarClass}
+      style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000 }}
+    >
+      {/* Gradient Background */}
+      <div className="header__gradient__container" aria-hidden="true">
+        <div className="header__gradient__wrapper">
+          <div className="header__gradient__shape" />
+          <div className="header__gradient__shape" />
+          <div className="header__gradient__shape" />
+          <div className="header__gradient__shape" />
         </div>
       </div>
-    </nav>
+
+      <div className="header-container">
+        {/* Left */}
+        <div className="left-menu">
+          <Link to="/" className="logo-wrapper" onClick={handleLinkClick}>
+            <img
+              src={theme === "light" ? lightLogo : lightLogo}
+              alt="Logo"
+              className="navbar-logo"
+            />
+          </Link>
+
+          <nav className="desktop-nav" aria-label="Main navigation">
+            <ul className="main-menu__list">
+              <li>
+                <Link
+                  to="/"
+                  className={location.pathname === "/" ? "active" : ""}
+                  onClick={handleLinkClick}
+                >
+                  Home
+                </Link>
+              </li>
+
+              <li
+                className={`main-menu__item ${
+                  activeFlyout === "vehicle" ? "is-expanded" : ""
+                }`}
+              >
+                <button
+                  className="main-menu__label"
+                  onClick={(e) => handleFlyoutToggle("vehicle", e)}
+                  aria-expanded={activeFlyout === "vehicle"}
+                >
+                  Vehicle{" "}
+                  {activeFlyout === "vehicle" ? <FaChevronUp /> : <FaChevronDown />}
+                </button>
+                <div className="flyout__wrapper">
+                  <div className="flyout__container">
+                    {navItems.vehicle.map((item) => (
+                      <Link
+                        key={item.to}
+                        to={item.to}
+                        className="flyout__link"
+                        onClick={handleLinkClick}
+                      >
+                        <div className="contentt">
+                          <span>{item.title}</span>
+                          <p>
+                            {item.desc} <FaChevronRight />
+                          </p>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </li>
+
+              {user?.email === "admin@gmail.com" && (
+                <li>
+                  <Link
+                    to="/add-car"
+                    className={location.pathname === "/add-car" ? "active" : ""}
+                    onClick={handleLinkClick}
+                  >
+                    Add Car
+                  </Link>
+                </li>
+              )}
+
+              <li
+                className={`main-menu__item ${
+                  activeFlyout === "service" ? "is-expanded" : ""
+                }`}
+              >
+                <button
+                  className="main-menu__label"
+                  onClick={(e) => handleFlyoutToggle("service", e)}
+                  aria-expanded={activeFlyout === "service"}
+                >
+                  Service{" "}
+                  {activeFlyout === "service" ? <FaChevronUp /> : <FaChevronDown />}
+                </button>
+                <div className="flyout__wrapper">
+                  <div className="flyout__container">
+                    {navItems.service.map((item) => (
+                      <Link
+                        key={item.to}
+                        to={item.to}
+                        className="flyout__link"
+                        onClick={handleLinkClick}
+                      >
+                        <div className="contentt">
+                          <span>{item.title}</span>
+                          <p>
+                            {item.desc} <FaChevronRight />
+                          </p>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <Link
+                  to="/contact"
+                  className={location.pathname === "/contact" ? "active" : ""}
+                  onClick={handleLinkClick}
+                >
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        {/* Right */}
+        <div className="right-menu">
+          {!user ? (
+            <>
+              <Link
+                to="/login"
+                className="action-link"
+                onClick={handleLinkClick}
+              >
+                Login
+              </Link>
+              <Link
+                to="/register"
+                className="action-link cta__wrapper"
+                onClick={handleLinkClick}
+              >
+                Register
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link
+                to="/myfavorites"
+                className="action-link desktop-only"
+                onClick={handleLinkClick}
+              >
+                My Favorites
+              </Link>
+
+              <div className="user-menu desktop-only">
+                <button className="user-info-btn" type="button">
+                  {user.photoURL ? (
+                    <img
+                      src={user.photoURL}
+                      alt="Profile"
+                      className="user-avatar"
+                    />
+                  ) : (
+                    <span className="user-avatar-placeholder">
+                      {user.displayName
+                        ? user.displayName[0].toUpperCase()
+                        : "U"}
+                    </span>
+                  )}
+                  <span className="user-name">
+                    {user.displayName || user.email.split("@")[0]}
+                  </span>
+                </button>
+                <div className="user-dropdown">
+                  <Link to="/ProfileSettings" onClick={handleLinkClick}>
+                    Profile
+                  </Link>
+                  <Link to="/Settings" onClick={handleLinkClick}>
+                    Settings
+                  </Link>
+                  <button onClick={handleLogout}>Logout</button>
+                </div>
+              </div>
+            </>
+          )}
+
+          <button
+            className="theme-toggle"
+            onClick={() => {
+              toggleTheme();
+              closeMenu();
+            }}
+            aria-label="Toggle theme"
+          >
+            {theme === "light" ? <FaMoon /> : <FaSun />}
+          </button>
+
+          <button
+            className={`menu-toggle ${isMobileMenuOpen ? "is-active" : ""}`}
+            onClick={toggleMobileMenu}
+            aria-label="Toggle mobile menu"
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu"
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <nav
+        id="mobile-menu"
+        className={`mobile-menu ${isMobileMenuOpen ? "is-active" : ""}`}
+        aria-label="Mobile navigation"
+      >
+        <Link to="/" onClick={handleLinkClick}>
+          Home
+        </Link>
+
+        <div className="mobile-section">
+          <button
+            onClick={() =>
+              setActiveFlyout(activeFlyout === "vehicle" ? null : "vehicle")
+            }
+          >
+            Vehicle{" "}
+            {activeFlyout === "vehicle" ? <FaChevronUp /> : <FaChevronDown />}
+          </button>
+          <div
+            className={`mobile-flyout ${
+              activeFlyout === "vehicle" ? "is-active" : ""
+            }`}
+          >
+            {navItems.vehicle.map((item) => (
+              <Link key={item.to} to={item.to} onClick={handleLinkClick}>
+                {item.title}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {user?.email === "admin@gmail.com" && (
+          <Link to="/add-car" onClick={handleLinkClick}>
+            Add Car
+          </Link>
+        )}
+
+        <div className="mobile-section">
+          <button
+            onClick={() =>
+              setActiveFlyout(activeFlyout === "service" ? null : "service")
+            }
+          >
+            Service{" "}
+            {activeFlyout === "service" ? <FaChevronUp /> : <FaChevronDown />}
+          </button>
+          <div
+            className={`mobile-flyout ${
+              activeFlyout === "service" ? "is-active" : ""
+            }`}
+          >
+            {navItems.service.map((item) => (
+              <Link key={item.to} to={item.to} onClick={handleLinkClick}>
+                {item.title}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <Link to="/contact" onClick={handleLinkClick}>
+          Contact
+        </Link>
+
+        {!user ? (
+          <>
+            <Link to="/login" onClick={handleLinkClick}>
+              Login
+            </Link>
+            <Link
+              to="/register"
+              className="cta__wrapper"
+              onClick={handleLinkClick}
+            >
+              Register
+            </Link>
+          </>
+        ) : (
+          <div className="mobile-user-section">
+            <div className="mobile-user-header">
+              {user.photoURL ? (
+                <img
+                  src={user.photoURL}
+                  alt="Profile"
+                  className="user-avatar"
+                />
+              ) : (
+                <span className="user-info">
+                  {user.displayName || user.email.split("@")[0]}
+                </span>
+              )}
+            </div>
+            <Link to="/myfavorites" onClick={handleLinkClick}>
+              My Favorites
+            </Link>
+            <Link to="/ProfileSettings" onClick={handleLinkClick}>
+              Profile
+            </Link>
+            <Link to="/Settings" onClick={handleLinkClick}>
+              Settings
+            </Link>
+            <button className="logout-btn" onClick={handleLogout}>
+              Logout
+            </button>
+          </div>
+        )}
+      </nav>
+    </header>
   );
 });
 

@@ -1,113 +1,236 @@
+/* Import Google Sans Flex */
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700&display=swap');
+
+/* Base Styles */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #060606;
+  font-family: "Google Sans Flex", Arial, Helvetica, sans-serif;
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth Fade-in Animation */
+.fade-in {
+  animation: fadeInUp 0.8s ease-in-out both;
+}
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Section Background */
 .aboutus-section {
-  font-family: "HCLTechRoobert-Medium", sans-serif;
-  padding: 40px 20px;
-  background-image: url('../utility/premium-bg.webp'); /* Adjust the path */
+  background: #060606 url("https://ai.google.dev/images/aistudio-background.svg") no-repeat center top;
   background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: #ffffff;
-  line-height: 1.6;
-  transition: all 0.5s ease;
-  opacity: 0.95;
-  position: relative;
-  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 20px;
 }
 
-/* Optional overlay effect for better readability */
-.aboutus-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.3));
-  z-index: 0;
-}
-
+/* Container */
 .aboutus-container {
-  max-width: 960px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px;
+  text-align: center;
+  font-family: "Google Sans Flex", Arial, Helvetica, sans-serif;
 }
 
+/* Title */
 .aboutus-title {
-  font-family: "HCLTechRoobert-Medium", sans-serif;
-  font-size: 3rem;
-  margin-bottom: 24px;
-  color: #ffffff;
+  font-family: "Google Sans Flex", Arial, Helvetica, sans-serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  margin-bottom: 20px;
+  background: #4285F4;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
 }
 
+/* Subheading */
 .aboutus-subheading {
-  font-family: "HCLTechRoobert-Bold", sans-serif;
-  font-size: 1.6rem;
+  font-family: "Google Sans Flex", Arial, Helvetica, sans-serif;
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  margin: 30px 0 15px;
   font-weight: 600;
-  margin-top: 36px;
-  color: #ffffff;
+  color: #e1e1e1;
+  border-left: 4px solid #4285f4;
+  padding-left: 12px;
+  text-align: left;
 }
 
+/* Description */
 .aboutus-description {
-  font-family: "HCLTechRoobert-Light", sans-serif;
-  font-size: 1.05rem;
-  margin-bottom: 16px;
-  color: #ffffff;
+  font-family: "Google Sans Flex", Arial, Helvetica, sans-serif;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  line-height: 1.7;
+  color: #d0d0d0;
+  margin-bottom: 20px;
+  text-align: left;
 }
 
+/* Feature List */
 .aboutus-feature-list {
-  font-family: "HCLTechRoobert-Light", sans-serif;
-  list-style-type: none;
-  padding-left: 0;
-  margin-top: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 30px;
+  text-align: left;
 }
-
 .aboutus-feature-list li {
-  font-family: "HCLTechRoobert-Light", sans-serif;
-  margin-bottom: 10px;
+  font-family: "Google Sans Flex", Arial, Helvetica, sans-serif;
+  margin-bottom: 12px;
   font-size: 1rem;
-  color: #ffffff;
+  color: #f1f1f1;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s;
+}
+.aboutus-feature-list li:hover {
+  transform: translateX(5px);
+  color: #34a853;
 }
 
+/* CTA Button */
 .aboutus-cta-button {
+  font-family: "Google Sans Flex", Arial, Helvetica, sans-serif;
   display: inline-block;
-  margin-top: 30px;
-  padding: 12px 25px;
-  background-color: #8a8a8a47;
-  backdrop-filter: blur(5px);
-  color: #ffffff;
+  background: #4285F4;
+  color: #fff;
+  padding: 14px 34px;
+  border-radius: 50px;
   text-decoration: none;
-  transition: background 0.3s ease;
   font-weight: 600;
+  font-size: 1.15rem;
+  transition: 0.3s ease-in-out;
+}
+.aboutus-cta-button:hover {
+  background: #1b1b1b;
+  border-radius: 50px;
 }
 
+/* Cards */
+.aboutus-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 30px;
+}
+.aboutus-card {
+  font-family: "Google Sans Flex", Arial, Helvetica, sans-serif;
+  background: linear-gradient(145deg, #0d0d0d, #141414);
+  border-radius: 18px;
+  padding: 28px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+}
+.aboutus-card:hover {
+  transform: translateY(-8px);
+}
+.aboutus-card h3 {
+  font-family: "Google Sans Flex", Arial, Helvetica, sans-serif;
+  font-size: clamp(1.2rem, 3vw, 1.4rem);
+  margin-bottom: 12px;
+  color: #fff;
+}
+.aboutus-card p {
+  font-family: "Google Sans Flex", Arial, Helvetica, sans-serif;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  color: #ccc;
+  margin-bottom: 22px;
+}
+.aboutus-card button {
+  font-family: "Google Sans Flex", Arial, Helvetica, sans-serif;
+  background: linear-gradient(90deg, #4a90e2, #6dd5ed);
+  border: none;
+  padding: 12px 26px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #fff;
+  transition: all 0.3s;
+}
+.aboutus-card button:hover {
+  background: linear-gradient(90deg, #6dd5ed, #4a90e2);
+  transform: scale(1.07);
+}
+
+/* Footer */
 .aboutus-footer {
-  margin-top: 40px;
+  font-family: "Google Sans Flex", Arial, Helvetica, sans-serif;
+  margin-top: 50px;
   font-size: 0.95rem;
-  color: #ffffff;
+  color: #aaa;
+  text-align: center;
 }
-
 .aboutus-footer a {
-  color: #f5a623;
+  font-family: "Google Sans Flex", Arial, Helvetica, sans-serif;
+  color: #4a90e2;
+  text-decoration: none;
+}
+.aboutus-footer a:hover {
   text-decoration: underline;
 }
 
-/* Responsive */
+/* Responsive Fixes */
 @media (max-width: 768px) {
-  .aboutus-title {
-    font-size: 2.2rem;
+  .aboutus-section {
+    padding: 40px 10px;
   }
-
+  .aboutus-container {
+    padding: 20px 10px;
+  }
   .aboutus-subheading {
-    font-size: 1.3rem;
+    text-align: center;
+    border-left: none;
+    padding-left: 0;
   }
-
-  .aboutus-description,
-  .aboutus-feature-list li {
-    font-size: 0.98rem;
-  }
-
-  .aboutus-cta-button {
-    font-size: 0.95rem;
-    padding: 10px 20px;
+  .aboutus-description {
+    text-align: center;
   }
 }
+
+/* Material Icon Style */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1.4rem;
+  display: inline-flex;
+  vertical-align: middle;
+  margin-right: 8px;
+  color: #34a853; /* Google green for accent */
+}
+
+/* Bigger icons for cards */
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  color: #4285f4; /* Google blue */
+}
+
+
+.aboutus-card-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #4285F4;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.aboutus-card-button:hover {
+  background: #3367D6;
+}
+
+

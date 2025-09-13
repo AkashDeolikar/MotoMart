@@ -1,0 +1,460 @@
+// App.js
+import "./App.css";
+import React, { useState, useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+} from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
+import "./index.css"; // Tailwind base
+import logoDark from "./component/navbar/logo2.png";
+import logoLight from "./component/navbar/logo1.png";
+
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./firebase";
+
+// Auth Pages
+import Login from "./component/auth/login";
+import Register from "./component/auth/register";
+import ForgotPassword from "./component/auth/forgotpassword";
+import Modal from "./component/auth/modal";
+import useInactivityLogout from "./component/auth/useInactivityLogout";
+
+// Utility
+import CarList from "./component/utility/carlist";
+import Home from "./component/utility/home";
+import Contact from "./component/utility/contact";
+import ContactClick from "./component/utility/contactclick";
+import Aboutus from "./component/utility/aboutus";
+import StatsHighlightSection from "./component/utility/statshighlightsection";
+import ScrollToTop from "./component/utility/ScrollToTop";
+import Viewmore from "./component/cardetails/viewmore";
+import SlideItem from "./component/utility/SlideItem";
+
+// Navbar & Footer
+import CarNavbar from "./component/navbar/navbar";
+import Footer from "./component/headerfooter/footer";
+import Next from "./component/headerfooter/next";
+import Temp from "./component/headerfooter/temp";
+
+// Cars
+import MarutSwiftDetail from "./component/cardetails/MarutSwiftDetail";
+import TataNexonDetail from "./component/cardetails/TataNexonDetail";
+import ToyotaInnovaDetail from "./component/cardetails/ToyotaInnovaDetail";
+import HyundaiCretaDetail from "./component/cardetails/HyundaiCretaDetail";
+import SuzukiErtigaDetail from "./component/cardetails/SuzukiErtigaDetail";
+import OmniDetail from "./component/cardetails/OminDetail";
+import CarDetails from "./component/pages/cardetails";
+import CarDetail from "./component/headerfooter/cardetail";
+
+// Vehicle Cards
+import Carcard from "./component/headerfooter/carcard";
+import Bikecard from "./component/headerfooter/bikecard";
+import BikeCompareDetails from "./component/pages/BikeCompareDetails";
+
+// Vehicle Data
+import { vehicleData as bikeVehicleData } from "./component/headerfooter/bikecard";
+import { vehicleData as carVehicleData } from "./component/headerfooter/carcard";
+
+// Services
+import ServiceCostCalculator from "./component/slidePage/servicepages/servicecostcalculator";
+import EMICalculator from "./component/slidePage/servicepages/emicalculator";
+import PartsInfo from "./component/slidePage/servicepages/partsinfo";
+import AddMoreServiceCostCalculator from "./component/slidePage/servicepages/AddMoreServiceCostCalculator";
+
+// Pages
+import OverviewPage from "./component/pages/OverviewPage";
+import Page1 from "./component/slidePage/page1";
+import Page2 from "./component/slidePage/page2";
+import Page3 from "./component/slidePage/page3";
+import Page4 from "./component/slidePage/page4";
+import Page5 from "./component/slidePage/page5";
+import Page6 from "./component/slidePage/Page6";
+import Luxury from "./component/slidePage/luxury";
+import Rover from "./component/slidePage/roverpages/rover";
+import Jaguar from "./component/slidePage/roverpages/jaguar";
+import Bmw from "./component/slidePage/roverpages/bmw";
+import Mercedes from "./component/slidePage/roverpages/mercedes";
+
+// Categories
+import Luxuryvh from "./component/slidePage/ziczacpages/luxuryvh";
+import Passengervh from "./component/slidePage/ziczacpages/passengervh";
+import Commercialvh from "./component/slidePage/ziczacpages/commercialvh";
+import Evvh from "./component/slidePage/ziczacpages/evvh";
+
+// Subcategories
+import Audicar from "./component/slidePage/subpages/luxurycarpages/audicar";
+import Jaguarcar from "./component/slidePage/subpages/luxurycarpages/jaguarcar";
+import Mercedescar from "./component/slidePage/subpages/luxurycarpages/mercedescar";
+import Fordcar from "./component/slidePage/subpages/luxurycarpages/fordcar";
+import Bmwcar from "./component/slidePage/subpages/luxurycarpages/bmwcar";
+import Rangerovercar from "./component/slidePage/subpages/luxurycarpages/rangerovercar";
+import Rollsroylscar from "./component/slidePage/subpages/luxurycarpages/rollsroylscar";
+import Hondacar from "./component/slidePage/subpages/passengercappages/hondacar";
+import Hyundaicar from "./component/slidePage/subpages/passengercappages/hyundaicar";
+import Jeepcar from "./component/slidePage/subpages/passengercappages/jeepcar";
+import Nissancar from "./component/slidePage/subpages/passengercappages/nissancar";
+import Renaultcar from "./component/slidePage/subpages/passengercappages/renaultcar";
+import Suzukicar from "./component/slidePage/subpages/passengercappages/suzukicar";
+import Teslacar from "./component/slidePage/subpages/evcarpages/teslacarev";
+import Bmwcarev from "./component/slidePage/subpages/evcarpages/bmwcarev";
+import Kiacarev from "./component/slidePage/subpages/evcarpages/kiacarev";
+import Mercedescarev from "./component/slidePage/subpages/evcarpages/mercedescarev";
+import Mahindrapickup from "./component/slidePage/subpages/commercialcarpages/mahindrapickup";
+import Isuzupickup from "./component/slidePage/subpages/commercialcarpages/isuzupickup";
+import Ashokpickup from "./component/slidePage/subpages/commercialcarpages/ashokpickup";
+import Suzukipickup from "./component/slidePage/subpages/commercialcarpages/suzukipickup";
+
+// Favorites
+import FavoriteVehicle from "./component/headerfooter/FavoriteVehicle";
+import MyFavorites from "./component/headerfooter/MyFavorites";
+
+// Bikes
+import HondaActivaDetail from "./component/cardetails/HondaActiva";
+import NS200Detail from "./component/cardetails/NS200";
+
+// Riding Gear
+import GearCard from "./component/RidingGears/GearCard";
+import GearPage from "./component/RidingGears/RidingGearPreview";
+import MainPageGear from "./component/RidingGears/MainPageGear";
+import RaidOffroadGear from "./component/RidingGears/Categorypages/RaidOffroadGear";
+import GlovesPage from "./component/RidingGears/Categorypages/GlovesPage";
+import JacketsPage from "./component/RidingGears/Categorypages/JacketsPage";
+import BaseLayerPage from "./component/RidingGears/Categorypages/BaseLayerPage";
+import RidingPantsPage from "./component/RidingGears/Categorypages/RidingPantsPage";
+import TailBagPage from "./component/RidingGears/Categorypages/TailBagPage";
+import SaddleBagPage from "./component/RidingGears/Categorypages/SaddleBagPage";
+import HelmetStore from "./component/RidingGears/Categorypages/HelmetStore";
+
+// Utilities
+import EngineSound from "./component/utility/EngineSound";
+import EngineShowcase from "./component/utility/EngineShowcase";
+import BikeColorSwitcher from "./component/utility/BikeColorSwitcher";
+import Chatbot from "./component/openai/Chatbot";
+import ProfileSettings from "./component/navbar/ProfileSettings";
+import Settings from "./component/navbar/Settings";
+import CommunitySection from "./component/navbar/CommunitySection";
+import ConfirmDialog from "./component/utility/ConfirmDialog";
+
+// Protected Route
+const ProtectedRoute = ({ children, user, loadingAuth }) => {
+  if (loadingAuth) {
+    return null; // Loader is handled globally
+  }
+  if (!user) {
+    return <Navigate to="/login" replace />;
+  }
+  return children;
+};
+
+// Google AI–style Loader
+const GoogleAILoader = ({ theme }) => {
+  const blobs = [
+    { color: "#4285F4", size: 200, duration: 8 },
+    { color: "#EA4335", size: 250, duration: 12 },
+    { color: "#FBBC05", size: 180, duration: 10 },
+    { color: "#34A853", size: 220, duration: 14 },
+  ];
+
+  return (
+    <motion.div
+      className="fixed inset-0 flex flex-col items-center justify-center"
+      style={{
+        background: theme === "dark" ? "#0d0d0d" : "#ffffff",
+        overflow: "hidden",
+        zIndex: 9999,
+      }}
+      initial={{ opacity: 1 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      {/* Background blobs */}
+      {blobs.map((blob, i) => (
+        <motion.div
+          key={i}
+          className="absolute rounded-full mix-blend-multiply filter blur-3xl opacity-40"
+          style={{
+            background: blob.color,
+            width: blob.size,
+            height: blob.size,
+          }}
+          animate={{
+            x: [50, -50, 50],
+            y: [-30, 30, -30],
+            scale: [1, 1.2, 1],
+            rotate: [0, 360],
+          }}
+          transition={{
+            duration: blob.duration,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+      ))}
+
+      {/* Logo */}
+      <motion.img
+        src={theme === "dark" ? logoDark : logoLight}
+        alt="App Logo"
+        className="w-32 h-auto mb-10 relative z-10"
+        animate={{
+          scale: [1, 1.05, 1],
+        }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+
+      {/* Progress bar */}
+      <div className="w-48 h-1.5 bg-gray-300 dark:bg-gray-700 overflow-hidden rounded-full relative z-10">
+        <motion.div
+          className="h-full"
+          style={{
+            background:
+              "linear-gradient(90deg, #4285f4, #34a853, #fbbc05, #ea4335)",
+          }}
+          animate={{ x: ["-100%", "100%"] }}
+          transition={{
+            repeat: Infinity,
+            duration: 1.4,
+            ease: "easeInOut",
+          }}
+        />
+      </div>
+    </motion.div>
+  );
+};
+
+// Animated Routes
+const AnimatedRoutes = ({
+  theme,
+  toggleTheme,
+  showRegister,
+  setShowRegister,
+  user,
+  loadingAuth,
+}) => {
+  const location = useLocation();
+  useInactivityLogout(user);
+
+  return (
+    <>
+      <CarNavbar theme={theme} toggleTheme={toggleTheme} />
+      <ScrollToTop />
+      <Chatbot />
+      <div className="app-wrapper">
+        <div className="ContentWrapper">
+          <AnimatePresence mode="wait">
+            <Routes location={location} key={location.pathname}>
+              {/* Public Routes */}
+              <Route path="/" element={<Home />} />
+              <Route path="/home" element={<Navigate to="/" replace />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route
+                path="/register-modal"
+                element={
+                  <Modal isOpen={showRegister} onClose={() => setShowRegister(false)}>
+                    <Register closeModal={() => setShowRegister(false)} />
+                  </Modal>
+                }
+              />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/contactclick" element={<ContactClick />} />
+              <Route path="/next" element={<Next />} />
+              <Route path="/temp" element={<Temp />} />
+              <Route path="/overviewpage" element={<OverviewPage />} />
+              <Route path="/aboutus" element={<Aboutus />} />
+
+              {/* Protected Routes */}
+              <Route
+                path="/carlist"
+                element={
+                  <ProtectedRoute user={user} loadingAuth={loadingAuth}>
+                    <CarList />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/cardetails"
+                element={
+                  <ProtectedRoute user={user} loadingAuth={loadingAuth}>
+                    <CarDetails />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/BikeCompareDetails"
+                element={
+                  <ProtectedRoute user={user} loadingAuth={loadingAuth}>
+                    <BikeCompareDetails />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/cardetail/:vehicleId"
+                element={
+                  <ProtectedRoute user={user} loadingAuth={loadingAuth}>
+                    <CarDetail bikeData={bikeVehicleData} carData={carVehicleData} />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/FavoriteVehicle"
+                element={
+                  <ProtectedRoute user={user} loadingAuth={loadingAuth}>
+                    <FavoriteVehicle />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/MyFavorites"
+                element={
+                  <ProtectedRoute user={user} loadingAuth={loadingAuth}>
+                    <MyFavorites />
+                  </ProtectedRoute>
+                }
+              />
+
+              {/* Car & Bike Pages */}
+              <Route path="/swift" element={<MarutSwiftDetail />} />
+              <Route path="/creta" element={<HyundaiCretaDetail />} />
+              <Route path="/nexon" element={<TataNexonDetail />} />
+              <Route path="/ertiga" element={<SuzukiErtigaDetail />} />
+              <Route path="/omni" element={<OmniDetail />} />
+              <Route path="/innova" element={<ToyotaInnovaDetail />} />
+              <Route path="/activa" element={<HondaActivaDetail />} />
+              <Route path="/ns" element={<NS200Detail />} />
+              <Route path="/carcard" element={<Carcard />} />
+              <Route path="/bikecard" element={<Bikecard />} />
+
+              {/* Navigation Pages */}
+              <Route path="/page1" element={<Page1 />} />
+              <Route path="/page2" element={<Page2 />} />
+              <Route path="/page3" element={<Page3 />} />
+              <Route path="/page4" element={<Page4 />} />
+              <Route path="/page5" element={<Page5 />} />
+              <Route path="/page6" element={<Page6 />} />
+              <Route path="/rover" element={<Rover />} />
+              <Route path="/jaguar" element={<Jaguar />} />
+              <Route path="/bmw" element={<Bmw />} />
+              <Route path="/mercedes" element={<Mercedes />} />
+              <Route path="/luxury" element={<Luxury />} />
+
+              {/* Vehicle Categories */}
+              <Route path="/luxuryvh" element={<Luxuryvh />} />
+              <Route path="/passengervh" element={<Passengervh />} />
+              <Route path="/commercialvh" element={<Commercialvh />} />
+              <Route path="/evvh" element={<Evvh />} />
+
+              {/* Sub Brand Pages */}
+              <Route path="/audicar" element={<Audicar />} />
+              <Route path="/jaguarcar" element={<Jaguarcar />} />
+              <Route path="/mercedescar" element={<Mercedescar />} />
+              <Route path="/fordcar" element={<Fordcar />} />
+              <Route path="/bmwcar" element={<Bmwcar />} />
+              <Route path="/rangerovercar" element={<Rangerovercar />} />
+              <Route path="/rollsroylscar" element={<Rollsroylscar />} />
+              <Route path="/hondacar" element={<Hondacar />} />
+              <Route path="/hyundaicar" element={<Hyundaicar />} />
+              <Route path="/jeepcar" element={<Jeepcar />} />
+              <Route path="/nissancar" element={<Nissancar />} />
+              <Route path="/renaultcar" element={<Renaultcar />} />
+              <Route path="/suzukicar" element={<Suzukicar />} />
+              <Route path="/teslacarev" element={<Teslacar />} />
+              <Route path="/bmwcarev" element={<Bmwcarev />} />
+              <Route path="/kiacarev" element={<Kiacarev />} />
+              <Route path="/mercedescarev" element={<Mercedescarev />} />
+              <Route path="/mahindrapickup" element={<Mahindrapickup />} />
+              <Route path="/isuzupickup" element={<Isuzupickup />} />
+              <Route path="/ashokpickup" element={<Ashokpickup />} />
+              <Route path="/suzukipickup" element={<Suzukipickup />} />
+
+              {/* Services */}
+              <Route path="/servicecostcalculator" element={<ServiceCostCalculator />} />
+              <Route path="/emicalculator" element={<EMICalculator />} />
+              <Route path="/partsinfo" element={<PartsInfo />} />
+              <Route
+                path="/AddMoreServiceCostCalculator"
+                element={<AddMoreServiceCostCalculator />}
+              />
+
+              {/* Misc */}
+              <Route path="/viewmore" element={<Viewmore />} />
+              <Route path="/statshighlightsection" element={<StatsHighlightSection />} />
+              <Route path="/SlideItem" element={<SlideItem />} />
+
+              {/* Riding Gear */}
+              <Route path="/GearCard" element={<GearCard />} />
+              <Route path="/GearPage" element={<GearPage />} />
+              <Route path="/MainPageGear" element={<MainPageGear />} />
+              <Route path="/RaidOffroadGear" element={<RaidOffroadGear />} />
+              <Route path="/Glovespage" element={<GlovesPage />} />
+              <Route path="/JacketsPage" element={<JacketsPage />} />
+              <Route path="/BaseLayerPage" element={<BaseLayerPage />} />
+              <Route path="/RidingPantsPage" element={<RidingPantsPage />} />
+              <Route path="/TailBagPage" element={<TailBagPage />} />
+              <Route path="/SaddleBagPage" element={<SaddleBagPage />} />
+              <Route path="/HelmetStore" element={<HelmetStore />} />
+
+              {/* Utilities */}
+              <Route path="/EngineSound" element={<EngineSound />} />
+              <Route path="/EngineShowcase" element={<EngineShowcase />} />
+              <Route path="/BikeColorSwitcher" element={<BikeColorSwitcher />} />
+              <Route path="/Chatbot" element={<Chatbot />} />
+              <Route path="/ProfileSettings" element={<ProfileSettings />} />
+              <Route path="/Settings" element={<Settings />} />
+              <Route path="/CommunitySection" element={<CommunitySection />} />
+              <Route path="/ConfirmDialog" element={<ConfirmDialog />} />
+            </Routes>
+          </AnimatePresence>
+        </div>
+      </div>
+      <Footer />
+    </>
+  );
+};
+
+export default function App() {
+  const [theme, setTheme] = useState("light");
+  const [showRegister, setShowRegister] = useState(false);
+  const [user, setUser] = useState(null);
+  const [loadingAuth, setLoadingAuth] = useState(true);
+
+  const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setUser(user || null);
+      setLoadingAuth(false);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  return (
+    <Router>
+      <AnimatePresence mode="wait">
+        {loadingAuth ? (
+          <GoogleAILoader theme={theme} key="loader" />
+        ) : (
+          <AnimatedRoutes
+            theme={theme}
+            toggleTheme={toggleTheme}
+            showRegister={showRegister}
+            setShowRegister={setShowRegister}
+            user={user}
+            loadingAuth={loadingAuth}
+            key="routes"
+          />
+        )}
+      </AnimatePresence>
+    </Router>
+  );
+}

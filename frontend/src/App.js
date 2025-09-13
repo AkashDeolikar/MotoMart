@@ -6,6 +6,7 @@ import { AnimatePresence } from "framer-motion";
 import './index.css'; // For Tailwind's base
 import logoDark from "./component/navbar/logo2.png";
 import logoLight from "./component/navbar/logo1.png";
+import { motion } from "framer-motion";
 
 // Pages - Auth
 import Login from "./component/auth/login";
@@ -30,6 +31,8 @@ import SlideItem from "./component/utility/SlideItem";
 
 // Navbar & Footer
 import CarNavbar from "./component/navbar/navbar";
+// import CarNavbar  from "./component/CarNavbar/CarNavbar"
+// import "./component/CarNavbar/styles/_globals.scss"; // global styles
 import Footer from "./component/headerfooter/footer";
 // import FeedBack from "./component/headerfooter/feedback"; // Commented out as per your original code
 import Next from "./component/headerfooter/next";
@@ -127,6 +130,10 @@ import EngineSound from "./component/utility/EngineSound";
 import EngineShowcase from "./component/utility/EngineShowcase";
 import BikeColorSwitcher from "./component/utility/BikeColorSwitcher";
 import Chatbot from "./component/openai/Chatbot";
+import ProfileSettings from "./component/navbar/ProfileSettings";
+import Settings from "./component/navbar/Settings";
+import CommunitySection from "./component/navbar/CommunitySection";
+import ConfirmDialog from "./component/utility/ConfirmDialog";
 
 //DB pages
 
@@ -286,6 +293,10 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister, use
               <Route path="/BikeColorSwitcher" element={<BikeColorSwitcher />} />
               
               <Route path="/Chatbot" element={<Chatbot />} />
+
+              <Route path="/ProfileSettings" element={<ProfileSettings />}/>
+              <Route path="/Settings" element={<Settings />} />
+              <Route path="/ConfirmDialog" element={<ConfirmDialog />} />
               {/* Catch-all for undefined routes (optional, but good practice) */}
               {/* <Route path="*" element={<div>404 Not Found</div>} /> */}
             </Routes>
@@ -330,28 +341,54 @@ function App() {
   // IMPORTANT: No direct call to useInactivityLogout here.
   // It is now managed within AnimatedRoutes.
   if (loadingAuth) {
-    return (
+  return (
+    <div
+      style={{
+        height: "100vh",
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        background: theme === "dark" ? "#121212" : "#ffffff",
+      }}
+    >
+      {/* Logo */}
+      <img
+        src={theme === "dark" ? logoDark : logoLight}
+        alt="Loading..."
+        style={{ width: "120px", marginBottom: "30px" }}
+      />
+
+      {/* Progress bar */}
       <div
         style={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          height: '100vh',
-          fontSize: '20px',
-          color: 'white',
-          textAlign: 'center',
+          width: "180px",
+          height: "4px",
+          borderRadius: "2px",
+          overflow: "hidden",
+          background: theme === "dark" ? "#2c2c2c" : "#e0e0e0",
         }}
       >
-        <img
-          src={logoDark}
-          // src={theme === 'dark' ? logoDark: logoLight}
-          alt="Loading..."
-          style={{ width: '150px', height: '150px', objectFit: 'contain', marginBottom: '16px' }}
+        <motion.div
+          initial={{ x: "-100%" }}
+          animate={{ x: "100%" }}
+          transition={{
+            repeat: Infinity,
+            duration: 1.4,
+            ease: "easeInOut",
+          }}
+          style={{
+            width: "100%",
+            height: "100%",
+            background:
+              "linear-gradient(90deg, #4285f4, #34a853, #fbbc05, #ea4335)",
+          }}
         />
       </div>
-    );
-  }
+    </div>
+  );
+}
 
 
 

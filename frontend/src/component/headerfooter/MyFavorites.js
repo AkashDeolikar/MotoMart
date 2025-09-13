@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase";
+import ConfirmDialog from "../utility/ConfirmDialog";
 import "./favorite.css";
 
 const API_BASE = "https://motomartbackend.onrender.com/api/favorites";
@@ -10,20 +11,20 @@ const endpointDeleteMany = `${API_BASE}/delete-multiple`;
 
 /* LOADER */
 const LoadingOverlay = ({ isLoading }) => {
-    if (!isLoading) return null;
-    return (
-        <div className="app-loading-overlay">
-            <div className="app-glass-loader">
-                <div className="app-spinner"></div>
-                <p className="app-loading-text">
-                    <i className="bi bi-lightning-charge-fill"></i> Please wait... loading details
-                </p>
-            </div>
-        </div>
-    );
+  if (!isLoading) return null;
+  return (
+    <div className="app-loading-overlay">
+      <div className="app-glass-loader">
+        <div className="app-spinner"></div>
+        <p className="app-loading-text">
+          <i className="bi bi-lightning-charge-fill"></i> Please wait... loading details
+        </p>
+      </div>
+    </div>
+  );
 };
 
-/* POP-UPs */
+/* TOAST NOTIFICATIONS */
 const Notification = ({ items }) => (
   <div className="notification-container">
     {items.map((n) => (
@@ -42,6 +43,7 @@ export default function MyFavorites() {
   const [busy, setBusy] = useState(false);
 
   const [notices, setNotices] = useState([]);
+  const [confirm, setConfirm] = useState({ open: false, type: null, id: null, title: "" });
   const abortRef = useRef(null);
 
   // ---------- helpers ----------
@@ -52,7 +54,6 @@ export default function MyFavorites() {
   };
 
   const apiFetch = async (url, options = {}) => {
-    // cancel previous inflight request of same “channel”
     abortRef.current?.abort();
     abortRef.current = new AbortController();
     const signal = options.signal || abortRef.current.signal;
@@ -116,7 +117,7 @@ export default function MyFavorites() {
         const data = (await parseJSON(res)) ?? [];
         if (!mounted) return;
         setFavorites(Array.isArray(data) ? data : []);
-      } catch (e) {
+      } catch {
         if (mounted) showNote("❌ Failed to load favorites.", "error");
       } finally {
         if (mounted) setIsLoading(false);
@@ -129,17 +130,6 @@ export default function MyFavorites() {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, idToken]);
-
-  const refetch = async () => {
-    if (!user) return;
-    try {
-      const res = await apiFetch(endpointList(user.uid), { method: "GET" });
-      const data = (await parseJSON(res)) ?? [];
-      setFavorites(Array.isArray(data) ? data : []);
-    } catch {
-      // keep quiet on refetch
-    }
-  };
 
   // ---------- selection ----------
   const toggleOne = (id) => {
@@ -157,59 +147,67 @@ export default function MyFavorites() {
 
   // ---------- actions ----------
   const handleDeleteOne = async (id, title) => {
-  if (!window.confirm(`Remove "${title || "this item"}" from your favorites?`)) return;
-  if (!user) return showNote("X Please log in again.", "error");
+    if (!user) return showNote("❌ Please log in again.", "error");
 
-  //  Optimistic update
-  const oldFavorites = [...favorites];
-  setFavorites((prev) => prev.filter((f) => f._id !== id));
-  setSelected((p) => p.filter((x) => x !== id));
-  setBusy(true);
+    const oldFavorites = [...favorites];
+    setFavorites((prev) => prev.filter((f) => f._id !== id));
+    setSelected((p) => p.filter((x) => x !== id));
+    setBusy(true);
 
-  try {
-    const res = await apiFetch(endpointDeleteOne(id), { method: "DELETE" });
-    const body = (await parseJSON(res)) ?? (await res.text());
-    if (!res.ok) throw new Error(typeof body === "string" ? body : JSON.stringify(body));
-    showNote("✅ Removed from favorites.");
-  } catch (e) {
-    //  Rollback if fail
-    setFavorites(oldFavorites);
-    showNote("X Failed to remove.", "error");
-  } finally {
-    setBusy(false);
-  }
-};
-
+    try {
+      const res = await apiFetch(endpointDeleteOne(id), { method: "DELETE" });
+      const body = (await parseJSON(res)) ?? (await res.text());
+      if (!res.ok) throw new Error(typeof body === "string" ? body : JSON.stringify(body));
+      showNote("✅ Removed from favorites.");
+    } catch {
+      setFavorites(oldFavorites);
+      showNote("❌ Failed to remove.", "error");
+    } finally {
+      setBusy(false);
+    }
+  };
 
   const handleBulkDelete = async () => {
-  if (!hasSelection) return;
-  if (!window.confirm(`Delete ${selected.length} selected item(s)?`)) return;
-  if (!user) return showNote("❌ Please log in again.", "error");
+    if (!hasSelection) return;
+    if (!user) return showNote("❌ Please log in again.", "error");
 
-  const oldFavorites = [...favorites];
-  setFavorites((prev) => prev.filter((f) => !selected.includes(f._id)));
-  setBusy(true);
+    const oldFavorites = [...favorites];
+    setFavorites((prev) => prev.filter((f) => !selected.includes(f._id)));
+    setBusy(true);
 
-  try {
-    const res = await apiFetch(endpointDeleteMany, {
-      method: "POST",
-      body: JSON.stringify({ ids: selected }),
-    });
-    const data = await parseJSON(res);
+    try {
+      const res = await apiFetch(endpointDeleteMany, {
+        method: "POST",
+        body: JSON.stringify({ ids: selected }),
+      });
+      const data = await parseJSON(res);
 
-    if (!res.ok || !payloadSuccess(data)) throw new Error("Bulk delete failed");
+      if (!res.ok || !payloadSuccess(data)) throw new Error("Bulk delete failed");
 
-    setSelected([]);
-    showNote("✅ Selected items removed.");
-  } catch (e) {
-    // Rollback
-    setFavorites(oldFavorites);
-    showNote("❌ Bulk delete failed on server.", "error");
-  } finally {
-    setBusy(false);
-  }
-};
+      setSelected([]);
+      showNote("✅ Selected items removed.");
+    } catch {
+      setFavorites(oldFavorites);
+      showNote("❌ Bulk delete failed on server.", "error");
+    } finally {
+      setBusy(false);
+    }
+  };
 
+  // ---------- confirm handlers ----------
+  const askDeleteOne = (id, title) => setConfirm({ open: true, type: "one", id, title });
+  const askBulkDelete = () => setConfirm({ open: true, type: "bulk" });
+
+  const handleConfirm = async () => {
+    if (confirm.type === "one") {
+      await handleDeleteOne(confirm.id, confirm.title);
+    } else if (confirm.type === "bulk") {
+      await handleBulkDelete();
+    }
+    setConfirm({ open: false, type: null, id: null, title: "" });
+  };
+
+  const handleCancel = () => setConfirm({ open: false, type: null, id: null, title: "" });
 
   const isEmpty = useMemo(() => !isLoading && favorites.length === 0, [isLoading, favorites]);
 
@@ -226,7 +224,27 @@ export default function MyFavorites() {
 
   return (
     <div className="fav-page">
+      {/* Gradient Background Layer */}
+      <div className="fav-gradient-container">
+        <div className="fav-gradient-wrapper">
+          <div className="fav-gradient-shape"></div>
+          <div className="fav-gradient-shape"></div>
+          <div className="fav-gradient-shape"></div>
+          <div className="fav-gradient-shape"></div>
+        </div>
+      </div>
       <Notification items={notices} />
+      <ConfirmDialog
+        open={confirm.open}
+        title="Confirm Delete"
+        message={
+          confirm.type === "one"
+            ? `Remove "${confirm.title}" from your favorites?`
+            : `Delete ${selected.length} selected items?`
+        }
+        onConfirm={handleConfirm}
+        onCancel={handleCancel}
+      />
 
       {/* Sticky bulk/action bar */}
       <div className="fav-header">
@@ -240,19 +258,20 @@ export default function MyFavorites() {
             />
             <span>Select All</span>
           </label>
-          <br/>
+          <br />
           <span className="count-pill">
             {selected.length} selected / {favorites.length} total
           </span>
         </div>
 
         <button
-          className="bulk-remove-btn"
-          onClick={handleBulkDelete}
+          className={`bulk-remove-btn ${selected.length > 0 ? "active" : ""}`}
+          onClick={askBulkDelete}
           disabled={!hasSelection || busy}
           aria-disabled={!hasSelection || busy}
         >
-          {busy ? "Removing…" : `Remove Selected (${selected.length || 0})`}
+          <span className="material-symbols-outlined">delete</span>
+          {selected.length > 0 && <span className="fab-badge">{selected.length}</span>}
         </button>
       </div>
 
@@ -298,11 +317,11 @@ export default function MyFavorites() {
               </div>
               <button
                 className="remove-btn"
-                onClick={() => handleDeleteOne(fav._id, fav.title)}
+                onClick={() => askDeleteOne(fav._id, fav.title)}
                 disabled={busy}
                 aria-label={`Remove ${fav.title} from favorites`}
               >
-                X {/* REMOVE */}
+                <span className="material-symbols-outlined">close</span>
               </button>
             </div>
           ))}

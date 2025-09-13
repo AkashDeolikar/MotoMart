@@ -1,34 +1,32 @@
 body.light {
-    background-color: #fffffff4;
-    color: #111; /* dark text for light background */
-    transition: 0.3s;
-  }
-  
-  body.dark {
-    /* background-color: #121212; */
-    color: #ffffff;
-    background-color: #212121;
-    /* background-color: rgb(7, 6, 41); */
-    /* background: #303030;
-    background: #414141; */
-    /* light text for dark background */
-    transition: 0.3s;
-  }
-  
-  /*Footer*/
-  /* App.css */
-
-/* html, body, #root {
-  height: 100%;
-  margin: 0;
+  background-color: #fffffff4;
+  color: #111;
+  /* dark text for light background */
+  transition: 0.3s;
 }
 
-.app-wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+body.dark {
+  color: #ffffff;
+  background-color: #212121;
+  transition: 0.3s;
 }
 
-.content-wrap {
-  flex: 1; 
-} */
+:root {
+  /* ... existing variables ... */
+  --nav-height: 64px;
+}
+
+/* ... (rest of your existing CSS, no change needed for header) ... */
+
+/* The fix: Add this new rule */
+.main-content {
+  padding-top: var(--nav-height);
+}
+
+/* Optional: To handle different nav heights on mobile */
+@media (max-width: 1024px) {
+  .main-content {
+    padding-top: var(--nav-height);
+    /* Ensure it's still applied on mobile */
+  }
+}

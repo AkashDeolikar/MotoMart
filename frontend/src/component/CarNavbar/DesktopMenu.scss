@@ -1,0 +1,47 @@
+@import "./styles/variables";
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+
+  .desktop-menu {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+
+    li a,
+    li button {
+      color: var(--text-primary);
+      font-weight: 500;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background var(--transition-speed);
+    }
+
+    li a:hover,
+    li button:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .has-flyout {
+      position: relative;
+
+      .flyout {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: var(--bg-primary);
+        border-radius: 8px;
+        padding: 12px;
+        display: none;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      &.open .flyout {
+        display: flex;
+      }
+    }
+  }
+}

@@ -7,6 +7,7 @@
   --text-muted-home: #ccc;
   --shadow-home: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
+
 .light {
   --primary-color-home: #ff4f14;
   --background-home: #e4e4e44a;
@@ -16,6 +17,7 @@
   --text-muted-home: #101010;
   --shadow-home: 0 8px 24px rgba(0, 0, 0, 0.144);
 }
+
 /* /* Basic Reset */
 * {
   margin: 0;
@@ -164,7 +166,7 @@ body {
 .zic-alternating-content {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 10px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -173,17 +175,19 @@ body {
 
 /*zic zac title*/
 .masonrymedia__card-title1 {
-  font-family:"Lato Black", sans-serif;
+  font-family: "Lato Black", sans-serif;
   color: black;
   font-size: 28px;
   margin-bottom: 10px;
 }
+
 .dark .masonrymedia__card-title1 {
   font-family: "Lato Black", sans-serif;
   color: #696969;
   font-size: 24px;
   margin-bottom: 10px;
 }
+
 .zic-alternating-content .support .masonrymedia__card-title1,
 .masonrymedia__card-title1 {
   position: relative;
@@ -295,8 +299,8 @@ body {
   flex-shrink: 0;
   width: 100%;
   max-width: 1100px;
-  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  /* -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); */
 
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
@@ -308,6 +312,7 @@ body {
   height: 200px;
   object-fit: cover;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  filter: brightness(0.85);
 }
 
 /* Text content */
@@ -370,10 +375,10 @@ body {
     width: 100%;
     max-width: 100%;
     -webkit-mask-image: linear-gradient(to top, transparent, black 10%, black 90%, transparent);
-  mask-image: linear-gradient(to top, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to top, transparent, black 10%, black 90%, transparent);
 
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
   }
 
   .zic-zac-block-img {
@@ -504,20 +509,23 @@ body {
 }
 
 .cl1 {
-      font-family: 'Lato-Regular';
+  font-family: Poppins, sans-serif;
+  font-weight: 300;
   color: rgb(237, 52, 52);
 }
 
 .cl2 {
-      font-family: 'Lato-Regular';
+  font-family: Poppins, sans-serif;
+  font-weight: 300;
   color: #5c5e60;
 }
 
 @media (max-width:786px) {
   .intro {
-  margin-top: 1.5rem;
+    margin-top: 1.5rem;
   }
-  .cl1{
+
+  .cl1 {
     font-size: 1.4rem;
     font-family: 'Lato-Regular';
     font-weight: 700;
@@ -527,7 +535,8 @@ body {
     display: inline-block;
     margin: 0 auto;
   }
-  .cl2{
+
+  .cl2 {
     font-size: 1.4rem;
     font-family: 'Lato-Regular';
     font-weight: 700;
@@ -859,8 +868,8 @@ html {
 
 /* OUTER CARD CONTAINER */
 .offer-card {
-  width: 300px;
-  height: 220px;
+  width: 250px;
+  height: 200px;
   /* 🔥 Required for perspective */
   perspective: 1000px;
   text-decoration: none;
@@ -905,6 +914,7 @@ html {
   padding: 45px 30px;
   overflow: hidden;
 }
+
 .dark .offer-card-front::before {
   content: '';
   position: absolute;
@@ -916,6 +926,7 @@ html {
   transform: rotate(25deg);
   z-index: 0;
 }
+
 .light .offer-card-front::before {
   content: '';
   position: absolute;
@@ -927,12 +938,15 @@ html {
   transform: rotate(25deg);
   z-index: 0;
 }
+
 .offer-card-front::before {
   background: radial-gradient(circle at top left, rgb(198, 198, 198), transparent);
 }
+
 .offer-card-front:hover {
   transform: translateY(-8px);
 }
+
 /* 
 .dark .offer-card-front {
   background: #bebdbd;
@@ -953,6 +967,7 @@ html {
   overflow: hidden;
   transform: rotateY(180deg);
 }
+
 .dark .offer-card-back::before {
   content: '';
   position: absolute;
@@ -964,6 +979,7 @@ html {
   transform: rotate(25deg);
   z-index: 0;
 }
+
 .light .offer-card-back::before {
   content: '';
   position: absolute;
@@ -975,6 +991,7 @@ html {
   transform: rotate(25deg);
   z-index: 0;
 }
+
 .offer-card-back::before {
   background: radial-gradient(circle at top left, rgb(198, 198, 198), transparent);
 }
@@ -1075,7 +1092,9 @@ html {
     margin: 0 0 0rem 0rem;
   }
 }
+
 @media (max-width: 768px) {
+
   /* Grid Scroll Layout */
   .offers-grid {
     display: flex;
@@ -1085,6 +1104,7 @@ html {
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
   }
+
   /* .offers-grid {
     display: flex;
     overflow-x: auto;
@@ -1135,7 +1155,8 @@ html {
   }
 
   .offer-card-back {
-    display: none; /* ❌ HIDE BACK on mobile */
+    display: none;
+    /* ❌ HIDE BACK on mobile */
   }
 
   /* Remove 3D flip effect on mobile */
@@ -1468,7 +1489,7 @@ html {
 .cardetail-sections-wrapper {
   position: relative;
   width: 100%;
-  height: 80vh;
+  height: 70vh;
   overflow: hidden;
   font-family: 'Poppins', sans-serif;
 }
@@ -1486,6 +1507,7 @@ html {
   transform: scale(8.05);
   animation: zoomIn 5s ease-in-out infinite alternate;
 }
+
 .dark .cardetail-sections-bg {
   background-image: url('../../../public/images/allcarsimage/bgpaper.jpg');
   background-size: cover;
@@ -1499,6 +1521,7 @@ html {
   transform: scale(8.05);
   animation: zoomIn 5s ease-in-out infinite alternate;
 }
+
 .cardetail-sections-overlay {
   position: absolute;
   z-index: 2;
@@ -1532,7 +1555,7 @@ html {
 }
 
 .cardetail-sections-title {
-      font-family: "Lato Black", sans-serif;
+  font-family: "Lato Black", sans-serif;
   font-size: clamp(2rem, 6vw, 3rem);
   /* font-weight: 700; */
   margin-bottom: 1rem;
@@ -1594,6 +1617,7 @@ html {
     opacity: 0;
     transform: translateY(40px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1604,15 +1628,19 @@ html {
   0% {
     transform: scale(1.02);
   }
+
   100% {
     transform: scale(1.07);
   }
 }
 
 @keyframes bounce {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(8px);
   }
@@ -1894,6 +1922,7 @@ html {
     opacity: 0;
     transform: translateY(40px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1904,21 +1933,29 @@ html {
   0% {
     transform: scale(1.02);
   }
+
   100% {
     transform: scale(1.07);
   }
 }
 
 @keyframes bounce01 {
-  0%, 20%, 50%, 80%, 100% {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
     transform: translateY(0);
-}
-40% {
+  }
+
+  40% {
     transform: translateY(-10px);
-}
-60% {
+  }
+
+  60% {
     transform: translateY(-5px);
-}
+  }
 }
 
 @media (max-width: 600px) {
@@ -1962,14 +1999,14 @@ html {
 /* ==================================== */
 /* Theme Variables (Light & Dark Mode)  */
 /* ==================================== */
-body.light{
+body.light {
   --primary-color: #0d2b66;
   --text-color: #333;
   --tab-color: #555;
   --bg-color: #ffffff;
 }
 
-body.dark{
+body.dark {
   --primary-color: #64b5f6;
   --text-color: #696969;
   --tab-color: #aaaaaa;
@@ -1995,7 +2032,7 @@ body.dark{
 /* === Outer Section === */
 .Aks__contentRange {
   background-color: var(--bg-color);
-  padding: 45px 20px;
+  padding: 20px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2116,7 +2153,3 @@ body.dark{
     font-size: 1rem;
   }
 }
-
-
-
-
