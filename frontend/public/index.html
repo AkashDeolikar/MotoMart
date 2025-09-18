@@ -1,27 +1,75 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/motomartLOGO.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo.jpg" />
-    
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-   
-    <title>Motomart</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    
-  </body>
-</html>
 
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="description" content="MotoMart - Vehicle marketplace" />
+
+  <title>MotoMart</title>
+
+  <!-- =======================
+       Favicons & App Icons
+  ======================== -->
+  <!-- Favicons (browser tabs) -->
+  <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/sitelogo.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/sitelogo.png" />
+
+  <!-- Apple Touch Icon (iOS) -->
+  <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/sitelogo.png" />
+
+  <!-- Android/Chrome PWA -->
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+
+  <!-- Google Material Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Optional inline fallback styles -->
+  <style>
+    body {
+      font-family: "Roboto", sans-serif;
+      margin: 0;
+      background: #ffffff;
+      color: #202124;
+    }
+
+    .noscript-fallback {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .noscript-fallback h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .noscript-fallback p {
+      font-size: 1rem;
+      color: #5f6368;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Fallback if JS is disabled -->
+  <noscript>
+    <div class="noscript-fallback">
+      <h1>Welcome to MotoMart</h1>
+      <p>This site requires JavaScript to display the full content.</p>
+      <p>Please enable JavaScript or use a modern browser.</p>
+    </div>
+  </noscript>
+
+  <!-- React root mount point -->
+  <div id="root"></div>
+</body>
+
+</html>

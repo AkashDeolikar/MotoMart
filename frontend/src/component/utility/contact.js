@@ -1,109 +1,86 @@
 import React, { useState } from "react";
-import './contact.css';
+import "./contact.css";
 
-const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    mobile: "",
-    message: "",
-  });
-
-  const [status, setStatus] = useState("idle"); 
-  // idle | sending | sent
-  const [errorMsg, setErrorMsg] = useState("");
+const ContactForm = () => {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState("");
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setErrorMsg("");
-    setStatus("sending"); // show loading effect
-
-    try {
-      const response = await fetch("https://motomartbackend.onrender.com/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-      if (response.ok) {
-        setStatus("sent"); 
-        setFormData({ name: "", email: "", mobile: "", message: "" });
-        setTimeout(() => setStatus("idle"), 4000); // reset after 4s
-      } else {
-        setErrorMsg(data.error || "Something went wrong");
-        setStatus("idle");
-      }
-    } catch (err) {
-      setErrorMsg("Failed to send feedback. Please try again.");
-      setStatus("idle");
-    }
+    setStatus("sending");
+    setTimeout(() => {
+      setStatus("sent");
+      setForm({ name: "", email: "", message: "" });
+      setTimeout(() => setStatus(""), 2500);
+    }, 1500);
   };
 
   return (
-    <div className="home-container">
-      <div className="contactBG">
-        <div className="hero-text">
-          <h2>Contact Us <i className="bi bi-person-rolodex"></i></h2>
-        </div>
-      </div>
+    <main className="contact-page">
+      {/* Hero */}
+      <section className="contact-hero">
+        <h1>Contact Us</h1>
+        <p>We’d love to hear from you. Fill out the form below.</p>
+      </section>
 
-      <div className="contact-container">
-        <div className="contact-info">
-          <p><strong>Fill the form below to get in touch</strong></p>
-        </div>
-
+      {/* Form */}
+      <section className="contact-card">
         <form className="contact-form" onSubmit={handleSubmit}>
-          <input type="text" name="name" placeholder="Your Name" value={formData.name} onChange={handleChange} required />
-          <input type="email" name="email" placeholder="Your Email" value={formData.email} onChange={handleChange} required />
-          <input type="tel" name="mobile" placeholder="Mobile Number" pattern="[0-9]{10}" value={formData.mobile} onChange={handleChange} required />
-          <textarea name="message" placeholder="Your Message" value={formData.message} onChange={handleChange} rows={4} required />
+          <div className="form-field">
+            <input
+              type="text"
+              name="name"
+              value={form.name}
+              onChange={handleChange}
+              required
+              placeholder=" "
+            />
+            <label>Your Name</label>
+          </div>
 
-          {/* <button
+          <div className="form-field">
+            <input
+              type="email"
+              name="email"
+              value={form.email}
+              onChange={handleChange}
+              required
+              placeholder=" "
+            />
+            <label>Email Address</label>
+          </div>
+
+          <div className="form-field">
+            <textarea
+              name="message"
+              rows="4"
+              value={form.message}
+              onChange={handleChange}
+              required
+              placeholder=" "
+            />
+            <label>Your Message</label>
+          </div>
+
+          <button
+            className={`btn ${status}`}
             type="submit"
-            className={`status-btn ${status}`}
-            disabled={status === "sending"} // disable while sending
+            disabled={status === "sending"}
           >
-            {status === "sending" && (
-              <span className="spinner"></span>
-            )}
-            {status === "idle" && (
-              <>
-                <i className="bi bi-send" style={{ marginRight: "8px" }}></i>
-                Send Message
-              </>
-            )}
-            {status === "sending" && " Sending..."}
-            {status === "sent" && (
-              <>
-                <i className="bi bi-send-check" style={{ marginRight: "8px" }}></i>
-                Message Sent Successfully!
-              </>
-            )}
-          </button> */}
-          <button 
-  type="submit" 
-  className={`contact-form-button ${status}`} 
-  disabled={status === "sending"}
->
-  <span>
-    {status === "idle" && "Send Message"}
-    {status === "sending" && "Sending..."}
-    {status === "sent" && "Message Sent ✅"}
-  </span>
-</button>
-
-
-          {errorMsg && <p className="error-msg">{errorMsg}</p>}
+            {status === "sending"
+              ? "Sending..."
+              : status === "sent"
+              ? "Sent ✓"
+              : "Send Message"}
+          </button>
         </form>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 
-export default Contact;
+export default ContactForm;

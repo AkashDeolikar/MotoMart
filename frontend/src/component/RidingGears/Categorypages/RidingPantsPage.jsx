@@ -23,21 +23,18 @@ const RidingPantsPage = () => {
       <h2>Riding Pants</h2>
       {loading ? (
         <div className="app-loading-overlay">
-            <div className="app-glass-loader">
-                <div className="app-spinner"></div>
-                <p className="app-loading-text">
-                    <i className="bi bi-lightning-charge-fill"></i>Loading Riding Pants...
-                </p>
-            </div>
+          <div className="app-glass-loader">
+            <div className="app-spinner"></div>
+            <p className="app-loading-text">
+              <i className="bi bi-lightning-charge-fill"></i> Loading Riding Pants...
+            </p>
+          </div>
         </div>
       ) : (
         <div className="gear-grid">
           {pants.map((item, index) => (
             <div className="gear-card" key={index}>
-              <img src={item.image} alt={item.title} onError={(e) => {
-                e.target.onerror = null;
-                e.target.src = '/fallback.jpg';
-              }} />
+              <img src={item.image} alt={item.title} onError={(e) => (e.target.src = '/fallback.jpg')} />
               <div className="gear-info">
                 <h3>{item.title}</h3>
                 <p className="gear-price">₹ {item.price.toLocaleString()}</p>

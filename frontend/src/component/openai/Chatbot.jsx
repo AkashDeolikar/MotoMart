@@ -1,79 +1,89 @@
+// src/components/Chatbot.jsx
 import React, { useState, useEffect, useRef, memo } from "react";
 import "./Chatbot.css";
 
-// Memoized logo component to prevent unnecessary re-renders.
-const Logo = memo(({ src, size = 40, alt = "AI Logo" }) => (
+// Gemini Aurora Logo
+const GEMINI_LOGO =
+  "https://www.gstatic.com/lamda/images/gemini_sparkle_aurora_33f86dc0c0257da337c63.svg";
+
+// Memoized Logo component
+const Logo = memo(({ src, size = 40, alt = "Gemini Logo" }) => (
   <img
     src={src}
     alt={alt}
     width={size}
     height={size}
-    style={{ display: "block" , borderRadius: "50px"}}
+    style={{ display: "block", borderRadius: "50%" }}
   />
 ));
 
-// A dedicated component for rendering a single message.
-const Message = ({ sender, text }) => (
-  <div className={`messageAI ${sender === "user" ? "user-message" : "bot-message"}`}>
-    {text}
-  </div>
-);
+// Message component with expandable replies
+const Message = ({ sender, text }) => {
+  const [expanded, setExpanded] = useState(false);
+  const isLong = text.length > 350;
+
+  return (
+    <div className={`message-row ${sender}`}>
+      {sender === "bot" && (
+        <div className="avatar">
+          <Logo src={GEMINI_LOGO} size={28} />
+        </div>
+      )}
+      <div className={`bubble ${sender}`}>
+        {isLong ? (
+          <>
+            <p>{expanded ? text : text.slice(0, 300) + "..."}</p>
+            <button
+              className="expand-btnGemini"
+              onClick={() => setExpanded(!expanded)}
+            >
+              {expanded ? "Show less" : "Show more"}
+            </button>
+          </>
+        ) : (
+          <p>{text}</p>
+        )}
+      </div>
+    </div>
+  );
+};
 
 function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [streamText, setStreamText] = useState("");
   const chatBoxRef = useRef(null);
 
-  const logos = [
-    { src: "https://storage.googleapis.com/ai-prod-wagtail/images/ai_google__models__icon__gemini.original.svg", alt: "Gemini Logo" },
-    { src: "https://storage.googleapis.com/ai-prod-wagtail/images/ai_google__models__icon__gemma.original.svg", alt: "Gemma Logo" },
-    { src: "https://storage.googleapis.com/ai-prod-wagtail/images/ai_google__models__icon__lyria.original.svg", alt: "Lyria Logo" },
-    { src: "https://storage.googleapis.com/ai-prod-wagtail/images/ai_google__models__icon__veo.original.svg", alt: "Veo Logo" }
-  ];
-
-  const [currentLogoIndex, setCurrentLogoIndex] = useState(0);
-
-  // Rotate logos every 2 seconds.
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentLogoIndex(prevIndex => (prevIndex + 1) % logos.length);
-    }, 2000);
-    return () => clearInterval(interval);
-  }, [logos.length]);
-
-  // Auto-scrolls the chat box to the bottom whenever messages or loading state changes.
+  // Auto-scroll to bottom
   useEffect(() => {
     if (chatBoxRef.current) {
       chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;
     }
-  }, [messages, loading]);
+  }, [messages, loading, streamText]);
 
-  // Tracks window scroll to apply styling to the chatbot widget.
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 200);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Toggles the chatbot's open/close state.
+  // Toggle chat open/close
   const toggleChat = () => {
     setIsOpen(!isOpen);
     if (!isOpen && messages.length === 0) {
-      setMessages([{ sender: "bot", text: "Hello! How can I help you today?" }]);
+      setMessages([
+        {
+          sender: "bot",
+          text: "👋 Hi, I’m Gemini. How can I help you today?",
+        },
+      ]);
     }
   };
 
-  // Handles sending a new message to the backend API.
+  // Send message with streaming simulation
   const sendMessage = async () => {
-    if (input.trim() === "") return;
-
+    if (!input.trim()) return;
     const userMessage = input;
-    setMessages(prev => [...prev, { sender: "user", text: userMessage }]);
+    setMessages((prev) => [...prev, { sender: "user", text: userMessage }]);
     setInput("");
     setLoading(true);
+    setStreamText("");
 
     try {
       const res = await fetch("https://motomartbackend.onrender.com/api/chat", {
@@ -81,23 +91,33 @@ function Chatbot() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question: userMessage }),
       });
-      const data = await res.json();
-      setMessages(prev => [
-        ...prev,
-        { sender: "bot", text: data.answer || "⚠️ No response from AI." },
-      ]);
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder("utf-8");
+      let botReply = "";
+
+      while (true) {
+        const { value, done } = await reader.read();
+        if (done) break;
+        const chunk = decoder.decode(value, { stream: true });
+        botReply += chunk;
+        setStreamText(botReply);
+      }
+
+      setMessages((prev) => [...prev, { sender: "bot", text: botReply }]);
     } catch (err) {
-      console.error("Chat error:", err);
-      setMessages(prev => [
+      console.error(err);
+      setMessages((prev) => [
         ...prev,
         { sender: "bot", text: "❌ Error connecting to AI." },
       ]);
     } finally {
       setLoading(false);
+      setStreamText("");
     }
   };
 
-  // Handles 'Enter' key press to send the message.
+  // Handle Enter key for sending
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
@@ -105,32 +125,46 @@ function Chatbot() {
     }
   };
 
-  const currentLogo = logos[currentLogoIndex];
-
   return (
-    <div className={`chatbot-widget ${isOpen ? "open" : ""} ${isScrolled ? "scrolled" : ""}`}>
+    <div className={`chatbot-widget ${isOpen ? "open" : ""}`}>
       <div className="chat-container">
-        {/* Header Section */}
-        <h2 className="chat-header">
-          <span className="icon" role="img" aria-label="AI Logo">
-            <Logo src={currentLogo.src} size={30} alt={currentLogo.alt} />
-          </span>
-          AI Assistant
-          <button className="close-btn" onClick={toggleChat} aria-label="Close Chatbot">
+        {/* Header */}
+        <header className="chat-header">
+          <div className="header-left">
+            <Logo src={GEMINI_LOGO} size={28} />
+            <span>Gemini</span>
+          </div>
+          <button className="close-btnGemini" onClick={toggleChat}>
             ✖
           </button>
-        </h2>
+        </header>
 
-        {/* Chat Messages Section */}
+        {/* Messages */}
         <div className="chat-box" ref={chatBoxRef}>
-          {messages.map((msg, index) => (
-            <Message key={index} sender={msg.sender} text={msg.text} />
+          {messages.map((msg, i) => (
+            <Message key={i} sender={msg.sender} text={msg.text} />
           ))}
-          {loading && (
-            <div className="messageAI bot-message bot-loading">
-              <span className="dot dot-1"></span>
-              <span className="dot dot-2"></span>
-              <span className="dot dot-3"></span>
+          {streamText && (
+            <div className="message-row bot">
+              <div className="avatar">
+                <Logo src={GEMINI_LOGO} size={28} />
+              </div>
+              <div className="bubble bot">
+                {streamText}
+                <span className="cursor">▋</span>
+              </div>
+            </div>
+          )}
+          {loading && !streamText && (
+            <div className="message-row bot">
+              <div className="avatar">
+                <Logo src={GEMINI_LOGO} size={28} />
+              </div>
+              <div className="bot-loading">
+                <div className="dot"></div>
+                <div className="dot dot-2"></div>
+                <div className="dot dot-3"></div>
+              </div>
             </div>
           )}
         </div>
@@ -140,7 +174,7 @@ function Chatbot() {
           <textarea
             rows="1"
             className="textarea"
-            placeholder="Type your question..."
+            placeholder="Ask Gemini anything..."
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
@@ -148,19 +182,29 @@ function Chatbot() {
           />
           <button
             onClick={sendMessage}
-            disabled={loading || input.trim() === ""}
-            className="btn"
-            aria-label="Send Message"
+            disabled={loading || !input.trim()}
+            className="btnGemini"
           >
             ➤
           </button>
         </div>
+
+        {/* Quick Action Chips */}
+        <div className="quick-actions">
+          <button onClick={() => setInput("Summarize this")}>Summarize</button>
+          <button onClick={() => setInput("Give sources")}>Give Sources</button>
+          <button onClick={() => setInput("Explain simply")}>
+            Explain Simply
+          </button>
+        </div>
       </div>
 
-      {/* Floating Toggle Button */}
-      <button className="chat-toggle-button" onClick={toggleChat} aria-label="Open Chatbot">
-        <Logo src={currentLogo.src} size={32} alt={currentLogo.alt} />
-      </button>
+      {/* Floating FAB */}
+      {!isOpen && (
+        <button className="chat-toggle-button gemini-fab" onClick={toggleChat}>
+          <Logo src={GEMINI_LOGO} size={48} />
+        </button>
+      )}
     </div>
   );
 }

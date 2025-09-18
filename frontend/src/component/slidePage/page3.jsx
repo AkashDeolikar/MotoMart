@@ -1,68 +1,103 @@
 import React from "react";
-import './page3.css';
-
-import img1 from '../slidePage/img1.jpg'
-import img2 from '../slidePage/img2.jpg'
-import img3 from '../slidePage/img3.jpg'
+import "./pages.css";
 
 const Page3 = () => {
-    return (
-        <div className="B1Page3">
-            <div className="bgPaper3">
-                <h5>Automotive Engineering for Society</h5>
-                <h1>Empowering Mobility, Empowering People</h1>
-            </div>
+  return (
+    <div className="page3-root">
+      {/* Hero */}
+      <section className="page3-hero">
+        <h1>Driving Change Worldwide</h1>
+        <p className="page3-hero-sub">
+          From sustainable mobility to AI-powered road systems, our solutions
+          are making transport cleaner, safer, and more inclusive across the
+          globe.
+        </p>
+      </section>
 
-            <div className="ConstantBG">
-                <div className="T2Page">
-                    <h2 className="constantBGT2page">AUTOMOTIVE ENGINEERING FOR SOCIETY</h2>
+      {/* Impact Areas */}
+      <section className="page3-impact">
+        {[
+          {
+            icon: "public",
+            title: "Global Reach",
+            desc: "Smart transportation technologies deployed in over 40 countries, serving millions daily.",
+          },
+          {
+            icon: "energy_savings_leaf",
+            title: "Sustainability",
+            desc: "Cutting CO₂ emissions by enabling electric mobility and green logistics solutions.",
+          },
+          {
+            icon: "shield",
+            title: "Safety First",
+            desc: "AI-powered systems reducing accidents and supporting Vision Zero road safety goals.",
+          },
+        ].map((item, idx) => (
+          <div key={idx} className="page3-card">
+            <span className="material-symbols-outlined page3-icon">
+              {item.icon}
+            </span>
+            <h3>{item.title}</h3>
+            <p>{item.desc}</p>
+          </div>
+        ))}
+      </section>
 
-                    {/* Block 1: Image on Right */}
-                    <div className="drop-flex2">
-                        <div className="drop-text2">
-                            <p>Automotive engineering is not just about building vehicles—it's about building a better future. Engineers today focus on sustainable mobility solutions that improve the quality of life for communities across the globe.</p>
-                            <p>By incorporating advanced materials, electric drivetrains, and eco-friendly designs, the industry is making transportation cleaner, safer, and more accessible for all.</p>
-                        </div>
-                        <div className="drop-image2">
-                            <img
-                                src={img1}
-                                alt="Sustainable Automotive"
-                            />
-                        </div>
-                    </div>
-
-                    {/* Block 2: Image on Left */}
-                    <div className="drop-flex2 reverse">
-                        <div className="drop-text2">
-                            <p>Community-centric automotive innovation addresses local mobility challenges. Whether it's designing last-mile EVs or low-cost public transport systems, engineers are shaping mobility for every socioeconomic layer.</p>
-                            <p>These innovations empower remote and rural areas with reliable and safe transportation, connecting people to education, jobs, and healthcare.</p>
-                        </div>
-                        <div className="drop-image2">
-                            <img
-                                src={img2}
-                                alt="Rural EV Mobility"
-                            />
-                        </div>
-                    </div>
-
-                    {/* Block 3: Image on Right */}
-                    <div className="drop-flex2">
-                        <div className="drop-text2">
-                            <p>Skill development in automotive engineering is driving socio-economic upliftment. Through training programs on electric vehicles, autonomous systems, and vehicle diagnostics, youth from underserved communities are finding career paths in future mobility.</p>
-                            <p>This transformation is turning engineering into a tool for societal equity and sustainable progress.</p>
-                        </div>
-                        <div className="drop-image2">
-                            <img
-                                src={img3}
-                                alt="Engineering Training for Youth"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+      {/* Stats */}
+      <section className="page3-stats">
+        <div className="page3-stat-card">
+          <h2>120+</h2>
+          <p>Smart City Projects</p>
         </div>
-    );
+        <div className="page3-stat-card">
+          <h2>500M+</h2>
+          <p>Daily Commuters Impacted</p>
+        </div>
+        <div className="page3-stat-card">
+          <h2>40%</h2>
+          <p>Reduction in Traffic Delays</p>
+        </div>
+      </section>
+
+      {/* Highlight */}
+      <section className="page3-highlight">
+        <h2>Case Study: Metro City Initiative</h2>
+        <p>
+          In partnership with Metro City, we deployed AI-driven traffic control
+          and EV-friendly infrastructure. Within 18 months, traffic congestion
+          fell by 35% and CO₂ emissions dropped significantly.
+        </p>
+      </section>
+
+      {/* Partners / Testimonials */}
+      <section className="page3-partners">
+        <h2>Trusted by Global Leaders</h2>
+        <div className="page3-partner-logos">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thu…o_Simple.svg/500px-UN_Habitat_Logo_Simple.svg.png" alt="UN Habitat" />
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thu…roup_logo.svg/375px-World_Bank_Group_logo.svg.png" alt="World Bank" />
+          <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Siemens-logo.svg" alt="Siemens" />
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Toyota_logo.png" alt="Toyota" />
+        </div>
+
+        <div className="page3-testimonials">
+          <blockquote>
+            <p>
+              "Their AI-driven traffic solutions helped us cut down delays by
+              30% while improving commuter satisfaction."
+            </p>
+            <footer>- City Transport Authority</footer>
+          </blockquote>
+          <blockquote>
+            <p>
+              "Partnering on sustainable mobility has accelerated our journey to
+              carbon neutrality."
+            </p>
+            <footer>- Global Automotive Partner</footer>
+          </blockquote>
+        </div>
+      </section>
+    </div>
+  );
 };
 
 export default Page3;

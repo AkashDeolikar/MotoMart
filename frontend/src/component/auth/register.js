@@ -1,13 +1,18 @@
 // src/component/auth/Register.js
 import React, { useState } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebase";
-import { useNavigate } from "react-router-dom";
-import "./login.css"; // reuse same styling
-import { signInWithPopup } from "firebase/auth";
-import { provider } from "../../firebase";
+import "./login.css";
+import { FaUser, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
+import { auth, provider } from "../../firebase";
+import {
+  createUserWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
+} from "firebase/auth";
+import { useNavigate, Link } from "react-router-dom";
 
-function Register({ closeModal }) {
+function Register() {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -15,19 +20,22 @@ function Register({ closeModal }) {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  const togglePassword = () => setShowPassword((prev) => !prev);
+  const toggleConfirmPassword = () =>
+    setShowConfirmPassword((prev) => !prev);
+
   const handleGoogleSignIn = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
-      const user = result.user;
-      console.log("Google user:", user);
-      alert(`Welcome, ${user.displayName}`);
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      localStorage.setItem("authToken", token);
       navigate("/");
     } catch (error) {
       console.error("Google sign-in error:", error);
       setError("Google sign-in failed. Try again.");
     }
   };
-
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -36,20 +44,20 @@ function Register({ closeModal }) {
 
     if (password !== confirmPassword) {
       setError("Passwords do not match.");
+      setLoading(false);
       return;
     }
 
     try {
-      const userCred = await createUserWithEmailAndPassword(auth, email, password);
-      console.log("User registered:", userCred.user);
-      alert("Registration successful! Please log in.");
-      // navigate("/login");
+      const userCred = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      localStorage.setItem("authToken", userCred.user.accessToken);
       navigate("/");
-      if (typeof closeModal === "function") closeModal();
-
     } catch (err) {
-      console.error(err);
-      let message = "Something went wrong! /n **Password should be 1 uppercase, 1Special Char, Number Required "
+      let message = "Something went wrong!";
       if (err.code === "auth/email-already-in-use") {
         message = "Email already in use.";
       } else if (err.code === "auth/weak-password") {
@@ -62,79 +70,80 @@ function Register({ closeModal }) {
   };
 
   return (
-    <div>
-    <section className="bgimageregister">
-      {/* <div class="overlay"></div> */}
-      <div className="wrapper">
-        <form onSubmit={handleRegister}>
-          <h1>Register</h1>
+    <div className="login-wrapper">
+      <div className="login-card">
 
+        <h1 className="login-title">Create your account</h1>
+        <p className="login-subtitle">for CarPortal</p>
+
+        <form onSubmit={handleRegister} className="login-form">
           <div className="input-box">
             <input
               type="email"
-              placeholder="Email"
+              placeholder="Email address"
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
+            <FaUser className="icon" />
           </div>
 
           <div className="input-box">
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Password"
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            <FaLock className="icon" />
+            <span onClick={togglePassword} className="password-toggle">
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </span>
           </div>
+
           <div className="input-box">
             <input
-              type="password"
-              placeholder="Confirm Password"
+              type={showConfirmPassword ? "text" : "password"}
+              placeholder="Confirm password"
               required
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
+            <FaLock className="icon" />
+            <span
+              onClick={toggleConfirmPassword}
+              className="password-toggle"
+            >
+              {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+            </span>
           </div>
-
-          {confirmPassword && password !== confirmPassword && (
-            <p className="error-message">Passwords do not match</p>
-          )}
 
           {error && <p className="error-message">{error}</p>}
 
-          <button type="submit" disabled={loading}>
-            {loading ? "Registering..." : "Register"}
+          <button type="submit" disabled={loading} className="primary-btn">
+            {loading ? "Creating account..." : "Create account"}
           </button>
-
-          <div className="register-link">
-            <p>Already have an account? <a href="/login">Login</a></p>
-          </div>
-
-          <div className="gsign">
-            <button
-              type="button"
-              onClick={handleGoogleSignIn}
-              style={{
-                width: "100%",
-                marginTop: "20px",
-                backgroundColor: "#4285F2",
-                color: "#fff",
-                border: "none",
-                borderRadius: "40px",
-                padding: "12px",
-                fontSize: "16px",
-                fontWeight: "bold",
-                cursor: "pointer",
-              }}
-            >
-              Continue with Google
-            </button>
-          </div>
         </form>
+
+        <div className="divider"><span>OR</span></div>
+
+        <button
+          type="button"
+          onClick={handleGoogleSignIn}
+          className="google-btn"
+        >
+          <img
+            src="https://developers.google.com/identity/images/g-logo.png"
+            alt="Google"
+          />
+          Continue with Google
+        </button>
+
+        <p className="register-link">
+          Already have an account? <Link to="/login">Sign in</Link>
+        </p>
       </div>
-    </section>
     </div>
   );
 }

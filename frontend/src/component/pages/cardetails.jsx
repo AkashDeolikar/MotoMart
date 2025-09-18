@@ -1,314 +1,345 @@
-import React, { useState, useEffect } from 'react';
-import './cardetails.css';
-import { useNavigate } from 'react-router-dom';
-import { auth } from '../../firebase';
-import { onAuthStateChanged } from 'firebase/auth';
+// CarDetailsNew.jsx
+import React, { useState, useEffect } from "react";
+import "./cardetailsNew.css";
+import { useNavigate } from "react-router-dom";
+import { auth } from "../../firebase";
+import { onAuthStateChanged } from "firebase/auth";
 
-/* Loading Overlay */
-const LoadingOverlay = ({ isLoading }) => {
-  if (!isLoading) return null;
+const LoaderOverlay = ({ loading }) => {
+  if (!loading) return null;
   return (
-    <div className="app-loading-overlay">
-      <div className="app-glass-loader">
-        <div className="app-spinner"></div>
-        <p className="app-loading-text">
-          <i className="bi bi-lightning-charge-fill"></i> Please wait... loading details
-        </p>
-      </div>
+    <div className="detailsOverlay">
+      <div className="detailsSpinner"></div>
+      <p className="detailsLoadingText">Loading, please wait...</p>
     </div>
   );
 };
 
-/* Snackbar */
-const Snackbar = ({ message, type, onClose }) => {
-  if (!message) return null;
+const MessageBar = ({ text, kind, onDismiss }) => {
+  if (!text) return null;
   return (
-    <div className={`snackbar ${type}`}>
-      <span>{message}</span>
-      <button onClick={onClose} className="snackbar-close">✖</button>
+    <div className={`detailsSnackbar ${kind}`}>
+      <span>{text}</span>
+      <button onClick={onDismiss} className="detailsClose">✖</button>
     </div>
   );
 };
 
-/* Confirmation Modal */
-const ConfirmModal = ({ show, title, message, onConfirm, onCancel }) => {
-  if (!show) return null;
+const ConfirmBox = ({ open, title, text, onYes, onNo }) => {
+  if (!open) return null;
   return (
-    <div className="modal-backdrop">
-      <div className="modal-content">
+    <div className="detailsModalBackdrop">
+      <div className="detailsModal">
         <h3>{title}</h3>
-        <p>{message}</p>
-        <div className="modal-actions">
-          <button onClick={onCancel} className="btn modal-cancel-btn">Cancel</button>
-          <button onClick={onConfirm} className="btn modal-delete-btn">Confirm</button>
+        <p>{text}</p>
+        <div className="detailsModalActions">
+          <button onClick={onNo} className="detailsCancelBtn">Cancel</button>
+          <button onClick={onYes} className="detailsDeleteBtn">Confirm</button>
         </div>
       </div>
     </div>
   );
 };
 
-const CarDetails = () => {
-  const [selectedBrand, setSelectedBrand] = useState('');
-  const [selectedCar, setSelectedCar] = useState('');
-  const [selectedVariant, setSelectedVariant] = useState('');
-  const [carInfo, setCarInfo] = useState(null);
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [authChecked, setAuthChecked] = useState(false);
-  const [carsToCompare, setCarsToCompare] = useState([]);
-  const [showComparison, setShowComparison] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-  const [carData, setCarData] = useState({});
-  const [showClearModal, setShowClearModal] = useState(false);
+// Helper to format values
+const formatValue = (value) => {
+  if (!value) return "-";
+  if (Array.isArray(value)) return value.join(", ");
+  if (typeof value === "object") {
+    return Object.entries(value)
+      .map(([k, v]) => `${k}: ${v}`)
+      .join(", ");
+  }
+  return String(value);
+};
 
-  // Snackbar
-  const [snackbar, setSnackbar] = useState({ message: "", type: "" });
-  const showSnackbar = (msg, type = "info") => {
-    setSnackbar({ message: msg, type });
-    setTimeout(() => setSnackbar({ message: "", type: "" }), 4000);
-  };
+const CarDetails = () => {
+  const [brand, setBrand] = useState("");
+  const [model, setModel] = useState("");
+  const [variant, setVariant] = useState("");
+  const [info, setInfo] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
+  const [authChecked, setAuthChecked] = useState(false);
+  const [compareList, setCompareList] = useState([]);
+  const [showCompare, setShowCompare] = useState(false);
+  const [showClear, setShowClear] = useState(false);
+  const [snackbar, setSnackbar] = useState({ text: "", kind: "" });
+  const [carDataset, setCarDataset] = useState({});
 
   const navigate = useNavigate();
 
+  // Auth check
   useEffect(() => {
-    const timeout = setTimeout(() => setIsLoading(false), 1000);
-    return () => clearTimeout(timeout);
-  }, []);
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (!user) navigate('/login');
+    const unsub = onAuthStateChanged(auth, (user) => {
+      if (!user) navigate("/login");
       else setAuthChecked(true);
     });
-    return () => unsubscribe();
+    return () => unsub();
   }, [navigate]);
 
+  // Fake loading
+  useEffect(() => {
+    const t = setTimeout(() => setIsLoading(false), 1000);
+    return () => clearTimeout(t);
+  }, []);
+
+  // Fetch cars
   useEffect(() => {
     const fetchCars = async () => {
       try {
-        const res = await fetch('https://motomartbackend.onrender.com/api/cars');
+        const res = await fetch("https://motomartbackend.onrender.com/api/cars");
         const data = await res.json();
-
-        const structuredData = {};
-        data.forEach(car => {
-          if (!structuredData[car.brand]) {
-            structuredData[car.brand] = {};
-          }
-          structuredData[car.brand][car.model] = {
-            common_details: car.common_details,
-            variants: car.variants
+        const structured = {};
+        data.forEach((c) => {
+          if (!structured[c.brand]) structured[c.brand] = {};
+          structured[c.brand][c.model] = {
+            common: c.common_details,
+            variants: c.variants,
           };
         });
-        setCarData(structuredData);
+        setCarDataset(structured);
       } catch (err) {
-        console.error("Failed to fetch Car data:", err);
+        console.error("Car fetch failed:", err);
       }
     };
     fetchCars();
   }, []);
 
-  if (!authChecked || Object.keys(carData).length === 0) {
-    return <LoadingOverlay isLoading={true} />;
-  }
+  // Lock/unlock background scroll when modal opens
+  useEffect(() => {
+    if (showCompare) {
+      document.body.classList.add("modal-open");
+    } else {
+      document.body.classList.remove("modal-open");
+    }
+  }, [showCompare]);
 
-  /* Handlers */
-  const handleBrandChange = (e) => {
-    setSelectedBrand(e.target.value);
-    setSelectedCar('');
-    setSelectedVariant('');
-    setCarInfo(null);
-    setSubmitted(false);
-    setShowComparison(false);
+  const notify = (msg, kind = "info") => {
+    setSnackbar({ text: msg, kind });
+    setTimeout(() => setSnackbar({ text: "", kind: "" }), 3500);
   };
 
-  const handleCarChange = (e) => {
-    setSelectedCar(e.target.value);
-    setSelectedVariant('');
-    setCarInfo(null);
-    setSubmitted(false);
-    setShowComparison(false);
-  };
-
-  const handleVariantChange = (e) => {
-    setSelectedVariant(e.target.value);
-    setCarInfo(null);
-    setSubmitted(false);
-    setShowComparison(false);
-  };
-
-  const handleSubmit = (e) => {
+  const handleSearch = (e) => {
     e.preventDefault();
-    if (!selectedBrand || !selectedCar || !selectedVariant) {
-      showSnackbar('Please select a Brand, Car, and Variant to search.', "error");
+    if (!brand || !model || !variant) {
+      notify("Please select brand, model, and variant.", "error");
       return;
     }
-
-    setLoading(true);
-    setSubmitted(false);
-    setShowComparison(false);
-
+    setSubmitting(true);
     setTimeout(() => {
-      try {
-        const commonDetails = carData[selectedBrand]?.[selectedCar]?.common_details;
-        const variantDetails = carData[selectedBrand]?.[selectedCar]?.variants?.[selectedVariant];
-
-        if (commonDetails && variantDetails) {
-          setCarInfo({
-            ...commonDetails,
-            ...variantDetails,
-            selectedVariantName: selectedVariant,
-            brand: selectedBrand,
-            carName: selectedCar
-          });
-        } else {
-          showSnackbar('Car or variant information not found in our database.', "error");
-          setCarInfo(null);
-        }
-      } catch (error) {
-        console.error("Error accessing car data:", error);
-        showSnackbar('An error occurred while fetching car details.', "error");
-        setCarInfo(null);
-      } finally {
-        setLoading(false);
-        setSubmitted(true);
+      const common = carDataset[brand]?.[model]?.common;
+      const details = carDataset[brand]?.[model]?.variants?.[variant];
+      if (common && details) {
+        setInfo({
+          ...common,
+          ...details,
+          brand,
+          model,
+          chosenVariant: variant,
+        });
+      } else {
+        notify("Variant not found.", "error");
+        setInfo(null);
       }
+      setSubmitting(false);
     }, 1000);
   };
 
-  const handleAddToCompare = () => {
-    if (carInfo) {
-      if (carsToCompare.length < 2) {
-        const isAlreadyAdded = carsToCompare.some(
-          (car) =>
-            car.brand === selectedBrand &&
-            car.carName === selectedCar &&
-            car.variantName === carInfo.selectedVariantName
-        );
-        if (!isAlreadyAdded) {
-          setCarsToCompare((prev) => [
-            ...prev,
-            {
-              brand: selectedBrand,
-              carName: selectedCar,
-              variantName: carInfo.selectedVariantName,
-              details: carInfo,
-            },
-          ]);
-          showSnackbar(`${selectedBrand} ${selectedCar} ${carInfo.selectedVariantName} added!`, "success");
-        } else {
-          showSnackbar('This car variant is already in your comparison list.', "info");
-        }
-      } else {
-        showSnackbar('Max 2 cars can be compared. Please clear first.', "error");
-      }
+  const addToCompare = () => {
+    if (!info) return;
+    if (compareList.length >= 2) {
+      notify("You can compare max 2 cars.", "error");
+      return;
     }
-  };
-
-  const handleClearComparison = () => setShowClearModal(true);
-
-  const confirmClearComparison = () => {
-    setCarsToCompare([]);
-    setShowComparison(false);
-    setShowClearModal(false);
-    showSnackbar("Comparison list cleared!", "success");
-  };
-
-  const handleShowComparison = () => {
-    if (carsToCompare.length < 2) {
-      showSnackbar('Please add at least two cars before comparing.', "error");
-    } else {
-      setShowComparison(true);
+    const already = compareList.some(
+      (c) => c.brand === brand && c.model === model && c.chosenVariant === variant
+    );
+    if (already) {
+      notify("Already in compare list.", "info");
+      return;
     }
+    setCompareList((prev) => [...prev, info]);
+    notify(`${brand} ${model} ${variant} added!`, "success");
   };
 
-  const brands = Object.keys(carData);
-  const cars = selectedBrand ? Object.keys(carData[selectedBrand]) : [];
-  const variants = selectedBrand && selectedCar
-    ? Object.keys(carData[selectedBrand]?.[selectedCar]?.variants || {})
+  const clearCompare = () => setShowClear(true);
+
+  const confirmClear = () => {
+    setCompareList([]);
+    setShowCompare(false);
+    setShowClear(false);
+    notify("Comparison cleared!", "success");
+  };
+
+  if (!authChecked || Object.keys(carDataset).length === 0) {
+    return <LoaderOverlay loading={true} />;
+  }
+
+  const brands = Object.keys(carDataset);
+  const models = brand ? Object.keys(carDataset[brand] || {}) : [];
+  const variants = brand && model
+    ? Object.keys(carDataset[brand]?.[model]?.variants || {})
     : [];
 
-  const getNestedValue = (obj, path) => {
-    return path.reduce((acc, part) => acc && acc[part], obj);
-  };
+  // Collect all feature keys for comparison
+  const allKeys = new Set();
+  compareList.forEach((c) => {
+    Object.keys(c).forEach((k) => {
+      if (!["brand", "model", "chosenVariant", "image"].includes(k)) {
+        allKeys.add(k);
+      }
+    });
+  });
 
   return (
-    <div className="getinfo-container advanced-ui">
-      <LoadingOverlay isLoading={isLoading} />
-      <h2 className="getinfo-title">Explore Your Car</h2>
+    <div className="detailsBox">
+      <LoaderOverlay loading={isLoading} />
+      <h2 className="detailsHeading">Find Your Car</h2>
 
       {/* Form */}
-      <form onSubmit={handleSubmit} className="getinfo-form">
-        {/* Dropdowns */}
-        <div className="getinfo-field">
-          <label>Brand:</label>
-          <select value={selectedBrand} onChange={handleBrandChange}>
-            <option value="">Select Brand</option>
-            {brands.map((brand) => <option key={brand} value={brand}>{brand}</option>)}
+      <form onSubmit={handleSearch} className="detailsForm">
+        <div className="detailsField">
+          <label>Brand</label>
+          <select value={brand} onChange={(e) => setBrand(e.target.value)}>
+            <option value="">Select</option>
+            {brands.map((b) => (
+              <option key={b}>{b}</option>
+            ))}
           </select>
         </div>
-        <div className="getinfo-field">
-          <label>Car Model:</label>
-          <select value={selectedCar} onChange={handleCarChange} disabled={!selectedBrand}>
-            <option value="">Select Car Model</option>
-            {cars.map((car) => <option key={car} value={car}>{car}</option>)}
+        <div className="detailsField">
+          <label>Model</label>
+          <select value={model} onChange={(e) => setModel(e.target.value)} disabled={!brand}>
+            <option value="">Select</option>
+            {models.map((m) => (
+              <option key={m}>{m}</option>
+            ))}
           </select>
         </div>
-        <div className="getinfo-field">
-          <label>Variant:</label>
-          <select value={selectedVariant} onChange={handleVariantChange} disabled={!selectedCar}>
-            <option value="">Select Variant</option>
-            {variants.map((v) => <option key={v} value={v}>{v}</option>)}
+        <div className="detailsField">
+          <label>Variant</label>
+          <select value={variant} onChange={(e) => setVariant(e.target.value)} disabled={!model}>
+            <option value="">Select</option>
+            {variants.map((v) => (
+              <option key={v}>{v}</option>
+            ))}
           </select>
         </div>
-
-        <button className="getinfo-btn gradient-shadow" type="submit" disabled={!selectedBrand || !selectedCar || !selectedVariant || loading}>
-          {loading ? 'Searching...' : '🔍 Search Details'}
+        <button className="detailsButton" disabled={submitting}>
+          {submitting ? "Searching..." : "Search"}
         </button>
       </form>
 
       {/* Car Info */}
-      {submitted && carInfo && (
-        <div className="getinfo-result fade-in">
-          <h4>Specifications for {selectedCar} - {carInfo.selectedVariantName}</h4>
-          {carInfo.image && <img src={carInfo.image} alt={selectedCar} className="getinfo-image" />}
-          <p><strong>Brand:</strong> {selectedBrand}</p>
-          <p><strong>Fuel Type:</strong> {carInfo.fuelType}</p>
-          <p><strong>Price:</strong> {carInfo.pricing}</p>
-          <button className="getinfo-btn add-to-compare-btn" onClick={handleAddToCompare} disabled={carsToCompare.length >= 2}>
-            Add to Compare ({carsToCompare.length}/2)
+      {info && (
+        <div className="detailsCard">
+          <h4>{brand} {model} - {variant}</h4>
+          {info.image && <img src={info.image} alt={model} className="detailsImage" />}
+          <p><b>Fuel:</b> {info.fuelType}</p>
+          <p><b>Price:</b> {info.pricing}</p>
+          <button onClick={addToCompare} className="detailsButtonAlt">
+            Add to Compare ({compareList.length}/2)
           </button>
         </div>
       )}
 
-      {/* Comparison List */}
-      {carsToCompare.length > 0 && (
-        <div className="comparison-list-summary fade-in">
-          <h4>Currently Selected:</h4>
+      {/* Compare list */}
+      {compareList.length > 0 && (
+        <div className="detailsCompareBox">
+          <h4>Compare List</h4>
           <ul>
-            {carsToCompare.map((car, idx) => (
-              <li key={idx}><b>{car.brand} {car.carName}</b> - {car.variantName}</li>
+            {compareList.map((c, i) => (
+              <li key={i}>{c.brand} {c.model} - {c.chosenVariant}</li>
             ))}
           </ul>
-          <button className="getinfo-btn" onClick={handleShowComparison} disabled={carsToCompare.length < 2}>Compare Selected Cars</button>
-          <button className="getinfo-btn clear-btn" onClick={handleClearComparison}>Clear Comparison</button>
+          <button
+            className="detailsButton"
+            onClick={() => setShowCompare(true)}
+            disabled={compareList.length < 2}
+          >
+            Compare
+          </button>
+          <button className="detailsButtonClear" onClick={clearCompare}>Clear</button>
         </div>
       )}
 
-      {/* Clear Confirmation */}
-      <ConfirmModal
-        show={showClearModal}
-        title="Clear Comparison?"
-        message="Are you sure you want to clear all selected cars?"
-        onConfirm={confirmClearComparison}
-        onCancel={() => setShowClearModal(false)}
+      {/* Confirm clear */}
+      <ConfirmBox
+        open={showClear}
+        title="Clear Comparison"
+        text="Do you want to remove all cars from comparison?"
+        onYes={confirmClear}
+        onNo={() => setShowClear(false)}
       />
 
-      {/* Snackbar */}
-      <Snackbar
-        message={snackbar.message}
-        type={snackbar.type}
-        onClose={() => setSnackbar({ message: "", type: "" })}
+      <MessageBar
+        text={snackbar.text}
+        kind={snackbar.kind}
+        onDismiss={() => setSnackbar({ text: "", kind: "" })}
       />
+
+      {/* Comparison Modal */}
+      {showCompare && (
+        <div className="detailsModalBackdrop">
+          <div className="detailsModal detailsCompareModal">
+            <div className="detailsModalActions">
+              <button
+                onClick={() => setShowCompare(false)}
+                className="detailsCancelBtn"
+              >
+                Close
+              </button>
+            </div>
+            <h3>Car Comparison</h3>
+            
+
+            <table className="detailsCompareTable">
+              <thead>
+                <tr>
+                  <th scope="col" className="detailsKeyCell">Feature</th>
+                  {compareList.map((c, i) => (
+                    <th scope="col" key={i} className="detailsHeaderCell">
+                      {c.image && (
+                        <img
+                          src={c.image}
+                          alt={`${c.brand} ${c.model}`}
+                          className="detailsCompareImg"
+                        />
+                      )}
+                      <div>
+                        <b>{c.brand}</b> {c.model} <br />
+                        <small>{c.chosenVariant}</small>
+                      </div>
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {Array.from(allKeys).map((key) => (
+                  <tr key={key}>
+                    <th scope="row" className="detailsKeyCell">
+                      {key.charAt(0).toUpperCase() + key.slice(1)}
+                    </th>
+                    {compareList.map((c, i) => (
+                      <td key={i}>{formatValue(c[key])}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+
+            <div className="detailsModalActions">
+              <button
+                onClick={() => setShowCompare(false)}
+                className="detailsCancelBtn"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

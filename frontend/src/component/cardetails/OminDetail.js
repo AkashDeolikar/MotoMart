@@ -4,55 +4,61 @@ import './temp.css'; // Assuming you might have additional tab-specific CSS here
 
 const OmniDetail = () => {
   const [activeTab, setActiveTab] = useState("overview");
+  const [selectedColor, setSelectedColor] = useState(0);
 
   const car = {
-    name: "Renault KWID",
-    price: "₹4.70 – ₹6.45 Lakh (Ex-showroom, Delhi)", // Clarified price type and region
-    mileage: "22.0 – 22.25 km/l (ARAI)", // Clarified mileage standard
+    name: "Renault KWID (2023)",
+    price: "₹4.70 – ₹6.45 Lakh (Ex-showroom, Delhi)",
+    mileage: "22.0 – 22.25 km/l (ARAI Certified)",
     description:
-      "The Renault KWID is a stylish and affordable entry-level hatchback, known for its SUV-inspired design cues and practical features. It offers strong fuel efficiency and a comfortable city driving experience, making it a popular choice for budget-conscious buyers.",
+      "The Renault KWID is a budget-friendly hatchback with SUV-inspired styling, modern features, and impressive fuel efficiency. Popular among first-time buyers, it offers a spacious cabin, practical technology like an 8-inch touchscreen with Android Auto/Apple CarPlay, and segment-leading 184 mm ground clearance. Its affordability and urban agility make it one of the most value-packed entry-level cars in India.",
     details: {
       engine: {
-        petrol: "0.8L SCe (54 PS, 72 Nm) & 1.0L SCe (68 PS, 91 Nm) Petrol Engine", // Added power/torque
+        petrol_0_8L: "0.8L SCe Petrol – 54 PS @ 5678 rpm, 72 Nm @ 4386 rpm",
+        petrol_1_0L: "1.0L SCe Petrol – 68 PS @ 5500 rpm, 91 Nm @ 4250 rpm",
       },
-      transmission: "5-speed Manual / 5-speed AMT", // More specific
+      transmission: "5-speed Manual / 5-speed AMT",
       fuelOptions: "Petrol",
-      safetyRating: "1 Star (Global NCAP)", // Remains 1 star for India-spec model as per latest public tests
-      features: [
-        "8-inch Touchscreen MediaNAV Evolution with Apple CarPlay & Android Auto", // More specific infotainment
-        "LED DRLs with Halogen Headlamps", // Clarified headlamp type
-        "Digital Instrument Cluster",
-        "Dual Front Airbags (Standard)", // Updated to dual airbags as standard
-        "ABS with EBD",
-        "Rear Parking Sensors & Rearview Camera (Top variants)", // Added Rearview Camera
-        "Electrically Adjustable ORVMs (Top variants)", // Added electrically adjustable ORVMs
-        "Speed Alert System", // Standard safety feature
-        "Reverse Parking Camera" // Redundant if already in above, but keeping for clarity
-      ],
-      colorOptions: [
-        { name: "Ice Cool White", hex: "#f8f8ff" },
-        { name: "Metal Mustard", hex: "#E3AE57" }, // Popular Climber color
-        { name: "Fiery Red", hex: "#b22222" },
-        { name: "Outback Bronze", hex: "#6b4423" },
-        { name: "Caspian Blue", hex: "#00568D" }, // Another common color
-        { name: "Moonlight Silver", hex: "#c0c0c0" },
-        { name: "Zanskar Blue with Mystery Black Roof", hex: "#007FFF", dualTone: true }, // Example dual tone
-        { name: "Metal Mustard with Mystery Black Roof", hex: "#E3AE57", dualTone: true }, // Example dual tone
-      ],
+      safetyRating:
+        "1 Star (Global NCAP, India-spec model) – Dual Airbags Standard",
       segment: "Entry-level Hatchback",
-      launched: "First Generation: 2015, Latest Update: 2023", // More specific launch info
+      launched: "First Generation: 2015 | Latest BS6 Phase 2 Update: 2023",
       evAvailable: false,
-      dimensions: { // Grouped dimensions
-        length: "3731 mm", // Added Length
+      dimensions: {
+        length: "3731 mm",
         width: "1579 mm",
         height: "1474 mm",
         wheelbase: "2422 mm",
         bootSpace: "279 Litres",
-        groundClearance: "184 mm",
-        fuelTankCapacity: "28 Litres"
-      }
+        groundClearance: "184 mm (Best-in-Segment)",
+        fuelTankCapacity: "28 Litres",
+      },
+      features: [
+        "8-inch Touchscreen MediaNAV Evolution with Apple CarPlay & Android Auto",
+        "Digital Instrument Cluster",
+        "LED DRLs with Halogen Headlamps",
+        "Electrically Adjustable ORVMs (Top Variants)",
+        "Dual Front Airbags (Standard)",
+        "ABS with EBD",
+        "Rear Parking Sensors",
+        "Reverse Parking Camera (Top Variants)",
+        "Speed Alert System",
+        "Seat Belt Reminder (Driver & Passenger)",
+        "Front Power Windows",
+      ],
+      colorOptions: [
+        { name: "Ice Cool White", hex: "#f8f8ff" },
+        { name: "Fiery Red", hex: "#b22222" },
+        { name: "Moonlight Silver", hex: "#c0c0c0" },
+        { name: "Outback Bronze", hex: "#6b4423" },
+        { name: "Metal Mustard", hex: "#E3AE57" },
+        { name: "Caspian Blue", hex: "#00568D" },
+        { name: "Zanskar Blue with Mystery Black Roof", hex: "#007FFF", dualTone: true },
+        { name: "Metal Mustard with Mystery Black Roof", hex: "#E3AE57", dualTone: true },
+      ],
     },
   };
+
 
   return (
     <div className="car-detail-page"> {/* Changed class name for generality */}
@@ -109,7 +115,7 @@ const OmniDetail = () => {
 
         {/* Tab Content - Conditionally render based on activeTab state */}
         {activeTab === "overview" && (
-          <div className="tab-content active">
+          <div className="tab-content360 active">
             <h2>Segment</h2>
             <p>{car.details.segment}</p>
             <h2>Launch Information</h2>
@@ -122,7 +128,7 @@ const OmniDetail = () => {
         )}
 
         {activeTab === "specs" && (
-          <div className="tab-content active">
+          <div className="tab-content360 active">
             <h2>Fuel & Engine</h2>
             <p>
               <strong>Fuel Type:</strong> {car.details.fuelOptions}
@@ -165,60 +171,62 @@ const OmniDetail = () => {
         )}
 
         {activeTab === "colors" && (
-          <div className="tab-content active">
+          <div className="tab-content360 active">
             <h2>Available Colors</h2>
             <div className="color-swatches">
               {car.details.colorOptions.map((c, index) => (
-                <div key={index} className="color-swatch-item">
+                <div
+                  key={index}
+                  className={`color-swatch-item ${selectedColor === index ? "selected" : ""
+                    }`}
+                  onClick={() => setSelectedColor(index)}
+                >
                   <div
-                    style={{
-                      backgroundColor: c.hex,
-                      width: "60px",
-                      height: "60px",
-                      borderRadius: "50%",
-                      border: "2px solid #ccc",
-                      marginBottom: "0.5rem",
-                    }}
+                    className="color-swatch-circle"
+                    style={{ backgroundColor: c.hex }}
                   ></div>
-                  <small>{c.name} {c.dualTone && "(Dual Tone)"}</small>
+                  <small className="color-swatch-label">
+                    {c.name} {c.dualTone && "(Dual Tone)"}
+                  </small>
                 </div>
               ))}
             </div>
           </div>
         )}
 
+
         {activeTab === "features" && (
-          <div className="tab-content active">
+          <div className="tab-content360 active">
             <h2>Safety</h2>
             <p>
               <strong>Rating:</strong> {car.details.safetyRating}
             </p>
             <ul>
               {car.details.features
-                .filter(feature => 
-                    feature.includes("Airbag") || 
-                    feature.includes("ABS") || 
-                    feature.includes("Parking Sensors") || 
-                    feature.includes("Speed Alert") ||
-                    feature.includes("Reverse Parking Camera") // Include rearview camera here
+                .filter(feature =>
+                  feature.includes("Airbag") ||
+                  feature.includes("ABS") ||
+                  feature.includes("Parking Sensors") ||
+                  feature.includes("Speed Alert") ||
+                  feature.includes("Reverse Parking Camera") // Include rearview camera here
                 )
                 .map((feature, i) => (
-                  <li key={i}>✅ {feature}</li>
+                  <li key={i}><span className="material-symbols-outlined">check_circle</span>{feature}</li>
                 ))}
             </ul>
 
             <h2>Key Comfort & Convenience Features</h2>
             <ul>
               {car.details.features
-                .filter(feature => 
-                    !(feature.includes("Airbag") || 
-                      feature.includes("ABS") || 
-                      feature.includes("Parking Sensors") || 
-                      feature.includes("Speed Alert") ||
-                      feature.includes("Reverse Parking Camera"))
+                .filter(feature =>
+                  !(feature.includes("Airbag") ||
+                    feature.includes("ABS") ||
+                    feature.includes("Parking Sensors") ||
+                    feature.includes("Speed Alert") ||
+                    feature.includes("Reverse Parking Camera"))
                 )
                 .map((feature, i) => (
-                  <li key={i}>✅ {feature}</li>
+                  <li key={i}><span className="material-symbols-outlined">check_circle</span>{feature}</li>
                 ))}
             </ul>
           </div>

@@ -1,530 +1,191 @@
-@import '../fonts.css';
+/* ============================
+   Root (Google Store Identity)
+============================ */
+:root {
+  --g-text: #202124;
+  --g-muted: #5f6368;
+  --g-bg: #ffffff;
+  --g-section: #f8f9fa;
+  --g-blue: #1a73e8;
+  --g-blue-hover: #1558c0;
+  --g-radius: 16px;
+  --g-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
 
-.premium-highlight-section {
-  background: linear-gradient(to right, #1e293b, #0f172a);
-  padding: 15px 20px;
-  border-radius: 15px;
+body.dark {
+  --g-text: #e8eaed;
+  --g-muted: #9aa0a6;
+  --g-bg: #202124;
+  --g-section: #2d2d2d;
+  --g-blue: #8ab4f8;
+  --g-blue-hover: #669df6;
+  --g-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================
+   Layout
+============================ */
+.page5 {
+  font-family: "Google Sans", "Google Sans Display", Roboto, Arial, sans-serif;
+  background: var(--g-bg);
+  color: var(--g-text);
+  line-height: 1.6;
+}
+
+/* ============================
+   Hero
+============================ */
+.page5-hero {
   text-align: center;
-  margin: 40px 0;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-}
-
-.premium-text {
-  color: #f1f5f9;
-  font-size: 0.95rem;
-  line-height: 1.8;
-}
-
-.premium-text strong {
-  color: #93c5fd;
-  font-weight: 600;
-}
-
-.premium-cta-button {
-  display: inline-block;
-  margin-left: 15px;
-  padding: 10px 20px;
-  background: #3b82f6;
-  color: white;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-}
-
-.premium-cta-button:hover {
-  background: transparent;
-  color: #3b82f6;
-  border-color: #3b82f6;
-  transform: scale(1.05);
-}
-
-/* LOADING ANIMATION */
-.loading-card {
-  display: contents;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 300px;
-  background-color: #f4f4f4;
-  border-radius: 12px;
-  padding: 20px;
-  text-align: center;
-  animation: fadeIn 0.4s ease-in-out;
-}
-
-.loading-image {
-  max-width: 60%;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 15px;
-}
-
-.loading-text {
-  font-size: 18px;
-  font-weight: 500;
-  font-family: 'LandRoverWeb-Light';
-  /* color: #333; */
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.97);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Global Styles */
-body {
-  font-family: 'Roboto', sans-serif;
-  background-color: #f4f4f4;
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Page1 Container */
-.B1Page2 {
-  /* max-width: 1200px; */
+  padding: clamp(4rem, 8vw, 7rem) 1rem clamp(3rem, 6vw, 5rem);
+  max-width: 800px;
   margin: 0 auto;
 }
-
-/* Background Section */
-.bgPaper5 {
-  width: 100vw;
-  height: 450px;
-  margin-left: calc(-50vw + 50%);
-  padding: 100px 0px;
-  box-sizing: border-box;
-  position: relative;
-  overflow: hidden;
-  background-image: url('https://www.tatamotors.com/wp-content/themes/TataMotors/images/lux-bnr-desk.webp');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  /* background-image: linear-gradient(to right, #00000 0 50%, transparent 0%, url('https://www.tatamotors.com/wp-content/themes/TataMotors/images/InnovationBanner.jpg')); */
-  color: white;
-  text-align: left;
+.page5-hero h1 {
+  font-family: "Google Sans Display", "Google Sans", Roboto, sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.page5-hero p {
+  font-size: 1.125rem;
+  color: var(--g-muted);
+  margin-bottom: 2rem;
+  line-height: 1.7;
 }
 
-.bgPaper5::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* background: linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0)); */
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.864) 0%, rgba(248, 248, 248, 0) 100%);
-  ;
-  pointer-events: none;
-  /* z-index: 1; */
-}
-
-.bgPaper5 h5,
-.bgPaper5 h1 {
-  text-align: left;
-  margin-left: 7vh;
-  font-family: 'Jaguar Exuberant';
-  letter-spacing: 1.25px;
-  position: relative;
-  z-index: 2;
-}
-
-.bgPaper5 h5 {
-  font-size: 25px;
-  margin-top: 35px;
-}
-
-.bgPaper5 h1 {
-  font-size: 50px;
-}
-
-/* Constant Background Section */
-.ConstantBG5 {
-  width: 100vw;
-  padding: 80px 20px;
-  margin-left: calc(-50vw + 50%);
-  box-sizing: border-box;
-  background-color: #242427;
-  background-image: url('../slidePage/pattern-dotted1.jpg'), url('../slidePage/pattern-dotted2.jpg');
-  background-repeat: no-repeat;
-  background-position: left top 30px, right top 30px;
-  background-size: 12%;
-  justify-content: center;
-  display: grid;
-}
-
-.constantBGT1page5 {
-  font-family: 'LandRoverWeb-Light';
-}
-
-.mb-2 {
-  font-family: 'Jaguar Exuberant';
-}
-
-.mb-p {
-  font-family: 'LandRoverWeb-Medium';
-}
-
-@media screen and (max-width: 991px) {
-  .ConstantBG {
-    padding-top: 50px !important;
-    padding-bottom: 50px !important;
-  }
-}
-
-.T5Page {
-  font-family: sans-serif;
-  width: 100%;
-  max-width: 890px;
-  border-radius: 8px;
-  background-color: transparent;
-}
-
-.T5Page h2 {
-  font-family: 'LandRoverWeb-Demi';
-  font-size: 2.5rem;
-  color: #ffffff;
-  margin-bottom: 20px;
-}
-
-.T5Page h3 {
-  font-size: 1.6rem;
-  color: #ffffff;
-  margin-bottom: 20px;
-}
-
-.T5Page p {
-  font-size: 1.1rem;
-  color: #ffffff;
-  margin-bottom: 20px;
-  font-size: 20px;
-}
-
-.appearIntroPage5 {
-  margin-bottom: 20px;
-  display: inline-block;
-  color: rgb(255, 255, 255);
-  font-size: 18px;
-  position: relative;
-  z-index: 1;
-  text-decoration: none;
-  border-width: initial;
-  border-style: none;
-  border-color: initial;
-  border-image: initial;
-  padding: 12px 35px;
-  transition: 0.3s ease-out;
-}
-
-.btn-boxpage5::before {
-  content: "";
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgb(10, 10, 95);
-  z-index: -1;
-  transition: 0.3s ease-out;
-  border-radius: 70px;
-}
-
-.sizebox {
-  align-items: center;
-  padding: 30px;
-  display: inline-flex;
-  flex-direction: row;
-  width: 100%;
-  gap: 30px;
-}
-
-@media (max-width:786px) {
-  .loading-image {
-    max-width: 100%;
-  }
-
-  .sizebox {
-    align-items: center;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 30px;
-  }
-}
-
-/**/
-.row {
-  margin-left: 50px;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 -15px;
-  justify-content: center;
-}
-
-@media screen and (max-width: 991px) {
-  .cv-helping-wrp .lux-grid-wrp .lux-card {
-    height: 600px;
-    background-size: cover;
-    margin-bottom: 24px;
-  }
-}
-
-@media (max-width: 768px) {
-  .col-md-6 {
-    flex: 0 0 auto;
-    width: 50%;
-  }
-}
-
-.row>* {
-  flex-shrink: 0;
-  box-sizing: border-box;
-}
-
-.col-md-6 {
-  padding: 15px;
-  box-sizing: border-box;
-  width: 100%;
-  /* default for small screens */
-}
-
-@media (min-width: 768px) {
-  .col-md-6 {
-    width: 50%;
-    /* ✅ responsive 2-column layout */
-  }
-}
-
-@media (max-width: 486px) {
-  .lux-card {
-    height: 300px;
-  }
-}
-
-.lux-card {
-  height: 600px;
-  background-color: #1e1e1e;
-  background-size: cover;
-  background-position: center;
-  color: #fff;
-  border-radius: 18px;
-  padding: 30px;
-  min-height: 360px;
+/* ============================
+   Grid Rows
+============================ */
+.page5-grid {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
+  gap: clamp(3rem, 6vw, 5rem);
+  padding: 0 1rem clamp(5rem, 8vw, 7rem);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.page5-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: center;
+}
+.page5-row.reverse {
+  direction: rtl;
+}
+.page5-row.reverse .page5-text {
+  direction: ltr;
 }
 
-.lux-card:hover {
-  transform: translateY(-5px);
+/* Image */
+.page5-image {
+  display: flex;
+  justify-content: center;
 }
-
-.lux-card1 {
-  background-image: url('../slidePage/jaguar.jpg');
-}
-
-.lux-card2 {
-  background-image: url('../slidePage/rover.jpg');
-}
-.lux-card3 {
-  background-image: url('../slidePage/bmw.jpg');
-}
-.lux-card4 {
-  background-image: url('../slidePage/mercedes.jpg');
-}
-
-.caption-wrp {
-  background: rgba(0, 0, 0, 0.068);
-  padding: 20px;
-  border-radius: 8px;
-  position: relative;
-}
-
-.caption-wrp h2 {
-  position: absolute;
-  top: -18rem;
-  left: 0;
-  font-size: 32px;
-  margin: 0;
-  /* remove margin-bottom if strict top alignment is needed */
-  /* padding: 10px;  */
-}
-
-.caption-wrp p {
-  font-size: 16px;
-  line-height: 1.6;
-  margin-bottom: 15px;
-}
-
-.readmore-cta {
-  cursor: pointer;
-  display: inline-block;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 30px;
-  transition: background-color 0.3s ease;
-}
-
-.readmore-cta:hover {
-  background-color: #003580;
-}
-
-/**/
-.luxuryboxC1 {
-  width: 100vw;
-  height: 600px;
-  margin-left: calc(-50vw + 50%);
-  padding: 100px 0px;
-  box-sizing: border-box;
-  position: relative;
-  overflow: hidden;
-  background-image: url('../slidePage/jaguar.jpg');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: white;
-  text-align: left;
-}
-
-.luxuryboxC2 {
-  width: 100vw;
-  height: 600px;
-  margin-left: calc(-50vw + 50%);
-  padding: 100px 0px;
-  box-sizing: border-box;
-  position: relative;
-  overflow: hidden;
-  background-image: url('../slidePage/rover.jpg');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  /* background-image: linear-gradient(to right, #00000 0 50%, transparent 0%, url('https://www.tatamotors.com/wp-content/themes/TataMotors/images/InnovationBanner.jpg')); */
-  color: white;
-  text-align: left;
-}
-
-@media (min-width: 768px) {
-
-  .T5Page,
-  .constantBGT2page {
-    max-width: 720px;
-  }
-}
-
-@media (min-width: 576px) {
-
-  .T5Page,
-  .constantBGT2page {
-    max-width: 1100px;
-  }
-}
-
-.T5Page,
-.constantBGT2page {
-  --bs-gutter-x: 1.5rem;
-  --bs-gutter-y: 0;
+.page5-image img {
   width: 100%;
-  padding-right: calc(var(--bs-gutter-x) * .5);
-  padding-left: calc(var(--bs-gutter-x) * .5);
-  margin-right: auto;
-  margin-left: auto;
+  max-width: 350px;
+  height: auto;
+  border-radius: var(--g-radius);
+  box-shadow: var(--g-shadow);
+  transition: transform 0.25s ease;
+}
+.page5-image img:hover {
+  transform: scale(1.02);
+}
+
+/* Text */
+.page5-text {
+  max-width: 520px;
+}
+.page5-text h2 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+.page5-text p {
+  color: var(--g-muted);
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+/* ============================
+   Highlight Section
+============================ */
+.page5-highlight {
+  background: var(--g-section);
   text-align: center;
+  padding: clamp(4rem, 8vw, 6rem) 1.5rem;
+}
+.page5-highlight h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+.page5-highlight p {
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  color: var(--g-muted);
+  font-size: 1.05rem;
 }
 
-/* Collapse Section */
-.collapse {
-  margin-top: 20px;
-  margin-bottom: 10px;
+/* ============================
+   Buttons
+============================ */
+.btn-primary,
+.btn-outline {
+  display: inline-block;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 9999px; /* pill */
+  padding: 0.7rem 1.75rem;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.1s ease;
+  cursor: pointer;
 }
 
-.card-body {
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  font-size: 1rem;
-  color: #333;
-}
-
-/* Buttons */
+/* Filled */
 .btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
-  padding: 10px 20px;
-  font-size: 1rem;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.btn-primary:hover {
-  background-color: #0056b3;
-  border-color: #004085;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .bgPaper2 {
-    width: 100vw;
-    height: 350px;
-  }
-
-  .bgPaper2 h1 {
-    font-size: 2.5rem;
-  }
-
-  .T1Page h2 {
-    font-size: 2rem;
-  }
-
-  .T1Page p {
-    font-size: 1rem;
-  }
-}
-
-/* Button styling */
-.d-inline-flex {
-  margin-top: 20px;
-}
-.dropheading {
-  font-size: 20px;
-}
-@media (max-width: 786px) {
-  .dropheading {
-  font-size: 16px;
-}
-}
-
-.btn-attractive {
-  background-color: #00c4ff;
-  color: rgb(35, 35, 35);
+  background: var(--g-blue);
+  color: #fff;
   border: none;
-  padding: 5px 12px;
-  transition: all 0.3s ease-in-out;
+}
+.btn-primary:hover {
+  background: var(--g-blue-hover);
 }
 
-.btn-attractive:hover {
-  background-color: transparent;
-  border: 1px solid #00c4ff;
-  color: #0f172a;
+/* Outlined */
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid var(--g-blue);
+  color: var(--g-blue);
 }
-.dark .btn-attractive:hover{
-  color: white;
+.btn-outline:hover {
+  background: var(--g-blue);
+  color: #fff;
+}
+
+/* ============================
+   Responsive
+============================ */
+@media (max-width: 900px) {
+  .page5-row {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .page5-row.reverse {
+    direction: ltr;
+  }
+  .page5-text {
+    margin: 0 auto;
+  }
+  .page5-image img {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  border-radius: var(--g-radius);
+  box-shadow: var(--g-shadow);
+  transition: transform 0.25s ease;
+}
 }

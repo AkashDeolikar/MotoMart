@@ -1,117 +1,110 @@
 import React from "react";
-import "./page4.css";
-
-import img1 from "./p4img.jpg";
-import img2 from "./p4img1.jpg";
+import { Link } from "react-router-dom";
+import "./pages.css";
 
 const Page4 = () => {
   return (
-    <div className="B1Page">
-      {/* Hero Section */}
-      <section className="bgPaper">
-        <h5>Our Commitment</h5>
-        <h1 className="gradient-text">Committed to Good</h1>
-        <h1 className="gradient-text">in Automobiles</h1>
+    <div className="page4-root">
+      {/* Hero CTA */}
+      <section className="page4-cta">
+        <h1>Join Us in Building Smarter Mobility</h1>
+        <p>
+          Together, we can transform transportation with intelligent,
+          sustainable, and people-first solutions.
+        </p>
+        <Link to="/contact" className="page4-btn">
+          Contact Our Team
+        </Link>
       </section>
 
-      {/* Purpose Section */}
-      <section className="ConstantBG">
-        <div className="T1Page">
-          <h2 className="constantBGT1page">Driven by Purpose</h2>
-          <p className="constantBGT1page">
-            We’re not just building vehicles — we’re building a better tomorrow.
-            Our purpose-driven innovations reflect a commitment to
-            sustainability, safety, and smarter mobility for all.
-          </p>
-          <p className="constantBGT1page">
-            With over <strong>500,000+ electric vehicles</strong> on roads
-            globally, and <strong>reduction of 2 million+ tons</strong> of CO₂
-            emissions in the last 3 years, our work goes beyond transportation.
-            Our dedication to circular manufacturing, renewable energy adoption,
-            and clean mobility ensures that every drive makes a difference.
-          </p>
+      {/* Why Partner With Us */}
+      <section className="page4-benefits">
+        <h2>Why Partner With Us?</h2>
+        <div className="page4-benefits-grid">
+          {[
+            {
+              icon: "lightbulb",
+              title: "Innovation",
+              desc: "Cutting-edge AI and IoT technologies tailored for smarter cities.",
+            },
+            {
+              icon: "eco",
+              title: "Sustainability",
+              desc: "Green mobility solutions that reduce emissions and promote clean energy.",
+            },
+            {
+              icon: "groups",
+              title: "Collaboration",
+              desc: "Trusted partnerships with governments, industries, and communities.",
+            },
+            {
+              icon: "security",
+              title: "Safety & Trust",
+              desc: "Reliable systems designed to protect people and infrastructure.",
+            },
+          ].map((item, idx) => (
+            <div key={idx} className="page4-card">
+              <span className="material-symbols-outlined page4-icon">
+                {item.icon}
+              </span>
+              <h3>{item.title}</h3>
+              <p>{item.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Accordion Section */}
-      <section className="drops">
-        {/* Sustainability */}
-        <div className="drop-item">
-          <button
-            className="btn-attractive"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseSustainability"
-            aria-expanded="false"
-            aria-controls="collapseSustainability"
-          >
-            <h3 className="dropheading">
-              Sustainability <i className="bi bi-chevron-down"></i>
-            </h3>
-          </button>
-          <div className="collapse" id="collapseSustainability">
-            <div className="drop-flex">
-              <div className="drop-image">
-                <img src={img1} alt="Sustainability initiatives" />
-              </div>
-              <div className="drop-text">
-                <h3>Eco-Friendly by Design</h3>
-                <p>
-                  Sustainability is at the core of our engineering. With{" "}
-                  <strong>over 85% recyclability</strong> in our new vehicle
-                  platforms and <strong>70% manufacturing powered by renewable energy</strong>, we ensure a low environmental footprint at every step.
-                </p>
-                <p>
-                  We’ve installed <strong>500+ fast-charging stations</strong>{" "}
-                  across major highways and cities, enabling long-distance green
-                  travel. Our initiatives help conserve over{" "}
-                  <strong>100 million liters of fuel annually</strong> through
-                  efficient vehicle design and electric transitions.
-                </p>
-              </div>
-            </div>
-          </div>
+      {/* Resources / Insights */}
+      <section className="page4-resources">
+        <h2>Explore Our Insights</h2>
+        <div className="page4-resources-grid">
+          {[
+            {
+              title: "Smart Mobility Report 2025",
+              desc: "Discover trends shaping the future of transportation worldwide.",
+              link: "#",
+            },
+            {
+              title: "EV Infrastructure Guide",
+              desc: "How cities can accelerate EV adoption with robust charging networks.",
+              link: "#",
+            },
+            {
+              title: "AI for Road Safety",
+              desc: "A deep dive into accident prevention through predictive analytics.",
+              link: "#",
+            },
+          ].map((item, idx) => (
+            <a key={idx} href={item.link} className="page4-resource-card">
+              <h4>{item.title}</h4>
+              <p>{item.desc}</p>
+            </a>
+          ))}
         </div>
+      </section>
 
-        {/* Innovation */}
-        <div className="drop-item">
-          <button
-            className="btn-attractive"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseInnovation"
-            aria-expanded="false"
-            aria-controls="collapseInnovation"
-          >
-            <h3 className="dropheading">
-              Responsible Innovation <i className="bi bi-chevron-down"></i>
-            </h3>
-          </button>
-          <div className="collapse" id="collapseInnovation">
-            <div className="drop-flex">
-              <div className="drop-image">
-                <img src={img2} alt="Innovation features" />
-              </div>
-              <div className="drop-text">
-                <h3>Smart, Safe & Human-Centric</h3>
-                <p>
-                  Almost all vehicles integrate{" "}
-                  <strong>30+ ADAS features</strong> across our latest models to
-                  ensure driver safety and control. With{" "}
-                  <strong>AI-based diagnostics</strong>, we reduce vehicle
-                  breakdowns and enhance predictive maintenance.
-                </p>
-                <p>
-                  Our platforms process over{" "}
-                  <strong>2 TB of telemetry data daily</strong>, continuously
-                  improving performance and customer experiences. Voice
-                  dashboards, real-time updates, and smart connectivity bring
-                  tomorrow’s tech today.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+      {/* Support Section */}
+      <section className="page4-support">
+        <h2>Need Help?</h2>
+        <p>
+          Our experts are here to assist you with mobility solutions, project
+          partnerships, and technology insights.
+        </p>
+        <Link to="/contact" className="page4-btn">
+          Talk to Support
+        </Link>
+      </section>
+
+      {/* Final CTA */}
+      <section className="page4-final-cta">
+        <h2>Ready to Get Started?</h2>
+        <p>
+          Let’s work together to create safe, sustainable, and connected
+          mobility solutions for the future.
+        </p>
+        <Link to="/contact" className="page4-btn">
+          Get in Touch
+        </Link>
       </section>
     </div>
   );

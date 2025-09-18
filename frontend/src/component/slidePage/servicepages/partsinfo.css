@@ -1,221 +1,146 @@
-/* Base container styling */
-.parts-container {
-    max-width: 1200px;
-    margin: 20px auto; /* Centers the container and adds margin to top/bottom */
-    padding: 20px;
-    font-family: 'Segoe UI', Arial, sans-serif; /* Prefer Segoe UI, fallback to Arial/sans-serif */
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    color: #333; /* Default text color for light mode */
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth transition for theme changes */
+:root {
+  --partsbg: #f8f9fa;
+  --partscard: #fff;
+  --partstext: #202124;
+  --partsmuted: #5f6368;
+  --partsaccent: #1a73e8;
+  --partsborder: #e0e0e0;
+  --partsradius: 12px;
 }
 
-/* Heading */
-.parts-container h2 {
-  font-family: "HCLTechRoobert-Medium";
-    text-align: center;
-    margin-bottom: 25px;
-    font-size: 24px;
-    font-weight: 600;
-    color: #4caf50; /* A pleasant green */
-    transition: color 0.3s ease; /* Smooth transition for heading color */
+body.dark {
+  --partsbg: #121212;
+  --partscard: #1e1e1e;
+  --partstext: #e8eaed;
+  --partsmuted: #a1a1a1;
+  --partsborder: #333;
+}
+
+/* Root */
+.partsinfo-root {
+  background: var(--partsbg);
+  color: var(--partstext);
+  padding: 24px;
+  min-height: 100vh;
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
+}
+
+/* Hero */
+.partsinfo-hero {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.partsinfo-hero h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.partsinfo-muted {
+  color: var(--partsmuted);
 }
 
 /* Filters */
-.filters {
-    display: flex;
-    flex-wrap: wrap; /* Allows filters to wrap on smaller screens */
-    gap: 15px;
-    margin-bottom: 30px;
-    justify-content: center; /* Center filters */
+.partsinfo-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+.partsinfo-filters input,
+.partsinfo-filters select {
+  padding: 10px 14px;
+  border: 1px solid var(--partsborder);
+  border-radius: var(--partsradius);
+  background: var(--partscard);
+  color: var(--partstext);
+  min-width: 200px;
+  font-size: 0.95rem;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+.partsinfo-filters input:focus,
+.partsinfo-filters select:focus {
+  border-color: var(--partsaccent);
+  box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.15);
+  outline: none;
 }
 
-.filters input,
-.filters select { /* Apply styles to both input and select */
-    padding: 10px 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-    flex: 1; /* Allows inputs to grow and share space */
-    min-width: 200px; /* Ensures filters don't get too small */
-    background-color: #f5f5f5; /* Light grey background for consistency */
-    color: #333; /* Default text color */
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
+/* Grid */
+.partsinfo-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
 }
 
-/* Specific style for the vehicle type select, making it stand out slightly */
-.vehicle-type-select {
-    background-color: #e9ecef; /* Slightly different background for select */
-    cursor: pointer;
-    /* Remove default arrow and add custom SVG for consistent look */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e"); /* Dark arrow for light mode */
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 18px;
+/* Card */
+.partsinfo-card {
+  background: var(--partscard);
+  border-radius: var(--partsradius);
+  padding: 18px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--partsborder);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.partsinfo-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+.partsinfo-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--partstext);
+}
+.partsinfo-type {
+  font-size: 0.9rem;
+  color: var(--partsmuted);
+  margin-bottom: 10px;
+}
+.partsinfo-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.9rem;
 }
 
-.filters input:focus,
-.filters select:focus {
-    outline: none;
-    border-color: #007bff; /* Standard blue focus border */
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Subtle blue glow */
+/* Loader */
+.partsinfo-loader {
+  text-align: center;
+  padding: 40px;
+}
+.partsinfo-spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid var(--partsborder);
+  border-top-color: var(--partsaccent);
+  border-radius: 50%;
+  animation: partsinfo-spin 0.8s linear infinite;
+  margin: 0 auto 12px;
+}
+@keyframes partsinfo-spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-/* Table */
-.parts-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background-color: #fff; /* White background for the table itself */
-    font-size: 14px;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
+/* Empty State */
+.partsinfo-empty {
+  text-align: center;
+  padding: 24px;
+  color: var(--partsmuted);
 }
 
-.parts-table th,
-.parts-table td {
-    border: 1px solid #e0e0e0; /* Lighter border for cells */
-    padding: 12px 15px;
-    text-align: left;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
+/* Note */
+.partsinfo-note {
+  margin-top: 24px;
+  text-align: center;
+  padding: 14px;
+  background: #fff8e1;
+  border: 1px solid #ffe082;
+  border-radius: var(--partsradius);
+  color: #8d6e63;
 }
-
-.parts-table th {
-    background-color: #1690bd; /* Bold blue header */
-    color: white;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
-}
-
-.parts-table tr:nth-child(even) {
-    background-color: #f2f2f2; /* Subtle zebra striping */
-    transition: background-color 0.3s ease;
-}
-
-.parts-table tr:hover {
-    background-color: #e9f5ff; /* Light blue hover effect */
-    transition: background-color 0.3s ease;
-}
-
-/* Dark Mode Styles - Apply .dark class to a parent element (e.g., body or a container) */
-.dark .parts-container {
-    background-color: #1a1a1a; /* Dark background */
-    color: #eee; /* Light text color */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Darker shadow for contrast */
-}
-
-.dark .parts-container h2 {
-    color: #90ee90; /* Lighter green for dark mode heading */
-}
-
-.dark .filters input,
-.dark .filters select {
-    background-color: #333; /* Darker input background */
-    color: #fff; /* White text for inputs */
-    border-color: #555; /* Darker border */
-}
-
-.dark .vehicle-type-select {
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e"); /* White arrow for dark mode */
-}
-
-.dark .filters input:focus,
-.dark .filters select:focus {
-    border-color: #66b3ff; /* Lighter blue focus border for dark mode */
-    box-shadow: 0 0 0 3px rgba(102, 179, 255, 0.4); /* Lighter blue glow for dark mode */
-}
-
-
-.dark .parts-table {
-    background-color: #1e1e1e; /* Darker table background */
-    color: #ddd; /* Lighter text for table */
-}
-
-.dark .parts-table th {
-    background-color: #444; /* Darker header background */
-    color: #fff; /* White header text */
-}
-
-.dark .parts-table td {
-    border-color: #555; /* Darker cell borders */
-}
-
-.dark .parts-table tr:nth-child(even) {
-    background-color: #2a2a2a; /* Darker zebra striping */
-}
-
-.dark .parts-table tr:hover {
-    background-color: #383838; /* Darker hover effect */
-}
-
-/* Note Section - Adjusted for better visibility in dark mode */
-.note {
-    text-align: center;
-    margin-top: 30px;
-    padding: 15px;
-    background-color: #ffeeba; /* Light mode: Warm yellow background */
-    border: 1px solid #ffda6a; /* Light mode: Corresponding border color */
-    color: #856404; /* Light mode: Darker yellow/brown text */
-    border-radius: 5px;
-    font-size: 0.9rem;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
-}
-
-.dark .note {
-    background-color: #403200; /* Dark mode: Darker yellow/brown background */
-    border-color: #6a4f00; /* Dark mode: Darker border */
-    color: #ffda6a; /* Dark mode: Lighter text for contrast */
-}
-
-.note p {
-    margin: 0;
-}
-
-/* Mobile Styles */
-@media screen and (max-width: 768px) { /* Tablet/mobile breakpoint */
-    .parts-container {
-        padding: 15px;
-        margin: 10px;
-    }
-
-    .filters {
-        flex-direction: column; /* Stack filters vertically */
-        align-items: stretch; /* Make filters take full width */
-        gap: 10px;
-    }
-
-    .filters input,
-    .filters select {
-        min-width: unset; /* Remove min-width when stacked */
-        width: 100%; /* Ensure they take full width */
-    }
-
-    .parts-table {
-        display: block;
-        width: 100%;
-        overflow-x: auto; /* Enables horizontal scrolling for wide tables */
-        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-    }
-
-    .parts-table th,
-    .parts-table td {
-        font-size: 12px;
-        padding: 8px 10px;
-    }
-}
-
-/* Additional smaller mobile adjustment for very narrow screens */
-@media screen and (max-width: 480px) {
-    .parts-container h2 {
-        font-size: 20px;
-    }
-    .note {
-        font-size: 0.8rem;
-        padding: 10px;
-    }
+body.dark .partsinfo-note {
+  background: #2c2100;
+  border-color: #6a4f00;
+  color: #ffda6a;
 }

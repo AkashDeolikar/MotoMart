@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import "./login.css";
 import { FaUser, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 import { auth, provider } from "../../firebase";
-import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import {
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
+} from "firebase/auth";
 import { useNavigate, Link } from "react-router-dom";
 
 function Login() {
@@ -21,9 +25,7 @@ function Login() {
       const user = result.user;
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
-      console.log("Google user:", user);
       localStorage.setItem("authToken", token);
-      alert(`Welcome, ${user.displayName}`);
       navigate("/cardetails");
     } catch (error) {
       console.error("Google sign-in error:", error);
@@ -37,9 +39,7 @@ function Login() {
     setLoading(true);
     try {
       const userCred = await signInWithEmailAndPassword(auth, email, password);
-      console.log("User logged in:", userCred.user);
       localStorage.setItem("authToken", userCred.user.accessToken);
-      alert("Login successful!");
       navigate("/");
     } catch (err) {
       let errorMessage = "Invalid email or password";
@@ -55,89 +55,66 @@ function Login() {
   };
 
   return (
-    <div>
-      <section className="bgimage">
-        <div className="wrapper">
-          <form onSubmit={handleLogin}>
-            <h1>Login</h1>
+    <div className="login-wrapper">
+      <div className="login-card">
+        
+        <h1 className="login-title">Sign in</h1>
+        <p className="login-subtitle">to continue to CarPortal</p>
 
-            <div className="input-box">
-              <input
-                type="email"
-                placeholder="Email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <FaUser className="icon" />
-            </div>
+        <form onSubmit={handleLogin} className="login-form">
+          <div className="input-box">
+            <input
+              type="email"
+              placeholder="Email address"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <FaUser className="icon" />
+          </div>
 
-            <div className="input-box" style={{ position: "relative" }}>
-              <input
-                type={showPassword ? "text" : "password"}
-                placeholder="Password"
-                required
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <FaLock className="icon" />
-              <span
-                onClick={togglePassword}
-                style={{
-                  position: "absolute",
-                  right: "10px",
-                  top: "50%",
-                  transform: "translateY(-50%)",
-                  cursor: "pointer",
-                  color: "#999",
-                }}
-              >
-                {showPassword ? <FaEyeSlash /> : <FaEye />}
-              </span>
-            </div>
+          <div className="input-box">
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <FaLock className="icon" />
+            <span onClick={togglePassword} className="password-toggle">
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </span>
+          </div>
 
-            <div className="remember-forgot">
-              <label>
-                <input type="checkbox" /> Remember me
-              </label>
-              <Link to="/forgot-password">Forgot Password</Link>
-            </div>
+          {error && <p className="error-message">{error}</p>}
 
-            {error && <p className="error-message">{error}</p>}
+          <div className="remember-forgot">
+            <label>
+              <input type="checkbox" /> Remember me
+            </label>
+            <Link to="/forgot-password">Forgot password?</Link>
+          </div>
 
-            <button type="submit" disabled={loading}>
-              {loading ? "Logging in..." : "Login"}
-            </button>
+          <button type="submit" disabled={loading} className="primary-btn">
+            {loading ? "Signing in..." : "Sign in"}
+          </button>
+        </form>
 
-            <div className="register-link">
-              <p>
-                Don't have an Account? <Link to="/register">Register Now</Link>
-              </p>
-            </div>
+        <div className="divider"><span>OR</span></div>
 
-            <div className="gsign">
-              <button
-                type="button"
-                onClick={handleGoogleSignIn}
-                style={{
-                  width: "100%",
-                  marginTop: "20px",
-                  backgroundColor: "#4285F2",
-                  color: "#fff",
-                  border: "none",
-                  borderRadius: "40px",
-                  padding: "12px",
-                  fontSize: "16px",
-                  fontWeight: "bold",
-                  cursor: "pointer",
-                }}
-              >
-                <i class="bi bi-google"></i> Continue with Google
-              </button>
-            </div>
-          </form>
-        </div>
-      </section>
+        <button type="button" onClick={handleGoogleSignIn} className="google-btn">
+          <img
+            src="https://developers.google.com/identity/images/g-logo.png"
+            alt="Google"
+          />
+          Continue with Google
+        </button>
+
+        <p className="register-link">
+          Don’t have an account? <Link to="/register">Create account</Link>
+        </p>
+      </div>
     </div>
   );
 }

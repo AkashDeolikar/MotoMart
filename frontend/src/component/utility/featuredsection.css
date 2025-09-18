@@ -1,10 +1,13 @@
+/* 🌞 Default Light Theme */
 .carslidefeatured-section {
-  background: linear-gradient(145deg, #1e1e2f, #121212);
+  background: linear-gradient(145deg, #ffffff, #f1f3f4);
   padding: 3rem 1.5rem;
-  color: #fff;
+  color: #202124;
+  font-family: "Roboto", Arial, sans-serif;
 }
+
 .carslidefeatured-container {
-  max-width: 1250px;
+  max-width: 1200px;
   margin: auto;
 }
 
@@ -13,8 +16,10 @@
   font-weight: 600;
   margin-bottom: 2rem;
   text-align: center;
+  color: #202124;
 }
 
+/* Carousel */
 .carslidefeatured-carousel {
   display: flex;
   align-items: center;
@@ -22,68 +27,87 @@
   position: relative;
 }
 
+/* Slider */
 .carslidefeatured-slider {
   display: flex;
   gap: 20px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  padding: 1rem 0;
+  padding: 0.75rem 0 1.5rem;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  width: 100%;
-}
-
-/*THIS IS A SCROLLBAR*/
-.carslidefeatured-slider {
-    display: flex;
-    gap: 28px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding: 0.5rem 0.5rem 1.5rem;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    scrollbar-color: #555 transparent;
-}
-
-.carslidefeatured-card:hover{
-    transform: translateY(-2px) scale(0.7);
+  scrollbar-width: thin;
+  scrollbar-color: #dadce0 transparent;
 }
 
 .carslidefeatured-slider::-webkit-scrollbar {
-  display: none;
+  height: 6px;
+}
+.carslidefeatured-slider::-webkit-scrollbar-thumb {
+  background: #dadce0;
+  border-radius: 4px;
+}
+.carslidefeatured-slider::-webkit-scrollbar-track {
+  background: transparent;
 }
 
+/* Card */
 .carslidefeatured-card {
   flex: 0 0 auto;
   scroll-snap-align: start;
   width: 260px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
+  box-shadow: 0 1px 3px rgba(60, 64, 67, 0.15);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
 }
 
 .carslidefeatured-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(60, 64, 67, 0.25);
 }
 
+/* Active underline indicator */
+.carslidefeatured-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 60%;
+  height: 3px;
+  background: #1a73e8;
+  border-radius: 2px;
+  transition: transform 0.3s ease;
+}
+
+.carslidefeatured-card:hover::after,
+.carslidefeatured-card:focus-within::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* Image */
 .carslidefeatured-img-wrapper {
   width: 100%;
   height: 150px;
   overflow: hidden;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .carslidefeatured-img-wrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.4s ease;
 }
 
+.carslidefeatured-card:hover .carslidefeatured-img-wrapper img {
+  transform: scale(1.05);
+}
+
+/* Info */
 .carslidefeatured-info {
   padding: 1rem;
   text-align: center;
@@ -91,44 +115,43 @@
 
 .carslidefeatured-info h3 {
   margin: 0.5rem 0;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 500;
+  color: #202124;
 }
 
 .carslidefeatured-info p {
   font-size: 0.9rem;
-  color: #ccc;
+  color: #5f6368;
   margin-bottom: 1rem;
 }
 
+/* Button */
 .carslidefeatured-btn {
+  display: inline-block;
   padding: 10px 18px;
-    border-radius: 8px;
-    background: linear-gradient(135deg, #1976d2, #0d47a1);
-    color: white;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background 0.25s ease, transform 0.2s ease;
-    text-decoration: none;
-  /* display: inline-block;
-  padding: 0.5rem 1rem;
-  background-color: #00c4ff;
-  color: #000;
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: background 0.3s ease-in-out; */
+  border-radius: 8px;
+  background: #1a73e8;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.2s ease;
+  text-decoration: none;
+  letter-spacing: 0.3px;
 }
 
 .carslidefeatured-btn:hover {
-  background-color: #b1e8f8;
-  color: #000000;
+  background: #185abc;
+  transform: translateY(-1px);
 }
 
+/* Nav Buttons */
 .carslidefeatured-nav-btn {
-  background: #333;
+  background: #f1f3f4;
   border: none;
-  color: white;
-  font-size: 1.8rem;
+  color: #202124;
+  font-size: 1.6rem;
   padding: 0.4rem 0.8rem;
   border-radius: 50%;
   cursor: pointer;
@@ -136,7 +159,7 @@
 }
 
 .carslidefeatured-nav-btn:hover {
-  background: #555;
+  background: #e8eaed;
 }
 
 .left {
@@ -147,14 +170,58 @@
   margin-right: 5px;
 }
 
-/* Mobile Responsive */
+/* 📱 Mobile */
 @media (max-width: 768px) {
-
   .carslidefeatured-heading {
     font-size: 1.5rem;
   }
-
   .carslidefeatured-nav-btn {
     display: none;
+  }
+}
+
+/* 🌙 Dark Theme */
+@media (prefers-color-scheme: dark) {
+  .carslidefeatured-section {
+    background: linear-gradient(145deg, #1e1e2f, #121212);
+    color: #e8eaed;
+  }
+
+  .carslidefeatured-heading {
+    color: #e8eaed;
+  }
+
+  .carslidefeatured-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(6px);
+  }
+
+  .carslidefeatured-info h3 {
+    color: #ffffff;
+  }
+
+  .carslidefeatured-info p {
+    color: #bdc1c6;
+  }
+
+  .carslidefeatured-btn {
+    background: linear-gradient(135deg, #1976d2, #0d47a1);
+    color: #fff;
+  }
+
+  .carslidefeatured-btn:hover {
+    background: #63a4ff;
+    color: #000;
+  }
+
+  .carslidefeatured-nav-btn {
+    background: #2c2c2c;
+    color: #e8eaed;
+  }
+
+  .carslidefeatured-nav-btn:hover {
+    background: #3c4043;
   }
 }

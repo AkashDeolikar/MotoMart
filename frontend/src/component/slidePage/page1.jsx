@@ -1,125 +1,100 @@
 import React from "react";
-import { Link } from 'react-router-dom';
-import './page1.css';
-
-import vr from './vr-img.jpg';
-import vr2 from './vr-img2.jpg';
+import "./pages.css";
 
 const Page1 = () => {
   return (
-    <div className="page-container">
-
-      {/* === Hero Section === */}
-      <section className="hero-banner">
-        <div className="hero-text">
-          <h5>Committing to a Good Innovation</h5>
-          <h1>Creating Tomorrows</h1>
-          <h1>Today</h1>
-        </div>
+    <div className="page1-root">
+      {/* Hero */}
+      <section className="page1-hero">
+        <h1>Smart Mobility for a Smarter World</h1>
+        <p className="page1-hero-sub">
+          We are reimagining transportation with clean energy, connected systems
+          and AI-driven insights — making every journey safer, faster, and more
+          sustainable.
+        </p>
       </section>
 
-      {/* === Key Focus Areas === */}
-      <section className="info-section">
-        <h2>Our Key Focus Areas</h2>
-        <div className="info-cards">
+      {/* Focus Areas */}
+      <section className="page1-grid">
+        {[
+          {
+            icon: "electric_bolt",
+            title: "Electric Mobility",
+            desc: "Accelerating EV adoption with fast-charging stations, high-density batteries, and affordable fleet electrification programs.",
+          },
+          {
+            icon: "directions_car",
+            title: "Connected Transport",
+            desc: "Vehicle-to-vehicle (V2V) and vehicle-to-infrastructure (V2I) communication reduce accidents and streamline traffic flow.",
+          },
+          {
+            icon: "analytics",
+            title: "AI Traffic Insights",
+            desc: "AI-powered algorithms analyze real-time traffic and weather data to predict congestion, improve safety, and optimize travel time.",
+          },
+          {
+            icon: "recycling",
+            title: "Sustainable Materials",
+            desc: "Designing vehicles with recyclable composites, low-carbon steel, and bio-based materials to minimize environmental impact.",
+          },
+        ].map((item, idx) => (
+          <div key={idx} className="page1-card">
+            <span className="material-symbols-outlined page1-icon">
+              {item.icon}
+            </span>
+            <h3>{item.title}</h3>
+            <p>{item.desc}</p>
+          </div>
+        ))}
+      </section>
+
+      {/* Latest Initiatives */}
+      <section className="page1-initiatives">
+        <h2>Latest Initiatives</h2>
+        <div className="page1-initiatives-grid">
           {[
             {
-              title: "Electrification",
-              desc: "Driving the transition to clean, green mobility solutions."
+              icon: "ev_station",
+              title: "Nationwide EV Charging Network",
+              desc: "Partnering with city governments to install 10,000+ public charging points across urban and rural highways by 2026.",
             },
             {
-              title: "Connectivity",
-              desc: "Advanced vehicle-to-cloud integration & real-time data."
+              icon: "sensors",
+              title: "Smart City Integration",
+              desc: "Integrating IoT road sensors and satellite data for real-time monitoring of traffic, air quality, and emergency routing.",
             },
             {
-              title: "Digital Services",
-              desc: "Smarter UX with intelligent dashboards and AI navigation."
+              icon: "shield",
+              title: "Vision Zero Program",
+              desc: "Deploying AI-powered accident prevention systems to help cities achieve zero road fatalities by 2030.",
             },
-            {
-              title: "Manufacturing 4.0",
-              desc: "AI-powered automation and sustainable production."
-            }
-          ].map((card, index) => (
-            <div className="info-card" key={index}>
-              <h3>{card.title}</h3>
-              <p>{card.desc}</p>
+          ].map((item, idx) => (
+            <div key={idx} className="page1-initiative">
+              <span className="material-symbols-outlined page1-icon">
+                {item.icon}
+              </span>
+              <h4>{item.title}</h4>
+              <p>{item.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* === Accordion Section === */}
-      <section className="accordion-section">
-        <div className="accordion-item">
-          <button
-            className="accordion-toggle"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#designCollapse"
-          >
-            <h3>DESIGN <i className="bi bi-chevron-down"></i></h3>
-          </button>
-          <div className="collapse" id="designCollapse">
-            <div className="accordion-content">
-              <img
-                src={vr}
-                alt="Design"
-              />
-              <div className="accordion-text">
-                <h3>Building a new paradigm</h3>
-                <p>Design is our foundation. Our global studios craft futuristic, human-centric vehicles that blend beauty, safety, and sustainability.</p>
-              </div>
-            </div>
-          </div>
+      {/* Stats */}
+      <section className="page1-stats">
+        <div className="page1-stat">
+          <h3>120+</h3>
+          <p>Smart mobility projects deployed</p>
         </div>
-
-        <div className="accordion-item">
-          <button
-            className="accordion-toggle"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#techCollapse"
-          >
-            <h3>TECHNOLOGY <i className="bi bi-chevron-down"></i></h3>
-          </button>
-          <div className="collapse" id="techCollapse">
-            <div className="accordion-content">
-              <img
-                src={vr2}
-                alt="Technology"
-              />
-              <div className="accordion-text">
-                <h3>Shaping concept to reality</h3>
-                <p>We innovate with a purpose—combining AI, software, and hardware to create smart, efficient, and connected mobility systems.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* === Stats Highlight: Vehicle Count === */}
-      <section className="stats-highlight-section">
-        <div className="stats-card">
+        <div className="page1-stat">
           <h3>500M+</h3>
-          <p>2-Wheelers Operating Globally</p>
+          <p>Daily commuters impacted worldwide</p>
         </div>
-        <div className="stats-card">
-          <h3>1.5B+</h3>
-          <p>4-Wheelers on Roads Worldwide</p>
-        </div>
-        <div className="stats-card">
-          <h3>80M+</h3>
-          <p>Commercial & Large Vehicles</p>
+        <div className="page1-stat">
+          <h3>40%</h3>
+          <p>Reduction in traffic delays using AI routing</p>
         </div>
       </section>
-
-      {/* === Call to Action === */}
-      <section className="cta-section">
-        <h2>Ready to Drive the Future with Us?</h2>
-        <p>Be a part of our journey to electrify and digitize global mobility solutions.</p>
-        <Link to="/contact" className="cta-button">Get in Touch</Link>
-      </section>
-
     </div>
   );
 };

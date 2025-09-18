@@ -1,57 +1,81 @@
-/* === Gear Page CSS (Light Theme Only) === */
+/* === Gloves Page (Google Style) with Color Scheme === */
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600&display=swap");
 
-body {
-  background-color: #ffffff;
-  color: #111;
-  font-family: 'Segoe UI', Roboto, sans-serif;
+/* ==============================
+   Color Variables (Light / Dark)
+============================== */
+:root {
+  --G1-color-bg: #ffffff;
+  --G1-color-surface: #f8f9fa;
+  --G1-color-text-primary: #202124;
+  --G1-color-text-secondary: #5f6368;
+  --G1-color-border: #e0e0e0;
+  --G1-color-accent: #1a73e8; /* Google Blue */
+  --G1-color-hover: #e8f0fe;
+  --G1-color-card-bg: #ffffff;
+  --G1-color-chip-bg: #f1f3f4;
+  --G1-color-chip-text: #3c4043;
 }
 
-/* === Page Container === */
-.gear-page {
-  padding: 2rem 1rem;
-  background-color: #ffffff;
+.dark{
+    --G1-color-bg: #202124;
+    --G1-color-surface: #2a2a2a;
+    --G1-color-text-primary: #e8eaed;
+    --G1-color-text-secondary: #bdc1c6;
+    --G1-color-border: #3c4043;
+    --G1-color-accent: #8ab4f8;
+    --G1-color-hover: #3c4043;
+    --G1-color-card-bg: #2c2c2c;
+    --G1-color-chip-bg: #3c4043;
+    --G1-color-chip-text: #e8eaed;
+}
+
+.gloves-page {
+  padding: 3rem 4%;
+  background: var(--G1-color-bg);
+  font-family: "Google Sans", "Segoe UI", Roboto, sans-serif;
+  color: var(--G1-color-text-primary);
   min-height: 100vh;
 }
 
-.gear-page h2 {
-  font-size: 2rem;
-  font-weight: 700;
+.gloves-page h2 {
+  font-size: clamp(1.8rem, 2.5vw, 2.3rem);
+  font-weight: 600;
   text-align: center;
   margin-bottom: 2.5rem;
-  text-transform: uppercase;
-  color: #222;
+  color: var(--G1-color-text-primary);
+  letter-spacing: -0.3px;
 }
 
-/* === Gear Grid === */
+/* Shared Grid + Card */
 .gear-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.8rem;
-  margin-left: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
 }
 
-/* === Gear Card === */
 .gear-card {
-  background: #fff;
+  background: var(--G1-color-card-bg);
   border-radius: 12px;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--G1-color-border);
+  box-shadow: 0 1px 3px rgba(60,64,67,0.1);
   display: flex;
   flex-direction: column;
-  height: 100%;
-  cursor: pointer;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
 }
 
 .gear-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 16px rgba(60,64,67,0.2);
 }
 
 .gear-card img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: auto;
   object-fit: cover;
+  background-color: var(--G1-color-surface);
   transition: transform 0.3s ease;
 }
 
@@ -59,43 +83,37 @@ body {
   transform: scale(1.03);
 }
 
-/* === Gear Info Section === */
+/* Info Section */
 .gear-info {
-  padding: 1rem;
-  flex-grow: 1;
+  padding: 1rem 1.2rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  flex-grow: 1;
 }
 
 .gear-info h3 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #222;
-  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--G1-color-text-primary);
+  margin-bottom: 0.3rem;
   line-height: 1.4;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  min-height: 25px;
+  min-height: 44px;
 }
 
 .gear-brand {
   font-size: 0.85rem;
-  color: #666;
-  font-weight: 500;
-  margin-bottom: 6px;
+  color: var(--G1-color-text-secondary);
+  margin-bottom: 0.4rem;
 }
 
 .gear-price {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #e60023;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--G1-color-accent);
   margin: 0.6rem 0;
 }
 
-/* === Variant Chips === */
+/* Variants / Chips */
 .gear-variants {
   display: flex;
   flex-wrap: wrap;
@@ -105,58 +123,46 @@ body {
 
 .variant-chip {
   font-size: 0.75rem;
-  background-color: #f4f4f4;
-  color: #003344;
-  padding: 5px 10px;
+  background: var(--G1-color-chip-bg);
+  color: var(--G1-color-chip-text);
+  padding: 4px 10px;
   border-radius: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--G1-color-border);
   font-weight: 500;
-  transition: background-color 0.3s;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
 }
 
 .variant-chip:hover {
-  background-color: #e2e2e2;
+  background-color: var(--G1-color-hover);
 }
 
-/* === Loader === */
-.gear-loader {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 5rem 1rem;
-  text-align: center;
-  font-size: 1rem;
-  color: #555;
-}
-
-.gear-spinner {
-  width: 50px;
-  height: 50px;
-  border: 6px solid #ccc;
-  border-top: 6px solid #00c2ff;
+/* Loader */
+.app-spinner {
+  width: 48px;
+  height: 48px;
+  border: 5px solid var(--G1-color-border);
+  border-top: 5px solid var(--G1-color-accent);
   border-radius: 50%;
   animation: spin 1s linear infinite;
-  margin-bottom: 1.5rem;
+  margin: 1.5rem auto;
 }
 
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
+@keyframes spin { 
+  to { transform: rotate(360deg); } 
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .gear-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 }
 
-/* === Responsive Adjustments === */
 @media screen and (max-width: 480px) {
   .gear-card img {
-    height: 200px;
-    width: 100%;
+    height: 220px;
   }
-
-  .gear-info h3 {
-    font-size: 0.95rem;
-  }
-
-  .gear-price {
-    font-size: 1rem;
-  }
+  .gear-info h3 { font-size: 0.95rem; }
+  .gear-price { font-size: 1rem; }
 }

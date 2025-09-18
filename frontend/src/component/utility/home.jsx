@@ -57,9 +57,8 @@ import innovation from './slideimgasset/innovation.webp';
 import innovationmb from './slideimgasset/innovationmb.webp';
 import busa from './slideimgasset/busa.webp';
 import busamb from './slideimgasset/busamb.webp';
-import EngineSound from "./EngineSound";
-import BikeColorSwitcher from "./BikeColorSwitcher";
-import Chatbot from "../openai/Chatbot";
+import HeroSection from "./HeroSection";
+import GoogleCardSlider from "./GoogleCardSlider";
 // ===============================================
 // Extracted Components for Better Structure
 // ===============================================
@@ -236,7 +235,7 @@ const Slidemoto = () => {
       desktopImg: bgt,
       mobileImg: bgtmb,
     },
-    
+
     {
       id: 'slide-3',
       title: 'THE EVOLUTION OF RIDING GEAR',
@@ -279,7 +278,7 @@ const Slidemoto = () => {
       desktopImg: busa,
       mobileImg: busamb,
     },
-    
+
   ];
   const [currentSlide, setCurrentSlide] = useState(0);
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slidesData.length);
@@ -379,7 +378,7 @@ const AutoPlayCardSlider = ({ data }) => {
 const FeaturedCarsSection = ({ featuredCars, handleViewCarDetails, carRouteMap }) => (
   <section className="carslidefeatured-section" data-aos="fade-up" data-aos-once="true">
     <div className="carslidefeatured-container">
-      <h2 className="carslidefeatured-heading">🔥 Featured Vehicle</h2>
+      <h2 className="carslidefeatured-heading">Experience Every Angle</h2>
 
       <div className="carslidefeatured-slider">
         {featuredCars.map((car) => (
@@ -415,22 +414,21 @@ const FeaturedCarsSection = ({ featuredCars, handleViewCarDetails, carRouteMap }
  * @param {Array<object>} props.offers - Array of offer data.
  */
 const OffersGridSection = ({ offers }) => (
-  <div className="offers-grid" data-aos="fade-up">
-    {offers.map((offer) => (
-      <Link to={offer.link} key={offer.id} className="offer-card">
-        <div className="offer-card-inner">
-          <div className="offer-card-front">
-            <img className="img" src={offer.image} alt={offer.title} />
-          </div>
-          <div className="offer-card-back">
+  <section className="offers-section">
+    <h2 className="offers-heading">Smart Tools for Your Vehicle</h2>
+    <div className="offers-grid" data-aos="fade-up">
+      {offers.map((offer) => (
+        <Link to={offer.link} key={offer.id} className="offer-card">
+          <div className="offer-card-content">
+            <img className="offer-icon" src={offer.image} alt={offer.title} />
             <h3>{offer.title}</h3>
             <p>{offer.description}</p>
-            <h6>{offer.text}</h6>
+            <span className="offer-link">{offer.text}</span>
           </div>
-        </div>
-      </Link>
-    ))}
-  </div>
+        </Link>
+      ))}
+    </div>
+  </section>
 );
 
 /**
@@ -438,27 +436,31 @@ const OffersGridSection = ({ offers }) => (
  */
 const VehicleCategoriesSection = () => {
   return (
-    <section className="cardetail-sections-wrapper">
-      <div className="cardetail-sections-bg" />
-      <div className="cardetail-sections-overlay" />
+    <section className="vc-hero">
+      {/* Background */}
+      <div className="vc-bg" />
+      <div className="vc-overlay" />
 
-      <div className="cardetail-sections-inner">
-        <div className="cardetail-sections-content">
-          <h1 className="cardetail-sections-title">Redefine Your Drive</h1>
-          <p className="cardetail-sections-subtitle">
+      {/* Content */}
+      <div className="vc-inner">
+        <div className="vc-content">
+          <h1 className="vc-title">Redefine Your Drive</h1>
+          <p className="vc-subtitle">
             Explore luxury, performance, and innovation — all in one place.
           </p>
-          <Link to="/cardetails" className="cardetail-sections-btn">
-            Discover Cars <FaArrowRight className="cardetail-sections-arrow-icon" />
-          </Link>
-
-          <Link to="/BikeCompareDetails" className="cardetail-sections-btn">
-            Discover Bikes <FaArrowRight className="cardetail-sections-arrow-icon" />
-          </Link>
+          <div className="vc-actions">
+            <Link to="/cardetails" className="vc-btn vc-btn-primary">
+              Discover Cars <FaArrowRight className="vc-arrow" />
+            </Link>
+            <Link to="/BikeCompareDetails" className="vc-btn vc-btn-outline">
+              Discover Bikes <FaArrowRight className="vc-arrow" />
+            </Link>
+          </div>
         </div>
       </div>
 
-      <div className="cardetail-sections-scroll-hint">SCROLL ↓</div>
+      {/* Scroll Hint */}
+      <div className="vc-scroll">SCROLL ↓</div>
     </section>
   );
 };
@@ -470,7 +472,13 @@ const VehicleCategoriesSection = () => {
 const Home = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-  const [activeTab, setActiveTab] = useState("MUVs/SUVs"); // Initial active tab
+  const [activeTab, setActiveTab] = useState(
+    () => sessionStorage.getItem("homeActiveTab") || "SUV"
+  );
+
+  useEffect(() => {
+    sessionStorage.setItem("homeActiveTab", activeTab);
+  }, [activeTab]);
 
   // Data for "Our Range" section
   const categories = [
@@ -626,102 +634,105 @@ const Home = () => {
     <div className="home-container">
       <LoadingOverlay isLoading={isLoading} />
 
-      {/* <Chatbot /> */}
-      {/* Hero Section - Bootstrap Carousel Replica */}
-      {/* <HeroCarousel /> */}
-      <Slidemoto />
+      <HeroSection />
+      <GoogleCardSlider />
 
+      {/* <HeroCarousel /> NOT USING THIS */}
+      {/* <Slidemoto /> NOT USING THIS*/}
       {/* Auto-Playing Card Slider (Fold2 Cards) */}
-      <AutoPlayCardSlider data={fold2CardsData} />
-
-      {/* Statistic Data Highlight Section */}
-      <EngineSound />
+      {/* <AutoPlayCardSlider data={fold2CardsData} />   NOT USING THIS */}
 
       {/* Vehicle Categories Section (Discover Cars/Bikes) */}
       <VehicleCategoriesSection />
-      
+
 
       {/* About Us Section */}
-      <div className="masonrymedia-aka" style={{ position: 'relative' }}>
-        <div className="masonrymedia__container masonrymedia__container--right masonrymedia__container--visible">
-          {/* Text section */}
+      <div className="masonrymedia">
+        <div className="masonrymedia__container">
+          {/* Left: Text Section */}
           <div className="masonrymedia__card">
             <div className="masonrymedia__card-inner">
-              <div className="masonrymedia__card-info">
-                <h3 className="masonrymedia__card-title headline headline--xl">JOY OF REDEFINING DRIVING</h3>
-                <div className="masonrymedia__card-description body-copy body-copy--s">
-                  <p>Welcome.</p>
-                  <p>To a world created for the young.</p>
-                  <p>The ones who seek innovation with passion.</p>
-                </div>
+              <h3 className="masonrymedia__card-title">JOY OF REDEFINING DRIVING</h3>
+              <div className="masonrymedia__card-description">
+                <p>Welcome.</p>
+                <p>To a world created for the young.</p>
+                <p>The ones who seek innovation with passion.</p>
               </div>
-              <div className="masonrymedia__card-ctalist linkContainer">
-                <div className="primaryLinkContainer">
-                  <a
-                    className="primary-link icon-arrow-right"
-                    onClick={() => {
-                      localStorage.setItem("aboutusReady", "false"); // Assuming this is for internal loading state
-                      setIsLoading(true);
-
-                      const checkPageReady = setInterval(() => {
-                        if (localStorage.getItem("aboutusReady") === "true") {
-                          clearInterval(checkPageReady);
-                          setIsLoading(false);
-                        }
-                      }, 100);
-
-                      navigate('/aboutus'); // Navigates to About Us page
-                    }}
-                  >
-                    <span className="cta-content">ABOUT US</span>
-                  </a>
-                </div>
+              <div className="masonrymedia__card-cta">
+                <button
+                  className="primary-btn"
+                  onClick={() => {
+                    localStorage.setItem("aboutusReady", "false");
+                    setIsLoading(true);
+                    const checkPageReady = setInterval(() => {
+                      if (localStorage.getItem("aboutusReady") === "true") {
+                        clearInterval(checkPageReady);
+                        setIsLoading(false);
+                      }
+                    }, 100);
+                    navigate("/aboutus");
+                  }}
+                >
+                  ABOUT US
+                </button>
               </div>
             </div>
           </div>
-          {/* Image mosaic for About Us section */}
+
+          {/* Right: Image Grid */}
           <div className="masonrymedia__mosaic">
-            <div className="masonrymedia__row masonrymedia__row--supportive" >
-              <div className="masonrymedia__cell" >
-                <picture className="masonrymedia__picture" data-aos="zoom-in-right" data-aos-delay="100" data-aos-once="true">
-                  <img alt="Interior Steering" className="masonrymedia__image" src={bimg1} />
-                </picture>
+            <div className="masonrymedia__row">
+              <div className="masonrymedia__cell">
+                <img src={bimg1} alt="Interior Steering" className="masonrymedia__image" />
               </div>
               <div className="masonrymedia__cell">
-                <picture className="masonrymedia__picture" data-aos="zoom-in-right" data-aos-delay="200" data-aos-once="true">
-                  <img alt="Headlight" className="masonrymedia__image" src={bimg2} />
-                </picture>
+                <img src={bimg2} alt="Headlight" className="masonrymedia__image" />
               </div>
             </div>
             <div className="masonrymedia__row masonrymedia__row--main">
               <div className="masonrymedia__cell masonrymedia__cell--narrow">
-                <picture className="masonrymedia__picture" data-aos="zoom-in" data-aos-delay="300" data-aos-once="true">
-                  <img alt="Woman Driving" className="masonrymedia__image" src={bimg3} loading="lazy" />
-                </picture>
+                <img src={bimg3} alt="Woman Driving" className="masonrymedia__image" loading="lazy" />
               </div>
               <div className="masonrymedia__cell masonrymedia__cell--main">
-                <picture className="masonrymedia__picture" data-aos="zoom-in" data-aos-delay="400" data-aos-once="true">
-                  <img alt="Gear Knob" className="masonrymedia__image" src={bimg4} loading="lazy" />
-                </picture>
+                <img src={bimg4} alt="Gear Knob" className="masonrymedia__image" loading="lazy" />
               </div>
             </div>
           </div>
         </div>
       </div>
 
+
       {/* Placeholder div for scroll target (appears to be a decorative section) */}
-      <div className="cardetail-sections-wrapper01" ref={targetSectionRef}>
+      <section
+        className="cardetail-sections-wrapper01"
+        ref={targetSectionRef}
+      >
+        {/* Background & Overlay */}
         <div className="cardetail-sections-bg01"></div>
         <div className="cardetail-sections-overlay01"></div>
+
+        {/* Inner Content */}
         <div className="cardetail-sections-inner01">
-          <div className="cardetail-sections-content01" data-aos="fade-up" data-aos-once="true">
+          <div
+            className="cardetail-sections-content01"
+            data-aos="fade-up"
+            data-aos-once="true"
+          >
+            <h1 className="cardetail-sections-title01">
+              Made for How You Move.
+            </h1>
             <p className="cardetail-sections-subtitle01">
-              Discover intelligent features, advanced design, and next-level performance with our new-age vehicles.
+              From daily commutes to weekend adventures, experience vehicles built around people — not machines.
             </p>
+
           </div>
         </div>
-        <div className="cardetail-sections-scroll-hint01">SCROLL TO EXPLORE ↓</div>
-      </div>
+
+        {/* Scroll Hint */}
+        <div className="cardetail-sections-scroll-hint01">
+          SCROLL TO EXPLORE ↓
+        </div>
+      </section>
 
       {/* Featured Cars Section */}
       <FeaturedCarsSection
@@ -757,137 +768,119 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Zic-Zac Section - Vehicle Categories with Images and Links */}
-      <div className="zic-zic-blocks">
-        <div className="zic-data">
-          <div className="zic-alternating-content">
-            <div className="note"> Tap the card to explore more features!</div>{/* className="mobile-note" => className="note"  */}
-            {/* Luxury Vehicles */}
-            <div className="support right-aligned" data-aos="slide-right" data-aos-delay="200" data-aos-once="true">
-              <Link to="/luxuryvh" className="zic-image-link">
-                <picture className="roverimg">
-                  <img alt="roverRRJ" className="zic-zac-block-img" src={luxury} />
-                </picture>
-                <h3 className="masonrymedia__card-title1 headline headline--xl">LUXURY VEHICLES</h3>
-              </Link>
-            </div>
+      {/* Vehicle Categories Section */}
+      <section className="vehicle-categories">
+        <div className="vehicle-categories__container">
+          <h2 className="vehicle-categories__title">Explore Our Vehicle Range</h2>
 
-            {/* Passenger Vehicles */}
-            <div className="support left-aligned" data-aos="slide-left" data-aos-delay="200" data-aos-once="true">
-              <Link to="/passengervh" className="zic-image-link">
-                <picture className="roverimg">
-                  <img alt="passenger" className="zic-zac-block-img" src={passenger} />
-                </picture>
-                <h3 className="masonrymedia__card-title1 headline headline--xl">PASSENGER VEHICLE</h3>
-              </Link>
-            </div>
+          <div className="vehicle-categories__grid">
+            {/* Luxury */}
+            <Link to="/luxuryvh" className="vehicle-card">
+              <div className="vehicle-card__image-wrapper">
+                <img src={luxury} alt="Luxury Vehicles" />
+              </div>
+              <h3>Luxury Vehicles</h3>
+            </Link>
 
-            {/* EV Vehicles */}
-            <div className="support right-aligned" data-aos="slide-right" data-aos-delay="200" data-aos-once="true">
-              <Link to="/evvh" className="zic-image-link">
-                <picture className="roverimg">
-                  <img alt="ev" className="zic-zac-block-img" src={ev} />
-                </picture>
-                <h3 className="masonrymedia__card-title1 headline headline--xl">EV VEHICLE</h3>
-              </Link>
-            </div>
+            {/* Passenger */}
+            <Link to="/passengervh" className="vehicle-card">
+              <div className="vehicle-card__image-wrapper">
+                <img src={passenger} alt="Passenger Vehicles" />
+              </div>
+              <h3>Passenger Vehicle</h3>
+            </Link>
 
-            {/* Commercial Vehicles */}
-            <div className="support left-aligned" data-aos="slide-left" data-aos-delay="200" data-aos-once="true">
-              <Link to="/commercialvh" className="zic-image-link">
-                <picture className="roverimg">
-                  <img alt="commercial" className="zic-zac-block-img" src={commercial} />
-                </picture>
-                <h3 className="masonrymedia__card-title1 headline headline--xl">COMMERCIAL VEHICLE</h3>
-              </Link>
-            </div>
+            {/* EV */}
+            <Link to="/evvh" className="vehicle-card">
+              <div className="vehicle-card__image-wrapper">
+                <img src={ev} alt="EV Vehicles" />
+              </div>
+              <h3>EV Vehicle</h3>
+            </Link>
+
+            {/* Commercial */}
+            <Link to="/commercialvh" className="vehicle-card">
+              <div className="vehicle-card__image-wrapper">
+                <img src={commercial} alt="Commercial Vehicles" />
+              </div>
+              <h3>Commercial Vehicle</h3>
+            </Link>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Premium Car Section - Image Mosaic with Text */}
-      <div className="masonrymedia-aka">
-        <div className="masonrymedia__container masonrymedia__container--right masonrymedia__container--visible">
+
+      {/* Premium Car Section */}
+      <div className="masonrymedia premium-car">
+        <div className="masonrymedia__container masonrymedia__container--reverse">
+
+          {/* Left: Image Mosaic */}
           <div className="masonrymedia__mosaic">
             {/* Image row 1 */}
-            <div className="masonrymedia__row masonrymedia__row--supportive">
+            <div className="masonrymedia__row">
               <div className="masonrymedia__cell">
-                <picture className="masonrymedia__picture" data-aos="zoom-in-right" data-aos-delay="100" data-aos-once="true">
-                  <img alt="Interior Steering" className="masonrymedia__image" src={img1} />
-                </picture>
+                <img alt="Interior Steering" className="masonrymedia__image" src={img1} />
               </div>
               <div className="masonrymedia__cell">
-                <picture className="masonrymedia__picture" data-aos="zoom-in-right" data-aos-delay="250" data-aos-once="true">
-                  <img alt="Headlight" className="masonrymedia__image" src={img4} />
-                </picture>
+                <img alt="Headlight" className="masonrymedia__image" src={img4} />
               </div>
             </div>
             {/* Image row 2 */}
             <div className="masonrymedia__row masonrymedia__row--main">
               <div className="masonrymedia__cell masonrymedia__cell--narrow">
-                <picture className="masonrymedia__picture" data-aos="zoom-in" data-aos-delay="350" data-aos-once="true">
-                  <img alt="Woman Driving" className="masonrymedia__image" src={img3} loading="lazy" />
-                </picture>
+                <img alt="Woman Driving" className="masonrymedia__image" src={img3} loading="lazy" />
               </div>
               <div className="masonrymedia__cell masonrymedia__cell--main">
-                <picture className="masonrymedia__picture" data-aos="zoom-in" data-aos-delay="500" data-aos-once="true">
-                  <img alt="Gear Knob" className="masonrymedia__image" src={img2} loading="lazy" />
-                </picture>
+                <img alt="Gear Knob" className="masonrymedia__image" src={img2} loading="lazy" />
               </div>
             </div>
           </div>
 
-          
-
-          {/* Text section for Premium Car Section */}
+          {/* Right: Text Section */}
           <div className="masonrymedia__card">
             <div className="masonrymedia__card-inner">
-              <div className="masonrymedia__card-info">
-                <h3 className="masonrymedia__card-title headline headline--xl">ELEGANCE IN MOTION</h3>
-                <div className="masonrymedia__card-description body-copy body-copy--s">
-                  Sophisticated elegance.
-                </div>
-              </div>
-              <div className="masonrymedia__card-ctalist linkContainer">
-                <div className="primaryLinkContainer">
-                  <a
-                    className="primary-link icon-arrow-right"
-                    onClick={() => {
-                      setIsLoading(true);
-                      setTimeout(() => {
-                        setIsLoading(false);
-                        navigate('/page5'); // Navigates to a generic page 5
-                      }, 1500); // Adjust the delay if needed
-                    }}
-                  >
-                    <span className="cta-content">EXPLORE PREMIUM SEGMENT</span>
-                  </a>
-                </div>
-                <div className="secondaryLinkContainer">
-                  <a
-                    className="secondary-link"
-                    href="/carcard" // Direct link to car search
-                    target="_blank"
-                  >
-                    <span className="cta-content">Re-direct to Car Search</span>
-                  </a>
-                </div>
+              <h3 className="masonrymedia__card-title">ELEGANCE IN MOTION</h3>
+              <p className="masonrymedia__card-description">
+                Sophisticated elegance.
+              </p>
+              <div className="masonrymedia__card-ctalist">
+                <button
+                  className="primary-btn"
+                  onClick={() => {
+                    setIsLoading(true);
+                    setTimeout(() => {
+                      setIsLoading(false);
+                      navigate("/page5");
+                    }, 1500);
+                  }}
+                >
+                  EXPLORE PREMIUM SEGMENT
+                </button>
+                <a
+                  className="secondary-btn"
+                  href="/carcard"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Re-direct to Car Search
+                </a>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* FOR BMW S1000RR */}
-      {/* <BikeColorSwitcher />  */}
 
       <StatsHighlightSection />
 
       {/* Flip Card Section - Introduction */}
       <section className="intro">
-        <p className="cl1">Drive Smarter with Essentials <i className="bi bi-boxes"></i> </p>
-        <p className="cl2"> Stay ahead with EMI, service, and parts tracking tools.</p>
+        <h2 className="intro-title">Smarter Vehicle Management</h2>
+        <p className="intro-subtitle">
+          Track EMI, services, and spare parts—all in one place.
+        </p>
       </section>
+
 
       {/* Offers Flip Cards Grid */}
       <OffersGridSection offers={offers} />

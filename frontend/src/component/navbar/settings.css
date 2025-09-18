@@ -1,71 +1,172 @@
-/* Import Google Fonts and Material Symbols */
+/* ==============================
+   Google Material Settings CSS
+   Light + Dark Mode
+============================== */
+
+/* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0');
 
-/* 🌞 Force Light Mode */
+/* ==============================
+   Root Variables
+============================== */
 :root {
-  color-scheme: light; /* disable dark mode */
+  color-scheme: light;
 
-  --bg-primary: #fff;
-  --bg-secondary: #f8f9fa;
-  --border-color: #dadce0;
-  --text-primary: #202124;
-  --text-secondary: #5f6368;
+  /* Colors */
+  --S-bg-primary: #ffffff;
+  --S-bg-secondary: #f8f9fa;
+  --S-border-color: #dadce0;
+  --S-text-primary: #202124;
+  --S-text-secondary: #5f6368;
 
-  --google-blue: #1a73e8;
-  --google-blue-hover: #174ea6;
-  --google-blue-light: #e8f0fe;
-  --google-red: #d93025;
-  --google-red-hover: #b3261e;
+  --S-google-blue: #1a73e8;
+  --S-google-blue-hover: #174ea6;
+  --S-google-blue-light: #e8f0fe;
+  --S-google-red: #d93025;
+  --S-google-red-hover: #b3261e;
 
-  --radius: 8px;
-  --shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
-            0 2px 6px 2px rgba(60, 64, 67, 0.15);
+  /* Other */
+  --S-radius: 8px;
+  --S-shadow: 0 1px 2px rgba(60,64,67,0.3), 0 2px 6px rgba(60,64,67,0.15);
+  --S-transition: all 0.3s ease;
+  --S-btn-padding: 10px 16px;
 }
 
+/* Dark Mode Support */
+.dark{
+    --S-bg-primary: #202124;
+    --S-bg-secondary: #2a2a2a;
+    --S-border-color: #5f6368;
+    --S-text-primary: #e8eaed;
+    --S-text-secondary: #9aa0a6;
+    --S-google-blue-light: rgba(26,115,232,0.1);
+}
+
+/* ==============================
+   Global Styles
+============================== */
 body {
-  background-color: var(--bg-secondary) !important;
-  font-family: "Roboto", Arial, sans-serif !important;
-  color: var(--text-primary) !important;
+  background: var(--S-bg-secondary);
+  font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+  color: var(--S-text-primary);
   line-height: 1.5;
-}
-
-/* Settings Page */
-.settings-page {
-  max-width: 720px;
-  margin: 32px auto;
-  padding: 24px;
-  border-radius: var(--radius);
-  background: var(--bg-primary) !important;
-  box-shadow: var(--shadow);
-}
-
-.settings-header {
-  text-align: center;
-  margin-bottom: 28px;
-}
-
-.settings-page h2 {
-  font-size: 24px;
-  font-weight: 500;
-  color: var(--text-primary) !important;
   margin: 0;
-  font-family: "Google Sans Flex", Arial, Helvetica, sans-serif !important;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ==============================
+   Layout
+============================== */
+.settings-layout {
+  display: flex;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 32px auto;
+  padding: 0 16px;
+}
+
+/* Sidebar */
+.settings-sidebar {
+  flex: 0 0 240px;
+  background: var(--S-bg-primary);
+  border: 1px solid var(--S-border-color);
+  border-radius: var(--S-radius);
+  box-shadow: var(--S-shadow);
+  padding: 20px;
+  height: fit-content;
+  position: sticky;
+  top: 24px;
+  align-self: flex-start;
+  transition: var(--S-transition);
+}
+
+.settings-sidebar h2 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.settings-sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.settings-sidebar nav ul li {
+  padding: 12px 16px;
+  border-radius: var(--S-radius);
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--S-text-secondary);
+  border-left: 4px solid transparent;
+  transition: var(--S-transition);
+}
+
+.settings-sidebar nav ul li:hover {
+  background: var(--S-google-blue-light);
+  color: var(--S-google-blue);
+}
+
+.settings-sidebar nav ul li.active {
+  background: var(--S-google-blue-light);
+  color: var(--S-google-blue);
+  border-left: 4px solid var(--S-google-blue);
+  font-weight: 600;
+}
+
+/* ==============================
+   Content
+============================== */
+.settings-page {
+  flex: 1;
+  background: var(--S-bg-primary);
+  padding: 32px;
+  border-radius: var(--S-radius);
+  box-shadow: var(--S-shadow);
+  transition: var(--S-transition);
+}
+
+/* Header */
+.settings-header {
+  border-bottom: 1px solid var(--S-border-color);
+  padding-bottom: 12px;
+  /* margin-bottom: 24px; */
+}
+
+.settings-header h2 {
+  color: inherit;
+  font-size: 22px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.settings-subtitle {
+  font-size: 14px;
+  color: var(--S-text-secondary);
+  margin-top: 4px;
+}
+
+/* Section */
 .setting-section {
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
 
 .setting-section h3 {
-  font-family: "Google Sans Flex", Arial, Helvetica, sans-serif !important;
   font-size: 14px;
   font-weight: 500;
-  color: var(--text-secondary) !important;
+  color: var(--S-text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--S-border-color);
   padding-bottom: 8px;
-  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 8px;
+  margin-top: 8px;
 }
 
 .setting-item {
@@ -73,8 +174,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 16px 0;
-  gap: 16px;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--S-border-color);
 }
 
 .setting-item:last-child {
@@ -83,60 +183,57 @@ body {
 
 .setting-item span {
   font-size: 15px;
-  font-weight: 400;
-  color: var(--text-primary) !important;
-  flex-grow: 1;
+  color: var(--S-text-primary);
 }
 
-/* Buttons */
-.btn {
+/* ==============================
+   Buttons
+============================== */
+.settingbtn {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 10px 16px;
+  padding: var(--S-btn-padding);
   border: none;
   border-radius: 999px;
   cursor: pointer;
   font-weight: 500;
   font-size: 14px;
-  transition: background-color 0.2s, box-shadow 0.2s;
-  text-decoration: none;
+  transition: var(--S-transition);
 }
 
-.theme-btn, .logout-btn {
-  background: var(--google-blue) !important;
-  color: #fff !important;
+.theme-btn,
+.logout-btn {
+  background: var(--S-google-blue);
+  color: #fff;
 }
 
-.theme-btn:hover, .logout-btn:hover {
-  background: var(--google-blue-hover) !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+.theme-btn:hover,
+.logout-btn:hover {
+  background: var(--S-google-blue-hover);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 
 .delete-btn {
-  background: transparent !important;
-  color: var(--google-red) !important;
-  border: 1px solid var(--google-red) !important;
+  background: transparent;
+  color: var(--S-google-red);
+  border: 1px solid var(--S-google-red);
 }
 
 .delete-btn:hover {
-  background: var(--google-red) !important;
-  color: #fff !important;
-  border-color: var(--google-red) !important;
+  background: var(--S-google-red);
+  color: #fff;
 }
 
-.material-symbols-outlined {
-  font-size: 20px !important;
-}
-
-/* Toggle Switch */
+/* ==============================
+   Toggle Switch
+============================== */
 .switch {
   position: relative;
   display: inline-block;
   width: 44px;
   height: 22px;
-  flex-shrink: 0;
 }
 
 .switch input {
@@ -148,12 +245,9 @@ body {
 .slider {
   position: absolute;
   cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background-color: #ccc;
-  transition: 0.4s;
+  transition: var(--S-transition);
   border-radius: 22px;
 }
 
@@ -165,26 +259,25 @@ body {
   left: 2px;
   bottom: 2px;
   background-color: white;
-  transition: 0.4s;
+  transition: var(--S-transition);
   border-radius: 50%;
 }
 
 input:checked + .slider {
-  background-color: var(--google-blue) !important;
+  background-color: var(--S-google-blue);
 }
 
 input:checked + .slider:before {
   transform: translateX(22px);
 }
 
-/* Modal */
+/* ==============================
+   Modal
+============================== */
 .modal-backdrop {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5) !important;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -192,25 +285,25 @@ input:checked + .slider:before {
 }
 
 .modal-content {
-  background: var(--bg-primary) !important;
+  background: var(--S-bg-primary);
   padding: 24px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  border-radius: var(--S-radius);
+  box-shadow: var(--S-shadow);
   max-width: 400px;
   width: 90%;
   text-align: center;
+  transition: var(--S-transition);
 }
 
 .modal-content h3 {
-  margin-top: 0;
+  margin: 0;
   font-size: 20px;
   font-weight: 500;
-  color: var(--text-primary) !important;
 }
 
 .modal-content p {
   font-size: 15px;
-  color: var(--text-secondary) !important;
+  color: var(--S-text-secondary);
   margin: 12px 0;
 }
 
@@ -218,62 +311,88 @@ input:checked + .slider:before {
   width: 90%;
   padding: 8px 12px;
   margin: 16px 0;
-  border: 1px solid var(--border-color) !important;
+  border: 1px solid var(--S-border-color);
   border-radius: 4px;
   font-size: 14px;
-  background: var(--bg-secondary) !important;
-  color: var(--text-primary) !important;
+  background: var(--S-bg-secondary);
   text-align: center;
+  transition: var(--S-transition);
+}
+
+.delete-input:focus {
+  outline: 2px solid var(--S-google-blue);
 }
 
 .modal-actions {
   display: flex;
   justify-content: flex-end;
   gap: 12px;
-  margin-top: 24px;
 }
 
 .modal-cancel-btn {
-  background: transparent !important;
-  color: var(--google-blue) !important;
+  background: transparent;
+  color: var(--S-google-blue);
   font-weight: 500;
   padding: 8px 16px;
   border-radius: 4px;
+  transition: var(--S-transition);
 }
 
 .modal-cancel-btn:hover {
-  background: var(--google-blue-light) !important;
+  background: var(--S-google-blue-light);
 }
 
 .modal-delete-btn {
-  background: var(--google-red) !important;
-  color: #fff !important;
+  background: var(--S-google-red);
+  color: #fff;
   font-weight: 500;
   padding: 8px 16px;
   border-radius: 4px;
+  transition: var(--S-transition);
 }
 
 .modal-delete-btn:hover {
-  background: var(--google-red-hover) !important;
+  background: var(--S-google-red-hover);
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .settings-page {
-    margin: 16px;
-    padding: 16px;
-  }
-
-  .setting-item {
+/* ==============================
+   Responsive
+============================== */
+@media (max-width: 900px) {
+  .settings-layout {
     flex-direction: column;
-    align-items: flex-start;
   }
 
-  .btn {
+  .settings-sidebar {
+    flex: none;
+    display: flex;
+    overflow-x: auto;
+    padding: 0 8px;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  .settings-sidebar h2 {
+    display: none;
+  }
+
+  .settings-sidebar nav ul {
+    display: flex;
+    gap: 20px;
     width: 100%;
   }
 
-  .modal-content {
-    width: 90%;
+  .settings-sidebar nav ul li {
+    flex: none;
+    white-space: nowrap;
+    border-radius: 0;
+    border-bottom: 2px solid transparent;
+    padding: 12px 4px;
+  }
+
+  .settings-sidebar nav ul li.active {
+    border-bottom: 2px solid var(--S-google-blue);
+    background: transparent;
   }
 }

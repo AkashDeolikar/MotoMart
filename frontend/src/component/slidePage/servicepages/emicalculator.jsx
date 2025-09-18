@@ -1,372 +1,361 @@
-import React, { useState, useMemo } from 'react';
-import { Helmet } from 'react-helmet';
-import './emicalculator.css';
+// src/components/EMIServiceTool/EMIServiceTool.jsx
+import React, { useMemo, useState } from "react";
+import BANKS from "../../data/banks";
+import "./emiserivetool.css";
 
-// Format as Indian Rupees (₹)
-const formatCurrency = (value) => {
-  if (isNaN(value)) return '₹0';
-  return new Intl.NumberFormat('en-IN', {
-    style: 'currency',
-    currency: 'INR',
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 2,
-  }).format(value);
+/*
+  Features:
+  - Select bank (pre-fills interest)
+  - Select vehicle type (applies GST)
+  - Loan inputs (loan amount, down payment, tenure)
+  - Calculate EMI + totals + amortization
+  - Compare EMI across selected banks
+  - GST breakdown card
+  - Disclaimer about rates sources
+*/
+
+// GST reference (indicative)
+const GST_RATES = {
+  "Two-wheeler (moped/scooter)": 18,
+  "Motorcycle (>125cc)": 28,
+  "Passenger Car (up to 4m length)": 28,
+  "Electric Vehicle (EV)": 5,
+  "Luxury / High CC": 50, // illustrative (luxury cess + GST)
 };
 
-// Format as percentage
-const formatPercentage = (value) => {
-  if (isNaN(value)) return '0.00%';
-  return new Intl.NumberFormat('en-IN', {
-    style: 'percent',
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  }).format(value / 100);
+// format helpers
+const formatINR = (v) => {
+  if (v === null || v === undefined || Number.isNaN(Number(v))) return "₹0";
+  return new Intl.NumberFormat("en-IN", {
+    style: "currency",
+    currency: "INR",
+    maximumFractionDigits: 0,
+  }).format(Number(v));
 };
 
-const EMICalculator = () => {
-  const [loanAmount, setLoanAmount] = useState('');
-  const [downPayment, setDownPayment] = useState('');
-  const [interestRate, setInterestRate] = useState('');
-  const [tenureMonths, setTenureMonths] = useState('');
+const toNumber = (v) => {
+  const n = Number(v);
+  return isNaN(n) ? 0 : n;
+};
 
-  const [emi, setEmi] = useState(null);
-  const [totalInterest, setTotalInterest] = useState(null);
-  const [totalPayment, setTotalPayment] = useState(null);
-  const [amortizationSchedule, setAmortizationSchedule] = useState([]);
+function calcEMI(P, annualRate, months) {
+  const r = annualRate / 12 / 100;
+  const N = Math.max(1, Math.floor(months));
+  if (r === 0) return P / N;
+  const emi = (P * r * Math.pow(1 + r, N)) / (Math.pow(1 + r, N) - 1);
+  return emi;
+}
 
-  const [error, setError] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const [hasCalculated, setHasCalculated] = useState(false);
+export default function EMIServiceTool() {
+  // Inputs
+  const [bankId, setBankId] = useState("");
+  const [interest, setInterest] = useState(""); // % p.a. editable
+  const [vehicleType, setVehicleType] = useState("");
+  const [loanAmount, setLoanAmount] = useState("");
+  const [downPayment, setDownPayment] = useState("");
+  const [tenureMonths, setTenureMonths] = useState("60"); // default 60 months
+  const [showCompareBanks, setShowCompareBanks] = useState(true);
 
-  const principalAmount = useMemo(() => {
-    const loan = parseFloat(loanAmount);
-    const down = parseFloat(downPayment || 0);
-    return isNaN(loan) ? 0 : Math.max(0, loan - down);
+  // fill interest when bank selected
+  const onChangeBank = (id) => {
+    setBankId(id);
+    const bank = BANKS.find((b) => b.id === id);
+    if (bank) setInterest(bank.startingRate.toString());
+  };
+
+  // Derived values
+  const principal = useMemo(() => {
+    const loan = toNumber(loanAmount);
+    const down = toNumber(downPayment);
+    return Math.max(loan - down, 0);
   }, [loanAmount, downPayment]);
 
-  const tenureYearsDisplay = useMemo(() => {
-    const months = parseInt(tenureMonths);
-    if (isNaN(months) || months <= 0) return '';
-    const years = Math.floor(months / 12);
-    const rem = months % 12;
-    return rem === 0 ? `${years} Years` : `${years} Years, ${rem} Months`;
-  }, [tenureMonths]);
+  const gstRate = useMemo(() => {
+    return GST_RATES[vehicleType] || 0;
+  }, [vehicleType]);
 
-  const calculateEMI = () => {
-    setError('');
-    setIsLoading(true);
-    setHasCalculated(false);
+  const gstAmount = useMemo(() => {
+    const loan = toNumber(loanAmount);
+    return (loan * gstRate) / 100;
+  }, [loanAmount, gstRate]);
 
-    const P = principalAmount;
-    const R_annual = parseFloat(interestRate);
-    const N = parseInt(tenureMonths);
+  const emiValue = useMemo(() => {
+    const P = principal;
+    const r = toNumber(interest);
+    const N = Number(tenureMonths) || 0;
+    if (P <= 0 || N <= 0 || r < 0) return 0;
+    return calcEMI(P, r, N);
+  }, [principal, interest, tenureMonths]);
 
-    if (isNaN(parseFloat(loanAmount)) || parseFloat(loanAmount) <= 0) {
-      setError('Enter a valid Loan Amount.');
-      setIsLoading(false);
-      return;
+  const totalPayment = useMemo(() => {
+    const emi = emiValue;
+    const N = Number(tenureMonths) || 0;
+    return emi * N;
+  }, [emiValue, tenureMonths]);
+
+  const totalInterest = useMemo(() => {
+    return Math.max(0, totalPayment - principal);
+  }, [totalPayment, principal]);
+
+  // amortization schedule (simple)
+  const amortization = useMemo(() => {
+    const P = principal;
+    const r = toNumber(interest) / 12 / 100;
+    const N = Number(tenureMonths) || 0;
+    if (N <= 0 || P <= 0) return [];
+    const emi = calcEMI(P, toNumber(interest), N);
+    let bal = P;
+    const rows = [];
+    for (let i = 1; i <= N; i++) {
+      const interestPortion = bal * r;
+      const principalPortion = Math.max(0, emi - interestPortion);
+      bal = Math.max(0, bal - principalPortion);
+      rows.push({
+        month: i,
+        emi: emi,
+        principal: principalPortion,
+        interest: interestPortion,
+        balance: bal,
+      });
     }
-    if (parseFloat(downPayment) > parseFloat(loanAmount)) {
-      setError('Down Payment cannot exceed Loan Amount.');
-      setIsLoading(false);
-      return;
-    }
-    if (P <= 0) {
-      setError('Principal amount must be greater than 0.');
-      setIsLoading(false);
-      return;
-    }
-    if (isNaN(R_annual) || R_annual <= 0) {
-      setError('Enter a valid Interest Rate.');
-      setIsLoading(false);
-      return;
-    }
-    if (isNaN(N) || N <= 0) {
-      setError('Enter a valid Loan Tenure in months.');
-      setIsLoading(false);
-      return;
-    }
+    return rows;
+  }, [principal, interest, tenureMonths]);
 
-    const R = R_annual / 12 / 100;
+  // Compare: top banks (a subset or all)
+  const compareBanks = useMemo(() => {
+    const loan = principal;
+    const N = Number(tenureMonths) || 0;
+    if (loan <= 0 || N <= 0) return [];
+    return BANKS.map((b) => {
+      const emi = calcEMI(loan, b.startingRate, N);
+      return { id: b.id, name: b.name, rate: b.startingRate, emi };
+    }).sort((a, b) => a.emi - b.emi).slice(0, 8); // show top 8 cheapest by EMI
+  }, [principal, tenureMonths]);
 
-    setTimeout(() => {
-      try {
-        const emiVal =
-          R === 0 ? P / N : P * R * Math.pow(1 + R, N) / (Math.pow(1 + R, N) - 1);
-        const total = emiVal * N;
-        const interest = total - P;
-
-        setEmi(emiVal.toFixed(2));
-        setTotalPayment(total.toFixed(2));
-        setTotalInterest(interest.toFixed(2));
-
-        const schedule = [];
-        let balance = P;
-
-        for (let i = 1; i <= N; i++) {
-          const interestPortion = balance * R;
-          const principalPortion = emiVal - interestPortion;
-          balance -= principalPortion;
-
-          schedule.push({
-            month: i,
-            emi: emiVal.toFixed(2),
-            principal: principalPortion.toFixed(2),
-            interest: interestPortion.toFixed(2),
-            balance: Math.max(0, balance).toFixed(2),
-          });
-        }
-
-        setAmortizationSchedule(schedule);
-        setHasCalculated(true);
-      } catch (err) {
-        console.error(err);
-        setError('An unexpected error occurred.');
-      } finally {
-        setIsLoading(false);
-      }
-    }, 500);
+  // small validation messages
+  const validation = () => {
+    const msgs = [];
+    if (toNumber(loanAmount) <= 0) msgs.push("Enter a valid Loan Amount.");
+    if (toNumber(downPayment) < 0) msgs.push("Down payment must be 0 or more.");
+    if (toNumber(interest) < 0) msgs.push("Interest rate must be >= 0.");
+    if ((Number(tenureMonths) || 0) <= 0) msgs.push("Enter loan tenure (months).");
+    return msgs;
   };
 
-  const clearFields = () => {
-    setLoanAmount('');
-    setDownPayment('');
-    setInterestRate('');
-    setTenureMonths('');
-    setEmi(null);
-    setTotalInterest(null);
-    setTotalPayment(null);
-    setAmortizationSchedule([]);
-    setError('');
-    setIsLoading(false);
-    setHasCalculated(false);
-  };
+  const validationMsgs = validation();
 
   return (
-    <>
-      {/* --- SEO and Metadata (Helmet) - See next section for details --- */}
-      <Helmet>
-        <title>EMI Calculator - Calculate Car, Home & Personal Loan EMIs Instantly | MotoMart</title>
-        <meta name="description" content="Calculate your monthly Equated Monthly Installment (EMI) for car, home, and personal loans with MotoMart's accurate and easy-to-use EMI calculator. Get detailed amortization schedules and repayment breakdowns." />
-        <meta name="keywords" content="EMI Calculator, Loan EMI, Car Loan EMI, Home Loan EMI, Personal Loan EMI, Interest Rate Calculator, Loan Repayment Schedule, Financial Planning Tool, MotoMart Finance" />
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://motomart-ten.vercel.app/emicalculator" />
-
-        {/* Open Graph Tags for Social Sharing */}
-        <meta property="og:title" content="EMI Calculator - Calculate Your Loan EMIs with MotoMart" />
-        <meta property="og:description" content="Get instant and accurate EMI calculations for car, home, and personal loans. Plan your finances with MotoMart's comprehensive EMI tool." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://motomart-ten.vercel.app/emicalculator" />
-        <meta property="og:image" content="https://motomart-ten.vercel.app/images/motomart-emi-calculator-social.jpg" /> {/* Ensure this image exists and is optimized */}
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="MotoMart Online EMI Calculator" />
-
-        {/* Twitter Card Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@MotoMartOfficial" /> {/* Replace with your actual Twitter handle */}
-        <meta name="twitter:title" content="EMI Calculator - MotoMart" />
-        <meta name="twitter:description" content="Calculate your loan EMIs instantly for car, home & personal loans with MotoMart's easy-to-use tool. Plan your repayment confidently." />
-        <meta name="twitter:image" content="https://motomart-ten.vercel.app/images/motomart-emi-calculator-social.jpg" />
-
-        {/* Structured Data (JSON-LD) for enhanced SEO and rich snippets */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": ["WebPage", "FinancialProduct", "Calculator"],
-            "name": "EMI Calculator by MotoMart",
-            "url": "https://motomart-ten.vercel.app/emicalculator",
-            "description": "MotoMart's comprehensive online EMI calculator for estimating monthly payments on car loans, home loans, and personal loans. Includes full amortization schedule and detailed repayment breakdown.",
-            "mainEntityOfPage": {
-              "@type": "WebPage",
-              "@id": "https://motomart-ten.vercel.app/emicalculator"
-            },
-            "author": {
-              "@type": "Organization",
-              "name": "MotoMart",
-              "url": "https://motomart-ten.vercel.app/",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://motomart-ten.vercel.app/images/motomart-logo.png"
-              }
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "MotoMart",
-              "url": "https://motomart-ten.vercel.app/",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://motomart-ten.vercel.app/images/motomart-logo.png"
-              },
-              "sameAs": [
-                "https://facebook.com/MotoMartOfficial",
-                "https://twitter.com/MotoMartOfficial",
-                "https://linkedin.com/company/motomart"
-              ]
-            },
-            "offers": {
-              "@type": "Offer",
-              "name": "Free Online EMI Calculator",
-              "price": "0",
-              "priceCurrency": "INR",
-              "availability": "https://schema.org/InStock"
-            },
-            "applicationCategory": "https://schema.org/FinanceApplication",
-            "operatingSystem": "All",
-            "featureList": [
-              "Instant EMI calculation for various loan types",
-              "Generates detailed month-wise amortization schedule",
-              "Estimates total interest payable and total payment",
-              "User-friendly and responsive interface",
-              "Supports custom loan amounts, interest rates, and tenures"
-            ],
-            "tool": {
-              "@type": "SoftwareApplication",
-              "name": "MotoMart EMI Calculator",
-              "operatingSystem": "All",
-              "url": "https://motomart-ten.vercel.app/emicalculator",
-              "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.7",
-                "reviewCount": "250"
-              }
-            }
-          })}
-        </script>
-      </Helmet>
-
-      <div className="emi-container">
-        <h1 className='EMI'>EMI Calculator</h1>
-        <h2 className="description">
-          Easily calculate car, home or personal loan EMIs with accurate breakdowns.
-        </h2>
-        <p className="description">
-          Calculate your Equated Monthly Installment (EMI) and get a full breakdown of your loan.
+    <main className="emi-tool-root">
+      <section className="hero">
+        <h1>Service Cost & EMI — MotoMart</h1>
+        <p className="muted">
+          Pick a bank, vehicle type and loan details. Rates are indicative — verify with bank.
         </p>
+      </section>
 
-        {error && <div className="error-message">{error}</div>}
+      <section className="controls-grid">
+        <div className="card">
+          <h3>Bank & Interest</h3>
+          <label className="label">
+            Select Bank
+            <select value={bankId} onChange={(e) => onChangeBank(e.target.value)}>
+              <option value="">— Select —</option>
+              {BANKS.map((b) => (
+                <option key={b.id} value={b.id}>
+                  {b.name} — from {b.startingRate}%
+                </option>
+              ))}
+            </select>
+          </label>
 
-        <div className="input-grid">
-          <div className="input-group">
-            <label>Loan Amount (₹)</label>
+          <label className="label">
+            Interest Rate (% p.a.)
             <input
               type="number"
+              min="0"
+              step="0.01"
+              value={interest}
+              onChange={(e) => setInterest(e.target.value)}
+              aria-label="Interest rate percent per annum"
+            />
+          </label>
+        </div>
+
+        <div className="card">
+          <h3>Vehicle & GST</h3>
+          <label className="label">
+            Vehicle Type
+            <select value={vehicleType} onChange={(e) => setVehicleType(e.target.value)}>
+              <option value="">— Select —</option>
+              {Object.keys(GST_RATES).map((k) => (
+                <option key={k} value={k}>
+                  {k} — GST {GST_RATES[k]}%
+                </option>
+              ))}
+            </select>
+          </label>
+
+          <div className="label">
+            <div className="small">GST Rate</div>
+            <div className="value">{gstRate}%</div>
+          </div>
+        </div>
+
+        <div className="card">
+          <h3>Loan Details</h3>
+          <label className="label">
+            Loan Amount (on-road / on-paper)
+            <input
+              type="number"
+              placeholder="e.g. 500000"
               value={loanAmount}
               onChange={(e) => setLoanAmount(e.target.value)}
-              placeholder="e.g., 500000"
             />
-          </div>
+          </label>
 
-          <div className="input-group">
-            <label>Down Payment (₹)</label>
+          <label className="label">
+            Down Payment
             <input
               type="number"
+              placeholder="e.g. 50000"
               value={downPayment}
               onChange={(e) => setDownPayment(e.target.value)}
-              placeholder="e.g., 50000"
             />
-          </div>
+          </label>
 
-          <div className="input-group">
-            <label>Interest Rate (% p.a.)</label>
+          <label className="label">
+            Tenure (months)
             <input
               type="number"
-              value={interestRate}
-              onChange={(e) => setInterestRate(e.target.value)}
-              placeholder="e.g., 8.5"
-            />
-          </div>
-
-          <div className="input-group">
-            <label>Loan Tenure (Months)</label>
-            <input
-              type="number"
+              min="1"
               value={tenureMonths}
               onChange={(e) => setTenureMonths(e.target.value)}
-              placeholder="e.g., 60"
             />
-          </div>
+          </label>
         </div>
 
-        <div className="buttons">
-          <button onClick={calculateEMI} disabled={isLoading}>
-            {isLoading ? 'Calculating...' : 'Calculate EMI'}
-          </button>
-          <button onClick={clearFields} className="clear-btn" disabled={isLoading}>
-            Clear
-          </button>
-        </div>
+        <div className="card actions-card">
+          <h3>Summary</h3>
 
-        {hasCalculated && emi && (
-          <div className="result-section">
-            <h2>Your EMI Summary & Loan Breakdown</h2>
-            <div className="summary-results">
-              <div className="summary-item">
-                <h4>Monthly EMI</h4>
-                <p className="value highlight">{formatCurrency(emi)}</p>
-              </div>
-              <div className="summary-item">
-                <h4>Total Interest</h4>
-                <p className="value">{formatCurrency(totalInterest)}</p>
-              </div>
-              <div className="summary-item">
-                <h4>Total Payment</h4>
-                <p className="value">{formatCurrency(totalPayment)}</p>
-              </div>
-              <div className="summary-item">
-                <h4>Principal</h4>
-                <p className="value">{formatCurrency(principalAmount)}</p>
-              </div>
-              <div className="summary-item">
-                <h4>Interest Rate</h4>
-                <p className="value">{formatPercentage(interestRate)}</p>
-              </div>
-              <div className="summary-item">
-                <h4>Tenure</h4>
-                <p className="value">{tenureMonths} Months {tenureYearsDisplay && `(${tenureYearsDisplay})`}</p>
-              </div>
+          {validationMsgs.length > 0 ? (
+            <div className="warning">
+              {validationMsgs.map((m, i) => <div key={i}>• {m}</div>)}
             </div>
-
-            {amortizationSchedule.length > 0 && (
-              <div className="amortization-table-container">
-                <h4>Amortization Schedule</h4>
-                <div className="table-scroll">
-                  <table>
-                    <thead>
-                      <tr>
-                        <th>Month</th>
-                        <th>EMI</th>
-                        <th>Principal</th>
-                        <th>Interest</th>
-                        <th>Balance</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {amortizationSchedule.map((item, index) => (
-                        <tr key={index}>
-                          <td>{item.month}</td>
-                          <td>{formatCurrency(item.emi)}</td>
-                          <td>{formatCurrency(item.principal)}</td>
-                          <td>{formatCurrency(item.interest)}</td>
-                          <td>{formatCurrency(item.balance)}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-                <p className="note">
-                  Note: Interest portion is higher in early months and reduces as principal gets paid off.
-                </p>
+          ) : (
+            <>
+              <div className="summary-row">
+                <div>Principal</div>
+                <div>{formatINR(principal)}</div>
               </div>
-            )}
-            <p className="disclaimer">
-              Disclaimer: These values are estimates. Please consult your bank for official EMI terms.
-            </p>
-          </div>
-        )}
-      </div>
-    </>
-  );
-};
+              <div className="summary-row">
+                <div>Monthly EMI</div>
+                <div className="big">{formatINR(emiValue)}</div>
+              </div>
+              <div className="summary-row">
+                <div>Total Interest</div>
+                <div>{formatINR(totalInterest)}</div>
+              </div>
+              <div className="summary-row">
+                <div>Total Payment</div>
+                <div>{formatINR(totalPayment)}</div>
+              </div>
+              <div className="summary-row">
+                <div>GST on vehicle (est.)</div>
+                <div>{formatINR(gstAmount)}</div>
+              </div>
 
-export default EMICalculator;
+              <div className="cta-row">
+                <button
+                  onClick={() => setShowCompareBanks((s) => !s)}
+                  className="btn ghost"
+                >
+                  {showCompareBanks ? "Hide" : "Compare Banks"}
+                </button>
+                <button
+                  onClick={() => {
+                    // simple "copy summary" UX
+                    const text = `EMI ${formatINR(emiValue)}, Total ₹${formatINR(totalPayment)} (${tenureMonths} months)`;
+                    navigator.clipboard?.writeText(text);
+                    alert("Summary copied to clipboard");
+                  }}
+                  className="btn primary"
+                >
+                  Copy Summary
+                </button>
+              </div>
+            </>
+          )}
+        </div>
+      </section>
+
+      {showCompareBanks && validationMsgs.length === 0 && principal > 0 && (
+        <section className="card compare-card">
+          <h3>Compare Banks (sample)</h3>
+          <table className="compare-table" aria-label="Compare bank EMI table">
+            <thead>
+              <tr>
+                <th>Bank</th>
+                <th>Rate (%)</th>
+                <th>EMI (₹)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {compareBanks.map((b) => (
+                <tr key={b.id} className={b.id === bankId ? "selected" : ""}>
+                  <td>{b.name}</td>
+                  <td>{b.rate}%</td>
+                  <td>{formatINR(b.emi)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <p className="muted small">
+            Rates shown are indicative starting rates. Actual deal depends on credit profile, tenure and special offers.
+            Sources: public bank rate pages and rate aggregators.
+          </p>
+        </section>
+      )}
+
+      {/* Amortization (collapsible) */}
+      {amortization.length > 0 && validationMsgs.length === 0 && (
+        <section className="card amort-card">
+          <h3>Amortization Schedule (first 12 months)</h3>
+          <div className="table-scroll">
+            <table className="amort-table" aria-label="Amortization schedule">
+              <thead>
+                <tr>
+                  <th>Month</th>
+                  <th>EMI</th>
+                  <th>Principal</th>
+                  <th>Interest</th>
+                  <th>Balance</th>
+                </tr>
+              </thead>
+              <tbody>
+                {amortization.slice(0, 12).map((r) => (
+                  <tr key={r.month}>
+                    <td>{r.month}</td>
+                    <td>{formatINR(r.emi)}</td>
+                    <td>{formatINR(r.principal)}</td>
+                    <td>{formatINR(r.interest)}</td>
+                    <td>{formatINR(r.balance)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="muted small">Showing first 12 months. Full schedule available for download (future improvement).</p>
+        </section>
+      )}
+
+      <section className="card disclaimer">
+  <h4>Disclaimer & Sources</h4>
+  <p className="muted small">
+    Interest rates are illustrative starting rates from bank public pages and aggregator sources (e.g. BankBazaar, NDTV, bank websites).
+    These values change frequently; always confirm with the bank before applying. Example sources: BankBazaar, HDFC/ICICI/SBI official pages.
+  </p>
+</section>
+
+    </main>
+  );
+}

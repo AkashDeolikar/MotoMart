@@ -1,162 +1,271 @@
-
+/* ===============================
+   Wrapper Block
+==================================*/
 .rover-det-spec-block {
-    background-color: #fefefef1;
+  background-color: #f9f9f9;
+  /* padding: 2rem; */
+  border-radius: 12px;
 }
+
 .dark .rover-det-spec-block {
-    background-color: #E0E0E0;
+  background-color: #2a2a2a;
 }
+
+/* ===============================
+   Container
+==================================*/
 .rover-tabs-container {
-    color: initial;
-    padding: 30px;
-    font-family: Arial, sans-serif;
+  color: #202124;
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
+  padding: 20px;
 }
 
-.tab-main {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    align-items: flex-start;
+.dark .rover-tabs-container {
+  color: #e8eaed;
 }
 
-.tab-image {
-    flex: 1 1 50%;
-    max-width: 700px;
-    height: auto;
-    border-radius: 8px;
-}
-
-.tab-info {
-    flex: 0 1 40%;
-}
-
-.specs {
-    display: -webkit-box;
-    /* flex-direction: column;
-    gap: 20px; */
-}
-
-.spec-item {
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 12px;
-}
-
-.spec-desc{
-    color: #000;
-}
-
+/* ===============================
+   Header
+==================================*/
 .title1 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #202124;
+}
+
+.dark .title1 {
+  color: #fff;
 }
 
 .subtitle {
-    margin-bottom: 1.5rem;
+  font-size: 1rem;
+  color: #5f6368;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
+.dark .subtitle {
+  color: #bdc1c6;
+}
+
+/* ===============================
+   Tabs Header
+==================================*/
 .tabs-header {
-    font-family: 'LandRoverWeb-Medium';
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 1.5rem;
 }
 
 .tab-button {
-    padding: 10px 20px;
-    background: #dddddd;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
+  padding: 10px 18px;
+  background: #e8eaed;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
-.dark .tab-button{
-    background: #afafaf;
+
+.tab-button:hover {
+  background: #dadce0;
 }
+
+.dark .tab-button {
+  background: #3a3a3d;
+  color: #e8eaed;
+}
+
 .tab-button.active {
-    background: #000;
-    color: white;
+  background: #1a73e8;
+  color: #fff;
 }
 
-.tab-content {
-    margin-top: 20px;
+.tab-button.active:hover {
+  background: #1558c0;
 }
 
+/* ===============================
+   Main Layout
+==================================*/
+.tab-main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+/* Left Side: Image */
 .tab-image {
-    width: 100%;
-    max-height: 500px;
-    object-fit: contain;
-    margin-bottom: 20px;
+  flex: 1 1 50%;
+  max-width: 600px;
+  border-radius: 8px;
+  object-fit: contain;
+  background: #f1f3f4;
 }
 
+.dark .tab-image {
+  background: #3c4043;
+}
+
+/* Right Side: Specs + Info */
+.tab-info {
+  flex: 1 1 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ===============================
+   Specs
+==================================*/
 .specs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
 .spec-item {
-    flex: 1 1 200px;
+  flex: 1 1 200px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 12px;
+}
+
+.dark .spec-item {
+  border-bottom: 1px solid #3c4043;
 }
 
 .spec-label {
-    font-family: 'LandRoverWeb-Demi';
-    font-weight: lighter;
-    color: #3a3a3d;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #5f6368;
+}
+
+.dark .spec-label {
+  color: #bdc1c6;
 }
 
 .spec-value {
-    font-family: 'LandRoverWeb-Bold';
-    font-size: 24px;
-    font-weight: bolder;
-    color: #000;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #202124;
 }
 
+.dark .spec-value {
+  color: #e8eaed;
+}
+
+/* ===============================
+   Title + Description
+==================================*/
 .titleH {
-    font-family: 'LandRoverWeb-Demi';
-    padding-top: 20px;
-    color: #000;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  color: #202124;
+}
+
+.dark .titleH {
+  color: #fff;
 }
 
 .descriptionn {
-    font-family: 'LandRoverWeb-Demi';
-    color: #3a3a3d;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #5f6368;
 }
 
-.cta-button {
-    display: inline-block;
-    padding: 12px 20px;
-    background: #0055ff;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
+.dark .descriptionn {
+  color: #bdc1c6;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* ===============================
+   CTA Button (Google-style)
+==================================*/
+.btn-boxpage5 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  background: #1a73e8;
+  color: #fff !important;
+  text-decoration: none;
+  border-radius: 9999px; /* fully pill-shaped */
+  font-size: 0.875rem;
+  font-family: 'Google Sans', sans-serif;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 4px rgba(26,115,232,0.3);
+  transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
 }
 
+.btn-boxpage5:hover {
+  background: #1558c0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(26,115,232,0.4);
+}
+
+.btn-boxpage5:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(26,115,232,0.4);
+}
+
+
+/* ===============================
+   Responsive
+==================================*/
 @media (max-width: 768px) {
-    .spec-item {
-        flex: 1 1 100%;
-    }
-    .tab-main {
-        flex-direction: column;
-    }
+  .tab-main {
+    flex-direction: column;
+  }
 
-    .tab-image,
-    .tab-info {
-        flex: 0 1 100%;
-    }
+  .tab-image,
+  .tab-info {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
 
-    .rover-tabs-container {
-        padding: 15px;
-    }
+  .spec-item {
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .title1 {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .tab-button {
+    font-size: 0.8rem;
+    padding: 8px 14px;
+  }
+
+  .spec-value {
+    font-size: 1.1rem;
+  }
+}
+
+/* Mobile horizontal scrolling for tabs */
+@media (max-width: 768px) {
+  .tabs-header {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* hide scrollbar in Firefox */
+  }
+
+  .tabs-header::-webkit-scrollbar {
+    display: none; /* hide scrollbar in Chrome/Safari */
+  }
+
+  .tab-button {
+    flex: 0 0 auto; /* prevent shrinking */
+    white-space: nowrap;
+  }
 }

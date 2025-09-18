@@ -29,6 +29,8 @@ const CarNavbar = memo(({ theme, toggleTheme }) => {
   const [activeFlyout, setActiveFlyout] = useState(null);
   const [isHomePageAtTop, setIsHomePageAtTop] = useState(true);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const [open, setOpen] = useState(false);
+  const menuRef = useRef(null);
 
   const lastScrollYRef = useRef(
     typeof window !== "undefined" ? window.scrollY : 0
@@ -49,6 +51,12 @@ const CarNavbar = memo(({ theme, toggleTheme }) => {
         { to: "/servicecostcalculator", title: "Service Cost Check", desc: "Estimate your service costs easily" },
         { to: "/emicalculator", title: "EMI Calculator", desc: "Plan payments with ease" },
         { to: "/partsinfo", title: "Parts Info", desc: "Find genuine parts info" },
+      ],
+      pages: [
+        { to: "/page1", title: "Mobility", desc: "Smart mobility solutions" },
+        { to: "/page2", title: "Smart Roads", desc: "AI-powered traffic & road systems" },
+        { to: "/page3", title: "Impact", desc: "Global transport impact & insights" },
+        { to: "/page4", title: "Partners", desc: "Work with us to shape the future" },
       ],
     }),
     []
@@ -209,10 +217,10 @@ const CarNavbar = memo(({ theme, toggleTheme }) => {
                 </Link>
               </li>
 
+              {/* VEHICLE */}
               <li
-                className={`main-menu__item ${
-                  activeFlyout === "vehicle" ? "is-expanded" : ""
-                }`}
+                className={`main-menu__item ${activeFlyout === "vehicle" ? "is-expanded" : ""
+                  }`}
               >
                 <button
                   className="main-menu__label"
@@ -255,10 +263,10 @@ const CarNavbar = memo(({ theme, toggleTheme }) => {
                 </li>
               )}
 
+              {/* SERVICES */}
               <li
-                className={`main-menu__item ${
-                  activeFlyout === "service" ? "is-expanded" : ""
-                }`}
+                className={`main-menu__item ${activeFlyout === "service" ? "is-expanded" : ""
+                  }`}
               >
                 <button
                   className="main-menu__label"
@@ -271,6 +279,39 @@ const CarNavbar = memo(({ theme, toggleTheme }) => {
                 <div className="flyout__wrapper">
                   <div className="flyout__container">
                     {navItems.service.map((item) => (
+                      <Link
+                        key={item.to}
+                        to={item.to}
+                        className="flyout__link"
+                        onClick={handleLinkClick}
+                      >
+                        <div className="contentt">
+                          <span>{item.title}</span>
+                          <p>
+                            {item.desc} <FaChevronRight />
+                          </p>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </li>
+
+              {/* PAGES */}
+              <li
+                className={`main-menu__item ${activeFlyout === "pages" ? "is-expanded" : ""
+                  }`}
+              >
+                <button
+                  className="main-menu__label"
+                  onClick={(e) => handleFlyoutToggle("pages", e)}
+                  aria-expanded={activeFlyout === "pages"}
+                >
+                  Solutions {activeFlyout === "pages" ? <FaChevronUp /> : <FaChevronDown />}
+                </button>
+                <div className="flyout__wrapper">
+                  <div className="flyout__container">
+                    {navItems.pages.map((item) => (
                       <Link
                         key={item.to}
                         to={item.to}
@@ -331,34 +372,36 @@ const CarNavbar = memo(({ theme, toggleTheme }) => {
                 My Favorites
               </Link>
 
-              <div className="user-menu desktop-only">
-                <button className="user-info-btn" type="button">
+              <div className="user-menu desktop-only" ref={menuRef}>
+                <button
+                  className="user-info-btn"
+                  type="button"
+                  onClick={() => setOpen((prev) => !prev)}
+                >
                   {user.photoURL ? (
-                    <img
-                      src={user.photoURL}
-                      alt="Profile"
-                      className="user-avatar"
-                    />
+                    <img src={user.photoURL} alt="Profile" className="user-avatar" />
                   ) : (
                     <span className="user-avatar-placeholder">
-                      {user.displayName
-                        ? user.displayName[0].toUpperCase()
-                        : "U"}
+                      {user.displayName ? user.displayName[0].toUpperCase() : "U"}
                     </span>
                   )}
                   <span className="user-name">
                     {user.displayName || user.email.split("@")[0]}
                   </span>
+                  <span className="material-symbols-outlined">expand_more</span>
                 </button>
-                <div className="user-dropdown">
-                  <Link to="/ProfileSettings" onClick={handleLinkClick}>
-                    Profile
-                  </Link>
-                  <Link to="/Settings" onClick={handleLinkClick}>
-                    Settings
-                  </Link>
-                  <button onClick={handleLogout}>Logout</button>
-                </div>
+
+                {open && (
+                  <div className="user-dropdown">
+                    <Link to="/ProfileSettings" onClick={() => setOpen(false)}>
+                      Profile
+                    </Link>
+                    <Link to="/Settings" onClick={() => setOpen(false)}>
+                      Settings
+                    </Link>
+                    <button onClick={handleLogout}>Logout</button>
+                  </div>
+                )}
               </div>
             </>
           )}
@@ -398,6 +441,7 @@ const CarNavbar = memo(({ theme, toggleTheme }) => {
           Home
         </Link>
 
+        {/*  VEHICLES */}
         <div className="mobile-section">
           <button
             onClick={() =>
@@ -408,9 +452,8 @@ const CarNavbar = memo(({ theme, toggleTheme }) => {
             {activeFlyout === "vehicle" ? <FaChevronUp /> : <FaChevronDown />}
           </button>
           <div
-            className={`mobile-flyout ${
-              activeFlyout === "vehicle" ? "is-active" : ""
-            }`}
+            className={`mobile-flyout ${activeFlyout === "vehicle" ? "is-active" : ""
+              }`}
           >
             {navItems.vehicle.map((item) => (
               <Link key={item.to} to={item.to} onClick={handleLinkClick}>
@@ -426,6 +469,7 @@ const CarNavbar = memo(({ theme, toggleTheme }) => {
           </Link>
         )}
 
+        {/*  SERVICES */}
         <div className="mobile-section">
           <button
             onClick={() =>
@@ -436,9 +480,8 @@ const CarNavbar = memo(({ theme, toggleTheme }) => {
             {activeFlyout === "service" ? <FaChevronUp /> : <FaChevronDown />}
           </button>
           <div
-            className={`mobile-flyout ${
-              activeFlyout === "service" ? "is-active" : ""
-            }`}
+            className={`mobile-flyout ${activeFlyout === "service" ? "is-active" : ""
+              }`}
           >
             {navItems.service.map((item) => (
               <Link key={item.to} to={item.to} onClick={handleLinkClick}>
@@ -448,6 +491,28 @@ const CarNavbar = memo(({ theme, toggleTheme }) => {
           </div>
         </div>
 
+        {/*  SOLUTION */}
+        <div className="mobile-section">
+          <button
+            onClick={() =>
+              setActiveFlyout(activeFlyout === "pages" ? null : "pages")
+            }
+          >
+            Solutions {activeFlyout === "pages" ? <FaChevronUp /> : <FaChevronDown />}
+          </button>
+          <div
+            className={`mobile-flyout ${activeFlyout === "pages" ? "is-active" : ""
+              }`}
+          >
+            {navItems.pages.map((item) => (
+              <Link key={item.to} to={item.to} onClick={handleLinkClick}>
+                {item.title}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/*  CONTACT */}
         <Link to="/contact" onClick={handleLinkClick}>
           Contact
         </Link>

@@ -8,8 +8,7 @@ const RaidOffroadGear = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios
-      .get('https://motomartbackend.onrender.com/api/raid-offroad') // Replace with actual API endpoint https://motomartbackend.onrender.com/raid-offroad
+    axios.get('https://motomartbackend.onrender.com/api/raid-offroad')
       .then((res) => {
         setGearData(res.data);
         setLoading(false);
@@ -20,40 +19,38 @@ const RaidOffroadGear = () => {
       });
   }, []);
 
-  if (loading) {
-    return (
-      <div className="app-loading-overlay">
-            <div className="app-glass-loader">
-                <div className="app-spinner"></div>
-                <p className="app-loading-text">
-                    <i className="bi bi-lightning-charge-fill"></i>Loading Raid Offroad Collection...
-                </p>
-            </div>
-        </div>
-    );
-  }
-
   return (
     <section className="raid-gear-page">
       <h2>Raid Offroad Collection</h2>
-      <div className="raid-gear-grid">
-        {gearData.map((item, index) => (
-          <div className="gear-card" key={index}>
-            <img src={item.image} alt={item.title} />
-            <div className="gear-info">
-              <h3>{item.title}</h3>
-              <p className="gear-price">₹ {item.price.toLocaleString()}</p>
-              {item.variants && item.variants.length > 0 && (
-                <div className="gear-variants">
-                  {item.variants.map((variant, i) => (
-                    <span key={i} className="variant-chip">{variant}</span>
-                  ))}
-                </div>
-              )}
-            </div>
+      {loading ? (
+        <div className="app-loading-overlay">
+          <div className="app-glass-loader">
+            <div className="app-spinner"></div>
+            <p className="app-loading-text">
+              <i className="bi bi-lightning-charge-fill"></i> Loading Raid Offroad Collection...
+            </p>
           </div>
-        ))}
-      </div>
+        </div>
+      ) : (
+        <div className="raid-gear-grid">
+          {gearData.map((item, index) => (
+            <div className="gear-card" key={index}>
+              <img src={item.image} alt={item.title} onError={(e) => (e.target.src = '/fallback.jpg')} />
+              <div className="gear-info">
+                <h3>{item.title}</h3>
+                <p className="gear-price">₹ {item.price.toLocaleString()}</p>
+                {item.variants?.length > 0 && (
+                  <div className="gear-variants">
+                    {item.variants.map((variant, i) => (
+                      <span key={i} className="variant-chip">{variant}</span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </section>
   );
 };

@@ -1,439 +1,179 @@
-/* ===== General Reset ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600&display=swap");
+
+/* ===============================
+   Color Scheme Variables
+=============================== */
+:root {
+  --Gmain-color-bg: #ffffff;
+  --Gmain-color-text-primary: #202124;
+  --Gmain-color-text-secondary: #5f6368;
+  --Gmain-color-accent: #1a73e8;
+  --Gmain-color-accent-hover: #1558b0;
+  --Gmain-color-overlay: rgba(32,33,36,0.45);
+  --Gmain-color-slider-dot-inactive: #dadce0;
+  --Gmain-color-slider-dot-hover: #9aa0a6;
 }
+
+.dark{
+    --Gmain-color-bg: #121212;
+    --Gmain-color-text-primary: #3a3a3a;
+    --Gmain-color-text-secondary: #9aa0a6;
+    --Gmain-color-accent: #8ab4f8;
+    --Gmain-color-accent-hover: #5f9df6;
+    --Gmain-color-overlay: rgba(0,0,0,0.45);
+    --Gmain-color-slider-dot-inactive: #3c4043;
+    --Gmain-color-slider-dot-hover: #9aa0a6;
+}
+
+/* ===== Reset ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #0e0e0e;
-  color: #fff;
+  font-family: "Google Sans", "Segoe UI", Roboto, sans-serif;
+  background: var(--Gmain-color-bg);
+  color: var(--Gmain-color-text-primary);
+  line-height: 1.5;
 }
 
-/* ===== Main Page Gear Container ===== */
+/* ===== Container ===== */
 .gear-main-page-container {
-  overflow-x: hidden; /* To prevent horizontal scroll on the main page */
+  overflow-x: hidden;
+  background: var(--Gmain-color-bg);
 }
 
-/* ===== Header (Assuming a global header) ===== */
-.gear-main-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-  background-color: #0e0e0e;
-  border-bottom: 1px solid #333;
-}
+/* ===== Hero Slider ===== */
+.gear-hero-section { position: relative; overflow: hidden; }
 
-.gear-header-left, .gear-header-right {
-  display: flex;
-  gap: 15px;
-}
+.gear-slider-track { display: flex; transition: transform 0.6s ease-in-out; }
 
-.gear-logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
+.gear-slide { min-width: 100%; position: relative; }
 
-.gear-menu-button, .gear-icon-button {
-  background: none;
-  border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
-  color: #fff;
-}
-
-/* ===== Hero Slider Section ===== */
-.gear-hero-section {
-  position: relative;
-  overflow: hidden;
-}
-
-.gear-slider {
-  position: relative;
-  width: 100%;
-  height: 650px;
-  padding-top: 45px;
-}
-
-.gear-slider-track {
-  display: flex;
-  transition: transform 0.6s ease-in-out;
-}
-
-.gear-slide {
-  min-width: 100%;
-  position: relative;
-  text-align: center;
-  display: block;
-}
+.gear-slide img { width: 100%; height: 550px; object-fit: cover; }
 
 .gear-slide-content {
   position: absolute;
-  top: 30%;
+  top: 35%;
   left: 50%;
-  transform: translate(-50%, -30%);
-  z-index: 10;
+  transform: translateX(-50%);
+  text-align: center;
   color: #fff;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
 }
 
-.gear-slide-content h2 {
-  font-size: 2.8rem;
-  margin-bottom: 0.5rem;
-}
+.gear-slide-content h2 { font-size: clamp(1.6rem, 3.5vw, 2.6rem); font-weight: 600; margin-bottom: 0.5rem; }
+.gear-slide-content p { font-size: clamp(0.9rem, 2vw, 1.2rem); font-weight: 400; }
 
-.gear-slide-content p {
-  font-size: 1.2rem;
-  margin-bottom: 1.2rem;
-}
-
-.gear-explore-button {
-  padding: 10px 24px;
-  background-color: #c9e943;
-  color: #000;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 6px;
-  transition: 0.3s;
-  display: inline-block;
-}
-
-.gear-explore-button:hover {
-  background-color: #aada25;
-}
-
-.gear-slide-image {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* ===== Slider Arrows ===== */
+/* Arrows */
 .gear-slider-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
   border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  font-size: 1.8rem;
+  background: rgba(32,33,36,0.5);
+  color: #fff;
   border-radius: 50%;
-  z-index: 11;
-  transition: 0.3s;
+  padding: 10px 14px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  z-index: 10;
 }
+.gear-slider-arrow:hover { background: rgba(32,33,36,0.7); }
+.gear-slider-arrow-left { left: 20px; }
+.gear-slider-arrow-right { right: 20px; }
 
-.gear-slider-arrow:hover {
-  background: rgba(255, 255, 255, 0.4);
-}
-
-.gear-slider-arrow-left {
-  left: 20px;
-}
-
-.gear-slider-arrow-right {
-  right: 20px;
-}
-
-/* ===== Slider Dots ===== */
+/* Dots */
 .gear-slider-dots {
   position: absolute;
   bottom: 20px;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  justify-content: center;
-  gap: 10px;
-  z-index: 12;
+  gap: 8px;
 }
-
 .gear-slider-dot {
-  width: 12px;
-  height: 12px;
+  width: 10px; height: 10px;
   border-radius: 50%;
   border: none;
+  background: var(--Gmain-color-slider-dot-inactive);
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.3);
-  transition: transform 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
-  position: relative;
-  overflow: hidden;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
+.gear-slider-dot:hover { background: var(--Gmain-color-slider-dot-hover); }
+.gear-dot-active { background: var(--Gmain-color-accent); transform: scale(1.2); }
 
-/* Hover */
-.gear-slider-dot:hover {
-  transform: scale(1.25);
-  background: rgba(255, 255, 255, 0.6);
-}
+/* ===== Category Grid ===== */
+.gear-category-grid { display: grid; gap: 1rem; padding: 3rem 5%; }
 
-/* Active state with one-time animation */
-.gear-dot-active {
-  background: #c9e943;
-  box-shadow: 0 0 6px rgba(201, 233, 67, 0.6);
-  transform: scale(1.2);
-  animation: dotPop 0.6s ease forwards;
-}
-
-.gear-dot-active::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(201,233,67,0.8) 30%, transparent 70%);
-  animation: rippleOnce 0.6s ease forwards;
-}
-
-/* Click ripple */
-.gear-slider-dot:active::before {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  inset: 0;
-  background: radial-gradient(circle, rgba(255,255,255,0.6) 30%, transparent 70%);
-  animation: rippleClick 0.6s ease-out;
-}
-
-/* Pop effect */
-@keyframes dotPop {
-  0% {
-    transform: scale(0.8);
-    box-shadow: 0 0 0 rgba(201, 233, 67, 0);
-  }
-  60% {
-    transform: scale(1.5);
-    box-shadow: 0 0 12px rgba(201, 233, 67, 0.8);
-  }
-  100% {
-    transform: scale(1.2);
-    box-shadow: 0 0 6px rgba(201, 233, 67, 0.6);
-  }
-}
-
-/* Auto ripple when active */
-@keyframes rippleOnce {
-  0% {
-    opacity: 0.7;
-    transform: scale(0.6);
-  }
-  80% {
-    opacity: 0;
-    transform: scale(2);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(2);
-  }
-}
-
-/* Manual click ripple */
-@keyframes rippleClick {
-  0% {
-    opacity: 0.5;
-    transform: scale(0.5);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(2);
-  }
-}
-
-
-/* ===== Category Grids ===== */
-.gear-category-grid {
-  padding: 0.3rem 0rem;
-  display: grid;
-  gap: 0.5rem;
-}
-
-.gear-category-grid-large {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.gear-category-grid-small {
-  grid-template-columns: repeat(4, 1fr);
-}
+.gear-category-grid-large { grid-template-columns: repeat(3, 1fr); }
+.gear-category-grid-small { grid-template-columns: repeat(4, 1fr); }
 
 .gear-category-card {
   position: relative;
-  text-decoration: none;
+  border-radius: 12px;
   overflow: hidden;
-  transition: transform 0.6s ease;
-  height: fit-content;
-  width: 100%;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-
-.gear-category-card-small {
-  width: 100%;
-  height: 400px;
-}
-
-.gear-category-card:hover {
-  transform: scale(1.0125);
-  filter: brightness(0.6);
-}
-
-.gear-category-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+.gear-category-card img { width: 100%; height: 100%; object-fit: cover; }
+.gear-category-card:hover { transform: translateY(-3px); box-shadow: 0 4px 12px rgba(60,64,67,0.2); }
 
 .gear-category-label {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, 0.7);
-  color: black;
-  font-weight: bold;
-  padding: 6px 12px;
-  border-radius: 30px 0 30px 0;
-  font-size: 0.9rem;
-  z-index: 2;
-  transition: 0.3s;
-  backdrop-filter: blur(5px);
-  -webkit-transform: skewX(-13deg);
-  transform: skew(-13deg);
+  bottom: 12px; left: 12px;
+  background: rgba(255,255,255,0.9);
+  color: var(--Gmain-color-text-primary);
+  font-size: 0.9rem; font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 16px;
 }
 
-.gear-category-label:hover {
-  background: #c9e943;
-}
-
-/* ===== Pro Series & Featured Product Section ===== */
+/* ===== Pro Series Section ===== */
 .gear-pro-series-section {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 1.5rem;
-  padding: 2rem;
+  padding: 4rem 5%;
   align-items: center;
 }
 
-.gear-pro-card {
-  position: relative;
-  height: 400px;
-  background-image: url('https://rynoxgear.com/cdn/shop/files/Pro_Series_1728x.jpg');
-  background-size: cover;
-  background-position: center;
-  text-decoration: none;
-  border-radius: 12px;
-  overflow: hidden;
-  display: block;
-}
+.gear-pro-card, .gear-featured-product-card { border-radius: 12px; overflow: hidden; position: relative; }
 
-.gear-pro-overlay {
-  background-image: url('./GearAssets/banner.webp');
-  background-size: cover;
+.gear-pro-overlay, .gear-pro-overlay1 {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  background: var(--Gmain-color-overlay);
   color: #fff;
+  padding: 1.5rem;
 }
-.gear-pro-overlay1 {
-  background-image: url('https://c4.wallpaperflare.com/wallpaper/144/238/446/biker-helmet-hd-wallpaper-preview.jpg');
-  background-size: cover;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  border-radius: 12px;
-}
-.gear-pro-overlay h3 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
+
+.gear-pro-overlay h3 { font-size: 1.8rem; margin-bottom: 1rem; }
 
 .gear-explore-more-btn {
-  padding: 10px 22px;
-  background-color: #c9e943;
-  color: #000;
-  font-weight: bold;
+  background: var(--Gmain-color-accent);
+  color: #fff;
+  font-weight: 500;
   border: none;
-  border-radius: 6px;
+  border-radius: 20px;
+  padding: 10px 20px;
   cursor: pointer;
-  transition: 0.3s;
-  display: inline-block;
+  transition: background 0.3s ease;
 }
+.gear-explore-more-btn:hover { background: var(--Gmain-color-accent-hover); }
 
-.gear-explore-more-btn:hover {
-  background-color: #aada25;
-}
+.gear-featured-image { width: 100%; border-radius: 12px; display: block; }
 
-.gear-featured-product-card {
-  display: block;
-}
-
-.gear-featured-image {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-}
-
-/* ===== Footer ===== */
-.gear-footer {
-  background: #111;
-  padding: 2rem;
-  text-align: center;
-  color: #aaa;
-  font-size: 0.9rem;
-}
-
-/* ===== Responsive Design ===== */
+/* ===== Responsive ===== */
 @media (max-width: 1024px) {
-  .gear-category-grid-large {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .gear-category-grid-small {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .gear-category-grid-large { grid-template-columns: repeat(2, 1fr); }
+  .gear-category-grid-small { grid-template-columns: repeat(2, 1fr); }
 }
-
 @media (max-width: 768px) {
-  .gear-main-header {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .gear-header-left, .gear-header-right {
-    width: 100%;
-    justify-content: center;
-  }
-  .gear-slider {
-    height: 600px;
-  }
-  .gear-slide-content h2 {
-    font-size: 1.8rem;
-  }
-  .gear-slide-content p {
-    font-size: 1rem;
-  }
-  .gear-explore-button {
-    font-size: 0.9rem;
-    padding: 8px 20px;
-  }
-  .gear-category-grid {
-    padding: 0.5rem 0rem;
-  }
-  .gear-category-grid-large {
-    grid-template-columns: 1fr;
-  }
-  .gear-category-grid-small {
-    grid-template-columns: 1fr;
-  }
-  .gear-category-card-small {
-    height: 250px;
-  }
-  .gear-pro-series-section {
-    grid-template-columns: 1fr;
-  }
-  .gear-pro-card {
-    height: 300px;
-  }
-  .gear-pro-overlay h3 {
-    font-size: 1.5rem;
-  }
+  .gear-slide img { height: 400px; }
+  .gear-slide-content h2 { font-size: 1.4rem; }
+  .gear-slide-content p { font-size: 0.9rem; }
+  .gear-category-grid-large, .gear-category-grid-small { grid-template-columns: 1fr; }
 }

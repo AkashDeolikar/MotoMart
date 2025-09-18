@@ -1,112 +1,175 @@
-.helmet-store-container {
-  padding: 2rem 3%;
-  background-color: #f7f7f7;
-  font-family: "Segoe UI", sans-serif;
+/* === Helmet Store (Google Style + Color Scheme) === */
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600&display=swap");
+
+/* ==============================
+   Color Variables (Light / Dark)
+============================== */
+:root {
+  --G2-color-bg: #f8f9fa;
+  --G2-color-card-bg: #ffffff;
+  --G2-color-text-primary: #202124;
+  --G2-color-text-secondary: #5f6368;
+  --G2-color-border: #dadce0;
+  --G2-color-accent: #1a73e8; /* Google Blue */
+  --G2-color-hover: #e8f0fe;
+  --G2-color-button-bg: #1a73e8;
+  --G2-color-button-hover: #1557b0;
 }
 
+.dark{
+    --G2-color-bg: #202124;
+    --G2-color-card-bg: #2a2a2a;
+    --G2-color-text-primary: #e8eaed;
+    --G2-color-text-secondary: #bdc1c6;
+    --G2-color-border: #3c4043;
+    --G2-color-accent: #8ab4f8;
+    --G2-color-hover: #3c4043;
+    --G2-color-button-bg: #8ab4f8;
+    --G2-color-button-hover: #5c8bf6;
+}
+
+/* === Container === */
+.helmet-store-container {
+  padding: 3rem 4%;
+  background-color: var(--G2-color-bg);
+  font-family: "Google Sans", "Segoe UI", Roboto, sans-serif;
+  color: var(--G2-color-text-primary);
+}
+
+/* === Heading === */
 .helmet-store-container h1 {
   text-align: left;
-  font-size: 1.8rem;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
   font-weight: 600;
-  margin-bottom: 1.5rem;
-  color: #111;
+  margin-bottom: 2rem;
+  color: var(--G2-color-text-primary);
+  letter-spacing: -0.3px;
 }
 
+/* === Sort + Filters === */
+.sort-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  color: var(--G2-color-text-secondary);
+}
+
+.sort-section select {
+  padding: 6px 12px;
+  font-size: 0.95rem;
+  border: 1px solid var(--G2-color-border);
+  border-radius: 8px;
+  background: var(--G2-color-card-bg);
+  color: var(--G2-color-text-primary);
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.sort-section select:hover {
+  border-color: var(--G2-color-accent);
+}
+
+.filters-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+}
+
+/* === Grid === */
 .helmet-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 2rem;
 }
 
+/* === Helmet Card === */
 .helmet-card {
-  background: white;
-  border: 1px solid #eee;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  background: var(--G2-color-card-bg);
+  border-radius: 12px;
+  overflow: hidden;
   padding: 1rem;
   text-align: center;
-  transition: transform 0.2s ease-in-out;
+  box-shadow: 0 1px 2px rgba(60,64,67,0.1),
+              0 1px 6px rgba(60,64,67,0.15);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
 }
 
 .helmet-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(60,64,67,0.2);
 }
 
+/* === Image === */
 .helmet-card img {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: contain;
   margin-bottom: 1rem;
+  background-color: var(--G2-color-bg);
+  border-radius: 8px;
 }
 
+/* === Info Section === */
 .helmet-info .brand {
-  font-size: 0.9rem;
-  color: #555;
-  margin-bottom: 0.2rem;
+  font-size: 0.85rem;
+  color: var(--G2-color-text-secondary);
+  margin-bottom: 0.3rem;
 }
 
 .helmet-info .name {
   font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #222;
-  min-height: 50px;
+  font-weight: 500;
+  margin-bottom: 0.6rem;
+  color: var(--G2-color-text-primary);
+  line-height: 1.4;
+  min-height: 48px;
 }
 
 .helmet-info .price {
-  font-size: 1rem;
-  color: #111;
-  font-weight: bold;
-  margin-bottom: 0.7rem;
+  font-size: 1.1rem;
+  color: var(--G2-color-accent);
+  font-weight: 600;
+  margin-bottom: 1rem;
 }
 
+/* === Buy Button === */
 .buy-btn {
-  background: #f2f2f2;
-  color: #000;
+  background: var(--G2-color-button-bg);
+  color: #fff;
   padding: 0.6rem 1.2rem;
-  border: 1px solid #ccc;
+  border: none;
+  border-radius: 999px;
   font-weight: 500;
   font-size: 0.9rem;
   cursor: pointer;
-  transition: 0.3s;
+  transition: background-color 0.25s ease, transform 0.2s ease;
   width: 100%;
 }
 
 .buy-btn:hover {
-  background: #000;
-  color: #fff;
-  border-color: #000;
+  background: var(--G2-color-button-hover);
+  transform: translateY(-1px);
 }
 
-.sort-section {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1.5rem;
-  gap: 10px;
-  font-size: 1rem;
-}
+/* === Responsive === */
+@media screen and (max-width: 600px) {
+  .helmet-store-container {
+    padding: 2rem 1rem;
+  }
 
-.sort-section select {
-  padding: 6px 12px;
-}
-.filters-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin-bottom: 1.5rem;
-}
+  .helmet-card img {
+    height: 160px;
+  }
 
-.sort-section {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 1rem;
-  color: #333;
-}
+  .helmet-info .name {
+    font-size: 0.95rem;
+  }
 
-.sort-section select {
-  padding: 6px 12px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  background: white;
+  .helmet-info .price {
+    font-size: 1rem;
+  }
 }

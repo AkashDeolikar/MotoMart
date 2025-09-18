@@ -126,14 +126,13 @@ import TailBagPage from "./component/RidingGears/Categorypages/TailBagPage";
 import SaddleBagPage from "./component/RidingGears/Categorypages/SaddleBagPage";
 import HelmetStore from "./component/RidingGears/Categorypages/HelmetStore";
 import AddMoreServiceCostCalculator from "./component/slidePage/servicepages/AddMoreServiceCostCalculator";
-import EngineSound from "./component/utility/EngineSound";
-import EngineShowcase from "./component/utility/EngineShowcase";
-import BikeColorSwitcher from "./component/utility/BikeColorSwitcher";
 import Chatbot from "./component/openai/Chatbot";
 import ProfileSettings from "./component/navbar/ProfileSettings";
 import Settings from "./component/navbar/Settings";
-import CommunitySection from "./component/navbar/CommunitySection";
 import ConfirmDialog from "./component/utility/ConfirmDialog";
+import HeroSection from "./component/utility/HeroSection";
+import GoogleCardSlider from "./component/utility/GoogleCardSlider";
+import ScrollRestoration from "./component/ScrollRestoration";
 
 //DB pages
 
@@ -180,129 +179,132 @@ const AnimatedRoutes = ({ theme, toggleTheme, showRegister, setShowRegister, use
       <Chatbot />
       <div className="app-wrapper">
         <div className="ContentWrapper">
-          <AnimatePresence mode="wait">
-            <Routes location={location} key={location.pathname}>
-              {/* Public Routes - accessible to all */}
-              <Route path="/" element={<Home />} />
-              <Route path="/home" element={<Navigate to="/" replace />} /> {/* Redirect old /home to / */}
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/forgot-password" element={<ForgotPassword />} />
-              {/* Modal route (if used as a separate route, otherwise handle with state) */}
-              <Route path="/register-modal" element={<Modal isOpen={showRegister} onClose={() => setShowRegister(false)}><Register closeModal={() => setShowRegister(false)} /></Modal>} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/contactclick" element={<ContactClick />} />
-              {/* <Route path="/feedback" element={<FeedBack />} /> */}
-              <Route path="/next" element={<Next />} />
-              <Route path="/temp" element={<Temp />} />
-              <Route path="/overviewpage" element={<OverviewPage />} />
-              <Route path="/aboutus" element={<Aboutus />} /> {/* Assuming About Us is public */}
+          <main className="main-content">
+            <AnimatePresence mode="wait">
+              <ScrollRestoration />
+              <Routes location={location} key={location.pathname}>
+                {/* Public Routes - accessible to all */}
+                <Route path="/" element={<Home />} />
+                <Route path="/home" element={<Navigate to="/" replace />} /> {/* Redirect old /home to / */}
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/forgot-password" element={<ForgotPassword />} />
+                {/* Modal route (if used as a separate route, otherwise handle with state) */}
+                <Route path="/register-modal" element={<Modal isOpen={showRegister} onClose={() => setShowRegister(false)}><Register closeModal={() => setShowRegister(false)} /></Modal>} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/contactclick" element={<ContactClick />} />
+                {/* <Route path="/feedback" element={<FeedBack />} /> */}
+                <Route path="/next" element={<Next />} />
+                <Route path="/temp" element={<Temp />} />
+                <Route path="/overviewpage" element={<OverviewPage />} />
+                <Route path="/aboutus" element={<Aboutus />} /> {/* Assuming About Us is public */}
 
-              {/* Protected Routes - wrapped with ProtectedRoute */}
-              <Route path="/carlist" element={<ProtectedRoute user={user} loadingAuth={loadingAuth}><CarList /></ProtectedRoute>} />
-              <Route path="/cardetails" element={<ProtectedRoute user={user} loadingAuth={loadingAuth}><CarDetails /></ProtectedRoute>} />
-              <Route path="/BikeCompareDetails" element={<ProtectedRoute user={user} loadingAuth={loadingAuth}><BikeCompareDetails /></ProtectedRoute>} />
-              <Route path="/cardetail/:vehicleId" element={<ProtectedRoute user={user} loadingAuth={loadingAuth}><CarDetail bikeData={bikeVehicleData} carData={carVehicleData} /></ProtectedRoute>} />
-              <Route path="/FavoriteVehicle" element={<ProtectedRoute user={user} loadingAuth={loadingAuth}><FavoriteVehicle /></ProtectedRoute>} />
-              <Route path="/MyFavorites" element={<ProtectedRoute user={user} loadingAuth={loadingAuth}><MyFavorites /></ProtectedRoute>} />
+                {/* Protected Routes - wrapped with ProtectedRoute */}
+                <Route path="/carlist" element={<ProtectedRoute user={user} loadingAuth={loadingAuth}><CarList /></ProtectedRoute>} />
+                <Route path="/cardetails" element={<ProtectedRoute user={user} loadingAuth={loadingAuth}><CarDetails /></ProtectedRoute>} />
+                <Route path="/BikeCompareDetails" element={<ProtectedRoute user={user} loadingAuth={loadingAuth}><BikeCompareDetails /></ProtectedRoute>} />
+                <Route path="/cardetail/:vehicleId" element={<ProtectedRoute user={user} loadingAuth={loadingAuth}><CarDetail bikeData={bikeVehicleData} carData={carVehicleData} /></ProtectedRoute>} />
+                <Route path="/FavoriteVehicle" element={<ProtectedRoute user={user} loadingAuth={loadingAuth}><FavoriteVehicle /></ProtectedRoute>} />
+                <Route path="/MyFavorites" element={<ProtectedRoute user={user} loadingAuth={loadingAuth}><MyFavorites /></ProtectedRoute>} />
 
-              {/* Other Specific Car/Bike Details (assuming some might be public for viewing, but for actual interaction like adding to cart, would be protected) */}
-              <Route path="/swift" element={<MarutSwiftDetail />} />
-              <Route path="/creta" element={<HyundaiCretaDetail />} />
-              <Route path="/nexon" element={<TataNexonDetail />} />
-              <Route path="/ertiga" element={<SuzukiErtigaDetail />} />
-              <Route path="/omni" element={<OmniDetail />} />
-              <Route path="/innova" element={<ToyotaInnovaDetail />} />
-              <Route path="/activa" element={<HondaActivaDetail />} />
-              <Route path="/ns" element={<NS200Detail />} />
+                {/* Other Specific Car/Bike Details (assuming some might be public for viewing, but for actual interaction like adding to cart, would be protected) */}
+                <Route path="/swift" element={<MarutSwiftDetail />} />
+                <Route path="/creta" element={<HyundaiCretaDetail />} />
+                <Route path="/nexon" element={<TataNexonDetail />} />
+                <Route path="/ertiga" element={<SuzukiErtigaDetail />} />
+                <Route path="/omni" element={<OmniDetail />} />
+                <Route path="/innova" element={<ToyotaInnovaDetail />} />
+                <Route path="/activa" element={<HondaActivaDetail />} />
+                <Route path="/ns" element={<NS200Detail />} />
 
-              {/* Vehicle Cards (assuming public access to browse) */}
-              <Route path="/carcard" element={<Carcard />} />
-              <Route path="/bikecard" element={<Bikecard />} />
+                {/* Vehicle Cards (assuming public access to browse) */}
+                <Route path="/carcard" element={<Carcard />} />
+                <Route path="/bikecard" element={<Bikecard />} />
 
-              {/* Slider/Navigation Pages (assuming public for showcasing) */}
-              <Route path="/page1" element={<Page1 />} />
-              <Route path="/page2" element={<Page2 />} />
-              <Route path="/page3" element={<Page3 />} />
-              <Route path="/page4" element={<Page4 />} />
-              <Route path="/page5" element={<Page5 />} />
-              <Route path="/page6" element={<Page6 />} />
+                {/* Slider/Navigation Pages (assuming public for showcasing) */}
+                <Route path="/page1" element={<Page1 />} />
+                <Route path="/page2" element={<Page2 />} />
+                <Route path="/page3" element={<Page3 />} />
+                <Route path="/page4" element={<Page4 />} />
+                <Route path="/page5" element={<Page5 />} />
+                <Route path="/page6" element={<Page6 />} />
 
-              {/* Brand Pages (assuming public for Browse) */}
-              <Route path="/rover" element={<Rover />} />
-              <Route path="/jaguar" element={<Jaguar />} />
-              <Route path="/bmw" element={<Bmw />} />
-              <Route path="/mercedes" element={<Mercedes />} />
-              <Route path="/luxury" element={<Luxury />} />
+                {/* Brand Pages (assuming public for Browse) */}
+                <Route path="/rover" element={<Rover />} />
+                <Route path="/jaguar" element={<Jaguar />} />
+                <Route path="/bmw" element={<Bmw />} />
+                <Route path="/mercedes" element={<Mercedes />} />
+                <Route path="/luxury" element={<Luxury />} />
 
-              {/* Vehicle Category Pages (assuming public for Browse) */}
-              <Route path="/luxuryvh" element={<Luxuryvh />} />
-              <Route path="/passengervh" element={<Passengervh />} />
-              <Route path="/commercialvh" element={<Commercialvh />} />
-              <Route path="/evvh" element={<Evvh />} />
+                {/* Vehicle Category Pages (assuming public for Browse) */}
+                <Route path="/luxuryvh" element={<Luxuryvh />} />
+                <Route path="/passengervh" element={<Passengervh />} />
+                <Route path="/commercialvh" element={<Commercialvh />} />
+                <Route path="/evvh" element={<Evvh />} />
 
-              {/* Sub Brand Pages (assuming public for Browse) */}
-              <Route path="/audicar" element={<Audicar />} />
-              <Route path="/jaguarcar" element={<Jaguarcar />} />
-              <Route path="/mercedescar" element={<Mercedescar />} />
-              <Route path="/fordcar" element={<Fordcar />} />
-              <Route path="/bmwcar" element={<Bmwcar />} />
-              <Route path="/rangerovercar" element={<Rangerovercar />} />
-              <Route path="/rollsroylscar" element={<Rollsroylscar />} />
-              <Route path="/hondacar" element={<Hondacar />} />
-              <Route path="/hyundaicar" element={<Hyundaicar />} />
-              <Route path="/jeepcar" element={<Jeepcar />} />
-              <Route path="/nissancar" element={<Nissancar />} />
-              <Route path="/renaultcar" element={<Renaultcar />} />
-              <Route path="/suzukicar" element={<Suzukicar />} />
-              <Route path="/teslacarev" element={<Teslacar />} />
-              <Route path="/bmwcarev" element={<Bmwcarev />} />
-              <Route path="/kiacarev" element={<Kiacarev />} />
-              <Route path="/mercedescarev" element={<Mercedescarev />} />
-              <Route path="/mahindrapickup" element={<Mahindrapickup />} />
-              <Route path="/isuzupickup" element={<Isuzupickup />} />
-              <Route path="/ashokpickup" element={<Ashokpickup />} />
-              <Route path="/suzukipickup" element={<Suzukipickup />} />
+                {/* Sub Brand Pages (assuming public for Browse) */}
+                <Route path="/audicar" element={<Audicar />} />
+                <Route path="/jaguarcar" element={<Jaguarcar />} />
+                <Route path="/mercedescar" element={<Mercedescar />} />
+                <Route path="/fordcar" element={<Fordcar />} />
+                <Route path="/bmwcar" element={<Bmwcar />} />
+                <Route path="/rangerovercar" element={<Rangerovercar />} />
+                <Route path="/rollsroylscar" element={<Rollsroylscar />} />
+                <Route path="/hondacar" element={<Hondacar />} />
+                <Route path="/hyundaicar" element={<Hyundaicar />} />
+                <Route path="/jeepcar" element={<Jeepcar />} />
+                <Route path="/nissancar" element={<Nissancar />} />
+                <Route path="/renaultcar" element={<Renaultcar />} />
+                <Route path="/suzukicar" element={<Suzukicar />} />
+                <Route path="/teslacarev" element={<Teslacar />} />
+                <Route path="/bmwcarev" element={<Bmwcarev />} />
+                <Route path="/kiacarev" element={<Kiacarev />} />
+                <Route path="/mercedescarev" element={<Mercedescarev />} />
+                <Route path="/mahindrapickup" element={<Mahindrapickup />} />
+                <Route path="/isuzupickup" element={<Isuzupickup />} />
+                <Route path="/ashokpickup" element={<Ashokpickup />} />
+                <Route path="/suzukipickup" element={<Suzukipickup />} />
 
-              {/* Service Pages (assuming public or can be protected if needed) */}
-              <Route path="/servicecostcalculator" element={<ServiceCostCalculator />} />
-              <Route path="/emicalculator" element={<EMICalculator />} />
-              <Route path="/partsinfo" element={<PartsInfo />} />
+                {/* Service Pages (assuming public or can be protected if needed) */}
+                <Route path="/servicecostcalculator" element={<ServiceCostCalculator />} />
+                <Route path="/emicalculator" element={<EMICalculator />} />
+                <Route path="/partsinfo" element={<PartsInfo />} />
 
-              {/* Miscellaneous Components (assuming public) */}
-              <Route path="/viewmore" element={<Viewmore />} />
-              <Route path="/statshighlightsection" element={<StatsHighlightSection />} />
-              <Route path="/SlideItem" element={<SlideItem />} />
+                {/* Miscellaneous Components (assuming public) */}
+                <Route path="/viewmore" element={<Viewmore />} />
+                <Route path="/statshighlightsection" element={<StatsHighlightSection />} />
+                <Route path="/SlideItem" element={<SlideItem />} />
 
-              {/* Riding gear pages */}
-              <Route path="/GearCard" element={< GearCard />} />
-              <Route path="/GearPage" element={<GearPage />} />
-              <Route path="/MainPageGear" element={<MainPageGear />}/>
-              <Route path="/RaidOffroadGear" element={<RaidOffroadGear />} />
-              <Route path="/Glovespage" element={<GlovesPage />}/>
-              <Route path="/JacketsPage" element={<JacketsPage />} />
-              <Route path="/BaseLayerPage" element={<BaseLayerPage />} />
-              <Route path="/RidingPantsPage" element={<RidingPantsPage />} />
-              <Route path="/TailBagPage" element={<TailBagPage />} />
-              <Route path="/SaddleBagPage" element={<SaddleBagPage />} />
-              <Route path="/HelmetStore" element={<HelmetStore />} />
+                {/* Riding gear pages */}
+                <Route path="/GearCard" element={< GearCard />} />
+                <Route path="/GearPage" element={<GearPage />} />
+                <Route path="/MainPageGear" element={<MainPageGear />} />
+                <Route path="/RaidOffroadGear" element={<RaidOffroadGear />} />
+                <Route path="/Glovespage" element={<GlovesPage />} />
+                <Route path="/JacketsPage" element={<JacketsPage />} />
+                <Route path="/BaseLayerPage" element={<BaseLayerPage />} />
+                <Route path="/RidingPantsPage" element={<RidingPantsPage />} />
+                <Route path="/TailBagPage" element={<TailBagPage />} />
+                <Route path="/SaddleBagPage" element={<SaddleBagPage />} />
+                <Route path="/HelmetStore" element={<HelmetStore />} />
 
-              <Route path="/AddMoreServiceCostCalculator" element={<AddMoreServiceCostCalculator />} />
-              <Route path="/EngineSound" element={<EngineSound />} />
-              <Route path="/EngineShowcase" element={<EngineShowcase />} />
-              <Route path="/BikeColorSwitcher" element={<BikeColorSwitcher />} />
-              
-              <Route path="/Chatbot" element={<Chatbot />} />
+                <Route path="/AddMoreServiceCostCalculator" element={<AddMoreServiceCostCalculator />} />
 
-              <Route path="/ProfileSettings" element={<ProfileSettings />}/>
-              <Route path="/Settings" element={<Settings />} />
-              <Route path="/ConfirmDialog" element={<ConfirmDialog />} />
-              {/* Catch-all for undefined routes (optional, but good practice) */}
-              {/* <Route path="*" element={<div>404 Not Found</div>} /> */}
-            </Routes>
-          </AnimatePresence>
-          <Footer />
+                <Route path="/Chatbot" element={<Chatbot />} />
+
+                <Route path="/ProfileSettings" element={<ProfileSettings />} />
+                <Route path="/Settings" element={<Settings />} />
+                <Route path="/ConfirmDialog" element={<ConfirmDialog />} />
+
+                <Route path="/HeroSection" element={<HeroSection />} />
+                <Route path="/GoogleCardSlider" element={<GoogleCardSlider />} />
+                {/* Catch-all for undefined routes (optional, but good practice) */}
+                {/* <Route path="*" element={<div>404 Not Found</div>} /> */}
+              </Routes>
+            </AnimatePresence>
+          </main>
         </div>
+        <Footer />
       </div>
     </>
   );
@@ -341,54 +343,61 @@ function App() {
   // IMPORTANT: No direct call to useInactivityLogout here.
   // It is now managed within AnimatedRoutes.
   if (loadingAuth) {
-  return (
-    <div
-      style={{
-        height: "100vh",
-        width: "100%",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        background: theme === "dark" ? "#121212" : "#ffffff",
-      }}
-    >
-      {/* Logo */}
-      <img
-        src={theme === "dark" ? logoDark : logoLight}
-        alt="Loading..."
-        style={{ width: "120px", marginBottom: "30px" }}
-      />
-
-      {/* Progress bar */}
+    return (
       <div
         style={{
-          width: "180px",
-          height: "4px",
-          borderRadius: "2px",
-          overflow: "hidden",
-          background: theme === "dark" ? "#2c2c2c" : "#e0e0e0",
+          height: "100vh",
+          width: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          background: theme === "dark" ? "#121212" : "#ffffff",
         }}
       >
-        <motion.div
-          initial={{ x: "-100%" }}
-          animate={{ x: "100%" }}
-          transition={{
-            repeat: Infinity,
-            duration: 1.4,
-            ease: "easeInOut",
-          }}
+        {/* Brand Text */}
+        <h1
           style={{
-            width: "100%",
-            height: "100%",
-            background:
-              "linear-gradient(90deg, #4285f4, #34a853, #fbbc05, #ea4335)",
+            fontFamily: "'Google Sans', Roboto, sans-serif",
+            fontSize: "1.75rem",
+            fontWeight: "600",
+            marginBottom: "30px",
+            color: theme === "dark" ? "#e8eaed" : "#202124",
           }}
-        />
+        >
+          MotoMort
+        </h1>
+
+        {/* Progress bar */}
+        <div
+          style={{
+            width: "180px",
+            height: "4px",
+            borderRadius: "2px",
+            overflow: "hidden",
+            background: theme === "dark" ? "#2c2c2c" : "#e0e0e0",
+          }}
+        >
+          <motion.div
+            initial={{ x: "-100%" }}
+            animate={{ x: "100%" }}
+            transition={{
+              repeat: Infinity,
+              duration: 1.4,
+              ease: "easeInOut",
+            }}
+            style={{
+              width: "100%",
+              height: "100%",
+              background:
+                "linear-gradient(90deg, #4285f4, #34a853, #fbbc05, #ea4335)",
+            }}
+          />
+        </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
+
 
 
 

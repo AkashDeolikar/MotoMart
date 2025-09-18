@@ -1,75 +1,152 @@
-.gear-card {
-  /* background: #1a1a1a; */
-  background: linear-gradient(145deg, #31316f, #131111);
-  /* background: linear-gradient(145deg, #1e1e2f, #121212); */
-  border-radius: 16px;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 320px;
-  min-height: 100%;
-  color: #fff;
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600&display=swap");
+
+/* ===============================
+   Color Variables (Light / Dark)
+=============================== */
+:root {
+  --G4-color-bg: #ffffff;
+  --G4-color-card-bg: #fff;
+  --G4-color-text-primary: #202124;
+  --G4-color-text-secondary: #5f6368;
+  --G4-color-border: #dadce0;
+  --G4-color-accent: #1a73e8;
+  --G4-color-hover: #e8f0fe;
 }
 
+.dark{
+    --G4-color-bg: #202124;
+    --G4-color-card-bg: #1e1e1e;
+    --G4-color-text-primary: #e8eaed;
+    --G4-color-text-secondary: #9aa0a6;
+    --G4-color-border: #3c4043;
+    --G4-color-accent: #8ab4f8;
+    --G4-color-hover: #3c4043;
+}
 
-.gear-img {
+/* === Gear Card Container === */
+.gear-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--G4-color-card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(60, 64, 67, 0.1),
+              0 2px 6px rgba(60, 64, 67, 0.15);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  font-family: "Google Sans", Arial, sans-serif;
+  color: var(--G4-color-text-primary);
+  height: 100%;
+  cursor: pointer;
+}
+
+.gear-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(60, 64, 67, 0.2);
+}
+
+/* === Image Section === */
+.gear-card-image {
   width: 100%;
   aspect-ratio: 4 / 3;
-  object-fit: cover;
-  background-color: #000;
+  background: var(--G4-color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
 }
 
-.gear-info {
+.gear-card-image img {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.gear-card:hover .gear-card-image img {
+  transform: scale(1.05);
+}
+
+/* === Info Section === */
+.gear-card-info {
   padding: 1rem;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  flex-grow: 1;
+  gap: 0.4rem;
 }
 
-.gear-info h3 {
-  font-size: 1.05rem;
-  color: #fff;
+.gear-card-title {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0.2rem 0;
+  color: var(--G4-color-text-primary);
+}
+
+.gear-card-title span {
+  font-weight: 400;
+  color: var(--G4-color-text-secondary);
+}
+
+.gear-card-price {
+  font-size: 1rem;
   font-weight: 600;
-  line-height: 1.4;
+  color: var(--G4-color-accent);
+  margin: 0.5rem 0;
 }
 
-.gear-info h3 span {
-  font-weight: 400;
-  color: #6e6e6e;
-}
-
-.gear-price {
-  font-size: 1.05rem;
-  font-weight: bold;
-  color: #00c2ff;
-}
-
-.gear-features {
-  padding: 0;
+.gear-card-features {
   list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 1rem;
   font-size: 0.85rem;
-  color: #757575;
+  color: var(--G4-color-text-secondary);
 }
 
-.gear-features li {
-  margin-bottom: 0.3rem;
+.gear-card-features li {
+  margin: 0.25rem 0;
 }
 
-.gear-btn {
-  align-self: center;
-  padding: 8px 16px;
-  background: linear-gradient(135deg, #1976d2, #0d47a1);
-  color: #ffffff;
-  font-weight: 400;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-}
-
-.gear-btn:hover {
-  background-color: #1f88a8;
+/* === Button === */
+.gear-card-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: var(--G4-color-accent);
   color: #fff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 24px;
+  text-decoration: none;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.gear-card-btn:hover {
+  background: #1558b0;
+  transform: translateY(-2px);
+}
+
+/* === Dark Mode Overrides for Button === */
+@media (prefers-color-scheme: dark) {
+  .gear-card-btn {
+    background: var(--G4-color-accent);
+    color: var(--G4-color-text-primary);
+  }
+  .gear-card-btn:hover {
+    background: #5f9df6;
+  }
+}
+
+/* === Responsive Adjustments === */
+@media screen and (max-width: 480px) {
+  .gear-card-image {
+    aspect-ratio: auto;
+    height: 220px;
+  }
+
+  .gear-card-title {
+    font-size: 0.95rem;
+  }
+
+  .gear-card-price {
+    font-size: 1rem;
+  }
 }

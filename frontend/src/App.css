@@ -11,22 +11,3 @@ body.dark {
   transition: 0.3s;
 }
 
-:root {
-  /* ... existing variables ... */
-  --nav-height: 64px;
-}
-
-/* ... (rest of your existing CSS, no change needed for header) ... */
-
-/* The fix: Add this new rule */
-.main-content {
-  padding-top: var(--nav-height);
-}
-
-/* Optional: To handle different nav heights on mobile */
-@media (max-width: 1024px) {
-  .main-content {
-    padding-top: var(--nav-height);
-    /* Ensure it's still applied on mobile */
-  }
-}

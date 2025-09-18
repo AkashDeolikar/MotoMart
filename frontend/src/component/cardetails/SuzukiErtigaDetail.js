@@ -4,65 +4,69 @@ import './Details.css'; // Assuming your existing CSS is in Details.css
 
 const SuzukiErtigaDetail = () => {
   const [activeTab, setActiveTab] = useState("overview");
+  const [selectedColor, setSelectedColor] = useState(0);
 
   const car = {
-    name: "Maruti Suzuki Ertiga",
+    name: "Maruti Suzuki Ertiga (2022 Facelift)",
     price: "₹8.96 – ₹13.26 Lakh (Ex-showroom, Delhi)",
-    mileage: "20.30 kmpl (Petrol AT) – 26.11 km/kg (CNG)",
+    mileage: "20.30 km/l (Petrol AT) – 26.11 km/kg (CNG, Company Claimed)",
     description:
-      "The Maruti Suzuki Ertiga is a popular 7-seater MPV known for its spacious and comfortable cabin, fuel-efficient engines (Petrol and CNG), and practical features. It offers a smooth ride and is a versatile choice for Indian families.",
+      "The Maruti Suzuki Ertiga is India’s most popular 7-seater MPV, known for its spacious cabin, practicality, and excellent fuel efficiency. With its petrol and factory-fitted CNG options, the Ertiga is a versatile choice for families, offering comfort, technology, and reliability at an affordable price.",
     details: {
       engine: {
-        petrol: "1.5L K15C Smart Hybrid Petrol (101.65 PS @ 6000 rpm, 136.8 Nm @ 4400 rpm)",
-        cng: "1.5L K15C Smart Hybrid CNG (87.83 PS @ 5500 rpm, 121.5 Nm @ 4200 rpm)",
+        petrol:
+          "1.5L K15C Smart Hybrid Petrol – 101.65 PS @ 6000 rpm, 136.8 Nm @ 4400 rpm",
+        cng: "1.5L K15C Smart Hybrid CNG – 87.83 PS @ 5500 rpm, 121.5 Nm @ 4200 rpm",
       },
-      transmission: "5-speed Manual / 6-speed Automatic (Torque Converter)",
+      transmission: "5-speed Manual / 6-speed Automatic (Torque Converter with Paddle Shifters)",
       fuelOptions: "Petrol & CNG",
-      safetyRating: "3 Stars (Global NCAP)", // For Adult and Child Occupant Protection
-      features: [
-        "7-inch SmartPlay Pro Touchscreen Infotainment System",
-        "Apple CarPlay & Android Auto (Wireless in top variants)",
-        "Voice Command & OTA Updates",
-        "15-inch Dual-Tone Alloy Wheels",
-        "Dual Front Airbags (Standard)",
-        "ABS with EBD",
-        "Electronic Stability Program (ESP)",
-        "Hill Hold Control",
-        "Rear Parking Sensors & Rearview Camera",
-        "LED Tail Lamps with 3D Origami Style Design",
-        "Halogen Projector Headlamps with Chrome Accents",
-        "LED DRLs (Daytime Running Lamps)",
-        "Smart Keyless Entry with Push Start/Stop Button",
-        "Automatic Climate Control with Rear AC Vents",
-        "Cruise Control",
-        "Cooled Cup Holders in Center Console",
-        "Second-row One-Touch Tumble and Slide Function",
-        "Third-row 50:50 Split with Recline Function",
-        "Front Seat Back Pockets & Charging Ports (12V outlets)",
-      ],
-      colorOptions: [
-        { name: "Pearl Metallic Auburn Red", hex: "#6A1B1A" },
-        { name: "Metallic Magma Grey", hex: "#505050" },
-        { name: "Pearl Metallic Oxford Blue", hex: "#0A0F4A" },
-        { name: "Splendid Silver", hex: "#C0C0C0" },
-        { name: "Pearl Arctic White", hex: "#FFFFFF" },
-        { name: "Dignity Brown", hex: "#4B2E21" }, // Example brown color, adjust hex if needed
-        { name: "Bluish Black", hex: "#2C3539" }, // Example bluish black, adjust hex if needed
-      ],
+      safetyRating:
+        "3 Stars (Global NCAP, Adult: 3★, Child: 3★ for India-spec model)",
       segment: "Compact MPV (Multi-Purpose Vehicle)",
-      launched: "First Generation: 2012, Latest Facelift: April 2022",
+      launched: "First Generation: 2012 | Latest Facelift: April 2022 (BS6 Phase 2 update: 2023)",
       evAvailable: false,
       dimensions: {
         length: "4395 mm",
         width: "1735 mm",
         height: "1690 mm",
         wheelbase: "2740 mm",
-        bootSpace: "209 Litres (all rows up), expandable to 550 Litres (3rd row folded), 803 Litres (2nd & 3rd row folded)",
+        bootSpace:
+          "209 L (all rows up) • 550 L (3rd row folded) • 803 L (2nd & 3rd row folded)",
         groundClearance: "185 mm",
         fuelTankCapacity: "45 Litres",
       },
+      features: [
+        "7-inch SmartPlay Pro Touchscreen Infotainment with OTA Updates",
+        "Wireless Apple CarPlay & Android Auto (Top Variants)",
+        "Voice Command Support",
+        "Dual-Tone 15-inch Alloy Wheels",
+        "Dual Front Airbags (Standard, up to 4 Airbags on higher trims)",
+        "ABS with EBD & Brake Assist",
+        "Electronic Stability Program (ESP)",
+        "Hill Hold Control",
+        "Rear Parking Sensors & Reverse Camera",
+        "Halogen Projector Headlamps with LED DRLs",
+        "LED Tail Lamps with 3D Origami Style",
+        "Smart Keyless Entry with Push Button Start/Stop",
+        "Cruise Control",
+        "Automatic Climate Control with Rear AC Vents",
+        "Cooled Cup Holders",
+        "2nd Row One-Touch Tumble and Slide",
+        "3rd Row 50:50 Split with Recline",
+        "12V Charging Ports (Front, Middle & Rear)",
+      ],
+      colorOptions: [
+        { name: "Pearl Metallic Auburn Red", hex: "#6A1B1A" },
+        { name: "Magma Grey", hex: "#505050" },
+        { name: "Pearl Metallic Oxford Blue", hex: "#0A0F4A" },
+        { name: "Splendid Silver", hex: "#C0C0C0" },
+        { name: "Pearl Arctic White", hex: "#FFFFFF" },
+        { name: "Dignity Brown", hex: "#4B2E21" },
+        { name: "Bluish Black", hex: "#2C3539" },
+      ],
     },
   };
+
 
   const totalImages = 71; // Assuming you have 71 images for the 360 view
   const [currentIndex, setCurrentIndex] = useState(1);
@@ -189,7 +193,7 @@ const SuzukiErtigaDetail = () => {
 
         {/* Tab Content - Conditionally render based on activeTab state */}
         {activeTab === "overview" && (
-          <div className="tab-content active">
+          <div className="tab-content360 active">
             <h2>Segment</h2>
             <p>{car.details.segment}</p>
             <h2>Launch Information</h2>
@@ -206,7 +210,7 @@ const SuzukiErtigaDetail = () => {
         )}
 
         {activeTab === "specs" && (
-          <div className="tab-content active">
+          <div className="tab-content360 active">
             <h2>Fuel & Engine</h2>
             <p>
               <strong>Fuel Type:</strong> {car.details.fuelOptions}
@@ -254,30 +258,32 @@ const SuzukiErtigaDetail = () => {
         )}
 
         {activeTab === "colors" && (
-          <div className="tab-content active">
+          <div className="tab-content360 active">
             <h2>Available Colors</h2>
             <div className="color-swatches">
               {car.details.colorOptions.map((c, index) => (
-                <div key={index} className="color-swatch-item"> {/* Added class for consistent styling */}
+                <div
+                  key={index}
+                  className={`color-swatch-item ${selectedColor === index ? "selected" : ""
+                    }`}
+                  onClick={() => setSelectedColor(index)}
+                >
                   <div
-                    style={{
-                      backgroundColor: c.hex,
-                      width: "60px",
-                      height: "60px",
-                      borderRadius: "50%",
-                      border: "2px solid #ccc",
-                      marginBottom: "0.5rem",
-                    }}
+                    className="color-swatch-circle"
+                    style={{ backgroundColor: c.hex }}
                   ></div>
-                  <small>{c.name}</small>
+                  <small className="color-swatch-label">
+                    {c.name} {c.dualTone && "(Dual Tone)"}
+                  </small>
                 </div>
               ))}
             </div>
           </div>
         )}
 
+
         {activeTab === "features" && (
-          <div className="tab-content active">
+          <div className="tab-content360 active">
             <h2>Safety</h2>
             <p>
               <strong>Global NCAP Rating:</strong> {car.details.safetyRating}
@@ -294,10 +300,10 @@ const SuzukiErtigaDetail = () => {
                   feature.includes("Speed Alert")
                 )
                 .map((feature, i) => (
-                  <li key={i}>✅ {feature}</li>
+                  <li key={i}><span className="material-symbols-outlined">check_circle</span>{feature}</li>
                 ))}
-                <li>ISOFIX Child Seat Mounts</li> {/* Commonly available safety feature */}
-                <li>Seat Belt Reminders for Front & Rear</li>
+              <li>ISOFIX Child Seat Mounts</li> {/* Commonly available safety feature */}
+              <li>Seat Belt Reminders for Front & Rear</li>
             </ul>
 
             <h2>Key Comfort & Convenience Features</h2>
@@ -313,12 +319,12 @@ const SuzukiErtigaDetail = () => {
                     feature.includes("Speed Alert"))
                 )
                 .map((feature, i) => (
-                  <li key={i}>✅ {feature}</li>
+                  <li key={i}><span className="material-symbols-outlined">check_circle</span>{feature}</li>
                 ))}
-                <li>Power Windows (All Four)</li>
-                <li>Adjustable Steering (Tilt)</li>
-                <li>Height Adjustable Driver Seat</li>
-                <li>Central Locking</li>
+              <li>Power Windows (All Four)</li>
+              <li>Adjustable Steering (Tilt)</li>
+              <li>Height Adjustable Driver Seat</li>
+              <li>Central Locking</li>
             </ul>
             <h2>ADAS Features</h2>
             <p>Not Available</p>

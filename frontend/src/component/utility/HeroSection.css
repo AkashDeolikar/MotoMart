@@ -1,0 +1,255 @@
+/* Font */
+* {
+  font-family: "Google Sans", Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* HERO ROOT */
+.hero {
+  width: 100%;
+  background: #fff;
+  overflow: hidden;
+}
+
+/* -----------------
+   CAROUSEL
+----------------- */
+.hero__carousel {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+}
+
+.hero__slide {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: all 0.9s ease;
+}
+
+.hero__slide.active {
+  left: 0;
+  opacity: 1;
+  z-index: 1;
+}
+
+.hero__overlay {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #fff;
+  max-width: 700px;
+  padding: 20px;
+}
+
+.hero__banner-title {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero__banner-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.hero__banner-btn {
+  padding: 14px 24px;
+  background: #1a73e8;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.hero__banner-btn:hover {
+  background: #1558b0;
+}
+
+/* Dots */
+.hero__dots {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+}
+
+.hero__dot {
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.hero__dot.active,
+.hero__dot:hover {
+  opacity: 1;
+}
+
+/* -----------------
+   BELOW CAROUSEL
+----------------- */
+.hero__container {
+  max-width: 1280px;
+  margin: 80px auto;
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.hero__text {
+  flex: 1 1 400px;
+}
+
+.hero__title {
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #202124;
+}
+
+.hero__subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  color: #5f6368;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.hero__btn {
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.hero__btn--primary {
+  background-color: #1a73e8;
+  color: #fff;
+}
+
+.hero__btn--primary:hover {
+  background-color: #1558b0;
+}
+
+.hero__btn--secondary {
+  background-color: #fff;
+  border: 2px solid #1a73e8;
+  color: #1a73e8;
+}
+
+.hero__btn--secondary:hover {
+  background-color: #e8f0fe;
+}
+
+/* -----------------
+   PRODUCT CARDS
+----------------- */
+.hero__products {
+  flex: 1 1 500px;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero__card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  width: 260px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.hero__card-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.hero__card-info {
+  padding: 18px;
+}
+
+.hero__card-title {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #202124;
+}
+
+.hero__card-desc {
+  font-size: 0.95rem;
+  color: #5f6368;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.hero__card-link {
+  font-size: 0.95rem;
+  color: #1a73e8;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.hero__card-link:hover {
+  text-decoration: underline;
+}
+
+/* -----------------
+   PROMO BAR
+----------------- */
+.hero__promos {
+  max-width: 1280px;
+  margin: 40px auto 60px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+
+.hero__promo {
+  font-size: 0.95rem;
+  color: #1a73e8;
+  background: #f1f3f4;
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.hero__promo:hover {
+  background: #e8f0fe;
+}

@@ -1,7 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import './footer.css';
-import logo from './footerlogo.webp';
+import React from "react";
+import PropTypes from "prop-types";
+import "./footer.css";
 
 const FooterLinkSection = PropTypes.shape({
   title: PropTypes.string.isRequired,
@@ -19,19 +18,18 @@ const Footer = ({ projectName, linkSections }) => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="footer-swiper">
+    <footer className="footer-google">
       <div className="footer-container">
-        {/* Project Brand */}
+        {/* Brand */}
         <div className="footer-brand">
-          <img src={logo} alt="Logo" className="footer-logo" />
           <span className="footer-title">{projectName}</span>
         </div>
 
-        {/* Link Sections */}
+        {/* Sections */}
         <div className="footer-links">
           {linkSections.map((section, idx) => (
             <div className="footer-section" key={idx}>
-              <h4>{section.title}</h4>
+              <h4 className="footer-heading">{section.title}</h4>
               <ul>
                 {section.links.map((link, i) => (
                   <li key={i}>
@@ -53,10 +51,10 @@ const Footer = ({ projectName, linkSections }) => {
         </div>
       </div>
 
+      {/* Bottom */}
       <div className="footer-bottom">
         <p>
-          All product names, logos and brands are property of their respective owners. <br />
-          &copy; {currentYear} {projectName} | All rights reserved.
+          &copy; {currentYear} {projectName} — All rights reserved.
         </p>
       </div>
     </footer>
@@ -64,30 +62,40 @@ const Footer = ({ projectName, linkSections }) => {
 };
 
 Footer.defaultProps = {
-  projectName: 'MotoMart',
+  projectName: "MotoMart",
   linkSections: [
     {
-      title: 'Project Links',
+      title: "Project Links",
       links: [
-        { text: 'GitHub', href: 'https://github.com/AkashDeolikar/MotoMart', isExternal: true, iconClass: 'bi bi-github' },
-        { text: 'Vercel Hosting', href: 'https://motomart-ten.vercel.app', isExternal: true, iconClass: 'bi bi-box-arrow-up-right' },
+        {
+          text: "GitHub",
+          href: "https://github.com/AkashDeolikar/MotoMart",
+          isExternal: true,
+          iconClass: "bi bi-github",
+        },
+        {
+          text: "Vercel Hosting",
+          href: "https://motomart-ten.vercel.app",
+          isExternal: true,
+          iconClass: "bi bi-box-arrow-up-right",
+        },
       ],
     },
     {
-      title: 'Quick Links',
+      title: "Quick Links",
       links: [
-        { text: 'Home', href: '/home' },
-        { text: 'Car Detail', href: '/cardetails' },
-        { text: 'EMI Calculator', href: '/emicalculator' },
+        { text: "Home", href: "/home" },
+        { text: "Car Detail", href: "/cardetails" },
+        { text: "EMI Calculator", href: "/emicalculator" },
       ],
     },
     {
-      title: 'Bike Riding Gears',
+      title: "Bike Riding Gears",
       links: [
-        { text: 'Gears Page', href: '/MainPageGear' },
-        { text: 'Off-Road Asset', href: '/RaidOffroadGear' },
-        { text: 'Jacket', href: '/JacketPage' },
-        { text: 'Helmet', href: '/HelmetStore' },
+        { text: "Gears Page", href: "/MainPageGear" },
+        { text: "Off-Road Asset", href: "/RaidOffroadGear" },
+        { text: "Jacket", href: "/JacketPage" },
+        { text: "Helmet", href: "/HelmetStore" },
       ],
     },
   ],

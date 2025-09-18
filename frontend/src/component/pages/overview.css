@@ -1,162 +1,154 @@
-/* Smooth scroll across site */
-html {
-  scroll-behavior: smooth;
-}
-
-/* ==============================
-   Container & Base
-   ============================== */
-.vehicle-revolution-container {
-  padding: 2rem;
-  font-family: "HCLTechRoobert-Medium", sans-serif;
-  color: #1a1a1a;
-  background-color: #f9f9f9;
-  line-height: 1.6;
-}
-
-/* ==============================
-   Hero Section
-   ============================== */
-.vehicle-revolution-hero-section {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.vehicle-revolution-hero-title {
-  font-size: clamp(2rem, 5vw, 2.8rem);
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: #1a1a1a;
-}
-
-.vehicle-revolution-hero-title span {
-  color: #ffaf02;
-}
-
-.vehicle-revolution-hero-subtext {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  color: #555;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-/* ==============================
-   Timeline Section
-   ============================== */
-.vehicle-revolution-section {
-  margin-bottom: 3rem;
-}
-
-.vehicle-revolution-timeline-heading {
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  margin-bottom: 0.5rem;
-  color: #222;
-  font-weight: 600;
-  text-align: center;
-}
-
-.vehicle-revolution-timeline-description {
-  font-size: 1rem;
-  color: #444;
-  margin: 0 auto 1.5rem;
-  max-width: 800px;
-  text-align: center;
-}
-
-.vehicle-revolution-timeline {
+/* ===============================
+   BASE CONTAINER
+   =============================== */
+.overview-container {
+  font: 400 16px/24px "Google Sans", "Roboto", Arial, Helvetica, sans-serif;
+  background: radial-gradient(circle at top left, #1a237e, #000),
+              linear-gradient(to bottom right, #0d1117, #1a1a1a);
+  color: #fff;
+  min-height: 100vh;
+  padding: 4rem 2rem;
   display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  list-style: none;
-  padding: 0;
-  justify-content: center;
+  flex-direction: column;
+  gap: 4rem;
 }
 
-.vehicle-revolution-timeline-card {
-  flex: 1 1 clamp(280px, 48%, 520px);
-  background-color: #fff;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: fadeInUp 0.8s ease forwards;
-  opacity: 0;
-}
-
-.vehicle-revolution-timeline-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-}
-
-.vehicle-revolution-timeline-year {
-  font-weight: 700;
-  color: #ffaf02;
-  margin-bottom: 0.25rem;
-  font-size: 0.95rem;
-  letter-spacing: 0.5px;
-}
-
-.vehicle-revolution-timeline-title {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  color: #222;
-}
-
-/* ==============================
-   Future Section
-   ============================== */
-.vehicle-revolution-future-section {
-  text-align: center;
-  background: linear-gradient(135deg, #e5f3ff, #f0faff);
-  padding: 2.5rem 2rem;
-  border-radius: 14px;
-  margin-top: 4rem;
-  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.05);
-}
-
-.vehicle-revolution-future-heading {
-  font-size: clamp(1.5rem, 4vw, 2rem);
+/* ===============================
+   HERO
+   =============================== */
+.overview-hero-title {
+  font: clamp(24px, 4vw, 56px) / 1.2 "Google Sans", "Roboto", Arial, Helvetica, sans-serif;
+  max-width: 800px;
   margin-bottom: 1rem;
-  font-weight: 600;
-  color: #1a1a1a;
 }
 
-.vehicle-revolution-future-description {
-  font-size: 1.1rem;
-  color: #333;
-  max-width: 700px;
-  margin: 0 auto;
-  line-height: 1.7;
+.overview-hero-title span {
+  color: #8ab4f8;
 }
 
-/* ==============================
-   Animation
-   ============================== */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.overview-hero-subtext {
+  font: 400 clamp(16px, 1.6vw, 20px) / 1.5 "Google Sans", "Roboto", Arial, Helvetica, sans-serif;
+  color: #bbb;
+  max-width: 600px;
 }
 
-/* ==============================
-   Responsive Tweaks
-   ============================== */
+/* ===============================
+   GRID LAYOUT
+   =============================== */
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+}
+
+/* ===============================
+   CARD
+   =============================== */
+.overview-card {
+  background: rgba(255, 255, 255, 0.05); /* subtle glassy effect */
+  border-radius: 16px; /* Google prefers 12–16px radius */
+  padding: 2rem;
+  display: flex;
+  flex-direction: column; /* stack text/button naturally */
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+  font: 400 16px/24px "Google Sans", "Roboto", Arial, Helvetica, sans-serif;
+}
+
+.overview-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px); /* subtle lift on hover */
+}
+
+.overview-card-text h2 {
+  font: 500 22px/30px "Google Sans", "Roboto", Arial, Helvetica, sans-serif;
+  margin: 0.25rem 0 0.5rem;
+  color: #e8eaed; /* ensures readability on dark bg */
+}
+
+.overview-date {
+  font: 400 13px/18px "Google Sans", "Roboto", Arial, Helvetica, sans-serif;
+  color: #8ab4f8;
+  margin-bottom: 0.25rem;
+}
+
+.overview-card-text p {
+  font: 400 15px/22px "Google Sans", "Roboto", Arial, Helvetica, sans-serif;
+  color: #ccc; /* softer than pure white */
+}
+
+/* ===============================
+   ACTION BUTTON
+   =============================== */
+.overview-action {
+  margin-top: auto; /* pushes CTA down consistently */
+}
+
+.overview-btn {
+  font: 500 14px/20px "Google Sans", "Roboto", Arial, Helvetica, sans-serif;
+  background: #1a73e8;
+  border: none;
+  color: #fff;
+  padding: 0.6rem 1.4rem;
+  border-radius: 24px; /* pill button */
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.15s ease;
+}
+
+.overview-btn:hover {
+  background: #4285f4;
+  transform: translateY(-1px);
+}
+
+
+/* ===============================
+   CARD IMAGE
+   =============================== */
+.overview-card-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* ===============================
+   RESPONSIVE
+   =============================== */
 @media (max-width: 768px) {
-  .vehicle-revolution-container {
-    padding: 1.5rem;
+  .overview-card {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .vehicle-revolution-timeline {
-    gap: 1rem;
+  .overview-card-img {
+    width: 100%;
+    height: auto;
   }
 
-  .vehicle-revolution-future-section {
-    padding: 2rem 1.5rem;
+  .overview-hero-title {
+    font: 700 28px/36px "Google Sans", "Roboto", Arial, Helvetica, sans-serif;
   }
+
+  .overview-hero-subtext {
+    font: 400 16px/24px "Google Sans", "Roboto", Arial, Helvetica, sans-serif;
+  }
+}
+
+
+.loading-text {
+  font-size: 1.1rem;
+  color: #4285f4;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.error-text {
+  font-size: 1.1rem;
+  color: #ea4335; /* Google red */
+  text-align: center;
+  margin-top: 30px;
+  font-weight: 600;
 }

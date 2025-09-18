@@ -1,0 +1,246 @@
+/* emiserivetool.css - Google-like, card based layout */
+:root {
+  --emibg: #f6f7f8;
+  --emicard: #ffffff;
+  --emimuted: #5f6368;
+  --emiaccent: #1a73e8;
+  --emiprimary: #0b79d0;
+  --emisuccess: #2e7d32;
+  --emidanger: #d93025;
+  --emiborder: #e6e6e6;
+  --emiradius: 10px;
+}
+
+
+.emi-tool-root {
+  background: var(--emibg);
+  padding: 24px;
+  min-height: 100vh;
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+/* hero */
+.hero {
+  color: #000;
+  text-align: center;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  margin-bottom: 6px;
+}
+.hero .muted {
+  color: var(--emimuted);
+  font-size: 0.95rem;
+}
+
+/* grid layout */
+.controls-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(4, 1fr);
+  margin-bottom: 20px;
+}
+@media (max-width: 1100px) {
+  .controls-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 680px) {
+  .controls-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* card */
+.card {
+  background: var(--emicard);
+  border-radius: var(--emiradius);
+  box-shadow: 0 4px 12px rgba(15, 23, 41, 0.08);
+  border: 1px solid var(--emiborder);
+  padding: 18px;
+}
+.card h3 {
+  margin: 0 0 12px 0;
+  color: #222;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* form labels */
+.label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  color: #222;
+}
+.label select,
+.label input {
+  color: black;
+  margin-top: 6px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--emiborder);
+  font-size: 0.95rem;
+  background: #fff;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+.label select:focus,
+.label input:focus {
+  outline: none;
+  border-color: var(--emiaccent);
+  box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.15);
+}
+
+/* values */
+.value {
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+/* summary rows */
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px dashed #efefef;
+  align-items: center;
+  font-size: 0.9rem;
+}
+.summary-row .big {
+  font-size: 1.25rem;
+  color: var(--emiaccent);
+  font-weight: 700;
+}
+
+/* buttons */
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+.btn {
+  flex: 1;
+  min-width: 120px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+.btn:active {
+  transform: scale(0.98);
+}
+.btn.ghost {
+  background: transparent;
+  border: 1px solid var(--emiborder);
+  color: var(--emimuted);
+}
+.btn.primary {
+  background: var(--emiprimary);
+  color: #fff;
+}
+
+/* compare table */
+.compare-card {
+  margin-top: 16px;
+  overflow-x: auto;
+}
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  min-width: 400px;
+}
+.compare-table th,
+.compare-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #f0f0f0;
+  text-align: left;
+  white-space: nowrap;
+}
+.compare-table tr.selected {
+  background: linear-gradient(
+    90deg,
+    rgba(26, 115, 232, 0.06),
+    rgba(26, 115, 232, 0.02)
+  );
+}
+
+/* amortization */
+.table-scroll {
+  overflow-x: auto;
+}
+.amort-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+  font-size: 0.85rem;
+}
+.amort-table th,
+.amort-table td {
+  padding: 10px 12px;
+  border: 1px solid #f1f1f1;
+  text-align: right;
+}
+.amort-table th {
+  background: #fafafa;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* warning */
+.warning {
+  background: #fff4e5;
+  color: #7a4b00;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #f5d7a3;
+  font-size: 0.9rem;
+}
+
+/* muted */
+.muted {
+  color: var(--emimuted);
+  font-size: 0.9rem;
+}
+.small {
+  font-size: 0.8rem;
+}
+
+/* disclaimer */
+.disclaimer {
+  margin-top: 16px;
+  background: linear-gradient(180deg, #fff, #fbfbfb);
+  padding: 14px;
+  border-radius: var(--emiradius);
+  border: 1px solid var(--emiborder);
+  font-size: 0.9rem;
+}
+
+/* responsive tweaks */
+@media (max-width: 480px) {
+  .emi-tool-root {
+    padding: 16px;
+  }
+  .card {
+    padding: 14px;
+  }
+  .label select,
+  .label input {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+  .summary-row .big {
+    font-size: 1.1rem;
+  }
+  .btn {
+    flex: 1 1 100%;
+    min-width: unset;
+  }
+}

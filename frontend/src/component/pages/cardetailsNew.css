@@ -1,0 +1,298 @@
+/* ============================
+   Base Variables
+============================ */
+:root {
+  /* Light mode colors */
+  --com-clr-bg: #ffffff;
+  --com-clr-surface: #f8f9fa;
+  --com-clr-text: #202124;
+  --com-clr-secondary: #5f6368;
+  --com-clr-border: #e0e0e0;
+  --com-clr-accent: #1a73e8;
+  --com-clr-error: #d93025;
+  --com-clr-success: #188038;
+
+  --com-radius-sm: 6px;
+  --com-radius-md: 10px;
+  --com-radius-lg: 16px;
+
+  --com-shadow-sm: 0 1px 2px rgba(60, 64, 67, 0.1);
+  --com-shadow-md: 0 3px 6px rgba(60, 64, 67, 0.15);
+  --com-shadow-lg: 0 8px 20px rgba(60, 64, 67, 0.2);
+
+  --com-transition-fast: 0.2s ease-in-out;
+}
+
+/* Dark mode overrides */
+.dark{
+    --com-clr-bg: #202124;
+    --com-clr-surface: #2a2a2c;
+    --com-clr-text: #e8eaed;
+    --com-clr-secondary: #bdc1c6;
+    --com-clr-border: #3c4043;
+    --com-clr-accent: #2568d5;
+    --com-clr-error: #f28b82;
+    --com-clr-success: #81c995;
+
+    --com-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --com-shadow-md: 0 3px 6px rgba(0, 0, 0, 0.5);
+    --com-shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Optional: body.dark class for manual toggle */
+body.dark {
+  --com-clr-bg: #202124;
+  --com-clr-surface: #2a2a2c;
+  --com-clr-text: #e8eaed;
+  --com-clr-secondary: #bdc1c6;
+  --com-clr-border: #3c4043;
+  --com-clr-accent: #417cdb;
+  --com-clr-error: #df3a2b;
+  --com-clr-success: #50ce74;
+
+  --com-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --com-shadow-md: 0 3px 6px rgba(0, 0, 0, 0.5);
+  --com-shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* ============================
+   General Layout
+============================ */
+.detailsBox {
+  max-width: 900px;
+  margin: 1.5rem auto;
+  padding: 1.5rem;
+  background: var(--com-clr-bg);
+  border-radius: var(--com-radius-lg);
+  box-shadow: var(--com-shadow-md);
+  color: var(--com-clr-text);
+}
+
+.detailsHeading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  text-align: center;
+  color: var(--com-clr-text);
+}
+
+/* ============================
+   Form
+============================ */
+.detailsForm {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.detailsField label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+  color: var(--com-clr-secondary);
+}
+
+.detailsField select {
+  width: 100%;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--com-clr-border);
+  border-radius: var(--com-radius-md);
+  background: var(--com-clr-surface);
+  font-size: 0.9rem;
+  color: var(--com-clr-text);
+}
+
+/* ============================
+   Buttons
+============================ */
+.detailsButton,
+.detailsButtonAlt,
+.detailsButtonClear {
+  padding: 0.55rem 1rem;
+  border: none;
+  border-radius: var(--com-radius-md);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--com-transition-fast), box-shadow var(--com-transition-fast);
+}
+
+.detailsButton {
+  background: var(--com-clr-accent);
+  color: #fff;
+}
+.detailsButton:hover {
+  background: #1558b0;
+}
+
+.detailsButtonAlt {
+  background: var(--com-clr-surface);
+  color: var(--com-clr-text);
+}
+.detailsButtonAlt:hover {
+  background: var(--com-clr-border);
+}
+
+.detailsButtonClear {
+  background: var(--com-clr-error);
+  color: #fff;
+}
+.detailsButtonClear:hover {
+  background: #b3241a;
+}
+
+/* ============================
+   Car Cards
+============================ */
+.detailsCard {
+  margin-top: 1.25rem;
+  padding: 1rem;
+  background: var(--com-clr-surface);
+  border: 1px solid var(--com-clr-border);
+  border-radius: var(--com-radius-lg);
+  box-shadow: var(--com-shadow-sm);
+  color: var(--com-clr-text);
+}
+
+.detailsCard h4 {
+  margin-bottom: 0.6rem;
+}
+
+.detailsImage {
+  max-width: 200px;
+  margin: 0.5rem 0 1rem;
+  border-radius: var(--com-radius-sm);
+}
+
+/* ============================
+   Modals & Overlays
+============================ */
+.detailsModalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(32, 33, 36, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  z-index: 1000;
+}
+
+.detailsModal {
+  background: var(--com-clr-bg);
+  border-radius: var(--com-radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--com-shadow-lg);
+  max-width: 1000px;
+  width: 95%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* ============================
+   Comparison Table
+============================ */
+.detailsCompareTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  display: block;
+  overflow-x: auto;
+}
+
+.detailsCompareTable th,
+.detailsCompareTable td {
+  border: 1px solid var(--com-clr-border);
+  padding: 0.75rem;
+  text-align: center;
+  vertical-align: top;
+  color: var(--com-clr-text);
+}
+
+.detailsCompareTable th {
+  background: var(--com-clr-surface);
+  font-weight: 600;
+}
+
+.detailsCompareTable tr:nth-child(odd) {
+  background: var(--com-clr-bg);
+}
+.detailsCompareTable tr:hover {
+  background: var(--com-clr-surface);
+}
+
+/* Sticky first column */
+.detailsKeyCell {
+  font-weight: 600;
+  text-align: left;
+  background: var(--com-clr-surface);
+  position: sticky;
+  left: 0;
+  z-index: 2;
+}
+
+/* ============================
+   Modal Actions
+============================ */
+.detailsModalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.detailsCancelBtn,
+.detailsDeleteBtn {
+  padding: 0.55rem 1.2rem;
+  border: none;
+  border-radius: var(--com-radius-md);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  background: transparent;
+  transition: background var(--com-transition-fast), box-shadow var(--com-transition-fast);
+}
+
+.detailsCancelBtn {
+  color: var(--com-clr-text);
+}
+.detailsCancelBtn:hover {
+  background: rgba(60, 64, 67, 0.08);
+}
+
+.detailsDeleteBtn {
+  background: var(--com-clr-accent);
+  color: #fff;
+  box-shadow: var(--com-shadow-sm);
+}
+.detailsDeleteBtn:hover {
+  background: #1558b0;
+  box-shadow: var(--com-shadow-md);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .detailsBox { padding: 1rem; }
+  .detailsForm { grid-template-columns: 1fr; }
+  .detailsCompareTable { font-size: 0.85rem; white-space: nowrap; }
+  .detailsKeyCell { min-width: 140px; }
+}
+
+.detailsCompareImg{
+  max-width: 200px; 
+    margin: 0.5rem 0 1rem;
+    border-radius: var(--com-radius-sm);
+}
+
+.detailsCancelBtn{
+  background: #F44336;
+}
+.detailsCancelBtn:hover{
+  background: #E53935;
+}
+
+.detailsButtonAlt{
+  background: rgba(173, 173, 173, 0.619);
+}

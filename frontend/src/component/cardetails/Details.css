@@ -1,411 +1,330 @@
-/* =========================
-   Fonts & Base Setup
-========================= */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Roboto:wght@400;500&display=swap');
+/* ===========================
+   GLOBAL FONT & COLOR SYSTEM
+=========================== */
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap');
 
 :root {
-  --bg-color: #ffffff;
-  --text-color: #1a1a1a;
-  --section-bg: #f5f5f5;
-  --card-bg: #ffffff;
-  --card-shadow: rgba(0, 0, 0, 0.1);
-  --primary-color: #1976d2;
-  --accent-color: #ffca28;
-  --swatch-border: rgba(0, 0, 0, 0.1);
-  --text-muted: #666;
-  --highlight-text: #000;
+  /* Light mode */
+  --g-text: #202124;
+  --g-muted: #5f6368;
+  --g-bg: #f9f9f9;
+  --g-surface: #ffffff;
+  --g-border: #e0e0e0;
+
+  --g-primary: #1a73e8;
+  --g-primary-hover: #1558c0;
+
+  --g-radius: 12px;
+  --g-shadow-sm: 0 1px 2px rgba(60, 64, 67, 0.15);
+  --g-shadow-md: 0 2px 6px rgba(60, 64, 67, 0.3), 0 1px 2px rgba(60, 64, 67, 0.15);
+  --g-shadow-lg: 0 4px 10px rgba(60, 64, 67, 0.2), 0 2px 4px rgba(60, 64, 67, 0.15);
 }
 
-.dark {
-  --bg-color: #121212;
-  --text-color: #e0e0e0;
-  --section-bg: #1e1e1e;
-  --card-bg: #1f1f1f;
-  --card-shadow: rgba(0, 0, 0, 0.4);
-  --primary-color: #90caf9;
-  --accent-color: #ffe082;
-  --swatch-border: rgba(255, 255, 255, 0.2);
-  --text-muted: #b0bec5;
-  --highlight-text: #fff;
-  --text-color-section: rgb(190, 190, 190);
+body.dark {
+  /* Dark mode overrides */
+  --g-text: #e8eaed;
+  --g-muted: #9aa0a6;
+  --g-bg: #202124;
+  --g-surface: #2d2d2d;
+  --g-border: #3c4043;
+
+  --g-primary: #1a73e8;
+  --g-primary-hover: #669df6;
+
+  --g-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.6);
+  --g-shadow-md: 0 2px 6px rgba(0, 0, 0, 0.7);
+  --g-shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.8);
 }
 
-/* =========================
-   Base Elements
-========================= */
-body,
-html {
+body {
+  font: 400 16px/24px "Google Sans", "Roboto", Arial, Helvetica, sans-serif;
+  color: var(--g-text);
+  background: var(--g-bg);
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
-  line-height: 1.6;
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  overflow: hidden; /* prevent double scroll on desktop */
+  box-sizing: border-box;
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-h1,
-h2,
-h3,
-h4 {
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
+/* ===========================
+   PAGE LAYOUT
+=========================== */
+.car-detail-page {
+  display: flex;
+  gap: 2rem;
+  height: 100vh;
+  padding: 1rem 2rem;
+  background: var(--g-bg);
 }
 
-.alignC {
+/* ===========================
+   LEFT SIDE - 360 VIEWER
+=========================== */
+.car360-section {
+  flex: 1;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   text-align: center;
+  padding-top: 1rem;
 }
 
-/* =========================
-   Section Titles
-========================= */
 .section-title {
-  font-family: 'HCLTechRoobert-Medium', sans-serif;
-  font-size: 38px;
-  font-weight: 800;
-  margin-bottom: 10px;
-  color: var(--primary-color);
-  text-shadow: 1px 1px 0px rgba(63, 63, 63, 0.7);
-  text-align: center;
+  font: 500 20px/28px "Google Sans", "Roboto", Arial, sans-serif;
+  margin-bottom: 0.2rem;
 }
 
 .section-subtitle {
-  font-size: 16px;
-  color: var(--text-muted);
-  max-width: 800px;
-  margin: 0 auto 40px;
-  text-align: center;
-}
-
-/* =========================
-   Car 360 Section
-========================= */
-.car360-section {
-  padding: 40px 20px;
-  border-bottom: 1px solid var(--swatch-border);
+  font: 400 14px/20px "Google Sans", "Roboto", Arial, sans-serif;
+  color: var(--g-muted);
+  margin-bottom: 1rem;
 }
 
 .car360-box {
-  max-width: 1200px;
-  margin: auto;
-}
-
-.car360-panorama {
   position: relative;
   width: 100%;
-  height: 500px;
+  padding-top: 75%;
+  background: var(--g-surface);
+  border-radius: var(--g-radius);
   overflow: hidden;
-  border-radius: 12px;
-  background: var(--section-bg);
-  box-shadow: 0 6px 24px var(--card-shadow);
+  box-shadow: var(--g-shadow-md);
 }
 
-.car360-panorama img {
+.car360-panorama,
+.car360-frame {
   position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
-  top: 0;
-  left: 0;
 }
 
-/* =========================
-   Car Detail Section
-========================= */
+/* ===========================
+   RIGHT SIDE - DETAILS
+=========================== */
 .car-detail-section {
-  padding: 60px 20px;
-  margin: 60px auto;
-  max-width: 1200px;
-  border-radius: 20px;
-  background: var(--section-bg);
-  color: var(--text-color-section);
-  box-shadow: 0 12px 30px var(--card-shadow);
+  flex: 1.2;
+  background: var(--g-surface);
+  padding: 2rem;
+  border-radius: var(--g-radius);
+  box-shadow: var(--g-shadow-lg);
+  height: 100%;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .car-detail-section h1 {
-  font-family: 'HCLTechRoobert-Medium', sans-serif;
-  font-size: 36px;
-  color: var(--primary-color);
-  margin-bottom: 20px;
-  text-align: center;
-  text-shadow: 1px 1px rgba(255, 255, 255, 0.05);
+  color: var(--g-text);
+  font: 500 28px/36px "Google Sans", "Roboto", Arial, sans-serif;
+  margin-bottom: 1rem;
 }
 
-.car-detail-section p.lead-description {
-  font-size: 17px;
-  color: var(--text-muted);
-  max-width: 800px;
-  margin: 0 auto 40px;
-  text-align: center;
+.lead-description {
+  font: 400 16px/24px "Google Sans", "Roboto", Arial, sans-serif;
+  color: var(--g-muted);
+  margin-bottom: 1.5rem;
 }
 
-.specifications-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 28px;
-  margin-top: 40px;
+/* ===========================
+   KEY HIGHLIGHTS
+=========================== */
+.key-highlights {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: #f1f3f4;
+  border-radius: 8px;
+  font: 400 14px/22px "Google Sans", "Roboto", Arial, sans-serif;
+  color: var(--g-text);
+}
+body.dark .key-highlights {
+  background: #303134;
 }
 
-.car-detail-section h2 {
-  font-family: 'LandRoverWeb-Medium', sans-serif;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  font-size: 28px;
-  color: var(--accent-color);
-  border-bottom: 2px solid var(--accent-color);
-  padding-bottom: 10px;
-  margin-top: 60px;
-}
-
-/* =========================
-   Color Swatches
-========================= */
-.color-swatches-section {
-  margin-top: 60px;
-  padding: 40px 20px;
-  border-radius: 16px;
-  background: var(--section-bg);
-  text-align: center;
-  box-shadow: 0 0 40px var(--card-shadow);
-}
-
-.color-swatches-section h2 {
-  font-size: clamp(20px, 2.5vw, 28px);
-  font-weight: 600;
-  color: var(--text-color);
-  margin-bottom: 30px;
-  letter-spacing: 0.5px;
-}
-
-.color-swatches {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: clamp(16px, 3vw, 32px);
-  animation: fadeUp 0.7s ease-in-out both;
-}
-
-/* Swatch container */
-.color-swatches>div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: clamp(12px, 1.8vw, 14px);
-  color: var(--text-color);
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  animation: popIn 0.4s ease forwards;
-  text-transform: capitalize;
-}
-
-.color-swatches>div:hover {
-  transform: scale(1.08);
-}
-
-/* Swatch Circle (default) */
-.color-swatches div div {
-  width: clamp(55px, 6vw, 75px);
-  height: clamp(55px, 6vw, 75px);
-  border-radius: 50%;
-  border: 2px solid var(--swatch-border);
-  background-clip: padding-box;
-  margin-bottom: 10px;
-  transition: all 0.4s ease;
-  box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.2),
-    0 2px 6px rgba(0, 0, 0, 0.15);
-}
-
-/* Pill shape option */
-.color-swatches .pill div {
-  border-radius: 30px;
-  width: clamp(70px, 8vw, 100px);
-  height: clamp(30px, 4vw, 45px);
-}
-
-
-/* =========================
-   Pros and Cons
-========================= */
-.pros-cons {
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-  margin-top: 2rem;
-  flex-wrap: wrap;
-}
-
-.pros-cons>div {
-  flex: 1 1 45%;
-  min-width: 250px;
-  background-color: var(--card-bg);
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px var(--card-shadow);
-}
-
-.pros-cons h4 {
-  margin-bottom: 0.8rem;
-  font-size: 18px;
-  color: var(--primary-color);
-}
-
-.pros-cons ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.pros-cons li {
-  margin-bottom: 0.5rem;
-  font-size: 0.95rem;
-}
-
-/* =========================
-   Animations
-========================= */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes popIn {
-  from {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-/* =========================
-   Responsive
-========================= */
-@media (max-width: 768px) {
-
-  .section-title,
-  .car-detail-section h1 {
-    font-size: 28px;
-  }
-
-  .car-detail-section h2 {
-    font-size: 22px;
-  }
-
-  .specifications-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .car360-panorama {
-    height: 300px;
-  }
-
-  .color-swatches {
-    gap: 20px;
-    padding: 0 10px;
-  }
-
-  .color-swatches>div {
-    flex: 0 0 calc(50% - 15px);
-    max-width: calc(50% - 15px);
-    font-size: 13px;
-  }
-
-  .color-swatches div div {
-    width: 60px;
-    height: 60px;
-  }
-
-  .pros-cons {
-    flex-direction: column;
-    gap: 1.2rem;
-  }
-
-  .pros-cons>div {
-    flex: 1 1 100%;
-  }
-}
-
-/*TAB*/
-/* Base styles for all screen sizes */
+/* ===========================
+   TAB NAVIGATION
+=========================== */
 .tab-buttons {
+  position: sticky;
+  top: 0;
+  background: var(--g-surface);
+  padding: 0.8rem 0;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin: 40px 0;
-  border-bottom: 2px solid var(--card-shadow);
-  padding-bottom: 10px;
+  gap: 0.8rem;
+  border-bottom: 1px solid var(--g-border);
+  margin-bottom: 1rem;
+  z-index: 5;
+  overflow-x: auto;
+  scrollbar-width: none;
+  transition: background 0.3s ease, border 0.3s ease;
 }
-
-.tab-btn {
-  background: transparent;
-  border: none;
-  font-size: 16px;
-  padding: 12px 24px;
-  color: var(--text-color);
-  cursor: pointer;
-  border-bottom: 3px solid transparent;
-  transition: all 0.3s ease;
-}
-
-.tab-btn:hover {
-  color: var(--primary-color);
-}
-
-.tab-btn.active {
-  color: var(--primary-color);
-  border-bottom: 3px solid var(--primary-color);
-}
-
-.tab-content {
+.tab-buttons::-webkit-scrollbar {
   display: none;
 }
 
-.tab-content.active {
-  display: block;
-  animation: fadeUp 0.4s ease;
+.tab-btn {
+  padding: 0.6rem 1.4rem;
+  border: none;
+  background: transparent;
+  border-radius: 20px;
+  cursor: pointer;
+  font: 500 14px/20px "Google Sans", "Roboto", Arial, sans-serif;
+  color: var(--g-muted);
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  white-space: nowrap;
+}
+.tab-btn:hover {
+  background: rgba(26, 115, 232, 0.08);
+  color: var(--g-primary);
+}
+.tab-btn.active {
+  background: var(--g-primary);
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(26, 115, 232, 0.3);
 }
 
-/* Mobile-specific styles 
-  This media query applies styles only on screens 
-  that are 768px wide or smaller.
-*/
-@media (max-width: 768px) {
-  .tab-buttons {
-    /* Make buttons stack vertically if they don't fit horizontally */
+/* Ripple */
+.tab-btn:active::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  animation: ripple 0.4s ease-out;
+}
+@keyframes ripple {
+  from { opacity: 0.6; }
+  to { opacity: 0; }
+}
+
+/* ===========================
+   TAB CONTENT
+=========================== */
+.tab-content360 {
+  margin-top: 1rem;
+  line-height: 1.6;
+}
+.tab-content360 h2 {
+  font: 500 20px/28px "Google Sans", "Roboto", Arial, sans-serif;
+  margin-top: 1.5rem;
+  color: var(--g-text);
+}
+
+/* ===========================
+   COLOR SWATCHES
+=========================== */
+.color-swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  padding: 0.5rem 0;
+}
+.color-swatch-item {
+  text-align: center;
+  font: 500 13px/18px "Google Sans", "Roboto", Arial, sans-serif;
+  color: var(--g-text);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.color-swatch-item:hover {
+  transform: translateY(-4px);
+}
+.color-swatch-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  margin: 0 auto 0.6rem auto;
+  border: 2px solid var(--g-border);
+  box-shadow: var(--g-shadow-sm);
+  transition: all 0.3s ease;
+  position: relative;
+}
+.color-swatch-circle:hover {
+  border-color: var(--g-primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: scale(1.1);
+}
+.color-swatch-item.selected .color-swatch-circle {
+  border: 3px solid var(--g-primary);
+  box-shadow: 0 6px 16px rgba(26, 115, 232, 0.3);
+}
+.color-swatch-item.selected .color-swatch-circle::after {
+  content: "✓";
+  font-size: 20px;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+}
+.color-swatch-label {
+  font-size: 12px;
+  color: var(--g-muted);
+  display: block;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 1200px) {
+  .car-detail-page {
+    gap: 1.2rem;
+    padding: 1rem;
+  }
+}
+@media (max-width: 992px) {
+  body { overflow: auto; }
+  .car-detail-page {
     flex-direction: column;
-    gap: 8px;
-    /* Reduce the spacing between buttons */
-    margin: 20px 0;
-    /* Less margin on top/bottom */
-    border-bottom: none;
-    /* Remove the bottom border for a cleaner look */
+    height: auto;
   }
-
+  .car360-section {
+    position: relative;
+    top: auto;
+    height: auto;
+  }
+  .car-detail-section {
+    height: auto;
+    overflow: visible;
+    padding: 1.5rem;
+  }
+}
+@media (max-width: 600px) {
+  .car-detail-section h1 {
+    font: 500 22px/30px "Google Sans", "Roboto", Arial, sans-serif;
+  }
+  .lead-description {
+    font: 400 14px/20px "Google Sans", "Roboto", Arial, sans-serif;
+  }
   .tab-btn {
-    width: 100%;
-    /* Make each button take the full width */
-    text-align: center;
-    padding: 10px;
-    /* Adjust padding for a smaller button size */
-    font-size: 14px;
-    /* Slightly smaller font size */
-    border-bottom: 2px solid transparent;
-    /* Use a thinner border for mobile */
+    padding: 0.5rem 1rem;
+    font-size: 13px;
   }
+  .color-swatch-circle {
+    width: 45px;
+    height: 45px;
+  }
+}
 
-  .tab-btn.active {
-    border-bottom: 2px solid var(--primary-color);
-    /* Thinner active border */
-  }
+/* ===========================
+   MATERIAL ICON STYLE
+=========================== */
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 1,
+    'wght' 500,
+    'GRAD' 0,
+    'opsz' 20;
+  vertical-align: middle;
+  margin-right: 6px;
+  color: var(--g-primary);
+  font-size: 20px;
 }

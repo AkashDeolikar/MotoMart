@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './GearCSS/RaidOffroadGear.css'; // Use your existing shared CSS
+import './GearCSS/RaidOffroadGear.css';
 
 const SaddleBagPage = () => {
   const [bags, setBags] = useState([]);
@@ -23,22 +23,18 @@ const SaddleBagPage = () => {
       <h2>Saddle Bags Collection</h2>
       {loading ? (
         <div className="app-loading-overlay">
-            <div className="app-glass-loader">
-                <div className="app-spinner"></div>
-                <p className="app-loading-text">
-                    <i className="bi bi-lightning-charge-fill"></i>Loading Side Bags...
-                </p>
-            </div>
+          <div className="app-glass-loader">
+            <div className="app-spinner"></div>
+            <p className="app-loading-text">
+              <i className="bi bi-lightning-charge-fill"></i> Loading Saddle Bags...
+            </p>
+          </div>
         </div>
       ) : (
         <div className="gear-grid">
           {bags.map((item, idx) => (
             <div className="gear-card" key={idx}>
-              <img
-                src={item.image}
-                alt={item.title}
-                onError={(e) => (e.target.src = '/fallback.jpg')}
-              />
+              <img src={item.image} alt={item.title} onError={(e) => (e.target.src = '/fallback.jpg')} />
               <div className="gear-info">
                 <h3>{item.title}</h3>
                 <p className="gear-price">₹ {item.price.toLocaleString()}</p>

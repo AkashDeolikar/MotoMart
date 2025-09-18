@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './GearCSS/GlovesPage.css';
+import './GearCSS/RaidOffroadGear.css';
 
 const GlovesPage = () => {
   const [gloves, setGloves] = useState([]);
@@ -19,25 +19,33 @@ const GlovesPage = () => {
   }, []);
 
   return (
-    <section className="gloves-page">
+    <section className="raid-gear-page">
       <h2>All Riding & Winter Gloves</h2>
+
       {loading ? (
         <div className="app-loading-overlay">
-            <div className="app-glass-loader">
-                <div className="app-spinner"></div>
-                <p className="app-loading-text">
-                    <i className="bi bi-lightning-charge-fill"></i> Loading Gloves....
-                </p>
-            </div>
+          <div className="app-glass-loader">
+            <div className="app-spinner"></div>
+            <p className="app-loading-text">
+              <i className="bi bi-lightning-charge-fill"></i> Loading Gloves...
+            </p>
+          </div>
         </div>
       ) : (
-        <div className="gear-grid">
+        <div className="raid-gear-grid">
           {gloves.map((item, index) => (
             <div className="gear-card" key={index}>
-              <img src={item.image} alt={item.title} />
+              <img
+                src={item.image}
+                alt={item.title}
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = '/fallback.jpg';
+                }}
+              />
               <div className="gear-info">
                 <h3>{item.title}</h3>
-                <p className="gear-brand">{item.brand}</p>
+                {item.brand && <p className="gear-brand">{item.brand}</p>}
                 <p className="gear-price">₹ {item.price.toLocaleString()}</p>
                 <div className="gear-variants">
                   {item.variants.map((variant, i) => (

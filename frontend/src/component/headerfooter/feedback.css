@@ -1,156 +1,130 @@
-/* FeedbackForm.css */
-
-.feedback-container {
-    background-color: #252530; /* Dark background similar to your cards */
-    color: #e8eaed; /* Light text color */
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    max-width: 600px; /* Max width for the form */
-    margin: 50px auto; /* Center the form on the page */
-    text-align: center; /* Center the heading and submitted message */
-    box-sizing: border-box; /* Include padding in element's total width and height */
-    justify-items: center;
+:root {
+  --footer-bg: #f8f9fa;
+  --footer-text: #5f6368;
+  --footer-heading: #202124;
+  --footer-link: #202124;
+  --footer-link-hover: #1a73e8;
+  --footer-border: #e0e0e0;
 }
 
-.feedback-container h2 {
-    font-family: "Google Sans", Roboto, Arial, sans-serif;
-    font-weight: 500;
-    font-size: 1.8rem;
-    margin-bottom: 25px;
-    color: #8ab4f8; /* A subtle accent color for the heading */
+.dark {
+  --footer-bg: #202124;
+  --footer-text: #9aa0a6;
+  --footer-heading: #e8eaed;
+  --footer-link: #e8eaed;
+  --footer-link-hover: #8ab4f8;
+  --footer-border: #3c4043;
 }
 
-.feedback-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center form elements */
+/* Footer Wrapper */
+.footer-google {
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  font-family: "Google Sans", "Roboto", sans-serif;
+  border-top: 1px solid var(--footer-border);
+  padding: 40px 20px 20px;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-.form-group {
-    width: 100%;
-    margin-bottom: 20px;
-    text-align: left; /* Align label and textarea to the left */
+/* Layout */
+.footer-container {
+  max-width: 1280px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 60px;
 }
 
-.form-group label {
-    display: block; /* Make label take its own line */
-    margin-bottom: 8px;
-    font-size: 1.1em;
-    color: #bdc1c6;
+/* Brand */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 220px;
 }
 
-.feedback-textarea {
-    width: 100%; /* Take full width of its parent (.form-group) */
-    padding: 12px;
-    border: 1px solid #3c4043; /* Darker border */
-    border-radius: 8px;
-    background-color: #1a1a1a; /* Even darker background for input field */
-    color: #e8eaed;
-    font-family: 'Google Sans', sans-serif;
-    font-size: 1em;
-    resize: vertical; /* Allow vertical resizing only */
-    box-sizing: border-box; /* Include padding in textarea's total width/height */
+.footer-logo {
+  width: 42px;
+  height: 42px;
 }
 
-.feedback-textarea:focus {
-    outline: none;
-    border-color: #8ab4f8; /* Highlight border on focus */
-    box-shadow: 0 0 0 3px rgba(138, 180, 248, 0.3);
+.footer-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--footer-heading);
 }
 
-.submit-feedback-button {
-    background-color: #8ab4f8;
-    color: #202124; /* Dark text for the button */
-    padding: 12px 25px;
-    border: none;
-    border-radius: 25px;
-    font-size: 1em;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out, transform 0.1s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+/* Sections */
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px;
 }
 
-.submit-feedback-button:hover {
-    background-color: #669df6;
-    transform: translateY(-2px); /* Slight lift effect */
-}
-
-.submit-feedback-button:active {
-    transform: translateY(0); /* Press down effect */
-}
-
-.error-message {
-    color: #ff6b6b; /* Red color for errors */
-    font-size: 0.9em;
-    margin-top: 5px;
-    text-align: left;
-}
-
-/* Submitted state styling */
-.feedback-container.submitted {
-    padding: 50px 30px;
-}
-
-.feedback-container.submitted p {
-    font-size: 1.1em;
-    margin-bottom: 20px;
-    color: #bdc1c6;
-}
-
-.back-button {
-    background-color: transparent;
-    color: inherit;
-    padding: 10px 20px;
-    border-radius: 25px;
-    font-size: 0.9em;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
-}
-
-
-
-/* Responsive adjustments */
-@media (max-width: 600px) {
-    .feedback-container {
-        margin: 30px 15px;
-        padding: 20px;
-    }
-
-    .feedback-container h2 {
-        font-size: 1.5rem;
-        margin-bottom: 20px;
-    }
-
-    .submit-feedback-button {
-        padding: 10px 20px;
-        font-size: 0.9em;
-    }
-}
-
-
-/* Favourite warning */
-.toast-error {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #fff3cd;
-  color: #856404;
-  padding: 12px 20px;
-  font-size: 14px;
+.footer-section h4 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--footer-text);
+  margin-bottom: 14px;
   font-weight: 500;
-  border-left: 6px solid #ffc107;
-  border-radius: 6px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  animation: fadeIn 0.4s ease-in-out;
-  z-index: 9999;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
+.footer-section li {
+  margin-bottom: 10px;
+}
 
+.footer-section a {
+  font-size: 0.95rem;
+  color: var(--footer-link);
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.footer-section a:hover {
+  color: var(--footer-link-hover);
+  text-decoration: underline;
+}
+
+/* Icons */
+.footer-section i {
+  margin-left: 6px;
+  font-size: 1rem;
+}
+
+/* Bottom */
+.footer-bottom {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--footer-text);
+  border-top: 1px solid var(--footer-border);
+  padding-top: 20px;
+  margin-top: 40px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .footer-links {
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .footer-brand {
+    align-items: center;
+  }
+}

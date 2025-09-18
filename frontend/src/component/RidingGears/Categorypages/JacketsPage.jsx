@@ -19,20 +19,20 @@ const JacketsPage = () => {
   }, []);
 
   return (
-    <section className="jackets-page">
+    <section className="raid-gear-page">
       <h2>Riding Jackets Collection</h2>
 
       {loading ? (
         <div className="app-loading-overlay">
-            <div className="app-glass-loader">
-                <div className="app-spinner"></div>
-                <p className="app-loading-text">
-                    <i className="bi bi-lightning-charge-fill"></i> Loading Jackets....
-                </p>
-            </div>
+          <div className="app-glass-loader">
+            <div className="app-spinner"></div>
+            <p className="app-loading-text">
+              <i className="bi bi-lightning-charge-fill"></i> Loading Jackets...
+            </p>
+          </div>
         </div>
       ) : (
-        <div className="gear-grid">
+        <div className="raid-gear-grid">
           {jackets.map((item, index) => (
             <div className="gear-card" key={index}>
               <img
@@ -40,7 +40,7 @@ const JacketsPage = () => {
                 alt={item.title}
                 onError={(e) => {
                   e.target.onerror = null;
-                  e.target.src = '/fallback.jpg'; // optional fallback
+                  e.target.src = '/fallback.jpg';
                 }}
               />
               <div className="gear-info">

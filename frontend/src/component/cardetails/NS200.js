@@ -7,46 +7,62 @@ const NS200Detail = () => {
     const [currentIndex, setCurrentIndex] = useState(1);
     const isDragging = useRef(false);
     const startX = useRef(0);
+    const [selectedColor, setSelectedColor] = useState(0);
 
     const totalImages = 15;
 
     const car = {
-        "name": "Bajaj Pulsar NS200",
-        "price": "₹1,56,876 - ₹1,58,876 (Ex-showroom, Delhi)",
-        "mileage": "Approx. 35-40 kmpl (User reported)",
-        "description": "The Bajaj Pulsar NS200 is a naked streetfighter motorcycle known for its aggressive styling and performance. Powered by a liquid-cooled, triple-spark engine, it delivers a punchy ride with a focus on sporty handling and a commanding presence on the road. It features a new all-digital instrument cluster with Bluetooth connectivity and turn-by-turn navigation.",
-        "details": {
-            "engine": {
-                "displacement": "199.5cc, Single-Cylinder, Liquid-Cooled, Triple-Spark, SOHC, 4-Valve, FI",
-                "power": "24.5 PS @ 9750 rpm",
-                "torque": "18.74 Nm @ 8000 rpm",
-                "emissionStandard": "BS6 Phase 2 (OBD2B)"
+        name: "Bajaj Pulsar NS200 (2024)",
+        price: "₹1,56,876 – ₹1,58,876 (Ex-showroom, Delhi)",
+        mileage: "35 – 40 kmpl (User Reported, Real-world)",
+        description:
+            "The Bajaj Pulsar NS200 is a naked streetfighter motorcycle that blends aggressive styling with sporty performance. Equipped with a liquid-cooled, triple-spark engine and perimeter frame, it offers sharp handling and a thrilling ride. The latest update brings a new all-digital instrument cluster with Bluetooth connectivity, navigation, and improved safety with dual-channel ABS.",
+        details: {
+            engine: {
+                displacement:
+                    "199.5cc, Single-Cylinder, 4-Valve, SOHC, Liquid-Cooled, Triple-Spark, Fuel-Injected",
+                power: "24.5 PS @ 9750 rpm",
+                torque: "18.74 Nm @ 8000 rpm",
+                emissionStandard: "BS6 Phase 2 (OBD2B compliant)",
             },
-            "transmission": "6-speed, Manual",
-            "fuelOptions": "Petrol",
-            "safetyRating": "Not rated by NCAP, includes Dual-Channel ABS",
-            "segment": "Naked Streetfighter",
-            "launched": "Original launch: 2012, Latest Update: 2023",
-            "variants": ["Standard", "ABS"],
-            "features": [
-                "All-Digital Instrument Cluster",
-                "Bluetooth Connectivity with Bajaj Ride Connect App",
-                "Turn-by-turn Navigation",
+            transmission: "6-speed Manual",
+            fuelOptions: "Petrol",
+            safetyRating: "Not rated by NCAP, features Dual-Channel ABS",
+            segment: "Naked Streetfighter",
+            launched: "Original: 2012 | Latest BS6 OBD2 Update: 2023",
+            variants: ["Standard with Dual-Channel ABS"],
+            dimensions: {
+                length: "2017 mm",
+                width: "804 mm",
+                height: "1075 mm",
+                wheelbase: "1363 mm",
+                groundClearance: "168 mm",
+                seatHeight: "805 mm",
+                kerbWeight: "159.5 kg",
+                fuelTankCapacity: "12 Litres",
+            },
+            features: [
+                "All-Digital LCD Instrument Cluster (New)",
+                "Bluetooth Connectivity (Bajaj Ride Connect App)",
+                "Turn-by-Turn Navigation",
                 "Gear Position Indicator",
-                "Distance to Empty (DTE)",
+                "Distance-to-Empty (DTE) & Real-Time Mileage",
                 "Dual-Channel ABS",
-                "Perimeter Frame",
-                "Nitrox Monoshock Suspension",
-                "Underbelly Exhaust"
+                "Perimeter Frame for Better Stability",
+                "Upside-Down (USD) Front Forks (new upgrade)",
+                "Nitrox Monoshock Rear Suspension",
+                "Underbelly Exhaust for Mass Centralization",
+                "LED DRLs and Projector Headlamp",
             ],
-            "colorOptions": [
-                { "name": "Metallic Pearl White", "hex": "#f5f5f5" },
-                { "name": "Glossy Ebony Black", "hex": "#1a1a1a" },
-                { "name": "Cocktail Wine Red", "hex": "#990000" },
-                { "name": "Pewter Grey", "hex": "#6c727f" }
-            ]
-        }
-    }
+            colorOptions: [
+                { name: "Metallic Pearl White", hex: "#f5f5f5" },
+                { name: "Glossy Ebony Black", hex: "#1a1a1a" },
+                { name: "Cocktail Wine Red", hex: "#990000" },
+                { name: "Pewter Grey", hex: "#6c727f" },
+            ],
+        },
+    };
+
 
     const handleMouseDown = (e) => {
         isDragging.current = true;
@@ -130,22 +146,25 @@ const NS200Detail = () => {
                 </div>
 
                 {activeTab === "overview" && (
-                    <div className="tab-content active">
+                    <div className="tab-content360 active">
                         <h2>Segment</h2>
                         <p>{car.details.segment}</p>
                         <h2>Launch Date</h2>
                         <p>{car.details.launched}</p>
                         <h2>Variants</h2>
                         <ul>
-                            {car.details.variants.map((variant, i) => (
-                                <li key={i}>✅ {variant}</li>
+                            {car.details.features.map((variant, i) => (
+                                <li key={i}>
+                                    <span className="material-symbols-outlined">check_circle</span>
+                                    {variant}
+                                </li>
                             ))}
                         </ul>
                     </div>
                 )}
 
                 {activeTab === "specs" && (
-                    <div className="tab-content active">
+                    <div className="tab-content360 active">
                         <h2>Engine & Transmission</h2>
                         <p><strong>Displacement:</strong> {car.details.engine.displacement}</p>
                         <p><strong>Power:</strong> {car.details.engine.power}</p>
@@ -174,36 +193,42 @@ const NS200Detail = () => {
 
 
                 {activeTab === "colors" && (
-                    <div className="tab-content active">
+                    <div className="tab-content360 active">
                         <h2>Available Colors</h2>
                         <div className="color-swatches">
                             {car.details.colorOptions.map((c, index) => (
-                                <div key={index} className="color-swatch-item">
+                                <div
+                                    key={index}
+                                    className={`color-swatch-item ${selectedColor === index ? "selected" : ""
+                                        }`}
+                                    onClick={() => setSelectedColor(index)}
+                                >
                                     <div
-                                        style={{
-                                            backgroundColor: c.hex,
-                                            width: "60px",
-                                            height: "60px",
-                                            borderRadius: "50%",
-                                            border: "2px solid #ccc",
-                                            marginBottom: "0.5rem"
-                                        }}
+                                        className="color-swatch-circle"
+                                        style={{ backgroundColor: c.hex }}
                                     ></div>
-                                    <small>{c.name}</small>
+                                    <small className="color-swatch-label">
+                                        {c.name} {c.dualTone && "(Dual Tone)"}
+                                    </small>
                                 </div>
                             ))}
                         </div>
                     </div>
                 )}
 
+
                 {activeTab === "features" && (
-                    <div className="tab-content active">
+                    <div className="tab-content360 active">
                         <h2>Key Features</h2>
                         <ul>
                             {car.details.features.map((item, i) => (
-                                <li key={i}>✅ {item}</li>
+                                <li key={i}>
+                                    <span className="material-symbols-outlined">check_circle</span>
+                                    {item}
+                                </li>
                             ))}
                         </ul>
+
                     </div>
                 )}
             </div>

@@ -1,35 +1,120 @@
-/* ---------------- Notification Styles ---------------- */
-.addmore-service-notification-container {
-  position: fixed;
-  top: 50px;
-  right: 20px;
-  z-index: 5000; /* above Bootstrap modals */
+/* --A--A--A--A--A--A--A--A Theme Variables --A--A--A--A--A--A--A--A */
+:root {
+  --Agoogle-blue: #1a73e8;
+  --Agoogle-blue-dark: #0d47a1;
+  --Agoogle-green: #34a853;
+  --Agoogle-red: #ea4335;
+
+  --Asurface: #ffffff;
+  --Asurface-alt: #f8f9fa;
+  --Atext: #202124;
+  --Atext-muted: #5f6368;
+  --Aborder: #dadce0;
+}
+
+.dark{
+    --Asurface: #202124;
+    --Asurface-alt: #2a2b2f;
+    --Atext: #e8eaed;
+    --Atext-muted: #9aa0a6;
+    --Aborder: #3c4043;
+}
+
+/* --A--A--A--A--A--A--A--A Container --A--A--A--A--A--A--A--A */
+.addmore-service-cost-page {
+  margin-top: 28px;
+  padding: 20px;
+  border: 1px solid var(--Aborder);
+  border-radius: 12px;
+  /* background: var(--Asurface); */
+  transition: background 0.3s, color 0.3s;
+}
+
+.addmore-service-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--Atext);
+  margin-bottom: 16px;
+}
+
+/* --A--A--A--A--A--A--A--A Input Group --A--A--A--A--A--A--A--A */
+.addmore-service-input-group {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 12px;
 }
 
-.addmore-service-notification {
-  all: unset;
-  display: inline-block;
-  font-family: 'HCLTechRoobert-Bold', sans-serif;
+.addmore-service-input-group input {
+  flex: 1;
+  min-width: 180px;
+  padding: 10px 14px;
+  border: 1px solid var(--Aborder);
+  border-radius: 8px;
+  background: var(--Asurface-alt);
+  font-size: 0.95rem;
+  color: var(--Atext);
+  transition: border 0.25s ease, box-shadow 0.25s ease;
+}
+
+.addmore-service-input-group input:focus {
+  border-color: var(--Agoogle-blue);
+  box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.15);
+  outline: none;
+}
+
+/* --A--A--A--A--A--A--A--A Add Button --A--A--A--A--A--A--A--A */
+.addmore-service-input-group button {
   padding: 10px 18px;
-  border-radius: 10px;
-  color: white;
+  border-radius: 8px;
+  background: var(--Agoogle-blue);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.addmore-service-input-group button:hover {
+  background: var(--Agoogle-blue-dark);
+  transform: translateY(-1px);
+}
+
+.addmore-service-input-group button:active {
+  transform: translateY(1px);
+}
+
+/* --A--A--A--A--A--A--A--A Notifications --A--A--A--A--A--A--A--A */
+.addmore-service-notification-container {
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  z-index: 5000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.addmore-service-notification {
+  padding: 10px 16px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 500;
   backdrop-filter: blur(10px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
   animation: fadeIn 0.3s ease, fadeOut 0.3s ease 2.7s forwards;
 }
 
 .addmore-service-notification.success {
-  background: linear-gradient(135deg, rgba(76, 175, 80, 0.9), rgba(46, 125, 50, 0.9));
+  background: linear-gradient(135deg, var(--Agoogle-green), #188038);
 }
 
 .addmore-service-notification.error {
-  background: linear-gradient(135deg, rgba(229, 57, 53, 0.9), rgba(183, 28, 28, 0.9));
+  background: linear-gradient(135deg, var(--Agoogle-red), #a50e0e);
 }
 
-/* ---------------- Animations ---------------- */
+/* --A--A--A--A--A--A--A--A Animations --A--A--A--A--A--A--A--A */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateX(30px); }
   to { opacity: 1; transform: translateX(0); }
@@ -39,88 +124,26 @@
   to { opacity: 0; transform: translateX(30px); }
 }
 
-/* ---------------- Remove Button ---------------- */
+/* --A--A--A--A--A--A--A--A Remove Button (if used) --A--A--A--A--A--A--A--A */
 .addmore-service-remove-btn {
   all: unset;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'HCLTechRoobert-Bold', sans-serif;
-  backdrop-filter: blur(12px);
-  background: rgba(255, 255, 255, 0.15);
-  color: #c62828;
   border-radius: 50%;
-  width: 34px;
-  height: 34px;
-  font-size: 15px;
+  width: 32px;
+  height: 32px;
+  font-size: 16px;
+  color: var(--Agoogle-red);
   cursor: pointer;
   transition: background 0.25s ease, transform 0.2s ease;
 }
 
 .addmore-service-remove-btn:hover {
-  background: rgba(255, 255, 255, 0.3);
-  color: #b71c1c;
-  transform: scale(1.12);
+  background: rgba(234, 67, 53, 0.1);
+  transform: scale(1.1);
 }
 
 .addmore-service-remove-btn:active {
-  transform: scale(0.94);
-}
-
-/* ---------------- Input Group ---------------- */
-.addmore-service-input-group {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 15px;
-  border-radius: 12px;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
-}
-
-/* Reset styles but keep box model */
-.addmore-service-input-group input,
-.addmore-service-input-group button {
-  all: unset;
-  box-sizing: border-box;
-  font-family: 'HCLTechRoobert-Bold', sans-serif;
-}
-
-/* Input fields */
-.addmore-service-input-group input {
-  flex: 1;
-  min-width: 200px;
-  padding: 10px 14px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  background: rgba(255, 255, 255, 0.9);
-  font-size: 14px;
-  color: #333;
-  transition: border 0.25s ease, box-shadow 0.25s ease;
-}
-
-.addmore-service-input-group input:focus {
-  border-color: #1976d2;
-  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.15);
-}
-
-/* Add button */
-.addmore-service-input-group button {
-  padding: 10px 18px;
-  border-radius: 8px;
-  background: linear-gradient(135deg, #1976d2, #0d47a1);
-  color: white;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background 0.25s ease, transform 0.2s ease;
-}
-
-.addmore-service-input-group button:hover {
-  background: linear-gradient(135deg, #1565c0, #0b3c87);
-  transform: translateY(-1px);
-}
-
-.addmore-service-input-group button:active {
-  transform: translateY(1px);
+  transform: scale(0.95);
 }

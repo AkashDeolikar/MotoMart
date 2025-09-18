@@ -3,84 +3,90 @@ import React, { useState, useRef } from "react";
 import './Details.css'; // Assuming your existing CSS is in Details.css
 
 const ToyotaInnovaDetail = () => {
-  const [activeTab, setActiveTab] = useState("overview"); // State to manage active tab
+  const [activeTab, setActiveTab] = useState("overview");
+  const [selectedColor, setSelectedColor] = useState(0);
 
   const car = {
     name: "Toyota Innova Crysta",
-    price: "₹18.25 – ₹25.71 Lakh (Ex-showroom, Delhi)", // Added Ex-showroom, Delhi for consistency
-    mileage: "11.7 kmpl (Petrol) – 15.0 km/l (Diesel)", // Updated format for clarity
+    price: "₹18.25 – ₹25.71 Lakh (Ex-showroom, Delhi)",
+    mileage: "11.5 km/l (Petrol, MT) – 15.6 km/l (Diesel, MT/AT)", // ARAI/realistic claimed figures
     description:
-      "The Toyota Innova Crysta is a premium MPV renowned for its unmatched comfort, robust build quality, and powerful engine options. It offers a luxurious and spacious cabin, advanced safety features, and a smooth, reliable driving experience, making it a popular choice for large families and long-distance travel.",
+      "The Toyota Innova Crysta is India’s most trusted premium MPV, offering supreme comfort, a powerful diesel engine, and Toyota’s legendary reliability. Known for its spacious 7/8-seater cabin, robust build, and strong resale value, the Innova Crysta is the go-to choice for families, corporate use, and long-distance touring.",
     details: {
       engine: {
-        petrol: "2.7L Dual VVT-i Petrol, 4-cylinder (166 PS @ 5200 rpm, 245 Nm @ 4000 rpm)", // Added RPMs
-        diesel: "2.4L GD Turbo Diesel, 4-cylinder (150 PS @ 3400 rpm, 343 Nm @ 1400-2800 rpm)", // Added RPMs
+        petrol:
+          "2.7L Dual VVT-i, 4-Cylinder Petrol – 166 PS @ 5200 rpm, 245 Nm @ 4000 rpm",
+        diesel:
+          "2.4L GD Turbo Diesel, 4-Cylinder – 150 PS @ 3400 rpm, 343 Nm @ 1400–2800 rpm (MT) / 360 Nm (AT)", // clarified AT torque
       },
-      transmission: "5-speed Manual / 6-speed Automatic (Torque Converter)", // Clarified AT type
+      transmission: "5-speed Manual / 6-speed Automatic (Torque Converter)",
       fuelOptions: "Petrol & Diesel",
-      safetyRating: "5 Stars (ASEAN NCAP for previous gen, current model expected similar strong performance)", // Updated to reflect recent safety assessments and general market knowledge. GNCAP is not directly applicable for ASEAN NCAP tested cars.
+      safetyRating:
+        "5 Stars (ASEAN NCAP for previous gen; India model expected strong performance, no GNCAP test yet)",
       segment: "Premium MPV",
-      launched: "First Generation: 2005 (India), Innova Crysta Launch: 2016, Latest Update: 2023", // Updated launch information
+      launched:
+        "First Generation: 2005 | Innova Crysta Launch: 2016 | Latest Update: 2023 (BS6 Phase-2)",
       evAvailable: false,
       dimensions: {
         length: "4735 mm",
         width: "1830 mm",
         height: "1795 mm",
         wheelbase: "2750 mm",
-        groundClearance: "178 mm", // Typical ground clearance for Innova Crysta
-        bootSpace: "300 Litres (with all rows up), Expandable", // Common boot space
-        fuelTankCapacity: "55 Litres", // Common fuel tank capacity
+        groundClearance: "178 mm",
+        bootSpace: "300 Litres (with all rows up), expandable to ~900 Litres",
+        fuelTankCapacity: "55 Litres",
       },
       interiorFeatures: [
-        "8-inch SmartPlaycast Touchscreen Infotainment System (with Apple CarPlay & Android Auto)",
-        "Premium Leather Seat Upholstery (top variants)",
+        "8-inch Touchscreen Infotainment with Apple CarPlay & Android Auto",
+        "Premium Leather Upholstery (ZX variants)",
         "Automatic Climate Control with Rear Auto AC",
         "Cruise Control",
         "Steering Mounted Audio & Phone Controls",
         "One-Touch Tumble Second Row Seats",
-        "Ambient Lighting",
-        "Upper Glove Box with Cooling",
-        "Foldable Seatback Table with Cup Holders",
-        "Digital Instrument Cluster",
-        "Power Adjustable Driver Seat",
-        "Illuminated Entry System"
+        "Ambient Cabin Lighting",
+        "Cooled Upper Glove Box",
+        "Foldable Seatback Tables (2nd Row)",
+        "Optitron Analog-Digital Instrument Cluster",
+        "8-way Power Adjustable Driver Seat",
+        "Illuminated Entry System",
+        "Smart Entry with Push Button Start/Stop",
       ],
       exteriorFeatures: [
-        "Bold Trapezoidal Piano Black Grille",
-        "New Diamond-Cut Alloy Wheels (17-inch)",
-        "Sleek LED Projector Headlamps",
-        "Integrated LED Daytime Running Lamps (DRLs)",
-        "Chrome Embellishments on Door Handles & ORVMs",
-        "Body-Colored ORVMs with Integrated Turn Indicators",
-        "Aerodynamic Design",
-        "Shark Fin Antenna"
+        "Large Piano Black Trapezoidal Grille with Chrome Accents",
+        "17-inch Diamond-cut Alloy Wheels",
+        "LED Projector Headlamps with LED DRLs",
+        "LED Fog Lamps",
+        "Chrome Outside Door Handles & Window Line Garnish",
+        "Body-colored ORVMs with Integrated Turn Indicators",
+        "Shark Fin Antenna",
+        "Integrated Rear Spoiler",
       ],
       safetyFeatures: [
-        "7 SRS Airbags (Driver, Passenger, Knee, Side, Curtain Shield)",
-        "ABS (Anti-lock Braking System) with EBD (Electronic Brake-force Distribution)",
-        "Brake Assist (BA)",
+        "7 SRS Airbags (Dual Front, Side, Curtain, Driver Knee)",
+        "ABS with EBD & Brake Assist",
         "Vehicle Stability Control (VSC)",
-        "Hill-start Assist Control (HAC)",
-        "Front and Rear Parking Sensors",
-        "Rear View Camera with Guidelines",
+        "Hill-Start Assist Control (HAC)",
+        "All 3-Point Seatbelts",
+        "Rear Parking Sensors",
+        "Rear View Camera with Dynamic Guidelines",
         "ISOFIX Child Seat Mounts",
-        "Impact Sensing Auto Door Unlock",
-        "Anti-Theft Alarm with Immobilizer",
-        "Seat Belt Warning for all occupants"
+        "Speed-Sensing Auto Door Lock & Impact Sensing Unlock",
+        "Engine Immobilizer & Anti-Theft Alarm",
       ],
-      adasFeatures: [ // Innova Crysta currently does not offer advanced ADAS features like Lane Keep Assist, Adaptive Cruise Control etc.
-        "None (as comprehensive ADAS suite is not offered in Innova Crysta)",
+      adasFeatures: [
+        "None (ADAS not available on Innova Crysta; offered only on Innova Hycross)",
       ],
       colorOptions: [
-        { name: "Super White", hex: "#F5F5F5" }, // Slightly off-white
-        { name: "Attitude Black Mica", hex: "#2C2C30" }, // Darker black
+        { name: "Super White", hex: "#F5F5F5" },
+        { name: "Attitude Black Mica", hex: "#2C2C30" },
         { name: "Avant-Garde Bronze Metallic", hex: "#6E5849" },
-        { name: "Platinum White Pearl", hex: "#EEEEEE" }, // More lustrous white
+        { name: "Platinum White Pearl", hex: "#EEEEEE" },
         { name: "Silver Metallic", hex: "#C0C0C0" },
-        { name: "Sparkling Black Crystal Shine", hex: "#1A1A1A" }, // Deepest black with sparkle effect
+        { name: "Sparkling Black Crystal Shine", hex: "#1A1A1A" },
       ],
     },
   };
+
 
   const totalImages = 17; // Assuming you have 17 images for the 360 view
   const [currentIndex, setCurrentIndex] = useState(1);
@@ -210,7 +216,7 @@ const ToyotaInnovaDetail = () => {
 
         {/* Tab Content - Conditionally render based on activeTab state */}
         {activeTab === "overview" && (
-          <div className="tab-content active">
+          <div className="tab-content360 active">
             <h2>Segment</h2>
             <p>{car.details.segment}</p>
             <h2>Launch Information</h2>
@@ -227,7 +233,7 @@ const ToyotaInnovaDetail = () => {
         )}
 
         {activeTab === "specs" && (
-          <div className="tab-content active">
+          <div className="tab-content360 active">
             <h2>Fuel & Engine</h2>
             <p>
               <strong>Fuel Type:</strong> {car.details.fuelOptions}
@@ -273,47 +279,49 @@ const ToyotaInnovaDetail = () => {
         )}
 
         {activeTab === "colors" && (
-          <div className="tab-content active">
+          <div className="tab-content360 active">
             <h2>Available Colors</h2>
             <div className="color-swatches">
               {car.details.colorOptions.map((c, index) => (
-                <div key={index} className="color-swatch-item">
+                <div
+                  key={index}
+                  className={`color-swatch-item ${selectedColor === index ? "selected" : ""
+                    }`}
+                  onClick={() => setSelectedColor(index)}
+                >
                   <div
-                    style={{
-                      backgroundColor: c.hex,
-                      width: "60px",
-                      height: "60px",
-                      borderRadius: "50%",
-                      border: "2px solid #ccc",
-                      marginBottom: "0.5rem",
-                    }}
+                    className="color-swatch-circle"
+                    style={{ backgroundColor: c.hex }}
                   ></div>
-                  <small>{c.name}</small>
+                  <small className="color-swatch-label">
+                    {c.name} {c.dualTone && "(Dual Tone)"}
+                  </small>
                 </div>
               ))}
             </div>
           </div>
         )}
 
+
         {activeTab === "features" && (
-          <div className="tab-content active">
+          <div className="tab-content360 active">
             <h2>Safety Features</h2>
             <p>
               <strong>Global NCAP Rating:</strong> {car.details.safetyRating}
             </p>
             <ul>
-              {car.details.safetyFeatures.map((item, i) => <li key={i}>✅ {item}</li>)}
+              {car.details.safetyFeatures.map((item, i) => <li key={i}><span className="material-symbols-outlined">check_circle</span>{item}</li>)}
             </ul>
 
             <h2>Interior Features</h2>
-            <ul>{car.details.interiorFeatures.map((item, i) => <li key={i}>✅ {item}</li>)}</ul>
+            <ul>{car.details.interiorFeatures.map((item, i) => <li key={i}><span className="material-symbols-outlined">check_circle</span>{item}</li>)}</ul>
 
             <h2>Exterior Features</h2>
-            <ul>{car.details.exteriorFeatures.map((item, i) => <li key={i}>✅ {item}</li>)}</ul>
+            <ul>{car.details.exteriorFeatures.map((item, i) => <li key={i}><span className="material-symbols-outlined">check_circle</span>{item}</li>)}</ul>
 
             <h2>Advanced Driver Assistance Systems (ADAS)</h2>
             <ul>
-              {car.details.adasFeatures.map((item, i) => <li key={i}>{item}</li>)}
+              {car.details.adasFeatures.map((item, i) => <li key={i}><span className="material-symbols-outlined">check_circle</span>{item}</li>)}
             </ul>
           </div>
         )}
