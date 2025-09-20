@@ -349,12 +349,12 @@ export default function EMIServiceTool() {
       )}
 
       <section className="card disclaimer">
-  <h4>Disclaimer & Sources</h4>
-  <p className="muted small">
-    Interest rates are illustrative starting rates from bank public pages and aggregator sources (e.g. BankBazaar, NDTV, bank websites).
-    These values change frequently; always confirm with the bank before applying. Example sources: BankBazaar, HDFC/ICICI/SBI official pages.
-  </p>
-</section>
+        <h4>Disclaimer & Sources</h4>
+        <p className="muted small">
+          Interest rates are illustrative starting rates from bank public pages and aggregator sources (e.g. BankBazaar, NDTV, bank websites).
+          These values change frequently; always confirm with the bank before applying. Example sources: BankBazaar, HDFC/ICICI/SBI official pages.
+        </p>
+      </section>
 
     </main>
   );

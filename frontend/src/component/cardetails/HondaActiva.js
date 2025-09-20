@@ -172,6 +172,7 @@ const HondaActivaDetail = () => {
               <img
                 key={i}
                 className="car360-frame"
+                loading="lazy"
                 src={`/images/activa/${i + 1}.png`}
                 alt={`activa-360-${i + 1}`}
                 style={{

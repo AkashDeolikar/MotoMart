@@ -3,7 +3,7 @@
    Light + Dark Mode
 ============================== */
 
-/* Import Google Fonts */
+/* Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0');
 
@@ -13,7 +13,6 @@
 :root {
   color-scheme: light;
 
-  /* Colors */
   --S-bg-primary: #ffffff;
   --S-bg-secondary: #f8f9fa;
   --S-border-color: #dadce0;
@@ -26,14 +25,12 @@
   --S-google-red: #d93025;
   --S-google-red-hover: #b3261e;
 
-  /* Other */
   --S-radius: 8px;
   --S-shadow: 0 1px 2px rgba(60,64,67,0.3), 0 2px 6px rgba(60,64,67,0.15);
   --S-transition: all 0.3s ease;
   --S-btn-padding: 10px 16px;
 }
 
-/* Dark Mode Support */
 .dark{
     --S-bg-primary: #202124;
     --S-bg-secondary: #2a2a2a;
@@ -47,11 +44,11 @@
    Global Styles
 ============================== */
 body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
   background: var(--S-bg-secondary);
-  font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
   color: var(--S-text-primary);
   line-height: 1.5;
-  margin: 0;
 }
 
 a {
@@ -62,7 +59,7 @@ a {
 /* ==============================
    Layout
 ============================== */
-.settings-layout {
+.setting-layout {
   display: flex;
   gap: 24px;
   max-width: 1100px;
@@ -71,7 +68,7 @@ a {
 }
 
 /* Sidebar */
-.settings-sidebar {
+.setting-sidebar {
   flex: 0 0 240px;
   background: var(--S-bg-primary);
   border: 1px solid var(--S-border-color);
@@ -85,19 +82,19 @@ a {
   transition: var(--S-transition);
 }
 
-.settings-sidebar h2 {
+.setting-sidebar h2 {
   font-size: 18px;
   font-weight: 500;
   margin-bottom: 16px;
 }
 
-.settings-sidebar nav ul {
+.setting-sidebar nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.settings-sidebar nav ul li {
+.setting-sidebar nav ul li {
   padding: 12px 16px;
   border-radius: var(--S-radius);
   cursor: pointer;
@@ -108,22 +105,20 @@ a {
   transition: var(--S-transition);
 }
 
-.settings-sidebar nav ul li:hover {
+.setting-sidebar nav ul li:hover {
   background: var(--S-google-blue-light);
   color: var(--S-google-blue);
 }
 
-.settings-sidebar nav ul li.active {
+.setting-sidebar nav ul li.active {
   background: var(--S-google-blue-light);
   color: var(--S-google-blue);
   border-left: 4px solid var(--S-google-blue);
   font-weight: 600;
 }
 
-/* ==============================
-   Content
-============================== */
-.settings-page {
+/* Main Content */
+.setting-page {
   flex: 1;
   background: var(--S-bg-primary);
   padding: 32px;
@@ -133,20 +128,19 @@ a {
 }
 
 /* Header */
-.settings-header {
+.setting-header {
   border-bottom: 1px solid var(--S-border-color);
   padding-bottom: 12px;
-  /* margin-bottom: 24px; */
+  margin-bottom: 24px;
 }
 
-.settings-header h2 {
-  color: inherit;
+.setting-header h2 {
   font-size: 22px;
   font-weight: 500;
   margin: 0;
 }
 
-.settings-subtitle {
+.setting-subtitle {
   font-size: 14px;
   color: var(--S-text-secondary);
   margin-top: 4px;
@@ -165,8 +159,7 @@ a {
   letter-spacing: 0.5px;
   border-bottom: 1px solid var(--S-border-color);
   padding-bottom: 8px;
-  margin-bottom: 8px;
-  margin-top: 8px;
+  margin: 8px 0;
 }
 
 .setting-item {
@@ -186,13 +179,26 @@ a {
   color: var(--S-text-primary);
 }
 
+.setting-input {
+  padding: 10px 12px;
+  border: 1px solid var(--S-border-color);
+  border-radius: var(--S-radius);
+  background: var(--S-bg-secondary);
+  color: var(--S-text-primary);
+  transition: var(--S-transition);
+}
+
+.setting-input:focus {
+  outline: 2px solid var(--S-google-blue);
+  background: var(--S-bg-primary);
+}
+
 /* ==============================
    Buttons
 ============================== */
-.settingbtn {
+.setting-btn {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 8px;
   padding: var(--S-btn-padding);
   border: none;
@@ -244,11 +250,11 @@ a {
 
 .slider {
   position: absolute;
-  cursor: pointer;
   inset: 0;
+  cursor: pointer;
   background-color: #ccc;
-  transition: var(--S-transition);
   border-radius: 22px;
+  transition: var(--S-transition);
 }
 
 .slider:before {
@@ -258,9 +264,9 @@ a {
   width: 18px;
   left: 2px;
   bottom: 2px;
-  background-color: white;
-  transition: var(--S-transition);
+  background-color: #fff;
   border-radius: 50%;
+  transition: var(--S-transition);
 }
 
 input:checked + .slider {
@@ -274,7 +280,7 @@ input:checked + .slider:before {
 /* ==============================
    Modal
 ============================== */
-.modal-backdrop {
+.setting-modal-backdrop {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.5);
@@ -284,7 +290,7 @@ input:checked + .slider:before {
   z-index: 1000;
 }
 
-.modal-content {
+.setting-modal-content {
   background: var(--S-bg-primary);
   padding: 24px;
   border-radius: var(--S-radius);
@@ -295,13 +301,13 @@ input:checked + .slider:before {
   transition: var(--S-transition);
 }
 
-.modal-content h3 {
+.setting-modal-content h3 {
   margin: 0;
   font-size: 20px;
   font-weight: 500;
 }
 
-.modal-content p {
+.setting-modal-content p {
   font-size: 15px;
   color: var(--S-text-secondary);
   margin: 12px 0;
@@ -335,7 +341,6 @@ input:checked + .slider:before {
   font-weight: 500;
   padding: 8px 16px;
   border-radius: 4px;
-  transition: var(--S-transition);
 }
 
 .modal-cancel-btn:hover {
@@ -348,7 +353,6 @@ input:checked + .slider:before {
   font-weight: 500;
   padding: 8px 16px;
   border-radius: 4px;
-  transition: var(--S-transition);
 }
 
 .modal-delete-btn:hover {
@@ -356,14 +360,39 @@ input:checked + .slider:before {
 }
 
 /* ==============================
+   Alerts
+============================== */
+.setting-alerts {
+  margin-top: 16px;
+}
+
+.setting-alert {
+  padding: 12px 16px;
+  border-radius: var(--S-radius);
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.setting-alert.success {
+  background: #e6f4ea;
+  color: #1e8e3e;
+}
+
+.setting-alert.error {
+  background: #fce8e6;
+  color: var(--S-google-red);
+}
+
+/* ==============================
    Responsive
 ============================== */
 @media (max-width: 900px) {
-  .settings-layout {
+  .setting-layout {
     flex-direction: column;
   }
 
-  .settings-sidebar {
+  .setting-sidebar {
     flex: none;
     display: flex;
     overflow-x: auto;
@@ -373,17 +402,17 @@ input:checked + .slider:before {
     background: transparent;
   }
 
-  .settings-sidebar h2 {
+  .setting-sidebar h2 {
     display: none;
   }
 
-  .settings-sidebar nav ul {
+  .setting-sidebar nav ul {
     display: flex;
     gap: 20px;
     width: 100%;
   }
 
-  .settings-sidebar nav ul li {
+  .setting-sidebar nav ul li {
     flex: none;
     white-space: nowrap;
     border-radius: 0;
@@ -391,7 +420,7 @@ input:checked + .slider:before {
     padding: 12px 4px;
   }
 
-  .settings-sidebar nav ul li.active {
+  .setting-sidebar nav ul li.active {
     border-bottom: 2px solid var(--S-google-blue);
     background: transparent;
   }

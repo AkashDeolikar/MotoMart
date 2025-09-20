@@ -46,143 +46,134 @@ const Settings = ({ theme, toggleTheme }) => {
   };
 
   return (
-    <>
-      {/* Google Fonts */}
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
-      />
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
-      />
+    <div className="setting-layout" data-theme={theme}>
+      {/* Sidebar */}
+      <aside className="setting-sidebar">
+        <h2>Settings</h2>
+        <nav>
+          <ul>
+            <li
+              className={activeSection === "display" ? "active" : ""}
+              onClick={() => setActiveSection("display")}
+            >
+              Display
+            </li>
+            <li
+              className={activeSection === "privacy" ? "active" : ""}
+              onClick={() => setActiveSection("privacy")}
+            >
+              Privacy
+            </li>
+            <li
+              className={activeSection === "account" ? "active" : ""}
+              onClick={() => setActiveSection("account")}
+            >
+              Account
+            </li>
+          </ul>
+        </nav>
+      </aside>
 
-      <div className="settings-layout">
-        {/* Sidebar Navigation */}
-        <aside className="settings-sidebar">
-          <h2>Settings</h2>
-          <nav>
-            <ul>
-              <li
-                className={activeSection === "display" ? "active" : ""}
-                onClick={() => setActiveSection("display")}
+      {/* Main content */}
+      <main className="setting-page">
+        <div className="setting-header">
+          <h2>App Settings</h2>
+          <p className="setting-subtitle">
+            Manage your preferences, privacy, and account
+          </p>
+        </div>
+
+        {/* Display Section */}
+        {activeSection === "display" && (
+          <section className="setting-section">
+            <h3>Display</h3>
+            <div className="setting-item">
+              <span>Theme</span>
+              <button
+                onClick={toggleTheme}
+                className="setting-btn theme-btn"
+                aria-label={
+                  theme === "light"
+                    ? "Switch to dark theme"
+                    : "Switch to light theme"
+                }
               >
-                Display
-              </li>
-              <li
-                className={activeSection === "privacy" ? "active" : ""}
-                onClick={() => setActiveSection("privacy")}
+                <span className="material-symbols-outlined">
+                  {theme === "light" ? "dark_mode" : "light_mode"}
+                </span>
+                {theme === "light" ? "Dark Mode" : "Light Mode"}
+              </button>
+            </div>
+          </section>
+        )}
+
+        {/* Privacy Section */}
+        {activeSection === "privacy" && (
+          <section className="setting-section">
+            <h3>Privacy</h3>
+            <div className="setting-item">
+              <span>Notifications</span>
+              <label className="switch">
+                <input
+                  type="checkbox"
+                  checked={notifications}
+                  onChange={() => setNotifications(!notifications)}
+                />
+                <span className="slider round"></span>
+              </label>
+            </div>
+            <div className="setting-item">
+              <span>Enhanced Privacy Mode</span>
+              <label className="switch">
+                <input
+                  type="checkbox"
+                  checked={privacyMode}
+                  onChange={() => setPrivacyMode(!privacyMode)}
+                />
+                <span className="slider round"></span>
+              </label>
+            </div>
+          </section>
+        )}
+
+        {/* Account Section */}
+        {activeSection === "account" && (
+          <section className="setting-section">
+            <h3>Account</h3>
+            <div className="setting-item">
+              <span>Logout</span>
+              <button
+                onClick={handleLogout}
+                className="setting-btn logout-btn"
+                aria-label="Logout of account"
               >
-                Privacy
-              </li>
-              <li
-                className={activeSection === "account" ? "active" : ""}
-                onClick={() => setActiveSection("account")}
+                <span className="material-symbols-outlined">logout</span>
+                Logout
+              </button>
+            </div>
+            <div className="setting-item">
+              <span>Delete Account</span>
+              <button
+                onClick={() => setShowDeleteModal(true)}
+                className="setting-btn delete-btn"
+                aria-label="Delete your account permanently"
               >
-                Account
-              </li>
-            </ul>
-          </nav>
-        </aside>
+                <span className="material-symbols-outlined">delete</span>
+                Delete
+              </button>
+            </div>
+          </section>
+        )}
+      </main>
 
-        {/* Content */}
-        <main className="settings-page">
-          <div className="settings-header">
-            <h2>App Settings</h2>
-            <p className="settings-subtitle">
-              Manage your preferences, privacy, and account
-            </p>
-          </div>
-
-          {activeSection === "display" && (
-            <section className="setting-section">
-              <h3>Display</h3>
-              <div className="setting-item">
-                <span>Theme</span>
-                <button
-                  onClick={toggleTheme}
-                  className="settingbtn theme-btn"
-                  aria-label={
-                    theme === "light"
-                      ? "Switch to dark theme"
-                      : "Switch to light theme"
-                  }
-                >
-                  <span className="material-symbols-outlined">
-                    {theme === "light" ? "dark_mode" : "light_mode"}
-                  </span>
-                  {theme === "light" ? "Dark Mode" : "Light Mode"}
-                </button>
-              </div>
-            </section>
-          )}
-
-          {activeSection === "privacy" && (
-            <section className="setting-section">
-              <h3>Privacy</h3>
-              <div className="setting-item">
-                <span>Notifications</span>
-                <label className="switch">
-                  <input
-                    type="checkbox"
-                    checked={notifications}
-                    onChange={() => setNotifications(!notifications)}
-                  />
-                  <span className="slider round"></span>
-                </label>
-              </div>
-              <div className="setting-item">
-                <span>Enhanced Privacy Mode</span>
-                <label className="switch">
-                  <input
-                    type="checkbox"
-                    checked={privacyMode}
-                    onChange={() => setPrivacyMode(!privacyMode)}
-                  />
-                  <span className="slider round"></span>
-                </label>
-              </div>
-            </section>
-          )}
-
-          {activeSection === "account" && (
-            <section className="setting-section account-actions">
-              <h3>Account</h3>
-              <div className="setting-item">
-                <span>Logout</span>
-                <button
-                  onClick={handleLogout}
-                  className="settingbtn logout-btn"
-                  aria-label="Logout of account"
-                >
-                  <span className="material-symbols-outlined">logout</span>
-                  Logout
-                </button>
-              </div>
-              <div className="setting-item danger">
-                <span>Delete Account</span>
-                <button
-                  onClick={() => setShowDeleteModal(true)}
-                  className="settingbtn delete-btn"
-                  aria-label="Delete your account permanently"
-                >
-                  <span className="material-symbols-outlined">delete</span>
-                  Delete
-                </button>
-              </div>
-            </section>
-          )}
-        </main>
-      </div>
-
-      {/* Delete Account Modal */}
+      {/* Delete Modal */}
       {showDeleteModal && (
-        <div className="modal-backdrop">
-          <div className="modal-content">
+        <div className="setting-modal-backdrop">
+          <div className="setting-modal-content">
             <h3>Delete Account?</h3>
             <p>
-              Are you sure you want to delete your account? This action is
-              <strong> irreversible</strong>.
+              Are you sure you want to delete your account? This action is{" "}
+              <strong>irreversible</strong>.
             </p>
             <p>Please type <b>DELETE</b> to confirm.</p>
             <input
@@ -195,13 +186,13 @@ const Settings = ({ theme, toggleTheme }) => {
             <div className="modal-actions">
               <button
                 onClick={() => setShowDeleteModal(false)}
-                className="settingbtn modal-cancel-btn"
+                className="setting-btn modal-cancel-btn"
               >
                 Cancel
               </button>
               <button
                 onClick={handleDeleteAccount}
-                className="settingbtn modal-delete-btn"
+                className="setting-btn modal-delete-btn"
               >
                 Delete
               </button>
@@ -209,7 +200,7 @@ const Settings = ({ theme, toggleTheme }) => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

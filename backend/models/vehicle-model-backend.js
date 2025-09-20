@@ -25,5 +25,5 @@ const vehicleSchema = new mongoose.Schema({
   ]
 });
 
-// 👇 Important: force Mongoose to use `carvehicle` collection
+//  Important: force Mongoose to use `carvehicle` collection
 module.exports = mongoose.model('Vehicle', vehicleSchema, 'carvehicle');
