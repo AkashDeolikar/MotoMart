@@ -158,7 +158,7 @@ function Chatbot() {
           {loading && !streamText && (
             <div className="message-row bot">
               <div className="avatar">
-                <Logo src={GEMINI_LOGO} size={28} />
+                <Logo src={GEMINI_LOGO} size={24} />
               </div>
               <div className="bot-loading">
                 <div className="dot"></div>

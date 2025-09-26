@@ -12,7 +12,7 @@ const OverviewCard = ({ title, date, action, children }) => (
     whileHover={{ scale: 1.02 }}
   >
     <div className="overview-card-text">
-      <p className="overview-date">{date}</p>
+      <p className="overview-date">{new Date(date).toLocaleDateString()}</p>
       <h2>{title}</h2>
       <div className="overview-action">{action}</div>
       {children && <p>{children}</p>}
@@ -27,9 +27,9 @@ const OverviewPage = () => {
   useEffect(() => {
     const fetchNewsAndSummaries = async () => {
       try {
-        // Fetch latest automotive/transport news
+        // Fetch latest automotive news, prices, technology, and future releases
         const newsRes = await fetch(
-          `https://newsapi.org/v2/everything?q=(car OR bike OR motorcycle OR vehicle OR transport OR road OR highway OR petrol OR diesel OR fuel OR EV OR electric OR automotive OR mobility)&language=en&sortBy=publishedAt&pageSize=5&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`
+          `https://newsapi.org/v2/everything?q=(car OR vehicle OR motorcycle OR EV OR electric OR "vehicle price" OR "vehicle technology" OR "future release")&language=en&sortBy=publishedAt&pageSize=5&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`
         );
         const newsData = await newsRes.json();
         const articles = newsData.articles || [];
@@ -39,9 +39,9 @@ const OverviewPage = () => {
           return;
         }
 
-        // Ask Gemini AI to summarize articles
+        // Ask Gemini AI to summarize articles into structured cards
         const geminiRes = await fetch(
-          `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${process.env.REACT_APP_GEMINI_API_KEY}`,
+          `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-latest:generateContent?key=${process.env.REACT_APP_GEMINI_API_KEY}`,
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -51,7 +51,7 @@ const OverviewPage = () => {
                   role: "user",
                   parts: [
                     {
-                      text: `Summarize these articles into JSON cards with fields: title, date, summary, cta, url, category:\n${JSON.stringify(
+                      text: `Summarize these articles into JSON cards with fields: title, date, summary (include price, technology, future releases), cta, url, category:\n${JSON.stringify(
                         articles.slice(0, 5)
                       )}`
                     }
@@ -65,30 +65,30 @@ const OverviewPage = () => {
         const geminiData = await geminiRes.json();
         let aiText = geminiData?.candidates?.[0]?.content?.parts?.[0]?.text || "";
 
-        // Clean unwanted markdown/code fences
+        // Clean markdown/code fences
         aiText = aiText.replace(/```json|```/g, "").trim();
 
-        // Attempt JSON parse safely
+        // Safe JSON parse
         let parsed = [];
         try {
           parsed = JSON.parse(aiText);
         } catch (err) {
           console.warn("Failed to parse Gemini AI response:", err);
-          // fallback: create basic cards from news articles
+          // fallback: basic cards from news
           parsed = articles.map((a) => ({
             title: a.title,
             date: a.publishedAt,
             summary: a.description || "",
             cta: "Read Full Article",
             url: a.url,
-            category: "News"
+            category: "Automobile News"
           }));
         }
 
         setCards(parsed);
       } catch (err) {
         console.error("Error fetching insights:", err);
-        setCards([]); // fallback to empty array on error
+        setCards([]); // fallback to empty array
       } finally {
         setLoading(false);
       }
@@ -108,10 +108,10 @@ const OverviewPage = () => {
           transition={{ duration: 0.8 }}
         >
           The Journey of Motion: <br />
-          <span>AI + Real-Time Market Insights</span>
+          <span>AI + Real-Time Auto Market Insights</span>
         </motion.h1>
         <p className="overview-hero-subtext">
-          Stay updated with the latest trends in vehicles, transport, EVs, and policies — summarized live using Google AI.
+          Stay updated with the latest trends in vehicles, pricing, technology, and future releases — summarized live using AI.
         </p>
       </section>
 
