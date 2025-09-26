@@ -72,35 +72,21 @@ mongoose.connect(dbURI, {
 // });
 
 //-- GEMINI CHATS --//
-app.post("/api/chat", async (req, res) => {
+app.post('/api/chat', async (req, res) => {
   const { question } = req.body;
-  if (!question) return res.status(400).json({ error: "Question is required" });
+  if (!question) return res.status(400).json({ error: 'Question is required' });
 
   try {
     const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
-      contents: [
-        {
-          role: "user",
-          parts: [{ text: question }]
-        }
-      ],
-      temperature: 0.7,
-      maxOutputTokens: 500
+      model: 'gemini-2.5-flash',
+      contents: question,
     });
-
-    const answer =
-      response?.candidates?.[0]?.content?.parts?.[0]?.text ||
-      "No answer returned";
-
-    res.json({ answer });
+    res.json({ answer: response.text });
   } catch (err) {
-    console.error("Chat error:", err);
-    res.status(500).json({ error: "Gemini API request failed" });
+    console.error('Chat error:', err);
+    res.status(500).json({ error: 'Gemini API request failed' });
   }
 });
-
-app.listen(3000, () => console.log("Server running on port 3000"));
 
 
 

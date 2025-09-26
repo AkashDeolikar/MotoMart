@@ -53,7 +53,6 @@ function Chatbot() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
-  const [streamText, setStreamText] = useState("");
   const chatBoxRef = useRef(null);
 
   // Auto-scroll to bottom
@@ -61,7 +60,7 @@ function Chatbot() {
     if (chatBoxRef.current) {
       chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;
     }
-  }, [messages, loading, streamText]);
+  }, [messages, loading]);
 
   // Toggle chat open/close
   const toggleChat = () => {
@@ -76,14 +75,14 @@ function Chatbot() {
     }
   };
 
-  // Send message with streaming simulation
+  // Send message
   const sendMessage = async () => {
     if (!input.trim()) return;
+
     const userMessage = input;
     setMessages((prev) => [...prev, { sender: "user", text: userMessage }]);
     setInput("");
     setLoading(true);
-    setStreamText("");
 
     try {
       const res = await fetch("https://motomartbackend.onrender.com/api/chat", {
@@ -92,32 +91,22 @@ function Chatbot() {
         body: JSON.stringify({ question: userMessage }),
       });
 
-      const reader = res.body.getReader();
-      const decoder = new TextDecoder("utf-8");
-      let botReply = "";
-
-      while (true) {
-        const { value, done } = await reader.read();
-        if (done) break;
-        const chunk = decoder.decode(value, { stream: true });
-        botReply += chunk;
-        setStreamText(botReply);
-      }
+      const data = await res.json();
+      const botReply = data.answer || "❌ No response from Gemini";
 
       setMessages((prev) => [...prev, { sender: "bot", text: botReply }]);
     } catch (err) {
       console.error(err);
       setMessages((prev) => [
         ...prev,
-        { sender: "bot", text: "❌ Error connecting to AI." },
+        { sender: "bot", text: "❌ Error connecting to Gemini." },
       ]);
     } finally {
       setLoading(false);
-      setStreamText("");
     }
   };
 
-  // Handle Enter key for sending
+  // Handle Enter key
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
@@ -144,18 +133,9 @@ function Chatbot() {
           {messages.map((msg, i) => (
             <Message key={i} sender={msg.sender} text={msg.text} />
           ))}
-          {streamText && (
-            <div className="message-row bot">
-              <div className="avatar">
-                <Logo src={GEMINI_LOGO} size={28} />
-              </div>
-              <div className="bubble bot">
-                {streamText}
-                <span className="cursor">▋</span>
-              </div>
-            </div>
-          )}
-          {loading && !streamText && (
+
+          {/* Loading typing dots */}
+          {loading && (
             <div className="message-row bot">
               <div className="avatar">
                 <Logo src={GEMINI_LOGO} size={28} />
@@ -193,9 +173,7 @@ function Chatbot() {
         <div className="quick-actions">
           <button onClick={() => setInput("Summarize this")}>Summarize</button>
           <button onClick={() => setInput("Give sources")}>Give Sources</button>
-          <button onClick={() => setInput("Explain simply")}>
-            Explain Simply
-          </button>
+          <button onClick={() => setInput("Explain simply")}>Explain Simply</button>
         </div>
       </div>
 
