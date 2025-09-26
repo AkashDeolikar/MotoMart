@@ -27,68 +27,79 @@ const OverviewPage = () => {
   useEffect(() => {
     const fetchNewsAndSummaries = async () => {
       try {
-        // Fetch latest automotive news, prices, technology, and future releases
+        const NEWS_API_KEY = process.env.REACT_APP_NEWS_API_KEY;
+        const GEMINI_API_KEY = process.env.REACT_APP_GEMINI_API_KEY;
+
+        if (!NEWS_API_KEY || !GEMINI_API_KEY) {
+          console.error("Missing API keys! Check your environment variables.");
+          setLoading(false);
+          return;
+        }
+
+        // Fetch latest automotive news
         const newsRes = await fetch(
-          `https://newsapi.org/v2/everything?q=(car OR vehicle OR motorcycle OR EV OR electric OR "vehicle price" OR "vehicle technology" OR "future release")&language=en&sortBy=publishedAt&pageSize=5&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`
+          `https://newsapi.org/v2/everything?q=(car OR vehicle OR EV OR "vehicle price" OR "vehicle technology" OR "future release")&language=en&sortBy=publishedAt&pageSize=5&apiKey=${NEWS_API_KEY}`
         );
         const newsData = await newsRes.json();
         const articles = newsData.articles || [];
 
-        if (articles.length === 0) {
+        if (!articles.length) {
+          console.warn("No articles fetched from NewsAPI.");
           setCards([]);
+          setLoading(false);
           return;
         }
 
-        // Ask Gemini AI to summarize articles into structured cards
+        // Log fetched articles for debugging
+        console.log("Fetched articles:", articles);
+
+        // Summarize with Gemini AI
+        const prompt = `
+Summarize these articles into JSON cards with fields: 
+title, date, summary (include vehicle price, technology used, future releases), cta, url, category.
+Articles data:
+${JSON.stringify(articles)}
+`;
+
         const geminiRes = await fetch(
-          `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-latest:generateContent?key=${process.env.REACT_APP_GEMINI_API_KEY}`,
+          `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-latest:generateContent?key=${GEMINI_API_KEY}`,
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-              contents: [
-                {
-                  role: "user",
-                  parts: [
-                    {
-                      text: `Summarize these articles into JSON cards with fields: title, date, summary (include price, technology, future releases), cta, url, category:\n${JSON.stringify(
-                        articles.slice(0, 5)
-                      )}`
-                    }
-                  ]
-                }
-              ]
+              contents: [{ role: "user", parts: [{ text: prompt }] }]
             })
           }
         );
 
         const geminiData = await geminiRes.json();
-        let aiText = geminiData?.candidates?.[0]?.content?.parts?.[0]?.text || "";
+        console.log("Gemini response:", geminiData);
 
-        // Clean markdown/code fences
+        let aiText = geminiData?.candidates?.[0]?.content?.parts?.[0]?.text || "";
         aiText = aiText.replace(/```json|```/g, "").trim();
 
-        // Safe JSON parse
-        let parsed = [];
+        let parsedCards = [];
         try {
-          parsed = JSON.parse(aiText);
+          parsedCards = JSON.parse(aiText);
+          if (!Array.isArray(parsedCards) || parsedCards.length === 0) {
+            throw new Error("Parsed Gemini JSON is empty or invalid.");
+          }
         } catch (err) {
-          console.warn("Failed to parse Gemini AI response:", err);
-          // fallback: basic cards from news
-          parsed = articles.map((a) => ({
+          console.warn("Failed to parse Gemini AI response. Using fallback cards.", err);
+          parsedCards = articles.map((a) => ({
             title: a.title,
             date: a.publishedAt,
-            summary: a.description || "",
+            summary: a.description || "No summary available",
             cta: "Read Full Article",
             url: a.url,
             category: "Automobile News"
           }));
         }
 
-        setCards(parsed);
+        setCards(parsedCards);
       } catch (err) {
-        console.error("Error fetching insights:", err);
-        setCards([]); // fallback to empty array
+        console.error("Error fetching or summarizing articles:", err);
+        setCards([]);
       } finally {
         setLoading(false);
       }
@@ -108,7 +119,7 @@ const OverviewPage = () => {
           transition={{ duration: 0.8 }}
         >
           The Journey of Motion: <br />
-          <span>AI + Real-Time Auto Market Insights</span>
+          <span>AI + Real-Time Market Insights</span>
         </motion.h1>
         <p className="overview-hero-subtext">
           Stay updated with the latest trends in vehicles, pricing, technology, and future releases — summarized live using AI.
@@ -119,7 +130,7 @@ const OverviewPage = () => {
       <section className="overview-grid">
         {loading ? (
           <p className="loading-text">Fetching live insights…</p>
-        ) : cards.length === 0 ? (
+        ) : !cards.length ? (
           <p className="error-text">No insights available at the moment.</p>
         ) : (
           cards.map((card, i) => (
