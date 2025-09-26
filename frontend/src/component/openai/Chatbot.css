@@ -48,10 +48,10 @@
   bottom: 24px;
   right: 24px;
   z-index: 1000;
-  border-radius: 24px;
+  border-radius: 16px;
   overflow: hidden;
-  width: 64px;
-  height: 64px;
+  width: 48px;
+  height: 48px;
   transition: width 0.4s ease, height 0.4s ease, box-shadow 0.3s ease;
 }
 

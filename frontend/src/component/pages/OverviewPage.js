@@ -27,7 +27,7 @@ const OverviewPage = () => {
   useEffect(() => {
     const fetchNewsAndSummaries = async () => {
       try {
-        // 1️⃣ Fetch latest news from NewsAPI
+        // Fetch latest automotive/transport news
         const newsRes = await fetch(
           `https://newsapi.org/v2/everything?q=(car OR bike OR motorcycle OR vehicle OR transport OR road OR highway OR petrol OR diesel OR fuel OR EV OR electric OR automotive OR mobility)&language=en&sortBy=publishedAt&pageSize=5&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`
         );
@@ -36,11 +36,10 @@ const OverviewPage = () => {
 
         if (articles.length === 0) {
           setCards([]);
-          setLoading(false);
           return;
         }
 
-        // 2️⃣ Ask Gemini to summarize news into clean JSON cards
+        // Ask Gemini AI to summarize articles
         const geminiRes = await fetch(
           `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${process.env.REACT_APP_GEMINI_API_KEY}`,
           {
@@ -52,10 +51,9 @@ const OverviewPage = () => {
                   role: "user",
                   parts: [
                     {
-                      text: `Here are the latest automotive/transport/EV/AI-related news articles:\n${JSON.stringify(
+                      text: `Summarize these articles into JSON cards with fields: title, date, summary, cta, url, category:\n${JSON.stringify(
                         articles.slice(0, 5)
-                      )}\n\nSummarize them into JSON array of cards with fields:
-                      { "title": "...", "date": "...", "summary": "...", "cta": "Read Full Article", "url": "...", "category": "..." }.`
+                      )}`
                     }
                   ]
                 }
@@ -65,22 +63,32 @@ const OverviewPage = () => {
         );
 
         const geminiData = await geminiRes.json();
-        let aiText =
-          geminiData?.candidates?.[0]?.content?.parts?.[0]?.text || "";
+        let aiText = geminiData?.candidates?.[0]?.content?.parts?.[0]?.text || "";
 
-        // clean markdown fences if present
+        // Clean unwanted markdown/code fences
         aiText = aiText.replace(/```json|```/g, "").trim();
 
-        let parsed;
+        // Attempt JSON parse safely
+        let parsed = [];
         try {
           parsed = JSON.parse(aiText);
-        } catch {
-          parsed = [];
+        } catch (err) {
+          console.warn("Failed to parse Gemini AI response:", err);
+          // fallback: create basic cards from news articles
+          parsed = articles.map((a) => ({
+            title: a.title,
+            date: a.publishedAt,
+            summary: a.description || "",
+            cta: "Read Full Article",
+            url: a.url,
+            category: "News"
+          }));
         }
 
         setCards(parsed);
       } catch (err) {
         console.error("Error fetching insights:", err);
+        setCards([]); // fallback to empty array on error
       } finally {
         setLoading(false);
       }
@@ -103,8 +111,7 @@ const OverviewPage = () => {
           <span>AI + Real-Time Market Insights</span>
         </motion.h1>
         <p className="overview-hero-subtext">
-          Stay updated with the latest trends in vehicles, transport, EVs, and
-          policies — summarized live using Google AI.
+          Stay updated with the latest trends in vehicles, transport, EVs, and policies — summarized live using Google AI.
         </p>
       </section>
 

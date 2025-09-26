@@ -25,6 +25,8 @@ import tvsRaider125 from './cardbox/tvsRaider125.jpg';
 import tvsNtorq125 from './cardbox/tvsNtorq125.jpg';
 import heroSplendorPlus from './cardbox/heroSplendorPlus.jpg';
 import heroXpulse200 from './cardbox/heroXpulse200.jpg';
+import heroXtreme125R from './cardbox/xtreme125r.webp';
+import heroXtreme160R from './cardbox/xtreme160r.webp';
 import heroPassionPro from './cardbox/heroPassionPro.jpg';
 import hondaCB350RS from './cardbox/hondaCB350RS.jpg';
 import hondaActiva6G from './cardbox/hondaActiva6G.jpg';
@@ -943,6 +945,56 @@ export const vehicleData = [
     idPrefix: 'hero',
     vehicles: [
       {
+        id: 'hero-xtreme-125r',
+        videoPoster: heroXtreme125R,
+        videoSrc: "https://www.youtube.com/embed/jQlfyIIfmQk", // official Hero promo
+        thumbnail: "https://www.heromotocorp.com/content/dam/hero-aem-website/brand/logo/logo.svg",
+        title: "Hero Xtreme 125R",
+        link: "https://www.heromotocorp.com/en-in/motorcycles/executive/xtreme-125r.html",
+        description: "The Hero Xtreme 125R is a sporty commuter motorcycle that blends style, fuel efficiency, and advanced safety features like IBS and ABS, making it a top choice in the 125cc segment.",
+        buttonText: "View Details",
+        vehicleInfo: {
+          model: "Xtreme 125R",
+          manufacturer: "Hero",
+          year: 2024,
+          features: ["LED Headlamp & Tail Lamp", "Hazard Lamp", "Digital Console", "Split or Single Seat Options", "IBS/ABS Variants"],
+          price: "₹ 96,000 - 1,02,000",
+          mileage: "60-66 kmpl",
+          engineDisplacement: "124.7cc",
+          power: "11.4 PS @ 8,250 rpm",
+          torque: "10.5 Nm @ 6,500 rpm",
+          fuelTankCapacity: "10 L",
+          seatHeight: "794 mm",
+          kerbWeight: "136 kg",
+          transmission: "5-speed manual"
+        }
+      },
+      {
+        id: 'hero-xtreme-160r',
+        videoPoster: heroXtreme160R,
+        videoSrc: "https://www.youtube.com/embed/lQrLECvxWCE", // Hero 160R promo
+        thumbnail: "https://www.heromotocorp.com/content/dam/hero-aem-website/brand/logo/logo.svg",
+        title: "Hero Xtreme 160R",
+        link: "https://www.heromotocorp.com/en-in/motorcycles/executive/xtreme-160r.html",
+        description: "The Hero Xtreme 160R is a powerful and stylish 160cc streetfighter with advanced features, single-channel ABS, and sharp handling, designed for performance-oriented riders.",
+        buttonText: "View Details",
+        vehicleInfo: {
+          model: "Xtreme 160R",
+          manufacturer: "Hero",
+          year: 2024,
+          features: ["LED Headlamp & Indicators", "Digital Instrument Cluster", "Single Channel ABS", "7-Step Adjustable Rear Monoshock", "Side-Stand Engine Cut-off"],
+          price: "₹ 1,11,000 - 1,30,000",
+          mileage: "45-50 kmpl",
+          engineDisplacement: "163.2cc",
+          power: "15 PS @ 8,500 rpm",
+          torque: "14 Nm @ 6,500 rpm",
+          fuelTankCapacity: "12 L",
+          seatHeight: "790 mm",
+          kerbWeight: "139 kg",
+          transmission: "5-speed manual"
+        }
+      },
+      {
         id: 'hero-splendor-plus',
         videoPoster: heroSplendorPlus,
         videoSrc: "https://www.youtube.com/embed/jExzjFaS_VY",
@@ -1779,47 +1831,47 @@ const Bikecard = () => {
     return (
       <div className="card-container" key={vehicle.id}>
         <div className="video-section">
-      {/* Video Poster */}
-      <img
-        src={vehicle.videoPoster}
-        alt={`${vehicle.title} video poster`}
-        className="video-element"
-        loading="lazy"
-        decoding="async"
-        onError={(e) => {
-          e.target.onerror = null;
-          e.target.src =
-            "https://placehold.co/480x270/cccccc/333333?text=No+Video";
-        }}
-      />
+          {/* Video Poster */}
+          <img
+            src={vehicle.videoPoster}
+            alt={`${vehicle.title} video poster`}
+            className="video-element"
+            loading="lazy"
+            decoding="async"
+            onError={(e) => {
+              e.target.onerror = null;
+              e.target.src =
+                "https://placehold.co/480x270/cccccc/333333?text=No+Video";
+            }}
+          />
 
-      {/* Overlay */}
-      <div className="video-overlay">
-        <img
-          src={vehicle.thumbnail}
-          alt={`${vehicle.title} thumbnail`}
-          className="thumbnail"
-          loading="lazy"
-          decoding="async"
-          onError={(e) => {
-            e.target.onerror = null;
-            e.target.src =
-              "https://placehold.co/100x60/cccccc/333333?text=Logo";
-          }}
-        />
-        <div className="title">
-          <a
-            href={vehicle.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => e.preventDefault()}
-          >
-            {vehicle.title}
-          </a>
-          <SlArrowRight />
+          {/* Overlay */}
+          <div className="video-overlay">
+            <img
+              src={vehicle.thumbnail}
+              alt={`${vehicle.title} thumbnail`}
+              className="thumbnail"
+              loading="lazy"
+              decoding="async"
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src =
+                  "https://placehold.co/100x60/cccccc/333333?text=Logo";
+              }}
+            />
+            <div className="title">
+              <a
+                href={vehicle.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.preventDefault()}
+              >
+                {vehicle.title}
+              </a>
+              <SlArrowRight />
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
 
         <div className="content">
